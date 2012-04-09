@@ -1078,6 +1078,18 @@ function standard_post_format_rss( $content ) {
 } // end standard_post_format_rss
 add_filter( 'the_content_feed', 'standard_post_format_rss' );
 
+/**
+ * Calls the Standard SEO Titles plugin during the wp_title action to render
+ * SEO-friendly page titles.
+ */
+function standard_seo_titles() {
+
+	include_once( get_template_directory() . '/lib/seotitles/standard_seotitles.php' );
+	echo Standard_SeoTitles::get_page_title( get_the_ID() );
+	
+} // end standard_seo_tiltes
+add_filter( 'wp_title', 'standard_seo_titles' );
+
 /* ----------------------------------------------------------- *
  * 8. Helper Functions
  * ----------------------------------------------------------- */
