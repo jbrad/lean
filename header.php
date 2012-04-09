@@ -2,12 +2,11 @@
 <!--[if IE 8 ]><html id="ie8" <?php language_attributes(); ?>><![endif]-->
 <!--[if (gt IE 9)|!(IE)]><!--><html <?php language_attributes(); ?>><!--<![endif]-->
 	<head>	
-		<meta http-equiv="Content-Type" content="<?php bloginfo( 'html_type' ); ?>; charset=<?php bloginfo( 'charset' ); ?>" />
+		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 		<link rel="profile" href="http://gmpg.org/xfn/11" />
-		<link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="<?php echo get_feed_link( 'rss2' ); ?>" />
 		<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
-		<title><?php wp_title(); ?> <?php bloginfo( 'name' ); ?></title>
+		<title><?php wp_title(); ?></title>
 		<?php wp_head(); ?>
 	</head>
 	<body <?php body_class(); ?>>
