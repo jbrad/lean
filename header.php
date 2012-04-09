@@ -82,9 +82,9 @@
 										
 										<?php } else { ?>
 										
-											<h2 id="site-title">
+											<p id="site-title">
 												<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php get_bloginfo( 'name' ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
-											</h2>
+											</p>
 										
 										<?php } // end if/else ?>
 										
