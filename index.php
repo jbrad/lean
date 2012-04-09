@@ -37,7 +37,10 @@
                             <?php } else { ?> 
                                 <?php echo single_tag_title() ?> 
                             <?php } // end if/else ?> 
-                        </h3> 
+                        </h3>
+						<?php if( '' != category_description() ) { ?>
+	                        <p><?php echo category_description(); ?></p>
+                        <?php } // end if ?> 
                     </div> 
                 <?php } // end if ?> 
 				
