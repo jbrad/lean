@@ -866,6 +866,14 @@ a.post-permalink:hover {
 	padding: 20px;
 }
 
+#no-comments .title {
+	font-size: 24px;
+	line-height: 36px;
+	font-weight: bold;
+	color: #444;
+}
+
+
 #pings h3 {
 	margin-bottom: 20px;
 }
