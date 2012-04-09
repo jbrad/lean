@@ -45,7 +45,9 @@ class Standard_Breadcrumbs {
 				
 			} elseif( is_archive() ) {
 
-				if( '' != get_query_var( 'year' ) || '' != get_query_var( 'monthnum' ) || '' != get_query_var( 'day' ) ) {
+				if( is_author() ) {
+					$str_breadcrumb .= self::get_home_link() . __( 'Archives', 'standard' ) . __( ' / ', 'standard' ) . self::get_author_name(); 
+				} elseif( '' != get_query_var( 'year' ) || '' != get_query_var( 'monthnum' ) || '' != get_query_var( 'm' ) || '' != get_query_var( 'day' ) ) {
 					$str_breadcrumb .= self::get_home_link() . __( 'Archives', 'standard' ) . __( ' / ', 'standard' ) . self::get_date_labels(); 
 				} else {
 					$str_breadcrumb .= self::get_home_link() . __( 'Archives', 'standard' ) . __( ' / ', 'standard' ) . self::get_category_links();
@@ -147,7 +149,14 @@ class Standard_Breadcrumbs {
 
 		} elseif( '' != get_query_var( 'monthnum' ) ) {
 		
-			$date_label .= date('F', mktime(0, 0, 0, get_query_var( 'monthnum' ), 1, get_query_var( 'year' ) ) );
+			$date_label .= date( 'F Y', mktime(0, 0, 0, get_query_var( 'monthnum' ), 1, get_query_var( 'year' ) ) );
+			
+		} elseif( '' != get_query_var( 'm' ) ) { 
+
+			$year = substr( get_query_var( 'm' ), 0, 4 );
+			$month = substr( get_query_var( 'm' ), 4, 6);
+			
+			$date_label .= date( 'F Y', mktime(0, 0, 0, $month, 1, $year ) );
 			
 		} elseif( '' != get_query_var( 'year' ) ) {
 
@@ -240,6 +249,21 @@ class Standard_Breadcrumbs {
 		return '<span itemprop="title">' . trim( esc_html( $query, 1 ) ) . '</span>';
 	
 	} // end get_search_query
+	
+	/**
+	 * Returns the name of the author based on the ID in the query string.
+	 */
+	private static function get_author_name() {
+	
+		$author_data = get_userdata( get_query_var('author') );
+		
+		$author_link = '<a href="' . esc_html( get_author_posts_url( $author_data->ID ) ) . '">';
+			$author_link .= $author_data->display_name;
+		$author_link .= '</a>';
+		
+		return $author_link;
+
+	} // end get_author_name
 
 } // end class
 

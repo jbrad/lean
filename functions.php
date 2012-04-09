@@ -1115,7 +1115,7 @@ add_filter( 'dynamic_sidebar_params', 'standard_modify_widget_titles' );
  * @returns	True if the current page is for a date archive.
  */
 function standard_is_date_archive() {
-	return '' != get_query_var( 'year' ) || '' != get_query_var( 'monthnum' ) || '' != get_query_var( 'day' );
+	return '' != get_query_var( 'year' ) || '' != get_query_var( 'monthnum' ) || '' != get_query_var( 'day' ) || '' != get_query_var( 'm' );
 } // end standard_is_date_archive
 
 /**
@@ -1134,7 +1134,14 @@ function standard_get_date_archive_label() {
 
 	} elseif( '' != get_query_var( 'monthnum' ) ) {
 	
-		$archive_label .= date( 'F', mktime(0, 0, 0, get_query_var( 'monthnum' ), 1, get_query_var( 'year' ) ) );
+		$archive_label .= date( 'F Y', mktime(0, 0, 0, get_query_var( 'monthnum' ), 1, get_query_var( 'year' ) ) );
+		
+	} elseif ( '' != get_query_var( 'm' ) ) {
+	
+		$year = substr( get_query_var( 'm' ), 0, 4 );
+		$month = substr( get_query_var( 'm' ), 4, 6);
+		
+		$archive_label .= date( 'F Y', mktime(0, 0, 0, $month, 1, $year ) );
 		
 	} elseif( '' != get_query_var( 'year' ) ) {
 

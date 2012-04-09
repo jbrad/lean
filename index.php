@@ -29,9 +29,12 @@
                 <?php } elseif ( is_archive() ) { ?>                 
                     <div id="archive-page-title" class="alert alert-success"> 
                         <h3> 
-                            <?php _e( 'Archives For ', 'standard' ); ?> 
+                            <?php _e( 'Archives For ', 'standard' ); ?>
                             <?php if( standard_is_date_archive() ) { ?>
                             	<?php echo standard_get_date_archive_label(); ?>
+                        	<?php } elseif ( is_author() ) { ?>
+                        		<?php $author_data = get_userdata(get_query_var('author') ); ?>
+                            	<?php echo $author_data->display_name; ?>
                             <?php } elseif ( '' == single_tag_title( '', false ) ) { ?> 
                                 <?php echo get_cat_name( get_query_var( 'cat' ) ); ?> 
                             <?php } else { ?> 
