@@ -1,0 +1,109 @@
+<?php
+/**
+ * The template for starting The Loop and rendering general content features such as the breadcrumbs, pagination, and sidebars. Uses
+ * get_template_part to render the appropriate template based on the current post's format.
+ * 
+ * @package Standard
+ * @since 3.0
+ */
+?>
+
+<?php
+/**
+ * The template for displaying single pages.
+ *
+ * @package Standard
+ * @since 3.0
+ */
+?>
+<?php get_header(); ?>
+<?php $options = get_option( 'standard_theme_layout_options' ); ?>
+
+<div id="wrapper">
+	<div class="container">
+		<div class="row">
+
+				<?php if ( 'left_sidebar_layout' == $options['layout'] ) { ?>
+					<?php get_sidebar(); ?>
+				<?php } // end if ?>
+							
+				<div id="main" class="<?php echo 'full_width_layout' == $options['layout'] ? 'span12 fullwidth' : 'span8'; ?> clearfix" role="main">
+				
+					<?php get_template_part( 'breadcrumbs' ); ?>
+				
+					<?php if ( have_posts() ) { ?>
+						<?php while ( have_posts() ) {
+							 the_post(); ?>
+							<div id="post-<?php the_ID(); ?> format-standard" <?php post_class( 'post' ); ?>>
+								<div class="post-header clearfix">
+									<h1 class="post-title"><?php the_title(); ?></h1>	
+								</div> <!-- /.post-header -->						
+								<div id="content-<?php the_ID(); ?>" class="entry-content clearfix">
+									<div class="content">
+										
+										<h2 id="authors"><?php _e( 'Authors', 'standard' ); ?></h2>
+				
+										<ul>
+											<?php
+												wp_list_authors(
+													array(
+														'exclude_admin' => false,
+													)
+												);
+											?>
+										</ul>
+										
+										<h2 id="pages"><?php _e( 'Pages', 'standard' ); ?></h2>
+										<ul>
+											<?php
+												wp_list_pages(
+													array(
+														'exclude' => '',
+														'title_li' => '',
+													)
+												);
+											?>
+										</ul>
+										
+										<h2 id="posts"><?php _e( 'Posts', 'standard' ); ?></h2>
+										<ul>
+											<?php
+												$category_list = '';
+												foreach ( get_categories() as $category ) {
+												
+													$category_list .= '<li><h3>' . $category->cat_name . '</h3>';
+													$category_list .= '<ul>';
+													$category_query = new WP_Query( 'posts_per_page=-1&cat=' . $category->cat_ID );
+													while( $category_query->have_posts() ) {
+													
+														$category_query->the_post();
+														$cat = get_the_category();
+														if ( $cat[0]->cat_ID == $category->cat_ID ) {
+														  $category_list .= '<li><a href="' . get_permalink() . '">' . get_the_title() . '</a></li>';
+														} // end if
+														
+													} // end while
+													$category_list .= '</ul>';
+													$category_list .= '</li>';
+												  
+												} // end foreach
+												wp_reset_query();
+												echo $category_list;
+											?>
+										</ul>
+										
+									</div><!-- /.content -->
+								</div><!-- /.entry-content -->
+							</div> <!-- /#post- -->
+						<?php } // end while ?>
+					<?php } // end if ?>
+				</div><!-- /#main -->
+			
+				<?php if ( 'right_sidebar_layout' == $options['layout'] ) {  ?>
+					<?php get_sidebar(); ?>
+				<?php } // end if ?>
+				
+		</div><!--/ row -->
+	</div><!--/container -->
+</div> <!-- /#wrapper -->
+<?php get_footer(); ?>
