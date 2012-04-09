@@ -1090,6 +1090,21 @@ function standard_seo_titles() {
 } // end standard_seo_tiltes
 add_filter( 'wp_title', 'standard_seo_titles' );
 
+/**
+ * Place all widget titles in h4 tags rather than h3 tags to improve SEO. Also adds the
+ * 'widget-title' class to the heading elements.
+ *
+ * @params	$params		The array of parameters that provide styling for the widget.
+ * @returns				The updated array of parameters.
+ */
+function standard_modify_widget_titles( $params ) {
+
+	$params[0]['before_title'] = '<h4 class="' . $params[0]['widget_name'] . ' widget-title">' ;
+    return $params;
+    
+} // end standard_modify_widget_titles
+add_filter( 'dynamic_sidebar_params', 'standard_modify_widget_titles' );
+
 /* ----------------------------------------------------------- *
  * 8. Helper Functions
  * ----------------------------------------------------------- */

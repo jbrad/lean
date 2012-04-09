@@ -1091,19 +1091,20 @@ a.post-permalink:hover {
 	width: auto;
 }
 
-.widget h3.widget-title {
+.widget h4.widget-title {
 	line-height: 24px;
 	border-bottom: 1px solid #e0e0e0;
 	margin-bottom: 10px;
 	padding-bottom: 10px;
+	font-size: 18px;
 }
 
-.widget h3.widget-title a {
+.widget h4.widget-title a {
 	color: #444;
 	text-decoration: none;
 }
 
-#footer-widgets .widget h3.widget-title {
+#footer-widgets .widget h4.widget-title {
 	border-bottom: 1px solid #999;
 }
 
