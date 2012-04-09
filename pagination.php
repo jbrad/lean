@@ -7,9 +7,9 @@
 
 		<?php $pagination_width = 'full_width_layout' == $options['layout'] ? 'span6' : 'span4'; ?>
 		
-		<?php previous_post_link( '<span class="' . $pagination_width . ' previous-page">%link</span>', _x( '&larr; Previous', 'standard' ) ); ?>
+		<?php previous_post_link( '<span class="' . $pagination_width . ' previous-page">%link</span>', _x( '&larr; %title', 'standard' ) ); ?>
 		
-		<?php next_post_link( '<span class="' . $pagination_width . ' next-page">%link</span>', _x( 'Next &rarr;', 'standard' ) ); ?>
+		<?php next_post_link( '<span class="' . $pagination_width . ' next-page">%link</span>', _x( '%title &rarr;', 'standard' ) ); ?>
 		
 	</div><!-- /#single-post-nav -->
 
