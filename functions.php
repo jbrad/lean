@@ -1114,9 +1114,15 @@ add_filter( 'dynamic_sidebar_params', 'standard_modify_widget_titles' );
 function standard_add_title_to_single_post_pagination( $link ) {
 
 	if( strpos( $link, 'rel="prev"' ) > 0 ) {
-		$link = str_replace( 'rel="prev"', 'rel="prev" title="' . esc_attr( get_the_title() ) . '"', $link );
+	
+		$previous_post = get_previous_post();
+		$link = str_replace( 'rel="prev"', 'rel="prev" title="' . esc_attr( get_the_title( $previous_post->ID ) ) . '"', $link );
+		
 	} else if( strpos( $link, 'rel="next"' ) > 0 ) {
-		$link = str_replace( 'rel="next"', 'rel="prev" title="' . esc_attr( get_the_title() ) . '"', $link );
+	
+		$next_post = get_next_post();
+        $link = str_replace( 'rel="next"', 'rel="next" title="' . esc_attr( get_the_title( $next_post->ID ) ) . '"', $link );
+		
 	} // end if/else
 	
 	return $link;
