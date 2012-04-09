@@ -26,7 +26,7 @@
 			
 			<?php if( get_previous_posts_link() ) { ?>
 				<li class="next">
-					<?php next_posts_link( __( '<span class="nav-next meta-nav">Newer &rarr;</span>', 'standard' ) ); ?>
+					<?php previous_posts_link( __( '<span class="nav-next meta-nav">Newer &rarr;</span>', 'standard' ) ); ?>
 				</li>
 			<?php } // end if ?>
 		

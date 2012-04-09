@@ -1105,6 +1105,26 @@ function standard_modify_widget_titles( $params ) {
 } // end standard_modify_widget_titles
 add_filter( 'dynamic_sidebar_params', 'standard_modify_widget_titles' );
 
+/**
+ * Adds the title attribute to the 'Next and 'Previous' post pagination anchors.
+ *
+ * @params	$attrs	The current set of attributes of the anchor
+ * @returns			The pagination link with the additional attribute.
+ */
+function standard_add_title_to_single_post_pagination( $link ) {
+
+	if( strpos( $link, 'rel="prev"' ) > 0 ) {
+		$link = str_replace( 'rel="prev"', 'rel="prev" title="' . esc_attr( get_the_title() ) . '"', $link );
+	} else if( strpos( $link, 'rel="next"' ) > 0 ) {
+		$link = str_replace( 'rel="next"', 'rel="prev" title="' . esc_attr( get_the_title() ) . '"', $link );
+	} // end if/else
+	
+	return $link;
+	
+} // end standard_add_title_to_single_post_pagination
+add_filter( 'next_post_link', 'standard_add_title_to_single_post_pagination' );
+add_filter( 'previous_post_link', 'standard_add_title_to_single_post_pagination' );
+
 /* ----------------------------------------------------------- *
  * 8. Helper Functions
  * ----------------------------------------------------------- */
