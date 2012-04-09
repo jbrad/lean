@@ -44,6 +44,7 @@ class Standard_SeoTitles {
 			wp_reset_query();
 			
 			$title = __('Search Results For' , 'standard') . ' ' . $key . ' | ' . $count . ' ' . __('Results', 'standard') . ' | ' . get_bloginfo('name');
+			
 		} elseif(is_404()) {
 			$title = get_bloginfo('name') . ' | ' . __('404 Nothing Found', 'standard'); 
 		} elseif(is_author()) {
