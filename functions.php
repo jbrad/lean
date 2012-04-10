@@ -65,7 +65,7 @@ add_action( 'admin_menu', 'standard_theme_menu' );
 function get_standard_theme_default_layout_options() {
 
 	$defaults = array(
-		'layout' => 'full_width_layout'
+		'layout' => 'right_sidebar_layout'
 	);
 	
 	return apply_filters ( 'standard_theme_default_layout_options', $defaults );
