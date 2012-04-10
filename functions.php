@@ -1160,14 +1160,26 @@ function standard_get_date_archive_label() {
 
 	} elseif( '' != get_query_var( 'monthnum' ) ) {
 	
-		$archive_label .= date( 'F Y', mktime(0, 0, 0, get_query_var( 'monthnum' ), 1, get_query_var( 'year' ) ) );
+		$archive_label .= date( get_option( 'date_format' ), mktime(0, 0, 0, get_query_var( 'monthnum' ), 1, get_query_var( 'year' ) ) );
 		
 	} elseif ( '' != get_query_var( 'm' ) ) {
 	
-		$year = substr( get_query_var( 'm' ), 0, 4 );
-		$month = substr( get_query_var( 'm' ), 4, 6);
+		if( strlen( get_query_var( 'm' ) ) == 6 ) {
 		
-		$archive_label .= date( 'F Y', mktime(0, 0, 0, $month, 1, $year ) );
+			$year = substr( get_query_var( 'm' ), 0, 4 );
+			$month = substr( get_query_var( 'm' ), 4, 6);
+			
+			$archive_label .= date( get_option( 'date_format' ), mktime(0, 0, 0, $month, 1, $year ) );
+		
+		} else {
+
+			$year = substr( get_query_var( 'm' ), 0, 4 );
+			$month = substr( get_query_var( 'm' ), 4, 2);
+			$day = substr( get_query_var( 'm' ), 6, 2 );
+			
+			$archive_label .= date( get_option( 'date_format' ), mktime(0, 0, 0, $month, $day, $year ) );
+		
+		} // end if/else
 		
 	} elseif( '' != get_query_var( 'year' ) ) {
 
