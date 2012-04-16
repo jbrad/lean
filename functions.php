@@ -854,7 +854,7 @@ function standard_add_theme_stylesheets() {
 	wp_enqueue_style( 'bootstrap-responsive' ); 
 
 	// theme
-	wp_register_style( 'standard', get_template_directory_uri() . '/style.css' );
+	wp_register_style( 'standard', get_stylesheet_directory_uri() . '/style.css' );
 	wp_enqueue_style( 'standard' ); 
 
 } // end add_theme_stylesheets
