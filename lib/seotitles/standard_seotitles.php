@@ -50,7 +50,13 @@ class Standard_SeoTitles {
 		} elseif(is_author()) {
 			$title = get_bloginfo('name') . ' | ' . __('Author Archives', 'standard'); 
 		} elseif(is_single()) {
-			$title = strip_tags(htmlspecialchars_decode(get_the_title($page_id))) . ' | ' . get_bloginfo('name');
+		
+			if( strlen( trim( get_the_title( $page_id) ) ) == 0 ) {
+				$title = get_bloginfo('name') . ' | ' . get_bloginfo('description');
+			} else {
+				$title = strip_tags(htmlspecialchars_decode(get_the_title($page_id))) . ' | ' . get_bloginfo('name');
+			} // end if/else
+			
 		} elseif(is_page()) {
 			$title = get_bloginfo('name') . ' | ' . strip_tags(htmlspecialchars_decode(get_the_title($page_id)));
 		} elseif(is_category()) {
