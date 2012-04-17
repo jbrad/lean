@@ -940,6 +940,9 @@ add_action( 'admin_enqueue_scripts', 'standard_add_admin_scripts' );
  * 7. Custom Filters
  * ----------------------------------------------------------- */
 
+// rel="generator" is an invalid HTML5 attribute
+remove_action( 'wp_head', 'wp_generator' );
+
 /** 
  * Called when no menus are active by the wp_nav_menu located above the header.
  */
