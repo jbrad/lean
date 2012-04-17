@@ -1283,3 +1283,4 @@ function standard_get_link_post_format_attribute( $attr ) {
 	return $result;
 
 } // end standard_get_link_post_format_attribute
+?>

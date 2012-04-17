@@ -46,6 +46,5 @@
 			</div><!-- /meta-comment-link -->
 		</div><!--/row-fluid -->
 	</div><!-- /.post-meta -->
-
 	
 </div> <!-- /#post- -->
