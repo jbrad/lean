@@ -458,7 +458,7 @@ add_action( 'admin_init', 'standard_setup_theme_page_options' );
  * Renders the description for the "Page" options settings page.
  */
 function standard_theme_page_options_display() {
-	_e( 'TODO', 'standard' );
+	_e( 'Configure specific option that influence how individual posts and pages appears.', 'standard' );
 } // end standard_theme_social_options_display
 
 /**
@@ -470,7 +470,10 @@ function display_breadcrumbs_display( $args ) {
 	
 	$options = get_option( 'standard_theme_page_options' );
 
-	echo '<input type="checkbox" id="display_breadcrumbs" name="standard_theme_page_options[display_breadcrumbs]" value="on" ' . checked( 'on', $options['display_breadcrumbs'], false ) . ' />';
+	$html = '<input type="checkbox" id="display_breadcrumbs" name="standard_theme_page_options[display_breadcrumbs]" value="on" ' . checked( 'on', $options['display_breadcrumbs'], false ) . ' />';
+	$html .= '&nbsp;<span>' . __( 'Breadcrumbs will display above post and page content.', 'standard' ) . '</span>';
+	
+	echo $html;
 	
 } // end display_breadcrumbs_display
 
