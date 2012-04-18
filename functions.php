@@ -228,7 +228,7 @@ function get_standard_theme_default_social_options() {
 		'pinterest'			=> '',
 		'vimeo'				=> '',
 		'youtube'			=> '',
-		'rss' 				=> 'on'
+		'rss' 				=> get_bloginfo( 'rss2_url' )
 	);
 	
 	return apply_filters ( 'standard_theme_default_social_options', $defaults );
@@ -323,6 +323,18 @@ function standard_setup_theme_social_options() {
 		array(
 			'option_name' 		=> 'youtube',
 			'option_image_path' => get_template_directory_uri() . '/images/social/small/youtube.png'
+		)
+	);
+
+	add_settings_field(
+		'rss',
+		__( 'RSS', 'standard' ),
+		'standard_social_option_display',
+		'standard_theme_social_options',
+		'social',
+		array(
+			'option_name' 		=> 'rss',
+			'option_image_path' => get_template_directory_uri() . '/images/social/small/rss.png'
 		)
 	);
 	

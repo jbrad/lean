@@ -26,6 +26,6 @@
 		<li><a class="fademe" href="<?php echo esc_url( $social_options['youtube'] ); ?>" title="<?php esc_attr_e( 'YouTube', 'standard'); ?>" target="_blank"><img src="<?php echo esc_url( get_template_directory_uri() . '/images/social/small/youtube.png' ); ?>" alt="<?php esc_attr_e( 'YouTube', 'standard'); ?>" /></a></li>
 	<?php } // end if ?>
 	
-	<li><a class="fademe" href="<?php echo esc_url( (string)get_feed_link( 'rss2' ) ); ?>" title="<?php esc_attr_e( 'Subscribe via RSS', 'standard'); ?>" target="_blank"><img src="<?php echo esc_url( get_template_directory_uri() . '/images/social/small/rss.png' ); ?>" alt="<?php esc_attr_e( 'Subscribe via RSS', 'standard'); ?>" /></a></li>
+	<li><a class="fademe" href="<?php echo esc_url( $social_options['rss'] ); ?>" title="<?php esc_attr_e( 'Subscribe via RSS', 'standard'); ?>" target="_blank"><img src="<?php echo esc_url( get_template_directory_uri() . '/images/social/small/rss.png' ); ?>" alt="<?php esc_attr_e( 'Subscribe via RSS', 'standard'); ?>" /></a></li>
 	
 </ul>
