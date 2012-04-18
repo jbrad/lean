@@ -1,3 +1,4 @@
+<?php /* Template Name: Sitemap */ ?>
 <?php
 /**
  * The template for rendering an SEO-friendly site map.
