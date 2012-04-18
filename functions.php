@@ -566,7 +566,7 @@ TODO */
 function standard_theme_options_display() {
 ?>	
 	<div class="wrap">
-	
+
 		<div id="icon-themes" class="icon32"></div>
 		<h2><?php _e( 'Standard Options', 'standard' ); ?></h2>
 		<?php settings_errors(); ?>
@@ -608,6 +608,59 @@ function standard_theme_options_display() {
 /* ----------------------------------------------------------- *
  * 3. Features
  * ----------------------------------------------------------- */
+
+/**
+ * Detects whether or not Yoast's WordPress SEO plugin has been installed. If so, it will display a notice that informs users
+ * it will enhance the SEO of their Standard installation.
+ */
+function standard_detect_wordpress_seo() {
+
+	// If the SEO notification options don't exist, create them
+	if( false == get_option( 'standard_theme_seo_notification_options' ) ) {	
+		add_option( 'standard_theme_seo_notification_options', false );
+	} // end if
+
+	if( 'true' != get_option( 'standard_theme_seo_notification_options' ) && ( function_exists( 'wpseo_maybe_upgrade' ) || defined( 'WPSEO_URL' ) ) ) {
+		echo '<div id="standard-hide-seo-message-notification" class="updated"><p>' . __( 'Standard has detected that you\'ve installed WordPress SEO. Note that this plugin\'s SEO setting will override Standard\'s SEO settings. <a id="standard-hide-seo-message" href="javascript;">Hide this message.</a>', 'standard') . '</p><span id="standard-hide-seo-message-nonce" class="hidden">' . wp_create_nonce( 'standard_hide_seo_message_nonce' ) . '</span></div>';
+	} else {
+		update_option( 'standard_theme_seo_notification_options', false );
+	} // end if
+
+} // end standard_detect_wordpress_seo
+add_action( 'admin_notices', 'standard_detect_wordpress_seo' );
+
+/**
+ * Registers and enqueues the JavaScript responsible for saving the option for hiding the 
+ * WordPress SEO notification.
+ */
+function standard_register_wordpress_seo_message_script() {
+	
+	wp_register_script( 'seo-notification', get_template_directory_uri() . '/js/admin.seo-notification.js' );
+	wp_enqueue_script( 'seo-notification' );
+
+	
+} // end standard_register_wordpress_seo_message_script
+add_action( 'admin_head', 'standard_register_wordpress_seo_message_script' );
+
+/**
+ * Callback function used in the Ajax request for hiding the notification window of WordPress SEO.
+ */
+function standard_save_wordpress_seo_message_setting( ) {
+	
+	if( wp_verify_nonce( $_REQUEST['nonce'], 'standard_hide_seo_message_nonce' ) && isset( $_POST['hideSeoNotification'] ) ) {
+	
+		delete_option( 'standard_theme_seo_notification_options' );
+		if( update_option( 'standard_theme_seo_notification_options', $_POST['hideSeoNotification'] ) ) {
+			die( '0' );
+		} else {
+			die ( '1' );
+		} // end if/else
+	} else {
+		die( '-1' );
+	} // end if
+	
+} // end standard_save_wordpress_seo_message_setting
+add_action( 'wp_ajax_standard_save_wordpress_seo_message_setting', 'standard_save_wordpress_seo_message_setting' );
 
 /**
  * Adds a custom class to the wp_page_menu when users don't set an active menu.
