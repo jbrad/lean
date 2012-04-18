@@ -620,10 +620,12 @@ function standard_detect_wordpress_seo() {
 		add_option( 'standard_theme_seo_notification_options', false );
 	} // end if
 
-	if( 'true' != get_option( 'standard_theme_seo_notification_options' ) && ( function_exists( 'wpseo_maybe_upgrade' ) || defined( 'WPSEO_URL' ) ) ) {
+	if( 'true' != get_option( 'standard_theme_seo_notification_options' ) && defined( 'WPSEO_URL' ) ) {
 		echo '<div id="standard-hide-seo-message-notification" class="updated"><p>' . __( 'Standard has detected that you\'ve installed WordPress SEO. Note that this plugin\'s SEO setting will override Standard\'s SEO settings. <a id="standard-hide-seo-message" href="javascript;">Hide this message.</a>', 'standard') . '</p><span id="standard-hide-seo-message-nonce" class="hidden">' . wp_create_nonce( 'standard_hide_seo_message_nonce' ) . '</span></div>';
-	} else {
-		update_option( 'standard_theme_seo_notification_options', false );
+	} // end if
+
+	if( 'true' == get_option( 'standard_theme_seo_notification_options') && ! defined( 'WPSEO_URL' ) ) {
+		update_option( 'standard_theme_seo_notification_options', 'false' );
 	} // end if
 
 } // end standard_detect_wordpress_seo
