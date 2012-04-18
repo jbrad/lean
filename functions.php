@@ -46,7 +46,7 @@ function standard_theme_menu() {
 
 	add_theme_page(
 		__( 'Standard', 'standard' ),
-		__( 'Theme Options', 'standard' ),
+		__( 'Standard Options', 'standard' ),
 		'administrator',
 		'theme_options',
 		'standard_theme_options_display'
@@ -360,7 +360,7 @@ function standard_theme_social_options_display() {
  *
  * @params	$args	The option's name, description, and optional image path.
  */
-function standard_social_option_display($args) {
+function standard_social_option_display( $args ) {
 	
 	$options = get_option( 'standard_theme_social_options' );
 	
@@ -402,6 +402,103 @@ function standard_theme_social_options_validate( $input ) {
 } // end standard_theme_options_validate
 
 /* ----------------------------- *
+ * 	Page Options
+ * ----------------------------- */
+
+/**
+ * Defines the default values for Standard's page options.
+ */
+function get_standard_theme_default_page_options() {
+
+	$defaults = array(
+		'display_breadcrumbs'	=>	'on'
+	);
+	
+	return apply_filters ( 'standard_theme_default_page_options', $defaults );
+
+} // end get_standard_theme_default_page_options
+
+/**
+ * Defines Standard's "page" options.
+ */
+function standard_setup_theme_page_options() {
+
+	// If the theme options don't exist, create them.
+	if( false == get_option( 'standard_theme_page_options' ) ) {	
+		add_option( 'standard_theme_page_options', apply_filters( 'standard_theme_default_page_options', get_standard_theme_default_page_options() ) );
+	} // end if
+	
+	/* ------------------ Page Options ------------------ */
+	
+	add_settings_section(
+		'page',
+		__( 'Page Options', 'standard' ),
+		'standard_theme_page_options_display',
+		'standard_theme_page_options'
+	);
+	
+	add_settings_field(
+		'display_breadcrumbs',
+		__( 'Display Breadcrumbs', 'standard' ),
+		'display_breadcrumbs_display',
+		'standard_theme_page_options',
+		'page'
+	);
+	
+	register_setting(
+		'standard_theme_page_options',
+		'standard_theme_page_options',
+		'standard_theme_page_options_validate'
+	);
+
+} // end standard_setup_theme_page_options
+add_action( 'admin_init', 'standard_setup_theme_page_options' );
+
+/** 
+ * Renders the description for the "Page" options settings page.
+ */
+function standard_theme_page_options_display() {
+	_e( 'TODO', 'standard' );
+} // end standard_theme_social_options_display
+
+/**
+ * Renders the left-sidebar layout option.
+ *
+ * @params	$args	The array of options used for rendering the option. Includes a path to the option's image.
+ */
+function display_breadcrumbs_display( $args ) {
+	
+	$options = get_option( 'standard_theme_page_options' );
+
+	echo '<input type="checkbox" id="display_breadcrumbs" name="standard_theme_page_options[display_breadcrumbs]" value="on" ' . checked( 'on', $options['display_breadcrumbs'], false ) . ' />';
+	
+} // end display_breadcrumbs_display
+
+/**
+ * Sanitization callback for the page options. TODO
+ *	
+ * @params	$input	The unsanitized collection of options.
+ *
+ * @returns			The collection of sanitized values.
+ */
+function standard_theme_page_options_validate( $input ) {
+/*	
+	$output = $defaults = get_standard_theme_default_page_options();
+
+	foreach( $input as $key => $val ) {
+	
+		if( isset ( $input[$key] ) ) {
+			$output[$key] = $input[$key];
+		} // end if	
+	
+	} // end foreach
+TODO */
+	return $input;
+	return apply_filters( 'standard_theme_page_options_validate', $output, $input, $defaults );
+
+} // end standard_theme_options_validate
+
+/* ----------------------------- *
  * 	Options Page
  * ----------------------------- */
 
@@ -420,6 +517,7 @@ function standard_theme_options_display() {
 		<h2 class="nav-tab-wrapper">
 			<a class="nav-tab <?php echo $active_tab == 'standard_theme_layout_options' ? 'nav-tab-active' : ''; ?>" href="?page=theme_options&amp;tab=standard_theme_layout_options"><?php _e( 'Layout', 'standard' ); ?></a>
 			<a class="nav-tab <?php echo $active_tab == 'standard_theme_social_options' ? 'nav-tab-active' : ''; ?>" href="?page=theme_options&amp;tab=standard_theme_social_options"><?php _e( 'Social Options', 'standard' ); ?></a>
+			<a class="nav-tab <?php echo $active_tab == 'standard_theme_page_options' ? 'nav-tab-active' : ''; ?>" href="?page=theme_options&amp;tab=standard_theme_page_options"><?php _e( 'Page Options', 'standard' ); ?></a>
 		</h2>
 
 		<form method="post" action="options.php">
@@ -430,10 +528,15 @@ function standard_theme_options_display() {
 					settings_fields( 'standard_theme_layout_options' );
 					do_settings_sections( 'standard_theme_layout_options' );
 				
-				} else {
+				} else if( 'standard_theme_social_options' == $active_tab ) {
 				
 					settings_fields( 'standard_theme_social_options' );
 					do_settings_sections( 'standard_theme_social_options' );
+					
+				} else {
+				
+					settings_fields( 'standard_theme_page_options' );
+					do_settings_sections( 'standard_theme_page_options' );
 				
 				} // end if/else
 				
