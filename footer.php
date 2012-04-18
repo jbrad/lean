@@ -42,8 +42,7 @@
 					</div><!-- /#footer-links -->
 					
 					<div id="credit" class="<?php echo has_nav_menu( 'footer_menu' ) ? 'span5' : 'span12'; ?>">
-						<a href="http://wordpress.com/" rel="generator"><?php _e( 'Proudly powered by WordPress', 'standard' ); ?></a>						
-						<?php printf( __( 'Theme: %1$s by %2$s.', 'standard' ), 'Standard', '<a href="http://8bit.io/" rel="8BIT">8BIT</a>' ); ?>
+						<?php printf( __( '%1$s by %2$s', 'standard' ), '<a href="http://standardtheme.com">Standard</a>', '<a href="http://8bit.io/" rel="8BIT">8BIT</a>' ); ?>
 					</div><!-- /#credits -->
 
 				</div><!-- /row -->
