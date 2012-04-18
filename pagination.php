@@ -9,7 +9,11 @@
 		
 		<?php previous_post_link( '<span class="' . $pagination_width . ' previous-page">%link</span>', _x( '&larr; %title', 'standard' ) ); ?>
 		
-		<?php next_post_link( '<span class="' . $pagination_width . ' next-page">%link</span>', _x( '%title &rarr;', 'standard' ) ); ?>
+		<?php if( '' == get_previous_post() ) { ?>
+			<?php next_post_link( '<span class="' . ( $options['layout'] == 'full_width_layout' ? 'span12' : 'span8' ) . ' no-previous-page-link next-page">%link</span>', _x( '%title &rarr;', 'standard' ) ); ?>
+		<?php } else { ?>
+			<?php next_post_link( '<span class="' . $pagination_width . ' next-page">%link</span>', _x( '%title &rarr;', 'standard' ) ); ?>	
+		<?php } // end if/else ?>
 		
 	</div><!-- /#single-post-nav -->
 

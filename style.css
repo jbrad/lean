@@ -587,6 +587,10 @@ p.wp-caption-text {
 	margin-left: 20px;
 }
 
+#single-post-nav .no-previous-page-link {
+	margin-left: 0;
+}
+
 /* image attachment page */
 
 .single-attachment img.attachment-thumbnail {
