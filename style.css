@@ -715,6 +715,13 @@ p.wp-caption-text {
 	margin-right: 20px;
 }
 
+.format-video .entry-content *:first-child,
+.format-video .video-container,
+.format-video .fluid-width-video-wrapper {
+	margin-left: 0;
+	margin-right: 0;
+}
+
 .format-video .entry-content ol, .format-video .entry-content ul {
 	padding-left: 20px;
 	padding-right: 20px;
