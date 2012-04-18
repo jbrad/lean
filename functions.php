@@ -411,7 +411,8 @@ function standard_theme_social_options_validate( $input ) {
 function get_standard_theme_default_page_options() {
 
 	$defaults = array(
-		'display_breadcrumbs'	=>	'on'
+		'display_breadcrumbs'	=>	'on',
+		'display_author_box'	=>	'on'
 	);
 	
 	return apply_filters ( 'standard_theme_default_page_options', $defaults );
@@ -444,6 +445,14 @@ function standard_setup_theme_page_options() {
 		'standard_theme_page_options',
 		'page'
 	);
+
+	add_settings_field(
+		'display_author_box',
+		__( 'Display Author Box', 'standard' ),
+		'display_author_box_display',
+		'standard_theme_page_options',
+		'page'
+	);
 	
 	register_setting(
 		'standard_theme_page_options',
@@ -462,16 +471,32 @@ function standard_theme_page_options_display() {
 } // end standard_theme_social_options_display
 
 /**
- * Renders the left-sidebar layout option.
+ * Renders the breadcrumb options.
  *
- * @params	$args	The array of options used for rendering the option. Includes a path to the option's image.
+ * @params	$args	The array of options used for rendering the option.
  */
 function display_breadcrumbs_display( $args ) {
 	
 	$options = get_option( 'standard_theme_page_options' );
 
 	$html = '<input type="checkbox" id="display_breadcrumbs" name="standard_theme_page_options[display_breadcrumbs]" value="on" ' . checked( 'on', $options['display_breadcrumbs'], false ) . ' />';
-	$html .= '&nbsp;<span>' . __( 'Breadcrumbs will display above post and page content.', 'standard' ) . '</span>';
+	$html .= '&nbsp;<span>' . __( 'Displays above post and page content.', 'standard' ) . '</span>';
+	
+	echo $html;
+	
+} // end display_breadcrumbs_display
+
+/**
+ * Renders the breadcrumb options.
+ *
+ * @params	$args	The array of options used for rendering the option.
+ */
+function display_author_box_display( $args ) {
+	
+	$options = get_option( 'standard_theme_page_options' );
+
+	$html = '<input type="checkbox" id="display_author_box" name="standard_theme_page_options[display_author_box]" value="on" ' . checked( 'on', $options['display_author_box'], false ) . ' />';
+	$html .= '&nbsp;<span>' . __( 'Displays between post content and comments. Includes <a href="profile.php">author name</a>, <a href="profile.php">bio</a>, and <a href="?page=theme_options&tab=standard_theme_social_options">social accounts</a>.', 'standard' ) . '</span>';
 	
 	echo $html;
 	
