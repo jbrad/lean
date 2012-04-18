@@ -21,7 +21,9 @@
 			$('#s').focus(function() {
 				$('#s').val('');
 			}).blur(function() {
-				$('#s').val(sQuery);
+				if($('#s').val() === 'Search...') {
+					$('#s').val(sQuery);
+				} // end if
 			});
 			
 		} // end if
