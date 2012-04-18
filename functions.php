@@ -411,8 +411,9 @@ function standard_theme_social_options_validate( $input ) {
 function get_standard_theme_default_page_options() {
 
 	$defaults = array(
-		'display_breadcrumbs'	=>	'on',
-		'display_author_box'	=>	'on'
+		'display_breadcrumbs'		=>	'on',
+		'display_author_box'		=>	'on',
+		'display_featured_images' 	=> 	'always'
 	);
 	
 	return apply_filters ( 'standard_theme_default_page_options', $defaults );
@@ -450,6 +451,14 @@ function standard_setup_theme_page_options() {
 		'display_author_box',
 		__( 'Display Author Box', 'standard' ),
 		'display_author_box_display',
+		'standard_theme_page_options',
+		'page'
+	);
+	
+	add_settings_field(
+		'display_featured_images',
+		__( 'Display Featured Images', 'standard' ),
+		'display_featured_images_display',
 		'standard_theme_page_options',
 		'page'
 	);
@@ -501,6 +510,26 @@ function display_author_box_display( $args ) {
 	echo $html;
 	
 } // end display_breadcrumbs_display
+
+/**
+ * Renders the options for displaying Featured Images.
+ *
+ * @params	$args	The array of options used for rendering the option.
+ */
+function display_featured_images_display( $args ) {
+
+	$options = get_option( 'standard_theme_page_options' );
+
+	$html = '<select id="display_featured_image" name="standard_theme_page_options[display_featured_images]">';
+		$html .= '<option value="always"'. selected( $options['display_featured_images'], 'always', false ) . '>' . __( 'Always', 'standard' ) . '</option>';
+		$html .= '<option value="index"'. selected( $options['display_featured_images'], 'index', false ) . '>' . __( 'On index only', 'standard' ) . '</option>';
+		$html .= '<option value="single-post"'. selected( $options['display_featured_images'], 'single-post', false ) . '>' . __( 'On single posts only', 'standard' ) . '</option>';
+		$html .= '<option value="never"'. selected( $options['display_featured_images'], 'never', false ) . '>' . __( 'Never', 'standard' ) . '</option>';
+	$html .= '</select>';
+
+	echo $html;
+
+} // end display_featured_images_display
 
 /**
  * Sanitization callback for the page options. TODO

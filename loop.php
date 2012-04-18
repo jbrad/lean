@@ -11,14 +11,15 @@
 
 	<div class="post-header clearfix">
 
+		<?php $page_options = get_option( 'standard_theme_page_options' ); ?>
 		<?php if ( '' != get_the_post_thumbnail() ) { ?>
-			<?php if( ( is_home() || is_archive() ) ) { ?>
+			<?php if( $page_options['display_featured_images'] == 'always' || ( $page_options['display_featured_images'] == 'single-post' && is_single() ) || ( $page_options['display_featured_images'] == 'index' && is_home() ) ) { ?>
 				<div class="thumbnail alignleft">
 					<a class="thumbnail-link fademe" href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( '%s', 'standard' ), the_title_attribute( 'echo=0' ) ); ?>">
 						<?php the_post_thumbnail( 'thumbnail' );	?>
 					</a>
 				</div> <!-- /.thumbnail -->
-			<?php } // end if ?>
+			<?php } // end if ?> 
 		<?php } // end if ?> 
 		<div class="title-wrap clearfix">
 			<?php if( '' !== get_the_title() ) { ?>
