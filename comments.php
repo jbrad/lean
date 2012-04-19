@@ -57,7 +57,7 @@
 	<?php if( comments_open() ) { ?>
 		<div id="no-comments" class="clearfix">
 			<p class="title"><?php _e( 'No Comments', 'standard' ); ?></p>
-			<p><?php _e( 'Be the first to start the conversation!', 'standard' ); ?></p>
+			<p><?php _e( 'Be the first to start the conversation.', 'standard' ); ?></p>
 			<?php comment_form(); ?>
 		</div><!-- /#no-comments -->
 	<?php } // end if ?>
