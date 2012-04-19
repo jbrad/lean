@@ -1083,7 +1083,7 @@ function list_pings( $comment, $args, $depth ) {
 			<?php comment_author_link(); ?>
 		</span> -
 		<span class="date">
-			<?php echo get_comment_date( 'F j, Y' ); ?>
+			<?php echo get_comment_date( get_option( 'date_format' ) ); ?>
 		</span>
 		<span class="pingcontent">
 			<?php comment_text(); ?>
