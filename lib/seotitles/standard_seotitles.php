@@ -28,47 +28,47 @@ class Standard_SeoTitles {
 	 *
 	 * @param	string	page_id		The ID of the current page.
 	 */
-	public static function get_page_title($page_id = null) { 
+	public static function get_page_title( $page_id = null ) { 
 
-		$title = get_bloginfo('name') . ' | ' . get_bloginfo('description');
+		$title = get_bloginfo( 'name' ) . ' | ' . get_bloginfo( 'description' );
 		
-		if(is_home()) {
-			$title = get_bloginfo('name') . ' | ' . get_bloginfo('description');
+		if( is_home() ) {
+			$title = get_bloginfo( 'name' ) . ' | ' . get_bloginfo( 'description' );
 		} elseif (is_search()) {
 		
-			$query = $_GET['s'];
+			$query = $_GET[ 's' ];
 		
-			$search = new WP_Query("s=$query&posts_per_page=-1");
-			$key = trim(esc_html($query, 1));
+			$search = new WP_Query( 's=$query&posts_per_page=-1' );
+			$key = trim( esc_html( $query, 1 ) );
 			$count = $search->post_count;
 			wp_reset_query();
 			
-			$title = __('Search Results For' , 'standard') . ' ' . $key . ' | ' . $count . ' ' . __('Results', 'standard') . ' | ' . get_bloginfo('name');
+			$title = __( 'Search Results For' , 'standard' ) . ' ' . $key . ' | ' . $count . ' ' . __( 'Results', 'standard' ) . ' | ' . get_bloginfo( 'name' );
 			
-		} elseif(is_404()) {
-			$title = get_bloginfo('name') . ' | ' . __('404 Nothing Found', 'standard'); 
+		} elseif( is_404() ) {
+			$title = get_bloginfo( 'name' ) . ' | ' . __( '404 Nothing Found', 'standard' ); 
 		} elseif(is_author()) {
-			$title = get_bloginfo('name') . ' | ' . __('Author Archives', 'standard'); 
+			$title = get_bloginfo( 'name' ) . ' | ' . __( 'Author Archives', 'standard' ); 
 		} elseif(is_single()) {
 		
 			if( strlen( trim( get_the_title( $page_id) ) ) == 0 ) {
-				$title = get_bloginfo('name') . ' | ' . get_bloginfo('description');
+				$title = get_bloginfo( 'name' ) . ' | ' . get_bloginfo( 'description' );
 			} else {
-				$title = strip_tags(htmlspecialchars_decode(get_the_title($page_id))) . ' | ' . get_bloginfo('name');
+				$title = strip_tags( htmlspecialchars_decode( get_the_title( $page_id ) ) ) . ' | ' . get_bloginfo( 'name' );
 			} // end if/else
 			
-		} elseif(is_page()) {
-			$title = get_bloginfo('name') . ' | ' . strip_tags(htmlspecialchars_decode(get_the_title($page_id)));
-		} elseif(is_category()) {
-			$title = single_cat_title('', false) . ' | ' . get_bloginfo('name');
-		} elseif(is_year()) {
-			$title = get_bloginfo('name') . ' | ' . __('Archive', 'standard') . ' | ' . the_time('Y');
-		} elseif(is_month()) {
-			$title = get_bloginfo('name') . ' | ' . __('Archive', 'standard') . ' | ' . the_time('F, Y');
-		} elseif(is_day()) {
-			$title = get_bloginfo('name') . ' | ' . __('Archive', 'standard') . ' | ' . the_time('F j, Y');
-		} elseif(is_tag()) {
-			$title = get_bloginfo('name') . ' | ' . __('Tag Archive', 'standard') . ' | ' . single_tag_title('', false);
+		} elseif( is_page() ) {
+			$title = get_bloginfo( 'name' ) . ' | ' . strip_tags( htmlspecialchars_decode( get_the_title( $page_id ) ) );
+		} elseif( is_category() ) {
+			$title = single_cat_title( '', false ) . ' | ' . get_bloginfo( 'name' );
+		} elseif( is_year() ) {
+			$title = get_bloginfo( 'name' ) . ' | ' . __( 'Archive', 'standard' ) . ' | ' . the_time( 'Y' );
+		} elseif( is_month() ) {
+			$title = get_bloginfo( 'name' ) . ' | ' . __( 'Archive', 'standard' ) . ' | ' . the_time( 'F, Y' );
+		} elseif( is_day() ) {
+			$title = get_bloginfo( 'name' ) . ' | ' . __( 'Archive', 'standard' ) . ' | ' . the_time( get_option( 'date_format' ) );
+		} elseif( is_tag() ) {
+			$title = get_bloginfo( 'name' ) . ' | ' . __( 'Tag Archive', 'standard' ) . ' | ' . single_tag_title( '', false );
 		} // end if/else
 		
 		return $title;
