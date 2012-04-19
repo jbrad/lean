@@ -1022,11 +1022,11 @@ a.post-permalink:hover {
 	font-size: 11px;
 }
 
-#commentform .code {
-	margin-left: 34px;
+#commentform .form-allowed-tags {
+	cursor: pointer;
 }
 
-#commentform code { 
+#commentform code {
 	font-size: 10px;
 }
 
