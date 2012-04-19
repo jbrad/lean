@@ -10,6 +10,8 @@ include_once( get_template_directory() . '/lib/Standard_Nav_Walker.class.php' );
 		- Menu Page
 		- Layout Options
 		- Social Options
+		- Page Options
+		- General Options
 		- Options Page
 	3. Features
 	4. Custom Header
@@ -367,7 +369,7 @@ function standard_social_option_display( $args ) {
 	
 	$url = '';
 	if( true == isset ( $options[ $args['option_name'] ] ) ) {
-		$url = $options[$args['option_name']];
+		$url = $options[ $args['option_name'] ];
 	} // end if
 	
 	$html = '<input type="text" id="' . $args['option_name'] . '" name="standard_theme_social_options[' . $args['option_name'] . ']" value="' . esc_attr( $url ) . '" />';
@@ -540,21 +542,103 @@ function display_featured_images_display( $args ) {
  * @returns			The collection of sanitized values.
  */
 function standard_theme_page_options_validate( $input ) {
-/*	
+
 	$output = $defaults = get_standard_theme_default_page_options();
 
 	foreach( $input as $key => $val ) {
 	
 		if( isset ( $input[$key] ) ) {
-			$output[$key] = $input[$key];
+			$output[$key] = strip_tags( stripslashes( $input[$key] ) );
 		} // end if	
 	
 	} // end foreach
-TODO */
-	return $input;
+
 	return apply_filters( 'standard_theme_page_options_validate', $output, $input, $defaults );
 
 } // end standard_theme_options_validate
+
+/* ----------------------------- *
+ * 	General Options
+ * ----------------------------- */
+ 
+/**
+ * Defines Standard's "Google Analytics" option on the 'General Settings' screen.
+ */
+function standard_setup_theme_google_analytics_options() {
+
+	// If the option doesn't exist, create it.
+	if( false == get_option( 'standard_theme_google_analytics' ) ) {	
+		add_option( 'standard_theme_google_analytics' );
+	} // end if
+	
+	add_settings_section(
+		'standard_theme_google_analytics',
+		__( 'Google Analytics', 'standard' ),
+		'standard_theme_google_analytics_display',
+		'general'
+	);
+	
+	add_settings_field(
+		'google_analytics',
+		__( 'Google Analytics ID', 'standard' ),
+		'google_analytics_display',
+		'general',
+		'standard_theme_google_analytics'
+	);
+	
+	register_setting(
+		'general',
+		'standard_theme_google_analytics',
+		'standard_theme_google_analytics_validate'
+	);
+
+} // end standard_theme_general_settings
+add_action( 'admin_init', 'standard_setup_theme_google_analytics_options' );
+
+/** 
+ * Renders the description for the "Google Analytics" option.
+ */
+function standard_theme_google_analytics_display() {
+	echo '<p>' . __( 'Enter your Google Analytics ID here.', 'standard' ) . '</p>';
+} // end standard_theme_google_analytics_display
+
+/**
+ * Renders the option element for Google Analytics.
+ */
+function google_analytics_display() {
+
+	$option = get_option( 'standard_theme_google_analytics' );
+	
+	$analytics_id = '';
+	if( true == isset ( $option['google_analytics'] ) ) {
+		$analytics_id = $option['google_analytics'];
+	} // end if
+	
+	$html = '<input type="text" id="google_analytics" name="standard_theme_google_analytics[google_analytics]" value="' . $analytics_id . '" />';
+	$html .= '&nbsp;<span class="description">' . __( 'Enter the ID only (i.e., UA-000000).', 'standard' ) . '</span>';
+	
+	echo $html;
+
+} // end google_analytics_display
+
+/**
+ * Sanitization callback for the Google Analytics option.
+ *	
+ * @params	$input	The unsanitized collection of options.
+ *
+ * @returns			The collection of sanitized values.
+ */
+function standard_theme_google_analytics_validate( $input ) {
+
+	$output = $defaults = array();
+
+	if( isset ( $input['google_analytics'] ) ) {
+		$output['google_analytics'] = strip_tags( stripslashes( $input['google_analytics'] ) );
+	} // end if	
+
+	return apply_filters( 'standard_theme_google_analytics_validate', $output, $input, $defaults );
+
+} // end standard_theme_google_analytics_validate
 
 /* ----------------------------- *
  * 	Options Page
