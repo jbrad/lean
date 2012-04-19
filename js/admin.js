@@ -45,10 +45,40 @@
 			} // end if 
 			
 		} // end if
+		
+		/* --- Sitemap Functionality --- */
+		
+		if($('#page_template').length > 0) {
+			
+			togglePostBodyContent($);
+			
+			$('#page_template').change(function() {
+				togglePostBodyContent($);
+			});
+			
+		} // end if
+	
+		/* --- /Sitemap Functionality --- */
 	
 	});
 	
 })(jQuery);
+
+function togglePostBodyContent($) {
+
+	if($('#page_template').children(':selected').text().toLowerCase() === 'sitemap') {
+					
+		$('#post-body-content').children(':not(#titlediv)')
+			.hide();
+			
+	} else {
+	
+		$('#post-body-content').children(':not(#titlediv)')
+		.show();
+		
+	} // end if/else
+
+} // end togglePostBodyContent
 
 function updateDescriptionTextColor($) {
 
