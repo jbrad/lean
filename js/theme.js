@@ -19,9 +19,11 @@
 			
 			var sQuery = $('#s').val();
 			$('#s').focus(function() {
-				$('#s').val('');
-			}).blur(function() {
 				if($('#s').val() === 'Search...') {
+					$('#s').val('');
+				} // end if
+			}).blur(function() {
+				if($('#s').val() === 'Search...' || $('#s').val().length === 0) {
 					$('#s').val(sQuery);
 				} // end if
 			});
