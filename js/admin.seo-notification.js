@@ -14,7 +14,7 @@
 					hideSeoNotification: 'true'
 					
 				}, function(response) {
-					console.log( arguments );
+
 					if(parseInt(response) === 0) {
 						$('#standard-hide-seo-message-notification').hide();
 					} // end if
