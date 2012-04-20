@@ -1491,6 +1491,7 @@ body.error404 {
 #archive-page-title h3, 
 #search-page-title h3 { 
 	font-size: 16px; 
+	margin-bottom: 0;
 }
 
 .no-results {

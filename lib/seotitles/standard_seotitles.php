@@ -62,11 +62,16 @@ class Standard_SeoTitles {
 		} elseif( is_category() ) {
 			$title = single_cat_title( '', false ) . ' | ' . get_bloginfo( 'name' );
 		} elseif( is_year() ) {
-			$title = get_bloginfo( 'name' ) . ' | ' . __( 'Archive', 'standard' ) . ' | ' . the_time( 'Y' );
+			$title = get_bloginfo( 'name' ) . ' | ' . __( 'Archive', 'standard' ) . ' | ' . get_the_time( 'Y' );
 		} elseif( is_month() ) {
-			$title = get_bloginfo( 'name' ) . ' | ' . __( 'Archive', 'standard' ) . ' | ' . the_time( 'F, Y' );
+		
+			// This particular format is not localized. The 'date_format' uses month and year and we only need month and year.
+			// The archives widget built into WordPress follows the format that we're providing see.
+			// Lines 938 - 939 of general-template.php in WordPress core.
+			$title = get_bloginfo( 'name' ) . ' | ' . __( 'Archive', 'standard' ) . ' | ' . get_the_time( 'F Y' );
+			
 		} elseif( is_day() ) {
-			$title = get_bloginfo( 'name' ) . ' | ' . __( 'Archive', 'standard' ) . ' | ' . the_time( get_option( 'date_format' ) );
+			$title = get_bloginfo( 'name' ) . ' | ' . __( 'Archive', 'standard' ) . ' | ' . get_the_time( get_option( 'date_format' ) );
 		} elseif( is_tag() ) {
 			$title = get_bloginfo( 'name' ) . ' | ' . __( 'Tag Archive', 'standard' ) . ' | ' . single_tag_title( '', false );
 		} // end if/else

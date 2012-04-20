@@ -1599,7 +1599,10 @@ function standard_get_date_archive_label() {
 
 	} elseif( '' != get_query_var( 'monthnum' ) ) {
 	
-		$archive_label .= date( get_option( 'date_format' ), mktime(0, 0, 0, get_query_var( 'monthnum' ), 1, get_query_var( 'year' ) ) );
+		// This particular format is not localized. The 'date_format' uses month and year and we only need month and year.
+		// The archives widget built into WordPress follows the format that we're providing see.
+		// Lines 938 - 939 of general-template.php in WordPress core.
+		$archive_label .= get_the_time( 'F Y' );
 		
 	} elseif ( '' != get_query_var( 'm' ) ) {
 	
@@ -1608,7 +1611,8 @@ function standard_get_date_archive_label() {
 			$year = substr( get_query_var( 'm' ), 0, 4 );
 			$month = substr( get_query_var( 'm' ), 4, 6);
 			
-			$archive_label .= date( get_option( 'date_format' ), mktime(0, 0, 0, $month, 1, $year ) );
+			// See comment in Lines 1602 - 1604
+			$archive_label .= get_the_time( 'F Y' );
 		
 		} else {
 
