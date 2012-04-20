@@ -508,7 +508,7 @@ function display_author_box_display( $args ) {
 	$options = get_option( 'standard_theme_page_options' );
 
 	$html = '<input type="checkbox" id="display_author_box" name="standard_theme_page_options[display_author_box]" value="on" ' . checked( 'on', $options['display_author_box'], false ) . ' />';
-	$html .= '&nbsp;<span>' . __( 'Displays between post content and comments. Includes <a href="profile.php">author name</a>, <a href="profile.php">bio</a>, and <a href="?page=theme_options&tab=standard_theme_social_options">social accounts</a>.', 'standard' ) . '</span>';
+	$html .= '&nbsp;<span>' . __( 'Displays between post content and comments. Includes <a href="profile.php">display name</a>, <a href="profile.php">biographical info</a>, and <a href="?page=theme_options&tab=standard_theme_social_options">social accounts</a>.', 'standard' ) . '</span>';
 	
 	echo $html;
 	
