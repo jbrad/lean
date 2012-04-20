@@ -405,13 +405,13 @@ function standard_theme_social_options_validate( $input ) {
 } // end standard_theme_options_validate
 
 /* ----------------------------- *
- * 	Page Options
+ * 	General Options
  * ----------------------------- */
 
 /**
- * Defines the default values for Standard's page options.
+ * Defines the default values for Standard's general options.
  */
-function get_standard_theme_default_page_options() {
+function get_standard_theme_default_general_options() {
 
 	$defaults = array(
 		'display_breadcrumbs'		=>	'on',
@@ -419,67 +419,75 @@ function get_standard_theme_default_page_options() {
 		'display_featured_images' 	=> 	'always'
 	);
 	
-	return apply_filters ( 'standard_theme_default_page_options', $defaults );
+	return apply_filters ( 'standard_theme_default_general_options', $defaults );
 
-} // end get_standard_theme_default_page_options
+} // end get_standard_theme_default_general_options
 
 /**
- * Defines Standard's "page" options.
+ * Defines Standard's "general" options.
  */
-function standard_setup_theme_page_options() {
+function standard_setup_theme_general_options() {
 
 	// If the theme options don't exist, create them.
-	if( false == get_option( 'standard_theme_page_options' ) ) {	
-		add_option( 'standard_theme_page_options', apply_filters( 'standard_theme_default_page_options', get_standard_theme_default_page_options() ) );
+	if( false == get_option( 'standard_theme_general_options' ) ) {	
+		add_option( 'standard_theme_general_options', apply_filters( 'standard_theme_default_general_options', get_standard_theme_default_general_options() ) );
 	} // end if
 	
 	/* ------------------ Page Options ------------------ */
 	
 	add_settings_section(
-		'page',
-		__( 'Page Options', 'standard' ),
-		'standard_theme_page_options_display',
-		'standard_theme_page_options'
+		'general',
+		__( 'General Options', 'standard' ),
+		'standard_theme_general_options_display',
+		'standard_theme_general_options'
 	);
 	
 	add_settings_field(
 		'display_breadcrumbs',
 		__( 'Display Breadcrumbs', 'standard' ),
 		'display_breadcrumbs_display',
-		'standard_theme_page_options',
-		'page'
+		'standard_theme_general_options',
+		'general'
 	);
 
 	add_settings_field(
 		'display_author_box',
 		__( 'Display Author Box', 'standard' ),
 		'display_author_box_display',
-		'standard_theme_page_options',
-		'page'
+		'standard_theme_general_options',
+		'general'
 	);
 	
 	add_settings_field(
 		'display_featured_images',
 		__( 'Display Featured Images', 'standard' ),
 		'display_featured_images_display',
-		'standard_theme_page_options',
-		'page'
+		'standard_theme_general_options',
+		'general'
+	);
+	
+	add_settings_field(
+		'google_analytics',
+		__( 'Google Analytics ID', 'standard' ),
+		'google_analytics_display',
+		'standard_theme_general_options',
+		'general'
 	);
 	
 	register_setting(
-		'standard_theme_page_options',
-		'standard_theme_page_options',
-		'standard_theme_page_options_validate'
+		'standard_theme_general_options',
+		'standard_theme_general_options',
+		'standard_theme_general_options_validate'
 	);
 
-} // end standard_setup_theme_page_options
-add_action( 'admin_init', 'standard_setup_theme_page_options' );
+} // end standard_setup_theme_general_options
+add_action( 'admin_init', 'standard_setup_theme_general_options' );
 
 /** 
- * Renders the description for the "Page" options settings page.
+ * Renders the description for the "General" options settings page.
  */
-function standard_theme_page_options_display() {
-	_e( 'Configure specific option that influence how individual posts and pages appears.', 'standard' );
+function standard_theme_general_options_display() {
+	_e( 'Configure general options that influence how your blog renders content, tracks analytics, and more.', 'standard' );
 } // end standard_theme_social_options_display
 
 /**
@@ -489,9 +497,9 @@ function standard_theme_page_options_display() {
  */
 function display_breadcrumbs_display( $args ) {
 	
-	$options = get_option( 'standard_theme_page_options' );
+	$options = get_option( 'standard_theme_general_options' );
 
-	$html = '<input type="checkbox" id="display_breadcrumbs" name="standard_theme_page_options[display_breadcrumbs]" value="on" ' . checked( 'on', $options['display_breadcrumbs'], false ) . ' />';
+	$html = '<input type="checkbox" id="display_breadcrumbs" name="standard_theme_general_options[display_breadcrumbs]" value="on" ' . checked( 'on', $options['display_breadcrumbs'], false ) . ' />';
 	$html .= '&nbsp;<span>' . __( 'Displays above post and page content.', 'standard' ) . '</span>';
 	
 	echo $html;
@@ -505,9 +513,9 @@ function display_breadcrumbs_display( $args ) {
  */
 function display_author_box_display( $args ) {
 	
-	$options = get_option( 'standard_theme_page_options' );
+	$options = get_option( 'standard_theme_general_options' );
 
-	$html = '<input type="checkbox" id="display_author_box" name="standard_theme_page_options[display_author_box]" value="on" ' . checked( 'on', $options['display_author_box'], false ) . ' />';
+	$html = '<input type="checkbox" id="display_author_box" name="standard_theme_general_options[display_author_box]" value="on" ' . checked( 'on', $options['display_author_box'], false ) . ' />';
 	$html .= '&nbsp;<span>' . __( 'Displays between post content and comments. Includes <a href="profile.php">display name</a>, <a href="profile.php">biographical info</a>, and <a href="?page=theme_options&tab=standard_theme_social_options">social accounts</a>.', 'standard' ) . '</span>';
 	
 	echo $html;
@@ -521,79 +529,18 @@ function display_author_box_display( $args ) {
  */
 function display_featured_images_display( $args ) {
 
-	$options = get_option( 'standard_theme_page_options' );
+	$options = get_option( 'standard_theme_general_options' );
 
-	$html = '<select id="display_featured_image" name="standard_theme_page_options[display_featured_images]">';
+	$html = '<select id="display_featured_image" name="standard_theme_general_options[display_featured_images]">';
 		$html .= '<option value="always"'. selected( $options['display_featured_images'], 'always', false ) . '>' . __( 'Always', 'standard' ) . '</option>';
+		$html .= '<option value="never"'. selected( $options['display_featured_images'], 'never', false ) . '>' . __( 'Never', 'standard' ) . '</option>';
 		$html .= '<option value="index"'. selected( $options['display_featured_images'], 'index', false ) . '>' . __( 'On index only', 'standard' ) . '</option>';
 		$html .= '<option value="single-post"'. selected( $options['display_featured_images'], 'single-post', false ) . '>' . __( 'On single posts only', 'standard' ) . '</option>';
-		$html .= '<option value="never"'. selected( $options['display_featured_images'], 'never', false ) . '>' . __( 'Never', 'standard' ) . '</option>';
 	$html .= '</select>';
 
 	echo $html;
 
 } // end display_featured_images_display
-
-/**
- * Sanitization callback for the page options. TODO
- *	
- * @params	$input	The unsanitized collection of options.
- *
- * @returns			The collection of sanitized values.
- */
-function standard_theme_page_options_validate( $input ) {
-
-	$output = $defaults = get_standard_theme_default_page_options();
-
-	foreach( $input as $key => $val ) {
-	
-		if( isset ( $input[$key] ) ) {
-			$output[$key] = strip_tags( stripslashes( $input[$key] ) );
-		} // end if	
-	
-	} // end foreach
-
-	return apply_filters( 'standard_theme_page_options_validate', $output, $input, $defaults );
-
-} // end standard_theme_options_validate
-
-/* ----------------------------- *
- * 	General Options
- * ----------------------------- */
- 
-/**
- * Defines Standard's "Google Analytics" option on the 'General Settings' screen.
- */
-function standard_setup_theme_google_analytics_options() {
-
-	// If the option doesn't exist, create it.
-	if( false == get_option( 'standard_theme_google_analytics' ) ) {	
-		add_option( 'standard_theme_google_analytics' );
-	} // end if
-	
-	add_settings_section(
-		'standard_theme_google_analytics',
-		__( 'Google Analytics', 'standard' ),
-		'standard_theme_google_analytics_display',
-		'general'
-	);
-	
-	add_settings_field(
-		'google_analytics',
-		__( 'Google Analytics ID', 'standard' ),
-		'google_analytics_display',
-		'general',
-		'standard_theme_google_analytics'
-	);
-	
-	register_setting(
-		'general',
-		'standard_theme_google_analytics',
-		'standard_theme_google_analytics_validate'
-	);
-
-} // end standard_theme_general_settings
-add_action( 'admin_init', 'standard_setup_theme_google_analytics_options' );
 
 /** 
  * Renders the description for the "Google Analytics" option.
@@ -607,14 +554,14 @@ function standard_theme_google_analytics_display() {
  */
 function google_analytics_display() {
 
-	$option = get_option( 'standard_theme_google_analytics' );
+	$option = get_option( 'standard_theme_general_options' );
 	
 	$analytics_id = '';
 	if( true == isset ( $option['google_analytics'] ) ) {
 		$analytics_id = $option['google_analytics'];
 	} // end if
 	
-	$html = '<input type="text" id="google_analytics" name="standard_theme_google_analytics[google_analytics]" value="' . $analytics_id . '" />';
+	$html = '<input type="text" id="google_analytics" name="standard_theme_general_options[google_analytics]" value="' . $analytics_id . '" />';
 	$html .= '&nbsp;<span class="description">' . __( 'Enter the ID only (i.e., UA-000000).', 'standard' ) . '</span>';
 	
 	echo $html;
@@ -622,23 +569,27 @@ function google_analytics_display() {
 } // end google_analytics_display
 
 /**
- * Sanitization callback for the Google Analytics option.
+ * Sanitization callback for the general options.
  *	
  * @params	$input	The unsanitized collection of options.
  *
  * @returns			The collection of sanitized values.
  */
-function standard_theme_google_analytics_validate( $input ) {
+function standard_theme_general_options_validate( $input ) {
 
-	$output = $defaults = array();
+	$output = $defaults = get_standard_theme_default_general_options();
 
-	if( isset ( $input['google_analytics'] ) ) {
-		$output['google_analytics'] = strip_tags( stripslashes( $input['google_analytics'] ) );
-	} // end if	
+	foreach( $input as $key => $val ) {
+	
+		if( isset ( $input[$key] ) ) {
+			$output[$key] = strip_tags( stripslashes( $input[$key] ) );
+		} // end if	
+	
+	} // end foreach
 
-	return apply_filters( 'standard_theme_google_analytics_validate', $output, $input, $defaults );
+	return apply_filters( 'standard_theme_general_options_validate', $output, $input, $defaults );
 
-} // end standard_theme_google_analytics_validate
+} // end standard_theme_general_options_validate
 
 /* ----------------------------- *
  * 	Options Page
@@ -659,7 +610,7 @@ function standard_theme_options_display() {
 		<h2 class="nav-tab-wrapper">
 			<a class="nav-tab <?php echo $active_tab == 'standard_theme_layout_options' ? 'nav-tab-active' : ''; ?>" href="?page=theme_options&amp;tab=standard_theme_layout_options"><?php _e( 'Layout', 'standard' ); ?></a>
 			<a class="nav-tab <?php echo $active_tab == 'standard_theme_social_options' ? 'nav-tab-active' : ''; ?>" href="?page=theme_options&amp;tab=standard_theme_social_options"><?php _e( 'Social Options', 'standard' ); ?></a>
-			<a class="nav-tab <?php echo $active_tab == 'standard_theme_page_options' ? 'nav-tab-active' : ''; ?>" href="?page=theme_options&amp;tab=standard_theme_page_options"><?php _e( 'Page Options', 'standard' ); ?></a>
+			<a class="nav-tab <?php echo $active_tab == 'standard_theme_general_options' ? 'nav-tab-active' : ''; ?>" href="?page=theme_options&amp;tab=standard_theme_general_options"><?php _e( 'General Options', 'standard' ); ?></a>
 		</h2>
 
 		<form method="post" action="options.php">
@@ -677,8 +628,8 @@ function standard_theme_options_display() {
 					
 				} else {
 				
-					settings_fields( 'standard_theme_page_options' );
-					do_settings_sections( 'standard_theme_page_options' );
+					settings_fields( 'standard_theme_general_options' );
+					do_settings_sections( 'standard_theme_general_options' );
 				
 				} // end if/else
 				
