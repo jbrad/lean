@@ -705,7 +705,7 @@ function standard_detect_wordpress_seo() {
 	} // end if
 
 	if( 'true' != get_option( 'standard_theme_seo_notification_options' ) && defined( 'WPSEO_URL' ) ) {
-		echo '<div id="standard-hide-seo-message-notification" class="updated"><p>' . __( 'Standard has detected that you\'ve installed WordPress SEO. Note that this plugin\'s SEO setting will override Standard\'s SEO settings. <a id="standard-hide-seo-message" href="javascript;">Hide this message.</a>', 'standard') . '</p><span id="standard-hide-seo-message-nonce" class="hidden">' . wp_create_nonce( 'standard_hide_seo_message_nonce' ) . '</span></div>';
+		echo '<div id="standard-hide-seo-message-notification" class="updated"><p>' . __( 'Standard has detected the Yoast SEO plugin and is now running in enhanced SEO mode. <a id="standard-hide-seo-message" href="javascript;">Hide this message.</a>', 'standard') . '</p><span id="standard-hide-seo-message-nonce" class="hidden">' . wp_create_nonce( 'standard_hide_seo_message_nonce' ) . '</span></div>';
 	} // end if
 
 	// Set the option to false if the plugin is deactivated
@@ -1519,8 +1519,12 @@ if( ! function_exists( 'standard_post_format_rss' ) ) {
  */
 function standard_seo_titles() {
 
-	include_once( get_template_directory() . '/lib/seotitles/standard_seotitles.php' );
-	echo Standard_SeoTitles::get_page_title( get_the_ID() );
+	if( ! defined( 'WPSEO_URL' ) ) {
+	
+		include_once( get_template_directory() . '/lib/seotitles/standard_seotitles.php' );
+		echo Standard_SeoTitles::get_page_title( get_the_ID() );
+		
+	} // end if/else
 	
 } // end standard_seo_tiltes
 add_filter( 'wp_title', 'standard_seo_titles' );
