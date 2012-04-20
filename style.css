@@ -991,12 +991,7 @@ a.post-permalink:hover {
 /* comment input */
 
 #respond {
-	margin: 20px 0 0;
 	padding: 20px !important;
-}
-
-#respond h3 { 
-	padding: 0 0 20px 0;
 }
 
 .comment-container #respond {
@@ -1028,6 +1023,7 @@ a.post-permalink:hover {
 
 #commentform code {
 	font-size: 10px;
+	display: none;
 }
 
 #form-inputs { 

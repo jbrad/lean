@@ -85,6 +85,19 @@
 		
 		} // end if
 		
+		// Reveal available commenting options
+		if($('.form-allowed-tags').length > 0) {
+
+			$('.form-allowed-tags').children('a')
+				.click(function(evt) {
+				
+					evt.preventDefault();
+					$(this).siblings('code')
+						.fadeToggle('fast');
+				});
+				
+		} // end if
+		
 		// FitVid
 		$('.entry-content').fitVids();
 		
