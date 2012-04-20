@@ -1611,10 +1611,7 @@ function standard_get_date_archive_label() {
 	} elseif ( '' != get_query_var( 'm' ) ) {
 	
 		if( strlen( get_query_var( 'm' ) ) == 6 ) {
-		
-			$year = substr( get_query_var( 'm' ), 0, 4 );
-			$month = substr( get_query_var( 'm' ), 4, 6);
-			
+					
 			// See comment in Lines 1602 - 1604
 			$archive_label .= get_the_time( 'F Y' );
 		

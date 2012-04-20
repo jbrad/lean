@@ -157,10 +157,7 @@ class Standard_Breadcrumbs {
 		} elseif( '' != get_query_var( 'm' ) ) { 
 
 			if( strlen( get_query_var( 'm' ) ) == 6 ) {
-			
-				$year = substr( get_query_var( 'm' ), 0, 4 );
-				$month = substr( get_query_var( 'm' ), 4, 6);
-				
+							
 				// See comment in lines 152 - 154
 				$date_label .= get_the_time( 'F Y' );
 			
