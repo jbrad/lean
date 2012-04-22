@@ -7,7 +7,7 @@
 		<link rel="profile" href="http://gmpg.org/xfn/11" />
 		<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 		<title><?php wp_title( '' ); ?></title>
-		<?php $option = get_option( 'standard_theme_google_analytics'); ?>
+		<?php $option = get_option( 'standard_theme_general_options'); ?>
 		<?php if( '' != $option['google_analytics'] ) { ?>
 			<script type="text/javascript">
 				var _gaq = _gaq || [];
