@@ -328,7 +328,7 @@ class Activity_Tabs extends WP_Widget {
 			$html .= '</ul>';
 		$html .= '</div>';
 		
-		wp_reset_query();
+		wp_reset_postdata();
 		
 		return $html;
 	
