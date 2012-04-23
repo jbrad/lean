@@ -14,23 +14,25 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\ CONTENTS /\/\/\/\/\/\/\/\/\/\/\/\/\/\//\/\/\/\
 
-	1. Misc
-	2. Typography
-	3. Main Styles
-	4. Header Navigation
-		-Header Menu
-		-nav social-icons
-		-Footer Menu
-	5. Header
-	6. Posts
-		-post formats
-	7. Sidebar
-		-Widgets
-	8. Footer
-	9. 404 page
+	1.  Misc
+	2.  Typography
+	3.  Main Styles
+	4.  Header Navigation
+		   -Header Menu
+		   -nav social-icons
+		   -Footer Menu
+	5.  Header
+	6.  Posts
+		   -post formats
+	7.  Sidebar
+		   -Widgets
+	8.  Footer
+	9.  404 page
 	10. Search Page
-	11. IE8 Styles
-	12. Media queries
+	11. Page templates
+			 -sitemap
+	12. IE8 Styles
+	13. Media queries
 */
 
 
@@ -1498,13 +1500,48 @@ body.error404 {
 	padding: 20px 0;
 }
 
-/* ------------------------------------------------------------------------ 11. IE8 Styles */
+/* ------------------------------------------------------------------------ 12. Page Templates */
+
+/* site map */
+
+h2#authors, h2#pages, h2#posts {
+	font-weight: normal;
+	border-bottom: 1px solid #eee;
+	margin-top: 15px;
+	padding-left: 35px;
+	background: url(images/icn-sitemap.png) no-repeat;
+	background-position: 0 5px;
+}
+
+h2#pages {
+	background-position: 0 -25px;
+}
+
+h2#posts {
+	background-position: 0 -52px;
+}
+
+ul#sitemap-posts > li {
+	list-style: none;
+}
+
+ul#sitemap-posts > li h3 {
+	font-weight: normal;
+	margin-bottom: 0;
+}
+
+ul#sitemap-posts ul {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+/* ------------------------------------------------------------------------ 12. IE8 Styles */
 
 #ie8 .format-image img {
 	width: auto\9;
 }
 
-/* ------------------------------------------------------------------------ 12. Media queries */
+/* ------------------------------------------------------------------------ 13. Media queries */
 
 
 /* Smartphones */

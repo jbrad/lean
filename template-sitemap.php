@@ -34,7 +34,7 @@
 										
 										<h2 id="authors"><?php _e( 'Authors', 'standard' ); ?></h2>
 				
-										<ul>
+										<ul id="sitemap-authors">
 											<?php
 												wp_list_authors(
 													array(
@@ -45,7 +45,7 @@
 										</ul>
 										
 										<h2 id="pages"><?php _e( 'Pages', 'standard' ); ?></h2>
-										<ul>
+										<ul id="sitemap-pages">
 											<?php
 												wp_list_pages(
 													array(
@@ -57,7 +57,7 @@
 										</ul>
 										
 										<h2 id="posts"><?php _e( 'Posts', 'standard' ); ?></h2>
-										<ul>
+										<ul id="sitemap-posts">
 											<?php
 												$category_list = '';
 												foreach ( get_categories() as $category ) {
