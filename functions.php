@@ -125,7 +125,6 @@ function standard_setup_theme_layout_options() {
 		)
 	);
 	
-	// Note there's no sanitization for this setting because they consist only of radio buttons
 	register_setting(
 		'standard_theme_layout_options',
 		'standard_theme_layout_options',
@@ -845,6 +844,10 @@ if( ! function_exists( 'standard_add_theme_features' ) ) {
 	
 		if( ! in_array( get_template_directory() . '/lib/activity/standard_popularity.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {
 			include_once( get_template_directory() . '/lib/activity/widget.php' );
+		} // end if
+	
+		if( ! in_array( get_template_directory() . '/lib/gcse/widget.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {
+			include_once( get_template_directory() . '/lib/gcse/widget.php' );
 		} // end if
 	
 	} // end add_theme_features
