@@ -61,24 +61,31 @@
 											<?php
 												$category_list = '';
 												foreach ( get_categories() as $category ) {
-												
-													$category_list .= '<li><h3>' . $category->cat_name . '</h3>';
+																										
+													$category_list .= '<li><h3>' . $category->cat_name . '</h3></li>';
 													$category_list .= '<ul>';
-													$category_query = new WP_Query( 'posts_per_page=-1&cat=' . $category->cat_ID );
-													while( $category_query->have_posts() ) {
 													
-														$category_query->the_post();
-														$cat = get_the_category();
-														if ( $cat[0]->cat_ID == $category->cat_ID ) {
-														  $category_list .= '<li><a href="' . get_permalink() . '">' . get_the_title() . '</a></li>';
-														} // end if
+													$category_query = new WP_Query( 'posts_per_page=-1&cat=' . $category->cat_ID ); 
+													if( $category_query->have_posts() ) {
+													
+														while( $category_query->have_posts() ) {
 														
-													} // end while
-													$category_list .= '</ul>';
-													$category_list .= '</li>';
-												  
+															$category_query->the_post();
+															$cat = get_the_category();
+															if ( '' != get_the_title() ) {
+															  $category_list .= '<li><a href="' . get_permalink() . '">' . get_the_title() . '</a></li>';
+															} // end if
+															
+														} // end while
+
+														$category_list .= '</ul>';
+														$category_list .= '</li>';
+														
+													} // end if
+																								  
 												} // end foreach
-												wp_reset_query();
+												wp_reset_postdata();
+												
 												echo $category_list;
 											?>
 										</ul>

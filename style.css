@@ -1521,6 +1521,10 @@ h2#posts {
 	background-position: 0 -52px;
 }
 
+ul#sitemap-posts {
+	margin-left: 0;
+}
+
 ul#sitemap-posts > li {
 	list-style: none;
 }
