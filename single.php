@@ -28,9 +28,9 @@
 							get_template_part( 'loop', get_post_format() );
 				?>
 							<?php get_template_part( 'pagination '); ?>
-							<?php $page_options = get_option( 'standard_theme_page_options' ); ?>
+							<?php $general_options = get_option( 'standard_theme_general_options' ); ?>
 							<?php $social_options = get_option( 'standard_theme_social_options' ); ?>
-							<?php if( 'on' == $page_options['display_author_box'] ) { ?>
+							<?php if( 'on' == $general_options['display_author_box'] ) { ?>
 								<div id="author-box" class="well clearfix">
 									<div class="author-box-image">
 										<?php echo get_avatar( get_the_author_meta( 'user_email', $post->post_author, '80' ) ); ?>
