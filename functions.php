@@ -688,8 +688,8 @@ function standard_detect_wordpress_seo() {
 		add_option( 'standard_theme_seo_notification_options', false );
 	} // end if
 
-	if( 'true' != get_option( 'standard_theme_seo_notification_options' ) && defined( 'WPSEO_URL' ) ) {
-		echo '<div id="standard-hide-seo-message-notification" class="updated"><p>' . __( 'Standard has detected the Yoast SEO plugin and is now running in enhanced SEO mode. <a id="standard-hide-seo-message" href="javascript;">Hide this message.</a>', 'standard') . '</p><span id="standard-hide-seo-message-nonce" class="hidden">' . wp_create_nonce( 'standard_hide_seo_message_nonce' ) . '</span></div>';
+	if( 'true' != get_option( 'standard_theme_seo_notification_options' ) && ( defined( 'WPSEO_URL' )  || class_exists( 'All_in_One_SEO_Pack' ) ) ) {
+		echo '<div id="standard-hide-seo-message-notification" class="updated"><p>' . __( 'Standard has detected the activation of an SEO plugin and is now running in enhanced SEO mode. <a id="standard-hide-seo-message" href="javascript;">Hide this message.</a>', 'standard') . '</p><span id="standard-hide-seo-message-nonce" class="hidden">' . wp_create_nonce( 'standard_hide_seo_message_nonce' ) . '</span></div>';
 	} // end if
 
 	// Set the option to false if the plugin is deactivated
@@ -709,7 +709,6 @@ function standard_register_wordpress_seo_message_script() {
 	wp_register_script( 'seo-notification', get_template_directory_uri() . '/js/admin.seo-notification.js' );
 	wp_enqueue_script( 'seo-notification' );
 
-	
 } // end standard_register_wordpress_seo_message_script
 add_action( 'admin_head', 'standard_register_wordpress_seo_message_script' );
 

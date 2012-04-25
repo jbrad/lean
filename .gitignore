@@ -4,5 +4,5 @@
 *.DS_Store
 
 # theme-specific files
-lib/gcse/*
-template-search-results.php
+#lib/gcse/*
+#template-search-results.php
