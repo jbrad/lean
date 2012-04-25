@@ -8,7 +8,7 @@
 ?>
 <?php /* Video Loop */ ?>
 
-<div id="post-<?php the_ID(); ?>" <?php post_class( 'post format-quote clearfix' ); ?>>
+<div id="post-<?php the_ID(); ?>" <?php post_class( 'post format-video clearfix' ); ?>>
 
 	<div id="content-<?php the_ID(); ?>" class="entry-content">
 		<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'standard' ) ); ?>
