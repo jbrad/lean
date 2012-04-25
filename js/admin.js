@@ -57,6 +57,27 @@
 			});
 			
 		} // end if
+		
+		
+		if($('select[name=page_template]').length > 0) {
+		
+			$('select[name=page_template]').change(function() {
+			
+				if($(this).val() === 'template-sitemap.php') {
+					$('option[value="template-sitemap.php"]').attr('disabled', 'disabled');
+				} // end if
+				
+				if($('option:selected[value="template-sitemap.php"]').length === 0) {
+					$('option[value="template-sitemap.php"]').removeAttr('disabled');
+				} // end if
+				
+			});
+			
+			if($('option:selected[value="template-sitemap.php"]').length > 0) {
+				$('option[value="template-sitemap.php"]').attr('disabled', 'disabled');
+			} // end if
+			
+		} // end if
 	
 		/* --- /Sitemap Functionality --- */
 	
