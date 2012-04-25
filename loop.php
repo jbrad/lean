@@ -11,7 +11,7 @@
 
 	<div class="post-header clearfix">
 
-		<?php $page_options = get_option( 'standard_theme_page_options' ); ?>
+		<?php $page_options = get_option( 'standard_theme_general_options' ); ?>
 		<?php if ( '' != get_the_post_thumbnail() ) { ?>
 			<?php if( $page_options['display_featured_images'] == 'always' || ( $page_options['display_featured_images'] == 'single-post' && is_single() ) || ( $page_options['display_featured_images'] == 'index' && is_home() ) ) { ?>
 				<div class="thumbnail alignleft">
