@@ -453,7 +453,7 @@ function standard_setup_theme_general_options() {
 	
 	add_settings_field(
 		'display_breadcrumbs',
-		__( 'Display Breadcrumbs', 'standard' ),
+		__( 'Breadcrumbs', 'standard' ),
 		'display_breadcrumbs_display',
 		'standard_theme_general_options',
 		'general'
@@ -461,7 +461,7 @@ function standard_setup_theme_general_options() {
 
 	add_settings_field(
 		'display_author_box',
-		__( 'Display Author Box', 'standard' ),
+		__( 'Author Box', 'standard' ),
 		'display_author_box_display',
 		'standard_theme_general_options',
 		'general'
