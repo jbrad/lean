@@ -1103,7 +1103,13 @@ function custom_comment( $comment, $args, $depth ) {
 			<div class="comment-entry"	id="comment-<?php comment_ID(); ?>">
 			
 				<div class="comment-head">
-					<span class="name"><a href="<?php comment_author_url(); ?>" target="_blank"><?php comment_author(); ?></a></span>
+					<span class="name">
+						<?php if( '' == get_comment_author_url() ) { ?>
+							<?php comment_author(); ?>
+						<?php } else { ?>
+							<a href="<?php comment_author_url(); ?>" target="_blank"><?php comment_author(); ?></a>
+						<?php } // end if/else ?>
+					</span>
 					<?php if ( get_comment_type() == "comment" ) { ?>
 						<span class="date"><a href="<?php echo get_comment_link(); ?>" title="<?php esc_attr_e( 'Permalink', 'standard'); ?>"><?php printf( __( '%1$s at %2$s', '_s' ), get_comment_date( get_option( 'date_format' ) ), get_comment_time( get_option( 'time_format' ) ) ); ?></a></span>
 						<span class="edit"><?php edit_comment_link( __( 'Edit', 'standard' ), '', '' ); ?></span>
