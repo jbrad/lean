@@ -58,7 +58,6 @@
 			
 		} // end if
 		
-		
 		if($('select[name=page_template]').length > 0) {
 		
 			$('select[name=page_template]').change(function() {

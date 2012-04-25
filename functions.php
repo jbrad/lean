@@ -1714,6 +1714,30 @@ function standard_get_link_post_format_attribute( $attr ) {
 
 } // end standard_get_link_post_format_attribute
 
+/**
+ * Looks at the active widgets to determine whether or not the Google Custom Search widget is active.
+ *
+ * @returns	Whether or not the Google Custom Search is active
+ */
+function standard_google_custom_search_is_active() {
+	
+	$gcse_is_active = false;
+	foreach( ( $widgets = get_option( 'sidebars_widgets' ) ) as $key => $val ) { 
+
+		if( $key != 'wp_inactive_widgets' && is_array( $widgets[$key] ) ) {
+			foreach($widgets[$key] as $widget) {
+				if( strpos( $widget, '-custom-search' ) > 0 ) {
+					$gcse_is_active = true;
+				} // end if
+			} // end foreach
+		} // end if
+
+	} // end foreach 
+
+	return $gcse_is_active;
+
+} // end standard_google_custom_search_is_active
+
 
 /* ----------------------------------------------------------- *
  * 9. PressTrends Integration
