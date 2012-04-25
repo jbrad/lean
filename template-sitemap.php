@@ -49,8 +49,8 @@
 											<?php
 												wp_list_pages(
 													array(
-														'exclude' => '',
-														'title_li' => '',
+														'exclude'	=> get_the_ID(),
+														'title_li' 	=> '',
 													)
 												);
 											?>
