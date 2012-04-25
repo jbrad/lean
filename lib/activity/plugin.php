@@ -104,7 +104,7 @@ class Activity_Tabs extends WP_Widget {
     	$tag_count = strip_tags( stripslashes( $instance['tag_count'] ) );
    
 		// Display the admin form
-    	include( get_template_directory() . '/lib/activity/views/admin.php' );
+    	include_once( get_template_directory() . '/lib/activity/views/admin.php' );
 		
 	} // end form
 
