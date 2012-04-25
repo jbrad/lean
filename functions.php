@@ -698,7 +698,7 @@ function standard_detect_wordpress_seo() {
 		// All-in-One SEO
 		} elseif( class_exists( 'All_in_One_SEO_Pack' ) ) {
 		
-			echo '<div id="standard-hide-seo-message-notification" class="updated"><p>' . __( 'Standard has detected the activation of All-in-One SEO and is now running in enhanced SEO mode. <a id="standard-hide-seo-message" href="javascript;">Hide this message.</a>', 'standard') . '</p><span id="standard-hide-seo-message-nonce" class="hidden">' . wp_create_nonce( 'standard_hide_seo_message_nonce' ) . '</span></div>';
+			echo '<div id="standard-hide-seo-message-notification" class="updated"><p>' . __( 'Standard has detected the activation of All-In-One SEO and is now running in enhanced SEO mode. <a id="standard-hide-seo-message" href="javascript;">Hide this message.</a>', 'standard') . '</p><span id="standard-hide-seo-message-nonce" class="hidden">' . wp_create_nonce( 'standard_hide_seo_message_nonce' ) . '</span></div>';
 		
 		} // end if/else
 		
