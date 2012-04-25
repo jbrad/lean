@@ -1,0 +1,8 @@
+# generic files
+*~
+*.lock
+*.DS_Store
+
+# theme-specific files
+lib/gcse/*
+template-search-results.php
