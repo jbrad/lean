@@ -45,7 +45,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 img {
 	max-width: 100%;
-	height: auot;
+	height: auto;
 }
 
 .fl {
@@ -149,10 +149,14 @@ a img {
 	-webkit-transition: opacity .25s ease-in-out;
 }
 
-
 .fademe img:hover,
 a img:hover {
 	opacity: 0.5;
+}
+
+.form-allowed-tags code { 
+	float: left; 
+	margin: 8px 0 12px 0;
 }
 
 #wpstats {

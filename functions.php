@@ -654,6 +654,30 @@ function standard_theme_options_display() {
  * ----------------------------------------------------------- */
 
 /**
+ * Adds the 'Standard' menu to the admin bar on the non-admin pages.
+ */
+function standard_add_admin_bar_option() {
+	
+	if( ! is_admin() ) {
+	
+		global $wp_admin_bar;
+
+		$wp_admin_bar->add_menu(
+			array(
+				'parent'	=>	'site-name',
+				'id'		=>	'standard-options',
+				'title'		=>	__( 'Standard', 'standard' ),
+				'href'		=> admin_url( 'themes.php?page=theme_options' ),
+				'meta'		=> false
+			)
+		);
+		
+	} // end if
+	
+} // end standard_add_admin_bar_option
+//add_action( 'admin_bar_menu', 'standard_add_admin_bar_option' );
+
+/**
  * Detects whether or not Yoast's WordPress SEO plugin has been installed. If so, it will display a notice that informs users
  * it will enhance the SEO of their Standard installation.
  */

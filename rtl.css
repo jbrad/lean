@@ -54,6 +54,10 @@ input[type="submit"]:hover {
   background-position: 100% -15px;
 }
 
+.form-allowed-tags code { 
+	float: right; 
+}
+
 /* ------------------------------------------------------------------------ 2. Main Styles */
 
 #wrapper {

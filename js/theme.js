@@ -90,7 +90,6 @@
 
 			$('.form-allowed-tags').children('a')
 				.click(function(evt) {
-				
 					evt.preventDefault();
 					$(this).siblings('code')
 						.fadeToggle('fast');
