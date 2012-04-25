@@ -47,9 +47,7 @@
 
 
 	<div id="content-<?php the_ID(); ?>" class="entry-content clearfix">	
-		<div class="content clearfix">
-			<?php the_content( __( 'Continue Reading...', 'standard' ) ); ?>
-		</div>
+		<?php the_content( __( 'Continue Reading...', 'standard' ) ); ?>
 		<?php 
 			wp_link_pages( 
 				array( 

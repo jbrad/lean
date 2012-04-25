@@ -11,7 +11,7 @@
 <div id="post-<?php the_ID(); ?>" <?php post_class( 'post format-link clearfix' ); ?>>
 
 	<div class="post-header clearfix">
-			<div id="content-<?php the_ID(); ?>"  class="content clearfix">	
+			<div id="content-<?php the_ID(); ?>"  class="entry-content clearfix">	
 			
 				<?php
 

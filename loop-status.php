@@ -15,7 +15,7 @@
 				<div class="post-avatar span2">
 					<?php echo get_avatar( get_the_author_meta( 'ID' ), 80 ); ?>
 				</div><!-- /.post-avatar -->
-			<div class="content span10 clearfix">
+			<div class="entry-content span10 clearfix">
 				<?php the_content( __( 'Continue Reading...', 'standard' ) ); ?>
 			</div><!-- /.content -->
 		</div><!-- /row-fluid -->
