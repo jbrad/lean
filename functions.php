@@ -1248,8 +1248,15 @@ add_action( 'admin_print_styles', 'standard_add_admin_stylesheets' );
  */
 function standard_add_admin_scripts() {
 
+	// default admin scripts
 	wp_register_script( 'standard-admin', get_template_directory_uri() . '/js/admin.js' );
 	wp_enqueue_script( 'standard-admin' );	
+	
+	// disable sitemap script
+	if( get_option( 'standard_using_sitemap' ) ) {
+		wp_register_script( 'standard-admin-sitemap', get_template_directory_uri() . '/js/admin.template-sitemap.js' );
+		wp_enqueue_script( 'standard-admin-sitemap' );	
+	} // endif	
 
 } // end add_admin_scripts
 add_action( 'admin_enqueue_scripts', 'standard_add_admin_scripts' );
@@ -1578,6 +1585,26 @@ if( ! function_exists( 'standard_add_title_to_single_post_pagination' ) ) {
 	add_filter( 'next_post_link', 'standard_add_title_to_single_post_pagination' );
 	add_filter( 'previous_post_link', 'standard_add_title_to_single_post_pagination' );
 } // end if
+
+/**
+ * TODO
+ *
+ * @params	$post_id	The ID of the post being saved.
+ */
+function standard_save_post( ) {
+
+	// if we're save the page that's using the sitemap but the template is no longer used, delete the option
+	if( get_option( 'standard_using_sitemap' ) == $_POST['post_ID'] && strpos( $_POST['page_template'], 'template-sitemap.php' ) == false ) {
+		delete_option( 'standard_using_sitemap' );
+	} // end if
+	
+	// if we're not using the sitemap, but this post has it set, update the option with this post's id
+	if( ! get_option( 'standard_using_sitemap' ) && strpos( $_POST['page_template'], 'template-sitemap.php' ) > -1 ) {
+		update_option( 'standard_using_sitemap', $_POST['post_ID'] );
+	} // end if
+
+} // end standard_save_post
+add_action( 'save_post', 'standard_save_post' );
 
 /* ----------------------------------------------------------- *
  * 8. Helper Functions

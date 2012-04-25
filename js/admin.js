@@ -69,12 +69,12 @@ function togglePostBodyContent($) {
 	if($('#page_template').children(':selected').text().toLowerCase() === 'sitemap') {
 					
 		$('#post-body-content').children(':not(#titlediv)')
-			.hide();
+			.css('visibility', 'hidden');
 			
 	} else {
 	
 		$('#post-body-content').children(':not(#titlediv)')
-		.show();
+		.css('visibility', 'visible');
 		
 	} // end if/else
 
