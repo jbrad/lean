@@ -12,7 +12,7 @@
 <div id="wrapper">
 	<div class="container">
 		<div class="row">
-			<div id="main" class="spand12 clearfix" role="main">
+			<div id="main" class="span12 clearfix" role="main">
 				
 				<?php get_template_part( 'breadcrumbs' ); ?>
 			
@@ -24,9 +24,7 @@
 								<h1 class="post-title"><?php the_title(); ?></h1>	
 							</div> <!-- /.post-header -->						
 							<div id="content-<?php the_ID(); ?>" class="entry-content">
-								<div class="content clearfix">
-									<?php the_content(); ?>
-								</div><!-- /.content -->
+								<?php the_content(); ?>
 							</div><!-- /.entry-content -->
 						</div> <!-- /#post- -->
 					<?php } // end while ?>

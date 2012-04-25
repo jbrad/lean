@@ -31,7 +31,7 @@
 								<div id="content-<?php the_ID(); ?>" class="entry-content clearfix">
 									<div class="content">
 										<?php the_content(); ?>
-									</div><!-- /.content -->
+									</div><!-- /.entry-content -->
 								</div><!-- /.entry-content -->
 							</div> <!-- /#post- -->
 						<?php } // end while ?>

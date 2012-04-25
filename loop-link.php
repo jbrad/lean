@@ -51,7 +51,7 @@
 					</h2>
 				<?php } // end if ?>
 				
-			</div><!-- /.content -->
+			</div><!-- /.entry-content -->
 	</div> <!-- /.post-header -->
 			
 	<div class="post-meta">

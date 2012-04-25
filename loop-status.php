@@ -17,7 +17,7 @@
 				</div><!-- /.post-avatar -->
 			<div class="entry-content span10 clearfix">
 				<?php the_content( __( 'Continue Reading...', 'standard' ) ); ?>
-			</div><!-- /.content -->
+			</div><!-- /.entry-content -->
 		</div><!-- /row-fluid -->
 	</div> <!-- /.post-header -->
 					

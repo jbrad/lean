@@ -30,8 +30,7 @@
 									<h1 class="post-title"><?php the_title(); ?></h1>	
 								</div> <!-- /.post-header -->						
 								<div id="content-<?php the_ID(); ?>" class="entry-content clearfix">
-									<div class="content">
-										
+
 										<h2 id="authors"><?php _e( 'Authors', 'standard' ); ?></h2>
 				
 										<ul id="sitemap-authors">
@@ -89,8 +88,7 @@
 												echo $category_list;
 											?>
 										</ul>
-										
-									</div><!-- /.content -->
+
 								</div><!-- /.entry-content -->
 							</div> <!-- /#post- -->
 						<?php } // end while ?>

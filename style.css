@@ -430,7 +430,7 @@ html, body {
 	margin-bottom: 5px;
 }
 
-.post .content h1, .post .content h2, .post .content h3, .post .content h4, .post .content h5, .post .content h6 {
+.post .entry-content h1, .post .entry-content h2, .post .entry-content h3, .post .entry-content h4, .post .entry-content h5, .post .entry-content h6 {
 	line-height: 140%;
 	margin-bottom: 10px;
 }
@@ -769,7 +769,7 @@ a.post-permalink:hover {
 	text-decoration: none;
 }
 
-.post.format-status .post-header .content {
+.post.format-status .post-header .entry-content {
 	min-height: 60px;
 }
 
@@ -794,7 +794,7 @@ a.post-permalink:hover {
 	border-bottom: 0;
 }
 
-.post.format-quote .post-header .content {
+.post.format-quote .post-header .entry-content {
 	padding-left: 80px;
 	min-height: 60px;
 	background-image: url(images/icn-quote-dark.png);
@@ -802,7 +802,7 @@ a.post-permalink:hover {
 	
 }
 
-.post.format-quote .post-header .content p {
+.post.format-quote .post-header .entry-content p {
 	font-size: 24px;
 	line-height: 130%;
 	font-family: Georgia, times, serif;
@@ -843,7 +843,7 @@ a.post-permalink:hover {
 	border-bottom: 0;	
 }
 
-.post.format-link .post-header .content {
+.post.format-link .post-header .entry-content {
 	padding-left: 80px;
 	padding-bottom: 20px;
 	min-height: 60px;
@@ -1585,8 +1585,8 @@ ul#sitemap-posts ul {
 		line-height: 1.2;
 	}
 		
-	.content embed, .content iframe, .content object,
-	.content p embed, .content p iframe, .content p object {
+	.entry-content embed, .entry-content iframe, .entry-content object,
+	.entry-content p embed, .entry-content p iframe, .entry-content p object {
 		max-width: 100%;
 	}
 	
@@ -1607,7 +1607,7 @@ ul#sitemap-posts ul {
 		height: auto;
 	}
 	
-	.post.format-status .post-header .content, .fullwidth .post.format-status .post-header .content {
+	.post.format-status .post-header .entry-content, .fullwidth .post.format-status .post-header .entry-content {
 		min-height: 60px;
 	}
 	
