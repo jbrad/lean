@@ -687,9 +687,21 @@ function standard_detect_wordpress_seo() {
 	if( false == get_option( 'standard_theme_seo_notification_options' ) ) {	
 		add_option( 'standard_theme_seo_notification_options', false );
 	} // end if
+	
+	if( 'true' != get_option( 'standard_theme_seo_notification_options' ) ) {
+		
+		// WordPress SEO
+		if( defined( 'WPSEO_URL' ) ) {
 
-	if( 'true' != get_option( 'standard_theme_seo_notification_options' ) && ( defined( 'WPSEO_URL' )  || class_exists( 'All_in_One_SEO_Pack' ) ) ) {
-		echo '<div id="standard-hide-seo-message-notification" class="updated"><p>' . __( 'Standard has detected the activation of an SEO plugin and is now running in enhanced SEO mode. <a id="standard-hide-seo-message" href="javascript;">Hide this message.</a>', 'standard') . '</p><span id="standard-hide-seo-message-nonce" class="hidden">' . wp_create_nonce( 'standard_hide_seo_message_nonce' ) . '</span></div>';
+			echo '<div id="standard-hide-seo-message-notification" class="updated"><p>' . __( 'Standard has detected the activation of WordPress SEO and is now running in enhanced SEO mode. <a id="standard-hide-seo-message" href="javascript;">Hide this message.</a>', 'standard') . '</p><span id="standard-hide-seo-message-nonce" class="hidden">' . wp_create_nonce( 'standard_hide_seo_message_nonce' ) . '</span></div>';
+		
+		// All-in-One SEO
+		} elseif( class_exists( 'All_in_One_SEO_Pack' ) ) {
+		
+			echo '<div id="standard-hide-seo-message-notification" class="updated"><p>' . __( 'Standard has detected the activation of All-in-One SEO and is now running in enhanced SEO mode. <a id="standard-hide-seo-message" href="javascript;">Hide this message.</a>', 'standard') . '</p><span id="standard-hide-seo-message-nonce" class="hidden">' . wp_create_nonce( 'standard_hide_seo_message_nonce' ) . '</span></div>';
+		
+		} // end if/else
+		
 	} // end if
 
 	// Set the option to false if the plugin is deactivated
