@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Standard 3.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-04-25 12:52-0500\n"
-"PO-Revision-Date: 2012-04-25 12:52-0500\n"
+"POT-Creation-Date: 2012-04-25 13:40-0500\n"
+"PO-Revision-Date: 2012-04-25 13:40-0500\n"
 "Last-Translator: Tom McFarlin <tom@tommcfarlin.com>\n"
 "Language-Team: 8BIT <info@8bit.io>\n"
 "MIME-Version: 1.0\n"
@@ -295,14 +295,14 @@ msgstr ""
 #: ../loop-image.php:20
 #: ../loop-quote.php:15
 #: ../loop-status.php:19
-#: ../loop.php:51
+#: ../loop.php:50
 msgid "Continue Reading..."
 msgstr ""
 
 #: ../loop-image.php:24
 #: ../loop-quote.php:34
 #: ../loop-video.php:18
-#: ../loop.php:56
+#: ../loop.php:54
 msgid "Pages:"
 msgstr ""
 
@@ -316,8 +316,8 @@ msgstr ""
 #: ../loop-status.php:36
 #: ../loop-video.php:31
 #: ../loop-video.php:37
-#: ../loop.php:67
-#: ../loop.php:72
+#: ../loop.php:65
+#: ../loop.php:70
 msgid ", "
 msgstr ""
 
@@ -326,7 +326,7 @@ msgstr ""
 #: ../loop-quote.php:50
 #: ../loop-status.php:32
 #: ../loop-video.php:33
-#: ../loop.php:69
+#: ../loop.php:67
 #, php-format
 msgid "In %1$s"
 msgstr ""
@@ -336,7 +336,7 @@ msgstr ""
 #: ../loop-quote.php:56
 #: ../loop-status.php:38
 #: ../loop-video.php:39
-#: ../loop.php:74
+#: ../loop.php:72
 #, php-format
 msgid "%1$s"
 msgstr ""
@@ -347,7 +347,7 @@ msgstr ""
 #: ../loop-status.php:44
 #: ../loop-video.php:45
 #: ../loop.php:41
-#: ../loop.php:81
+#: ../loop.php:79
 msgid "Leave a comment"
 msgstr ""
 
@@ -357,7 +357,7 @@ msgstr ""
 #: ../loop-status.php:44
 #: ../loop-video.php:45
 #: ../loop.php:41
-#: ../loop.php:81
+#: ../loop.php:79
 msgid "1 Comment"
 msgstr ""
 
@@ -367,7 +367,7 @@ msgstr ""
 #: ../loop-status.php:44
 #: ../loop-video.php:45
 #: ../loop.php:41
-#: ../loop.php:81
+#: ../loop.php:79
 msgid "% Comments"
 msgstr ""
 
@@ -406,15 +406,15 @@ msgstr ""
 msgid "Author's Posts"
 msgstr ""
 
-#: ../template-sitemap.php:35
+#: ../template-sitemap.php:34
 msgid "Authors"
 msgstr ""
 
-#: ../template-sitemap.php:47
+#: ../template-sitemap.php:46
 msgid "Pages"
 msgstr ""
 
-#: ../template-sitemap.php:59
+#: ../template-sitemap.php:58
 msgid "Posts"
 msgstr ""
 
