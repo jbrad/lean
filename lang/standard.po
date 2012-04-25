@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Standard 3.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-04-20 11:53-0500\n"
-"PO-Revision-Date: 2012-04-20 11:53-0500\n"
+"POT-Creation-Date: 2012-04-25 12:52-0500\n"
+"PO-Revision-Date: 2012-04-25 12:52-0500\n"
 "Last-Translator: Tom McFarlin <tom@tommcfarlin.com>\n"
 "Language-Team: 8BIT <info@8bit.io>\n"
 "MIME-Version: 1.0\n"
@@ -75,16 +75,17 @@ msgid "%1$s by %2$s"
 msgstr ""
 
 #: ../functions.php:51
+#: ../functions.php:669
 msgid "Standard"
 msgstr ""
 
 #: ../functions.php:52
-#: ../functions.php:655
+#: ../functions.php:615
 msgid "Standard Options"
 msgstr ""
 
 #: ../functions.php:90
-#: ../functions.php:660
+#: ../functions.php:620
 msgid "Layout"
 msgstr ""
 
@@ -100,174 +101,178 @@ msgstr ""
 msgid "No Sidebar / Full Width"
 msgstr ""
 
-#: ../functions.php:142
+#: ../functions.php:141
 msgid "Select the layout that best fits your content."
 msgstr ""
 
-#: ../functions.php:255
-#: ../functions.php:661
+#: ../functions.php:254
+#: ../functions.php:621
 msgid "Social Options"
 msgstr ""
 
-#: ../functions.php:262
+#: ../functions.php:261
 msgid "Twitter"
 msgstr ""
 
-#: ../functions.php:274
+#: ../functions.php:273
 msgid "Facebook"
 msgstr ""
 
-#: ../functions.php:286
+#: ../functions.php:285
 msgid "Google+"
 msgstr ""
 
-#: ../functions.php:298
+#: ../functions.php:297
 msgid "Pinterest"
 msgstr ""
 
-#: ../functions.php:310
+#: ../functions.php:309
 msgid "Vimeo"
 msgstr ""
 
-#: ../functions.php:322
+#: ../functions.php:321
 msgid "YouTube"
 msgstr ""
 
-#: ../functions.php:334
+#: ../functions.php:333
 msgid "RSS"
 msgstr ""
 
-#: ../functions.php:357
+#: ../functions.php:356
 msgid "To display an icon in the header for each social network below, add the full URL to the associated profile."
 msgstr ""
 
-#: ../functions.php:440
-#: ../functions.php:662
-msgid "Page Options"
+#: ../functions.php:379
+msgid "By default, Standard uses the default WordPress RSS feed address."
 msgstr ""
 
-#: ../functions.php:447
-msgid "Display Breadcrumbs"
+#: ../functions.php:449
+#: ../functions.php:622
+msgid "General Options"
 msgstr ""
 
-#: ../functions.php:455
-msgid "Display Author Box"
+#: ../functions.php:456
+msgid "Breadcrumbs"
 msgstr ""
 
-#: ../functions.php:463
+#: ../functions.php:464
+msgid "Author Box"
+msgstr ""
+
+#: ../functions.php:472
 msgid "Display Featured Images"
 msgstr ""
 
-#: ../functions.php:482
-msgid "Configure specific option that influence how individual posts and pages appears."
-msgstr ""
-
-#: ../functions.php:495
-msgid "Displays above post and page content."
-msgstr ""
-
-#: ../functions.php:511
-msgid "Displays between post content and comments. Includes <a href=\"profile.php\">display name</a>, <a href=\"profile.php\">biographical info</a>, and <a href=\"?page=theme_options&tab=standard_theme_social_options\">social accounts</a>."
-msgstr ""
-
-#: ../functions.php:527
-msgid "Always"
-msgstr ""
-
-#: ../functions.php:528
-msgid "On index only"
-msgstr ""
-
-#: ../functions.php:529
-msgid "On single posts only"
-msgstr ""
-
-#: ../functions.php:530
-msgid "Never"
-msgstr ""
-
-#: ../functions.php:576
-msgid "Google Analytics"
-msgstr ""
-
-#: ../functions.php:583
+#: ../functions.php:480
 msgid "Google Analytics ID"
 msgstr ""
 
-#: ../functions.php:602
+#: ../functions.php:499
+msgid "Configure general options that influence how your blog renders content, tracks analytics, and more."
+msgstr ""
+
+#: ../functions.php:512
+msgid "Displays above post and page content."
+msgstr ""
+
+#: ../functions.php:528
+msgid "Displays between post content and comments. Includes <a href=\"profile.php\">display name</a>, <a href=\"profile.php\">biographical info</a>, and <a href=\"?page=theme_options&tab=standard_theme_social_options\">social accounts</a>."
+msgstr ""
+
+#: ../functions.php:544
+msgid "Always"
+msgstr ""
+
+#: ../functions.php:545
+msgid "Never"
+msgstr ""
+
+#: ../functions.php:546
+msgid "On index only"
+msgstr ""
+
+#: ../functions.php:547
+msgid "On single posts only"
+msgstr ""
+
+#: ../functions.php:558
 msgid "Enter your Google Analytics ID here."
 msgstr ""
 
-#: ../functions.php:618
+#: ../functions.php:574
 msgid "Enter the ID only (i.e., UA-000000)."
 msgstr ""
 
-#: ../functions.php:708
-msgid "Standard has detected the Yoast SEO plugin and is now running in enhanced SEO mode. <a id=\"standard-hide-seo-message\" href=\"javascript;\">Hide this message.</a>"
+#: ../functions.php:696
+msgid "Standard has detected the activation of WordPress SEO and is now running in enhanced SEO mode. <a id=\"standard-hide-seo-message\" href=\"javascript;\">Hide this message.</a>"
 msgstr ""
 
-#: ../functions.php:801
+#: ../functions.php:701
+msgid "Standard has detected the activation of All-In-One SEO and is now running in enhanced SEO mode. <a id=\"standard-hide-seo-message\" href=\"javascript;\">Hide this message.</a>"
+msgstr ""
+
+#: ../functions.php:796
 msgid "Menu Above Logo"
 msgstr ""
 
-#: ../functions.php:802
+#: ../functions.php:797
 msgid "Menu Below Logo"
 msgstr ""
 
-#: ../functions.php:803
+#: ../functions.php:798
 msgid "Footer Menu"
 msgstr ""
 
-#: ../functions.php:820
+#: ../functions.php:815
 msgid "Sidebar"
 msgstr ""
 
-#: ../functions.php:822
+#: ../functions.php:817
 msgid "The primary sidebar."
 msgstr ""
 
-#: ../functions.php:833
+#: ../functions.php:828
 msgid "Footer Left"
 msgstr ""
 
-#: ../functions.php:835
+#: ../functions.php:830
 msgid "Shown in the first column of the footer."
 msgstr ""
 
-#: ../functions.php:846
+#: ../functions.php:841
 msgid "Footer Center"
 msgstr ""
 
-#: ../functions.php:848
+#: ../functions.php:843
 msgid "Shown in the second column of the footer."
 msgstr ""
 
-#: ../functions.php:859
+#: ../functions.php:854
 msgid "Footer Right"
 msgstr ""
 
-#: ../functions.php:861
+#: ../functions.php:856
 msgid "Shown in the third column of the footer."
 msgstr ""
 
-#: ../functions.php:1121
+#: ../functions.php:1126
 #, php-format
 msgid "%1$s at %2$s"
 msgstr ""
 
-#: ../functions.php:1122
+#: ../functions.php:1127
 msgid "Edit"
 msgstr ""
 
-#: ../functions.php:1128
+#: ../functions.php:1133
 msgid "Your comment will appear after being approved."
 msgstr ""
 
-#: ../functions.php:1144
+#: ../functions.php:1149
 msgid "Reply"
 msgstr ""
 
-#: ../functions.php:1462
+#: ../functions.php:1474
 msgid "Search..."
 msgstr ""
 
@@ -413,39 +418,39 @@ msgstr ""
 msgid "Posts"
 msgstr ""
 
-#: ../lib/activity/widget.php:20
+#: ../lib/activity/plugin.php:20
 msgid "Activity Tabs"
 msgstr ""
 
-#: ../lib/activity/widget.php:21
+#: ../lib/activity/plugin.php:21
 msgid "Display your most recent posts, comments, popular posts, and tags."
 msgstr ""
 
-#: ../lib/activity/widget.php:23
+#: ../lib/activity/plugin.php:23
 msgid "Activity Tabs (Standard)"
 msgstr ""
 
-#: ../lib/activity/widget.php:143
+#: ../lib/activity/plugin.php:143
 msgid "Recent"
 msgstr ""
 
-#: ../lib/activity/widget.php:147
+#: ../lib/activity/plugin.php:147
 msgid "Popular"
 msgstr ""
 
-#: ../lib/activity/widget.php:151
+#: ../lib/activity/plugin.php:151
 msgid "Comments"
 msgstr ""
 
-#: ../lib/activity/widget.php:155
+#: ../lib/activity/plugin.php:155
 msgid "Tags"
 msgstr ""
 
-#: ../lib/activity/widget.php:303
+#: ../lib/activity/plugin.php:303
 msgid " comments since "
 msgstr ""
 
-#: ../lib/activity/widget.php:323
+#: ../lib/activity/plugin.php:323
 msgid "You have no popular posts."
 msgstr ""
 
@@ -487,8 +492,28 @@ msgstr ""
 msgid "Home"
 msgstr ""
 
-#: ../lib/breadcrumbs/standard_breadcrumbs.php:260
+#: ../lib/breadcrumbs/standard_breadcrumbs.php:257
 msgid "[ No search query. ]"
+msgstr ""
+
+#: ../lib/gcse/plugin.php:18
+msgid "Google Custom Search"
+msgstr ""
+
+#: ../lib/gcse/plugin.php:19
+msgid "Easily include a Google custom search in any widgetized area."
+msgstr ""
+
+#: ../lib/gcse/plugin.php:21
+msgid "Google Custom Search (Standard)"
+msgstr ""
+
+#: ../lib/gcse/views/admin.php:4
+msgid "Title (Optional):"
+msgstr ""
+
+#: ../lib/gcse/views/admin.php:11
+msgid "Paste the code provided by Google for your search box:"
 msgstr ""
 
 #: ../lib/seotitles/standard_seotitles.php:46
