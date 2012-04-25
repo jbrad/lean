@@ -374,6 +374,11 @@ function standard_social_option_display( $args ) {
 	$html = '<input type="text" id="' . $args['option_name'] . '" name="standard_theme_social_options[' . $args['option_name'] . ']" value="' . esc_attr( $url ) . '" />';
 	$html .= '<img src="' . esc_url( $args['option_image_path'] ) . '" alt="' . esc_attr( ucwords( $args['option_name'] ) ) . '" class="social_option" />';
 	
+	// Add a description if we're dealing with the RSS feed.
+	if( $args['option_name'] == 'rss' ) {
+		$html .= '&nbsp;<span class="description">' . __( 'By default, Standard uses the default WordPress RSS feed address.', 'standard' ). '</span>';
+	} // end if
+	
 	echo $html;
 	
 } // end standard_social_option_display
@@ -396,6 +401,11 @@ function standard_theme_social_options_validate( $input ) {
 		if( isset ( $input[$key] ) ) {
 			$output[$key] = esc_url_raw( strip_tags( stripslashes( $input[$key] ) ) );
 		} // end if	
+		
+		// If the feed isn't provided, then we'll default to WordPress' feed.
+		if( $key == 'rss' && strlen( trim( $output[$key] ) )  == '' ) {
+			$output[$key] = get_bloginfo( 'rss2_url' );
+		} // end if
 	
 	} // end foreach
 	
