@@ -586,7 +586,7 @@ function google_analytics_display() {
  */
 function standard_theme_general_options_validate( $input ) {
 
-	$output = $defaults = get_standard_theme_default_general_options();
+	$output = $defaults = array();
 
 	foreach( $input as $key => $val ) {
 	
@@ -892,7 +892,7 @@ if( ! function_exists( 'standard_add_theme_features' ) ) {
 		} // end if
 	
 		if( ! in_array( get_template_directory() . '/lib/gcse/widget.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {
-			include_once( get_template_directory() . '/lib/gcse/plugin.php' );
+			//include_once( get_template_directory() . '/lib/gcse/plugin.php' );
 		} // end if
 	
 	} // end add_theme_features
