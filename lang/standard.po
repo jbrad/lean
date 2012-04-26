@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Standard 3.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-04-25 23:47-0500\n"
-"PO-Revision-Date: 2012-04-25 23:47-0500\n"
+"POT-Creation-Date: 2012-04-26 09:36-0500\n"
+"PO-Revision-Date: 2012-04-26 09:36-0500\n"
 "Last-Translator: Tom McFarlin <tom@tommcfarlin.com>\n"
 "Language-Team: 8BIT <info@8bit.io>\n"
 "MIME-Version: 1.0\n"
@@ -204,11 +204,11 @@ msgid "Enter the ID only (i.e., UA-000000)."
 msgstr ""
 
 #: ../functions.php:696
-msgid "Standard has detected the activation of WordPress SEO and is now running in enhanced SEO mode. <a id=\"standard-hide-seo-message\" href=\"javascript;\">Hide this message.</a>"
+msgid "Standard has detected the activation of WordPress SEO and is now running in manual SEO mode. <a id=\"standard-hide-seo-message\" href=\"javascript;\">Hide this message.</a>"
 msgstr ""
 
 #: ../functions.php:701
-msgid "Standard has detected the activation of All-In-One SEO and is now running in enhanced SEO mode. <a id=\"standard-hide-seo-message\" href=\"javascript;\">Hide this message.</a>"
+msgid "Standard has detected the activation of All-In-One SEO and is now running in manual SEO mode. <a id=\"standard-hide-seo-message\" href=\"javascript;\">Hide this message.</a>"
 msgstr ""
 
 #: ../functions.php:796
@@ -272,7 +272,7 @@ msgstr ""
 msgid "Reply"
 msgstr ""
 
-#: ../functions.php:1470
+#: ../functions.php:1469
 msgid "Search..."
 msgstr ""
 
@@ -402,7 +402,7 @@ msgstr ""
 msgid "Website"
 msgstr ""
 
-#: ../single.php:56
+#: ../single.php:43
 msgid "Author's Posts"
 msgstr ""
 
