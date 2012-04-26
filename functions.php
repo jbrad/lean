@@ -525,7 +525,7 @@ function display_author_box_display( $args ) {
 	$options = get_option( 'standard_theme_general_options' );
 
 	$html = '<input type="checkbox" id="display_author_box" name="standard_theme_general_options[display_author_box]" value="on" ' . checked( 'on', $options['display_author_box'], false ) . ' />';
-	$html .= '&nbsp;<span>' . __( 'Displays between post content and comments. Includes <a href="profile.php">display name</a>, <a href="profile.php">biographical info</a>, and <a href="?page=theme_options&tab=standard_theme_social_options">social accounts</a>.', 'standard' ) . '</span>';
+	$html .= '&nbsp;<span>' . __( 'Displays between post content and comments. Includes <a href="profile.php">display name</a>, <a href="profile.php">website</a>, and <a href="profile.php">biographical info</a>.', 'standard' ) . '</span>';
 	
 	echo $html;
 	
@@ -615,30 +615,30 @@ function standard_theme_options_display() {
 		<h2><?php _e( 'Standard Options', 'standard' ); ?></h2>
 		<?php settings_errors(); ?>
 		
-		<?php $active_tab = isset( $_GET['tab'] ) ? $_GET['tab'] : 'standard_theme_layout_options'; ?>
+		<?php $active_tab = isset( $_GET['tab'] ) ? $_GET['tab'] : 'standard_theme_general_options'; ?>
 		<h2 class="nav-tab-wrapper">
+			<a class="nav-tab <?php echo $active_tab == 'standard_theme_general_options' ? 'nav-tab-active' : ''; ?>" href="?page=theme_options&amp;tab=standard_theme_general_options"><?php _e( 'General Options', 'standard' ); ?></a>
 			<a class="nav-tab <?php echo $active_tab == 'standard_theme_layout_options' ? 'nav-tab-active' : ''; ?>" href="?page=theme_options&amp;tab=standard_theme_layout_options"><?php _e( 'Layout', 'standard' ); ?></a>
 			<a class="nav-tab <?php echo $active_tab == 'standard_theme_social_options' ? 'nav-tab-active' : ''; ?>" href="?page=theme_options&amp;tab=standard_theme_social_options"><?php _e( 'Social Options', 'standard' ); ?></a>
-			<a class="nav-tab <?php echo $active_tab == 'standard_theme_general_options' ? 'nav-tab-active' : ''; ?>" href="?page=theme_options&amp;tab=standard_theme_general_options"><?php _e( 'General Options', 'standard' ); ?></a>
 		</h2>
 
 		<form method="post" action="options.php">
 			<?php
 
-				if( 'standard_theme_layout_options' == $active_tab ) {
-				
-					settings_fields( 'standard_theme_layout_options' );
-					do_settings_sections( 'standard_theme_layout_options' );
-				
-				} else if( 'standard_theme_social_options' == $active_tab ) {
-				
-					settings_fields( 'standard_theme_social_options' );
-					do_settings_sections( 'standard_theme_social_options' );
-					
-				} else {
+				if( 'standard_theme_general_options' == $active_tab ) {
 				
 					settings_fields( 'standard_theme_general_options' );
 					do_settings_sections( 'standard_theme_general_options' );
+					
+				} else if( 'standard_theme_layout_options' == $active_tab ) {
+				
+					settings_fields( 'standard_theme_layout_options' );
+					do_settings_sections( 'standard_theme_layout_options' );
+					
+				} else {
+				
+					settings_fields( 'standard_theme_social_options' );
+					do_settings_sections( 'standard_theme_social_options' );
 				
 				} // end if/else
 				
