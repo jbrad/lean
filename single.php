@@ -40,20 +40,7 @@
 									<?php if( strlen( trim( get_the_author_meta( 'user_url' ) ) ) > 0 ) { ?>
 										<small class="author-box-url"> <a href="<?php the_author_meta( 'user_url' ); ?>" target="_blank" rel="author"><?php _e( 'Website', 'standard' ); ?></a></small></h4>
 									<?php } // end if ?>
-									
-									<?php if( strlen( trim ( $social_options['twitter'] ) ) > 0 ) { ?>
-										<small class="author-box-url"> <a href="<?php echo $social_options['twitter']; ?>" target="_blank" rel="author"><?php _e( 'Twitter', 'standard' ); ?></a></small></h4>
-									<?php } // end if ?>
-									
-									<?php if( strlen( trim ( $social_options['facebook'] ) ) > 0 ) { ?>
-										<small class="author-box-url"> <a href="<?php echo $social_options['facebook']; ?>" target="_blank" rel="author"><?php _e( 'Facebook', 'standard' ); ?></a></small></h4>
-									<?php } // end if ?>
-									
-									<?php if( strlen( trim ( $social_options['google_plus'] ) ) > 0 ) { ?>
-										<small class="author-box-url"> <a href="<?php echo $social_options['google_plus']; ?>" target="_blank" rel="author"><?php _e( 'Google+', 'standard' ); ?></a></small></h4>
-									<?php } // end if ?>
-									
-									<small class="author-box-url"> <a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>" rel="author"><?php _e( 'Author\'s Posts', 'standard' ); ?></a></small></h4>
+									<small class="author-box-url"><a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>" rel="author"><?php _e( 'Author\'s Posts', 'standard' ); ?></a></small></h4>
 									</p>
 									<?php if( strlen( trim( the_author_meta( 'description' ) ) > 0 ) ) { ?>
 										<div class="author-box-description">
