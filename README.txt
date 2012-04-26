@@ -1,8 +1,8 @@
 === Standard ===
 Theme URI: http://standardtheme.com
-Version: Q2 2012
+Version: Preview 3
 Author: 8BIT
-Author URI: http://8bit.io
+Author URI: http://8BIT.io
 Tags: blog, design, lifestream, productivity, professional, clean, minimal, modern, simple, sophisticated, black, blue, gray, light, white, one-column, two-columns, left-sidebar, right-sidebar, fixed-width, flexible-width, responsive-width, custom-background, custom-header, custom-menu, editor-style, featured-images, full-width-template, post-formats, rtl-language-support, sticky-post, theme-options, translation-ready
 Requires at least: 3.0
 Tested up to: 3.3
