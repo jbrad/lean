@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Standard 3.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-04-25 13:40-0500\n"
-"PO-Revision-Date: 2012-04-25 13:40-0500\n"
+"POT-Creation-Date: 2012-04-25 23:47-0500\n"
+"PO-Revision-Date: 2012-04-25 23:47-0500\n"
 "Last-Translator: Tom McFarlin <tom@tommcfarlin.com>\n"
 "Language-Team: 8BIT <info@8bit.io>\n"
 "MIME-Version: 1.0\n"
@@ -255,24 +255,24 @@ msgstr ""
 msgid "Shown in the third column of the footer."
 msgstr ""
 
-#: ../functions.php:1126
+#: ../functions.php:1122
 #, php-format
 msgid "%1$s at %2$s"
 msgstr ""
 
-#: ../functions.php:1127
+#: ../functions.php:1123
 msgid "Edit"
 msgstr ""
 
-#: ../functions.php:1133
+#: ../functions.php:1129
 msgid "Your comment will appear after being approved."
 msgstr ""
 
-#: ../functions.php:1149
+#: ../functions.php:1145
 msgid "Reply"
 msgstr ""
 
-#: ../functions.php:1474
+#: ../functions.php:1470
 msgid "Search..."
 msgstr ""
 
@@ -494,26 +494,6 @@ msgstr ""
 
 #: ../lib/breadcrumbs/standard_breadcrumbs.php:257
 msgid "[ No search query. ]"
-msgstr ""
-
-#: ../lib/gcse/plugin.php:18
-msgid "Google Custom Search"
-msgstr ""
-
-#: ../lib/gcse/plugin.php:19
-msgid "Easily include a Google custom search in any widgetized area."
-msgstr ""
-
-#: ../lib/gcse/plugin.php:21
-msgid "Google Custom Search (Standard)"
-msgstr ""
-
-#: ../lib/gcse/views/admin.php:4
-msgid "Title (Optional):"
-msgstr ""
-
-#: ../lib/gcse/views/admin.php:11
-msgid "Paste the code provided by Google for your search box:"
 msgstr ""
 
 #: ../lib/seotitles/standard_seotitles.php:46

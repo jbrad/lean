@@ -891,10 +891,6 @@ if( ! function_exists( 'standard_add_theme_features' ) ) {
 			include_once( get_template_directory() . '/lib/activity/plugin.php' );
 		} // end if
 	
-		if( ! in_array( get_template_directory() . '/lib/gcse/widget.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {
-			//include_once( get_template_directory() . '/lib/gcse/plugin.php' );
-		} // end if
-	
 	} // end add_theme_features
 	add_action( 'after_setup_theme', 'standard_add_theme_features' );
 } // end if
