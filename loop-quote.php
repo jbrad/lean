@@ -11,7 +11,7 @@
 <div id="post-<?php the_ID(); ?>" <?php post_class( 'post format-quote clearfix' ); ?>>
 		
 	<div class="post-header clearfix">
-			<div class="content clearfix">
+			<div class="entry-content clearfix">
 				<?php the_content( __( 'Continue Reading...', 'standard' ) ); ?>
 			</div>
 	</div> <!-- /.post-header -->
