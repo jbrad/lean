@@ -1755,7 +1755,7 @@ function standard_google_custom_search_is_active() {
 function presstrends() {
 
 	// PressTrends Account API Key
-	$api_key = 'ef3qajyvq4zyuyyet9ka49ddhebrioiwaxn9';
+	$api_key = '9fh4lc4ki76p5z3evxxhumir728x4f8mfph5';
 	
 	// Start of Metrics
 	global $wpdb;
