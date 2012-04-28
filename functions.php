@@ -1794,6 +1794,34 @@ function standard_google_custom_search_is_active() {
 
 } // end standard_google_custom_search_is_active
 
+/**
+ * Builds and renders the custom comment form template.
+ */
+function standard_comment_form() {
+
+	// Gotta read the layout options so we apply the proper ID to our element wrapper
+	$layout_options = get_option( 'standard_theme_layout_options' );
+	$layout = 'full_width_layout' == $layout_options['layout'] ? '-full' : '';
+	
+	// The field elements with wrappers so we can access them via CSS and JavaScript
+	$fields =  array(
+		'author' 	=> '<div id="comment-form-elements' . $layout . '"><p class="comment-form-author">' . '<label for="author">' . __( 'Name', 'domainreference' ) . '</label> ' . ( $req ? '<span class="required">*</span>' : '' ) . '<input id="author" name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) . '" size="30"' . $aria_req . ' /></p>',
+		'email'  	=> '<p class="comment-form-email"><label for="email">' . __( 'Email', 'domainreference' ) . '</label> ' . ( $req ? '<span class="required">*</span>' : '' ) . '<input id="email" name="email" type="text" value="' . esc_attr(  $commenter['comment_author_email'] ) . '" size="30"' . $aria_req . ' /></p>',
+		'url'		=> '<p class="comment-form-url"><label for="url">' . __( 'Website', 'domainreference' ) . '</label>' .
+		            '<input id="url" name="url" type="text" value="' . esc_attr( $commenter['comment_author_url'] ) . '" size="30" /></p></div><!-- /#comment-form-elements --></div><!-- /#comment-form-wrapper -->',
+	);
+	
+	// Now actually render the form
+	comment_form(
+		array( 
+			'comment_notes_before'	=>	'<div id="comment-form-wrapper"><p id="comment-form-avatar">' . get_avatar( '', $size = '105' )  . '</p>',
+			'fields'				=>	apply_filters( 'comment_form_default_fields', $fields ),
+			'comment_notes_after' 	=> '<p class="form-allowed-tags">' . sprintf( __( 'Text formatting is available via select <a href="javascript:;">HTML</a>. %s', 'standard' ), ' <code>' . allowed_tags() . '</code>' ) . '</p>' 
+		)
+	);
+
+} // end standard_comment_form
+
 
 /* ----------------------------------------------------------- *
  * 9. PressTrends Integration

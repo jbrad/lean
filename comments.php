@@ -36,13 +36,7 @@
 				</div>
 			</div>
 			
-			<?php 
-				comment_form(
-					array( 
-						'comment_notes_after' => '<p class="form-allowed-tags">' . sprintf( __( 'Text formatting is available via select <a href="javascript:;">HTML</a>. %s', 'standard' ), ' <code>' . allowed_tags() . '</code>' ) . '</p>' 
-					)
-				); 
-			?>
+			<?php standard_comment_form(); ?>
 			
 		</div><!-- /#comments -->
 	<?php } // end if ?>
@@ -64,13 +58,7 @@
 		<div id="no-comments" class="clearfix">
 			<p class="title"><?php _e( 'No Comments', 'standard' ); ?></p>
 			<p><?php _e( 'Be the first to start the conversation.', 'standard' ); ?></p>
-			<?php 
-				comment_form(
-					array( 
-						'comment_notes_after' => '<p class="form-allowed-tags">' . sprintf( __( 'Text formatting is available via select <a href="javascript:;">HTML</a>. %s', 'standard' ), ' <code>' . allowed_tags() . '</code>' ) . '</p>' 
-					)
-				); 
-			?>
+			<?php standard_comment_form(); ?>
 		</div><!-- /#no-comments -->
 	<?php } // end if ?>
 	

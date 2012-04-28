@@ -1023,6 +1023,28 @@ a.post-permalink:hover {
 	font-size: 11px;
 }
 
+#commentform #comment-form-wrapper {
+	float: left;
+	width: 100%;
+}
+
+#commentform #comment-form-avatar {
+	float: left;
+}
+
+#commentform #comment-form-wrapper #comment-form-elements,
+#commentform #comment-form-wrapper #comment-form-elements-full {
+	float: right;
+}
+
+#commentform #comment-form-wrapper #comment-form-elements {
+	width: 80%;
+}
+
+#commentform #comment-form-wrapper #comment-form-elements-full {
+	width: 85%;
+}
+
 #commentform .form-allowed-tags {
 	cursor: pointer;
 }
