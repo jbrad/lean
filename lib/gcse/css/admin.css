@@ -1,0 +1,11 @@
+.google-custom-search .option label {
+	display: block;
+}
+
+.google-custom-search .option input {
+	width: 100%;
+}
+
+.google-custom-search .option textarea {
+	font-family: Monospace, Courier New, Courier, Arial, Sans-serif;
+}

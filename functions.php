@@ -887,10 +887,14 @@ if( ! function_exists( 'standard_add_theme_features' ) ) {
 		// post thumbnail support
 		add_theme_support( 'post-thumbnails' );
 	
-		if( ! in_array( get_template_directory() . '/lib/activity/standard_popularity.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {
+		if( ! in_array( get_template_directory() . '/lib/activity/plugin.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {
 			include_once( get_template_directory() . '/lib/activity/plugin.php' );
 		} // end if
-	
+
+		if( ! in_array( get_template_directory() . '/lib/gcse/plugin.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {
+			include_once( get_template_directory() . '/lib/gcse/plugin.php' );
+		} // end if	
+
 	} // end add_theme_features
 	add_action( 'after_setup_theme', 'standard_add_theme_features' );
 } // end if
