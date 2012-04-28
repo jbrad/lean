@@ -1233,8 +1233,16 @@ add_action( 'wp_enqueue_scripts', 'standard_add_theme_scripts' );
  */
 function standard_add_admin_stylesheets() {
 
+	$screen = get_current_screen();
+
+	// TODO are we still using this?
 	wp_register_style( 'standard-admin', get_template_directory_uri() . '/css/admin.css' );
 	wp_enqueue_style( 'standard-admin' );
+	
+	if( 'appearance_page_custom-header' == $screen->id ) {
+		wp_register_style( 'standard-admin-header', get_template_directory_uri() . '/css/admin.header.css' );
+		wp_enqueue_style( 'standard-admin-header' );	
+	} // end if
 
 } // end add_admin_stylesheets
 add_action( 'admin_print_styles', 'standard_add_admin_stylesheets' );
@@ -1244,14 +1252,19 @@ add_action( 'admin_print_styles', 'standard_add_admin_stylesheets' );
  */
 function standard_add_admin_scripts() {
 
-	// default admin scripts
-	wp_register_script( 'standard-admin', get_template_directory_uri() . '/js/admin.js' );
-	wp_enqueue_script( 'standard-admin' );	
+	$screen = get_current_screen();
+
+	// admin header script	
+	if( 'appearance_page_custom-header' == $screen->id ) {
+		wp_register_script( 'standard-admin-header', get_template_directory_uri() . '/js/admin.header.js' );
+		wp_enqueue_script( 'standard-admin-header' );	
+	} // end if
 
 	// sitemap management script. 
-	// we aren't conditionally adding this because we need some of the functionality to be used before a user has set a sitemap.
-	wp_register_script( 'standard-admin-sitemap', get_template_directory_uri() . '/js/admin.template-sitemap.js?using_sitemap=' . get_option( 'standard_using_sitemap' ) );
-	wp_enqueue_script( 'standard-admin-sitemap' );	
+	if( 'post'  == $screen->id || 'edit-page' == $screen->id ) {
+		wp_register_script( 'standard-admin-sitemap', get_template_directory_uri() . '/js/admin.template-sitemap.js?using_sitemap=' . get_option( 'standard_using_sitemap' ) );
+		wp_enqueue_script( 'standard-admin-sitemap' );	
+	} // end if
 
 } // end add_admin_scripts
 add_action( 'admin_enqueue_scripts', 'standard_add_admin_scripts' );
