@@ -483,6 +483,14 @@ function standard_setup_theme_general_options() {
 		'general'
 	);
 	
+	add_settings_field(
+		'affiliate_code',
+		__( 'Affiliate Code', 'standard' ),
+		'affiliate_code_display',
+		'standard_theme_general_options',
+		'general'
+	);
+	
 	register_setting(
 		'standard_theme_general_options',
 		'standard_theme_general_options',
@@ -578,6 +586,25 @@ function google_analytics_display() {
 } // end google_analytics_display
 
 /**
+ * Renders the option element for the Affiliate Code
+ */
+function affiliate_code_display() {
+
+	$option = get_option( 'standard_theme_general_options' );
+	
+	$affiliate_code = '';
+	if( true == isset ( $option['affiliate_code'] ) ) {
+		$affiliate_code = $option['affiliate_code'];
+	} // end if
+	
+	$html = '<input type="text" id="affiliate_code" name="standard_theme_general_options[affiliate_code]" value="' . $affiliate_code . '" />';
+	$html .= '&nbsp;<span class="description">' . __( 'Enter your affiliate code here.', 'standard' ) . '</span>';
+	
+	echo $html;
+
+} // end affiliate_code_display
+
+/**
  * Sanitization callback for the general options.
  *	
  * @params	$input	The unsanitized collection of options.
@@ -593,6 +620,10 @@ function standard_theme_general_options_validate( $input ) {
 		if( isset ( $input[$key] ) ) {
 			$output[$key] = strip_tags( stripslashes( $input[$key] ) );
 		} // end if	
+		
+		if( 'affiliate_code' == $key ) {
+			$output[$key] = esc_url ( strip_tags( stripslashes( $input[$key] ) ) );
+		} // end if
 	
 	} // end foreach
 
