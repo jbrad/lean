@@ -39,10 +39,9 @@
 								); 	
 							} // end if 
 						?>
-					</div><!-- /#footer-links -->
-					
+					</div><!-- /#footer-links -->					
 					<div id="credit" class="<?php echo has_nav_menu( 'footer_menu' ) ? 'span5' : 'span12'; ?>">
-						<?php printf( __( '%1$s by %2$s', 'standard' ), '<a href="http://standardtheme.com">Standard</a>', '<a href="http://8bit.io/">8BIT</a>' ); ?>
+						<?php printf( __( '&copy; %1$s. %2$s. %3$s.', 'standard' ), date( 'Y' ), '<a href="' . get_bloginfo( 'wpurl' ) . '">' . get_bloginfo( 'name' ) . '</a>', '<a href="http://standardtheme.com/">Standard</a>.' ); ?>
 					</div><!-- /#credits -->
 
 				</div><!-- /row -->
