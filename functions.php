@@ -1744,15 +1744,15 @@ function standard_google_custom_search_is_active() {
 	
 	$gcse_is_active = false;
 	foreach( ( $widgets = get_option( 'sidebars_widgets' ) ) as $key => $val ) { 
-
-		if( $key != 'wp_inactive_widgets' && is_array( $widgets[$key] ) ) {
+		if( is_array( $widgets[$key] ) ) {
 			foreach($widgets[$key] as $widget) {
-				if( strpos( $widget, '-custom-search' ) > 0 ) {
-					$gcse_is_active = true;
+				if( $key != 'wp_inactive_widgets' ) {
+					if( strpos( $widget, '-custom-search' ) > 0 ) {
+						$gcse_is_active = true;
+					} // end if
 				} // end if
 			} // end foreach
 		} // end if
-
 	} // end foreach 
 
 	return $gcse_is_active;
