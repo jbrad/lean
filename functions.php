@@ -8,10 +8,10 @@ include_once( get_template_directory() . '/lib/Standard_Nav_Walker.class.php' );
 	1. Localization
 	2. Theme Settings
 		- Menu Page
+		- General Options
 		- Layout Options
 		- Social Options
 		- Page Options
-		- General Options
 		- Options Page
 	3. Features
 	4. Custom Header

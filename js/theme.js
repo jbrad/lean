@@ -4,7 +4,7 @@
 
 (function($) {
 	$(function() {
-		// TODO refactor this
+
 		// If the header image is present, we also need to fade the text.
 		if($('#header-image').length > 0) { 
 			$('#logo').hover(function() {
@@ -91,6 +91,9 @@
 	});
 })(jQuery);
 
+/**
+ * In mobile view with the left-sidebar layout, repositions the sidebar below the content.
+ */
 function moveSidebarInLeftSidebarLayout($) {
 
 	if($('#wrapper').width() < 768) {
