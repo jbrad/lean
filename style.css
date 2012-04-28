@@ -1038,11 +1038,16 @@ a.post-permalink:hover {
 }
 
 #commentform #comment-form-wrapper #comment-form-elements {
-	width: 80%;
+	width: 88%;
 }
 
 #commentform #comment-form-wrapper #comment-form-elements-full {
-	width: 85%;
+	width: 92%;
+}
+
+#comment-form-avatar {
+	padding: 2px;
+	border: 1px solid #eee;
 }
 
 #commentform .form-allowed-tags {

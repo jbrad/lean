@@ -1256,6 +1256,9 @@ function standard_add_theme_scripts() {
 	
 		wp_enqueue_script( 'comment-reply' );
 		
+		wp_register_script( 'md5', get_template_directory_uri() . '/js/lib/md5.js' );
+		wp_enqueue_script( 'md5' );
+		
 		wp_register_script( 'theme-comments', get_template_directory_uri() . '/js/theme.comments.js' );
 		wp_enqueue_script( 'theme-comments' );
 		
@@ -1817,16 +1820,16 @@ function standard_comment_form() {
 	$fields =  array(
 		'author' 	=> '<div id="comment-form-elements' . $layout . '"><p class="comment-form-author">' . '<label for="author">' . __( 'Name', 'domainreference' ) . '</label> ' . ( $req ? '<span class="required">*</span>' : '' ) . '<input id="author" name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) . '" size="30"' . $aria_req . ' /></p>',
 		'email'  	=> '<p class="comment-form-email"><label for="email">' . __( 'Email', 'domainreference' ) . '</label> ' . ( $req ? '<span class="required">*</span>' : '' ) . '<input id="email" name="email" type="text" value="' . esc_attr(  $commenter['comment_author_email'] ) . '" size="30"' . $aria_req . ' /></p>',
-		'url'		=> '<p class="comment-form-url"><label for="url">' . __( 'Website', 'domainreference' ) . '</label>' .
-		            '<input id="url" name="url" type="text" value="' . esc_attr( $commenter['comment_author_url'] ) . '" size="30" /></p></div><!-- /#comment-form-elements --></div><!-- /#comment-form-wrapper -->',
+		'url'		=> '<p class="comment-form-url"><label for="url">' . __( 'Website', 'domainreference' ) . '</label>' . '<input id="url" name="url" type="text" value="' . esc_attr( $commenter['comment_author_url'] ) . '" size="30" /></p></div><!-- /#comment-form-elements --></div><!-- /#comment-form-wrapper -->',
 	);
 	
 	// Now actually render the form
 	comment_form(
 		array( 
-			'comment_notes_before'	=>	'<div id="comment-form-wrapper"><p id="comment-form-avatar">' . get_avatar( '', $size = '105' )  . '</p>',
+			'comment_notes_before'	=>	'<div id="comment-form-wrapper"><p id="comment-form-avatar">' . get_avatar( '', $size = '50' )  . '</p>',
 			'fields'				=>	apply_filters( 'comment_form_default_fields', $fields ),
-			'comment_notes_after' 	=> '<p class="form-allowed-tags">' . sprintf( __( 'Text formatting is available via select <a href="javascript:;">HTML</a>. %s', 'standard' ), ' <code>' . allowed_tags() . '</code>' ) . '</p>' 
+			'comment_notes_after' 	=>	'<p class="form-allowed-tags">' . sprintf( __( 'Text formatting is available via select <a href="javascript:;">HTML</a>. %s', 'standard' ), ' <code>' . allowed_tags() . '</code>' ) . '</p>',
+			'logged_in_as'			=>	'<div id="comment-form-wrapper"><p id="comment-form-avatar">' . get_avatar( get_the_author_meta( 'user_email', wp_get_current_user()->ID ), $size = '50' )  . '</p><p id="logged-in-container">' . sprintf( __( 'Logged in as <a href="%1$s">%2$s</a>. <a href="%3$s" title="Log out of this account">Log out?</a>' ), admin_url( 'profile.php' ), get_the_author_meta( 'user_nicename', wp_get_current_user()->ID ), wp_logout_url( apply_filters( 'the_permalink', get_permalink( ) ) ) ) . '</p></div><!-- /#comment-form-wrapper -->'
 		)
 	);
 
