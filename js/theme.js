@@ -4,7 +4,7 @@
 
 (function($) {
 	$(function() {
-	
+		// TODO refactor this
 		// If the header image is present, we also need to fade the text.
 		if($('#header-image').length > 0) { 
 			$('#logo').hover(function() {
@@ -83,18 +83,6 @@
 				moveSidebarInLeftSidebarLayout($);
 			});
 		
-		} // end if
-		
-		// Reveal available commenting options
-		if($('.form-allowed-tags').length > 0) {
-
-			$('.form-allowed-tags').children('a')
-				.click(function(evt) {
-					evt.preventDefault();
-					$(this).siblings('code')
-						.fadeToggle('fast');
-				});
-				
 		} // end if
 		
 		// FitVid

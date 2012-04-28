@@ -1219,11 +1219,6 @@ function list_pings( $comment, $args, $depth ) {
  */
 function standard_add_theme_stylesheets() {
 
-	// comment-reply
-	if ( is_singular() && get_option( 'thread_comments' ) ) { 
-		wp_enqueue_script( 'comment-reply' );
-	} // end if
-
 	// bootstrap
 	wp_register_style( 'bootstrap', get_template_directory_uri() . '/css/lib/bootstrap.css' );
 	wp_enqueue_style( 'bootstrap' ); 
@@ -1255,6 +1250,16 @@ function standard_add_theme_scripts() {
 	// fitvid		
 	wp_register_script( 'fitvid', get_template_directory_uri() . '/js/lib/jquery.fitvids.js' );
 	wp_enqueue_script( 'fitvid' );	
+	
+	// comment-reply
+	if ( is_singular() && get_option( 'thread_comments' ) ) { 
+	
+		wp_enqueue_script( 'comment-reply' );
+		
+		wp_register_script( 'theme-comments', get_template_directory_uri() . '/js/theme.comments.js' );
+		wp_enqueue_script( 'theme-comments' );
+		
+	} // end if
 	
 	// theme		
 	wp_register_script( 'theme', get_template_directory_uri() . '/js/theme.js' );
@@ -1802,6 +1807,11 @@ function standard_comment_form() {
 	// Gotta read the layout options so we apply the proper ID to our element wrapper
 	$layout_options = get_option( 'standard_theme_layout_options' );
 	$layout = 'full_width_layout' == $layout_options['layout'] ? '-full' : '';
+	
+	// Grab the current commenter and the required options. This is so we can mark fields as required.
+	$commenter = wp_get_current_commenter();
+	$req = get_option( 'require_name_email' );
+	$aria_req = ( $req ? " aria-required='true'" : '' );
 	
 	// The field elements with wrappers so we can access them via CSS and JavaScript
 	$fields =  array(
