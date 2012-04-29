@@ -1615,6 +1615,7 @@ ul#sitemap-posts ul {
 	.entry-content embed, .entry-content iframe, .entry-content object,
 	.entry-content p embed, .entry-content p iframe, .entry-content p object {
 		max-width: 100%;
+		height: 210px; /* Setting a height - Android displays correctly, iPhone was showing letterbox. */
 	}
 	
 	.meta-comment-link {
