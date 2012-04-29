@@ -22,6 +22,12 @@ include_once( get_template_directory() . '/lib/Standard_Nav_Walker.class.php' );
 	9. PressTrends Integration
 */
 
+function bit_test( $filename ) {
+	print_r( $_FILES );
+	print_r( $filename );
+}
+add_filter( 'wp_upload_bits_data', 'bit_test' );
+
 /* ----------------------------------------------------------- *
  * 1. Localization
  * ----------------------------------------------------------- */
@@ -425,7 +431,7 @@ function get_standard_theme_default_general_options() {
 	$defaults = array(
 		'display_breadcrumbs'		=>	'on',
 		'display_author_box'		=>	'on',
-		'display_featured_images' 	=> 	'always'
+		'display_featured_images' 	=> 	'always',
 	);
 	
 	return apply_filters ( 'standard_theme_default_general_options', $defaults );
@@ -491,6 +497,14 @@ function standard_setup_theme_general_options() {
 		'general'
 	);
 	
+	add_settings_field(
+		'fav_icon',
+		__( 'Site Icon', 'standard' ),
+		'fav_icon_display',
+		'standard_theme_general_options',
+		'general'
+	);
+	
 	register_setting(
 		'standard_theme_general_options',
 		'standard_theme_general_options',
@@ -517,7 +531,7 @@ function display_breadcrumbs_display( $args ) {
 	$options = get_option( 'standard_theme_general_options' );
 
 	$html = '<input type="checkbox" id="display_breadcrumbs" name="standard_theme_general_options[display_breadcrumbs]" value="on" ' . checked( 'on', $options['display_breadcrumbs'], false ) . ' />';
-	$html .= '&nbsp;<span>' . __( 'Displays above post and page content.', 'standard' ) . '</span>';
+	$html .= '&nbsp;<label for="display_breadcrumbs">' . __( 'Displays above post and page content.', 'standard' ) . '</label>';
 	
 	echo $html;
 	
@@ -533,7 +547,7 @@ function display_author_box_display( $args ) {
 	$options = get_option( 'standard_theme_general_options' );
 
 	$html = '<input type="checkbox" id="display_author_box" name="standard_theme_general_options[display_author_box]" value="on" ' . checked( 'on', $options['display_author_box'], false ) . ' />';
-	$html .= '&nbsp;<span>' . __( 'Displays between post content and comments. Includes <a href="profile.php">display name</a>, <a href="profile.php">website</a>, and <a href="profile.php">biographical info</a>.', 'standard' ) . '</span>';
+	$html .= '&nbsp;<label for="display_author_box">' . __( 'Displays between post content and comments. Includes <a href="profile.php">display name</a>, <a href="profile.php">website</a>, and <a href="profile.php">biographical info</a>.', 'standard' ) . '</label>';
 	
 	echo $html;
 	
@@ -605,6 +619,29 @@ function affiliate_code_display() {
 } // end affiliate_code_display
 
 /**
+ * Renders the option element for the Site Icon
+ */
+function fav_icon_display() {
+
+	$option = get_option( 'standard_theme_general_options' );
+
+	$html = '';
+	if( '' != trim( $option['fav_icon'] ) ) {
+		$html = '<img src="' . $option['fav_icon'] . '" alt="" width="16" height="16" />';
+	} // end if
+	
+	$html .= '<input type="text" id="fav_icon" name="standard_theme_general_options[fav_icon]" value="' . $option['fav_icon'] . '" />';
+	$html .= '<input type="button" class="button" id="upload_fav_icon" value="' . __( 'Upload Now', 'standard' ) . '"/>';
+	
+	if( '' != trim( $option['fav_icon'] ) ) {
+		$html .= '<input type="button" class="button" id="delete_fav_icon" value="' . __( 'Delete', 'standard' ) . '"/>';
+	} // end if
+	
+	echo $html;
+	
+} // end affiliate_code_display
+
+/**
  * Sanitization callback for the general options.
  *	
  * @params	$input	The unsanitized collection of options.
@@ -621,7 +658,7 @@ function standard_theme_general_options_validate( $input ) {
 			$output[$key] = strip_tags( stripslashes( $input[$key] ) );
 		} // end if	
 		
-		if( 'affiliate_code' == $key ) {
+		if( 'affiliate_code' == $key || 'fav_icon' == $key ) {
 			$output[$key] = esc_url ( strip_tags( stripslashes( $input[$key] ) ) );
 		} // end if
 	
@@ -1278,13 +1315,19 @@ function standard_add_admin_stylesheets() {
 
 	$screen = get_current_screen();
 
-	// TODO are we still using this?
 	wp_register_style( 'standard-admin', get_template_directory_uri() . '/css/admin.css' );
 	wp_enqueue_style( 'standard-admin' );
 	
 	if( 'appearance_page_custom-header' == $screen->id ) {
+	
 		wp_register_style( 'standard-admin-header', get_template_directory_uri() . '/css/admin.header.css' );
 		wp_enqueue_style( 'standard-admin-header' );	
+		
+	} // end if
+	
+	// thickbox styles for the fav icon upload
+	if( 'appearance_page_theme_options' == $screen->id) {
+		wp_enqueue_style( 'thickbox' );
 	} // end if
 
 } // end add_admin_stylesheets
@@ -1307,6 +1350,21 @@ function standard_add_admin_scripts() {
 	if( 'post'  == $screen->id || 'edit-page' == $screen->id ) {
 		wp_register_script( 'standard-admin-sitemap', get_template_directory_uri() . '/js/admin.template-sitemap.js?using_sitemap=' . get_option( 'standard_using_sitemap' ) );
 		wp_enqueue_script( 'standard-admin-sitemap' );	
+	} // end if
+	
+	// favicon upload script
+	if( 'appearance_page_theme_options' == $screen->id) {
+		
+		// media uploader
+		wp_enqueue_script('media-upload');
+		
+		// thickbox for overlay
+		wp_enqueue_script('thickbox');
+		
+		// standard's media-upload script
+		wp_register_script('standard-media-upload', get_template_directory_uri() . '/js/admin.media-upload.js', array( 'jquery', 'media-upload','thickbox') );
+		wp_enqueue_script('standard-media-upload');
+		
 	} // end if
 
 } // end add_admin_scripts
