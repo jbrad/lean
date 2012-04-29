@@ -1554,7 +1554,7 @@ if( ! function_exists( 'standard_remove_paragraph_on_media' ) ) {
  */
 if( ! function_exists( 'standard_wrap_embeds' ) ) {
 	function standard_wrap_embeds( $html, $url, $args ) {
-		
+
 		if( 'video' == get_post_format( get_the_ID() ) ) {
 			$html = '<div class="video-container">' . $html . '</div>';
 		} // end if

@@ -10,8 +10,8 @@
 		<?php $option = get_option( 'standard_theme_general_options'); ?>
 		<?php if( '' != $option['fav_icon'] ) { ?>
 			<link rel="shortcut icon" href="<?php echo $option['fav_icon']; ?>" />
-			<link rel="apple-touch-icon-precomposed" href="<?php echo $option['fav_icon']; ?>" />';
-			<link rel="apple-touch-icon-precomposed" href="<?php echo $option['fav_icon']; ?>" />';
+			<link rel="apple-touch-icon-precomposed" href="<?php echo $option['fav_icon']; ?>" />
+			<link rel="apple-touch-icon-precomposed" href="<?php echo $option['fav_icon']; ?>" />
 			<link rel="apple-touch-icon" href="<?php echo $option['fav_icon']; ?>" />
 		<?php } // end if ?>
 		<?php if( '' != $option['google_analytics'] ) { ?>
