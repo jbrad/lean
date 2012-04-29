@@ -22,12 +22,6 @@ include_once( get_template_directory() . '/lib/Standard_Nav_Walker.class.php' );
 	9. PressTrends Integration
 */
 
-function bit_test( $filename ) {
-	print_r( $_FILES );
-	print_r( $filename );
-}
-add_filter( 'wp_upload_bits_data', 'bit_test' );
-
 /* ----------------------------------------------------------- *
  * 1. Localization
  * ----------------------------------------------------------- */
