@@ -22,11 +22,7 @@
 
 				<?php get_template_part( 'breadcrumbs' ); ?>
 				
-				<?php if ( is_search() ) { ?> 
-                    <div id="search-page-title" class="alert alert-success"> 
-                        <h3><?php _e( 'Search Results For ', 'standard' ); echo get_query_var( 's' ); ?></h3> 
-                    </div> 
-                <?php } elseif ( is_archive() ) { ?>                 
+				<?php if ( is_archive() ) { ?>                 
                     <div id="archive-page-title" class="alert alert-success"> 
                         <h3> 
                             <?php _e( 'Archives For ', 'standard' ); ?>

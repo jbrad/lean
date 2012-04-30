@@ -25,7 +25,7 @@
 				<?php if( standard_google_custom_search_is_active() ) { ?>
 				
 					<div id="search-page-title" class="alert alert-success"> 
-	                    <h3><?php _e( 'Search Results For ', 'standard' ); echo get_query_var( 'q' ); ?></h3> 
+	                    <h3><?php _e( 'Search Results For "', 'standard' ); echo get_query_var( 'q' ); _e( '"', 'standard' ); ?></h3>
 	                </div> 
 				
 					<div id="cse-search-results"></div>
@@ -41,7 +41,7 @@
 				<?php } else { ?>
 				
 					<div id="search-page-title" class="alert alert-success"> 
-	                    <h3><?php _e( 'Search Results For ', 'standard' ); echo get_query_var( 's' ); ?></h3> 
+	                    <h3><?php _e( 'Search Results For "', 'standard' ); echo get_query_var( 's' ); _e( '"', 'standard' ); ?></h3>
 	                </div> 
 				
 					<?php if ( have_posts() ) { ?>
