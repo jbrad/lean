@@ -923,6 +923,9 @@ a.post-permalink:hover {
 	width: 100%;
 }
 
+#comments .nopassword {
+	padding: 20px;
+}
 
 #comments .comment-container {
 	padding: 20px 20px;
