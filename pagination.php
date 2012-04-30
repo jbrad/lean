@@ -6,13 +6,14 @@
 	<div id="single-post-nav" class="row">
 
 		<?php $pagination_width = 'full_width_layout' == $options['layout'] ? 'span6' : 'span4'; ?>
+		<?php $trunc_limit = 'full_width_layout' == $options['layout'] ? 50 : 30; ?>
 		
-		<?php previous_post_link( '<span class="' . $pagination_width . ' previous-page">%link</span>', _x( '&larr; %title', 'standard' ) ); ?>
+		<?php previous_post_link( '<span class="' . $pagination_width . ' previous-page">%link</span>', _x( '&larr;', 'standard' ) . '&nbsp;' . standard_truncate_text( get_previous_post()->post_title, $trunc_limit ) ); ?>
 		
 		<?php if( '' == get_previous_post() ) { ?>
 			<?php next_post_link( '<span class="' . ( $options['layout'] == 'full_width_layout' ? 'span12' : 'span8' ) . ' no-previous-page-link next-page">%link</span>', _x( '%title &rarr;', 'standard' ) ); ?>
 		<?php } else { ?>
-			<?php next_post_link( '<span class="' . $pagination_width . ' next-page">%link</span>', _x( '%title &rarr;', 'standard' ) ); ?>	
+			<?php next_post_link( '<span class="' . $pagination_width . ' next-page">%link</span>', standard_truncate_text( get_next_post()->post_title, $trunc_limit ) . '&nbsp;' . _x( '&rarr;', 'standard' ) ); ?>	
 		<?php } // end if/else ?>
 		
 	</div><!-- /#single-post-nav -->

@@ -1936,8 +1936,6 @@ function standard_truncate_text( $string, $character_limit = 50, $truncation_ind
         } // end if
 
         $truncated = $truncated . $truncation_indicator;
-
-        return $truncated;
         
     } // end if/else
     
