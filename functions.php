@@ -1722,6 +1722,33 @@ function standard_delete_post( $id ) {
 } // end standard_delet_post
 add_action( 'before_delete_post', 'standard_delete_post' );
 
+/** 
+ * Introduces custom messaging to the Image Uploader on the 'post' and 'page' screens.
+ * Also marks the alternate tag as required. Will populate it with the title
+ * if it is left empty.
+ *
+ * @params	$form_fields	The array of form fields in the uploader
+ * @params	$post			The post object
+ */
+function standard_attachment_fields_to_edit( $form_fields, $post ) {
+
+	// Mark the alt field as required
+	$form_fields['image_alt']['required'] = true;
+	
+	// Provide a Standard description for title and alt
+	$form_fields['post_title']['helps'] =	__( 'TODO', 'standard' );
+	$form_fields['image_alt']['helps'] = __( 'Provide a description for your image. TODO.', 'standard' );
+	
+	// If the alt field is empty, then we're populating it with the title
+	if( '' == $form_fields['image_alt']['value'] ) {
+		$form_fields['image_alt']['value'] = $form_fields['post_title']['value'];
+	} // end if
+	
+	return $form_fields;
+		
+} // end standard_attachment_fields_to_edit
+add_action( 'attachment_fields_to_edit', 'standard_attachment_fields_to_edit', 11, 2 );
+
 /* ----------------------------------------------------------- *
  * 8. Helper Functions
  * ----------------------------------------------------------- */
