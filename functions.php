@@ -1669,7 +1669,7 @@ if( ! function_exists( 'standard_modify_widget_titles' ) ) {
  */
 if( ! function_exists( 'standard_add_title_to_single_post_pagination' ) ) {
 	function standard_add_title_to_single_post_pagination( $link ) {
-	
+		
 		if( strpos( $link, 'rel="prev"' ) > 0 ) {
 		
 			$previous_post = get_previous_post();
@@ -1914,6 +1914,36 @@ function standard_comment_form() {
 
 } // end standard_comment_form
 
+/**
+ * Truncates string at the last breakable space within the string at the
+ * character limit and then adds the truncation indicator.
+ *
+ * @string                   The string to possibly truncate
+ * @$character_limit         The number of characters to limit the string to
+ * @$truncation_indicator    The characters to end truncation with (if needed)
+ */
+
+function standard_truncate_text( $string, $character_limit = 50, $truncation_indicator = '...' ) {
+
+	$truncated = $string;
+    if ( strlen( $string ) >= ( $character_limit + 1 ) ) {
+    
+        $truncated = substr( $string, 0, $character_limit );
+
+        if ( substr_count( $truncated, ' ') > 1 ) {
+            $last_space = strrpos( $truncated, ' ' );
+            $truncated = substr( $truncated, 0, $last_space );
+        } // end if
+
+        $truncated = $truncated . $truncation_indicator;
+
+        return $truncated;
+        
+    } // end if/else
+    
+    return $truncated;
+    
+} // end standard_truncate_text
 
 /* ----------------------------------------------------------- *
  * 9. PressTrends Integration
