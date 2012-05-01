@@ -23,7 +23,7 @@
 window.send_to_editor = function(sHtml) {
 
 	// Grab the URL of the image and set it into the favicon's URL
-	jQuery('#fav_icon').val(jQuery('img', sHtml).attr('src'));
+	jQuery('#fav_icon').val(jQuery(sHtml).attr('src'));
 
 	// Hide the thickbox
 	tb_remove();
