@@ -1634,7 +1634,7 @@ if( ! function_exists( 'standard_post_format_rss' ) ) {
  */
 function standard_seo_titles() {
 
-	if( ! defined( 'WPSEO_URL' ) ) {
+	if( ! ( defined( 'WPSEO_URL' ) || class_exists( 'All_in_One_SEO_Pack' ) ) ) {
 	
 		include_once( get_template_directory() . '/lib/seotitles/standard_seotitles.php' );
 		echo Standard_SeoTitles::get_page_title( get_the_ID() );
