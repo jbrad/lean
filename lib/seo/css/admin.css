@@ -1,0 +1,44 @@
+#search-engine-preview {
+	background: #fff;
+	padding: 12px;
+	margin: 12px 0 12px 0;
+	border-radius: 4px;
+	border: 1px solid #f9f9f9;
+}
+
+#search-engine-preview p {
+	margin: 0;
+}
+
+#search-results-title {
+	color: #11c;
+	font-size: 16px;
+	text-decoration: underline;
+	line-height: 19px;
+}
+
+#search-results-meta {
+	font-size: 13px;
+	line-height: 15px;
+}
+
+#search-results-meta #permalink {
+	color: #282;
+}
+
+#standard-seo-description-wrapper {
+	margin-left: 15%;
+}
+
+#post_level_seo label {
+	float: left;
+	margin-right: 8px;
+}
+
+#standard_seo_post_meta_description {
+	width: 85%;
+}
+
+#standard-seo-description-wrapper #character-count {
+	font-weight: bold;
+}

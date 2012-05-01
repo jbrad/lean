@@ -948,11 +948,20 @@ if( ! function_exists( 'standard_add_theme_features' ) ) {
 		
 		// post thumbnail support
 		add_theme_support( 'post-thumbnails' );
-	
+
+		// Activity Tabs	
 		if( ! in_array( get_template_directory() . '/lib/activity/plugin.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {
 			include_once( get_template_directory() . '/lib/activity/plugin.php' );
 		} // end if
 
+		// Standard SEO, if WordPress SEO and All-In-One aren't defined
+		if( ! ( defined( 'WPSEO_URL' ) || class_exists( 'All_in_One_SEO_Pack' ) ) ) {
+			if( ! in_array( get_template_directory() . '/lib/seo/plugin.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {
+				include_once( get_template_directory() . '/lib/seo/plugin.php' );
+			} // end if			
+		} // end if
+
+		// Google Custom Search
 		if( ! in_array( get_template_directory() . '/lib/gcse/plugin.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {
 			include_once( get_template_directory() . '/lib/gcse/plugin.php' );
 		} // end if	
