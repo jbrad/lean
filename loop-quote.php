@@ -48,7 +48,12 @@
 		<div class="row-fluid">
 			<div class="meta-date-cat-tags span9">
 			
-				<?php printf( '<span class="the-time">' . __( 'Posted on %1$s', 'standard' ) . '</span>', get_the_time( get_option( 'date_format' ) ) ); ?>
+				<?php if( is_multi_author() ) { ?>
+					<span class="the-author"><?php _e( ' Posted by ', 'standard' ); echo the_author_meta( 'display_name' ); ?></span>
+					<span class="the-time"><?php _e( ' on ', 'standard' ); echo get_the_time( get_option( 'date_format' ) ); ?></span>
+				<?php } else { ?>
+					<?php printf( '<span class="the-time">' . __( 'Posted on %1$s', 'standard' ) . '</span>', get_the_time( get_option( 'date_format' ) ) ); ?>
+				<?php } // end if ?>
 				
 				<?php $category_list = get_the_category_list( __( ', ', 'standard' ) ); ?>
 				<?php if( $category_list ) { ?>

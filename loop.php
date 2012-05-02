@@ -32,6 +32,9 @@
 				<?php } // end if ?>
 			<?php } // end if ?>
 			<div class="post-header-meta">
+				<?php if( is_multi_author() ) { ?>
+					<span class="the-author"><?php echo the_author_meta( 'display_name' ); ?>&nbsp;&mdash;&nbsp;</span>
+				<?php } // end if ?>
 				<?php if( strlen( trim( get_the_title() ) ) == 0 ) { ?>
 					<a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php printf( esc_attr__( '%s', 'standard' ), the_title_attribute( 'echo=0' ) ); ?>"><span class="the-time"><?php the_time( get_option( 'date_format' ) ); ?></span></a>
 				<?php } else { ?>
