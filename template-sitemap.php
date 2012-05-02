@@ -35,7 +35,6 @@
 				
 										<ul id="sitemap-authors">
 											<?php
-
 											foreach( get_users() as $user ) {
 												$query = new WP_Query( 'author=' . $user->ID . '&posts_per_page=1' );
 												if( $query->have_posts() ) {
@@ -46,10 +45,6 @@
 													echo '</li>';
 												} // end if
 											} // end foreach
-											
-											//echo $author_list;
-
-												
 											?>
 										</ul>
 										
