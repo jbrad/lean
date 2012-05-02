@@ -58,7 +58,7 @@ class Standard_SEO {
 			
 			$html .= '<p id="search-results-title"><span id="post-title"></span>' . __( ' - ', 'standard' ) . '<span id="blog-title"></span></p>';
 			$html .= '<p id="search-results-meta"><span id="permalink"></span></p>';
-			$html .= '<p id="search-results-meta-description"><span id="date">Date</span> - <span id="description"></description></p>';
+			$html .= '<p id="search-results-meta-description"><span id="date">Date</span> - <span id="description">' . get_post_meta( $post->ID, 'standard_seo_post_meta_description', true ) . '</span></p>';
 			$html .= '<span id="site-title" class="hidden">' . get_bloginfo( 'title' ) . '</span>';
 			$html .= '<span id="todays-date" class="hidden">' . date( get_option( 'date_format' ) ) . '</span>';
 			

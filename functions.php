@@ -955,7 +955,7 @@ if( ! function_exists( 'standard_add_theme_features' ) ) {
 		} // end if
 
 		// Standard SEO, if WordPress SEO and All-In-One aren't defined
-		if( ! ( defined( 'WPSEO_URL' ) || class_exists( 'All_in_One_SEO_Pack' ) ) ) {
+		if( standard_using_native_seo() ) {
 			if( ! in_array( get_template_directory() . '/lib/seo/plugin.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {
 				include_once( get_template_directory() . '/lib/seo/plugin.php' );
 			} // end if			
@@ -1379,6 +1379,23 @@ add_action( 'admin_enqueue_scripts', 'standard_add_admin_scripts' );
 
 // rel="generator" is an invalid HTML5 attribute
 remove_action( 'wp_head', 'wp_generator' );
+
+/**
+ * If running in native SEO mode and if the current page has a meta description, renders the description
+ * to the browser.
+ */
+function standard_meta_description() {
+
+	if( standard_using_native_seo() ) {
+	
+		if ( is_single() && '' != get_post_meta( get_the_ID(), 'standard_seo_post_meta_description', true ) ) {
+			echo '<meta name="description" content="' . get_post_meta( get_the_ID(), 'standard_seo_post_meta_description', true ) . '" />';
+		} // end if/else
+	
+	} // end if
+	
+} // end standard_meta_description
+add_action( 'wp_head', 'standard_meta_description' );
 
 /**
  * Removes the "category" relationship attribute from category anchors.
@@ -1951,6 +1968,15 @@ function standard_truncate_text( $string, $character_limit = 50, $truncation_ind
     return $truncated;
     
 } // end standard_truncate_text
+
+/**
+ * Helper function for determining if any other SEO plugins are installed. Returns true, if so.
+ *
+ * @returns	True if 'WordPress SEO' or 'All In One SEO' are installed.
+ */
+function standard_using_native_seo() {
+	return ! ( defined( 'WPSEO_URL' ) || class_exists( 'All_in_One_SEO_Pack' ) );
+} // end standard_using_native_seo 
 
 /* ----------------------------------------------------------- *
  * 9. PressTrends Integration
