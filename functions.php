@@ -1388,7 +1388,7 @@ function standard_meta_description() {
 
 	if( standard_using_native_seo() ) {
 	
-		if ( is_single() && '' != get_post_meta( get_the_ID(), 'standard_seo_post_meta_description', true ) ) {
+		if ( ( is_single() || is_page() ) && '' != get_post_meta( get_the_ID(), 'standard_seo_post_meta_description', true ) ) {
 			echo '<meta name="description" content="' . get_post_meta( get_the_ID(), 'standard_seo_post_meta_description', true ) . '" />';
 		} // end if/else
 	

@@ -37,6 +37,15 @@ class Standard_SEO {
 			'high'
 		);
 
+		add_meta_box(
+			'post_level_seo',
+			__( 'Standard SEO', 'standard' ),
+			array( &$this, 'post_level_display' ),
+			'page',
+			'normal',
+			'high'
+		);
+
 	} // end action_method_name
 	
 	/**
@@ -46,14 +55,6 @@ class Standard_SEO {
 
 		wp_nonce_field( plugin_basename( __FILE__ ), 'standard_seo_nonce' );
 	
-		// TODO:
-		// - Preview
-		//   * Title
-		//	 * Permalink
-		//	 * Cached
-		//	 * Date
-		//	 * Description
-		
 		$html = '<div id="search-engine-preview">';
 			
 			$html .= '<p id="search-results-title"><span id="post-title"></span>' . __( ' - ', 'standard' ) . '<span id="blog-title"></span></p>';
