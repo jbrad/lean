@@ -17,7 +17,12 @@
 	<?php }  // end if ?> 
 
 	<div id="content-<?php the_ID(); ?>" class="entry-content clearfix">
-		<?php the_content( __( 'Continue Reading...', 'standard') ); ?>
+		<?php if( ( is_category() || is_archive() || is_home() ) && has_excerpt() ) { ?>
+			<?php the_excerpt( ); ?>
+			<a href="<?php echo get_permalink(); ?>"><?php _e( 'Continue Reading...', 'standard' ); ?></a>
+		<?php } else { ?>
+			<?php the_content( __( 'Continue Reading...', 'standard' ) ); ?>
+		<?php } // end if/else ?>
 		<?php 
 			wp_link_pages( 
 				array( 

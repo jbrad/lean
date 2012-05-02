@@ -16,7 +16,12 @@
 					<?php echo get_avatar( get_the_author_meta( 'ID' ), 80 ); ?>
 				</div><!-- /.post-avatar -->
 			<div class="entry-content span10 clearfix">
-				<?php the_content( __( 'Continue Reading...', 'standard' ) ); ?>
+				<?php if( ( is_category() || is_archive() || is_home() ) && has_excerpt() ) { ?>
+					<?php the_excerpt( ); ?>
+					<a href="<?php echo get_permalink(); ?>"><?php _e( 'Continue Reading...', 'standard' ); ?></a>
+				<?php } else { ?>
+					<?php the_content( __( 'Continue Reading...', 'standard' ) ); ?>
+				<?php } // end if/else ?>
 			</div><!-- /.entry-content -->
 		</div><!-- /row-fluid -->
 	</div> <!-- /.post-header -->
