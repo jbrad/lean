@@ -1,5 +1,12 @@
 <?php
 
+/**
+ * Standard SEO guides publishers in defining SEO-friendly title, permalinks, and
+ * meta descriptions by giving custom fields at the post and page level and by
+ * providing a "what Google sees" preview.
+ *
+ * version 1.0
+ */
 class Standard_SEO {
 	 
 	/*--------------------------------------------*
