@@ -24,7 +24,7 @@ class Standard_SEO {
 	 *---------------------------------------------*/
 	
 	/**
- 	 * TODO
+ 	 * Adds the Standard SEO meta box to the post and page screens in the dashboard.
 	 */
 	public function seo_meta_boxes() {
 
@@ -49,7 +49,9 @@ class Standard_SEO {
 	} // end action_method_name
 	
 	/**
-	 * TODO
+	 * Renders the actual Standard SEO Preview meta box and preview area to the page. 
+	 *
+	 * @params	$post	The post on which the box should be rendered.
 	 */
 	public function post_level_display( $post ) {
 
@@ -88,7 +90,9 @@ class Standard_SEO {
 	} // end post-Level_display
 	
 	/**
-	 * TODO
+	 * Saves the post data to post defined by the incoming ID.
+	 *
+	 * @params	$post_id	The ID of the post to which we're saving the post data.
 	 */
 	public function save_postdata( $post_id ) {
 		
