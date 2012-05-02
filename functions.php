@@ -426,6 +426,7 @@ function get_standard_theme_default_general_options() {
 		'display_breadcrumbs'		=>	'on',
 		'display_author_box'		=>	'on',
 		'display_featured_images' 	=> 	'always',
+		'offline_display_message'	=>	__( 'Our site is currently offline.', 'standard' )
 	);
 	
 	return apply_filters ( 'standard_theme_default_general_options', $defaults );
@@ -503,6 +504,14 @@ function standard_setup_theme_general_options() {
 		'offline_mode',
 		__( 'Offline Mode', 'standard' ),
 		'offline_mode_display',
+		'standard_theme_general_options',
+		'general'
+	);
+	
+	add_settings_field(
+		'offline_mode_message',
+		__( 'Offline Mode Message', 'standard' ),
+		'offline_mode_message_display',
 		'standard_theme_general_options',
 		'general'
 	);
@@ -594,7 +603,7 @@ function google_analytics_display() {
 		$analytics_id = $option['google_analytics'];
 	} // end if
 	
-	$html = '<input type="text" id="google_analytics" name="standard_theme_general_options[google_analytics]" value="' . $analytics_id . '" />';
+	$html = '<input type="text" id="google_analytics" name="standard_theme_general_options[google_analytics]" value="' . esc_attr( $analytics_id ) . '" />';
 	$html .= '&nbsp;<span class="description">' . __( 'Enter the ID only (i.e., UA-000000).', 'standard' ) . '</span>';
 	
 	echo $html;
@@ -613,7 +622,7 @@ function affiliate_code_display() {
 		$affiliate_code = $option['affiliate_code'];
 	} // end if
 	
-	$html = '<input type="text" id="affiliate_code" name="standard_theme_general_options[affiliate_code]" value="' . $affiliate_code . '" />';
+	$html = '<input type="text" id="affiliate_code" name="standard_theme_general_options[affiliate_code]" value="' . esc_attr( $affiliate_code ) . '" />';
 	$html .= '&nbsp;<span class="description">' . __( 'Enter your affiliate code here.', 'standard' ) . '</span>';
 	
 	echo $html;
@@ -632,7 +641,7 @@ function fav_icon_display() {
 		$html = '<img src="' . $option['fav_icon'] . '" alt="" width="16" height="16" />';
 	} // end if
 	
-	$html .= '<input type="text" id="fav_icon" name="standard_theme_general_options[fav_icon]" value="' . $option['fav_icon'] . '" />';
+	$html .= '<input type="text" id="fav_icon" name="standard_theme_general_options[fav_icon]" value="' . esc_attr( $option['fav_icon'] ) . '" />';
 	$html .= '<input type="button" class="button" id="upload_fav_icon" value="' . __( 'Upload Now', 'standard' ) . '"/>';
 	
 	if( '' != trim( $option['fav_icon'] ) ) {
@@ -644,9 +653,7 @@ function fav_icon_display() {
 } // end affiliate_code_display
 
 /**
- * Renders the options for displaying Featured Images.
- *
- * @params	$args	The array of options used for rendering the option.
+ * Renders the options for activating Offline Line.
  */
 function offline_mode_display( ) {
 
@@ -659,7 +666,17 @@ function offline_mode_display( ) {
 
 	echo $html;
 
-} // end display_featured_images_display
+} // end offline_mode_display
+
+/**
+ * Renders the options for the short, 140-character message for the offline mode.
+ */
+function offline_mode_message_display() {
+
+	$options = get_option( 'standard_theme_general_options' );
+	echo '<input type="text" id="offline_mode_message" name="standard_theme_general_options[offline_mode_message]" value="' . esc_attr( $options['offline_mode_message'] ) . '" maxlength="140" />';
+
+} // end offline_mode_message_display
 
 /**
  * Sanitization callback for the general options.

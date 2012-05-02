@@ -31,5 +31,8 @@
 	</head>
 	<body <?php body_class(); ?>>
 		<h1>Needs work from <a href="http://twitter.com/alliswell">@alliswell</a></h1>
+		
+		<?php $options = get_option( 'standard_theme_general_options' ); ?>
+		<p><?php echo $options['offline_mode_message']; ?></p>
 	</body>
 </html>
