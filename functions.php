@@ -499,6 +499,14 @@ function standard_setup_theme_general_options() {
 		'general'
 	);
 	
+	add_settings_field(
+		'offline_mode',
+		__( 'Offline Mode', 'standard' ),
+		'offline_mode_display',
+		'standard_theme_general_options',
+		'general'
+	);
+	
 	register_setting(
 		'standard_theme_general_options',
 		'standard_theme_general_options',
@@ -634,6 +642,24 @@ function fav_icon_display() {
 	echo $html;
 	
 } // end affiliate_code_display
+
+/**
+ * Renders the options for displaying Featured Images.
+ *
+ * @params	$args	The array of options used for rendering the option.
+ */
+function offline_mode_display( ) {
+
+	$options = get_option( 'standard_theme_general_options' );
+
+	$html = '<input type="checkbox" id="offline_mode" name="standard_theme_general_options[offline_mode]" value="on" ' . checked( 'on', $options['offline_mode'], false ) . ' " />';
+	$html .= '&nbsp;<label for="offline_mode">';
+		$html .= __( 'Activate offline mode. Etc. TODO.', 'standard' );
+	$html .= '</label>';
+
+	echo $html;
+
+} // end display_featured_images_display
 
 /**
  * Sanitization callback for the general options.
@@ -2054,6 +2080,20 @@ function standard_truncate_text( $string, $character_limit = 50, $truncation_ind
 function standard_using_native_seo() {
 	return ! ( defined( 'WPSEO_URL' ) || class_exists( 'All_in_One_SEO_Pack' ) );
 } // end standard_using_native_seo 
+
+/**
+ * If Standard is set to online mode, this function loads and redirects all traffic to the
+ * page template defined for offline mode.
+ */
+function standard_offline_mode() {
+
+	$general_options = get_option('standard_theme_general_options');
+	if( 'on' == $general_options['offline_mode'] && ! current_user_can( 'publish_posts' ) ) {
+		get_template_part( 'page-offline-mode' );
+		exit;
+	} // end if
+	
+} // end standard_offline_mode
 
 /* ----------------------------------------------------------- *
  * 9. PressTrends Integration

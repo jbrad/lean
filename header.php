@@ -1,3 +1,4 @@
+<?php standard_offline_mode(); ?>
 <!DOCTYPE html>
 <!--[if IE 8 ]><html id="ie8" <?php language_attributes(); ?>><![endif]-->
 <!--[if (gt IE 9)|!(IE)]><!--><html <?php language_attributes(); ?>><!--<![endif]-->

@@ -7,6 +7,7 @@
  * @since 3.0
  */
 ?>
+
 <?php get_header(); ?>
 <?php $options = get_option( 'standard_theme_layout_options' ); ?>
 
@@ -70,7 +71,7 @@
 			<?php if ( 'right_sidebar_layout' == $options['layout'] ) { ?>
 				<?php get_sidebar(); ?>
 			<?php } // end if ?>
-	
+
 		</div><!-- /row -->
 	</div><!-- /container -->
 </div> <!-- /#wrapper -->
