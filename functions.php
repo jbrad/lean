@@ -1469,6 +1469,12 @@ function standard_add_admin_scripts() {
 		wp_enqueue_script( 'standard-admin-header' );	
 	} // end if
 
+	// standard-specific styles
+	if( 'appearance_page_theme_options' == $screen->id ) {
+		wp_register_script( 'standard-offline-mode', get_template_directory_uri() . '/js/admin.offline-mode.js' );
+		wp_enqueue_script( 'standard-offline-mode' );
+	} // end if
+
 	// sitemap management script. 
 	if( 'post'  == $screen->id || 'edit-page' == $screen->id ) {
 		wp_register_script( 'standard-admin-sitemap', get_template_directory_uri() . '/js/admin.template-sitemap.js?using_sitemap=' . get_option( 'standard_using_sitemap' ) );
