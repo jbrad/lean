@@ -1476,7 +1476,7 @@ function standard_add_admin_scripts() {
 	} // end if
 
 	// sitemap management script. 
-	if( 'post'  == $screen->id || 'edit-page' == $screen->id ) {
+	if( 'post'  == $screen->id || 'edit-page' == $screen->id || 'page' == $screen->id ) {
 		wp_register_script( 'standard-admin-sitemap', get_template_directory_uri() . '/js/admin.template-sitemap.js?using_sitemap=' . get_option( 'standard_using_sitemap' ) );
 		wp_enqueue_script( 'standard-admin-sitemap' );	
 	} // end if

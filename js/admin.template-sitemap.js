@@ -23,7 +23,7 @@
 		} // end if
 		
 		// For 'Post Editor'
-		if($('select[name=page_template]').length > 0 && $('#page_template').length > 0) {
+		if($('select[name="page_template"]').length > 0 && $('#page_template').length > 0) {
 		
 			$('#page_template').children('option')
 				.each(function() {

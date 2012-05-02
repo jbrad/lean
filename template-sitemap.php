@@ -35,11 +35,21 @@
 				
 										<ul id="sitemap-authors">
 											<?php
-												wp_list_authors(
-													array(
-														'exclude_admin' => false,
-													)
-												);
+
+											foreach( get_users() as $user ) {
+												$query = new WP_Query( 'author=' . $user->ID . '&posts_per_page=1' );
+												if( $query->have_posts() ) {
+													echo '<li>';
+														echo get_avatar( $user->user_email, $size = '24' );
+														$query->the_post();
+														the_author_posts_link();
+													echo '</li>';
+												} // end if
+											} // end foreach
+											
+											//echo $author_list;
+
+												
 											?>
 										</ul>
 										
