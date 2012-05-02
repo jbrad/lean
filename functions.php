@@ -716,6 +716,83 @@ function standard_theme_options_display() {
  * ----------------------------------------------------------- */
 
 /**
+ * Defines a custom meta box for displaying the post full width layout. Only renders
+ * if the blog isn't using the full width layout.
+ */
+function standard_add_full_width_single_post() {
+
+	$options = get_option( 'standard_theme_layout_options' );
+	if( 'full_width_layout' != $options['layout'] ) {
+	
+		add_meta_box(
+			'post_level_layout',
+			__( 'Page Layout', 'standard' ),
+			'standard_post_level_layout_display',
+			'post',
+			'side',
+			'core'
+		);
+		
+	} // end if
+
+} // end standard_add_full_width_single_post
+add_action( 'add_meta_boxes', 'standard_add_full_width_single_post' );
+
+/**
+ * Renders the display for the full-width post option.
+ *
+ * @params	$post	The post on which the box should be rendered.
+ */
+function standard_post_level_layout_display( $post ) {
+	
+	wp_nonce_field( plugin_basename( __FILE__ ), 'standard_post_level_layout_nonce' );
+
+	$html = '<input type="checkbox" id="standard_seo_post_level_layout" name="standard_seo_post_level_layout" value="1"' . checked( get_post_meta( $post->ID, 'standard_seo_post_level_layout', true ), 1, false ) . ' />';
+
+	$html .= '&nbsp;';
+
+	$html .= '<label for="standard_seo_post_level_layout">';
+		$html .= __( 'Display this post in full width?', 'standard' );
+	$html .= '</label>';
+
+	echo $html;
+	
+} // end standard_post_level_layout_display
+
+/**
+ * Saves the post data to post defined by the incoming ID.
+ *
+ * @params	$post_id	The ID of the post to which we're saving the post data.
+ */
+function standard_save_post_layout_data( $post_id ) {
+	
+	// Don't save if the user hasn't submitted the changes
+	if( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
+		return;
+	} // end if
+	
+	// Verify that the input is coming from the proper form
+	if( ! wp_verify_nonce( $_POST['standard_post_level_layout_nonce'], plugin_basename( __FILE__ ) ) ) {
+		return;
+	} // end if
+	
+	// Make sure the user has permissions to post
+	if( 'post' == $_POST['post_type']) {
+		if( ! current_user_can( 'edit_post', $post_id ) ) {
+			return;
+		} // end if
+	} // end if/else
+
+	// Read the meta description
+	$post_level_layout = $_POST['standard_seo_post_level_layout'];
+	
+	// Update it for this post
+	update_post_meta( $post_id, 'standard_seo_post_level_layout', $post_level_layout );
+
+} // end standard_save_post_layout_data
+add_action( 'save_post', 'standard_save_post_layout_data' );
+
+/**
  * Adds the 'Standard' menu to the admin bar on the non-admin pages.
  */
 function standard_add_admin_bar_option() {

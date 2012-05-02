@@ -17,8 +17,8 @@
 			<?php if ( 'left_sidebar_layout' == $options['layout'] ) { ?>
 				<?php get_sidebar(); ?>
 			<?php } // end if ?>
-			
-			<div id="main" class="<?php echo 'full_width_layout' == $options['layout'] ? 'span12 fullwidth' : 'span8'; ?> clearfix" role="main">
+
+			<div id="main" class="<?php echo 'full_width_layout' == $options['layout'] || get_post_meta( get_the_ID(), 'standard_seo_post_level_layout', true ) ? 'span12 fullwidth' : 'span8'; ?> clearfix" role="main">
 				
 				<?php get_template_part( 'breadcrumbs' ); ?>
 				
