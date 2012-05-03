@@ -80,6 +80,8 @@ function get_standard_theme_default_layout_options() {
  */
 function standard_setup_theme_layout_options() {
 
+	print_r( get_post( $_POST['post_ID'] ) );
+
 	// If the layout options don't exist, create them.
 	if( false == get_option( 'standard_theme_layout_options' ) ) {	
 		add_option( 'standard_theme_layout_options', apply_filters( 'standard_theme_default_layout_options', get_standard_theme_default_layout_options() ) );
@@ -1784,17 +1786,15 @@ if( ! function_exists( 'standard_post_format_rss' ) ) {
  * Calls the Standard SEO Titles plugin during the wp_title action to render
  * SEO-friendly page titles.
  */
-function standard_seo_titles() {
-
-	if( ! ( defined( 'WPSEO_URL' ) || class_exists( 'All_in_One_SEO_Pack' ) ) ) {
-	
+if( ! ( defined( 'WPSEO_URL' ) || class_exists( 'All_in_One_SEO_Pack' ) ) ) {
+	function standard_seo_titles() {
+			
 		include_once( get_template_directory() . '/lib/seotitles/standard_seotitles.php' );
 		echo Standard_SeoTitles::get_page_title( get_the_ID() );
 		
-	} // end if/else
-	
-} // end standard_seo_tiltes
-add_filter( 'wp_title', 'standard_seo_titles' );
+	} // end standard_seo_tiltes
+	add_filter( 'wp_title', 'standard_seo_titles' );
+} // end if
 
 /**
  * Place all widget titles in h4 tags rather than h3 tags to improve SEO. Also adds the
