@@ -14,7 +14,7 @@ class Activity_Tabs extends WP_Widget {
 	 * Constructor
 	 *--------------------------------------------------------*/
 	 
-	function Activity_Tabs() {
+	public function __construct() {
 
 		$widget_opts = array(
 			'classname' 	=> __( 'Activity Tabs', 'standard' ), 
@@ -46,7 +46,7 @@ class Activity_Tabs extends WP_Widget {
 	 * @args			The array of form elements
 	 * @instance
 	 */
-	function widget( $args, $instance ) {
+	public function widget( $args, $instance ) {
 	
 		extract( $args, EXTR_SKIP );
 
@@ -54,7 +54,7 @@ class Activity_Tabs extends WP_Widget {
 		$popular_count = empty( $instance['popular_count']) ? '' : apply_filters( 'popular_count', $instance['popular_count'] );
 		$comment_count = empty( $instance['comment_count']) ? '' : apply_filters( 'comment_count', $instance['comment_count'] );
 		$tag_count = empty( $instance['tag_count']) ? '' : apply_filters( 'tag_count', $instance['tag_count'] );
-    
+
 		// Display the widget
 		if( $post_count > 0 || $popular_count > 0 || $comment_count > 0 || $tag_count > 0 ) {
 			echo self::get_popular_content( $post_count, $popular_count, $comment_count, $tag_count );
@@ -68,7 +68,7 @@ class Activity_Tabs extends WP_Widget {
 	 * @new_instance	The previous instance of values before the update.
 	 * @old_instance	The new instance of values to be generated via the update.
 	 */
-	function update( $new_instance, $old_instance ) {
+	public function update( $new_instance, $old_instance ) {
 		
 		$instance = $old_instance;
 
@@ -76,7 +76,7 @@ class Activity_Tabs extends WP_Widget {
 		$instance['popular_count'] = strip_tags( stripslashes( $new_instance['popular_count'] ) );
 		$instance['comment_count'] = strip_tags( stripslashes( $new_instance['comment_count'] ) ); 
 		$instance['tag_count'] = strip_tags( stripslashes( $new_instance['tag_count'] ) ); 
-		
+
 		return $instance;
 		
 	} // end widget
@@ -86,7 +86,7 @@ class Activity_Tabs extends WP_Widget {
 	 *
 	 * @instance	The array of keys and values for the widget.
 	 */
-	function form( $instance ) {
+	public function form( $instance ) {
 
 		$instance = wp_parse_args(
 			(array)$instance,
@@ -104,7 +104,7 @@ class Activity_Tabs extends WP_Widget {
     	$tag_count = strip_tags( stripslashes( $instance['tag_count'] ) );
    
 		// Display the admin form
-    	include_once( get_template_directory() . '/lib/activity/views/admin.php' );
+    	include( get_template_directory() . '/lib/activity/views/admin.php' );
 		
 	} // end form
 
@@ -425,6 +425,6 @@ class Activity_Tabs extends WP_Widget {
 	} // end get_tags
 
 } // end class
-add_action( 'widgets_init', create_function( '', 'register_widget("Activity_Tabs");' ) ); 
+add_action( 'widgets_init', create_function( '', 'register_widget( "Activity_Tabs" );' ) ); 
 
 ?>
