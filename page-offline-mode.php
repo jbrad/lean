@@ -30,9 +30,11 @@
 		<?php wp_head(); ?>
 	</head>
 	<body <?php body_class(); ?>>
-		<h1>Needs work from <a href="http://twitter.com/alliswell">@alliswell</a></h1>
-		
-		<?php $options = get_option( 'standard_theme_general_options' ); ?>
-		<p><?php echo $options['offline_mode_message']; ?></p>
+		<div style="width:640px;margin:0 auto;padding:120px;text-align:center;">
+			<iframe width="560" height="315" src="http://www.youtube.com/embed/WUUptX0i55g" frameborder="0" allowfullscreen></iframe>
+			<?php $options = get_option( 'standard_theme_general_options' ); ?>
+			<h1>PC Load Letter? The Fck does that mean?</h1>
+			<p><?php echo $options['offline_mode_message']; ?></p> 
+		</div>
 	</body>
 </html>
