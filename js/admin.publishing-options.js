@@ -2,7 +2,6 @@
 	$(function() {
 		
 		// Privacy Policy
-		// Generate the policy when the button is clicked
 		$('#generate_privacy_policy').click(function(evt) {
 			
 			evt.preventDefault();
@@ -14,24 +13,55 @@
 					generatePrivacyPolicy: 'true'
 					
 				}, function(response) {
-console.log( response );
+				
 					if( parseInt(response) > 0 ) {
-						$('#generate-policy-wrapper').slideUp('fast', function() {
+						$('#generate-privacy-policy-wrapper').slideUp('fast', function() {
 						
 							var sNewHref = $('#edit-privacy-policy').attr('href');
-							sNewHref = sNewHref.replace('null-policy', response);
+							sNewHref = sNewHref.replace('null-private-policy', response);
 							
 							$('#edit-privacy-policy').attr('href', sNewHref);
-							$('#has-policy-wrapper').slideDown('fast');
+							$('#has-privacy-policy-wrapper').slideDown('fast');
 							
 						});
+						
 					} // end if
 					
 				});
 			
 		});
 		
-		/* Comment Policy */
+		// Comment Policy
+		$('#generate_comment_policy').click(function(evt) {
+			
+			evt.preventDefault();
+			
+			$.post(ajaxurl, {
+				
+					action: 'standard_generate_comment_policy_page',
+					nonce: $.trim($('#standard-comment-policy-nonce').text()),
+					generateCommentPolicy: 'true'
+					
+				}, function(response) {
+
+					if( parseInt(response) > 0 ) {
+					
+						$('#generate-comment-policy-wrapper').slideUp('fast', function() {
+						
+							var sNewHref = $('#edit-comment-policy').attr('href');
+							sNewHref = sNewHref.replace('null-comment-policy', response);
+							
+							$('#edit-comment-policy').attr('href', sNewHref);
+							console.log($('#edit-comment-policy'));
+							$('#has-comment-policy-wrapper').slideDown('fast');
+							
+						});
+						
+					} // end if
+					
+				});
+			
+		});
 		
 	});
 })(jQuery);

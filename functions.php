@@ -762,6 +762,14 @@ function standard_setup_theme_publishing_options() {
 		'publishing'
 	);
 
+	add_settings_field(
+		'comment_policy_template',
+		__( 'Comment Policy', 'standard' ),
+		'comment_policy_template_display',
+		'standard_theme_publishing_options',
+		'publishing'
+	);
+
 	register_setting(
 		'standard_theme_publishing_options',
 		'standard_theme_publishing_options',
@@ -778,34 +786,62 @@ function standard_theme_publishing_options_display() {
 	_e( 'TODO', 'standard' );
 } // end standard_theme_publishing_options_display
 
+/**
+ * TODO
+ */
 function privacy_policy_template_display() {
 
-	$options = get_option( 'standard_theme_publishing_options' );
-	
 	// First, detect if the privacy policy page exists
 	$privacy_policy = get_page_by_title( __( 'Privacy Policy', 'standard' ) );
 	
 	// Options to display if the page doesn't already exist
-	$html = '<div id="generate-policy-wrapper"' . ( '' == $privacy_policy ? ' ' : ' class="hidden" ' )  . '>';
+	$html = '<div id="generate-privacy-policy-wrapper"' . ( '' == $privacy_policy ? ' ' : ' class="hidden" ' )  . '>';
 		$html .= '<input type="submit" class="button-secondary" id="generate_privacy_policy" name="generate_privacy_policy" value="' . __( 'Generate Policy', 'standard' ) . '" />';
 		$html .= '<span id="standard-privacy-policy-nonce" class="hidden">' . wp_create_nonce( 'standard_generate_privacy_policy_nonce' ) . '</span>';
 		$html .= '&nbsp;';
-		$html .= '<span class="description">' . __( 'Click here to have Standard generate a Privacy Policy template for you. TODO.', 'standard' ) . '</span>';
-	$html .= '</div><!-- /#generate-policy-wrapper -->';
+		$html .= '<span class="description">' . __( 'Click here to generate a Privacy Policy. TODO.', 'standard' ) . '</span>';
+	$html .= '</div><!-- /#generate-private-policy-wrapper -->';
 	
 	// Options to display if the page already exists
-	$html .= '<div id="has-policy-wrapper"' . ( '' == $privacy_policy ? ' class="hidden" ' : '' )  . '>';
+	$html .= '<div id="has-privacy-policy-wrapper"' . ( '' == $privacy_policy ? ' class="hidden" ' : '' )  . '>';
 	
 		$policy_id = $privacy_policy->ID == '' ? 'null-policy' : $privacy_policy->ID;
-		$html .= '<span>' . __( 'You already have a privacy policy template. You can edit it <a id="edit-privacy-policy" href="post.php?post=' . $policy_id . '&action=edit">here</a>.', 'standard' ) . '</span>';
-	$html .= '</div><!-- /#has-policy-wrapper -->';
+		$html .= '<span>' . __( 'You already have a Privacy Policy. You can edit it <a id="edit-privacy-policy" href="post.php?post=' . $policy_id . '&action=edit">here</a>.', 'standard' ) . '</span>';
+	$html .= '</div><!-- /#has-privacy-policy-wrapper -->';
 	
 	echo $html;
 
 } // end privacy_policy_template_display
 
 /**
- * Callback function used in the Ajax request for hiding the notification window of WordPress SEO.
+ * TODO
+ */
+function comment_policy_template_display() {
+
+	// First, detect if the privacy policy page exists
+	$comment_policy = get_page_by_title( __( 'Comment Policy', 'standard' ) );
+	
+	// Options to display if the page doesn't already exist
+	$html = '<div id="generate-comment-policy-wrapper"' . ( '' == $comment_policy ? ' ' : ' class="hidden" ' )  . '>';
+		$html .= '<input type="submit" class="button-secondary" id="generate_comment_policy" name="generate_comment_policy" value="' . __( 'Generate Policy', 'standard' ) . '" />';
+		$html .= '<span id="standard-comment-policy-nonce" class="hidden">' . wp_create_nonce( 'standard_generate_comment_policy_nonce' ) . '</span>';
+		$html .= '&nbsp;';
+		$html .= '<span class="description">' . __( 'Click here to generate a Comment Policy. TODO.', 'standard' ) . '</span>';
+	$html .= '</div><!-- /#generate-comment-policy-wrapper -->';
+	
+	// Options to display if the page already exists
+	$html .= '<div id="has-comment-policy-wrapper"' . ( '' == $comment_policy ? ' class="hidden" ' : '' )  . '>';
+	
+		$policy_id = $comment_policy->ID == '' ? 'null-comment-policy' : $comment_policy->ID;
+		$html .= '<span>' . __( 'You already have a Comment Policy. You can edit it <a id="edit-comment-policy" href="post.php?post=' . $policy_id . '&action=edit">here</a>.', 'standard' ) . '</span>';
+	$html .= '</div><!-- /#has-comment-policy-wrapper -->';
+	
+	echo $html;
+
+} // end comment_policy_template_display
+
+/**
+ * Callback function used in the Ajax request for generating the Privacy Policy.
  */
 function standard_generate_privacy_policy_page( ) {
 	
@@ -822,8 +858,29 @@ function standard_generate_privacy_policy_page( ) {
 		die( '-1' );
 	} // end if/else
 
-} // end standard_save_wordpress_seo_message_setting
+} // end standard_generate_privacy_policy_page
 add_action( 'wp_ajax_standard_generate_privacy_policy_page', 'standard_generate_privacy_policy_page' );
+
+/**
+ * Callback function used in the Ajax request for generating the Comment Policy.
+ */
+function standard_generate_comment_policy_page( ) {
+	
+	if( wp_verify_nonce( $_REQUEST['nonce'], 'standard_generate_comment_policy_nonce' ) && isset( $_POST['generateCommentPolicy'] ) ) {
+		
+		$page_id = standard_create_page( 'comment-policy', __( 'Comment Policy', 'standard' ), 'template-policy' );
+		if( $page_id > 0 ) {
+			die( (string)$page_id );
+		} else {
+			die( '1' );
+		} // end if/else
+		
+	} else {
+		die( '-1' );
+	} // end if/else
+
+} // end standard_generate_comment_policy_page
+add_action( 'wp_ajax_standard_generate_comment_policy_page', 'standard_generate_comment_policy_page' );
 
 /**
  * Sanitization callback for the publishing options.
