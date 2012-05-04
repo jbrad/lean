@@ -11,6 +11,7 @@ include_once( get_template_directory() . '/lib/Standard_Nav_Walker.class.php' );
 		- General Options
 		- Layout Options
 		- Social Options
+		- Publishing
 		- Page Options
 		- Options Page
 	3. Features
@@ -606,13 +607,6 @@ function display_featured_images_display( $args ) {
 
 } // end display_featured_images_display
 
-/** 
- * Renders the description for the "Google Analytics" option.
- */
-function standard_theme_google_analytics_display() {
-	echo '<p>' . __( 'Enter your Google Analytics ID here.', 'standard' ) . '</p>';
-} // end standard_theme_google_analytics_display
-
 /**
  * Renders the option element for Google Analytics.
  */
@@ -728,6 +722,78 @@ function standard_theme_general_options_validate( $input ) {
 } // end standard_theme_general_options_validate
 
 /* ----------------------------- *
+ * 	Publishing Options
+ * ----------------------------- */
+ 
+ /**
+ * Defines the default values for Standard's publishing options.
+ */
+function get_standard_theme_default_publishing_options() {
+
+	$defaults = array(
+	);
+	
+	return apply_filters ( 'standard_theme_default_publishing_options', $defaults );
+
+} // end get_standard_theme_default_general_options
+
+/**
+ * Defines Standard's "publishing" options.
+ */
+function standard_setup_theme_publishing_options() {
+
+	// If the theme options don't exist, create them.
+	if( false == get_option( 'standard_theme_publishing_options' ) ) {	
+		add_option( 'standard_theme_publishing_options', apply_filters( 'standard_theme_publishing_options', get_standard_theme_default_publishing_options() ) );
+	} // end if
+	
+	add_settings_section(
+		'publishing',
+		__( 'Publishing', 'standard' ),
+		'standard_theme_publishing_options_display',
+		'standard_theme_publishing_options'
+	);
+	
+	register_setting(
+		'standard_theme_publishing_options',
+		'standard_theme_publishing_options',
+		'standard_theme_publishing_options_validate'
+	);
+	
+} // end standard_setup_theme_publishing_options
+add_action( 'admin_init', 'standard_setup_theme_publishing_options' );
+
+/** 
+ * Renders the description for the "Publishing" options settings page.
+ */
+function standard_theme_publishing_options_display() {
+	_e( 'TODO', 'standard' );
+} // end standard_theme_publishing_options_display
+
+/**
+ * Sanitization callback for the publishing options.
+ *	
+ * @params	$input	The unsanitized collection of options.
+ *
+ * @returns			The collection of sanitized values.
+ */
+function standard_theme_publishing_options_validate( $input ) {
+
+	$output = $defaults = array();
+
+	foreach( $input as $key => $val ) {
+	
+		if( isset ( $input[$key] ) ) {
+			$output[$key] = strip_tags( stripslashes( $input[$key] ) );
+		} // end if	
+	
+	} // end foreach
+
+	return apply_filters( 'standard_theme_publishing_options_validate', $output, $input, $defaults );
+
+} // end standard_theme_publishing_options_validate
+
+/* ----------------------------- *
  * 	Options Page
  * ----------------------------- */
 
@@ -747,6 +813,7 @@ function standard_theme_options_display() {
 			<a class="nav-tab <?php echo $active_tab == 'standard_theme_general_options' ? 'nav-tab-active' : ''; ?>" href="?page=theme_options&amp;tab=standard_theme_general_options"><?php _e( 'General Options', 'standard' ); ?></a>
 			<a class="nav-tab <?php echo $active_tab == 'standard_theme_layout_options' ? 'nav-tab-active' : ''; ?>" href="?page=theme_options&amp;tab=standard_theme_layout_options"><?php _e( 'Layout', 'standard' ); ?></a>
 			<a class="nav-tab <?php echo $active_tab == 'standard_theme_social_options' ? 'nav-tab-active' : ''; ?>" href="?page=theme_options&amp;tab=standard_theme_social_options"><?php _e( 'Social Options', 'standard' ); ?></a>
+			<a class="nav-tab <?php echo $active_tab == 'standard_theme_publishing_options' ? 'nav-tab-active' : ''; ?>" href="?page=theme_options&amp;tab=standard_theme_publishing_options"><?php _e( 'Publishing', 'standard' ); ?></a>
 		</h2>
 
 		<form method="post" action="options.php">
@@ -761,11 +828,16 @@ function standard_theme_options_display() {
 				
 					settings_fields( 'standard_theme_layout_options' );
 					do_settings_sections( 'standard_theme_layout_options' );
+
+				} else if( 'standard_theme_social_options' == $active_tab ) {
+				
+					settings_fields( 'standard_theme_social_options' );
+					do_settings_sections( 'standard_theme_social_options' );					
 					
 				} else {
 				
-					settings_fields( 'standard_theme_social_options' );
-					do_settings_sections( 'standard_theme_social_options' );
+					settings_fields( 'standard_theme_publishing_options' );
+					do_settings_sections( 'standard_theme_publishing_options' );
 				
 				} // end if/else
 				
