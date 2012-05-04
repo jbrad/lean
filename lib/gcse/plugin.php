@@ -12,7 +12,7 @@ class Google_Custom_Search extends WP_Widget {
 	 * Constructor
 	 *--------------------------------------------------------*/
 	 
-	function Google_Custom_Search() {
+	function __construct() {
 
 		$widget_opts = array(
 			'classname' 	=> __( 'Google Custom Search', 'standard' ), 
@@ -92,6 +92,6 @@ class Google_Custom_Search extends WP_Widget {
 	} // end form
 
 } // end class
-add_action( 'widgets_init', create_function( '', 'register_widget("Google_Custom_Search");' ) ); 
+add_action( 'widgets_init', create_function( '', 'register_widget( "Google_Custom_Search" );' ) ); 
 
 ?>
