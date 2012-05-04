@@ -68,7 +68,7 @@ add_action( 'admin_menu', 'standard_theme_menu' );
 function get_standard_theme_default_layout_options() {
 
 	$defaults = array(
-		'layout' => 'right_sidebar_layout'
+		'layout' 	=> 'right_sidebar_layout'
 	);
 	
 	return apply_filters ( 'standard_theme_default_layout_options', $defaults );
@@ -79,8 +79,6 @@ function get_standard_theme_default_layout_options() {
  * Defines Standard's layout options.
  */
 function standard_setup_theme_layout_options() {
-
-	print_r( get_post( $_POST['post_ID'] ) );
 
 	// If the layout options don't exist, create them.
 	if( false == get_option( 'standard_theme_layout_options' ) ) {	
@@ -125,6 +123,14 @@ function standard_setup_theme_layout_options() {
 		array(
 			'option_image_path' => get_template_directory_uri() . '/images/layout-full.gif'
 		)
+	);
+
+	add_settings_field(
+		'contrast',
+		__( 'Contrast', 'standard' ),
+		'contrast_display',
+		'standard_theme_layout_options',
+		'layout'
 	);
 	
 	register_setting(
@@ -192,6 +198,20 @@ function full_width_layout_display( $args ) {
 } // end full_width_layout_display
 
 /**
+ * Renders the layout option for the contrast checkbox.
+ */
+function contrast_display() {
+
+	$options = get_option( 'standard_theme_layout_options' );
+	
+	$html = '<input type="checkbox" id="contrast" name="standard_theme_layout_options[contrast]" value="on" ' . checked( 'on', $options['contrast'], false ) . ' />';
+	$html .= '&nbsp;<label for="contrast">' . __( 'Select this option if you are using a light background.', 'standard' ) . '</label>';
+	
+	echo $html;
+	
+} // end contrast_display
+
+/**
  * Sanitization callback for the layout options. Since each of the layout options are checkboxes,
  * this function loops through the incoming options and verifies they are either empty strings
  * or the number 1.
@@ -203,10 +223,10 @@ function full_width_layout_display( $args ) {
 function standard_theme_layout_options_validate( $input ) {
 	
 	$output = $defaults = get_standard_theme_default_layout_options();
-	
+
 	foreach( $input as $key => $val ) {
 	
-		if( isset ( $input[$key] ) && $input[$key] == 'left_sidebar_layout' || $input[$key] == 'right_sidebar_layout' || $input[$key] == 'full_width_layout' ) {
+		if( isset ( $input[$key] ) && $input[$key] == 'left_sidebar_layout' || $input[$key] == 'right_sidebar_layout' || $input[$key] == 'full_width_layout' || $key == 'contrast' ) {
 			$output[$key] = $input[$key];
 		} // end if	
 	
@@ -1392,6 +1412,13 @@ function standard_add_theme_stylesheets() {
 	// theme
 	wp_register_style( 'standard', get_stylesheet_directory_uri() . '/style.css' );
 	wp_enqueue_style( 'standard' ); 
+	
+	// contrast
+	$options = get_option( 'standard_theme_layout_options' );
+	if( 'on' == $options['contrast'] ) {
+		wp_register_style( 'standard-contrast', get_stylesheet_directory_uri() . '/css/theme.contrast-light.css' );
+		wp_enqueue_style( 'standard-contrast' ); 
+ 	} // end if
 
 } // end add_theme_stylesheets
 add_action( 'wp_enqueue_scripts', 'standard_add_theme_stylesheets' );
