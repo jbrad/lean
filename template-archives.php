@@ -1,7 +1,7 @@
 <?php /* Template Name: Archives */ ?>
 <?php
 /**
- * The template for displaying single pages.
+ * The template for display all categories and all posts in ascending order.
  *
  * @package Standard
  * @since 3.0

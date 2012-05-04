@@ -1,3 +1,11 @@
+<?php
+/**
+ * The template for displaying breadcrumbs. Supports both Standard and Yoast Breadcrumbs.
+ *
+ * @package Standard
+ * @since 3.0
+ */
+?>
 <?php 
 if( function_exists( 'yoast_breadcrumb' ) ) {
 

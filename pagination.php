@@ -1,3 +1,11 @@
+<?php
+/**
+ * The template for providing pagination throughout the theme.
+ *
+ * @package Standard
+ * @since 3.0
+ */
+?>
 <?php global $wp_query; ?>
 <?php $options = get_option( 'standard_theme_layout_options' ); ?>
 

@@ -45,7 +45,10 @@
 })(jQuery);
 
 /**
- * TODO
+ * Scans the JavaScript sources on the page to determine which page is using the sitemap template.
+ * 
+ * $		The jQuery function
+ * returns	The ID of the page serving as the sitemap
  */
 function sitemapPageID($) {
 
@@ -74,7 +77,9 @@ function sitemapPageID($) {
 } // end findSitemapPageID
 
 /**
- * TODO
+ * Removes the post editor if the user selects the Sitemap template.
+ * 
+ * $		The jQuery function
  */
 function togglePostBodyContent($) {
 

@@ -18,7 +18,7 @@
  * Overrides the core send_to_editor function in the media-upload script. Grabs the URL of the image afterbeing uploaded and 
  * populates the favicon's text field with its URL.
  *
- * @params	sHtml	The HTML TODO
+ * @params	sHtml	The HTML of the image tag from which we're setting the favicon
  */ 
 window.send_to_editor = function(sHtml) {
 

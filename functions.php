@@ -787,7 +787,7 @@ function standard_theme_publishing_options_display() {
 } // end standard_theme_publishing_options_display
 
 /**
- * TODO
+ * Renders the option for generating a Privacy Policy from within the Standard dashboard.
  */
 function privacy_policy_template_display() {
 
@@ -814,7 +814,7 @@ function privacy_policy_template_display() {
 } // end privacy_policy_template_display
 
 /**
- * TODO
+ * Renders the option for generating a Comment Policy from within the Standard dashboard.
  */
 function comment_policy_template_display() {
 
@@ -2334,7 +2334,13 @@ function standard_offline_mode() {
 } // end standard_offline_mode
 
 /**
- * TODO
+ * Helper function for programmatically creating a page.
+ * 
+ * @params	$slug		The slug by which the page will be accessed
+ * @params	$title		The title of the page
+ * @params	$template	The name of the template file (without the file extension)
+ *
+ * @returns	The ID of the page once it was created, or 0 if it failed.
  */
 function standard_create_page( $slug, $title, $template = '' ) {
 

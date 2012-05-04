@@ -1,3 +1,11 @@
+<?php
+/**
+ * The template for rendering the footer.
+ *
+ * @package Standard
+ * @since 3.0
+ */
+?>
 <div id="footer" class="clearfix">
 	
 		<?php if( is_active_sidebar( 'sidebar-2' ) || is_active_sidebar( 'sidebar-3' ) || is_active_sidebar( 'sidebar-4' ) ) { ?>
