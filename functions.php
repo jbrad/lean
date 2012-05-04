@@ -754,6 +754,14 @@ function standard_setup_theme_publishing_options() {
 		'standard_theme_publishing_options'
 	);
 	
+	add_settings_field(
+		'privacy_policy_template',
+		__( 'Privacy Policy', 'standard' ),
+		'privacy_policy_template_display',
+		'standard_theme_publishing_options',
+		'publishing'
+	);
+
 	register_setting(
 		'standard_theme_publishing_options',
 		'standard_theme_publishing_options',
@@ -769,6 +777,53 @@ add_action( 'admin_init', 'standard_setup_theme_publishing_options' );
 function standard_theme_publishing_options_display() {
 	_e( 'TODO', 'standard' );
 } // end standard_theme_publishing_options_display
+
+function privacy_policy_template_display() {
+
+	$options = get_option( 'standard_theme_publishing_options' );
+	
+	// First, detect if the privacy policy page exists
+	$privacy_policy = get_page_by_title( __( 'Privacy Policy', 'standard' ) );
+	
+	// Options to display if the page doesn't already exist
+	$html = '<div id="generate-policy-wrapper"' . ( '' == $privacy_policy ? ' ' : ' class="hidden" ' )  . '>';
+		$html .= '<input type="submit" class="button-secondary" id="generate_privacy_policy" name="generate_privacy_policy" value="' . __( 'Generate Policy', 'standard' ) . '" />';
+		$html .= '<span id="standard-privacy-policy-nonce" class="hidden">' . wp_create_nonce( 'standard_generate_privacy_policy_nonce' ) . '</span>';
+		$html .= '&nbsp;';
+		$html .= '<span class="description">' . __( 'Click here to have Standard generate a Privacy Policy template for you. TODO.', 'standard' ) . '</span>';
+	$html .= '</div><!-- /#generate-policy-wrapper -->';
+	
+	// Options to display if the page already exists
+	$html .= '<div id="has-policy-wrapper"' . ( '' == $privacy_policy ? ' class="hidden" ' : '' )  . '>';
+	
+		$policy_id = $privacy_policy->ID == '' ? 'null-policy' : $privacy_policy->ID;
+		$html .= '<span>' . __( 'You already have a privacy policy template. You can edit it <a id="edit-privacy-policy" href="post.php?post=' . $policy_id . '&action=edit">here</a>.', 'standard' ) . '</span>';
+	$html .= '</div><!-- /#has-policy-wrapper -->';
+	
+	echo $html;
+
+} // end privacy_policy_template_display
+
+/**
+ * Callback function used in the Ajax request for hiding the notification window of WordPress SEO.
+ */
+function standard_generate_privacy_policy_page( ) {
+	
+	if( wp_verify_nonce( $_REQUEST['nonce'], 'standard_generate_privacy_policy_nonce' ) && isset( $_POST['generatePrivacyPolicy'] ) ) {
+		
+		$page_id = standard_create_page( 'privacy-policy', __( 'Privacy Policy', 'standard' ), 'template-policy' );
+		if( $page_id > 0 ) {
+			die( (string)$page_id );
+		} else {
+			die( '1' );
+		} // end if/else
+		
+	} else {
+		die( '-1' );
+	} // end if/else
+
+} // end standard_save_wordpress_seo_message_setting
+add_action( 'wp_ajax_standard_generate_privacy_policy_page', 'standard_generate_privacy_policy_page' );
 
 /**
  * Sanitization callback for the publishing options.
@@ -1595,6 +1650,10 @@ function standard_add_admin_scripts() {
 		wp_register_script('standard-media-upload', get_template_directory_uri() . '/js/admin.media-upload.js', array( 'jquery', 'media-upload','thickbox') );
 		wp_enqueue_script('standard-media-upload');
 		
+		// standard's policy generation script
+		wp_register_script('standard-publishing-options', get_template_directory_uri() . '/js/admin.publishing-options.js' );
+		wp_enqueue_script('standard-publishing-options');
+		
 	} // end if
 
 } // end add_admin_scripts
@@ -2216,6 +2275,32 @@ function standard_offline_mode() {
 	} // end if
 	
 } // end standard_offline_mode
+
+/**
+ * TODO
+ */
+function standard_create_page( $slug, $title, $template = '' ) {
+
+	$current_user = wp_get_current_user();
+	
+	$page_id = wp_insert_post(	
+		array(
+			'comment_status'	=>	'closed',
+			'ping_status'		=>	'closed',
+			'post_author'		=>	$current_user->ID,
+			'post_name'			=>	$slug,
+			'post_title'		=>	$title,
+			'post_status'		=>	'publish',
+			'post_type'			=>	'page'
+		)
+	);
+	
+	// Set the template
+	update_post_meta( $page_id, '_wp_page_template', '' != $template ? $template .= '.php' : $template );
+		
+	return $page_id;
+
+} // end dittymail_create_page
 
 /* ----------------------------------------------------------- *
  * 9. PressTrends Integration
