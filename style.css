@@ -1655,20 +1655,28 @@ ul#sitemap-posts ul {
 	.tabbed-widget .tab-content ul li {
 		min-height: 50px;
 	}
+
+	.tabbed-widget .tab-count-1 > li > a {
+		width: 279px;
+	}
+	
+	.tabbed-widget .tab-count-2 > li > a {
+		width: 138px;
+	}
+	
+	.tabbed-widget .tab-count-3 > li > a {
+		width: 91px; 
+	}
+	
+	.tabbed-widget .tab-count-4 > li > a {
+		width: 68px; 
+	}	
 	
 	/* footer area */
 	
 	#sub-floor #credit {
 		text-align: center;
 	}
-	
-	.tabbed-widget .tab-count-3 > li > a {
-		width: 86px; 
-	}
-	
-	.tabbed-widget .tab-count-4 > li > a {
-		width: 64px; 
-	}	
 
 }
 
