@@ -79,7 +79,7 @@ class Google_Custom_Search extends WP_Widget {
 			(array)$instance,
 			array(
 				'gcse_title' 		=> '',
-				'gcse_content' 		=> 'tomtom'
+				'gcse_content' 		=> ''
 			)
 		);
 		

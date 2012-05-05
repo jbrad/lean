@@ -1047,23 +1047,86 @@ add_action( 'save_post', 'standard_save_post_layout_data' );
 function standard_add_admin_bar_option() {
 	
 	if( ! is_admin() ) {
-	
+		
 		global $wp_admin_bar;
-
-		$wp_admin_bar->add_menu(
+		
+		$wp_admin_bar->add_node(
 			array(
-				'parent'	=>	'site-name',
-				'id'		=>	'standard-options',
-				'title'		=>	__( 'Standard', 'standard' ),
-				'href'		=> admin_url( 'themes.php?page=theme_options' ),
-				'meta'		=> false
+				'id'	=>	'standard_options',
+				'title'	=>	__( 'Standard', 'standard' ),
+				'href'	=>	get_bloginfo( 'url' ) . '/wp-admin/themes.php?page=theme_options'
+			)
+		);
+		
+		// General Options
+		$wp_admin_bar->add_node(
+			array(
+				'id'		=>	'standard_theme_general_options',
+				'title'		=>	__( 'General Options', 'standard' ),
+				'parent'	=>	'standard_options',
+				'href'		=>	get_bloginfo( 'url' ) . '/wp-admin/themes.php?page=theme_options&tab=standard_theme_general_options'
+			)
+		);
+	
+		// Layout Options
+		$wp_admin_bar->add_node(
+			array(
+				'id'		=>	'standard_theme_layout_options',
+				'title'		=>	__( 'Layout', 'standard' ),
+				'parent'	=>	'standard_options',
+				'href'		=>	get_bloginfo( 'url' ) . '/wp-admin/themes.php?page=theme_options&tab=standard_theme_layout_options'
+			)
+		);
+		
+		// Social Options
+		$wp_admin_bar->add_node(
+			array(
+				'id'		=>	'standard_theme_social_options',
+				'title'		=>	__( 'Social Options', 'standard' ),
+				'parent'	=>	'standard_options',
+				'href'		=>	get_bloginfo( 'url' ) . '/wp-admin/themes.php?page=theme_options&tab=standard_theme_social_options'
+			)
+		);
+		
+		// Publishing Options
+		$wp_admin_bar->add_node(
+			array(
+				'id'		=>	'standard_theme_publishing_options',
+				'title'		=>	__( 'Publishing', 'standard' ),
+				'parent'	=>	'standard_options',
+				'href'		=>	get_bloginfo( 'url' ) . '/wp-admin/themes.php?page=theme_options&tab=standard_theme_publishing_options'
 			)
 		);
 		
 	} // end if
 	
+	/*
+	    // add a parent item
+    $args = array('id' => 'parent_node', 'title' => 'parent node'); 
+    $wp_admin_bar->add_node($args);
+    
+    // add a child item to a our parent item
+    $args = array('id' => 'child_node', 'title' => 'child node', 'parent' => 'parent_node'); 
+    $wp_admin_bar->add_node($args);
+    
+    // add a group node with a class "first-toolbar-group"
+    $args = array(
+              'id' => 'first_group', 
+              'parent' => 'parent_node',
+              'meta' => array('class' => 'first-toolbar-group')
+            );
+    $wp_admin_bar->add_group($args); 
+    
+    // add an item to a our group item
+    $args = array('id' => 'first_grouped_node', 'title' => 'first group node', 'parent' => 'first_group'); 
+    $wp_admin_bar->add_node($args);
+    
+    // add another child item to a our parent item (not to our first group)
+    $args = array('id' => 'another_child_node', 'title' => 'another child node', 'parent' => 'parent_node'); 
+    $wp_admin_bar->add_node($args);*/
+	
 } // end standard_add_admin_bar_option
-//add_action( 'admin_bar_menu', 'standard_add_admin_bar_option' );
+add_action( 'admin_bar_menu', 'standard_add_admin_bar_option', 40 );
 
 /**
  * Detects whether or not Yoast's WordPress SEO plugin has been installed. If so, it will display a notice that informs users
