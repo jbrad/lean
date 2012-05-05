@@ -42,6 +42,7 @@ class Standard_Ad_300x250 extends WP_Widget {
 		extract( $args, EXTR_SKIP );
 	
 		$ad_src = empty( $instance['ad_src']) ? '' : apply_filters( 'ad_src', $instance['ad_src'] );
+		$ad_url = empty( $instance['ad_url']) ? '' : apply_filters( 'ad_url', $instance['ad_url'] );
 		
 		// Display the widget
 		// TODO
@@ -59,6 +60,7 @@ class Standard_Ad_300x250 extends WP_Widget {
 		$instance = $old_instance;
 
 		$instance['ad_src'] = strip_tags( stripslashes( $new_instance['ad_src'] ) );
+		$instance['ad_url'] = strip_tags( stripslashes( $new_instance['ad_url'] ) );
 		
 		return $instance;
 		
@@ -74,9 +76,13 @@ class Standard_Ad_300x250 extends WP_Widget {
 		$instance = wp_parse_args(
 			(array)$instance,
 			array(
-				'ad_src' 		=> '',
+				'ad_src' 	=> '',
+				'ad_url'	=> ''
 			)
 		);
+    
+		$ad_src = esc_url( $instance['ad_src'] );
+		$ad_url = esc_url( $instance['ad_url'] );
     
 		// Display the admin form
     	include( get_template_directory() . '/lib/ad_300x250/views/admin.php' );
@@ -91,7 +97,12 @@ class Standard_Ad_300x250 extends WP_Widget {
 	 * TODO
 	 */
 	public function register_admin_styles() {
+	
 		wp_enqueue_style( 'thickbox' );
+		
+		wp_register_style( 'standard-ad-300x250', get_template_directory_uri() . '/lib/ad_300x250/css/admin.css' );
+		wp_enqueue_style( 'standard-ad-300x250' );
+		
 	} // end register_admin_styles
 
 	/**
