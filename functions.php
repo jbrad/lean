@@ -1338,6 +1338,8 @@ if( ! function_exists( 'standard_add_theme_features' ) ) {
 		// post thumbnail support
 		add_theme_support( 'post-thumbnails' );
 
+		/** TODO move all of this into a helper function */
+
 		// Activity Tabs	
 		if( ! in_array( get_template_directory() . '/lib/activity/plugin.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {
 			include_once( get_template_directory() . '/lib/activity/plugin.php' );
@@ -1353,6 +1355,11 @@ if( ! function_exists( 'standard_add_theme_features' ) ) {
 		// Google Custom Search
 		if( ! in_array( get_template_directory() . '/lib/gcse/plugin.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {
 			include_once( get_template_directory() . '/lib/gcse/plugin.php' );
+		} // end if	
+		
+		// 300x250 advertisements
+		if( ! in_array( get_template_directory() . '/lib/ad_300x250/plugin.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {
+			include_once( get_template_directory() . '/lib/ad_300x250/plugin.php' );
 		} // end if	
 
 	} // end add_theme_features
