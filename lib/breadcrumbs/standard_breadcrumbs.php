@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Standard Breadcrumbs is a class that is respnsible for creating SEO-friendly
+ * Standard Breadcrumbs is a class that is responsible for creating SEO-friendly
  * breadcrumbs for blog posts.
  *
  * The class will generate the breadcrumbs in the format of:
