@@ -31,7 +31,7 @@
 })(jQuery);
 
 /**
- * Overrides the core send_to_editor function in the media-upload script. Grabs the URL of the image afterbeing uploaded and 
+ * Overrides the core send_to_editor function in the media-upload script. Grabs the URL of the image after being uploaded and 
  * populates the favicon's text field with its URL.
  *
  * @params	sHtml	The HTML of the image tag from which we're setting the favicon
