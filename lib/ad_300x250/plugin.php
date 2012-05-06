@@ -1,5 +1,4 @@
 <?php
-
 /**
  * 300x250 is a widget for displaying a single 300x250 ad in any widgetized
  * area in Standard.
@@ -7,12 +6,6 @@
  * version 1.0
  */
 class Standard_Ad_300x250 extends WP_Widget {
-
-	/**
-	 * TODO
-	 * - remove unnecessary media fields
-	 * - client facing widget
-	 */
 
 	/*--------------------------------------------------------*
 	 * Constructor
@@ -28,9 +21,6 @@ class Standard_Ad_300x250 extends WP_Widget {
 		
 		add_action( 'admin_print_styles', array( &$this, 'register_admin_styles' ) );
 		add_action( 'admin_enqueue_scripts', array( &$this, 'register_admin_scripts' ) );
-		
-		add_action( 'wp_enqueue_scripts', array( &$this, 'register_widget_styles' ) );
-		add_action( 'wp_enqueue_scripts', array( &$this, 'register_widget_scripts' ) );
 		
 	} // end constructor
 
@@ -52,7 +42,7 @@ class Standard_Ad_300x250 extends WP_Widget {
 		$ad_url = empty( $instance['ad_url']) ? '' : apply_filters( 'ad_url', $instance['ad_url'] );
 		
 		// Display the widget
-		// TODO
+		include( plugin_dir_path( __FILE__ ) .  'views/widget.php' );
 		
 	} // end widget
 	
@@ -92,7 +82,7 @@ class Standard_Ad_300x250 extends WP_Widget {
 		$ad_url = esc_url( $instance['ad_url'] );
     
 		// Display the admin form
-    	include( get_template_directory() . '/lib/ad_300x250/views/admin.php' );
+		include( plugin_dir_path( __FILE__ ) .  'views/admin.php' );
 		
 	} // end form
 
@@ -101,7 +91,7 @@ class Standard_Ad_300x250 extends WP_Widget {
 	 *--------------------------------------------------------*/
 
 	/** 
-	 * TODO
+	 * Registers and Enqueues the stylesheets for the Media Uploader and this widget.
 	 */
 	public function register_admin_styles() {
 	
@@ -112,8 +102,8 @@ class Standard_Ad_300x250 extends WP_Widget {
 		
 	} // end register_admin_styles
 
-	/**
-	 * TODO
+	/** 
+	 * Registers and Enqueues the JavaScript sources for the Media Uploader and this widget.
 	 */
 	public function register_admin_scripts() {
 	
@@ -128,26 +118,6 @@ class Standard_Ad_300x250 extends WP_Widget {
 		wp_enqueue_script( 'standard-ad-300x250' );
 		
 	} // end register_admin_scripts
-	
-	/**
-	 * TODO
-	 */
-	public function register_widget_scripts() {
-	
-		wp_register_script( 'standard-ad-300x250', get_template_directory_uri() . '/lib/ad_300x250/js/widget.js' );
-		wp_enqueue_script( 'standard-ad-300x250' );
-	
-	} // end register_widget_scripts
-	
-	/**
-	 * TODO
-	 */
-	public function register_widget_styles() {
-	
-		wp_register_style( 'standard-ad-300x250', get_template_directory_uri() . '/lib/ad_300x250/css/widget.css' );
-		wp_enqueue_style( 'standard-ad-300x250' );
-	
-	} // end register_widget_styles
 
 } // end class
 add_action( 'widgets_init', create_function( '', 'register_widget( "Standard_Ad_300x250" );' ) ); 
