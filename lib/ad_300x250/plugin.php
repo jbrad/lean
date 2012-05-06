@@ -8,6 +8,12 @@
  */
 class Standard_Ad_300x250 extends WP_Widget {
 
+	/**
+	 * TODO
+	 * - remove unnecessary media fields
+	 * - client facing widget
+	 */
+
 	/*--------------------------------------------------------*
 	 * Constructor
 	 *--------------------------------------------------------*/
@@ -22,6 +28,7 @@ class Standard_Ad_300x250 extends WP_Widget {
 		
 		add_action( 'admin_print_styles', array( &$this, 'register_admin_styles' ) );
 		add_action( 'admin_enqueue_scripts', array( &$this, 'register_admin_scripts' ) );
+		
 		add_action( 'wp_enqueue_scripts', array( &$this, 'register_widget_styles' ) );
 		add_action( 'wp_enqueue_scripts', array( &$this, 'register_widget_scripts' ) );
 		
@@ -144,5 +151,4 @@ class Standard_Ad_300x250 extends WP_Widget {
 
 } // end class
 add_action( 'widgets_init', create_function( '', 'register_widget( "Standard_Ad_300x250" );' ) ); 
-
 ?>
