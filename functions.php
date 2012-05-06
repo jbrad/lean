@@ -657,7 +657,7 @@ function fav_icon_display() {
 		$html = '<img src="' . $option['fav_icon'] . '" alt="" width="16" height="16" />';
 	} // end if
 	
-	$html .= '<input type="text" id="fav_icon" name="standard_theme_general_options[fav_icon]" value="' . esc_attr( $option['fav_icon'] ) . '" />';
+	$html .= '<input type="text" id="fav_icon" name="standard_theme_general_options[fav_icon]" value="' . esc_attr( $option['fav_icon'] ) . '" class="media-upload-field" />';
 	$html .= '<input type="button" class="button" id="upload_fav_icon" value="' . __( 'Upload Now', 'standard' ) . '"/>';
 	
 	if( '' != trim( $option['fav_icon'] ) ) {
@@ -731,6 +731,7 @@ function standard_theme_general_options_validate( $input ) {
 function get_standard_theme_default_publishing_options() {
 
 	$defaults = array(
+		'post_advertisement_type' => 'image'
 	);
 	
 	return apply_filters ( 'standard_theme_default_publishing_options', $defaults );
@@ -766,6 +767,30 @@ function standard_setup_theme_publishing_options() {
 		'comment_policy_template',
 		__( 'Comment Policy', 'standard' ),
 		'comment_policy_template_display',
+		'standard_theme_publishing_options',
+		'publishing'
+	);
+	
+	add_settings_field(
+		'post_advertisement_type',
+		__( 'Display Advertisements Using', 'standard' ),
+		'post_advertisement_type_display',
+		'standard_theme_publishing_options',
+		'publishing'
+	);
+	
+	add_settings_field(
+		'post_advertisement_image',
+		__( 'Advertisement Image', 'standard' ),
+		'post_advertisement_image_display',
+		'standard_theme_publishing_options',
+		'publishing'
+	);
+
+	add_settings_field(
+		'post_advertisement_adsense',
+		__( 'Advertisement Adsense', 'standard' ),
+		'post_advertisement_adsense_display',
 		'standard_theme_publishing_options',
 		'publishing'
 	);
@@ -806,7 +831,7 @@ function privacy_policy_template_display() {
 	$html .= '<div id="has-privacy-policy-wrapper"' . ( '' == $privacy_policy ? ' class="hidden" ' : '' )  . '>';
 	
 		$policy_id = $privacy_policy->ID == '' ? 'null-policy' : $privacy_policy->ID;
-		$html .= '<span>' . __( 'You already have a Privacy Policy. You can edit it <a id="edit-privacy-policy" href="post.php?post=' . $policy_id . '&action=edit">here</a>.', 'standard' ) . '</span>';
+		$html .= '<span>' . __( 'You can view and edit your privacy policy <a id="edit-privacy-policy" href="post.php?post=' . $policy_id . '&action=edit">here</a>.', 'standard' ) . '</span>';
 	$html .= '</div><!-- /#has-privacy-policy-wrapper -->';
 	
 	echo $html;
@@ -833,7 +858,7 @@ function comment_policy_template_display() {
 	$html .= '<div id="has-comment-policy-wrapper"' . ( '' == $comment_policy ? ' class="hidden" ' : '' )  . '>';
 	
 		$policy_id = $comment_policy->ID == '' ? 'null-comment-policy' : $comment_policy->ID;
-		$html .= '<span>' . __( 'You already have a Comment Policy. You can edit it <a id="edit-comment-policy" href="post.php?post=' . $policy_id . '&action=edit">here</a>.', 'standard' ) . '</span>';
+		$html .= '<span>' . __( 'You can view and edit your comment policy <a id="edit-comment-policy" href="post.php?post=' . $policy_id . '&action=edit">here</a>.', 'standard' ) . '</span>';
 	$html .= '</div><!-- /#has-comment-policy-wrapper -->';
 	
 	echo $html;
@@ -883,6 +908,55 @@ function standard_generate_comment_policy_page( ) {
 add_action( 'wp_ajax_standard_generate_comment_policy_page', 'standard_generate_comment_policy_page' );
 
 /**
+ * TODO
+ */
+function post_advertisement_type_display() {
+
+	$options = get_option( 'standard_theme_publishing_options' );
+
+	$html = '<select id="post_advertisement_type" name="standard_theme_publishing_options[post_advertisement_type]">';
+		$html .= '<option value="image"' . selected( 'image', $options['post_advertisement_type'], false ) . '>' . __( 'Banner Image', 'standard' ) . '</option>';
+		$html .= '<option value="adsense"' . selected( 'adsense', $options['post_advertisement_type'], false ) . '>' . __( 'Adsense', 'standard' ) . '</option>';
+	$html .= '</select>';
+	
+	echo $html;
+
+} // end post_advertisement_type_display
+
+/**
+ * TODO
+ */
+function post_advertisement_image_display() {
+
+	$options = get_option( 'standard_theme_publishing_options' );
+
+	$html = '<input type="text" id="post_advertisement_image" name="standard_theme_publishing_options[post_advertisement_image]" value="' . esc_attr( $options['post_advertisement_image'] ) . '" class="post_advertisement_image media-upload-field" />';
+	
+	$html .= '<input type="button" class="button" id="upload_post_advertisement_image" value="' . __( 'Upload Now', 'standard' ) . '" class="post_advertisement_image" />';
+	
+	if( '' != trim( $options['post_advertisement_image']) ) {
+	
+		$html .= '<input type="button" class="button" id="delete_post_advertisement_image" value="' . __( 'Delete', 'standard' ) . '"/>';
+		$html .= '<p id="post_advertisement_preview"><img src="' . $options['post_advertisement_image'] . '" alt="" /></p>';
+		
+	} // end if
+	
+	echo $html;
+
+} // end post_advertisement_image_display
+
+/**
+ * TODO
+ */
+function post_advertisement_adsense_display() {
+
+	$options = get_option( 'standard_theme_publishing_options' );
+
+	echo '<input type="text" id="post_advertisement_adsense" name="standard_theme_publishing_options[post_advertisement_adsense]" value="' . $options['post_advertisement_adsense'] . '" class="post_advertisement_adsense" />';
+
+} // end post_advertisement_image_display
+
+/**
  * Sanitization callback for the publishing options.
  *	
  * @params	$input	The unsanitized collection of options.
@@ -891,13 +965,17 @@ add_action( 'wp_ajax_standard_generate_comment_policy_page', 'standard_generate_
  */
 function standard_theme_publishing_options_validate( $input ) {
 
-	$output = $defaults = array();
+	$output = $defaults = get_standard_theme_default_publishing_options();
 
 	foreach( $input as $key => $val ) {
-	
+
 		if( isset ( $input[$key] ) ) {
 			$output[$key] = strip_tags( stripslashes( $input[$key] ) );
 		} // end if	
+		
+		if( 'post_advertisement_image' == $key ) {	
+			$output[$key] = esc_url_raw( $output[$key] );
+		} // end if
 	
 	} // end foreach
 

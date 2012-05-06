@@ -19,8 +19,15 @@ class Standard_Ad_300x250 extends WP_Widget {
 		);	
 		$this->WP_Widget( 'standard-ad-300x250', __( '300x250 Ad (Standard)', 'standard' ), $widget_opts );
 		
-		add_action( 'admin_print_styles', array( &$this, 'register_admin_styles' ) );
-		add_action( 'admin_enqueue_scripts', array( &$this, 'register_admin_scripts' ) );
+		// We don't want to load these on the Appearance Options because we're overiding window.send_to_editor there, too.
+		// We don't have access to get_current_screen() so we're using $pagenow.
+		global $pagenow;
+		if( 'themes.php' != $pagenow ) {
+		
+			add_action( 'admin_print_styles', array( &$this, 'register_admin_styles' ) );
+			add_action( 'admin_enqueue_scripts', array( &$this, 'register_admin_scripts' ) );
+			
+		} // end if
 		
 	} // end constructor
 
