@@ -651,13 +651,13 @@ function affiliate_code_display() {
 function fav_icon_display() {
 
 	$option = get_option( 'standard_theme_general_options' );
-
-	$html = '';
-	if( '' != trim( $option['fav_icon'] ) ) {
-		$html = '<img src="' . $option['fav_icon'] . '" alt="" width="16" height="16" />';
+	
+	if( '' != $option['fav_icon'] ) {
+		$dimensions = 'width="16" height="16"';
 	} // end if
 	
-	$html .= '<input type="text" id="fav_icon" name="standard_theme_general_options[fav_icon]" value="' . esc_attr( $option['fav_icon'] ) . '" class="media-upload-field" />';
+	$html .= '<img src="' . $option['fav_icon'] . '" id="image_upload_preview" alt="" ' . $dimensions . '/>';
+	$html .= '<input type="hidden" id="fav_icon" name="standard_theme_general_options[fav_icon]" value="' . esc_attr( $option['fav_icon'] ) . '" class="media-upload-field" />';
 	$html .= '<input type="button" class="button" id="upload_fav_icon" value="' . __( 'Upload Now', 'standard' ) . '"/>';
 	
 	if( '' != trim( $option['fav_icon'] ) ) {
@@ -711,7 +711,7 @@ function standard_theme_general_options_validate( $input ) {
 			$output[$key] = strip_tags( stripslashes( $input[$key] ) );
 		} // end if	
 		
-		if( 'affiliate_code' == $key || 'fav_icon' == $key ) {
+		if( 'affiliate_code' == $key ) {
 			$output[$key] = esc_url ( strip_tags( stripslashes( $input[$key] ) ) );
 		} // end if
 	
@@ -930,7 +930,7 @@ function post_advertisement_image_display() {
 
 	$options = get_option( 'standard_theme_publishing_options' );
 
-	$html = '<input type="hidden" id="post_advertisement_image" name="standard_theme_publishing_options[post_advertisement_image]" value="' . esc_url( $options['post_advertisement_image'] ) . '" class="post_advertisement_image media-upload-field" />';
+	$html = '<input type="hidden" id="post_advertisement_image" name="standard_theme_publishing_options[post_advertisement_image]" value="' . esc_url( $options['post_advertisement_image'] ) . '" class="post_advertisement_image media-upload-field-raw" />';
 	
 	$html .= '<input type="button" class="button" id="upload_post_advertisement_image" value="' . __( 'Upload Now', 'standard' ) . '" class="post_advertisement_image" />';
 
@@ -938,7 +938,7 @@ function post_advertisement_image_display() {
 		$html .= '<input type="button" class="button" id="delete_post_advertisement_image" value="' . __( 'Delete', 'standard' ) . '"/>';
 	} // end if
 	
-	$html .= '<p id="post_advertisement_preview">' . $options['post_advertisement_image'] . '</p>';
+	$html .= '<p id="image_upload_preview">' . $options['post_advertisement_image'] . '</p>';
 	
 	echo $html;
 

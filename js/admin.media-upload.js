@@ -13,11 +13,27 @@
 			var $submit = null;
 			var submitPoll = setInterval(function() {
 				
-				$submit = $('.savesend input[type="submit"]', $('#TB_iframeContent')[0].contentWindow.document);
-				if($submit.length > 0 && $submit !== null) {
-					/* TODO This will need to be manually localized */
-					$submit.val('Save as Site Icon');
-					clearInterval(submitPoll);
+				if($('#TB_iframeContent').length > 0) {
+				
+					// Hide unnecessary fields
+					var $formFields = $('.describe tbody tr, .savebutton', $('#TB_iframeContent')[0].contentWindow.document);
+					$formFields.each(function() {
+					
+						// Remove everything except the URL field
+						if(!$(this).hasClass('submit')) {
+							$(this).hide();
+						} // end if
+						
+					});
+				
+					// Change the text of the submit button
+					$submit = $('.savesend input[type="submit"]', $('#TB_iframeContent')[0].contentWindow.document);
+					if($submit.length > 0 && $submit !== null) {
+						/* TODO This will need to be manually localized */
+						$submit.val('Save as Site Icon');
+						clearInterval(submitPoll);
+					} // end if
+				
 				} // end if
 				
 			}, 1000);
@@ -27,6 +43,8 @@
 		// Remove the URL of the fav icon
 		$('#delete_fav_icon').click(function() {
 			$('#fav_icon').val('');
+			$(this).siblings('img').hide();
+			$(this).hide();
 		});
 		
 		/* --- Advertisements --- */
@@ -115,18 +133,31 @@
  */ 
 window.send_to_editor = function(sHtml) {
 
-	// Grab the URL of the image and set it into the favicon's URL
-	jQuery('.media-upload-field').val(sHtml);
+	// Grab the URL of the image and set it into the field's ID.
+	// The raw class accepts a string of HTML, the other just the attribute
+	if(jQuery('.media-upload-field-raw').length > 0) {
+		jQuery('.media-upload-field-raw').val(sHtml);
+	} else {
+		jQuery('.media-upload-field').val(jQuery(sHtml).attr('src'));
+	} // end if/else
 	
 	// If the preview element exists, insert the image into the preview
-	if(jQuery('#post_advertisement_preview').length > 0) {
+	if(jQuery('#image_upload_preview').length > 0) {
 
 		// If there's an anchor in the markup, set a target="_blank" on it
 		if(jQuery(sHtml).attr('href') !== undefined && jQuery(sHtml).attr('href') !== null) {
 			jQuery(sHtml).attr('target', '_blank');
 		} // end if
 		
-		jQuery('#post_advertisement_preview').html(sHtml);
+		if(jQuery('.media-upload-field-raw').length > 0) {
+			jQuery('#image_upload_preview').html(sHtml);
+		} else {
+		
+			jQuery('#image_upload_preview').attr('src', jQuery(sHtml).attr('src'));
+			jQuery('#image_upload_preview').css('width', 16).css('height', 16);
+			
+		} // end if/else
+		
 		
 	} // end if
 			
