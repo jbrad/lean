@@ -856,6 +856,12 @@ a.post-permalink:hover {
 	float: right;
 }
 
+#standard-post-advertisement-image,
+#standard-post-advertisement-adsense {
+	text-align: center;
+	margin: 12px 0 12px 0;
+}
+
 /* Post Author Box */
 
 .author-box-image {

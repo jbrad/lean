@@ -53,20 +53,39 @@
 		
 			$select = $('#post_advertisement_type');
 			if($select.attr('value') === 'image') {
+			
 				$select.parents('tr').siblings(':last').hide();
 				$select.parents('tr').next().show();
-			} else {
+				
+			} else if($select.attr('value') === 'adsense'){
+				
 				$select.parents('tr').siblings(':last').show();
 				$select.parents('tr').next().hide();
+				
+			} else {
+			
+				$select.parents('tr').siblings(':last').hide();
+				$select.parents('tr').next().hide();
+			
 			} // end if/else
 		
 			$select.change(function() {
+			
 				if($(this).children(':selected').attr('value') === 'image') {
+				
 					$(this).parents('tr').siblings(':last').hide();
 					$(this).parents('tr').next().show();
-				} else {
+					
+				} else if($(this).children(':selected').attr('value') === 'adsense') {
+				
 					$(this).parents('tr').siblings(':last').show();
 					$(this).parents('tr').next().hide();
+				
+				} else {
+				
+					$(this).parents('tr').siblings(':last').hide();
+					$(this).parents('tr').next().hide();
+					
 				} // end if/else
 			});
 		
@@ -93,6 +112,15 @@
 							$(this).hide();
 						} // end if
 						
+						// Make sure that we select the 'Full Size' of the image
+						if($(this).hasClass('image-size')) {
+							$(this).children('.field').children().each(function() {
+								if($(this).children('input[type=radio]').attr('id').indexOf('-full-') > 0) {
+									$(this).children('input[type=radio]').attr('checked', 'checked');
+								} // end if
+							});
+						} // end if
+						
 						// If we're looking at the URL field, remove the extra buttons and text
 						if($(this).hasClass('url')) {
 							$(this).children('.field').children('input').siblings().hide();
@@ -117,7 +145,7 @@
 		$('#delete_post_advertisement_image').click(function() {
 		
 			$('#post_advertisement_image').val('');
-			$(this).siblings('#post_advertisement_preview').hide();
+			$(this).siblings('#image_upload_preview').hide();
 			$(this).hide();
 			
 		});

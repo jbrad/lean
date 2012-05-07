@@ -50,7 +50,7 @@
 						<?php the_post(); ?>
 						<?php get_template_part( 'loop', get_post_format() ); ?>
 					<?php } // end while ?>
-			
+
 					<?php get_template_part( 'pagination' ); ?>
 					
 				<?php } else { ?>

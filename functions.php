@@ -731,7 +731,7 @@ function standard_theme_general_options_validate( $input ) {
 function get_standard_theme_default_publishing_options() {
 
 	$defaults = array(
-		'post_advertisement_type' => 'image'
+		'post_advertisement_type' => 'none'
 	);
 	
 	return apply_filters ( 'standard_theme_default_publishing_options', $defaults );
@@ -915,6 +915,7 @@ function post_advertisement_type_display() {
 	$options = get_option( 'standard_theme_publishing_options' );
 
 	$html = '<select id="post_advertisement_type" name="standard_theme_publishing_options[post_advertisement_type]">';
+		$html .= '<option value="none"' . selected( 'none', $options['post_advertisement_type'], false ) . '>' . __( 'None', 'standard' ) . '</option>';
 		$html .= '<option value="image"' . selected( 'image', $options['post_advertisement_type'], false ) . '>' . __( 'Banner Image', 'standard' ) . '</option>';
 		$html .= '<option value="adsense"' . selected( 'adsense', $options['post_advertisement_type'], false ) . '>' . __( 'Adsense', 'standard' ) . '</option>';
 	$html .= '</select>';
@@ -938,6 +939,7 @@ function post_advertisement_image_display() {
 		$html .= '<input type="button" class="button" id="delete_post_advertisement_image" value="' . __( 'Delete', 'standard' ) . '"/>';
 	} // end if
 	
+	$html .= '<span class="description">' . __( 'This advertisement will appear between your post content and your comments.', 'standard' ) . '</span>';
 	$html .= '<p id="image_upload_preview">' . $options['post_advertisement_image'] . '</p>';
 	
 	echo $html;

@@ -27,6 +27,21 @@
 							the_post(); 
 							get_template_part( 'loop', get_post_format() );
 				?>
+	
+							<?php $publishing_options = get_option( 'standard_theme_publishing_options' ); ?>
+							<?php if( 'none' !== $publishing_options['post_advertisement_type'] ) { ?>			
+								<?php if( 'image' == $publishing_options['post_advertisement_type'] ) { ?>
+									<div id="standard-post-advertisement-image">
+										<?php echo $publishing_options['post_advertisement_image']; ?>
+									</div><!-- /#standard-post-advertisement-image -->
+								<?php } else { ?>
+									<div id="standard-post-advertisement-adsense">
+										<?php echo $publishing_options['post_advertisement_adsense']; ?>
+										<!-- TODO this isn't done. -->
+									</div><!-- /#standard-post-advertisement-image -->
+								<?php } // end if/else ?>
+							<?php } // end if ?>
+				
 							<?php get_template_part( 'pagination '); ?>
 							<?php $general_options = get_option( 'standard_theme_general_options' ); ?>
 							<?php $social_options = get_option( 'standard_theme_social_options' ); ?>
