@@ -100,6 +100,7 @@
 		
 			$('#post_advertisement_image').val('');
 			$(this).siblings('#post_advertisement_preview').hide();
+			$(this).hide();
 			
 		});
 
@@ -115,9 +116,20 @@
 window.send_to_editor = function(sHtml) {
 
 	// Grab the URL of the image and set it into the favicon's URL
-	// TODO this doens't yet support links
-	jQuery('.media-upload-field').val(jQuery(sHtml).attr('src'));		
+	jQuery('.media-upload-field').val(sHtml);
+	
+	// If the preview element exists, insert the image into the preview
+	if(jQuery('#post_advertisement_preview').length > 0) {
 
+		// If there's an anchor in the markup, set a target="_blank" on it
+		if(jQuery(sHtml).attr('href') !== undefined && jQuery(sHtml).attr('href') !== null) {
+			jQuery(sHtml).attr('target', '_blank');
+		} // end if
+		
+		jQuery('#post_advertisement_preview').html(sHtml);
+		
+	} // end if
+			
 	// Hide the thickbox
 	tb_remove();
 

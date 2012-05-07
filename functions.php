@@ -786,7 +786,7 @@ function standard_setup_theme_publishing_options() {
 		'standard_theme_publishing_options',
 		'publishing'
 	);
-
+	
 	add_settings_field(
 		'post_advertisement_adsense',
 		__( 'Advertisement Adsense', 'standard' ),
@@ -930,16 +930,15 @@ function post_advertisement_image_display() {
 
 	$options = get_option( 'standard_theme_publishing_options' );
 
-	$html = '<input type="text" id="post_advertisement_image" name="standard_theme_publishing_options[post_advertisement_image]" value="' . esc_attr( $options['post_advertisement_image'] ) . '" class="post_advertisement_image media-upload-field" />';
+	$html = '<input type="hidden" id="post_advertisement_image" name="standard_theme_publishing_options[post_advertisement_image]" value="' . esc_url( $options['post_advertisement_image'] ) . '" class="post_advertisement_image media-upload-field" />';
 	
 	$html .= '<input type="button" class="button" id="upload_post_advertisement_image" value="' . __( 'Upload Now', 'standard' ) . '" class="post_advertisement_image" />';
-	
+
 	if( '' != trim( $options['post_advertisement_image']) ) {
-	
 		$html .= '<input type="button" class="button" id="delete_post_advertisement_image" value="' . __( 'Delete', 'standard' ) . '"/>';
-		$html .= '<p id="post_advertisement_preview"><img src="' . $options['post_advertisement_image'] . '" alt="" /></p>';
-		
 	} // end if
+	
+	$html .= '<p id="post_advertisement_preview">' . $options['post_advertisement_image'] . '</p>';
 	
 	echo $html;
 
@@ -970,12 +969,15 @@ function standard_theme_publishing_options_validate( $input ) {
 	foreach( $input as $key => $val ) {
 
 		if( isset ( $input[$key] ) ) {
-			$output[$key] = strip_tags( stripslashes( $input[$key] ) );
-		} // end if	
 		
-		if( 'post_advertisement_image' == $key ) {	
-			$output[$key] = esc_url_raw( $output[$key] );
-		} // end if
+			// If we're working with the post advertisement image, we don't need to remove tags because there's an anchor
+			if( 'post_advertisement_image' == $key ) {
+				$output[$key] = $input[$key];
+			} else {
+				$output[$key] = strip_tags( stripslashes( $input[$key] ) );
+			} // end if/else
+			
+		} // end if	
 	
 	} // end foreach
 
@@ -1177,31 +1179,6 @@ function standard_add_admin_bar_option() {
 		);
 		
 	} // end if
-	
-	/*
-	    // add a parent item
-    $args = array('id' => 'parent_node', 'title' => 'parent node'); 
-    $wp_admin_bar->add_node($args);
-    
-    // add a child item to a our parent item
-    $args = array('id' => 'child_node', 'title' => 'child node', 'parent' => 'parent_node'); 
-    $wp_admin_bar->add_node($args);
-    
-    // add a group node with a class "first-toolbar-group"
-    $args = array(
-              'id' => 'first_group', 
-              'parent' => 'parent_node',
-              'meta' => array('class' => 'first-toolbar-group')
-            );
-    $wp_admin_bar->add_group($args); 
-    
-    // add an item to a our group item
-    $args = array('id' => 'first_grouped_node', 'title' => 'first group node', 'parent' => 'first_group'); 
-    $wp_admin_bar->add_node($args);
-    
-    // add another child item to a our parent item (not to our first group)
-    $args = array('id' => 'another_child_node', 'title' => 'another child node', 'parent' => 'parent_node'); 
-    $wp_admin_bar->add_node($args);*/
 	
 } // end standard_add_admin_bar_option
 add_action( 'admin_bar_menu', 'standard_add_admin_bar_option', 40 );
