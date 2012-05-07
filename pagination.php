@@ -12,8 +12,8 @@
 <?php if( is_single() ) { ?>
 
 	<div id="single-post-nav" class="row">
-
-		<?php $pagination_width = 'full_width_layout' == $options['layout'] ? 'span6' : 'span4'; ?>
+	
+		<?php $pagination_width = 'full_width_layout' == $options['layout'] || 1 == get_post_meta( get_the_ID(), 'standard_seo_post_level_layout', true ) ? 'span6' : 'span4'; ?>
 		<?php $trunc_limit = 'full_width_layout' == $options['layout'] ? 50 : 30; ?>
 		
 		<?php previous_post_link( '<span class="' . $pagination_width . ' previous-page">%link</span>', _x( '&larr;', 'standard' ) . '&nbsp;' . standard_truncate_text( get_previous_post()->post_title, $trunc_limit ) ); ?>
