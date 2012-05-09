@@ -104,7 +104,7 @@ class Standard_Ad_300x250 extends WP_Widget {
 	
 		wp_enqueue_style( 'thickbox' );
 		
-		wp_register_style( 'standard-ad-300x250', get_template_directory_uri() . '/lib/ad_300x250/css/admin.css' );
+		wp_register_style( 'standard-ad-300x250', get_template_directory_uri() . '/lib/ad-300x250/css/admin.css' );
 		wp_enqueue_style( 'standard-ad-300x250' );
 		
 	} // end register_admin_styles
@@ -119,9 +119,9 @@ class Standard_Ad_300x250 extends WP_Widget {
 		
 		// thickbox for overlay
 		wp_enqueue_script('thickbox');
-	
+
 		// admin
-		wp_register_script( 'standard-ad-300x250', get_template_directory_uri() . '/lib/ad_300x250/js/admin.js', array( 'jquery', 'media-upload','thickbox') );
+		wp_register_script( 'standard-ad-300x250', get_template_directory_uri() . '/lib/ad-300x250/js/admin.js', array( 'jquery', 'media-upload','thickbox') );
 		wp_enqueue_script( 'standard-ad-300x250' );
 		
 	} // end register_admin_scripts
