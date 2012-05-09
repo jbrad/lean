@@ -45,8 +45,8 @@ class Standard_Ad_300x250 extends WP_Widget {
 	
 		extract( $args, EXTR_SKIP );
 	
-		$ad_src = empty( $instance['ad_src']) ? '' : apply_filters( 'ad_src', $instance['ad_src'] );
-		$ad_url = empty( $instance['ad_url']) ? '' : apply_filters( 'ad_url', $instance['ad_url'] );
+		$ad_src = empty( $instance['ad_src'] ) ? '' : apply_filters( 'ad_src', $instance['ad_src'] );
+		$ad_url = empty( $instance['ad_url'] ) ? '' : apply_filters( 'ad_url', $instance['ad_url'] );
 		
 		// Display the widget
 		include( plugin_dir_path( __FILE__ ) .  'views/widget.php' );

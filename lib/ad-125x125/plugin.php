@@ -29,6 +29,8 @@ class Standard_Ad_125x125 extends WP_Widget {
 			
 		} // end if
 		
+		add_action( 'wp_enqueue_scripts', array( &$this, 'register_widget_styles' ) );
+		
 	} // end constructor
 
 	/*--------------------------------------------------------*
@@ -44,9 +46,22 @@ class Standard_Ad_125x125 extends WP_Widget {
 	public function widget( $args, $instance ) {
 	
 		extract( $args, EXTR_SKIP );
-	
-		//$ad_src = empty( $instance['ad_src']) ? '' : apply_filters( 'ad_src', $instance['ad_src'] );
-		//$ad_url = empty( $instance['ad_url']) ? '' : apply_filters( 'ad_url', $instance['ad_url'] );
+		
+		// advertisement 1
+		$ad1_src = empty( $instance['ad1_src']) ? '' : apply_filters( 'ad1_src', $instance['ad1_src'] );
+		$ad1_url = empty( $instance['ad1_url']) ? '' : apply_filters( 'ad1_url', $instance['ad1_url'] );
+
+		// advertisement 2
+		$ad2_src = empty( $instance['ad2_src']) ? '' : apply_filters( 'ad2_src', $instance['ad2_src'] );
+		$ad2_url = empty( $instance['ad2_url']) ? '' : apply_filters( 'ad2_url', $instance['ad2_url'] );
+
+		// advertisement 3
+		$ad3_src = empty( $instance['ad3_src']) ? '' : apply_filters( 'ad3_src', $instance['ad3_src'] );
+		$ad3_url = empty( $instance['ad3_url']) ? '' : apply_filters( 'ad3_url', $instance['ad3_url'] );
+
+		// advertisement 4
+		$ad4_src = empty( $instance['ad4_src']) ? '' : apply_filters( 'ad4_src', $instance['ad4_src'] );
+		$ad4_url = empty( $instance['ad4_url']) ? '' : apply_filters( 'ad4_url', $instance['ad4_url'] );
 		
 		// Display the widget
 		include( plugin_dir_path( __FILE__ ) .  'views/widget.php' );
@@ -63,8 +78,21 @@ class Standard_Ad_125x125 extends WP_Widget {
 		
 		$instance = $old_instance;
 
-		//$instance['ad_src'] = strip_tags( stripslashes( $new_instance['ad_src'] ) );
-		//$instance['ad_url'] = strip_tags( stripslashes( $new_instance['ad_url'] ) );
+		// advertisement 1
+		$instance['ad1_src'] = strip_tags( stripslashes( $new_instance['ad1_src'] ) );
+		$instance['ad1_url'] = strip_tags( stripslashes( $new_instance['ad1_url'] ) );
+
+		// advertisement 2
+		$instance['ad2_src'] = strip_tags( stripslashes( $new_instance['ad2_src'] ) );
+		$instance['ad2_url'] = strip_tags( stripslashes( $new_instance['ad2_url'] ) );
+
+		// advertisement 3
+		$instance['ad3_src'] = strip_tags( stripslashes( $new_instance['ad3_src'] ) );
+		$instance['ad3_url'] = strip_tags( stripslashes( $new_instance['ad3_url'] ) );
+
+		// advertisement 4
+		$instance['ad4_src'] = strip_tags( stripslashes( $new_instance['ad4_src'] ) );
+		$instance['ad4_url'] = strip_tags( stripslashes( $new_instance['ad4_url'] ) );
 		
 		return $instance;
 		
@@ -80,13 +108,32 @@ class Standard_Ad_125x125 extends WP_Widget {
 		$instance = wp_parse_args(
 			(array)$instance,
 			array(
-				//'ad_src' 	=> '',
-				//'ad_url'	=> ''
+				'ad1_src' 	=> 	'',
+				'ad1_url'	=> 	'',
+				'ad2_src' 	=> 	'',
+				'ad2_url'	=>	'',
+				'ad3_src'	=>	'',
+				'ad3_url'	=>	'',
+				'ad4_src'	=>	'',
+				'ad4_url'	=>	''
 			)
 		);
     
-		//$ad_src = esc_url( $instance['ad_src'] );
-		//$ad_url = esc_url( $instance['ad_url'] );
+    	// advertising 1
+		$ad1_src = esc_url( $instance['ad1_src'] );
+		$ad1_url = esc_url( $instance['ad1_url'] );
+
+    	// advertising 2
+		$ad2_src = esc_url( $instance['ad2_src'] );
+		$ad2_url = esc_url( $instance['ad2_url'] );
+
+		// advertising 3
+		$ad3_src = esc_url( $instance['ad3_src'] );
+		$ad3_url = esc_url( $instance['ad3_url'] );
+
+		// advertising 4
+		$ad4_src = esc_url( $instance['ad4_src'] );
+		$ad4_url = esc_url( $instance['ad4_url'] );
     
 		// Display the admin form
 		include( plugin_dir_path( __FILE__ ) .  'views/admin.php' );
@@ -125,6 +172,16 @@ class Standard_Ad_125x125 extends WP_Widget {
 		wp_enqueue_script( 'standard-ad-125x125' );
 		
 	} // end register_admin_scripts
+	
+	/** 
+	 * Registers and Enqueues the stylesheets for this widget.
+	 */
+	public function register_widget_styles() {
+	
+		wp_register_style( 'standard-ad-125x125-widget', get_template_directory_uri() . '/lib/ad-125x125/css/widget.css' );
+		wp_enqueue_style( 'standard-ad-125x125-widget' );
+	
+	} // end register_widget_styles
 
 } // end class
 add_action( 'widgets_init', create_function( '', 'register_widget( "Standard_Ad_125x125" );' ) ); 

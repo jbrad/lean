@@ -1,0 +1,17 @@
+.standard-ad-125x125 {}
+
+.standard-ad-125x125 .left {
+	float: left;
+}
+
+.standard-ad-125x125 .right {
+	float: right;
+}
+
+.standard-ad-125x125 .left,
+.standard-ad-125x125 .right {
+	width: 125px;
+	height: 125px;
+	background: #fff;
+	margin: 12px;
+}
