@@ -1415,8 +1415,13 @@ if( ! function_exists( 'standard_add_theme_features' ) ) {
 		} // end if	
 		
 		// 300x250 advertisements
-		if( ! in_array( get_template_directory() . '/lib/ad_300x250/plugin.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {
-			include_once( get_template_directory() . '/lib/ad_300x250/plugin.php' );
+		if( ! in_array( get_template_directory() . '/lib/ad-300x250/plugin.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {
+			include_once( get_template_directory() . '/lib/ad-300x250/plugin.php' );
+		} // end if	
+
+		// Personal Image
+		if( ! in_array( get_template_directory() . '/lib/personal-image/plugin.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {
+			include_once( get_template_directory() . '/lib/personal-image/plugin.php' );
 		} // end if	
 
 	} // end add_theme_features
