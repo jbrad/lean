@@ -22,7 +22,7 @@
 		</div><!-- /.row -->
 		
 		<div class="row">
-			<span class="right 125x125-3">
+			<span class="left 125x125-3">
 				<img src="<?php echo '' == $ad3_src ? '' : $ad3_src; ?>" alt="" width="80" height="80" class="125x125-3-preview" />
 				<input type="hidden" id="<?php echo $this->get_field_id( 'ad3_src' ); ?>" name="<?php echo $this->get_field_name( 'ad3_src' ); ?>" class="125x125-3-src" value="<?php echo '' == $ad3_src ? '' : $ad3_src; ?>" />
 				<input type="hidden" id="<?php echo $this->get_field_id( 'ad3_url' ); ?>" name="<?php echo $this->get_field_name( 'ad3_url' ); ?>" class="125x125-3-url" value="<?php echo '' == $ad3_url ? '' : $ad3_url; ?>" />
