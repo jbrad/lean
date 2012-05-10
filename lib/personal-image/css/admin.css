@@ -1,0 +1,20 @@
+.standard-personal-image-wrapper .bio {
+	margin-top: 12px;
+}
+
+.standard-personal-image-wrapper label {
+	display: block;
+	margin-bottom: 6px;
+}
+
+.standard-personal-image-wrapper .description {
+	display: block;
+}
+
+.standard-personal-image-wrapper .preview_image_container,
+.standard-personal-image-wrapper .preview_image {
+	width: 225px;
+	height: 200px;
+	background: #fff;
+	cursor: pointer;
+}
