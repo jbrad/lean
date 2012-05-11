@@ -1429,6 +1429,11 @@ if( ! function_exists( 'standard_add_theme_features' ) ) {
 			include_once( get_template_directory() . '/lib/personal-image/plugin.php' );
 		} // end if	
 
+		// Influence
+		if( ! in_array( get_template_directory() . '/lib/influence/plugin.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {
+			include_once( get_template_directory() . '/lib/influence/plugin.php' );
+		} // end if	
+
 	} // end add_theme_features
 	add_action( 'after_setup_theme', 'standard_add_theme_features' );
 } // end if

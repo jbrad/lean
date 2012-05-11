@@ -1,0 +1,13 @@
+.standard-influence-wrapper label {
+	display: block;
+}
+
+.standard-influence-wrapper input {
+	width: 100%;
+	margin: 3px 0 3px 0;
+}
+
+.standard-influence-wrapper .example {
+	font-size: 11px;
+	color: #666;
+}
