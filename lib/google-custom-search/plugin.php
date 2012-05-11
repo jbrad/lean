@@ -22,7 +22,7 @@ class Google_Custom_Search extends WP_Widget {
 		
 		if( is_admin() ) {
 		
-			wp_register_style( 'gcse-admin', get_template_directory_uri() . '/lib/gcse/css/admin.css' );
+			wp_register_style( 'gcse-admin', get_template_directory_uri() . '/lib/google-custom-search/css/admin.css' );
 			wp_enqueue_style( 'gcse-admin' );
 			
 		} // end if
@@ -87,7 +87,7 @@ class Google_Custom_Search extends WP_Widget {
     	$gcse_content = esc_textarea( $instance['gcse_content'] );
    
 		// Display the admin form
-		include( get_template_directory() . '/lib/gcse/views/admin.php' );
+		include( get_template_directory() . '/lib/google-custom-search/views/admin.php' );
 		
 	} // end form
 

@@ -1410,8 +1410,8 @@ if( ! function_exists( 'standard_add_theme_features' ) ) {
 		} // end if
 
 		// Google Custom Search
-		if( ! in_array( get_template_directory() . '/lib/gcse/plugin.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {
-			include_once( get_template_directory() . '/lib/gcse/plugin.php' );
+		if( ! in_array( get_template_directory() . '/lib/google-custom-search/plugin.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {
+			include_once( get_template_directory() . '/lib/google-custom-search/plugin.php' );
 		} // end if	
 		
 		// 300x250 advertisements
