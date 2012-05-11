@@ -606,20 +606,26 @@ p.wp-caption-text {
 
 /* Pagination */ 
 
+.pager {
+	background: #fff;
+	border-bottom: 1px solid #aaa;
+}
+
 .pager a, .previous-page a, .next-page a {
 	color: #999;
-	border: 1px solid #454545;
-	padding: 8px 38px;
-	-moz-border-radius: 5px;
-	-webkit-border-radius: 5px;
-	border-radius: 5px;
-	background-color: #454545;
+	border-width: 0 0 0 0;
+	padding: 20px 38px;
+	-moz-border-radius: 0;
+	-webkit-border-radius: 0;
+	border-radius: 0;
+	background-color: #fff;
 }
 
 .pager a:hover, .previous-page a:hover, .next-page a:hover {
-	color: #fff;
-	background: #333;
+	color: #444;
+	background: #dedede;
 	text-decoration: none;
+	cursor: pointer;
 }
 
 /*infinate handle */
