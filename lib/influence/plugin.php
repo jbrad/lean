@@ -43,6 +43,7 @@ class Standard_Influence extends WP_Widget {
 		$twitter = empty( $instance['twitter']) ? '' : apply_filters( 'twitter', $instance['twitter'] );
 		$facebook = empty( $instance['facebook']) ? '' : apply_filters( 'facebook', $instance['facebook'] );
 		$feedburner = empty( $instance['feedburner']) ? '' : apply_filters( 'feedburner', $instance['feedburner'] );
+		$display = empty( $instance['display']) ? '' : apply_filters( 'display', $instance['display'] );
 		
 		// Display the widget
 		include( plugin_dir_path( __FILE__ ) .  'views/widget.php' );
@@ -62,6 +63,7 @@ class Standard_Influence extends WP_Widget {
 		$instance['twitter'] = strip_tags( stripslashes( $new_instance['twitter'] ) );
 		$instance['facebook'] = strip_tags( stripslashes( $new_instance['facebook'] ) );
 		$instance['feedburner'] = strip_tags( stripslashes( $new_instance['feedburner'] ) );
+		$instance['display'] = strip_tags( stripslashes( $new_instance['display'] ) );
 
 		return $instance;
 		
@@ -79,13 +81,15 @@ class Standard_Influence extends WP_Widget {
 			array(
 				'twitter'		=>	'',
 				'facebook'		=>	'',
-				'feedburner'	=>	''
+				'feedburner'	=>	'',
+				'display'		=>	'total'
 			)
 		);
     
 		$twitter = stripslashes( strip_tags( $instance['twitter'] ) );
 		$facebook = stripslashes( strip_tags( $instance['facebook'] ) );
 		$feedburner = stripslashes( strip_tags( $instance['feedburner'] ) );
+		$display = stripslashes( strip_tags( $instance['display'] ) );
 
 		// Display the admin form
 		include( plugin_dir_path( __FILE__ ) .  'views/admin.php' );
@@ -147,7 +151,7 @@ class Standard_Influence extends WP_Widget {
 	 *
 	 * @returns	The total number of followers for the given Twitter account.
 	 */
-	private function twitter_follower_count( $username ) {
+	private function twitter_follower_count( $username, $debug = false ) {
 	
 		// This value represents an uninitialized value
 		$follower_count = -1;
@@ -184,6 +188,9 @@ class Standard_Influence extends WP_Widget {
 			
 		} // end if
 
+		// If debug mode is running, return the raw follower count; otherwise, return the value or 0 if it's an error.
+		$follower_count = $debug ? $follower_count : ( $follower_count < 0 ? 0 : $follower_count );
+		
 		return $follower_count;
 
 	} // end twitter_follower_count
@@ -205,13 +212,13 @@ class Standard_Influence extends WP_Widget {
 	 *
 	 * @returns	The total number of likes for the given Facebook page.
 	 */
-	private function facebook_like_count( $username ) {
+	private function facebook_like_count( $username, $debug = false ) {
 	
 		// This value represents an uninitialized value
 		$like_count = -1;
 		
 		$transient_key = 'influence_facebook_' . $username;
-	
+
 		// First, we check the cache to see if it's available.
 		if( ! ( $like_count = get_transient( $transient_key ) ) ) {
 		
@@ -242,6 +249,9 @@ class Standard_Influence extends WP_Widget {
 			
 		} // end if
 
+		// If debug mode is running, return the raw like count; otherwise, return the value or 0 if it's an error.
+		$like_count = $debug ? $like_count : ( $like_count < 0 ? 0 : $like_count );
+
 		return $like_count;
 
 	} // end facebook_like_count
@@ -265,18 +275,18 @@ class Standard_Influence extends WP_Widget {
 	 *
 	 * @returns	The total number of subscribers for the given FeedBurner feed.
 	 */
-	private function feedburner_subscriber_count( $username ) {
+	private function feedburner_subscriber_count( $username, $debug = false ) {
 	
 		// This value represents an uninitialized value
 		$subscriber_count = -1;
 		
 		$transient_key = 'influence_feedburner_' . $username;
-	
+
 		// First, we check the cache to see if it's available.
 		if( ! ( $subscriber_count = get_transient( $transient_key ) ) ) {
 		
-			// If it's not available, we'll attempt to read the value from Twitter
-			if( ( $response = file_get_contents( 'http://feedburner.google.com/api/awareness/1.0/GetFeedData?uri=' . $username ) ) ) {
+			// If it's not available, we'll attempt to read the value from FeedBurner. We're suppressing errors since we're catching them.
+			if( ( $response = @file_get_contents( 'http://feedburner.google.com/api/awareness/1.0/GetFeedData?uri=' . $username ) ) ) {
 
 				// Attempt to decode the XML response
 				if( ( $xml = new SimpleXmlElement( $response, LIBXML_NOCDATA ) ) ) {
@@ -309,6 +319,9 @@ class Standard_Influence extends WP_Widget {
 			
 		} // end if
 
+		// If debug mode is running, return the raw like count; otherwise, return the value or 0 if it's an error.
+		$subscriber_count = $debug ? $subscriber_count : ( $subscriber_count < 0 ? 0 : $subscriber_count );
+
 		return $subscriber_count;	
 	
 	} // end feedburner_subscriber_count
@@ -324,23 +337,23 @@ class Standard_Influence extends WP_Widget {
 	 *
 	 * @returns	The total influence as calculated by all three services.
 	 */
-	private function get_total_influence_count( $twitter, $facebook, $feedburner ) {
+	private function get_total_influence_count( $twitter, $facebook, $feedburner, $debug = false ) {
 	
 		$influence = 0;
 	
 		if( '' != $twitter ) { 
-			$influence += $this->twitter_follower_count( $twitter );
+			$influence += $this->twitter_follower_count( $twitter, $debug );
 		} // end if
 		
 		if( '' != $facebook ) {
-			$influence += $this->facebook_like_count( $facebook );
+			$influence += $this->facebook_like_count( $facebook, $debug );
 		} // end if
 		
 		if( '' != $feedburner ) { 
-			$influence += $this->feedburner_subscriber_count( $feedburner );
+			$influence += $this->feedburner_subscriber_count( $feedburner, $debug );
 		} // end if
 	
-		return number_format( $influence );
+		return $influence;
 	
 	} // end get_total_influence_count
 
