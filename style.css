@@ -32,7 +32,8 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 	11. Page templates
 			 -sitemap
 	12. IE8 Styles
-	13. Media queries
+	13. Inline Grid
+	14. Media queries
 */
 
 
@@ -1652,7 +1653,31 @@ ul#sitemap-posts ul {
 	width: auto\9;
 }
 
-/* ------------------------------------------------------------------------ 13. Media queries */
+
+
+/* ------------------------------------------------------------------------ 13. inline-grid */
+
+.inline-grid { display: block; overflow: hidden; }
+.inline-grid>li { display: block; height: auto; float: left; }
+
+.inline-grid.two-up { margin-left: -4% }
+.inline-grid.two-up>li { margin-left: 4%; width: 46%; margin-bottom: 4%;}
+.inline-grid.two-up>li:nth-child(2n+1) {clear: left;}
+
+.inline-grid.three-up { margin-left: -2% }
+.inline-grid.three-up>li { margin-left: 2%; width: 31.2%; margin-bottom: 2%;}
+.inline-grid.three-up>li:nth-child(3n+1) {clear: left;}
+
+.inline-grid.four-up { margin-left: -2% }
+.inline-grid.four-up>li { margin-left: 2%; width: 23%; margin-bottom: 2%;}
+.inline-grid.four-up>li:nth-child(4n+1) {clear: left;}
+
+.inline-grid.five-up { margin-left: -1.5% }
+.inline-grid.five-up>li { margin-left: 1.5%; width: 18.5%; margin-bottom: 1.5%;}
+.inline-grid.five-up>li:nth-child(5n+1) {clear: left;}
+
+
+/* ------------------------------------------------------------------------ 14. Media queries */
 
 
 /* Smartphones */
