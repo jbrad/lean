@@ -1622,6 +1622,14 @@ h2#authors, h2#pages, h2#posts {
 	background-position: 0 5px;
 }
 
+h2#pages {
+	background-position: 0 -25px;
+}
+
+h2#posts {
+	background-position: 0 -52px;
+}
+
 .sitemap-author-meta {
 	position: relative;
 	margin-top: 5px;
@@ -1637,14 +1645,6 @@ h2#authors, h2#pages, h2#posts {
 	top: -4px;
 	left: -4px;
 	position: absolute;
-}
-
-h2#pages {
-	background-position: 0 -25px;
-}
-
-h2#posts {
-	background-position: 0 -52px;
 }
 
 ul#sitemap-posts {
