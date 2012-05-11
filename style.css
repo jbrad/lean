@@ -1461,7 +1461,7 @@ table#wp-calendar th, table#wp-calendar td {
 	height: auto;
 }
 
-/* jetpack comment subscription form */
+/* jetpack post comment subscription form */
 .comment-subscription-form {
 	clear: both;
 }
@@ -1469,6 +1469,30 @@ table#wp-calendar th, table#wp-calendar td {
 .comment-subscription-form input[type="checkbox"] {
 	float: left;
 	margin-right: 10px;
+}
+
+/* jetpack blog subscription widget */
+.jetpack_subscription_widget {
+	background: #fff;
+	padding: 20px 20px 11px 20px;
+	border-radius: 5px;
+}
+
+.jetpack_subscription_widget form {
+	margin-bottom: 0;
+}
+
+.jetpack_subscription_widget label {
+	font-weight: bold;
+}
+
+.jetpack_subscription_widget input[type="text"] {
+	width: 96% !important;
+	padding: 4px !important;
+}
+
+.jetpack_subscription_widget input[type="submit"] {
+	margin-bottom: 0;
 }
 
 
