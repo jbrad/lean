@@ -1,8 +1,5 @@
 <div class="standard-ad-300x250-wrapper">
-<!--
-		<img src="<?php echo $ad_src; ?>" alt="" />
-		<a href="<?php echo $ad_url; ?>" target="_blank" class="ad_url"><img src="<?php echo $ad_src; ?>" alt="" /></a>
--->	
+
 	<div class="preview_image_container">
 		<img src="<?php echo '' == $ad_src ? '' : $ad_src; ?>" alt="" class="preview_image" />
 	</div><!-- /.preview_image_container -->
@@ -14,6 +11,5 @@
 	<!-- /Hidden fields -->
 
 	<a href="javascript:;" class="ad_delete <?php echo ('' == $ad_url && '' == $ad_src) ? 'hidden' : '' ?>"><?php _e( 'Delete Advertisement', 'standard' ); ?></a>
-<!--	<a href="javascript:;" class="ad_upload <?php echo ('' != $ad_url || '' != $ad_src) ? 'hidden' : '' ?>"><?php _e( 'Upload Advertisement', 'standard'); ?></a>-->
 	
 </div><!-- /.standard-ad-300x250-wrapper -->
