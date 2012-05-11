@@ -1454,12 +1454,43 @@ table#wp-calendar th, table#wp-calendar td {
 	-webkit-border-radius: 4px;
 }
 
-/* Jet Pack Widgets */
+/* Jetpack Widgets */
 
 .widget_freshposts ul li img {
 	width: 100%;
 	height: auto;
 }
+
+/*jetpack contact form */
+.contact-form > div {
+	margin-bottom: 15px;
+}
+
+.contact-form .clear-form { 
+	clear: both; 
+}
+.contact-form input[type='text'] { 
+ 	margin-bottom: 13px;
+}
+.contact-form select { 
+	margin-bottom: 13px; 
+}
+.contact-form textarea { 
+	height: 200px; width: 80%; float: none; margin-bottom: 13px;
+}
+.contact-form input[type='radio'], .contact-form input[type='checkbox'] {
+	margin-bottom: 13px; 
+}
+.contact-form label {
+	margin-bottom: 3px; float: none; font-weight: bold; display: block; 
+}
+.contact-form label.checkbox, .contact-form label.radio { 
+	margin-bottom: 3px; float: none; font-weight: bold; display: inline-block; 
+}
+.contact-form label span { 
+	color: #aaa; margin-left: 4px; font-weight: normal; 
+}
+
 
 /* Wordpress.com widget styling */
 

@@ -1727,6 +1727,9 @@ function list_pings( $comment, $args, $depth ) {
  */
 function standard_add_theme_stylesheets() {
 
+	// remove jetpack contact form styles 
+	wp_deregister_style('grunion.css');
+
 	// bootstrap
 	wp_register_style( 'bootstrap', get_template_directory_uri() . '/css/lib/bootstrap.css' );
 	wp_enqueue_style( 'bootstrap' ); 
