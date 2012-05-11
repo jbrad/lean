@@ -30,24 +30,31 @@
 									<h1 class="post-title"><?php the_title(); ?></h1>	
 								</div> <!-- /.post-header -->						
 								<div id="content-<?php the_ID(); ?>" class="entry-content clearfix">
-
+									<div id="sitemap-authors">
 										<h2 id="authors"><?php _e( 'Authors', 'standard' ); ?></h2>
 				
-										<ul id="sitemap-authors">
+										<ul id="sitemap-authors" class="inline-grid four-up">
 											<?php
 											foreach( get_users() as $user ) {
 												$query = new WP_Query( 'author=' . $user->ID . '&posts_per_page=1' );
 												if( $query->have_posts() ) {
 													echo '<li>';
-														echo get_avatar( $user->user_email, $size = '24' );
-														$query->the_post();
-														the_author_posts_link();
+														echo '<div class="sitemap-author-meta">';
+															echo get_avatar( $user->user_email, $size = '80' );
+															$query->the_post();
+															echo '<span class="badge">';
+																the_author_posts();
+															echo '</span>';
+															echo '<br>';
+															the_author_posts_link();
+														echo '</div>';
 													echo '</li>';
 												} // end if
 											} // end foreach
 											?>
 										</ul>
-										
+									</div><!-- /#sitemap-authors -->
+									
 										<h2 id="pages"><?php _e( 'Pages', 'standard' ); ?></h2>
 										<ul id="sitemap-pages">
 											<?php
