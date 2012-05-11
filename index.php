@@ -24,7 +24,7 @@
 				<?php get_template_part( 'breadcrumbs' ); ?>
 				
 				<?php if ( is_archive() ) { ?>                 
-                    <div id="archive-page-title" class="alert alert-success"> 
+                    <div id="archive-page-title"> 
                         <h3> 
                             <?php _e( 'Archives For ', 'standard' ); ?>
                             <?php if( standard_is_date_archive() ) { ?>
