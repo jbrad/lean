@@ -246,14 +246,23 @@ function standard_theme_layout_options_validate( $input ) {
  */
 function get_standard_theme_default_social_options() {
 
+	// Build up the semicolon delimited string of the default icons
+	$available_icons = '';
+	if( $handle = opendir( get_template_directory() . '/images/social/small' ) ) {
+	
+		while( false !== ( $filename = readdir( $handle ) ) ) {
+			if( $filename != '.' && $filename != '..' ) {
+				$available_icons .= get_template_directory_uri() . '/images/social/small/' . $filename . ';';
+			} // end if
+		} // end while
+		
+		closedir( $handle );
+		
+	} // end if
+
 	$defaults = array(
-		'twitter'			=> '',
-		'facebook'			=> '',
-		'google_plus'		=> '',
-		'pinterest'			=> '',
-		'vimeo'				=> '',
-		'youtube'			=> '',
-		'rss' 				=> get_bloginfo( 'rss2_url' )
+		'active-social-icons'		=> '',
+		'available-social-icons' 	=> $available_icons
 	);
 	
 	return apply_filters ( 'standard_theme_default_social_options', $defaults );
@@ -266,6 +275,8 @@ function get_standard_theme_default_social_options() {
 function standard_setup_theme_social_options() {
 
 	// If the theme options don't exist, create them.
+	// TODO
+	//delete_option( 'standard_theme_social_options' );
 	if( false == get_option( 'standard_theme_social_options' ) ) {	
 		add_option( 'standard_theme_social_options', apply_filters( 'standard_theme_default_social_options', get_standard_theme_default_social_options() ) );
 	} // end if
@@ -280,87 +291,19 @@ function standard_setup_theme_social_options() {
 	);
 	
 	add_settings_field(
-		'twitter',
-		__( 'Twitter', 'standard' ),
-		'standard_social_option_display',
+		'available_social_icons',
+		__( 'Available Icons', 'standard' ),
+		'standard_available_icons_display',
 		'standard_theme_social_options',
-		'social',
-		array(
-			'option_name' 		=> 'twitter',
-			'option_image_path' => get_template_directory_uri() . '/images/social/small/twitter.png'
-		)
-	);
-	
-	add_settings_field(
-		'facebook',
-		__( 'Facebook', 'standard' ),
-		'standard_social_option_display',
-		'standard_theme_social_options',
-		'social',
-		array(
-			'option_name' 		=> 'facebook',
-			'option_image_path' => get_template_directory_uri() . '/images/social/small/facebook.png'
-		)
-	);
-	
-	add_settings_field(
-		'google_plus',
-		__( 'Google+', 'standard' ),
-		'standard_social_option_display',
-		'standard_theme_social_options',
-		'social',
-		array(
-			'option_name' 		=> 'google_plus',
-			'option_image_path' => get_template_directory_uri() . '/images/social/small/google_plus.png'
-		)
-	);
-	
-	add_settings_field(
-		'pinterest',
-		__( 'Pinterest', 'standard' ),
-		'standard_social_option_display',
-		'standard_theme_social_options',
-		'social',
-		array(
-			'option_name' 		=> 'pinterest',
-			'option_image_path' => get_template_directory_uri() . '/images/social/small/pinterest.png'
-		)
-	);
-	
-	add_settings_field(
-		'vimeo',
-		__( 'Vimeo', 'standard' ),
-		'standard_social_option_display',
-		'standard_theme_social_options',
-		'social',
-		array(
-			'option_name' 		=> 'vimeo',
-			'option_image_path' => get_template_directory_uri() . '/images/social/small/vimeo.png'
-		)
-	);
-	
-	add_settings_field(
-		'youtube',
-		__( 'YouTube', 'standard' ),
-		'standard_social_option_display',
-		'standard_theme_social_options',
-		'social',
-		array(
-			'option_name' 		=> 'youtube',
-			'option_image_path' => get_template_directory_uri() . '/images/social/small/youtube.png'
-		)
+		'social'
 	);
 
 	add_settings_field(
-		'rss',
-		__( 'RSS', 'standard' ),
-		'standard_social_option_display',
+		'active_social_icons',
+		__( 'Active Icons', 'standard' ),
+		'standard_active_icons_display',
 		'standard_theme_social_options',
-		'social',
-		array(
-			'option_name' 		=> 'rss',
-			'option_image_path' => get_template_directory_uri() . '/images/social/small/rss.png'
-		)
+		'social'
 	);
 	
 	register_setting(
@@ -376,35 +319,60 @@ add_action( 'admin_init', 'standard_setup_theme_social_options' );
  * Renders the description for the "Social" options settings page.
  */
 function standard_theme_social_options_display() {
-	_e( 'To display an icon in the header for each social network below, add the full URL to the associated profile.', 'standard' );
-} // end standard_theme_social_options_display
 
-/**
- * Provides functionality for rendering each of the social options. This one function is used for each option because the 
- * major of the options are text inputs. Others, which are defined by the 'option_name' ID, are rendered conditionally.
- *
- * @params	$args	The option's name, description, and optional image path.
- */
-function standard_social_option_display( $args ) {
+	_e( 'To display an icon in the header for each social network below, add the full URL to the associated profile.', 'standard' );	
+
+	$html = '<div class="social-icons-wrapper">';
 	
-	$options = get_option( 'standard_theme_social_options' );
-	
-	$url = '';
-	if( true == isset ( $options[ $args['option_name'] ] ) ) {
-		$url = $options[ $args['option_name'] ];
-	} // end if
-	
-	$html = '<input type="text" id="' . $args['option_name'] . '" name="standard_theme_social_options[' . $args['option_name'] . ']" value="' . esc_attr( $url ) . '" />';
-	$html .= '<img src="' . esc_url( $args['option_image_path'] ) . '" alt="' . esc_attr( ucwords( $args['option_name'] ) ) . '" class="social_option" />';
-	
-	// Add a description if we're dealing with the RSS feed.
-	if( $args['option_name'] == 'rss' ) {
-		$html .= '&nbsp;<span class="description">' . __( 'By default, Standard uses the default WordPress RSS feed address.', 'standard' ). '</span>';
-	} // end if
+		$html .= '<div id="social-icons-active" class="left">';
+			$html .= '<div class="sidebar-name">';
+				$html .= '<h3>' . __( 'Active Icons', 'standard' ) . '</h3>';
+			$html .= '</div><!-- /.sidebar-name -->';
+			$html .= '<div id="active-icons">';
+				$html .= '<p class="description">' . __( 'Standard supports up to seven icons that can be displayed in the menu of your site.', 'standard' ) . '</p>';
+				$html .= '<ul class=""></ul>';
+			$html .= '</div><!-- /#active-icons -->';
+		$html .= '</div><!-- /#social-icons-active -->';
+		
+		$html .= '<div id="social-icons-available" class="right">';
+			$html .= '<div class="sidebar-name">';
+				$html .= '<h3>' . __( 'Available Icons', 'standard' ) . '</h3>';
+			$html .= '</div><!-- /.sidebar-name -->';
+			$html .= '<div id="available-icons">';
+				$html .= '<p class="description">' . __( 'Upload as many icons as many icons as you want. Chris can make this sound better.', 'standard' ) . '</p>';
+				$html .= '<ul class=""></ul>';
+				$html .= '<input type="button" class="button" id="upload-social-icon" value="Upload" />';
+			$html .= '</div><!-- /#available-icons -->';
+		$html .= '</div><!-- /.social-icons-available -->';
+		
+	$html .= '</div><!-- /.social-icons-wrapper -->';
 	
 	echo $html;
 	
-} // end standard_social_option_display
+} // end standard_theme_social_options_display
+
+/**
+ * Renders the available social icon input. This field is hidden and is manipulated by the functionality for powering
+ * the drag and drop functionality of the icons.
+ */
+function standard_available_icons_display() {
+	
+	$options = get_option( 'standard_theme_social_options' );
+	
+	echo '<input type="text" id="available-social-icons" name="standard_theme_social_options[available-social-icons]" value="' . $options['available-social-icons'] . '" />';
+	
+} // end standard_available_icons_display
+
+/**
+ * Renders the active social icon input. This field is hidden and is manipulated by the functionality for powering
+ * the drag and drop functionality of the icons.
+ */
+function standard_active_icons_display() {
+
+	$options = get_option( 'standard_theme_social_options' );
+	echo '<input type="text" id="active-social-icons" name="standard_theme_social_options[active-social-icons]" value="' . $options['active-social-icons'] . '" />';
+	
+} // end standard_active_icons_display
 
 /**
  * Sanitization callback for the social options. Since each of the social options are text inputs,
@@ -1805,7 +1773,12 @@ function standard_add_admin_stylesheets() {
 	
 	// thickbox styles for the fav icon upload
 	if( 'appearance_page_theme_options' == $screen->id) {
+	
 		wp_enqueue_style( 'thickbox' );
+		
+		wp_register_style( 'standard-admin-social-options', get_template_directory_uri() . '/css/admin.social-options.css' );
+		wp_enqueue_style( 'standard-admin-social-options' );
+		
 	} // end if
 
 } // end add_admin_stylesheets
@@ -1839,19 +1812,30 @@ function standard_add_admin_scripts() {
 	// favicon upload script
 	if( 'appearance_page_theme_options' == $screen->id) {
 		
+		// jquery ui
+		wp_enqueue_script( 'jquery-ui-core' );
+		wp_enqueue_script( 'jquery-ui-widget' );
+		wp_enqueue_script( 'jquery-ui-mouse' );
+		wp_enqueue_script( 'jquery-ui-draggable' );
+		wp_enqueue_script( 'jquery-ui-droppable' );
+		
 		// media uploader
-		wp_enqueue_script('media-upload');
+		wp_enqueue_script( 'media-upload' );
 		
 		// thickbox for overlay
-		wp_enqueue_script('thickbox');
+		wp_enqueue_script( 'thickbox' );
 		
 		// standard's media-upload script
-		wp_register_script('standard-media-upload', get_template_directory_uri() . '/js/admin.media-upload.js', array( 'jquery', 'media-upload','thickbox') );
-		wp_enqueue_script('standard-media-upload');
+		wp_register_script( 'standard-media-upload', get_template_directory_uri() . '/js/admin.media-upload.js', array( 'jquery', 'jquery-ui-core', 'media-upload','thickbox' ) );
+		wp_enqueue_script( 'standard-media-upload' );
 		
 		// standard's policy generation script
-		wp_register_script('standard-publishing-options', get_template_directory_uri() . '/js/admin.publishing-options.js' );
-		wp_enqueue_script('standard-publishing-options');
+		wp_register_script( 'standard-publishing-options', get_template_directory_uri() . '/js/admin.publishing-options.js' );
+		wp_enqueue_script( 'standard-publishing-options' );
+		
+		// social options
+		wp_register_script( 'standard-admin-social-options', get_template_directory_uri() . '/js/admin.social-options.js' );
+		wp_enqueue_script( 'standard-admin-social-options' );
 		
 	} // end if
 
