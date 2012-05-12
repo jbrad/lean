@@ -32,7 +32,8 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 	11. Page templates
 			 -sitemap
 	12. IE8 Styles
-	13. Media queries
+	13. Inline Grid
+	14. Media queries
 */
 
 
@@ -605,20 +606,27 @@ p.wp-caption-text {
 
 /* Pagination */ 
 
+.pager {
+	background: #fff;
+
+}
+
 .pager a, .previous-page a, .next-page a {
 	color: #999;
-	border: 1px solid #454545;
-	padding: 8px 38px;
-	-moz-border-radius: 5px;
-	-webkit-border-radius: 5px;
-	border-radius: 5px;
-	background-color: #454545;
+	font-size: 12px;
+	border-width: 0 0 0 0;
+	padding: 20px 15px;
+	-moz-border-radius: 0;
+	-webkit-border-radius: 0;
+	border-radius: 0;
+	background-color: #f9f9f9;
 }
 
 .pager a:hover, .previous-page a:hover, .next-page a:hover {
-	color: #fff;
-	background: #333;
+	color: #444;
+	background: #f5f5f5;
 	text-decoration: none;
+	cursor: pointer;
 }
 
 /*infinate handle */
@@ -637,6 +645,68 @@ p.wp-caption-text {
 .breadcrumb {
 	padding: 4px 17px;
 }
+
+
+/* WP pagenavi styles */
+
+.wp-pagenavi {
+  height: 36px;
+  margin: 18px 0;
+  display: inline-block;
+  *display: inline;
+  margin-bottom: 0;
+  margin-left: 0;
+  -webkit-border-radius: 3px;
+     -moz-border-radius: 3px;
+          border-radius: 3px;
+  *zoom: 1;
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+     -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+          box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.wp-pagenavi a, .wp-pagenavi .pages, .wp-pagenavi .current {
+	background: #fff;
+  float: left;
+  display: block;
+  padding: 0 14px;
+  line-height: 34px;
+  text-decoration: none;
+  border: 1px solid #ddd;
+  border-left-width: 0;
+}
+
+.wp-pagenavi a:hover,
+.wp-pagenavi .active a {
+  background-color: #f5f5f5;
+}
+
+.wp-pagenavi .current {
+  color: #999999;
+  cursor: default;
+}
+
+.wp-pagenavi .current {
+  color: #999999;
+  cursor: default;
+  background-color: transparent;
+}
+
+.wp-pagenavi .pages {
+	color: #999;
+	display: block;
+  border-left-width: 1px;
+  -webkit-border-radius: 3px 0 0 3px;
+     -moz-border-radius: 3px 0 0 3px;
+          border-radius: 3px 0 0 3px;
+}
+
+.wp-pagenavi li:last-child a {
+  -webkit-border-radius: 0 3px 3px 0;
+     -moz-border-radius: 0 3px 3px 0;
+          border-radius: 0 3px 3px 0;
+}
+
 
 /* Password Protected Page/post */
 
@@ -1454,12 +1524,78 @@ table#wp-calendar th, table#wp-calendar td {
 	-webkit-border-radius: 4px;
 }
 
-/* Jet Pack Widgets */
+/* Jetpack Widgets */
 
 .widget_freshposts ul li img {
 	width: 100%;
 	height: auto;
 }
+
+/* jetpack post comment subscription form */
+.comment-subscription-form {
+	clear: both;
+}
+
+.comment-subscription-form input[type="checkbox"] {
+	float: left;
+	margin-right: 10px;
+}
+
+/* jetpack blog subscription widget */
+.jetpack_subscription_widget {
+	background: #fff;
+	padding: 20px 20px 11px 20px;
+	border-radius: 5px;
+}
+
+.jetpack_subscription_widget form {
+	margin-bottom: 0;
+}
+
+.jetpack_subscription_widget label {
+	font-weight: bold;
+}
+
+.jetpack_subscription_widget input[type="text"] {
+	width: 96% !important;
+	padding: 4px !important;
+}
+
+.jetpack_subscription_widget input[type="submit"] {
+	margin-bottom: 0;
+}
+
+
+/*jetpack contact form */
+.contact-form > div {
+	margin-bottom: 15px;
+}
+
+.contact-form .clear-form { 
+	clear: both; 
+}
+.contact-form input[type='text'] { 
+ 	margin-bottom: 13px;
+}
+.contact-form select { 
+	margin-bottom: 13px; 
+}
+.contact-form textarea { 
+	height: 200px; width: 80%; float: none; margin-bottom: 13px;
+}
+.contact-form input[type='radio'], .contact-form input[type='checkbox'] {
+	margin-bottom: 13px; 
+}
+.contact-form label {
+	margin-bottom: 3px; float: none; font-weight: bold; display: block; 
+}
+.contact-form label.checkbox, .contact-form label.radio { 
+	margin-bottom: 3px; float: none; font-weight: bold; display: inline-block; 
+}
+.contact-form label span { 
+	color: #aaa; margin-left: 4px; font-weight: normal; 
+}
+
 
 /* Wordpress.com widget styling */
 
@@ -1529,8 +1665,10 @@ body.error404 {
 
 #archive-page-title h3, 
 #search-page-title h3 { 
-	font-size: 16px; 
-	margin-bottom: 0;
+	color: #999;
+	font-size: 12px; 
+	font-weight: normal;
+	margin-bottom: 20px;
 }
 
 .no-results {
@@ -1549,6 +1687,7 @@ h2#authors, h2#pages, h2#posts {
 	font-weight: normal;
 	border-bottom: 1px solid #eee;
 	margin-top: 15px;
+	margin-bottom: 15px;
 	padding-left: 35px;
 	background: url(images/icn-sitemap.png) no-repeat;
 	background-position: 0 5px;
@@ -1560,6 +1699,23 @@ h2#pages {
 
 h2#posts {
 	background-position: 0 -52px;
+}
+
+.sitemap-author-meta {
+	position: relative;
+	margin-top: 5px;
+}
+
+.sitemap-author-meta > img {
+	border: 1px solid #eee;
+	background: #f9f9f9;
+	padding: 5px;
+}
+
+.sitemap-author-meta > span {
+	top: -4px;
+	left: -4px;
+	position: absolute;
 }
 
 ul#sitemap-posts {
@@ -1586,7 +1742,31 @@ ul#sitemap-posts ul {
 	width: auto\9;
 }
 
-/* ------------------------------------------------------------------------ 13. Media queries */
+
+
+/* ------------------------------------------------------------------------ 13. inline-grid */
+
+.inline-grid { display: block; overflow: hidden; }
+.inline-grid>li { display: block; height: auto; float: left; }
+
+.inline-grid.two-up { margin-left: -4% }
+.inline-grid.two-up>li { margin-left: 4%; width: 46%; margin-bottom: 4%;}
+.inline-grid.two-up>li:nth-child(2n+1) {clear: left;}
+
+.inline-grid.three-up { margin-left: -2% }
+.inline-grid.three-up>li { margin-left: 2%; width: 31.2%; margin-bottom: 2%;}
+.inline-grid.three-up>li:nth-child(3n+1) {clear: left;}
+
+.inline-grid.four-up { margin-left: -2% }
+.inline-grid.four-up>li { margin-left: 2%; width: 23%; margin-bottom: 2%;}
+.inline-grid.four-up>li:nth-child(4n+1) {clear: left;}
+
+.inline-grid.five-up { margin-left: -1.5% }
+.inline-grid.five-up>li { margin-left: 1.5%; width: 18.5%; margin-bottom: 1.5%;}
+.inline-grid.five-up>li:nth-child(5n+1) {clear: left;}
+
+
+/* ------------------------------------------------------------------------ 14. Media queries */
 
 
 /* Smartphones */
