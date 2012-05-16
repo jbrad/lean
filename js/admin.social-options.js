@@ -15,6 +15,33 @@
 		
 		// Setup how to delete icons
 		makeIconsRemoveable($);
+		
+		// Setup the handler for triggering the social icon url
+		$('#set-social-icon-url').click(function(evt) {
+		
+			evt.preventDefault();
+			
+			if($.trim($(this).prev().val()).length > 0) {
+			
+				// Set the list item's URL
+				var sUrl = $(this).prev().val();	
+				$('li.active-icon').attr('data-url', sUrl);
+				
+				// Clear out the input
+				$(this).prev().val('');
+				
+				// Hide the container
+				$(this).parent().addClass('hidden');
+				
+				// Remove active icons
+				$('.active-icon').removeClass('active-icon');
+				
+				// Update the icons
+				updateActiveIcons($);
+				
+			} // end if
+		
+		});
 
 	});
 })(jQuery);
@@ -72,16 +99,59 @@ function displayIcons($, sInputId, sWrapperId) {
 		$('#' + sWrapperId + ' > ul').children('li').remove();
 	
 		// Rebuild the list based on the available icons
-		var aIconUrls = $('#' + sInputId).val().split(';');
-		$(aIconUrls).each(function() {
+		var aIconSrc = $('#' + sInputId).val().split(';');
+		$(aIconSrc).each(function() {
 		
 			if( this.length > 0) {
 	
+				// Look to see if there are URL's
+				var aIconUrl = this.split('|');
+				var sUrl = null;
+				var sSrc = null;
+				if(aIconUrl.length === 1) {
+					sSrc = aIconUrl[0];
+				} else {
+					sSrc = aIconUrl[0]
+					sUrl = aIconUrl[1];
+				} // end if
+	
 				// Create the image
-				var $socialIcon = $('<img />').attr('src', this);
+				var $socialIcon = $('<img />').attr('src', sSrc);
 				
 				// Create a list item from the image
-				var $listItem = $('<li />').append($socialIcon)
+				var $listItem = $('<li />').attr('data-url', sUrl).append($socialIcon)
+				
+				// If we're active icons, let's setup click handlers
+				if(sWrapperId === 'active-icons') {
+					$listItem.click(function(evt) {
+						
+						// if the input is visible, clear it out; otherwise, show it.
+						if($('#active-icon-url').is(':visible')) {
+						
+							$(this).parent()
+								.siblings('#active-icon-url')
+								.children('input[type=text]')
+								.val();
+						
+						} else {
+						
+							$(this).parent()
+								.siblings('#active-icon-url')
+								.removeClass('hidden');
+						
+						} // end if/else
+						
+						$(this).parent()
+							.siblings('#active-icon-url')
+							.children('input[type=text]')
+							.val($(this).attr('data-url'));
+						
+						// Update the active icon that we're editing
+						$('.active-icon').removeClass('active-icon');
+						$(this).addClass('active-icon');
+						
+					});
+				} // end if 
 				
 				// Append it to the list of available icons
 				$('#' + sWrapperId)
@@ -153,9 +223,20 @@ function updateActiveIcons($) {
 	$('#active-icons ul').children('li')
 		.each(function() {
 			if($(this).children().length > 0) {
+			
+				// Set the image's src and url
 				if($(this).children('img').attr('src').length > 0) {
-					sActiveIcons += $(this).children('img').attr('src') + ';';
+				
+					sActiveIcons += $(this).children('img').attr('src');
+					
+					if($(this).attr('data-url') !== undefined && $(this).attr('data-url') !== null) {
+						sActiveIcons += '|' + $(this).attr('data-url');
+					} // end if
+					
+					sActiveIcons += ';';
+					
 				} // end if
+				
 			} else {
 
 			} // end if

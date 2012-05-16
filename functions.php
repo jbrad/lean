@@ -275,6 +275,7 @@ function get_standard_theme_default_social_options() {
 function standard_setup_theme_social_options() {
 
 	// If the theme options don't exist, create them.
+//	delete_option( 'standard_theme_social_options' );
 	if( false == get_option( 'standard_theme_social_options' ) ) {	
 		add_option( 'standard_theme_social_options', apply_filters( 'standard_theme_default_social_options', get_standard_theme_default_social_options() ) );
 	} // end if
@@ -329,6 +330,11 @@ function standard_theme_social_options_display() {
 			$html .= '<div id="active-icons">';
 				$html .= '<p class="description">' . __( 'Standard supports up to seven icons that can be displayed in the menu of your site.', 'standard' ) . '</p>';
 				$html .= '<ul id="active-icon-list"></ul>';
+				$html .= '<div id="active-icon-url" class="hidden">';
+					$html .= '<label>' . __( 'Icon Address:', 'standard' ) . '</label>';
+					$html .= '<input type="text" id="" name="" value="" class="icon-url" data-via="" data-url="" />';
+					$html .= '<input type="button" class="button" id="set-social-icon-url" value="' . __( 'Done', 'standard' ). '" />';
+				$html .= '</div><!-- /#active-icon-url -->';
 			$html .= '</div><!-- /#active-icons -->';
 		$html .= '</div><!-- /#social-icons-active -->';
 		
@@ -341,7 +347,7 @@ function standard_theme_social_options_display() {
 				$html .= '<ul id="available-icon-list"></ul>';
 			$html .= '</div><!-- /#available-icons -->';
 			$html .= '<div id="social-icons-operations">';
-				$html .= '<input type="button" class="button" id="upload-social-icon" value="Upload" />';
+				$html .= '<input type="button" class="button" id="upload-social-icon" value="' . __( 'Upload', 'standard') . '" />';
 				$html .= '<span id="delete-icons" class="description">' . __( 'Drag social icons here to remove them from your library.', 'standard' ) . '</span>';
 			$html .= '</div><!-- /#social-icons-operations -->';
 		$html .= '</div><!-- /.social-icons-available -->';
