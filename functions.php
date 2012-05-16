@@ -341,8 +341,8 @@ function standard_theme_social_options_display() {
 			$html .= '<div id="available-icons">';
 				$html .= '<p class="description">' . __( 'Upload as many icons as many icons as you want. Chris can make this sound better.', 'standard' ) . '</p>';
 				$html .= '<ul class=""></ul>';
-				$html .= '<input type="button" class="button" id="upload-social-icon" value="Upload" />';
 			$html .= '</div><!-- /#available-icons -->';
+			$html .= '<input type="button" class="button" id="upload-social-icon" value="Upload" />';
 		$html .= '</div><!-- /.social-icons-available -->';
 		
 	$html .= '</div><!-- /.social-icons-wrapper -->';
