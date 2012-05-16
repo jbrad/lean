@@ -46,7 +46,7 @@ class Standard_Breadcrumbs {
 			} elseif( is_archive() ) {
 
 				if( is_author() ) {
-					$str_breadcrumb .= self::get_home_link() . __( 'Archives', 'standard' ) . __( ' / ', 'standard' ) . self::get_author_name(); 
+					$str_breadcrumb .= self::get_home_link() . __( 'Archives', 'standard' ) . __( ' / ', 'standard' ) . self::get_author_display_name(); 
 				} elseif( '' != get_query_var( 'year' ) || '' != get_query_var( 'monthnum' ) || '' != get_query_var( 'm' ) || '' != get_query_var( 'day' ) ) {
 					$str_breadcrumb .= self::get_home_link() . __( 'Archives', 'standard' ) . __( ' / ', 'standard' ) . self::get_date_labels(); 
 				} else {
@@ -266,7 +266,7 @@ class Standard_Breadcrumbs {
 	/**
 	 * Returns the name of the author based on the ID in the query string.
 	 */
-	private static function get_author_name() {
+	private static function get_author_display_name() {
 	
 		$author_data = get_userdata( get_query_var('author') );
 		
@@ -276,7 +276,7 @@ class Standard_Breadcrumbs {
 		
 		return $author_link;
 
-	} // end get_author_name
+	} // end get_author_display_name
 
 } // end class
 
