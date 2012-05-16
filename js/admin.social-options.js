@@ -6,13 +6,15 @@
 		
 		prepareIconMediaUploader($);
 
-		// Render the available icons and make them draggable
+		// Render the avaialable icons and the active icons
 		displayIcons($, 'available-social-icons', 'available-icons');
-		makeDraggableAndDroppable($, 'available-icons');
-		
-		// Render the active icons and make them draggable
 		displayIcons($, 'active-social-icons', 'active-icons');
-		makeDraggableAndDroppable($, 'active-icons');
+		
+		// Make the lists sortable
+		makeSortable($, '#active-icons', '#available-icons');
+		
+		// Setup how to delete icons
+		makeIconsRemoveable($);
 
 	});
 })(jQuery);
@@ -22,7 +24,7 @@
  */
 function prepareIconMediaUploader($) {
 
-	// Setup the media uplaoder for this button
+	// Setup the media uploader for this button
 	$('#upload-social-icon').click(function(evt) {
 		
 		evt.preventDefault();
@@ -30,30 +32,20 @@ function prepareIconMediaUploader($) {
 		social_icons_show_media_uploader($);
 		$('#TB_iframeContent').load(function() {
 	
-			// Hide unnecessary fields
-			var $formFields = $('.describe tbody tr, .savebutton', $('#TB_iframeContent')[0].contentWindow.document);
-			$formFields.each(function() {
+			// if the user is uplaoding a new icon, we need to poll until we see the form fields
+			var mediaPoll = setInterval(function() {
+
+				if($('#TB_iframeContent').contents().find('#media-items').children().length > 0) {
+					
+					// Hide unnecessary field
+					hideUnusedFields($, mediaPoll);
+					
+				} 
+			}, 1000);
+	
+			// if they aren't uplaoding, we'll clear the fields on load
+			hideUnusedFields($);
 			
-				// Remove everything except the URL field
-				if(!($(this).hasClass('submit') || $(this).hasClass('url'))) {
-					$(this).hide();
-				} // end if
-				
-				// If we're looking at the URL field, remove the extra buttons and text
-				if($(this).hasClass('url')) {
-					$(this).children('.field').children('input').siblings().hide();
-				} // end if
-				
-			});
-			
-			// Change the text of the submit button		
-			var $submit = $('.savesend input[type="submit"]', $('#TB_iframeContent')[0].contentWindow.document);
-			if($submit.length > 0 && $submit !== null) {
-			
-				/* Translators: For now, this has to be localized inline. */
-				$submit.val('Upload Social Icon');
-				
-			} // end if
 		});
 	
 		
@@ -99,53 +91,158 @@ function displayIcons($, sInputId, sWrapperId) {
 /**
  * TODO
  */
-function makeDraggableAndDroppable($, sId) {
+function makeSortable($, sActiveId, sAvailableId) {
 
-	$('#' + sId).children('ul')
-		.droppable({
+	$(sActiveId).children('ul').sortable({
+		connectWith: sAvailableId + ' > ul',
+		update: updateHandler
+	});
+	
+	$(sAvailableId).children('ul').sortable({
+		connectWith: sActiveId + ' > ul',
+		update: updateHandler
+	});
 
-			over: function() {
-				$(this).css('border', '1px dashed #ccc');
-			}, 
-			
-			out: function() {
-				$(this).css('border', '0');
-			},
-			
-			drop: function(event, ui) {
+} // end makeSortable
+
+/**
+ * TODO
+ */
+function updateHandler(event, ui) {
+
+	// Update the inputs to track the active icon arrangement.	
+	updateActiveIcons(jQuery);
 	
-				// Drop the social icons into the new container
-				$(this).append($(event.srcElement).parent());
-				
-				// Update the inputs to track the active icon arrangement.				
-				var sActiveIcons = '';
-				$('#active-icons ul').children().each(function() {
-					if($(this).children('img').attr('src').length > 0) {
-						sActiveIcons += $(this).children('img').attr('src') + ';';
-					} // end if
-				});
-				$('#active-social-icons').val(sActiveIcons);
-			
-				// Update the inputs to track the available icon arrangement.
-				var sAvailableIcons = '';
-				$('#available-icons ul').children().each(function() {
-					if($(this).children('img').attr('src').length > 0) {
-						sAvailableIcons += $(this).children('img').attr('src') + ';';
-					} // end if 
-				});
-				$('#available-social-icons').val(sAvailableIcons);
-	
-				$(this).css('border', '0');
-	
-			} // end drop
-		})
-		.children('li')
-		.draggable({ 
-			revert: true,
-			revertDuration: 0
+	// Update the inputs to track the available icon arrangement.
+	updateAvailableIcons(jQuery);
+
+	// Clear the drag and drop border
+	jQuery(this).css('border', '0');
+
+}
+
+/**
+ * TODO
+ */
+function updateActiveIcons($, bFromAvailableIcons) {
+
+	var sActiveIcons = '';
+	$('#active-icons ul').children('li')
+		.each(function() {
+			if($(this).children().length > 0) {
+				if($(this).children('img').attr('src').length > 0) {
+					sActiveIcons += $(this).children('img').attr('src') + ';';
+				} // end if
+			} else {
+
+			} // end if
 		});
+	$('#active-social-icons').val(sActiveIcons);
 
-} // end makeDroppableDraggable
+} // end updateActiveIcons
+
+/** 
+ * TODO
+ */
+function updateAvailableIcons($) {
+
+	var sAvailableIcons = '';
+	$('#available-icons ul').children('li').each(function() {
+		if($(this).children('img').length > 0 && $(this).children('img').attr('src').length > 0) {
+			sAvailableIcons += $(this).children('img').attr('src') + ';';
+		} // end if 	
+	});
+	$('#available-social-icons').val(sAvailableIcons);
+
+} // end updateAvailableIcons
+
+/** 
+ * TODO
+ */
+function makeIconsRemoveable($) {
+
+	// Drag and drop delete ala widgets
+	$('#delete-icons').droppable({
+		
+		over: function() {
+			$(this).css('border', '1px dashed #ccc');
+		}, 
+		
+		drop: function(evt) {
+		
+			$(evt.srcElement).hide().attr('src', '');
+			updateAvailableIcons($);
+			
+			$(this).css('border', 0);
+	
+		} // end drop
+		
+	});
+	
+	// Delete shortcut ala OS X
+	$('#available-icons > ul > li').click(function() {
+		
+		// Maintain a reference to the icon we're removing
+		var $icon = $(this).children('img');
+		
+		// Look for the delete shortcut
+		$(window).keydown(function(evt) {
+		
+			if(evt.keyCode === 93) {
+			
+				$(window).keydown(function(evt) {
+				
+					if(evt.keyCode === 8) {
+						
+						// Hide the icon and remove it's source attribute
+						$icon.hide().attr('src', '');
+	
+						updateAvailableIcons($);
+	
+						$(window).unbind(evt);
+						
+					} // end if
+					
+				});
+				
+			} // end if
+			
+		});
+		
+	});
+
+} // end makeIconsRemoveable
+
+/**
+ * TODO
+ */
+function hideUnusedFields($, poller) {
+
+	// Hide unnecessary fields
+	var $formFields = $('.describe tbody tr, .savebutton', $('#TB_iframeContent')[0].contentWindow.document);
+	$formFields.each(function() {
+	
+		// Remove everything except the URL field
+		if(!($(this).hasClass('submit'))) {
+			$(this).hide();
+		} // end if
+		
+	});
+	
+	// Change the text of the submit button		
+	var $submit = $('.savesend input[type="submit"]', $('#TB_iframeContent')[0].contentWindow.document);
+	if($submit.length > 0 && $submit !== null) {
+	
+		/* Translators: For now, this has to be localized inline. */
+		$submit.val('Upload Social Icon');
+		
+	} // end if
+	
+	if( poller !== null) {
+		clearInterval(poller);
+	}
+
+} // end hideUnusedFields
 
 /**
  * Overrides the core send_to_editor function in the media-upload script. Grabs the URL of the image after being uploaded and 

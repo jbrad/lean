@@ -330,7 +330,7 @@ function standard_theme_social_options_display() {
 			$html .= '</div><!-- /.sidebar-name -->';
 			$html .= '<div id="active-icons">';
 				$html .= '<p class="description">' . __( 'Standard supports up to seven icons that can be displayed in the menu of your site.', 'standard' ) . '</p>';
-				$html .= '<ul class=""></ul>';
+				$html .= '<ul id="active-icon-list"></ul>';
 			$html .= '</div><!-- /#active-icons -->';
 		$html .= '</div><!-- /#social-icons-active -->';
 		
@@ -340,9 +340,12 @@ function standard_theme_social_options_display() {
 			$html .= '</div><!-- /.sidebar-name -->';
 			$html .= '<div id="available-icons">';
 				$html .= '<p class="description">' . __( 'Upload as many icons as many icons as you want. Chris can make this sound better.', 'standard' ) . '</p>';
-				$html .= '<ul class=""></ul>';
+				$html .= '<ul id="available-icon-list"></ul>';
 			$html .= '</div><!-- /#available-icons -->';
-			$html .= '<input type="button" class="button" id="upload-social-icon" value="Upload" />';
+			$html .= '<div id="social-icons-operations">';
+				$html .= '<input type="button" class="button" id="upload-social-icon" value="Upload" />';
+				$html .= '<span id="delete-icons" class="description">' . __( 'Drag social icons here to remove them from your library.', 'standard' ) . '</span>';
+			$html .= '</div><!-- /#social-icons-operations -->';
 		$html .= '</div><!-- /.social-icons-available -->';
 		
 	$html .= '</div><!-- /.social-icons-wrapper -->';
@@ -1821,6 +1824,7 @@ function standard_add_admin_scripts() {
 		wp_enqueue_script( 'jquery-ui-mouse' );
 		wp_enqueue_script( 'jquery-ui-draggable' );
 		wp_enqueue_script( 'jquery-ui-droppable' );
+		wp_enqueue_script( 'jquery-ui-sortable' );
 		
 		// media uploader
 		wp_enqueue_script( 'media-upload' );
