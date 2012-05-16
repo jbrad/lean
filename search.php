@@ -24,7 +24,7 @@
 				
 				<?php if( standard_google_custom_search_is_active() ) { ?>
 				
-					<div id="search-page-title" class="alert alert-success"> 
+					<div id="search-page-title"> 
 	                    <h3><?php _e( 'Search Results For "', 'standard' ); echo get_query_var( 'q' ); _e( '"', 'standard' ); ?></h3>
 	                </div> 
 				
@@ -40,7 +40,7 @@
 				
 				<?php } else { ?>
 				
-					<div id="search-page-title" class="alert alert-success"> 
+					<div id="search-page-title"> 
 	                    <h3><?php _e( 'Search Results For "', 'standard' ); echo get_query_var( 's' ); _e( '"', 'standard' ); ?></h3>
 	                </div> 
 				
