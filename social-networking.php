@@ -21,7 +21,7 @@
 		
 		$html .= '<li>';
 			$html .= '<a href="' . esc_url( $url ) . '" class="fademe" target="_blank"><img src="' . esc_url( $icon ) . '" alt="" /></a>';
-		$html .= '</li>';
+		$html .= '</li>'
 		
 	} // end foreach
 	$html .= '</ul>';
