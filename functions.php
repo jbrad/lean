@@ -589,16 +589,21 @@ function google_analytics_display() {
 
 	$option = get_option( 'standard_theme_general_options' );
 	
-	$analytics_id = '';
-	if( true == isset ( $option['google_analytics'] ) ) {
-		$analytics_id = $option['google_analytics'];
-	} // end if
+	// Only render this option for administrators
+	if( current_user_can( 'manage_options' ) ) {
 	
-	$html = '<input type="text" id="google_analytics" name="standard_theme_general_options[google_analytics]" value="' . esc_attr( $analytics_id ) . '" />';
-	$html .= '&nbsp;<span class="description">' . __( 'Enter the ID only (i.e., UA-000000).', 'standard' ) . '</span>';
-	
-	echo $html;
+		$analytics_id = '';
+		if( true == isset ( $option['google_analytics'] ) ) {
+			$analytics_id = $option['google_analytics'];
+		} // end if
+		
+		$html = '<input type="text" id="google_analytics" name="standard_theme_general_options[google_analytics]" value="' . esc_attr( $analytics_id ) . '" />';
+		$html .= '&nbsp;<span class="description">' . __( 'Enter the ID only (i.e., UA-000000).', 'standard' ) . '</span>';
+		
+		echo $html;
 
+	} // end if/else
+	
 } // end google_analytics_display
 
 /**
