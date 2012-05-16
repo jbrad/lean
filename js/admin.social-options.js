@@ -20,7 +20,10 @@
 })(jQuery);
 
 /**
- * TODO
+ * Sets up the icon media uploader to render with limited fields when the upload button
+ * has been clicked.
+ *
+ * @params	$	A reference to the jQuery function
  */
 function prepareIconMediaUploader($) {
 
@@ -54,7 +57,12 @@ function prepareIconMediaUploader($) {
 } // end prepareIconMediaUploader
 
 /**
- * TODO
+ * Sets up the icon media uploader to render with limited fields when the upload button
+ * has been clicked.
+ *
+ * @params		$				A reference to the jQuery function
+ * @params		sInputId		A reference to the input field that contains the icons to display
+ * @params		sWrapperId		A reference to the container that will contain the list of icons.
  */
 function displayIcons($, sInputId, sWrapperId) {
 
@@ -89,26 +97,39 @@ function displayIcons($, sInputId, sWrapperId) {
 } // end displayIcons
 
 /**
- * TODO
+ * Enables sorting for the social icon containers.
+ *
+ * @params		$				A reference to the jQuery function
+ * @params		sActiveId		A reference to the container of the active icons
+ * @params		sWrapperId		A reference to the container of the available icons
  */
 function makeSortable($, sActiveId, sAvailableId) {
 
 	$(sActiveId).children('ul').sortable({
 		connectWith: sAvailableId + ' > ul',
-		update: updateHandler
+		update: updateHandler,
+		over: overHandler
 	});
 	
 	$(sAvailableId).children('ul').sortable({
 		connectWith: sActiveId + ' > ul',
-		update: updateHandler
+		update: updateHandler,
+		over: overHandler
 	});
 
 } // end makeSortable
 
 /**
- * TODO
+ * Adds a border around an element that is about to receive an icon.
  */
-function updateHandler(event, ui) {
+function overHandler() {
+	jQuery(this).css('border', '1px dashed #ccc');
+} // end overHandler
+
+/**
+ * Updates the list of active icons and available icons. Fired when sorting has been completed.
+ */
+function updateHandler() {
 
 	// Update the inputs to track the active icon arrangement.	
 	updateActiveIcons(jQuery);
@@ -122,9 +143,11 @@ function updateHandler(event, ui) {
 }
 
 /**
- * TODO
+ * Updates the input field of active icons.
+ *
+ * @params	$	A reference to the jQuery function
  */
-function updateActiveIcons($, bFromAvailableIcons) {
+function updateActiveIcons($) {
 
 	var sActiveIcons = '';
 	$('#active-icons ul').children('li')
@@ -141,8 +164,10 @@ function updateActiveIcons($, bFromAvailableIcons) {
 
 } // end updateActiveIcons
 
-/** 
- * TODO
+/**
+ * Updates the input field of available icons.
+ *
+ * @params	$	A reference to the jQuery function
  */
 function updateAvailableIcons($) {
 
@@ -156,17 +181,17 @@ function updateAvailableIcons($) {
 
 } // end updateAvailableIcons
 
-/** 
- * TODO
+/**
+ * Makes it possible to delete icons via shortcuts or dragging to the appropropriate area.
+ *
+ * @params	$	A reference to the jQuery function
  */
 function makeIconsRemoveable($) {
 
 	// Drag and drop delete ala widgets
 	$('#delete-icons').droppable({
 		
-		over: function() {
-			$(this).css('border', '1px dashed #ccc');
-		}, 
+		over: overHandler, 
 		
 		drop: function(evt) {
 		
@@ -214,7 +239,10 @@ function makeIconsRemoveable($) {
 } // end makeIconsRemoveable
 
 /**
- * TODO
+ * Hides fields that are irrelevant for the media uploader.
+ *
+ * @params	$		A reference to the jQuery function
+ * @params	poller	The polling mechanism used to look for the form fields when a user uploads an image	
  */
 function hideUnusedFields($, poller) {
 

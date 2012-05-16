@@ -275,8 +275,6 @@ function get_standard_theme_default_social_options() {
 function standard_setup_theme_social_options() {
 
 	// If the theme options don't exist, create them.
-	// TODO
-	//delete_option( 'standard_theme_social_options' );
 	if( false == get_option( 'standard_theme_social_options' ) ) {	
 		add_option( 'standard_theme_social_options', apply_filters( 'standard_theme_default_social_options', get_standard_theme_default_social_options() ) );
 	} // end if
