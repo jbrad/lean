@@ -1165,6 +1165,25 @@ function standard_add_admin_bar_option() {
 } // end standard_add_admin_bar_option
 add_action( 'admin_bar_menu', 'standard_add_admin_bar_option', 40 );
 
+function standard_add_maintenance_mode_admin_bar_note() {
+
+	// Remind the user if they are in maintenance mode
+	$options = get_option( 'standard_theme_general_options' );
+	
+	if( 'on' == $options['offline_mode'] ) {
+		global $wp_admin_bar;
+		$wp_admin_bar->add_node(
+			array(
+				'id'	=>	'standard_theme_maintenance_mode',
+				'title'	=>	__( 'Standard is currently running in offline mode.', 'standard' ),
+				'href'	=>	get_bloginfo( 'url' ) . '/wp-admin/themes.php?page=theme_options'
+			)
+		);
+	} // end if
+
+} // end standard_add_maintenance_mode_admin_bar_note
+add_action( 'admin_bar_menu' , 'standard_add_maintenance_mode_admin_bar_note', 90 );
+
 /**
  * Detects whether or not Yoast's WordPress SEO plugin has been installed. If so, it will display a notice that informs users
  * it will enhance the SEO of their Standard installation.
