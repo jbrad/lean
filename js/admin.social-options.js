@@ -13,7 +13,7 @@
 		// Render the active icons and make them draggable
 		displayIcons($, 'active-social-icons', 'active-icons');
 		makeDraggableAndDroppable($, 'active-icons');
-			
+
 	});
 })(jQuery);
 
@@ -66,29 +66,33 @@ function prepareIconMediaUploader($) {
  */
 function displayIcons($, sInputId, sWrapperId) {
 
-	// Clear out the existing list
-	$('#' + sWrapperId + ' > ul').children('li').remove();
+	if($('#' + sInputId).length > 0) {
 
-	// Rebuild the list based on the available icons
-	var aIconUrls = $('#' + sInputId).val().split(';');
-	$(aIconUrls).each(function() {
+		// Clear out the existing list
+		$('#' + sWrapperId + ' > ul').children('li').remove();
 	
-		if( this.length > 0) {
-
-			// Create the image
-			var $socialIcon = $('<img />').attr('src', this);
-			
-			// Create a list item from the image
-			var $listItem = $('<li />').append($socialIcon)
-			
-			// Append it to the list of available icons
-			$('#' + sWrapperId)
-				.children('ul')
-				.append($listItem);
-			
-		} // end if 
+		// Rebuild the list based on the available icons
+		var aIconUrls = $('#' + sInputId).val().split(';');
+		$(aIconUrls).each(function() {
 		
-	});
+			if( this.length > 0) {
+	
+				// Create the image
+				var $socialIcon = $('<img />').attr('src', this);
+				
+				// Create a list item from the image
+				var $listItem = $('<li />').append($socialIcon)
+				
+				// Append it to the list of available icons
+				$('#' + sWrapperId)
+					.children('ul')
+					.append($listItem);
+				
+			} // end if 
+			
+		});
+	
+	} // end if 
 
 } // end displayIcons
 
@@ -99,6 +103,15 @@ function makeDraggableAndDroppable($, sId) {
 
 	$('#' + sId).children('ul')
 		.droppable({
+
+			over: function() {
+				$(this).css('border', '1px dashed #ccc');
+			}, 
+			
+			out: function() {
+				$(this).css('border', '0');
+			},
+			
 			drop: function(event, ui) {
 	
 				// Drop the social icons into the new container
@@ -121,6 +134,8 @@ function makeDraggableAndDroppable($, sId) {
 					} // end if 
 				});
 				$('#available-social-icons').val(sAvailableIcons);
+	
+				$(this).css('border', '0');
 	
 			} // end drop
 		})
