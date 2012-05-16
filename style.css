@@ -398,7 +398,7 @@ html, body {
 
 /* ------------------------------------------------------------------------ 6. Posts */
 
-.post, #comments, #pings, #no-comments {
+.post, #comments, #pings, #no-comments, #respond {
 	background: #fff;
 	margin: 0 0 20px 0;
 	position: relative;
