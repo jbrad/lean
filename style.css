@@ -573,8 +573,7 @@ p.wp-caption-text {
 
 .post-meta .the-edit-post {
 	float: right;
-	padding-top: 10px;
-	clear: right;
+	clear: none;
 }
 
 .post-meta .post-link {
