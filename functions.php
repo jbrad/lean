@@ -1888,19 +1888,26 @@ add_action( 'admin_enqueue_scripts', 'standard_add_admin_scripts' );
  */
 function standard_activate_theme() {
 	
-	if( array_key_exists( 'standard_theme_reset_options', $_GET ) && 'true' == $_GET['standard_theme_reset_options'] ) {
+	$options = get_option( 'standard_theme_general_options' );
+	if( ! array_key_exists( 'standard_theme_version', $options ) ) {
 	
-		delete_option( 'standard_theme_layout_options' );
-		delete_option( 'standard_theme_social_options' );
-		delete_option( 'standard_theme_general_options' );
-		delete_option( 'standard_theme_publishing_options' );
-
-	} else {
-		echo '<div id="standard-old-version" class="updated"><p>' . __( 'Standard has detected that you are running a preview version of the theme. In order to continue installation, your old settings must be reset. <a href="?standard_theme_reset_options=true">Please click here to reset your options</a>.', 'standard') . '</p></div>';
-	} // end if/else
+		if( array_key_exists( 'standard_theme_reset_options', $_GET ) && 'true' == $_GET['standard_theme_reset_options'] ) {
+		
+			delete_option( 'standard_theme_layout_options' );
+			delete_option( 'standard_theme_social_options' );
+			delete_option( 'standard_theme_general_options' );
+			delete_option( 'standard_theme_publishing_options' );
+			
+		} else {
+		
+			echo '<div id="standard-old-version" class="updated"><p>' . __( 'Standard has detected that you are running a preview version of the theme. In order to continue installation, your old settings must be reset. <a href="?standard_theme_reset_options=true">Please click here to reset your options</a>.', 'standard') . '</p></div>';
+		
+		} // end if/else
 	
+	} // end if
+		
 } // end standard_activate_theme
-if( ! array_key_exists( 'standard_theme_version', get_option( 'standard_theme_general_options' ) ) ) { add_action( 'after_setup_theme', 'standard_activate_theme' ); }
+add_action( 'admin_notices', 'standard_activate_theme' );
 
 // rel="generator" is an invalid HTML5 attribute
 remove_action( 'wp_head', 'wp_generator' );
