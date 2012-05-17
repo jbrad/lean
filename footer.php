@@ -53,7 +53,7 @@
 						<?php $general_options = get_option( 'standard_theme_general_options' ); ?>
 						<?php $standard_url = strlen( trim( $general_options['affiliate_code'] ) ) == 0 ? 'http://standardtheme.com' : $general_options['affiliate_code']; ?>
 						
-						<?php printf( __( '&copy; %1$s. %2$s. %3$s.', 'standard' ), date( 'Y' ), '<a href="' . get_bloginfo( 'wpurl' ) . '">' . get_bloginfo( 'name' ) . '</a>', '<a href="' . $standard_url . '">Standard</a>' ); ?>
+						<?php printf( __( '&copy; %1$s. %2$s. %3$s.', 'standard' ), date( 'Y' ), '<a href="' . site_url() . '">' . get_bloginfo( 'name' ) . '</a>', '<a href="' . $standard_url . '">Standard</a>' ); ?>
 					</div><!-- /#credits -->
 
 				</div><!-- /row -->

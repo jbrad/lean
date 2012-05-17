@@ -15,15 +15,15 @@
 		<ul class="pager">
 		<?php $trunc_limit = 30; ?>
 			<li class="previous">
-			<?php previous_post_link( '<span class="previous-page">%link</span>', _x( '«', 'standard' ) . '&nbsp;' . standard_truncate_text( get_previous_post()->post_title, $trunc_limit ) ); ?>
+			<?php previous_post_link( '<span class="previous-page">%link</span>', __( '«', 'standard' ) . '&nbsp;' . standard_truncate_text( get_previous_post()->post_title, $trunc_limit ) ); ?>
 			</li>
 		<?php if( '' == get_previous_post() ) { ?>
 			<li class="next">
-			<?php next_post_link( '<span class="' . ( $options['layout'] == 'full_width_layout' ? 'span12' : 'span8' ) . ' no-previous-page-link next-page">%link</span>', _x( '%title »', 'standard' ) ); ?>
+			<?php next_post_link( '<span class="' . ( $options['layout'] == 'full_width_layout' ? 'span12' : 'span8' ) . ' no-previous-page-link next-page">%link</span>', __( '%title »', 'standard' ) ); ?>
 			</li>
 		<?php } else { ?>
 			<li class="next">
-			<?php next_post_link( '<span class="' . $pagination_width . ' next-page">%link</span>', standard_truncate_text( get_next_post()->post_title, $trunc_limit ) . '&nbsp;' . _x( '»', 'standard' ) ); ?>	
+			<?php next_post_link( '<span class="' . $pagination_width . ' next-page">%link</span>', standard_truncate_text( get_next_post()->post_title, $trunc_limit ) . '&nbsp;' . __( '»', 'standard' ) ); ?>	
 			</li>
 		<?php } // end if/else ?>
 		</ul>	

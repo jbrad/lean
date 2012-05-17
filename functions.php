@@ -1121,7 +1121,7 @@ function standard_add_admin_bar_option() {
 			array(
 				'id'	=>	'standard_options',
 				'title'	=>	__( 'Standard', 'standard' ),
-				'href'	=>	get_bloginfo( 'url' ) . '/wp-admin/themes.php?page=theme_options'
+				'href'	=>	home_url() . '/wp-admin/themes.php?page=theme_options'
 			)
 		);
 		
@@ -1131,7 +1131,7 @@ function standard_add_admin_bar_option() {
 				'id'		=>	'standard_theme_general_options',
 				'title'		=>	__( 'General Options', 'standard' ),
 				'parent'	=>	'standard_options',
-				'href'		=>	get_bloginfo( 'url' ) . '/wp-admin/themes.php?page=theme_options&tab=standard_theme_general_options'
+				'href'		=>	home_url() . '/wp-admin/themes.php?page=theme_options&tab=standard_theme_general_options'
 			)
 		);
 	
@@ -1141,7 +1141,7 @@ function standard_add_admin_bar_option() {
 				'id'		=>	'standard_theme_layout_options',
 				'title'		=>	__( 'Layout', 'standard' ),
 				'parent'	=>	'standard_options',
-				'href'		=>	get_bloginfo( 'url' ) . '/wp-admin/themes.php?page=theme_options&tab=standard_theme_layout_options'
+				'href'		=>	home_url() . '/wp-admin/themes.php?page=theme_options&tab=standard_theme_layout_options'
 			)
 		);
 		
@@ -1151,7 +1151,7 @@ function standard_add_admin_bar_option() {
 				'id'		=>	'standard_theme_social_options',
 				'title'		=>	__( 'Social Options', 'standard' ),
 				'parent'	=>	'standard_options',
-				'href'		=>	get_bloginfo( 'url' ) . '/wp-admin/themes.php?page=theme_options&tab=standard_theme_social_options'
+				'href'		=>	home_url() . '/wp-admin/themes.php?page=theme_options&tab=standard_theme_social_options'
 			)
 		);
 		
@@ -1161,7 +1161,7 @@ function standard_add_admin_bar_option() {
 				'id'		=>	'standard_theme_publishing_options',
 				'title'		=>	__( 'Publishing', 'standard' ),
 				'parent'	=>	'standard_options',
-				'href'		=>	get_bloginfo( 'url' ) . '/wp-admin/themes.php?page=theme_options&tab=standard_theme_publishing_options'
+				'href'		=>	home_url() . '/wp-admin/themes.php?page=theme_options&tab=standard_theme_publishing_options'
 			)
 		);
 		
@@ -1181,7 +1181,7 @@ function standard_add_maintenance_mode_admin_bar_note() {
 			array(
 				'id'	=>	'standard_theme_maintenance_mode',
 				'title'	=>	__( 'Standard is currently running in offline mode.', 'standard' ),
-				'href'	=>	get_bloginfo( 'url' ) . '/wp-admin/themes.php?page=theme_options'
+				'href'	=>	home_url() . '/wp-admin/themes.php?page=theme_options'
 			)
 		);
 	} // end if
