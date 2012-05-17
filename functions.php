@@ -69,7 +69,8 @@ add_action( 'admin_menu', 'standard_theme_menu' );
 function get_standard_theme_default_layout_options() {
 
 	$defaults = array(
-		'layout' 	=> 'right_sidebar_layout'
+		'layout' 	=> 	'right_sidebar_layout',
+		'contrast'	=>	''
 	);
 	
 	return apply_filters ( 'standard_theme_default_layout_options', $defaults );
@@ -275,7 +276,6 @@ function get_standard_theme_default_social_options() {
 function standard_setup_theme_social_options() {
 
 	// If the theme options don't exist, create them.
-//	delete_option( 'standard_theme_social_options' );
 	if( false == get_option( 'standard_theme_social_options' ) ) {	
 		add_option( 'standard_theme_social_options', apply_filters( 'standard_theme_default_social_options', get_standard_theme_default_social_options() ) );
 	} // end if
@@ -424,6 +424,10 @@ function get_standard_theme_default_general_options() {
 		'display_breadcrumbs'		=>	'on',
 		'display_author_box'		=>	'on',
 		'display_featured_images' 	=> 	'always',
+		'offline_mode'				=>	'',
+		'fav_icon'					=>	'',
+		'google_analytics'			=>	'',
+		'affiliate_code'			=>	'affiliate_code',
 		'offline_display_message'	=>	__( 'Our site is currently offline.', 'standard' ),
 		'standard_theme_version'	=>	'3.0'
 	);
