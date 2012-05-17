@@ -16,7 +16,9 @@
 			<link rel="apple-touch-icon" href="<?php echo $option['fav_icon']; ?>" />
 		<?php } // end if ?>
 		<?php if( '' != $option['google_analytics'] ) { ?>
-			<?php if( current_user_can( 'manage_options' ) || ! is_user_logged_in() ) { ?>
+			<?php if( is_user_logged_in() ) { ?>
+				<!-- Google Analytics is restricted only to users who are not logged in. -->
+			<?php } else { ?>
 				<script type="text/javascript">
 					var _gaq = _gaq || [];
 					_gaq.push(['_setAccount', '<?php echo $option[ 'google_analytics' ] ?>']);
@@ -28,8 +30,6 @@
 						var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 					})();
 				</script>
-			<?php } else { ?>
-				<!-- Google Analytics is restricted to administrators and users who are not logged in. -->
 			<?php } // end if/else ?>
 		<?php } // end if ?>
 		<?php wp_head(); ?>
