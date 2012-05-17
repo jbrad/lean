@@ -65,6 +65,11 @@ class Standard_Influence extends WP_Widget {
 		$instance['feedburner'] = strip_tags( stripslashes( $new_instance['feedburner'] ) );
 		$instance['display'] = strip_tags( stripslashes( $new_instance['display'] ) );
 
+		// Let's also clear the transient values
+		delete_transient( 'influence_twitter_' . $instance['twitter'] );
+		delete_transient( 'influence_facebook_' . $instance['facebook'] );
+		delete_transient( 'influence_feedburner_' . $instance['feedburner'] );
+
 		return $instance;
 		
 	} // end widget
@@ -172,6 +177,11 @@ class Standard_Influence extends WP_Widget {
 					// Cache the value for 24 hours
 					set_transient( $transient_key, $follower_count, 60 * 60 * 24 );
 					
+					// Store a last known good value so we can always pull something later
+					if( $follower_count > 0 ) {
+						update_option( $transient_key, $follower_count );
+					} // end if
+					
 				} else {
 				
 					// This value indicates that there was a problem decoding JSON
@@ -185,7 +195,10 @@ class Standard_Influence extends WP_Widget {
 				$follower_count = -2;
 					
 			} // end if	
-			
+		
+		// If it's not in the cache, try to read the last known good value
+		} else {
+			$follower_count = get_option( $transient_key );	
 		} // end if
 
 		// If debug mode is running, return the raw follower count; otherwise, return the value or 0 if it's an error.
@@ -233,6 +246,11 @@ class Standard_Influence extends WP_Widget {
 					// Cache the value for 24 hours
 					set_transient( $transient_key, $like_count, 60 * 60 * 24 );
 					
+					// Store a last known good value so we can always pull something later
+					if( $like_count > 0 ) {
+						update_option( $transient_key, $like_count );
+					} // end if
+					
 				} else {
 				
 					// This value indicates that there was a problem decoding JSON
@@ -246,7 +264,10 @@ class Standard_Influence extends WP_Widget {
 				$like_count = -2;
 					
 			} // end if	
-			
+		
+		// If it's not in the cache, try to read the last known good value
+		} else {
+			$like_count = get_option( $transient_key );
 		} // end if
 
 		// If debug mode is running, return the raw like count; otherwise, return the value or 0 if it's an error.
@@ -296,6 +317,11 @@ class Standard_Influence extends WP_Widget {
 						// Cache the value for 24 hours
 						set_transient( $transient_key, $subscriber_count, 60 * 60 * 24 );
 						
+						// Store a last known good value so we can always pull something later
+						if( $subscriber_count > 0 ) {
+							update_option( $transient_key, $subscriber_count );
+						} // end if
+						
 					} else {
 					
 						// This value indicates that the circulation value could not be retrieved
@@ -316,7 +342,10 @@ class Standard_Influence extends WP_Widget {
 				$subscriber_count = -2;
 					
 			} // end if	
-			
+		
+		// If it's not in the cache, try to read the last known good value
+		} else {
+			$subscriber_count = get_option( $transient_key );	
 		} // end if
 
 		// If debug mode is running, return the raw like count; otherwise, return the value or 0 if it's an error.
