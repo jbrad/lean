@@ -427,7 +427,7 @@ function get_standard_theme_default_general_options() {
 		'offline_mode'				=>	'',
 		'fav_icon'					=>	'',
 		'google_analytics'			=>	'',
-		'affiliate_code'			=>	'affiliate_code',
+		'affiliate_code'			=>	'',
 		'offline_display_message'	=>	__( 'Our site is currently offline.', 'standard' ),
 		'standard_theme_version'	=>	'3.0'
 	);
@@ -688,7 +688,7 @@ function offline_mode_message_display() {
  */
 function standard_theme_general_options_validate( $input ) {
 
-	$output = $defaults = array();
+	$output = $defaults = get_standard_theme_default_general_options();
 
 	foreach( $input as $key => $val ) {
 	
