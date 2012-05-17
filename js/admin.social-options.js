@@ -75,7 +75,7 @@ function prepareIconMediaUploader($) {
 				if($('#TB_iframeContent').contents().find('#media-items').children().length > 0) {
 					social_options_hide_unused_fields($, mediaPoll);
 				}  // end if
-			}, 1000);
+			}, 500);
 	
 			// if they aren't uplaoding, we'll clear the fields on load
 			social_options_hide_unused_fields($);
@@ -333,6 +333,7 @@ function makeIconsRemoveable($) {
 function social_options_hide_unused_fields($, poller) {
 
 	// Hide unnecessary fields
+	var bHasHiddenFormFields = false;
 	var $formFields = $('.describe tbody tr, .savebutton', $('#TB_iframeContent')[0].contentWindow.document);
 	$formFields.each(function() {
 	
@@ -350,9 +351,11 @@ function social_options_hide_unused_fields($, poller) {
 		/* Translators: For now, this has to be localized inline. */
 		$submit.val('Upload Social Icon');
 		
+		bHasHiddenFormFields = true;
+		
 	} // end if
 	
-	if( poller !== null) {
+	if( poller !== null && bHasHiddenFormFields) {
 		clearInterval(poller);
 	} // end if
 
