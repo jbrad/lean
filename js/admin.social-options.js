@@ -38,6 +38,14 @@
 				
 				// Update the icons
 				updateActiveIcons($);
+			
+			} else {
+			
+				// Hide the container
+				$(this).parent().addClass('hidden');
+				
+				// Remove active icons
+				$('.active-icon').removeClass('active-icon');
 				
 			} // end if
 		
@@ -64,21 +72,16 @@ function prepareIconMediaUploader($) {
 	
 			// if the user is uplaoding a new icon, we need to poll until we see the form fields
 			var mediaPoll = setInterval(function() {
-
 				if($('#TB_iframeContent').contents().find('#media-items').children().length > 0) {
-					
-					// Hide unnecessary field
-					hideUnusedFields($, mediaPoll);
-					
-				} 
+					social_options_hide_unused_fields($, mediaPoll);
+				}  // end if
 			}, 1000);
 	
 			// if they aren't uplaoding, we'll clear the fields on load
-			hideUnusedFields($);
+			social_options_hide_unused_fields($);
 			
 		});
 	
-		
 	});
 
 } // end prepareIconMediaUploader
@@ -209,8 +212,10 @@ function updateHandler() {
 
 	// Clear the drag and drop border
 	jQuery(this).css('border', '0');
+	
+	// TODO still need to make sure users can't add more than 7 icons
 
-}
+} // end updateHandler
 
 /**
  * Updates the input field of active icons.
@@ -325,7 +330,7 @@ function makeIconsRemoveable($) {
  * @params	$		A reference to the jQuery function
  * @params	poller	The polling mechanism used to look for the form fields when a user uploads an image	
  */
-function hideUnusedFields($, poller) {
+function social_options_hide_unused_fields($, poller) {
 
 	// Hide unnecessary fields
 	var $formFields = $('.describe tbody tr, .savebutton', $('#TB_iframeContent')[0].contentWindow.document);
@@ -349,7 +354,7 @@ function hideUnusedFields($, poller) {
 	
 	if( poller !== null) {
 		clearInterval(poller);
-	}
+	} // end if
 
 } // end hideUnusedFields
 
