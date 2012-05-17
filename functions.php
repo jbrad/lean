@@ -424,7 +424,8 @@ function get_standard_theme_default_general_options() {
 		'display_breadcrumbs'		=>	'on',
 		'display_author_box'		=>	'on',
 		'display_featured_images' 	=> 	'always',
-		'offline_display_message'	=>	__( 'Our site is currently offline.', 'standard' )
+		'offline_display_message'	=>	__( 'Our site is currently offline.', 'standard' ),
+		'standard_theme_version'	=>	'3.0'
 	);
 	
 	return apply_filters ( 'standard_theme_default_general_options', $defaults );
@@ -1880,6 +1881,26 @@ add_action( 'admin_enqueue_scripts', 'standard_add_admin_scripts' );
 /* ----------------------------------------------------------- *
  * 7. Custom Filters
  * ----------------------------------------------------------- */
+
+/** 
+ * This function is fired  if the current version of Standard is not the latest version. If it's not, then the user will be prompted to reset their settings.
+ * Once reset, all options will be reset to their default values.
+ */
+function standard_activate_theme() {
+	
+	if( array_key_exists( 'standard_theme_reset_options', $_GET ) && 'true' == $_GET['standard_theme_reset_options'] ) {
+	
+		delete_option( 'standard_theme_layout_options' );
+		delete_option( 'standard_theme_social_options' );
+		delete_option( 'standard_theme_general_options' );
+		delete_option( 'standard_theme_publishing_options' );
+
+	} else {
+		echo '<div id="standard-old-version" class="updated"><p>' . __( 'Standard has detected that you are running a preview version of the theme. In order to continue installation, your old settings must be reset. <a href="?standard_theme_reset_options=true">Please click here to reset your options</a>.', 'standard') . '</p></div>';
+	} // end if/else
+	
+} // end standard_activate_theme
+if( ! array_key_exists( 'standard_theme_version', get_option( 'standard_theme_general_options' ) ) ) { add_action( 'after_setup_theme', 'standard_activate_theme' ); }
 
 // rel="generator" is an invalid HTML5 attribute
 remove_action( 'wp_head', 'wp_generator' );
