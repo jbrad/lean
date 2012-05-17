@@ -716,7 +716,9 @@ function standard_theme_general_options_validate( $input ) {
 function get_standard_theme_default_publishing_options() {
 
 	$defaults = array(
-		'post_advertisement_type' => 'none'
+		'post_advertisement_type' 		=> 'none',
+		'post_advertisement_image'		=>	'',
+		'post_advertisement_adsense'	=>	''
 	);
 	
 	return apply_filters ( 'standard_theme_default_publishing_options', $defaults );

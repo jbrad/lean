@@ -9,35 +9,20 @@
 			// Show the media uploader
 			tb_show('', 'media-upload.php?type=image&TB_iframe=true');
 			
-			// Change the text of the 'Insert Into Post' button
-			var $submit = null;
-			var submitPoll = setInterval(function() {
-				
-				if($('#TB_iframeContent').length > 0) {
-				
-					// Hide unnecessary fields
-					var $formFields = $('.describe tbody tr, .savebutton', $('#TB_iframeContent')[0].contentWindow.document);
-					$formFields.each(function() {
-					
-						// Remove everything except the URL field
-						if(!$(this).hasClass('submit')) {
-							$(this).hide();
-						} // end if
-						
-					});
-				
-					// Change the text of the submit button
-					$submit = $('.savesend input[type="submit"]', $('#TB_iframeContent')[0].contentWindow.document);
-					if($submit.length > 0 && $submit !== null) {
-						/* TODO This will need to be manually localized */
-						$submit.val('Save as Site Icon');
-						clearInterval(submitPoll);
+			$('#TB_iframeContent').load(function() {
+	
+				// if the user is uploading a new ad, we need to poll until we see the form fields
+				var fav_icon_poll = setInterval(function() {
+					if($('#TB_iframeContent').contents().find('#media-items').children().length > 0) {
+						standard_fav_icon_hide_unused_fields($, fav_icon_poll);
 					} // end if
-				
-				} // end if
-				
-			}, 1000);
+				}, 500);
+		
+				// if they aren't uploading, we'll clear the fields on load
+				standard_fav_icon_hide_unused_fields($);
 			
+			});		
+				
 		});
 		
 		// Remove the URL of the fav icon
@@ -98,46 +83,19 @@
 			tb_show('', 'media-upload.php?type=image&TB_iframe=true');
 			
 			// Change the text of the 'Insert Into Post' button
-			var $submit = null;
-			var submitPoll = setInterval(function() {
-				
-				if($('#TB_iframeContent').length > 0) {
-				
-					// Hide unnecessary fields
-					var $formFields = $('.describe tbody tr, .savebutton', $('#TB_iframeContent')[0].contentWindow.document);
-					$formFields.each(function() {
-					
-						// Remove everything except the URL field
-						if(!($(this).hasClass('submit') || $(this).hasClass('url'))) {
-							$(this).hide();
-						} // end if
-						
-						// Make sure that we select the 'Full Size' of the image
-						if($(this).hasClass('image-size')) {
-							$(this).children('.field').children().each(function() {
-								if($(this).children('input[type=radio]').attr('id').indexOf('-full-') > 0) {
-									$(this).children('input[type=radio]').attr('checked', 'checked');
-								} // end if
-							});
-						} // end if
-						
-						// If we're looking at the URL field, remove the extra buttons and text
-						if($(this).hasClass('url')) {
-							$(this).children('.field').children('input').siblings().hide();
-						} // end if
-						
-					});
-				
-					// Change the text of the submit button
-					$submit = $('.savesend input[type="submit"]', $('#TB_iframeContent')[0].contentWindow.document);
-					if($submit.length > 0 && $submit !== null) {
-						/* TODO This will need to be manually localized */
-						$submit.val('Save Post Advertisement');
-						clearInterval(submitPoll);
+			$('#TB_iframeContent').load(function() {
+	
+				// if the user is uploading a new ad, we need to poll until we see the form fields
+				var banner_ad_poll = setInterval(function() {
+					if($('#TB_iframeContent').contents().find('#media-items').children().length > 0) {
+						standard_ad_banner_hide_unused_fields($, banner_ad_poll);
 					} // end if
-				} // end if
-				
-			}, 1000);
+				}, 500);
+		
+				// if they aren't uploading, we'll clear the fields on load
+				standard_ad_banner_hide_unused_fields($);
+			
+			});		
 		
 		});
 		
@@ -152,6 +110,96 @@
 
 	});
 })(jQuery);
+
+/**
+ * Hides fields that are irrelevant for the media uploader.
+ *
+ * @params	$		A reference to the jQuery function
+ * @params	poller	The polling mechanism used to look for the form fields when a user uploads an image	
+ */
+function standard_fav_icon_hide_unused_fields($, poller) {
+
+	// Hide unnecessary fields
+	var bHasHiddenFields = false;
+	var $formFields = $('.describe tbody tr, .savebutton', $('#TB_iframeContent')[0].contentWindow.document);
+	$formFields.each(function() {
+	
+		// Remove everything except the URL field
+		if(!$(this).hasClass('submit')) {
+			$(this).hide();
+		} // end if
+	
+	});
+	
+	// Change the text of the submit button
+	var $submit = $('.savesend input[type="submit"]', $('#TB_iframeContent')[0].contentWindow.document);
+	if($submit.length > 0 && $submit !== null) {
+	
+		/* TODO This will need to be manually localized */
+		$submit.val('Save as Site Icon');
+		
+		bHasHiddenFields = true;
+		
+	} // end if
+						
+	// Clear the polling interfval
+	if(poller !== null && bHasHiddenFields) {
+		clearInterval(poller);
+	} // end if
+
+} // end standard_fav_icon_hide_unused_fields
+
+/**
+ * Hides fields that are irrelevant for the media uploader.
+ *
+ * @params	$		A reference to the jQuery function
+ * @params	poller	The polling mechanism used to look for the form fields when a user uploads an image	
+ */
+function standard_ad_banner_hide_unused_fields($, poller) {
+
+	// Hide unnecessary fields
+	var bHasHiddenFields = false;
+	var $formFields = $('.describe tbody tr, .savebutton', $('#TB_iframeContent')[0].contentWindow.document);
+	$formFields.each(function() {
+
+		// Remove everything except the URL field
+		if(!($(this).hasClass('submit') || $(this).hasClass('url'))) {
+			$(this).hide();
+		} // end if
+
+		// Make sure that we select the 'Full Size' of the image
+		if($(this).hasClass('image-size')) {
+			$(this).children('.field').children().each(function() {
+				if($(this).children('input[type=radio]').attr('id').indexOf('-full-') > 0) {
+					$(this).children('input[type=radio]').attr('checked', 'checked');
+				} // end if
+			});
+		} // end if
+
+		// If we're looking at the URL field, remove the extra buttons and text
+		if($(this).hasClass('url')) {
+			$(this).children('.field').children('input').siblings().hide();
+		} // end if
+
+	});
+
+	// Change the text of the submit button
+	var $submit = $('.savesend input[type="submit"]', $('#TB_iframeContent')[0].contentWindow.document);
+	if($submit.length > 0 && $submit !== null) {
+	
+		/* TODO This will need to be manually localized */
+		$submit.val('Save Post Advertisement');
+
+		bHasHiddenFields = true;
+
+	} // end if
+						
+	// Clear the polling interfval
+	if(poller !== null && bHasHiddenFields) {
+		clearInterval(poller);
+	} // end if
+
+} // end standard_ad_banner_hide_unused_fields
 
 /**
  * Overrides the core send_to_editor function in the media-upload script. Grabs the URL of the image after being uploaded and 
