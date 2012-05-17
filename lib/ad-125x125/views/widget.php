@@ -22,28 +22,4 @@
 		</span><!-- /.right -->
 		
 	</div><!-- /.ad-row -->
-	
-	<div class="ad-row">
-	
-		<span class="left">
-			<?php if( '' != $ad3_url && '' != $ad3_src ) { ?>
-				<a href="<?php echo $ad3_url ?>" target="_blank">
-					<img src="<?php echo $ad3_src ?>" alt="" width="125" height="125" />
-				</a>
-			<?php } elseif( '' != $ad3_src ) { ?>
-				<img src="<?php echo $ad3_src ?>" alt="" width="125" height="125" />
-			<?php } // end if/else ?>
-		</span><!-- /.left -->
-		
-		<span class="right">
-			<?php if( '' != $ad4_url && '' != $ad4_src ) { ?>
-				<a href="<?php echo $ad4_url ?>" target="_blank">
-					<img src="<?php echo $ad4_src ?>" alt="" width="125" height="125" />
-				</a>
-			<?php } elseif( '' != $ad4_src ) { ?>
-				<img src="<?php echo $ad4_src ?>" alt="" width="125" height="125" />
-			<?php } // end if/else ?>
-		</span><!-- /.right -->
-		
-	</div><!-- /.ad-row -->
 </div><!-- /.standard-ad-125x125-wrapper -->

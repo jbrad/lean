@@ -54,14 +54,6 @@ class Standard_Ad_125x125 extends WP_Widget {
 		// advertisement 2
 		$ad2_src = empty( $instance['ad2_src']) ? '' : apply_filters( 'ad2_src', $instance['ad2_src'] );
 		$ad2_url = empty( $instance['ad2_url']) ? '' : apply_filters( 'ad2_url', $instance['ad2_url'] );
-
-		// advertisement 3
-		$ad3_src = empty( $instance['ad3_src']) ? '' : apply_filters( 'ad3_src', $instance['ad3_src'] );
-		$ad3_url = empty( $instance['ad3_url']) ? '' : apply_filters( 'ad3_url', $instance['ad3_url'] );
-
-		// advertisement 4
-		$ad4_src = empty( $instance['ad4_src']) ? '' : apply_filters( 'ad4_src', $instance['ad4_src'] );
-		$ad4_url = empty( $instance['ad4_url']) ? '' : apply_filters( 'ad4_url', $instance['ad4_url'] );
 		
 		// Display the widget
 		include( plugin_dir_path( __FILE__ ) .  'views/widget.php' );
@@ -85,14 +77,6 @@ class Standard_Ad_125x125 extends WP_Widget {
 		// advertisement 2
 		$instance['ad2_src'] = strip_tags( stripslashes( $new_instance['ad2_src'] ) );
 		$instance['ad2_url'] = strip_tags( stripslashes( $new_instance['ad2_url'] ) );
-
-		// advertisement 3
-		$instance['ad3_src'] = strip_tags( stripslashes( $new_instance['ad3_src'] ) );
-		$instance['ad3_url'] = strip_tags( stripslashes( $new_instance['ad3_url'] ) );
-
-		// advertisement 4
-		$instance['ad4_src'] = strip_tags( stripslashes( $new_instance['ad4_src'] ) );
-		$instance['ad4_url'] = strip_tags( stripslashes( $new_instance['ad4_url'] ) );
 		
 		return $instance;
 		
@@ -111,11 +95,7 @@ class Standard_Ad_125x125 extends WP_Widget {
 				'ad1_src' 	=> 	'',
 				'ad1_url'	=> 	'',
 				'ad2_src' 	=> 	'',
-				'ad2_url'	=>	'',
-				'ad3_src'	=>	'',
-				'ad3_url'	=>	'',
-				'ad4_src'	=>	'',
-				'ad4_url'	=>	''
+				'ad2_url'	=>	''
 			)
 		);
     
@@ -126,14 +106,6 @@ class Standard_Ad_125x125 extends WP_Widget {
     	// advertising 2
 		$ad2_src = esc_url( $instance['ad2_src'] );
 		$ad2_url = esc_url( $instance['ad2_url'] );
-
-		// advertising 3
-		$ad3_src = esc_url( $instance['ad3_src'] );
-		$ad3_url = esc_url( $instance['ad3_url'] );
-
-		// advertising 4
-		$ad4_src = esc_url( $instance['ad4_src'] );
-		$ad4_url = esc_url( $instance['ad4_url'] );
     
 		// Display the admin form
 		include( plugin_dir_path( __FILE__ ) .  'views/admin.php' );
