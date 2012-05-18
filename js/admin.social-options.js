@@ -218,7 +218,7 @@ function updateIconValues() {
 } // end updateIconValues
 
 /**
- * TODO
+ * Checks to see if the recommended number of icons are active. If so, displays a warning message.
  */
 function checkForMaxIcons() {
 
@@ -232,7 +232,10 @@ function checkForMaxIcons() {
 } // end checkForMaxIcons 
 
 /**
- * TODO
+ * Attachs a click handler to the incoming element.
+ * 
+ * @params	$		The jQuery function
+ * @params	$this	The element on which to attach the handler
  */
 function setupIconClickHander($, $this) {
 

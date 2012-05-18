@@ -919,7 +919,7 @@ function standard_generate_comment_policy_page( ) {
 add_action( 'wp_ajax_standard_generate_comment_policy_page', 'standard_generate_comment_policy_page' );
 
 /**
- * TODO
+ * Renders the options for allows the user to select how to display their post-level advertisements.
  */
 function post_advertisement_type_display() {
 
@@ -936,7 +936,7 @@ function post_advertisement_type_display() {
 } // end post_advertisement_type_display
 
 /**
- * TODO
+ * Renders the image input option for allowing users to select the post-level advertisement.
  */
 function post_advertisement_image_display() {
 
@@ -958,7 +958,7 @@ function post_advertisement_image_display() {
 } // end post_advertisement_image_display
 
 /**
- * TODO
+ * Renders the field for the adsense input for the post-level advertisement.
  */
 function post_advertisement_adsense_display() {
 
@@ -1438,49 +1438,17 @@ if( ! function_exists( 'standard_add_theme_features' ) ) {
 		// post thumbnail support
 		add_theme_support( 'post-thumbnails' );
 
-		/** TODO move all of this into a helper function */
-
-		// Activity Tabs	
-		if( ! in_array( get_template_directory() . '/lib/activity/plugin.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {
-			include_once( get_template_directory() . '/lib/activity/plugin.php' );
-		} // end if
-
-		// Standard SEO, if WordPress SEO and All-In-One aren't defined
 		if( standard_using_native_seo() ) {
-			if( ! in_array( get_template_directory() . '/lib/seo/plugin.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {
-				include_once( get_template_directory() . '/lib/seo/plugin.php' );
-			} // end if			
+			standard_add_plugin( '/lib/seo/plugin.php' );
 		} // end if
 
-		// Google Custom Search
-		if( ! in_array( get_template_directory() . '/lib/google-custom-search/plugin.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {
-			include_once( get_template_directory() . '/lib/google-custom-search/plugin.php' );
-		} // end if	
-		
-		// 300x250 advertisements
-		if( ! in_array( get_template_directory() . '/lib/ad-300x250/plugin.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {
-			include_once( get_template_directory() . '/lib/ad-300x250/plugin.php' );
-		} // end if	
-
-		// 125x125 advertisements
-		if( ! in_array( get_template_directory() . '/lib/ad-125x125/plugin.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {
-			include_once( get_template_directory() . '/lib/ad-125x125/plugin.php' );
-		} // end if	
-
-		// 468x60 advertisements
-		if( ! in_array( get_template_directory() . '/lib/ad-468x60/plugin.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {
-			include_once( get_template_directory() . '/lib/ad-468x60/plugin.php' );
-		} // end if	
-
-		// Personal Image
-		if( ! in_array( get_template_directory() . '/lib/personal-image/plugin.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {
-			include_once( get_template_directory() . '/lib/personal-image/plugin.php' );
-		} // end if	
-
-		// Influence
-		if( ! in_array( get_template_directory() . '/lib/influence/plugin.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {
-			include_once( get_template_directory() . '/lib/influence/plugin.php' );
-		} // end if	
+		standard_add_plugin( '/lib/activity/plugin.php' );
+		standard_add_plugin( '/lib/google-custom-search/plugin.php' );
+		standard_add_plugin( '/lib/ad-300x250/plugin.php' );
+		standard_add_plugin( '/lib/ad-125x125/plugin.php' );
+		standard_add_plugin( '/lib/ad-468x60/plugin.php' );
+		standard_add_plugin( '/lib/personal-image/plugin.php' );
+		standard_add_plugin( '/lib/influence/plugin.php' );
 
 	} // end add_theme_features
 	add_action( 'after_setup_theme', 'standard_add_theme_features' );
@@ -2612,7 +2580,18 @@ function standard_create_page( $slug, $title, $template = '' ) {
 		
 	return $page_id;
 
-} // end dittymail_create_page
+} // end standard_create_page
+
+/**
+ * If not already active, includes the plugin by using the specified path.
+ *
+ * @params	$str_path	The path to the plugin to include.
+ */
+function standard_add_plugin( $str_path ) {
+	if( ! in_array( get_template_directory() . $str_path, apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {
+		include_once( get_template_directory() . $str_path );
+	} // end if	
+} // end standard_add_plugin
 
 /* ----------------------------------------------------------- *
  * 9. PressTrends Integration

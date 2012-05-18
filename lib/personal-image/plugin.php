@@ -24,7 +24,6 @@ class Standard_Personal_Image extends WP_Widget {
 		global $pagenow;
 		if( 'themes.php' != $pagenow ) {
 			
-			// This will be a problem because we're also overriding this with the advertisement widget. TODO.
 			add_action( 'admin_print_styles', array( &$this, 'register_admin_styles' ) );
 			add_action( 'admin_enqueue_scripts', array( &$this, 'register_admin_scripts' ) );
 			

@@ -370,7 +370,7 @@ html, body {
 
 #top-ad.imageyup {
 	padding: 0;
-	float: right; /* TODO this needs to be added to rtl */
+	float: right;
 	margin-top: -15%;
 }
 

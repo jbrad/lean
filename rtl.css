@@ -80,6 +80,10 @@ input[type="submit"]:hover {
 	padding-right: 40px;
 }
 
+#top-ad.imageyup {
+	float: left;
+}
+
 /* ------------------------------------------------------------------------ 4. Posts */
 
 .entry-content .wp-caption.alignleft {
