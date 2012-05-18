@@ -85,7 +85,6 @@
 				<?php if ( '' != get_post_format() ) { ?>
 					<span class="the-comment-link"><?php comments_popup_link( __( 'Leave a comment', 'standard' ), __( '1 Comment', 'standard' ), __( '% Comments', 'standard' ), '', ''); ?></span>
 				<?php } // end if ?>
-				<span class="the-edit-post"><?php edit_post_link(); ?></span>
 			</div><!-- /meta-comment-link -->
 		</div><!--/row-fluid -->
 	</div><!-- /.post-meta -->

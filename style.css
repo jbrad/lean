@@ -581,11 +581,6 @@ p.wp-caption-text {
 	float: right;
 }
 
-.post-meta .the-edit-post {
-	float: right;
-	clear: none;
-}
-
 .post-meta .post-link {
 	padding-left: 10px;
 }
