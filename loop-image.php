@@ -60,7 +60,6 @@
 			<div class="meta-comment-link span3">
 				<a class="fademe pull-right post-link" href="<?php the_permalink(); ?>" title="<?php esc_attr_e( 'permalink ', 'standard' ); ?>"><img src="<?php echo esc_url( get_template_directory_uri() . '/images/icn-permalink.png' ); ?>" alt="<?php esc_attr( 'permalink ', 'standard' ); ?>" /></a>
 				<span class="the-comment-link"><?php comments_popup_link( __( 'Leave a comment', 'standard' ), __( '1 Comment', 'standard' ), __( '% Comments', 'standard' ), '', ''); ?></span>
-
 			</div><!-- /meta-comment-link -->
 		</div><!--/row-fluid -->
 	</div><!-- /.post-meta -->
