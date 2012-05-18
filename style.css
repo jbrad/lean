@@ -364,6 +364,16 @@ html, body {
 	padding: 40px 0;
 }
 
+#top-ad {
+	padding: 40px 0;
+}
+
+#top-ad.imageyup {
+	padding: 0;
+	float: right; /* TODO this needs to be added to rtl */
+	margin-top: -15%;
+}
+
 #header.imageyup #logo {
 	position: absolute;
 	top: 50%;

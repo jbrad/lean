@@ -1346,7 +1346,20 @@ if( ! function_exists( 'standard_add_theme_menus' ) ) {
  */
 if( ! function_exists( 'standard_add_theme_sidebars' ) ) { 
 	function standard_add_theme_sidebars() {
-	
+		
+		// top advertisement
+		register_sidebar(
+			array(
+				'name' 			=> __( 'Top Advertisement', 'standard' ),
+				'id' 			=> 'sidebar-0',
+				'description'	=> __( 'The area for a 468x60 advertisement in the header.', 'standard' ),
+				'before_widget' => '<div id="%1$s" class="widget %2$s">',
+				'after_widget'  => '</div>',
+				'before_title'  => '<h3 class="widget-title">',
+				'after_title'   => '</h3>'
+			)
+		);
+		
 		// main
 		register_sidebar(
 			array(
@@ -1452,6 +1465,11 @@ if( ! function_exists( 'standard_add_theme_features' ) ) {
 		// 125x125 advertisements
 		if( ! in_array( get_template_directory() . '/lib/ad-125x125/plugin.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {
 			include_once( get_template_directory() . '/lib/ad-125x125/plugin.php' );
+		} // end if	
+
+		// 468x60 advertisements
+		if( ! in_array( get_template_directory() . '/lib/ad-468x60/plugin.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {
+			include_once( get_template_directory() . '/lib/ad-468x60/plugin.php' );
 		} // end if	
 
 		// Personal Image

@@ -94,37 +94,38 @@
 								</div> <!-- /#header-image -->
 								
 							<?php } // end if ?>
-						
-							<div class="span12">
-								<div id="logo">
-									<?php if( is_single() || is_page() ) { ?>
-										
-										<?php if( 'video' == get_post_format() || 'image' == get_post_format() || '' == get_the_title() ) { ?>
+							
+							<div id="logo" class="span6">
+								<?php if( is_single() || is_page() ) { ?>
 									
-											<h1 id="site-title">
-												<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php get_bloginfo( 'name' ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
-											</h1>
-										
-										<?php } else { ?>
-										
-											<p id="site-title">
-												<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php get_bloginfo( 'name' ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
-											</p>
-										
-										<?php } // end if/else ?>
-										
-									<?php } else { ?>
-									
+									<?php if( 'video' == get_post_format() || 'image' == get_post_format() || '' == get_the_title() ) { ?>
+								
 										<h1 id="site-title">
 											<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php get_bloginfo( 'name' ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
 										</h1>
+									
+									<?php } else { ?>
+									
+										<p id="site-title">
+											<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php get_bloginfo( 'name' ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
+										</p>
+									
 									<?php } // end if/else ?>
 									
-									<small id="site-description"><?php bloginfo( 'description' ); ?></small>
-									
-								</div><!-- /#logo -->
-							</div><!-- /.span12 -->
-						
+								<?php } else { ?>
+								
+									<h1 id="site-title">
+										<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php get_bloginfo( 'name' ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
+									</h1>
+								<?php } // end if/else ?>
+								
+								<small id="site-description"><?php bloginfo( 'description' ); ?></small>	
+							</div><!-- /#logo -->
+							
+							<div id="top-ad" class="span6 <?php echo 'imageyup' == $head_class ? 'imageyup' : ''; ?>">
+								<?php dynamic_sidebar( 'sidebar-0' ); ?>
+							</div><!-- /.span6 -->
+							
 						</div><!-- /row -->
 					</div><!--/container -->
 				</div> <!-- /#head-wrapper -->
