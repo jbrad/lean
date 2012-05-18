@@ -21,7 +21,7 @@
 				// if they aren't uploading, we'll clear the fields on load
 				standard_fav_icon_hide_unused_fields($);
 			
-			});		
+			});
 				
 		});
 		

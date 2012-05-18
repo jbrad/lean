@@ -36,6 +36,9 @@
 				// Remove active icons
 				$('.active-icon').removeClass('active-icon');
 				
+				// Update the data
+				updateIconValues();
+				
 				// Update the icons
 				updateActiveIcons($);
 			
@@ -48,8 +51,12 @@
 				$('.active-icon').removeClass('active-icon');
 				
 			} // end if
+			
+			$('.icon-url').val('');
 		
 		});
+		
+		checkForMaxIcons();
 
 	});
 })(jQuery);
@@ -67,18 +74,18 @@ function prepareIconMediaUploader($) {
 		
 		evt.preventDefault();
 		
-		social_icons_show_media_uploader($);
+		socialIconsShowMediaUploader($);
 		$('#TB_iframeContent').load(function() {
 	
 			// if the user is uplaoding a new icon, we need to poll until we see the form fields
 			var mediaPoll = setInterval(function() {
 				if($('#TB_iframeContent').contents().find('#media-items').children().length > 0) {
-					social_options_hide_unused_fields($, mediaPoll);
+					socialOptionsHideUnusedFields($, mediaPoll);
 				}  // end if
 			}, 500);
 	
 			// if they aren't uplaoding, we'll clear the fields on load
-			social_options_hide_unused_fields($);
+			socialOptionsHideUnusedFields($);
 			
 		});
 	
@@ -126,34 +133,7 @@ function displayIcons($, sInputId, sWrapperId) {
 				
 				// If we're active icons, let's setup click handlers
 				if(sWrapperId === 'active-icons') {
-					$listItem.click(function(evt) {
-						
-						// if the input is visible, clear it out; otherwise, show it.
-						if($('#active-icon-url').is(':visible')) {
-						
-							$(this).parent()
-								.siblings('#active-icon-url')
-								.children('input[type=text]')
-								.val();
-						
-						} else {
-						
-							$(this).parent()
-								.siblings('#active-icon-url')
-								.removeClass('hidden');
-						
-						} // end if/else
-						
-						$(this).parent()
-							.siblings('#active-icon-url')
-							.children('input[type=text]')
-							.val($(this).attr('data-url'));
-						
-						// Update the active icon that we're editing
-						$('.active-icon').removeClass('active-icon');
-						$(this).addClass('active-icon');
-						
-					});
+					setupIconClickHander($, $listItem);
 				} // end if 
 				
 				// Append it to the list of available icons
@@ -180,13 +160,13 @@ function makeSortable($, sActiveId, sAvailableId) {
 
 	$(sActiveId).children('ul').sortable({
 		connectWith: sAvailableId + ' > ul',
-		update: updateHandler,
+		update: updateIconValues,
 		over: overHandler
 	});
 	
 	$(sAvailableId).children('ul').sortable({
 		connectWith: sActiveId + ' > ul',
-		update: updateHandler,
+		update: updateIconValues,
 		over: overHandler
 	});
 
@@ -202,8 +182,8 @@ function overHandler() {
 /**
  * Updates the list of active icons and available icons. Fired when sorting has been completed.
  */
-function updateHandler() {
-
+function updateIconValues() {
+	
 	// Update the inputs to track the active icon arrangement.	
 	updateActiveIcons(jQuery);
 	
@@ -213,9 +193,81 @@ function updateHandler() {
 	// Clear the drag and drop border
 	jQuery(this).css('border', '0');
 	
-	// TODO still need to make sure users can't add more than 7 icons
+	jQuery.post(ajaxurl, {
+	
+		action: 'standard_save_social_icons',
+		nonce: jQuery('#standard-save-social-icons-nonce').text(),
+		availableSocialIcons: jQuery('#available-social-icons').val(),
+		activeSocialIcons: jQuery('#active-social-icons').val(),
+		updateSocialIcons: 'true'
+		
+	}, function(response) {
+	
+		if( parseInt(response) === 0 ) {
 
-} // end updateHandler
+			jQuery('#active-icon-list > li').each(function() {
+				setupIconClickHander(jQuery, jQuery(this));
+			});
+			
+		} // end if
+		
+	});
+	
+	checkForMaxIcons();
+
+} // end updateIconValues
+
+/**
+ * TODO
+ */
+function checkForMaxIcons() {
+
+	// If the user has seven icons, we need to disable sorting.
+	if(jQuery('#active-icon-list').children().length >= 7) {		
+		jQuery('#social-icon-max').removeClass('hidden');	
+	} else {
+		jQuery('#social-icon-max').addClass('hidden');
+	} // end if
+	
+} // end checkForMaxIcons 
+
+/**
+ * TODO
+ */
+function setupIconClickHander($, $this) {
+
+	$this.click(function(evt) {
+			
+		// if the input is visible, clear it out; otherwise, show it.
+		if($('#active-icon-url').is(':visible')) {
+		
+			$(this).parent()
+				.siblings('#active-icon-url')
+				.children('input[type=text]')
+				.val();
+		
+		} else {
+		
+			$(this).parent()
+				.siblings('#active-icon-url')
+				.removeClass('hidden');
+		
+		} // end if/else
+		
+		$(this).parent()
+			.siblings('#active-icon-url')
+			.children('input[type=text]')
+			.val($(this).attr('data-url'));
+		
+		// Update the active icon that we're editing
+		$('.active-icon').removeClass('active-icon');
+		$(this).addClass('active-icon');
+		
+		updateIconValues();
+		
+	});
+
+} // end setupIconClickHander
 
 /**
  * Updates the input field of active icons.
@@ -280,12 +332,16 @@ function makeIconsRemoveable($) {
 		over: overHandler, 
 		
 		drop: function(evt) {
-		
+
 			$(evt.srcElement).hide().attr('src', '');
-			updateAvailableIcons($);
+			$(evt.srcElement).parent().hide();
 			
+			updateIconValues();
+			
+			updateAvailableIcons($);
+
 			$(this).css('border', 0);
-	
+
 		} // end drop
 		
 	});
@@ -330,7 +386,7 @@ function makeIconsRemoveable($) {
  * @params	$		A reference to the jQuery function
  * @params	poller	The polling mechanism used to look for the form fields when a user uploads an image	
  */
-function social_options_hide_unused_fields($, poller) {
+function socialOptionsHideUnusedFields($, poller) {
 
 	// Hide unnecessary fields
 	var bHasHiddenFormFields = false;
@@ -367,7 +423,7 @@ function social_options_hide_unused_fields($, poller) {
  *
  * @params	sHtml	The HTML of the image tag from which we're setting the favicon
  */
-function social_icons_show_media_uploader() {
+function socialIconsShowMediaUploader() {
 
  	tb_show('', 'media-upload.php?type=image&TB_iframe=true');
 	
@@ -380,6 +436,7 @@ function social_icons_show_media_uploader() {
 		jQuery('#available-social-icons').val(jQuery('#available-social-icons').val() + ';' + jQuery(sHtml).attr('src'));
 		
 		displayIcons(jQuery, 'available-social-icons', 'available-icons');
+		updateIconValues();
 	
 		// Hide the thickbox
 		tb_remove();

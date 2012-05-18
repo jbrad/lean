@@ -328,8 +328,9 @@ function standard_theme_social_options_display() {
 				$html .= '<h3>' . __( 'Active Icons', 'standard' ) . '</h3>';
 			$html .= '</div><!-- /.sidebar-name -->';
 			$html .= '<div id="active-icons">';
-				$html .= '<p class="description">' . __( 'Standard supports up to seven icons that can be displayed in the menu of your site.', 'standard' ) . '</p>';
+				$html .= '<p class="description">' . __( 'Click on each icon to give it an address to your social network.', 'standard' ) . '</p>';
 				$html .= '<ul id="active-icon-list"></ul>';
+				$html .= '<p id="social-icon-max" class="hidden">' . __( 'Standard looks best with seven social icons.', 'standard' ) . '</p>';
 				$html .= '<div id="active-icon-url" class="hidden">';
 					$html .= '<label>' . __( 'Icon Address:', 'standard' ) . '</label>';
 					$html .= '<input type="text" id="" name="" value="" class="icon-url" data-via="" data-url="" />';
@@ -352,11 +353,39 @@ function standard_theme_social_options_display() {
 			$html .= '</div><!-- /#social-icons-operations -->';
 		$html .= '</div><!-- /.social-icons-available -->';
 		
+		$html .= '<span id="standard-save-social-icons-nonce" class="hidden">' . wp_create_nonce( 'standard_save_social_icons_nonce' ) . '</span>';
+		
 	$html .= '</div><!-- /.social-icons-wrapper -->';
 	
 	echo $html;
 	
 } // end standard_theme_social_options_display
+
+/**
+ * Callback function used in the Ajax request for generating the Social Icons.
+ */
+function standard_save_social_icons( ) {
+	
+	if( wp_verify_nonce( $_REQUEST['nonce'], 'standard_save_social_icons_nonce' ) && isset( $_POST['updateSocialIcons'] ) ) {
+		
+		// Manually create the input array of options
+		$input = array(	
+			'available-social-icons'	=>	$_POST['availableSocialIcons'],
+			'active-social-icons' 		=> 	$_POST['activeSocialIcons']
+		);
+		
+		if( update_option( 'standard_theme_social_options', standard_theme_social_options_validate( $input ) ) ) {
+			die( '0' );
+		} else {
+			die( '1' );
+		} // end if/else
+		
+	} else {
+		die( '-1' );
+	} // end if/else
+
+} // end standard_save_social_icons
+add_action( 'wp_ajax_standard_save_social_icons', 'standard_save_social_icons' );
 
 /**
  * Renders the available social icon input. This field is hidden and is manipulated by the functionality for powering
@@ -391,7 +420,7 @@ function standard_active_icons_display() {
  * @returns			The collection of sanitized values.
  */
 function standard_theme_social_options_validate( $input ) {
-	
+
 	$output = $defaults = get_standard_theme_default_social_options();
 
 	foreach( $input as $key => $val ) {
@@ -399,11 +428,6 @@ function standard_theme_social_options_validate( $input ) {
 		if( isset ( $input[$key] ) ) {
 			$output[$key] = esc_url_raw( strip_tags( stripslashes( $input[$key] ) ) );
 		} // end if	
-		
-		// If the feed isn't provided, then we'll default to WordPress' feed.
-		if( $key == 'rss' && strlen( trim( $output[$key] ) )  == '' ) {
-			$output[$key] = get_bloginfo( 'rss2_url' );
-		} // end if
 	
 	} // end foreach
 	

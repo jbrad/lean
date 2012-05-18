@@ -38,6 +38,11 @@
 	margin: 12px 0 12px 0;
 }
 
+#available-icons ul {
+	height: 144px;
+	overflow: scroll;
+}
+
 #social-icons-available #available-icons,
 #social-icons-active #active-icons {
 	border: 1px solid #dfdfdf;
@@ -68,6 +73,10 @@
 	margin-top: 12px;
 }
 
+#social-icons-available #delete-icons {
+	padding: 10px 10px 10px 0;
+}
+
 #social-icons-available {
 	margin-right: 24px;
 }
@@ -75,5 +84,7 @@
 #social-icons-available ul li {
 	float: left;	
 	min-width: 16px;
+	min-height: 16px;
+	height: 48px;
 	width: auto;
 }
