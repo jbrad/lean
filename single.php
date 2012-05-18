@@ -29,18 +29,6 @@
 				?>
 	
 							<?php $publishing_options = get_option( 'standard_theme_publishing_options' ); ?>
-							<?php if( 'none' !== $publishing_options['post_advertisement_type'] ) { ?>			
-								<?php if( 'image' == $publishing_options['post_advertisement_type'] ) { ?>
-									<div id="standard-post-advertisement-image">
-										<?php echo $publishing_options['post_advertisement_image']; ?>
-									</div><!-- /#standard-post-advertisement-image -->
-								<?php } else { ?>
-									<div id="standard-post-advertisement-adsense">
-										<?php echo $publishing_options['post_advertisement_adsense']; ?>
-										<!-- TODO this isn't done. -->
-									</div><!-- /#standard-post-advertisement-image -->
-								<?php } // end if/else ?>
-							<?php } // end if ?>
 				
 							<?php get_template_part( 'pagination '); ?>
 							<?php $general_options = get_option( 'standard_theme_general_options' ); ?>
@@ -64,11 +52,24 @@
 									<?php } // end if ?>
 
 								</div><!-- /.author-box -->						
-							<?php
-							} // end if
-							comments_template( '', true );		
-					 	} // end while; 
-					 ?>
+							<?php } // end if ?>
+							
+							<?php if( 'none' !== $publishing_options['post_advertisement_type'] ) { ?>			
+								<?php if( 'image' == $publishing_options['post_advertisement_type'] ) { ?>
+									<div id="standard-post-advertisement-image">
+										<?php echo $publishing_options['post_advertisement_image']; ?>
+									</div><!-- /#standard-post-advertisement-image -->
+								<?php } else { ?>
+									<div id="standard-post-advertisement-adsense">
+										<?php echo $publishing_options['post_advertisement_adsense']; ?>
+										<!-- TODO this isn't done. it needs to be tested. -->
+									</div><!-- /#standard-post-advertisement-image -->
+								<?php } // end if/else ?>
+							<?php } // end if ?>
+							
+							<?php comments_template( '', true ); ?>	
+							
+					 	<?php } // end while;  ?>
 					<?php get_template_part( 'pagination' ); ?>
 				<?php } // end if ?>
 			</div><!-- /#main -->
