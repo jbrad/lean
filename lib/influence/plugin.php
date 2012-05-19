@@ -87,7 +87,7 @@ class Standard_Influence extends WP_Widget {
 				'twitter'		=>	'',
 				'facebook'		=>	'',
 				'feedburner'	=>	'',
-				'display'		=>	'total'
+				'display'		=>	'both'
 			)
 		);
     

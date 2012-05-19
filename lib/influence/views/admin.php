@@ -19,10 +19,11 @@
 	</div><!-- /.option -->
 
 	<div class="option">
-		<label class="inline"><?php _e( 'Display:', 'standard' ); ?></label>
+		<label class="inline"><?php _e( 'Display', 'standard' ); ?></label>
 		<select id="<?php echo $this->get_field_id( 'display' ); ?>" name="<?php echo $this->get_field_name( 'display' );  ?>">
-			<option <?php selected( $display, 'each' ); ?> value="each"><?php _e( 'Individual counts', 'standard' ); ?></option>
+			<option <?php selected( $display, 'each' ); ?> value="each"><?php _e( 'Individual count', 'standard' ); ?></option>
 			<option <?php selected( $display, 'total' ); ?> value="total"><?php _e( 'Total influence', 'standard' ); ?></option>
+			<option <?php selected( $display, 'both' ); ?> value="both"><?php _e( 'Both', 'standard' ); ?></option>
 		</select>
 	</div><!-- /.option -->
 	
