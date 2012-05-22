@@ -26,17 +26,13 @@
 	color: #282;
 }
 
-#standard-seo-description-wrapper {
-	margin-left: 15%;
-}
-
 #post_level_seo label {
 	float: left;
 	margin-right: 8px;
 }
 
 #standard_seo_post_meta_description {
-	width: 85%;
+	width: 100%;
 }
 
 #standard-seo-description-wrapper #character-count {

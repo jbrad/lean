@@ -77,18 +77,17 @@ class Standard_SEO {
 		$html .= '<div id="meta-description-container">';
 		
 			// The label for the meta description
-			$html .= '<label for="standard_post_level_meta_description">';
-				$html .= __( 'Meta Description: ', 'standard' );
-			$html .= '</label>';
+			$html .= '<p>' . __( 'Meta Description: ', 'standard' ) . '</p>';
 			
 			// The input field for the meta description
-			//print_r( delete_post_meta( $post->ID, 'standard_seo_post_meta_description' ) );
 			$html .= '<textarea id="standard_seo_post_meta_description" name="standard_seo_post_meta_description" maxlength="140">' . get_post_meta( $post->ID, 'standard_seo_post_meta_description', true ) . '</textarea>';
 			
 			// The description for the field
 			$html .= '<div id="standard-seo-description-wrapper">';
-				$html .= '<p>' . __( 'The meta description is limited to 140 characters. If not provided, no description will be added to the page.', 'standard' ) . '</p>';
-				$html .= '<p>' . __( 'You have ', 'standard' ) . '<span id="character-count">' . __( '140', 'standard' ) . '</span>' . __( ' characters remaining.', 'standard' ) . '</p>';
+				$html .= '<p class="description">';
+					$html .= __( 'The meta description is limited to 140 characters. If not provided, no description will be added to the page.', 'standard' );
+					$html .= __( 'You have ', 'standard' ) . '<span id="character-count">' . __( '140', 'standard' ) . '</span>' . __( ' characters remaining.', 'standard' );
+				$html .= '</p>';
 			$html .= '</div><!-- /#standard-seo-description-wrapper -->';
 		
 		$html .= '</div><!-- /#meta-description-container -->';
