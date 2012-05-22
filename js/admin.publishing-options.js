@@ -15,13 +15,14 @@
 				}, function(response) {
 				
 					if( parseInt(response) > 0 ) {
-						$('#generate-privacy-policy-wrapper').slideUp('fast', function() {
+
+						$('#generate-privacy-policy-wrapper').hide('fast', function() {
 						
 							var sNewHref = $('#edit-privacy-policy').attr('href');
-							sNewHref = sNewHref.replace('null-private-policy', response);
+							sNewHref = sNewHref.replace('null-privacy-policy', response);
 							
 							$('#edit-privacy-policy').attr('href', sNewHref);
-							$('#has-privacy-policy-wrapper').slideDown('fast');
+							$('#has-privacy-policy-wrapper').show();
 							
 						});
 						
@@ -46,14 +47,14 @@
 
 					if( parseInt(response) > 0 ) {
 					
-						$('#generate-comment-policy-wrapper').slideUp('fast', function() {
+						$('#generate-comment-policy-wrapper').hide('fast', function() {
 						
 							var sNewHref = $('#edit-comment-policy').attr('href');
 							sNewHref = sNewHref.replace('null-comment-policy', response);
 							
 							$('#edit-comment-policy').attr('href', sNewHref);
 							console.log($('#edit-comment-policy'));
-							$('#has-comment-policy-wrapper').slideDown('fast');
+							$('#has-comment-policy-wrapper').show();
 							
 						});
 						

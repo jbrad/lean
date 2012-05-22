@@ -103,33 +103,37 @@ class Standard_SEO {
 	 */
 	public function save_postdata( $post_id ) {
 		
-		// Don't save if the user hasn't submitted the changes
-		if( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
-			return;
-		} // end if
+		if( isset( $_POST['standard_seo_nonce'] ) ) {
 		
-		// Verify that the input is coming from the proper form
-		if( ! wp_verify_nonce( $_POST['standard_seo_nonce'], plugin_basename( __FILE__ ) ) ) {
-			return;
-		} // end if
-		
-		// Make sure the user has permissions to post
-		if( 'post' == $_POST['post_type']) {
-			if( ! current_user_can( 'edit_post', $post_id ) ) {
+			// Don't save if the user hasn't submitted the changes
+			if( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
 				return;
 			} // end if
-		} // end if/else
-		
-		// Read the meta description
-		$meta_description = $_POST['standard_seo_post_meta_description'];
-		
-		// Update it for this post
-		if( '' == get_post_meta( $post_id, 'standard_seo_post_meta_description', true ) ) {
-			add_post_meta( $post_id, 'standard_seo_post_meta_description', $meta_description);
-		} else {
-			update_post_meta( $post_id, 'standard_seo_post_meta_description', $meta_description );
+			
+			// Verify that the input is coming from the proper form
+			if( ! wp_verify_nonce( $_POST['standard_seo_nonce'], plugin_basename( __FILE__ ) ) ) {
+				return;
+			} // end if
+			
+			// Make sure the user has permissions to post
+			if( 'post' == $_POST['post_type']) {
+				if( ! current_user_can( 'edit_post', $post_id ) ) {
+					return;
+				} // end if
+			} // end if/else
+			
+			// Read the meta description
+			$meta_description = $_POST['standard_seo_post_meta_description'];
+			
+			// Update it for this post
+			if( '' == get_post_meta( $post_id, 'standard_seo_post_meta_description', true ) ) {
+				add_post_meta( $post_id, 'standard_seo_post_meta_description', $meta_description);
+			} else {
+				update_post_meta( $post_id, 'standard_seo_post_meta_description', $meta_description );
+			} // end if
+
 		} // end if
-		
+			
 	} // end save_postdata
   
 	/*--------------------------------------------*

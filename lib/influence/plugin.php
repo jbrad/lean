@@ -170,7 +170,7 @@ class Standard_Influence extends WP_Widget {
 			if( ( $response = file_get_contents( 'https://twitter.com/users/show/' . $username . '.json ' ) ) ) {
 			
 				// Attempt to decode the JSON response
-				if( ( $twitter = json_decode( $response ) ) ) {
+				if( ( $twitter = json_decode( $response ) ) && isset( $twitter->followers_count ) ) {
 				
 					$follower_count = $twitter->followers_count;
 					
@@ -239,7 +239,7 @@ class Standard_Influence extends WP_Widget {
 			if( ( $response = file_get_contents( 'http://graph.facebook.com/' . $username . '/' ) ) ) {
 			
 				// Attempt to decode the JSON response
-				if( ( $facebook = json_decode( $response ) ) ) {
+				if( ( $facebook = json_decode( $response ) ) && isset( $facebook->likes ) ) {
 				
 					$like_count = $facebook->likes;
 					

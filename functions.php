@@ -661,11 +661,12 @@ function fav_icon_display() {
 
 	$option = get_option( 'standard_theme_general_options' );
 	
+	$dimensions = '';
 	if( '' != $option['fav_icon'] ) {
 		$dimensions = 'width="16" height="16"';
 	} // end if
 	
-	$html .= '<img src="' . $option['fav_icon'] . '" id="image_upload_preview" alt="" ' . $dimensions . '/>';
+	$html = '<img src="' . $option['fav_icon'] . '" id="image_upload_preview" alt="" ' . $dimensions . '/>';
 	$html .= '<input type="hidden" id="fav_icon" name="standard_theme_general_options[fav_icon]" value="' . esc_attr( $option['fav_icon'] ) . '" class="media-upload-field" />';
 	$html .= '<input type="button" class="button" id="upload_fav_icon" value="' . __( 'Upload Now', 'standard' ) . '"/>';
 	
@@ -699,7 +700,13 @@ function offline_mode_display( ) {
 function offline_mode_message_display() {
 
 	$options = get_option( 'standard_theme_general_options' );
-	echo '<input type="text" id="offline_mode_message" name="standard_theme_general_options[offline_mode_message]" value="' . esc_attr( $options['offline_mode_message'] ) . '" maxlength="140" />';
+	
+	$offline_message = '';
+	if( isset( $options['offline_mode_message'] ) ) {
+		$offline_message = $options['offline_mode_message'];
+	} // end if
+	
+	echo '<input type="text" id="offline_mode_message" name="standard_theme_general_options[offline_mode_message]" value="' . esc_attr( $offline_message ) . '" maxlength="140" />';
 
 } // end offline_mode_message_display
 
@@ -841,7 +848,11 @@ function privacy_policy_template_display() {
 	// Options to display if the page already exists
 	$html .= '<div id="has-privacy-policy-wrapper"' . ( '' == $privacy_policy ? ' class="hidden" ' : '' )  . '>';
 	
-		$policy_id = $privacy_policy->ID == '' ? 'null-policy' : $privacy_policy->ID;
+		$policy_id = 'null-privacy-policy';
+		if( null != $privacy_policy ) {
+			$policy_id = $privacy_policy->ID;
+		} // end if
+
 		$html .= '<span>' . __( 'You can view and edit your privacy policy <a id="edit-privacy-policy" href="post.php?post=' . $policy_id . '&action=edit">here</a>.', 'standard' ) . '</span>';
 	$html .= '</div><!-- /#has-privacy-policy-wrapper -->';
 	
@@ -868,7 +879,10 @@ function comment_policy_template_display() {
 	// Options to display if the page already exists
 	$html .= '<div id="has-comment-policy-wrapper"' . ( '' == $comment_policy ? ' class="hidden" ' : '' )  . '>';
 	
-		$policy_id = $comment_policy->ID == '' ? 'null-comment-policy' : $comment_policy->ID;
+		$policy_id = 'null-privacy-policy';
+		if( null != $comment_policy ) {
+			$policy_id = $comment_policy->ID;
+		} // end if
 		$html .= '<span>' . __( 'You can view and edit your comment policy <a id="edit-comment-policy" href="post.php?post=' . $policy_id . '&action=edit">here</a>.', 'standard' ) . '</span>';
 	$html .= '</div><!-- /#has-comment-policy-wrapper -->';
 	
@@ -1108,28 +1122,32 @@ function standard_post_level_layout_display( $post ) {
  */
 function standard_save_post_layout_data( $post_id ) {
 	
-	// Don't save if the user hasn't submitted the changes
-	if( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
-		return;
-	} // end if
+	if( isset( $_POST['standard_post_level_layout_nonce'] ) && isset( $_POST['post_type'] ) ) {
 	
-	// Verify that the input is coming from the proper form
-	if( ! wp_verify_nonce( $_POST['standard_post_level_layout_nonce'], plugin_basename( __FILE__ ) ) ) {
-		return;
-	} // end if
-	
-	// Make sure the user has permissions to post
-	if( 'post' == $_POST['post_type']) {
-		if( ! current_user_can( 'edit_post', $post_id ) ) {
+		// Don't save if the user hasn't submitted the changes
+		if( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
 			return;
 		} // end if
-	} // end if/else
-
-	// Read the meta description
-	$post_level_layout = $_POST['standard_seo_post_level_layout'];
+		
+		// Verify that the input is coming from the proper form
+		if( ! wp_verify_nonce( $_POST['standard_post_level_layout_nonce'], plugin_basename( __FILE__ ) ) ) {
+			return;
+		} // end if
+		
+		// Make sure the user has permissions to post
+		if( 'post' == $_POST['post_type']) {
+			if( ! current_user_can( 'edit_post', $post_id ) ) {
+				return;
+			} // end if
+		} // end if/else
 	
-	// Update it for this post
-	update_post_meta( $post_id, 'standard_seo_post_level_layout', $post_level_layout );
+		// Read the meta description
+		$post_level_layout = $_POST['standard_seo_post_level_layout'];
+		
+		// Update it for this post
+		update_post_meta( $post_id, 'standard_seo_post_level_layout', $post_level_layout );
+	
+	} // end if
 
 } // end standard_save_post_layout_data
 add_action( 'save_post', 'standard_save_post_layout_data' );
@@ -2278,14 +2296,18 @@ if( ! function_exists( 'standard_add_title_to_single_post_pagination' ) ) {
  */
 function standard_save_post( ) {
 
-	// if we're saving the page that's using the sitemap but the template is no longer used, delete the option
-	if( get_option( 'standard_using_sitemap' ) == $_POST['post_ID'] && strpos( $_POST['page_template'], 'template-sitemap.php' ) == false ) {
-		delete_option( 'standard_using_sitemap' );
-	} // end if
+	if( isset( $_POST['page_template'] ) && isset( $_POST['page_template'] ) ) {
 
-	// if we're not using the sitemap, but this post has it set, update the option with this post's id
-	if( get_option( 'standard_using_sitemap' ) == false && strpos( $_POST['page_template'], 'template-sitemap.php' ) > -1 ) {
-		update_option( 'standard_using_sitemap', $_POST['post_ID'] );
+		// if we're saving the page that's using the sitemap but the template is no longer used, delete the option
+		if( get_option( 'standard_using_sitemap' ) == $_POST['post_ID'] && strpos( $_POST['page_template'], 'template-sitemap.php' ) == false ) {
+			delete_option( 'standard_using_sitemap' );
+		} // end if
+	
+		// if we're not using the sitemap, but this post has it set, update the option with this post's id
+		if( get_option( 'standard_using_sitemap' ) == false && strpos( $_POST['page_template'], 'template-sitemap.php' ) > -1 ) {
+			update_option( 'standard_using_sitemap', $_POST['post_ID'] );
+		} // end if
+	
 	} // end if
 
 } // end standard_save_post

@@ -4,6 +4,9 @@
 		// Hide the table of options.
 		$('.social-icons-wrapper').siblings('table').hide();
 		
+		// Hide the submit button. We're doing it all via Ajax.
+		$('#submit').hide();
+		
 		prepareIconMediaUploader($);
 
 		// Render the avaialable icons and the active icons
