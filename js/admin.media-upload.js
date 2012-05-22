@@ -187,7 +187,7 @@ function standard_ad_banner_hide_unused_fields($, poller) {
 	var $submit = $('.savesend input[type="submit"]', $('#TB_iframeContent')[0].contentWindow.document);
 	if($submit.length > 0 && $submit !== null) {
 	
-		/* TODO This will need to be manually localized */
+		/* Translators: This will need to be manually localized */
 		$submit.val('Save Post Advertisement');
 
 		bHasHiddenFields = true;

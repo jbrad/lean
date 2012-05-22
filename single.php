@@ -62,7 +62,6 @@
 								<?php } else { ?>
 									<div id="standard-post-advertisement-adsense">
 										<?php echo $publishing_options['post_advertisement_adsense']; ?>
-										<!-- TODO this isn't done. it needs to be tested. -->
 									</div><!-- /#standard-post-advertisement-image -->
 								<?php } // end if/else ?>
 							<?php } // end if ?>
