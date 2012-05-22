@@ -878,7 +878,7 @@ function comment_policy_template_display() {
 	// Options to display if the page already exists
 	$html .= '<div id="has-comment-policy-wrapper"' . ( '' == $comment_policy ? ' class="hidden" ' : '' )  . '>';
 	
-		$policy_id = 'null-privacy-policy';
+		$policy_id = 'null-comment-policy';
 		if( null != $comment_policy ) {
 			$policy_id = $comment_policy->ID;
 		} // end if
@@ -1798,8 +1798,8 @@ function standard_add_theme_stylesheets() {
 
 	// if video press is loaded, we need to add styles for responsive
 	if( class_exists( 'VideoPress' ) ) {
-			wp_register_style( 'standard-videopress', get_stylesheet_directory_uri() . '/css/theme.videopress.css' );
-			wp_enqueue_style( 'standard-videopress' ); 
+		wp_register_style( 'standard-videopress', get_stylesheet_directory_uri() . '/css/theme.videopress.css' );
+		wp_enqueue_style( 'standard-videopress' ); 
 	} // end if
 
 } // end add_theme_stylesheets
