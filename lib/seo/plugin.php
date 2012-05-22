@@ -82,6 +82,7 @@ class Standard_SEO {
 			$html .= '</label>';
 			
 			// The input field for the meta description
+			//print_r( delete_post_meta( $post->ID, 'standard_seo_post_meta_description' ) );
 			$html .= '<textarea id="standard_seo_post_meta_description" name="standard_seo_post_meta_description" maxlength="140">' . get_post_meta( $post->ID, 'standard_seo_post_meta_description', true ) . '</textarea>';
 			
 			// The description for the field
@@ -124,9 +125,9 @@ class Standard_SEO {
 			
 			// Read the meta description
 			$meta_description = $_POST['standard_seo_post_meta_description'];
-			
+
 			// Update it for this post
-			if( '' == get_post_meta( $post_id, 'standard_seo_post_meta_description', true ) ) {
+			if( false == get_post_meta( $post_id, 'standard_seo_post_meta_description', true ) ) {
 				add_post_meta( $post_id, 'standard_seo_post_meta_description', $meta_description);
 			} else {
 				update_post_meta( $post_id, 'standard_seo_post_meta_description', $meta_description );
