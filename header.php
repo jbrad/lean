@@ -1,4 +1,3 @@
-<?php standard_offline_mode(); ?>
 <!DOCTYPE html>
 <!--[if IE 8 ]><html id="ie8" <?php language_attributes(); ?>><![endif]-->
 <!--[if (gt IE 9)|!(IE)]><!--><html <?php language_attributes(); ?>><!--<![endif]-->
@@ -36,6 +35,11 @@
 	</head>
 	<body <?php body_class(); ?>>
 	
+		<?php if( standard_is_offline() ) { ?>
+			<?php get_template_part( 'page', 'offline-mode' ); ?>
+			<?php exit; ?>
+		<?php } // end if ?>
+		
 		<?php get_template_part( 'lib/breadcrumbs/standard_breadcrumbs' ); ?>
 		
 		<?php if( ! has_nav_menu( 'menu_below_logo' ) || has_nav_menu( 'menu_above_logo' ) ) { ?>

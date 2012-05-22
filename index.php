@@ -14,35 +14,35 @@
 <div id="wrapper">
 	<div class="container">
  		<div class="row">
- 		
+ 	
 			<?php if ( 'left_sidebar_layout' == $options['layout'] ) { ?>
 				<?php get_sidebar(); ?>
 			<?php } // end if ?>
-
+	
 			<div id="main" class="<?php echo 'full_width_layout' == $options['layout'] ? 'span12 fullwidth' : 'span8'; ?> clearfix" role="main">
 			
 				<?php get_template_part( 'breadcrumbs' ); ?>
 				
 				<?php if ( is_archive() ) { ?>                 
-                    <div id="archive-page-title"> 
-                        <h3> 
-                            <?php _e( 'Archives For ', 'standard' ); ?>
-                            <?php if( standard_is_date_archive() ) { ?>
-                            	<?php echo standard_get_date_archive_label(); ?>
-                        	<?php } elseif ( is_author() ) { ?>
-                        		<?php $author_data = get_userdata(get_query_var('author') ); ?>
-                            	<?php echo $author_data->display_name; ?>
-                            <?php } elseif ( '' == single_tag_title( '', false ) ) { ?> 
-                                <?php echo get_cat_name( get_query_var( 'cat' ) ); ?> 
-                            <?php } else { ?> 
-                                <?php echo single_tag_title() ?> 
-                            <?php } // end if/else ?> 
-                        </h3>
+	                <div id="archive-page-title"> 
+	                    <h3> 
+	                        <?php _e( 'Archives For ', 'standard' ); ?>
+	                        <?php if( standard_is_date_archive() ) { ?>
+	                        	<?php echo standard_get_date_archive_label(); ?>
+	                    	<?php } elseif ( is_author() ) { ?>
+	                    		<?php $author_data = get_userdata(get_query_var('author') ); ?>
+	                        	<?php echo $author_data->display_name; ?>
+	                        <?php } elseif ( '' == single_tag_title( '', false ) ) { ?> 
+	                            <?php echo get_cat_name( get_query_var( 'cat' ) ); ?> 
+	                        <?php } else { ?> 
+	                            <?php echo single_tag_title() ?> 
+	                        <?php } // end if/else ?> 
+	                    </h3>
 						<?php if( '' != category_description() ) { ?>
 	                        <p><?php echo category_description(); ?></p>
-                        <?php } // end if ?> 
-                    </div> 
-                <?php } // end if ?> 
+	                    <?php } // end if ?> 
+	                </div> 
+	            <?php } // end if ?> 
 				
 				<?php if ( have_posts() ) { ?>
 				
@@ -50,7 +50,7 @@
 						<?php the_post(); ?>
 						<?php get_template_part( 'loop', get_post_format() ); ?>
 					<?php } // end while ?>
-
+	
 					<?php get_template_part( 'pagination' ); ?>
 					
 				<?php } else { ?>

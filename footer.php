@@ -8,28 +8,29 @@
 ?>
 <div id="footer" class="clearfix">
 	
-		<?php if( is_active_sidebar( 'sidebar-2' ) || is_active_sidebar( 'sidebar-3' ) || is_active_sidebar( 'sidebar-4' ) ) { ?>
-			<div id="footer-widgets" class="clearfix">
-				<div class="container">
-					<div class="row">
-					
-						<div id="left-footer-widgets" class="span4 clearfix">
-							<?php dynamic_sidebar( 'sidebar-2' ); ?>
-						</div><!-- /#left-footer-widget -->
+		<?php if( ! standard_is_offline() ) { ?>
+			<?php if( is_active_sidebar( 'sidebar-2' ) || is_active_sidebar( 'sidebar-3' ) || is_active_sidebar( 'sidebar-4' ) ) { ?>
+				<div id="footer-widgets" class="clearfix">
+					<div class="container">
+						<div class="row">
 						
-						<div id="center-footer-widgets" class="span4 clearfix">
-							<?php dynamic_sidebar( 'sidebar-3' ); ?>
-						</div><!-- /#center-footer-widget -->
-						
-						<div id="right-footer-widgets" class="span4 clearfix">
-							<?php dynamic_sidebar( 'sidebar-4' ); ?>
-						</div><!-- /#right-footer-widget -->
-						
-					</div><!-- /row -->
-				</div><!-- /container -->
-			</div><!-- /#footer-widgets -->
-		<?php } // end if ?>							
-		
+							<div id="left-footer-widgets" class="span4 clearfix">
+								<?php dynamic_sidebar( 'sidebar-2' ); ?>
+							</div><!-- /#left-footer-widget -->
+							
+							<div id="center-footer-widgets" class="span4 clearfix">
+								<?php dynamic_sidebar( 'sidebar-3' ); ?>
+							</div><!-- /#center-footer-widget -->
+							
+							<div id="right-footer-widgets" class="span4 clearfix">
+								<?php dynamic_sidebar( 'sidebar-4' ); ?>
+							</div><!-- /#right-footer-widget -->
+							
+						</div><!-- /row -->
+					</div><!-- /container -->
+				</div><!-- /#footer-widgets -->
+			<?php } // end if ?>							
+		<?php } // end if ?>
 		<div id="sub-floor" class="clearfix">
 			<div class="container">
 				<div class="row">

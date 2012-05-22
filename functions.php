@@ -452,8 +452,7 @@ function get_standard_theme_default_general_options() {
 		'fav_icon'					=>	'',
 		'google_analytics'			=>	'',
 		'affiliate_code'			=>	'',
-		'offline_display_message'	=>	__( 'Our site is currently offline.', 'standard' ),
-		'standard_theme_version'	=>	'3.0'
+		'offline_display_message'	=>	__( 'Our site is currently offline.', 'standard' )
 	);
 	
 	return apply_filters ( 'standard_theme_default_general_options', $defaults );
@@ -627,7 +626,7 @@ function google_analytics_display() {
 		} // end if
 		
 		$html = '<input type="text" id="google_analytics" name="standard_theme_general_options[google_analytics]" value="' . esc_attr( $analytics_id ) . '" />';
-		$html .= '&nbsp;<span class="description">' . __( 'Enter the ID only (i.e., UA-000000).', 'standard' ) . '</span>';
+		$html .= '&nbsp;<span class="description">' . __( 'Enter the ID only (i.e., UA-000000). Note that Analytics are not tracked for users who are logged into WordPress.', 'standard' ) . '</span>';
 		
 		echo $html;
 
@@ -719,10 +718,10 @@ function offline_mode_message_display() {
  */
 function standard_theme_general_options_validate( $input ) {
 
-	$output = $defaults = get_standard_theme_default_general_options();
+	$output = array();
 
 	foreach( $input as $key => $val ) {
-	
+
 		if( isset ( $input[$key] ) ) {
 			$output[$key] = strip_tags( stripslashes( $input[$key] ) );
 		} // end if	
@@ -733,7 +732,7 @@ function standard_theme_general_options_validate( $input ) {
 	
 	} // end foreach
 
-	return apply_filters( 'standard_theme_general_options_validate', $output, $input, $defaults );
+	return apply_filters( 'standard_theme_general_options_validate', $output, $input,  get_standard_theme_default_general_options() );
 
 } // end standard_theme_general_options_validate
 
@@ -1011,6 +1010,20 @@ function standard_theme_publishing_options_validate( $input ) {
 	return apply_filters( 'standard_theme_publishing_options_validate', $output, $input, $defaults );
 
 } // end standard_theme_publishing_options_validate
+
+/**
+ * Retrieves and optionally sets the version of the theme.
+ */
+function standard_is_current_version() {
+
+	if( false == get_option( 'standard_theme_version' ) ) { 
+		update_option( 'standard_theme_version', '3.0' );
+	} // end if
+	
+	return get_option( 'standard_theme_version' ) == '3.0';
+
+} // end standard_is_current_version
+add_action( 'admin_init', 'standard_is_current_version' );
 
 /* ----------------------------- *
  * 	Options Page
@@ -1934,8 +1947,7 @@ add_action( 'admin_enqueue_scripts', 'standard_add_admin_scripts' );
  */
 function standard_activate_theme() {
 	
-	$options = get_option( 'standard_theme_general_options' );
-	if( ! array_key_exists( 'standard_theme_version', $options ) ) {
+	if( ! standard_is_current_version() ) {
 	
 		if( array_key_exists( 'standard_theme_reset_options', $_GET ) && 'true' == $_GET['standard_theme_reset_options'] ) {
 		
@@ -1943,6 +1955,7 @@ function standard_activate_theme() {
 			delete_option( 'standard_theme_social_options' );
 			delete_option( 'standard_theme_general_options' );
 			delete_option( 'standard_theme_publishing_options' );
+			update_option( 'standard_theme_version', '3.0' );
 			
 		} else {
 		
@@ -2562,13 +2575,16 @@ function standard_using_native_seo() {
  * If Standard is set to online mode, this function loads and redirects all traffic to the
  * page template defined for offline mode.
  */
-function standard_offline_mode() {
+function standard_is_offline() {
 
 	$general_options = get_option('standard_theme_general_options');
-	if( 'on' == $general_options['offline_mode'] && ! current_user_can( 'publish_posts' ) ) {
-		get_template_part( 'page-offline-mode' );
-		exit;
+	
+	$offline_mode = '';
+	if( isset( $general_options['offline_mode'] ) ) {
+		$offline_mode = $general_options['offline_mode'];
 	} // end if
+	
+	return 'on' == $offline_mode && ! current_user_can( 'publish_posts' ); 
 	
 } // end standard_offline_mode
 
