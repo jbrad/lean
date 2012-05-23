@@ -435,8 +435,10 @@ function socialIconsShowMediaUploader() {
  	
 	window.send_to_editor = function(sHtml) {
 	
+		var $img = jQuery(sHtml).children('img').length === 1 ? jQuery(sHtml).children('img') : jQuery(sHtml);
+	
 		// Store the image's URL in the hidden field
-		jQuery('#available-social-icons').val(jQuery('#available-social-icons').val() + ';' + jQuery(sHtml).attr('src'));
+		jQuery('#available-social-icons').val(jQuery('#available-social-icons').val() + ';' + $img.attr('src'));
 		
 		displayIcons(jQuery, 'available-social-icons', 'available-icons');
 		updateIconValues();
