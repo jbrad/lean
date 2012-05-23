@@ -366,6 +366,7 @@ html, body {
 
 #top-ad {
 	padding: 40px 0;
+	text-align: right;
 }
 
 #top-ad.imageyup {
@@ -1957,6 +1958,10 @@ ul#sitemap-posts ul {
 	.navbar .nav {
 	 	margin-left: 0;
 	}
+	 
+	#top-ad {	
+		text-align: center;
+	} 
 	 	
 	.container {
 		padding-left: 20px;

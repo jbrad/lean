@@ -99,7 +99,7 @@
 								
 							<?php } // end if ?>
 							
-							<div id="logo" class="span6">
+							<div id="logo" class="span5">
 								<?php if( is_single() || is_page() ) { ?>
 									
 									<?php if( 'video' == get_post_format() || 'image' == get_post_format() || '' == get_the_title() ) { ?>
@@ -126,7 +126,7 @@
 								<small id="site-description"><?php bloginfo( 'description' ); ?></small>	
 							</div><!-- /#logo -->
 							
-							<div id="top-ad" class="span6 <?php echo 'imageyup' == $head_class ? 'imageyup' : ''; ?>">
+							<div id="top-ad" class="span7 <?php echo 'imageyup' == $head_class ? 'imageyup' : ''; ?>">
 								<?php dynamic_sidebar( 'sidebar-0' ); ?>
 							</div><!-- /.span6 -->
 							
