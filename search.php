@@ -19,8 +19,6 @@
 			<?php } // end if ?>
 	
 			<div id="main" class="<?php echo 'full_width_layout' == $options['layout'] ? 'span12 fullwidth' : 'span8'; ?> clearfix" role="main">
-
-				<?php get_template_part( 'breadcrumbs' ); ?>
 				
 				<?php if( standard_google_custom_search_is_active() ) { ?>
 				
