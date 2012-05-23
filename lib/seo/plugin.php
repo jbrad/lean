@@ -155,8 +155,14 @@ class Standard_SEO {
 	 */
 	public function admin_scripts() {
 	
-		wp_register_script( 'standard-seo-admin', get_template_directory_uri() . '/lib/seo/js/admin.js' );
-		wp_enqueue_script( 'standard-seo-admin' );
+		$screen = get_current_screen();
+		
+		if( 'post' == $screen->id || 'page' == $screen->id ) { 
+		
+			wp_register_script( 'standard-seo-admin', get_template_directory_uri() . '/lib/seo/js/admin.js' );
+			wp_enqueue_script( 'standard-seo-admin' );
+			
+		} // end if 
 
 	} // end admin_scripts
   

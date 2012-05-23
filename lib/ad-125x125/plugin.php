@@ -20,7 +20,6 @@ class Standard_Ad_125x125 extends WP_Widget {
 		$this->WP_Widget( 'standard-ad-125x125', __( '125x125 Ad (Standard)', 'standard' ), $widget_opts );
 		
 		// We don't want to load these on the Appearance Options because we're overiding window.send_to_editor there, too.
-		// We don't have access to get_current_screen() so we're using $pagenow.
 		global $pagenow;
 		if( 'themes.php' != $pagenow ) {
 		
@@ -133,15 +132,21 @@ class Standard_Ad_125x125 extends WP_Widget {
 	 */
 	public function register_admin_scripts() {
 	
-		// media uploader
-		wp_enqueue_script('media-upload');
-		
-		// thickbox for overlay
-		wp_enqueue_script('thickbox');
+		$screen = get_current_screen();
 
-		// admin
-		wp_register_script( 'standard-ad-125x125', get_template_directory_uri() . '/lib/ad-125x125/js/admin.js', array( 'jquery', 'media-upload','thickbox') );
-		wp_enqueue_script( 'standard-ad-125x125' );
+		if( 'widgets' == $screen->id ) {
+		
+			// media uploader
+			wp_enqueue_script('media-upload');
+			
+			// thickbox for overlay
+			wp_enqueue_script('thickbox');
+	
+			// admin
+			wp_register_script( 'standard-ad-125x125', get_template_directory_uri() . '/lib/ad-125x125/js/admin.js', array( 'jquery', 'media-upload','thickbox') );
+			wp_enqueue_script( 'standard-ad-125x125' );
+		
+		} // end if 
 		
 	} // end register_admin_scripts
 	
