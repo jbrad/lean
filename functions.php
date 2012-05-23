@@ -44,7 +44,7 @@ add_action( 'after_setup_theme', 'standard_set_theme_localization' );
  * ----------------------------- */
 
 /** 
- * Adds the Standard Theme options menu to the 'Appearance' menu.
+ * Adds the Standard options menu to the 'Appearance' menu.
  */
 function standard_theme_menu() {
 
@@ -1015,13 +1015,7 @@ function standard_theme_publishing_options_validate( $input ) {
  * Retrieves and optionally sets the version of the theme.
  */
 function standard_is_current_version() {
-
-	if( false == get_option( 'standard_theme_version' ) ) { 
-		update_option( 'standard_theme_version', '3.0' );
-	} // end if
-	
-	return get_option( 'standard_theme_version' ) == '3.0';
-
+	return get_option( 'standard_theme_version' );
 } // end standard_is_current_version
 add_action( 'admin_init', 'standard_is_current_version' );
 
