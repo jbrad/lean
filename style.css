@@ -1554,7 +1554,19 @@ table#wp-calendar th, table#wp-calendar td {
 
 .standard-ad-125x125 .thumbnails > li .thumbnail > img {
 	padding: 2px 0;
+	width: 125px;
+	height: auto;
 }
+
+/* 300x250 Standard ad widget */
+.standard-ad-300x250 {
+	
+}
+
+.standard-ad-300x250 img {
+	width: 100%;
+}
+
 
 /* Jetpack Widgets */
 
