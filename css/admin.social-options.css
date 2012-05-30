@@ -40,7 +40,7 @@
 
 #available-icons ul {
 	height: 62%;
-	overflow: scroll;
+	overflow: auto;
 }
 
 #social-icons-available #available-icons,
