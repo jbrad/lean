@@ -126,9 +126,11 @@
 								<small id="site-description"><?php bloginfo( 'description' ); ?></small>	
 							</div><!-- /#logo -->
 							
-							<div id="top-ad" class="span7 <?php echo 'imageyup' == $head_class ? 'imageyup' : ''; ?>">
-								<?php dynamic_sidebar( 'sidebar-0' ); ?>
-							</div><!-- /.span6 -->
+							<?php if ( !function_exists('dynamic_sidebar')  || !dynamic_sidebar( 'sidebar-0' ) ) :  ?>  
+								
+								<!-- display top-ad section only if widget is in sidebar -->	
+																	
+							<?php endif; ?>
 							
 						</div><!-- /row -->
 					</div><!--/container -->
