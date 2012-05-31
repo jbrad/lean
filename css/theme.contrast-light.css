@@ -41,7 +41,11 @@ h6 {
 	text-shadow: none;
 }
 
-.post {
+.post, 
+#comments, 
+#pings, 
+#no-comments, 
+#respond {
 	background: #222;
 }
 
@@ -65,4 +69,18 @@ h6 {
 
 .well {
 	background: #101010;
+}
+
+/* pagination icons */
+.pager [class^="icon-"], 
+.pager [class*=" icon-"] {
+	background-image: url(img/glyphicons-halflings-white.png);
+}
+
+.pager a:hover,
+.previous-page a:hover,
+.next-page a:hover {
+	color: #eee;
+	background-color: #202020;
+	background-color: rgba(41,41,41,0.4);
 }
