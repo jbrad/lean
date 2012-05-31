@@ -1,5 +1,68 @@
-/* This will serve as the stylesheet for applying lighter styles to the front end elements if the user has a dark background. */
-/* We're kind of stuck, though, right? If I do it, it's approximate. If Jared does it, he can't see color. */
-/* Oh wait. */
-/* He sees in constrast. */
-/* How convenient. */
+/* Contrast stylesheet for when user has a dark background */
+
+body {
+	color: #eee;
+	background: #090909;
+}
+
+h1, 
+h2, 
+h3, 
+h4, 
+h5, 
+h6 {
+	color: #e0e0e0;
+}
+
+/* header */
+#site-title,
+#site-title a {
+	color: #fff;
+}
+
+
+/* sidebar */
+#sidebar {
+	color: #eee;
+}
+
+.widget h4.widget-title {
+	color: #e0e0e0;
+}
+
+/* posts */
+.breadcrumb {
+	background: #222;
+	box-shadow: none;
+	border-color: #303030;
+}
+
+.breadcrumb li {
+	text-shadow: none;
+}
+
+.post {
+	background: #222;
+}
+
+.post-title a, 
+.post-title a:visited {
+	color: #eee;
+}
+
+.post-header, 
+.post-meta {
+	border-color: #303030;
+}
+
+.post.format-quote .post-header {
+	background-image: url(../images/bg-quote-dark.png);
+}
+
+.post.format-quote .post-header .entry-content p {
+	color: #444;
+}
+
+.well {
+	background: #101010;
+}
