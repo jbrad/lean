@@ -437,8 +437,8 @@ html, body {
 
 .post-title {
 	font-size: 32px;
-	line-height: 38px;
-	font-weight: 200;
+	line-height: 1.2;
+	font-weight: bold;
 	margin-bottom: 5px;
 }
 
@@ -612,8 +612,15 @@ p.wp-caption-text {
 /* Pagination */ 
 
 .pager {
-	background: #fff;
 
+}
+
+.pager a i {
+	opacity: 0.4;
+}
+
+.pager a:hover i {
+	opacity: 1;
 }
 
 .pager a, .previous-page a, .next-page a {
@@ -624,7 +631,7 @@ p.wp-caption-text {
 	-moz-border-radius: 0;
 	-webkit-border-radius: 0;
 	border-radius: 0;
-	background-color: #f9f9f9;
+	background-color: transparent;
 }
 
 .pager a:hover, .previous-page a:hover, .next-page a:hover {
@@ -872,6 +879,7 @@ a.post-permalink:hover {
 
 .post.format-quote .post-header .entry-content {
 	padding-left: 80px;
+	padding-bottom: 0;
 	min-height: 60px;
 	background-image: url(images/icn-quote-dark.png);
 	background-repeat: no-repeat;
@@ -1199,6 +1207,7 @@ a.post-permalink:hover {
 }
 
 /* when custom background color/image */
+/*
 .custom-background #sidebar .widget {
 	background: #fff;
 	padding: 20px;
@@ -1214,6 +1223,7 @@ a.post-permalink:hover {
 .custom-background #sidebar .widget_search {
 	margin-bottom: 30px;
 }
+*/
 
 #footer-widgets .widget {
 	margin-bottom: 30px;
