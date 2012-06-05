@@ -126,11 +126,7 @@ class Standard_SEO {
 			$meta_description = $_POST['standard_seo_post_meta_description'];
 
 			// Update it for this post
-			if( false == get_post_meta( $post_id, 'standard_seo_post_meta_description', true ) ) {
-				add_post_meta( $post_id, 'standard_seo_post_meta_description', $meta_description);
-			} else {
-				update_post_meta( $post_id, 'standard_seo_post_meta_description', $meta_description );
-			} // end if
+			update_post_meta( $post_id, 'standard_seo_post_meta_description', $meta_description );
 
 		} // end if
 			

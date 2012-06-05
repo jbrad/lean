@@ -1134,7 +1134,7 @@ function standard_post_level_layout_display( $post ) {
  */
 function standard_save_post_layout_data( $post_id ) {
 	
-	if( isset( $_POST['standard_post_level_layout_nonce'] ) && isset( $_POST['post_type'] ) ) {
+	if( isset( $_POST['standard_post_level_layout_nonce'] ) && isset( $_POST['post_type'] ) && isset( $_POST['standard_seo_post_level_layout'] ) ) {
 	
 		// Don't save if the user hasn't submitted the changes
 		if( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
@@ -1158,7 +1158,7 @@ function standard_save_post_layout_data( $post_id ) {
 		
 		// Update it for this post
 		update_post_meta( $post_id, 'standard_seo_post_level_layout', $post_level_layout );
-	
+
 	} // end if
 
 } // end standard_save_post_layout_data
