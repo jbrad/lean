@@ -66,10 +66,12 @@
 								<?php } // end if/else ?>
 							<?php } // end if ?>
 							
+							<?php get_template_part( 'pagination' ); ?>
+							
 							<?php comments_template( '', true ); ?>	
 							
-					 	<?php } // end while;  ?>
-					<?php get_template_part( 'pagination' ); ?>
+					 	<?php } // end while ?>
+
 				<?php } // end if ?>
 			</div><!-- /#main -->
 			

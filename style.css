@@ -586,8 +586,8 @@ p.wp-caption-text {
 	padding-left: 10px;
 }
 
-#single-post-nav {
-	margin: 28px 0 20px 0;
+#single-post-nav .pager {
+	margin-bottom: 0;
 }
 
 #single-post-nav .previous-page {
@@ -946,6 +946,10 @@ a.post-permalink:hover {
 }
 
 /* Post Author Box */
+
+#author-box {
+	margin-bottom: 0;
+}
 
 .author-box-image {
 	float: left;

@@ -17,7 +17,7 @@
 			<?php previous_post_link( '<span class="previous-page">%link</span>', __( '<i class="icon-chevron-left"></i>', 'standard' ) . '&nbsp;' . standard_truncate_text( get_previous_post()->post_title, $trunc_limit ) ); ?>
 			</li>
 			<li class="next">
-			<?php next_post_link( '<span class="no-previous-page-link next-page">%link</span>', __( '%title <i class="icon-chevron-right"></i>', 'standard' ) ); ?>
+			<?php next_post_link( '<span class="no-previous-page-link next-page">%link</span>', '&nbsp;' . standard_truncate_text( get_next_post()->post_title, $trunc_limit ) . __( '<i class="icon-chevron-right"></i>', 'standard' ) ); ?>
 			</li>
 
 		</ul>	
