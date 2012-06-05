@@ -1372,10 +1372,10 @@ if( ! function_exists( 'standard_add_theme_menus' ) ) {
 if( ! function_exists( 'standard_add_theme_sidebars' ) ) { 
 	function standard_add_theme_sidebars() {
 		
-		// top advertisement
+		// header
 		register_sidebar(
 			array(
-				'name' 			=> __( 'Top Advertisement', 'standard' ),
+				'name' 			=> __( 'Header', 'standard' ),
 				'id' 			=> 'sidebar-0',
 				'description'	=> __( 'The area for a 468x60 advertisement in the header.', 'standard' ),
 				'before_widget' => '<div id="%1$s" class="widget %2$s">',
