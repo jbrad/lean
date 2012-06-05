@@ -1229,6 +1229,9 @@ function standard_add_admin_bar_option() {
 } // end standard_add_admin_bar_option
 add_action( 'admin_bar_menu', 'standard_add_admin_bar_option', 40 );
 
+/**
+ * Adds a reminder message to the admin bar that the user has set their site in offline mode.
+ */
 function standard_add_maintenance_mode_admin_bar_note() {
 
 	// Remind the user if they are in maintenance mode
@@ -1239,7 +1242,7 @@ function standard_add_maintenance_mode_admin_bar_note() {
 		$wp_admin_bar->add_node(
 			array(
 				'id'	=>	'standard_theme_maintenance_mode',
-				'title'	=>	__( 'Standard is currently running in offline mode.', 'standard' ),
+				'title'	=>	__( 'The site is currently offline. To bring it back online, click here.', 'standard' ),
 				'href'	=>	home_url() . '/wp-admin/themes.php?page=theme_options'
 			)
 		);
