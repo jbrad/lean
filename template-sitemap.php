@@ -1,6 +1,7 @@
-<?php /* Template Name: Sitemap */ ?>
 <?php
 /**
+ * Template Name: Sitemap
+ *
  * The template for rendering an SEO-friendly site map.
  * 
  * @package Standard

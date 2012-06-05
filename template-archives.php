@@ -1,6 +1,7 @@
-<?php /* Template Name: Archives */ ?>
 <?php
 /**
+ * Template Name: Archives
+ *
  * The template for display all categories and all posts in ascending order.
  *
  * @package Standard

@@ -1,6 +1,7 @@
-<?php /* Template Name: Full-Width Template */ ?>
 <?php
 /**
+ * Template Name: Full-Width Template 
+ *
  * The template for rendering pages without sidebars.
  * 
  * @package Standard

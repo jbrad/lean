@@ -1,6 +1,7 @@
-<?php /* Template Name: Policy */ ?>
 <?php
 /**
+ * Template Name: Policy
+ *
  * The template used to style policy pages.
  * 
  * @package Standard
