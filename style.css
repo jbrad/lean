@@ -1210,8 +1210,14 @@ a.post-permalink:hover {
 	margin-bottom: 30px;
 }
 
+.widget_categories ul.children {
+    border-left: 1px solid #E0E0E0;
+    padding-left: 5px;
+}
+
 /* when custom background color/image */
 /*
+TODO do we need this?
 .custom-background #sidebar .widget {
 	background: #fff;
 	padding: 20px;
