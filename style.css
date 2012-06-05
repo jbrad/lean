@@ -1944,6 +1944,10 @@ ul#sitemap-posts ul {
 /* tablet and mobile */ 
 @media (max-width: 979px) {	
 
+	.standard-ad-468x60 {
+		margin-top: 10px;
+	}
+
 	/* make the menu pretty while in dropdown */
 	#social-networking {
 		position: absolute;
@@ -2014,6 +2018,24 @@ ul#sitemap-posts ul {
 
 /* mobile to tablet */ 
 @media only screen and (max-width: 767px) {
+
+	#logo {
+		text-align: center;
+	}
+
+	#header.imageyup #logo {
+		position: absolute;
+		top: 15%;
+		left: 0;
+		padding: 0 !important;
+		margin-top: 0;
+		width: 100%
+	}
+	
+	#header.imageyup #logo #site-title a, #header.imageyup #logo #site-title {
+		font-size: 1.25em;
+		line-height: 1;
+	}
 	
 	body {
 		padding-left: 0;
@@ -2028,11 +2050,7 @@ ul#sitemap-posts ul {
 	.navbar .nav {
 	 	margin-left: 0;
 	}
-	 
-	#top-ad {	
-		text-align: center;
-	} 
-	 	
+	
 	.container {
 		padding-left: 20px;
 		padding-right: 20px;

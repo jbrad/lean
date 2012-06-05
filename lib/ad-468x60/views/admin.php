@@ -1,4 +1,4 @@
-<div class="standard-ad-468x60-wrapper">
+<div class="standard-ad-468x60-wrapper span7">
 
 	<div class="preview_image_container">
 		<img src="<?php echo '' == $ad_src ? '' : $ad_src; ?>" alt="" class="preview_image" />
