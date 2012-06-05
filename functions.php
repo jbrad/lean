@@ -684,7 +684,12 @@ function offline_mode_display( ) {
 
 	$options = get_option( 'standard_theme_general_options' );
 
-	$html = '<input type="checkbox" id="offline_mode" name="standard_theme_general_options[offline_mode]" value="on" ' . checked( 'on', $options['offline_mode'], false ) . ' " />';
+	$offline_mode = '';
+	if( isset( $options['offline_mode'] ) ) {
+		$offline_mode = $options['offline_mode'];
+	} // end if
+
+	$html = '<input type="checkbox" id="offline_mode" name="standard_theme_general_options[offline_mode]" value="on" ' . checked( 'on', $offline_mode, false ) . ' " />';
 	$html .= '&nbsp;<label for="offline_mode">';
 		$html .= __( 'Activate offline mode. Etc. TODO.', 'standard' );
 	$html .= '</label>';
