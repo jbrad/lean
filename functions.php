@@ -569,7 +569,12 @@ function display_breadcrumbs_display( $args ) {
 	
 	$options = get_option( 'standard_theme_global_options' );
 
-	$html = '<input type="checkbox" id="display_breadcrumbs" name="standard_theme_global_options[display_breadcrumbs]" value="on" ' . checked( 'on', $options['display_breadcrumbs'], false ) . ' />';
+	$display_breadcrumbs = '';
+	if( isset( $options['display_breadcrumbs'] ) ) {
+		$display_breadcrumbs = $options['display_breadcrumbs'];
+	} // end if
+
+	$html = '<input type="checkbox" id="display_breadcrumbs" name="standard_theme_global_options[display_breadcrumbs]" value="on" ' . checked( 'on', $display_breadcrumbs, false ) . ' />';
 	$html .= '&nbsp;<label for="display_breadcrumbs">' . __( 'Displays above post and page content.', 'standard' ) . '</label>';
 	
 	echo $html;
@@ -585,7 +590,12 @@ function display_author_box_display( $args ) {
 	
 	$options = get_option( 'standard_theme_global_options' );
 
-	$html = '<input type="checkbox" id="display_author_box" name="standard_theme_global_options[display_author_box]" value="on" ' . checked( 'on', $options['display_author_box'], false ) . ' />';
+	$display_author_box = '';
+	if( isset( $options['display_author_box'] ) ) {
+		$display_author_box = $options['display_author_box'];
+	} // end if
+
+	$html = '<input type="checkbox" id="display_author_box" name="standard_theme_global_options[display_author_box]" value="on" ' . checked( 'on',$display_author_box, false ) . ' />';
 	$html .= '&nbsp;<label for="display_author_box">' . __( 'Displays between post content and comments. Includes <a href="profile.php">display name</a>, <a href="profile.php">website</a>, and <a href="profile.php">biographical info</a>.', 'standard' ) . '</label>';
 	
 	echo $html;
@@ -744,7 +754,7 @@ function standard_theme_global_options_validate( $input ) {
 	
 	} // end foreach
 
-	return apply_filters( 'standard_theme_global_options_validate', $output, $input,  get_standard_theme_default_global_options() );
+	return apply_filters( 'standard_theme_global_options_validate', $output, $input, get_standard_theme_default_global_options() );
 
 } // end standard_theme_global_options_validate
 
@@ -1962,7 +1972,8 @@ add_action( 'admin_enqueue_scripts', 'standard_add_admin_scripts' );
  * Once reset, all options will be reset to their default values.
  */
 function standard_activate_theme() {
-	
+	// TODO fix this
+	return;
 	if( ! standard_is_current_version() ) {
 	
 		if( array_key_exists( 'standard_theme_reset_options', $_GET ) && 'true' == $_GET['standard_theme_reset_options'] ) {
