@@ -66,40 +66,40 @@ add_action( 'admin_menu', 'standard_theme_menu' );
 /**
  * Provides a default value for the Standard Theme layout setting.
  */
-function get_standard_theme_default_layout_options() {
+function get_standard_theme_default_presentation_options() {
 
 	$defaults = array(
 		'layout' 	=> 	'right_sidebar_layout',
 		'contrast'	=>	'light'
 	);
 	
-	return apply_filters ( 'standard_theme_default_layout_options', $defaults );
+	return apply_filters ( 'standard_theme_default_presenation_options', $defaults );
 
-} // end standard_theme_default_options
+} // end standard_theme_default_presentation_options
   
 /**
- * Defines Standard's layout options.
+ * Defines Standard's presentation options.
  */
-function standard_setup_theme_layout_options() {
+function standard_setup_theme_presentation_options() {
 
 	// If the layout options don't exist, create them.
-	if( false == get_option( 'standard_theme_layout_options' ) ) {	
-		add_option( 'standard_theme_layout_options', apply_filters( 'standard_theme_default_layout_options', get_standard_theme_default_layout_options() ) );
+	if( false == get_option( 'standard_theme_presentation_options' ) ) {	
+		add_option( 'standard_theme_presentation_options', apply_filters( 'standard_theme_default_presentation_options', get_standard_theme_default_presentation_options() ) );
 	} // end if
 	
 	add_settings_section(
-		'layout',
+		'presentation',
 		__( 'Layout', 'standard' ),
-		'standard_theme_layout_options_display',
-		'standard_theme_layout_options'
+		'standard_theme_presentation_options_display',
+		'standard_theme_presentation_options'
 	);
 
 	add_settings_field(
 		'left_sidebar_layout',
 		__( 'Left Sidebar', 'standard' ),
-		'left_sidebar_layout_display',
-		'standard_theme_layout_options',
-		'layout',
+		'left_sidebar_presentation_display',
+		'standard_theme_presentation_options',
+		'presentation',
 		array(
 			'option_image_path' => get_template_directory_uri() . '/images/layout-left.gif'
 		)
@@ -108,9 +108,9 @@ function standard_setup_theme_layout_options() {
 	add_settings_field(
 		'right_sidebar_layout',
 		__( 'Right Sidebar', 'standard' ),
-		'right_sidebar_layout_display',
-		'standard_theme_layout_options',
-		'layout',
+		'right_sidebar_presentation_display',
+		'standard_theme_presentation_options',
+		'presentation',
 		array(
 			'option_image_path' => get_template_directory_uri() . '/images/layout-right.gif'
 		)
@@ -119,9 +119,9 @@ function standard_setup_theme_layout_options() {
 	add_settings_field(
 		'full_width_layout',
 		__( 'No Sidebar / Full Width', 'standard' ),
-		'full_width_layout_display',
-		'standard_theme_layout_options',
-		'layout',
+		'full_width_presentation_display',
+		'standard_theme_presentation_options',
+		'presentation',
 		array(
 			'option_image_path' => get_template_directory_uri() . '/images/layout-full.gif'
 		)
@@ -131,82 +131,82 @@ function standard_setup_theme_layout_options() {
 		'contrast',
 		__( 'Contrast', 'standard' ),
 		'contrast_display',
-		'standard_theme_layout_options',
-		'layout'
+		'standard_theme_presentation_options',
+		'presentation'
 	);
 	
 	register_setting(
-		'standard_theme_layout_options',
-		'standard_theme_layout_options',
-		'standard_theme_layout_options_validate'
+		'standard_theme_presentation_options',
+		'standard_theme_presentation_options',
+		'standard_theme_presentation_options_validate'
 	);
 
-} // end standard_setup_theme_layout_options
-add_action( 'admin_init', 'standard_setup_theme_layout_options' );
+} // end standard_setup_theme_presentation_options
+add_action( 'admin_init', 'standard_setup_theme_presentation_options' );
 
 /** 
- * Renders the description for the "Layout" options settings page.
+ * Renders the description for the "Presentation" options settings page.
  */
-function standard_theme_layout_options_display() {
-	_e( 'Select the layout that best fits your content.', 'standard' );	
-} // end standard_theme_layout_options_display
+function standard_theme_presentation_options_display() {
+	_e( 'TODO', 'standard' );	
+} // end standard_theme_presentation_options_display
 
 /**
  * Renders the left-sidebar layout option.
  *
  * @params	$args	The array of options used for rendering the option. Includes a path to the option's image.
  */
-function left_sidebar_layout_display( $args ) {
+function left_sidebar_presentation_display( $args ) {
 	
-	$options = get_option( 'standard_theme_layout_options' );
+	$options = get_option( 'standard_theme_presentation_options' );
 
-	$html = '<input type="radio" id="standard_theme_left_sidebar_layout" name="standard_theme_layout_options[layout]" value="left_sidebar_layout"' . checked( 'left_sidebar_layout', $options['layout'], false ) . ' />';
+	$html = '<input type="radio" id="standard_theme_left_sidebar_layout" name="standard_theme_presentation_options[layout]" value="left_sidebar_layout"' . checked( 'left_sidebar_layout', $options['layout'], false ) . ' />';
 	$html .= '<img src="' . esc_url( $args['option_image_path'] ) . '" alt="" />';
 	
 	echo $html;
 	
-} // end left_sidebar_layout_display
+} // end left_sidebar_presentation_display
 
 /**
  * Renders the right-sidebar layout option.
  *
  * @params	$args	The array of options used for rendering the option. Includes a path to the option's image.
  */
-function right_sidebar_layout_display( $args ) {
+function right_sidebar_presentation_display( $args ) {
 	
-	$options = get_option( 'standard_theme_layout_options' );
+	$options = get_option( 'standard_theme_presentation_options' );
  	
-	$html = '<input type="radio" id="standard_theme_right_sidebar_layout"  name="standard_theme_layout_options[layout]" value="right_sidebar_layout"' . checked( 'right_sidebar_layout', $options['layout'], false ) . ' />';
+	$html = '<input type="radio" id="standard_theme_right_sidebar_layout"  name="standard_theme_presentation_options[layout]" value="right_sidebar_layout"' . checked( 'right_sidebar_layout', $options['layout'], false ) . ' />';
 	$html .= '<img src="' . esc_url ( $args['option_image_path'] ) . '" alt="" />';
 	
 	echo $html;
 	
-} // end right_sidebar_layout_display
+} // end right_sidebar_presentation_display
 
 /**
  * Renders the full width layout option.
  *
  * @params	$args	The array of options used for rendering the option. Includes a path to the option's image.
  */
-function full_width_layout_display( $args ) {
+function full_width_presentation_display( $args ) {
 
-	$options = get_option( 'standard_theme_layout_options' );
+	$options = get_option( 'standard_theme_presentation_options' );
  	
-	$html = '<input type="radio" id="standard_theme_full_width_layout"  name="standard_theme_layout_options[layout]" value="full_width_layout"' . checked( 'full_width_layout', $options['layout'], false ) . ' />';
+	$html = '<input type="radio" id="standard_theme_full_width_layout"  name="standard_theme_presentation_options[layout]" value="full_width_layout"' . checked( 'full_width_layout', $options['layout'], false ) . ' />';
 	$html .= '<img src="' . esc_url ( $args['option_image_path'] ) . '" alt="" />';
 	
 	echo $html;
 
-} // end full_width_layout_display
+} // end full_width_presentation_display
 
 /**
  * Renders the layout option for the contrast checkbox.
  */
 function contrast_display() {
 
-	$options = get_option( 'standard_theme_layout_options' );
+	$options = get_option( 'standard_theme_presentation_options' );
 	
-	$html = '<select id="contrast" name="standard_theme_layout_options[contrast]">';
+	$html = '<select id="contrast" name="standard_theme_presentation_options[contrast]">';
 		$html .= '<option value="light"' . selected( $options['contrast'], 'light', false ) . '>' . __( 'Light', 'standard' ) . '</option>';
 		$html .= '<option value="dark"' . selected( $options['contrast'], 'dark', false ) . '>' . __( 'Dark', 'standard' )  . '</option>';
 	$html .= '</select>';
@@ -224,9 +224,9 @@ function contrast_display() {
  *
  * @returns			The collection of sanitized values.
  */
-function standard_theme_layout_options_validate( $input ) {
+function standard_theme_presentation_options_validate( $input ) {
 	
-	$output = $defaults = get_standard_theme_default_layout_options();
+	$output = $defaults = get_standard_theme_default_presentation_options();
 
 	foreach( $input as $key => $val ) {
 	
@@ -236,9 +236,9 @@ function standard_theme_layout_options_validate( $input ) {
 	
 	} // end foreach
 	
-	return apply_filters( 'standard_theme_layout_options_validate', $output, $input, $defaults );
+	return apply_filters( 'standard_theme_presentation_options_validate', $output, $input, $defaults );
 
-} // end standard_theme_layout_options_validate
+} // end standard_theme_presentation_options_validate
 
 /* ----------------------------- *
  * 	Social Options
@@ -1059,7 +1059,7 @@ function standard_theme_options_display() {
 		<?php $active_tab = isset( $_GET['tab'] ) ? $_GET['tab'] : 'standard_theme_global_options'; ?>
 		<h2 class="nav-tab-wrapper">
 			<a class="nav-tab <?php echo $active_tab == 'standard_theme_global_options' ? 'nav-tab-active' : ''; ?>" href="?page=theme_options&amp;tab=standard_theme_global_options"><?php _e( 'Global', 'standard' ); ?></a>
-			<a class="nav-tab <?php echo $active_tab == 'standard_theme_layout_options' ? 'nav-tab-active' : ''; ?>" href="?page=theme_options&amp;tab=standard_theme_layout_options"><?php _e( 'Layout', 'standard' ); ?></a>
+			<a class="nav-tab <?php echo $active_tab == 'standard_theme_presentation_options' ? 'nav-tab-active' : ''; ?>" href="?page=theme_options&amp;tab=standard_theme_presentation_options"><?php _e( 'Presentation', 'standard' ); ?></a>
 			<a class="nav-tab <?php echo $active_tab == 'standard_theme_social_options' ? 'nav-tab-active' : ''; ?>" href="?page=theme_options&amp;tab=standard_theme_social_options"><?php _e( 'Social', 'standard' ); ?></a>
 			<a class="nav-tab <?php echo $active_tab == 'standard_theme_publishing_options' ? 'nav-tab-active' : ''; ?>" href="?page=theme_options&amp;tab=standard_theme_publishing_options"><?php _e( 'Publishing', 'standard' ); ?></a>
 		</h2>
@@ -1072,10 +1072,10 @@ function standard_theme_options_display() {
 					settings_fields( 'standard_theme_global_options' );
 					do_settings_sections( 'standard_theme_global_options' );
 					
-				} else if( 'standard_theme_layout_options' == $active_tab ) {
+				} else if( 'standard_theme_presentation_options' == $active_tab ) {
 				
-					settings_fields( 'standard_theme_layout_options' );
-					do_settings_sections( 'standard_theme_layout_options' );
+					settings_fields( 'standard_theme_presentation_options' );
+					do_settings_sections( 'standard_theme_presentation_options' );
 
 				} else if( 'standard_theme_social_options' == $active_tab ) {
 				
@@ -1106,7 +1106,7 @@ function standard_theme_options_display() {
  */
 function standard_add_full_width_single_post() {
 
-	$options = get_option( 'standard_theme_layout_options' );
+	$options = get_option( 'standard_theme_presentation_options' );
 	if( 'full_width_layout' != $options['layout'] ) {
 	
 		add_meta_box(
@@ -1214,10 +1214,10 @@ function standard_add_admin_bar_option() {
 		// Layout Options
 		$wp_admin_bar->add_node(
 			array(
-				'id'		=>	'standard_theme_layout_options',
+				'id'		=>	'standard_theme_presentation_options',
 				'title'		=>	__( 'Layout', 'standard' ),
 				'parent'	=>	'standard_options',
-				'href'		=>	home_url() . '/wp-admin/themes.php?page=theme_options&tab=standard_theme_layout_options'
+				'href'		=>	home_url() . '/wp-admin/themes.php?page=theme_options&tab=standard_theme_presentation_options'
 			)
 		);
 		
@@ -1367,7 +1367,7 @@ if( ! function_exists( 'standard_add_theme_editor_style' ) ) {
 		
 		add_editor_style( 'css/editor-style.css' );
 		
-		$options = get_option( 'standard_theme_layout_options' );
+		$options = get_option( 'standard_theme_presentation_options' );
 		if( 'full_width_layout' == $options['layout'] ) {
 			add_editor_style( 'css/editor-style-full.css' );
 		} // end if
@@ -1514,7 +1514,7 @@ if( ! function_exists( 'standard_add_theme_features' ) ) {
 if( ! function_exists( 'standard_set_media_embed_size' ) ) { 
 	function standard_set_media_embed_size() {
 	
-		$options = get_option( 'standard_theme_layout_options' );
+		$options = get_option( 'standard_theme_presentation_options' );
 		if( 'full_width_layout' == $options['layout'] ) {
 		
 			if ( isset( $content_width ) ) {
@@ -1812,7 +1812,7 @@ function standard_add_theme_stylesheets() {
 	wp_enqueue_style( 'standard' ); 
 	
 	// contrast
-	$options = get_option( 'standard_theme_layout_options' );
+	$options = get_option( 'standard_theme_presentation_options' );
 	if( 'dark' == $options['contrast'] ) {
 	
 		wp_register_style( 'standard-contrast', get_stylesheet_directory_uri() . '/css/theme.contrast-light.css' );
@@ -1978,7 +1978,7 @@ function standard_activate_theme() {
 	
 		if( array_key_exists( 'standard_theme_reset_options', $_GET ) && 'true' == $_GET['standard_theme_reset_options'] ) {
 		
-			delete_option( 'standard_theme_layout_options' );
+			delete_option( 'standard_theme_presentation_options' );
 			delete_option( 'standard_theme_social_options' );
 			delete_option( 'standard_theme_global_options' );
 			delete_option( 'standard_theme_publishing_options' );
@@ -2552,7 +2552,7 @@ function standard_google_custom_search_is_active() {
 function standard_comment_form() {
 
 	// Gotta read the layout options so we apply the proper ID to our element wrapper
-	$layout_options = get_option( 'standard_theme_layout_options' );
+	$layout_options = get_option( 'standard_theme_presentation_options' );
 	$layout = 'full_width_layout' == $layout_options['layout'] ? '-full' : '';
 	
 	// Grab the current commenter and the required options. This is so we can mark fields as required.

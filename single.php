@@ -8,7 +8,7 @@
  */
 ?>
 <?php get_header(); ?>
-<?php $options = get_option( 'standard_theme_layout_options' ); ?>
+<?php $options = get_option( 'standard_theme_presentation_options' ); ?>
 
 <div id="wrapper">
 	<div class="container">
