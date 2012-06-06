@@ -31,9 +31,9 @@
 							<?php $publishing_options = get_option( 'standard_theme_publishing_options' ); ?>
 				
 							<?php get_template_part( 'pagination '); ?>
-							<?php $general_options = get_option( 'standard_theme_general_options' ); ?>
+							<?php $global_options = get_option( 'standard_theme_global_options' ); ?>
 							<?php $social_options = get_option( 'standard_theme_social_options' ); ?>
-							<?php if( 'on' == $general_options['display_author_box'] ) { ?>
+							<?php if( 'on' == $global_options['display_author_box'] ) { ?>
 								<div id="author-box" class="well clearfix">
 									<div class="author-box-image">
 										<?php echo get_avatar( get_the_author_meta( 'user_email', $post->post_author, '80' ) ); ?>

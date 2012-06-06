@@ -7,7 +7,7 @@
 		<link rel="profile" href="http://gmpg.org/xfn/11" />
 		<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 		<title><?php wp_title( '' ); ?></title>
-		<?php $option = get_option( 'standard_theme_general_options'); ?>
+		<?php $option = get_option( 'standard_theme_global_options'); ?>
 		<?php if( '' != $option['fav_icon'] ) { ?>
 			<link rel="shortcut icon" href="<?php echo $option['fav_icon']; ?>" />
 			<link rel="apple-touch-icon-precomposed" href="<?php echo $option['fav_icon']; ?>" />

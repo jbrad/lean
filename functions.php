@@ -8,7 +8,7 @@ include_once( get_template_directory() . '/lib/Standard_Nav_Walker.class.php' );
 	1. Localization
 	2. Theme Settings
 		- Menu Page
-		- General Options
+		- Global Options
 		- Layout Options
 		- Social Options
 		- Publishing
@@ -438,13 +438,13 @@ function standard_theme_social_options_validate( $input ) {
 } // end standard_theme_options_validate
 
 /* ----------------------------- *
- * 	General Options
+ * 	Global Options
  * ----------------------------- */
 
 /**
- * Defines the default values for Standard's general options.
+ * Defines the default values for Standard's global options.
  */
-function get_standard_theme_default_general_options() {
+function get_standard_theme_default_global_options() {
 
 	$defaults = array(
 		'display_breadcrumbs'		=>	'on',
@@ -457,108 +457,108 @@ function get_standard_theme_default_general_options() {
 		'offline_display_message'	=>	__( 'Our site is currently offline.', 'standard' )
 	);
 	
-	return apply_filters ( 'standard_theme_default_general_options', $defaults );
+	return apply_filters ( 'standard_theme_default_global_options', $defaults );
 
-} // end get_standard_theme_default_general_options
+} // end get_standard_theme_default_global_options
 
 /**
- * Defines Standard's "general" options.
+ * Defines Standard's "global" options.
  */
-function standard_setup_theme_general_options() {
+function standard_setup_theme_global_options() {
 
 	// If the theme options don't exist, create them.
-	if( false == get_option( 'standard_theme_general_options' ) ) {	
-		add_option( 'standard_theme_general_options', apply_filters( 'standard_theme_default_general_options', get_standard_theme_default_general_options() ) );
+	if( false == get_option( 'standard_theme_global_options' ) ) {	
+		add_option( 'standard_theme_global_options', apply_filters( 'standard_theme_default_global_options', get_standard_theme_default_global_options() ) );
 	} // end if
 	
 	/* ------------------ Page Options ------------------ */
 	
 	add_settings_section(
-		'general',
-		__( 'General Options', 'standard' ),
-		'standard_theme_general_options_display',
-		'standard_theme_general_options'
+		'global',
+		__( 'Global', 'standard' ),
+		'standard_theme_global_options_display',
+		'standard_theme_global_options'
 	);
 	
 	add_settings_field(
 		'display_breadcrumbs',
 		__( 'Breadcrumbs', 'standard' ),
 		'display_breadcrumbs_display',
-		'standard_theme_general_options',
-		'general'
+		'standard_theme_global_options',
+		'global'
 	);
 
 	add_settings_field(
 		'display_author_box',
 		__( 'Author Box', 'standard' ),
 		'display_author_box_display',
-		'standard_theme_general_options',
-		'general'
+		'standard_theme_global_options',
+		'global'
 	);
 	
 	add_settings_field(
 		'display_featured_images',
 		__( 'Display Featured Images', 'standard' ),
 		'display_featured_images_display',
-		'standard_theme_general_options',
+		'standard_theme_global_options',
 		'general'
 	);
 	
 	add_settings_field(
 		'google_analytics',
-		__( 'Google Analytics ID', 'standard' ),
+		__( 'Google Analytics', 'standard' ),
 		'google_analytics_display',
-		'standard_theme_general_options',
-		'general'
+		'standard_theme_global_options',
+		'global'
 	);
 	
 	add_settings_field(
 		'affiliate_code',
 		__( 'Affiliate Code', 'standard' ),
 		'affiliate_code_display',
-		'standard_theme_general_options',
-		'general'
+		'standard_theme_global_options',
+		'global'
 	);
 	
 	add_settings_field(
 		'fav_icon',
 		__( 'Site Icon', 'standard' ),
 		'fav_icon_display',
-		'standard_theme_general_options',
-		'general'
+		'standard_theme_global_options',
+		'global'
 	);
 	
 	add_settings_field(
 		'offline_mode',
 		__( 'Offline Mode', 'standard' ),
 		'offline_mode_display',
-		'standard_theme_general_options',
-		'general'
+		'standard_theme_global_options',
+		'global'
 	);
 	
 	add_settings_field(
 		'offline_mode_message',
 		__( 'Offline Mode Message', 'standard' ),
 		'offline_mode_message_display',
-		'standard_theme_general_options',
-		'general'
+		'standard_theme_global_options',
+		'global'
 	);
 	
 	register_setting(
-		'standard_theme_general_options',
-		'standard_theme_general_options',
-		'standard_theme_general_options_validate'
+		'standard_theme_global_options',
+		'standard_theme_global_options',
+		'standard_theme_global_options_validate'
 	);
 
-} // end standard_setup_theme_general_options
-add_action( 'admin_init', 'standard_setup_theme_general_options' );
+} // end standard_setup_theme_global_options
+add_action( 'admin_init', 'standard_setup_theme_global_options' );
 
 /** 
- * Renders the description for the "General" options settings page.
+ * Renders the description for the "Global" options settings page.
  */
-function standard_theme_general_options_display() {
-	_e( 'Configure general options that influence how your blog renders content, tracks analytics, and more.', 'standard' );
-} // end standard_theme_social_options_display
+function standard_theme_global_options_display() {
+	_e( 'Configure global options that influence how your blog renders content, tracks analytics, and more.', 'standard' );
+} // end standard_theme_global_options_display
 
 /**
  * Renders the breadcrumb options.
@@ -567,9 +567,9 @@ function standard_theme_general_options_display() {
  */
 function display_breadcrumbs_display( $args ) {
 	
-	$options = get_option( 'standard_theme_general_options' );
+	$options = get_option( 'standard_theme_global_options' );
 
-	$html = '<input type="checkbox" id="display_breadcrumbs" name="standard_theme_general_options[display_breadcrumbs]" value="on" ' . checked( 'on', $options['display_breadcrumbs'], false ) . ' />';
+	$html = '<input type="checkbox" id="display_breadcrumbs" name="standard_theme_global_options[display_breadcrumbs]" value="on" ' . checked( 'on', $options['display_breadcrumbs'], false ) . ' />';
 	$html .= '&nbsp;<label for="display_breadcrumbs">' . __( 'Displays above post and page content.', 'standard' ) . '</label>';
 	
 	echo $html;
@@ -583,9 +583,9 @@ function display_breadcrumbs_display( $args ) {
  */
 function display_author_box_display( $args ) {
 	
-	$options = get_option( 'standard_theme_general_options' );
+	$options = get_option( 'standard_theme_global_options' );
 
-	$html = '<input type="checkbox" id="display_author_box" name="standard_theme_general_options[display_author_box]" value="on" ' . checked( 'on', $options['display_author_box'], false ) . ' />';
+	$html = '<input type="checkbox" id="display_author_box" name="standard_theme_global_options[display_author_box]" value="on" ' . checked( 'on', $options['display_author_box'], false ) . ' />';
 	$html .= '&nbsp;<label for="display_author_box">' . __( 'Displays between post content and comments. Includes <a href="profile.php">display name</a>, <a href="profile.php">website</a>, and <a href="profile.php">biographical info</a>.', 'standard' ) . '</label>';
 	
 	echo $html;
@@ -599,9 +599,9 @@ function display_author_box_display( $args ) {
  */
 function display_featured_images_display( $args ) {
 
-	$options = get_option( 'standard_theme_general_options' );
+	$options = get_option( 'standard_theme_global_options' );
 
-	$html = '<select id="display_featured_image" name="standard_theme_general_options[display_featured_images]">';
+	$html = '<select id="display_featured_image" name="standard_theme_global_options[display_featured_images]">';
 		$html .= '<option value="always"'. selected( $options['display_featured_images'], 'always', false ) . '>' . __( 'Always', 'standard' ) . '</option>';
 		$html .= '<option value="never"'. selected( $options['display_featured_images'], 'never', false ) . '>' . __( 'Never', 'standard' ) . '</option>';
 		$html .= '<option value="index"'. selected( $options['display_featured_images'], 'index', false ) . '>' . __( 'On index only', 'standard' ) . '</option>';
@@ -617,7 +617,7 @@ function display_featured_images_display( $args ) {
  */
 function google_analytics_display() {
 
-	$option = get_option( 'standard_theme_general_options' );
+	$option = get_option( 'standard_theme_global_options' );
 	
 	// Only render this option for administrators
 	if( current_user_can( 'manage_options' ) ) {
@@ -627,8 +627,8 @@ function google_analytics_display() {
 			$analytics_id = $option['google_analytics'];
 		} // end if
 		
-		$html = '<input type="text" id="google_analytics" name="standard_theme_general_options[google_analytics]" value="' . esc_attr( $analytics_id ) . '" />';
-		$html .= '&nbsp;<span class="description">' . __( 'Enter the ID only (i.e., UA-000000). Note that Analytics are not tracked for users who are logged into WordPress.', 'standard' ) . '</span>';
+		$html = '<input type="text" id="google_analytics" name="standard_theme_global_options[google_analytics]" value="' . esc_attr( $analytics_id ) . '" />';
+		$html .= '&nbsp;<span class="description">' . __( 'Enter the ID only (i.e., UA-000000). Note that analytics are not tracked for users who are logged into WordPress.', 'standard' ) . '</span>';
 		
 		echo $html;
 
@@ -641,14 +641,14 @@ function google_analytics_display() {
  */
 function affiliate_code_display() {
 
-	$option = get_option( 'standard_theme_general_options' );
+	$option = get_option( 'standard_theme_global_options' );
 	
 	$affiliate_code = '';
 	if( true == isset ( $option['affiliate_code'] ) ) {
 		$affiliate_code = $option['affiliate_code'];
 	} // end if
 	
-	$html = '<input type="text" id="affiliate_code" name="standard_theme_general_options[affiliate_code]" value="' . esc_attr( $affiliate_code ) . '" />';
+	$html = '<input type="text" id="affiliate_code" name="standard_theme_global_options[affiliate_code]" value="' . esc_attr( $affiliate_code ) . '" />';
 	$html .= '&nbsp;<span class="description">' . __( 'Enter your affiliate code here.', 'standard' ) . '</span>';
 	
 	echo $html;
@@ -660,18 +660,23 @@ function affiliate_code_display() {
  */
 function fav_icon_display() {
 
-	$option = get_option( 'standard_theme_general_options' );
+	$option = get_option( 'standard_theme_global_options' );
+	
+	$fav_icon = '';
+	if( isset( $option['fav_icon'] ) ) {
+		$fav_icon = $option['fav_icon'];
+	} // end if
 	
 	$dimensions = '';
-	if( '' != $option['fav_icon'] ) {
+	if( '' != $fav_icon ) {
 		$dimensions = 'width="16" height="16"';
 	} // end if
 	
-	$html = '<img src="' . $option['fav_icon'] . '" id="image_upload_preview" alt="" ' . $dimensions . '/>';
-	$html .= '<input type="hidden" id="fav_icon" name="standard_theme_general_options[fav_icon]" value="' . esc_attr( $option['fav_icon'] ) . '" class="media-upload-field" />';
+	$html = '<img src="' . $fav_icon . '" id="image_upload_preview" alt="" ' . $dimensions . '/>';
+	$html .= '<input type="hidden" id="fav_icon" name="standard_theme_global_options[fav_icon]" value="' . esc_attr( $fav_icon ) . '" class="media-upload-field" />';
 	$html .= '<input type="button" class="button" id="upload_fav_icon" value="' . __( 'Upload Now', 'standard' ) . '"/>';
 	
-	if( '' != trim( $option['fav_icon'] ) ) {
+	if( '' != trim( $fav_icon ) ) {
 		$html .= '<input type="button" class="button" id="delete_fav_icon" value="' . __( 'Delete', 'standard' ) . '"/>';
 	} // end if
 	
@@ -684,14 +689,14 @@ function fav_icon_display() {
  */
 function offline_mode_display( ) {
 
-	$options = get_option( 'standard_theme_general_options' );
+	$options = get_option( 'standard_theme_global_options' );
 
 	$offline_mode = '';
 	if( isset( $options['offline_mode'] ) ) {
 		$offline_mode = $options['offline_mode'];
 	} // end if
 
-	$html = '<input type="checkbox" id="offline_mode" name="standard_theme_general_options[offline_mode]" value="on" ' . checked( 'on', $offline_mode, false ) . ' " />';
+	$html = '<input type="checkbox" id="offline_mode" name="standard_theme_global_options[offline_mode]" value="on" ' . checked( 'on', $offline_mode, false ) . ' " />';
 	$html .= '&nbsp;<label for="offline_mode">';
 		$html .= __( 'Activate offline mode. Etc. TODO.', 'standard' );
 	$html .= '</label>';
@@ -705,25 +710,25 @@ function offline_mode_display( ) {
  */
 function offline_mode_message_display() {
 
-	$options = get_option( 'standard_theme_general_options' );
+	$options = get_option( 'standard_theme_global_options' );
 	
 	$offline_message = '';
 	if( isset( $options['offline_mode_message'] ) ) {
 		$offline_message = $options['offline_mode_message'];
 	} // end if
 	
-	echo '<input type="text" id="offline_mode_message" name="standard_theme_general_options[offline_mode_message]" value="' . esc_attr( $offline_message ) . '" maxlength="140" />';
+	echo '<input type="text" id="offline_mode_message" name="standard_theme_global_options[offline_mode_message]" value="' . esc_attr( $offline_message ) . '" maxlength="140" />';
 
 } // end offline_mode_message_display
 
 /**
- * Sanitization callback for the general options.
+ * Sanitization callback for the global options.
  *	
  * @params	$input	The unsanitized collection of options.
  *
  * @returns			The collection of sanitized values.
  */
-function standard_theme_general_options_validate( $input ) {
+function standard_theme_global_options_validate( $input ) {
 
 	$output = array();
 
@@ -739,9 +744,9 @@ function standard_theme_general_options_validate( $input ) {
 	
 	} // end foreach
 
-	return apply_filters( 'standard_theme_general_options_validate', $output, $input,  get_standard_theme_default_general_options() );
+	return apply_filters( 'standard_theme_global_options_validate', $output, $input,  get_standard_theme_default_global_options() );
 
-} // end standard_theme_general_options_validate
+} // end standard_theme_global_options_validate
 
 /* ----------------------------- *
  * 	Publishing Options
@@ -760,7 +765,7 @@ function get_standard_theme_default_publishing_options() {
 	
 	return apply_filters ( 'standard_theme_default_publishing_options', $defaults );
 
-} // end get_standard_theme_default_general_options
+} // end get_standard_theme_default_global_options
 
 /**
  * Defines Standard's "publishing" options.
@@ -1041,21 +1046,21 @@ function standard_theme_options_display() {
 		<h2><?php _e( 'Standard Options', 'standard' ); ?></h2>
 		<?php settings_errors(); ?>
 		
-		<?php $active_tab = isset( $_GET['tab'] ) ? $_GET['tab'] : 'standard_theme_general_options'; ?>
+		<?php $active_tab = isset( $_GET['tab'] ) ? $_GET['tab'] : 'standard_theme_global_options'; ?>
 		<h2 class="nav-tab-wrapper">
-			<a class="nav-tab <?php echo $active_tab == 'standard_theme_general_options' ? 'nav-tab-active' : ''; ?>" href="?page=theme_options&amp;tab=standard_theme_general_options"><?php _e( 'General Options', 'standard' ); ?></a>
+			<a class="nav-tab <?php echo $active_tab == 'standard_theme_global_options' ? 'nav-tab-active' : ''; ?>" href="?page=theme_options&amp;tab=standard_theme_global_options"><?php _e( 'Global', 'standard' ); ?></a>
 			<a class="nav-tab <?php echo $active_tab == 'standard_theme_layout_options' ? 'nav-tab-active' : ''; ?>" href="?page=theme_options&amp;tab=standard_theme_layout_options"><?php _e( 'Layout', 'standard' ); ?></a>
-			<a class="nav-tab <?php echo $active_tab == 'standard_theme_social_options' ? 'nav-tab-active' : ''; ?>" href="?page=theme_options&amp;tab=standard_theme_social_options"><?php _e( 'Social Options', 'standard' ); ?></a>
+			<a class="nav-tab <?php echo $active_tab == 'standard_theme_social_options' ? 'nav-tab-active' : ''; ?>" href="?page=theme_options&amp;tab=standard_theme_social_options"><?php _e( 'Social', 'standard' ); ?></a>
 			<a class="nav-tab <?php echo $active_tab == 'standard_theme_publishing_options' ? 'nav-tab-active' : ''; ?>" href="?page=theme_options&amp;tab=standard_theme_publishing_options"><?php _e( 'Publishing', 'standard' ); ?></a>
 		</h2>
 
 		<form method="post" action="options.php">
 			<?php
 
-				if( 'standard_theme_general_options' == $active_tab ) {
+				if( 'standard_theme_global_options' == $active_tab ) {
 				
-					settings_fields( 'standard_theme_general_options' );
-					do_settings_sections( 'standard_theme_general_options' );
+					settings_fields( 'standard_theme_global_options' );
+					do_settings_sections( 'standard_theme_global_options' );
 					
 				} else if( 'standard_theme_layout_options' == $active_tab ) {
 				
@@ -1186,13 +1191,13 @@ function standard_add_admin_bar_option() {
 			)
 		);
 		
-		// General Options
+		// Global
 		$wp_admin_bar->add_node(
 			array(
-				'id'		=>	'standard_theme_general_options',
-				'title'		=>	__( 'General Options', 'standard' ),
+				'id'		=>	'standard_theme_global_options',
+				'title'		=>	__( 'Global Options', 'standard' ),
 				'parent'	=>	'standard_options',
-				'href'		=>	home_url() . '/wp-admin/themes.php?page=theme_options&tab=standard_theme_general_options'
+				'href'		=>	home_url() . '/wp-admin/themes.php?page=theme_options&tab=standard_theme_global_options'
 			)
 		);
 	
@@ -1237,7 +1242,7 @@ add_action( 'admin_bar_menu', 'standard_add_admin_bar_option', 40 );
 function standard_add_maintenance_mode_admin_bar_note() {
 
 	// Remind the user if they are in maintenance mode
-	$options = get_option( 'standard_theme_general_options' );
+	$options = get_option( 'standard_theme_global_options' );
 	
 	if( 'on' == $options['offline_mode'] ) {
 		global $wp_admin_bar;
@@ -1964,7 +1969,7 @@ function standard_activate_theme() {
 		
 			delete_option( 'standard_theme_layout_options' );
 			delete_option( 'standard_theme_social_options' );
-			delete_option( 'standard_theme_general_options' );
+			delete_option( 'standard_theme_global_options' );
 			delete_option( 'standard_theme_publishing_options' );
 			update_option( 'standard_theme_version', '3.0' );
 			
@@ -2607,11 +2612,11 @@ function standard_using_native_seo() {
  */
 function standard_is_offline() {
 
-	$general_options = get_option('standard_theme_general_options');
+	$global_options = get_option('standard_theme_global_options');
 	
 	$offline_mode = '';
-	if( isset( $general_options['offline_mode'] ) ) {
-		$offline_mode = $general_options['offline_mode'];
+	if( isset( $global_options['offline_mode'] ) ) {
+		$offline_mode = $global_options['offline_mode'];
 	} // end if
 	
 	return 'on' == $offline_mode && ! current_user_can( 'publish_posts' ); 

@@ -11,9 +11,9 @@
 
 	<div class="post-header clearfix">
 
-		<?php $general_options = get_option( 'standard_theme_general_options' ); ?>
+		<?php $global_options = get_option( 'standard_theme_global_options' ); ?>
 		<?php if ( '' != get_the_post_thumbnail() ) { ?>
-			<?php if( $general_options['display_featured_images'] == 'always' || ( $general_options['display_featured_images'] == 'single-post' && is_single() ) || ( $general_options['display_featured_images'] == 'index' && is_home() ) ) { ?>
+			<?php if( $global_options['display_featured_images'] == 'always' || ( $global_options['display_featured_images'] == 'single-post' && is_single() ) || ( $global_options['display_featured_images'] == 'index' && is_home() ) ) { ?>
 				<div class="thumbnail alignleft">
 					<a class="thumbnail-link fademe" href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( '%s', 'standard' ), the_title_attribute( 'echo=0' ) ); ?>">
 						<?php the_post_thumbnail( 'thumbnail' );	?>
