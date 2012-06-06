@@ -13,6 +13,8 @@
     	
 		<!-- Hidden fields used to track uploaded images and links -->
 		<input type="hidden" id="<?php echo $this->get_field_id( 'image_src' ); ?>" name="<?php echo $this->get_field_name( 'image_src' ); ?>" value="<?php echo $image_src; ?>" class="img_src" />
+		<input type="hidden" id="<?php echo $this->get_field_id( 'image_url' ); ?>" name="<?php echo $this->get_field_name( 'image_url' ); ?>" value="<?php echo $image_url; ?>" class="img_url" />
+
 		<!-- /Hidden -->
     	
     </div><!-- /.option -->
