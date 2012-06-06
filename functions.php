@@ -69,9 +69,11 @@ add_action( 'admin_menu', 'standard_theme_menu' );
 function get_standard_theme_default_presentation_options() {
 
 	$defaults = array(
-		'fav_icon'	=>	'',
-		'contrast'	=>	'light',
-		'layout' 	=> 	'right_sidebar_layout'
+		'fav_icon'					=>	'',
+		'contrast'					=>	'light',
+		'layout' 					=> 	'right_sidebar_layout',
+		'display_breadcrumbs'		=>	'on',
+		'display_featured_images' 	=> 	'always'
 	);
 	
 	return apply_filters ( 'standard_theme_default_presenation_options', $defaults );
@@ -142,6 +144,22 @@ function standard_setup_theme_presentation_options() {
 		array(
 			'option_image_path' => get_template_directory_uri() . '/images/layout-full.gif'
 		)
+	);
+	
+	add_settings_field(
+		'display_breadcrumbs',
+		__( 'Breadcrumbs', 'standard' ),
+		'display_breadcrumbs_display',
+		'standard_theme_presentation_options',
+		'presentation'
+	);
+	
+	add_settings_field(
+		'display_featured_images',
+		__( 'Display Featured Images', 'standard' ),
+		'display_featured_images_display',
+		'standard_theme_presentation_options',
+		'presentation'
 	);
 	
 	register_setting(
@@ -256,6 +274,48 @@ function full_width_presentation_display( $args ) {
 } // end full_width_presentation_display
 
 /**
+ * Renders the breadcrumb options.
+ *
+ * @params	$args	The array of options used for rendering the option.
+ */
+function display_breadcrumbs_display( $args ) {
+	
+	$options = get_option( 'standard_theme_presentation_options' );
+
+	$display_breadcrumbs = '';
+	if( isset( $options['display_breadcrumbs'] ) ) {
+		$display_breadcrumbs = $options['display_breadcrumbs'];
+	} // end if
+
+	$html = '<input type="checkbox" id="display_breadcrumbs" name="standard_theme_presentation_options[display_breadcrumbs]" value="on" ' . checked( 'on', $display_breadcrumbs, false ) . ' />';
+	$html .= '&nbsp;<label for="display_breadcrumbs">' . __( 'Displays above post and page content.', 'standard' ) . '</label>';
+	
+	echo $html;
+	
+} // end display_breadcrumbs_display
+
+/**
+ * Renders the options for displaying Featured Images.
+ *
+ * @params	$args	The array of options used for rendering the option.
+ */
+function display_featured_images_display( $args ) {
+
+	$options = get_option( 'standard_theme_presentation_options' );
+
+	$html = '<select id="display_featured_image" name="standard_theme_presentation_options[display_featured_images]">';
+		$html .= '<option value="always"'. selected( $options['display_featured_images'], 'always', false ) . '>' . __( 'Always', 'standard' ) . '</option>';
+		$html .= '<option value="never"'. selected( $options['display_featured_images'], 'never', false ) . '>' . __( 'Never', 'standard' ) . '</option>';
+		$html .= '<option value="index"'. selected( $options['display_featured_images'], 'index', false ) . '>' . __( 'On index only', 'standard' ) . '</option>';
+		$html .= '<option value="single-post"'. selected( $options['display_featured_images'], 'single-post', false ) . '>' . __( 'On single posts only', 'standard' ) . '</option>';
+	$html .= '</select>';
+
+	echo $html;
+
+} // end display_featured_images_display
+
+
+/**
  * Sanitization callback for the layout options. Since each of the layout options are checkboxes,
  * this function loops through the incoming options and verifies they are either empty strings
  * or the number 1.
@@ -266,7 +326,7 @@ function full_width_presentation_display( $args ) {
  */
 function standard_theme_presentation_options_validate( $input ) {
 	
-	$output = $defaults = get_standard_theme_default_presentation_options();
+	$output = array();
 
 	foreach( $input as $key => $val ) {
 	
@@ -276,7 +336,7 @@ function standard_theme_presentation_options_validate( $input ) {
 	
 	} // end foreach
 	
-	return apply_filters( 'standard_theme_presentation_options_validate', $output, $input, $defaults );
+	return apply_filters( 'standard_theme_presentation_options_validate', $output, $input, get_standard_theme_default_presentation_options() );
 
 } // end standard_theme_presentation_options_validate
 
@@ -487,9 +547,7 @@ function standard_theme_social_options_validate( $input ) {
 function get_standard_theme_default_global_options() {
 
 	$defaults = array(
-		'display_breadcrumbs'		=>	'on',
 		'display_author_box'		=>	'on',
-		'display_featured_images' 	=> 	'always',
 		'offline_mode'				=>	'',
 		'google_analytics'			=>	'',
 		'affiliate_code'			=>	'',
@@ -518,14 +576,6 @@ function standard_setup_theme_global_options() {
 		'standard_theme_global_options_display',
 		'standard_theme_global_options'
 	);
-	
-	add_settings_field(
-		'display_breadcrumbs',
-		__( 'Breadcrumbs', 'standard' ),
-		'display_breadcrumbs_display',
-		'standard_theme_global_options',
-		'global'
-	);
 
 	add_settings_field(
 		'display_author_box',
@@ -533,14 +583,6 @@ function standard_setup_theme_global_options() {
 		'display_author_box_display',
 		'standard_theme_global_options',
 		'global'
-	);
-	
-	add_settings_field(
-		'display_featured_images',
-		__( 'Display Featured Images', 'standard' ),
-		'display_featured_images_display',
-		'standard_theme_global_options',
-		'general'
 	);
 	
 	add_settings_field(
@@ -596,27 +638,6 @@ function standard_theme_global_options_display() {
  *
  * @params	$args	The array of options used for rendering the option.
  */
-function display_breadcrumbs_display( $args ) {
-	
-	$options = get_option( 'standard_theme_global_options' );
-
-	$display_breadcrumbs = '';
-	if( isset( $options['display_breadcrumbs'] ) ) {
-		$display_breadcrumbs = $options['display_breadcrumbs'];
-	} // end if
-
-	$html = '<input type="checkbox" id="display_breadcrumbs" name="standard_theme_global_options[display_breadcrumbs]" value="on" ' . checked( 'on', $display_breadcrumbs, false ) . ' />';
-	$html .= '&nbsp;<label for="display_breadcrumbs">' . __( 'Displays above post and page content.', 'standard' ) . '</label>';
-	
-	echo $html;
-	
-} // end display_breadcrumbs_display
-
-/**
- * Renders the breadcrumb options.
- *
- * @params	$args	The array of options used for rendering the option.
- */
 function display_author_box_display( $args ) {
 	
 	$options = get_option( 'standard_theme_global_options' );
@@ -632,26 +653,6 @@ function display_author_box_display( $args ) {
 	echo $html;
 	
 } // end display_breadcrumbs_display
-
-/**
- * Renders the options for displaying Featured Images.
- *
- * @params	$args	The array of options used for rendering the option.
- */
-function display_featured_images_display( $args ) {
-
-	$options = get_option( 'standard_theme_global_options' );
-
-	$html = '<select id="display_featured_image" name="standard_theme_global_options[display_featured_images]">';
-		$html .= '<option value="always"'. selected( $options['display_featured_images'], 'always', false ) . '>' . __( 'Always', 'standard' ) . '</option>';
-		$html .= '<option value="never"'. selected( $options['display_featured_images'], 'never', false ) . '>' . __( 'Never', 'standard' ) . '</option>';
-		$html .= '<option value="index"'. selected( $options['display_featured_images'], 'index', false ) . '>' . __( 'On index only', 'standard' ) . '</option>';
-		$html .= '<option value="single-post"'. selected( $options['display_featured_images'], 'single-post', false ) . '>' . __( 'On single posts only', 'standard' ) . '</option>';
-	$html .= '</select>';
-
-	echo $html;
-
-} // end display_featured_images_display
 
 /**
  * Renders the option element for Google Analytics.

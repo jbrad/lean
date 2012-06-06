@@ -7,20 +7,21 @@
 		<link rel="profile" href="http://gmpg.org/xfn/11" />
 		<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 		<title><?php wp_title( '' ); ?></title>
-		<?php $option = get_option( 'standard_theme_global_options'); ?>
-		<?php if( '' != $option['fav_icon'] ) { ?>
-			<link rel="shortcut icon" href="<?php echo $option['fav_icon']; ?>" />
-			<link rel="apple-touch-icon-precomposed" href="<?php echo $option['fav_icon']; ?>" />
-			<link rel="apple-touch-icon-precomposed" href="<?php echo $option['fav_icon']; ?>" />
-			<link rel="apple-touch-icon" href="<?php echo $option['fav_icon']; ?>" />
+		<?php $presentation_option = get_option( 'standard_theme_presentation_options'); ?>
+		<?php if( '' != $presentation_option['fav_icon'] ) { ?>
+			<link rel="shortcut icon" href="<?php echo $presentation_option['fav_icon']; ?>" />
+			<link rel="apple-touch-icon-precomposed" href="<?php echo $presentation_option['fav_icon']; ?>" />
+			<link rel="apple-touch-icon-precomposed" href="<?php echo $presentation_option['fav_icon']; ?>" />
+			<link rel="apple-touch-icon" href="<?php echo $presentation_option['fav_icon']; ?>" />
 		<?php } // end if ?>
-		<?php if( '' != $option['google_analytics'] ) { ?>
+		<?php $global_option = get_option( 'standard_theme_global_options' ); ?>
+		<?php if( '' != $global_option['google_analytics'] ) { ?>
 			<?php if( is_user_logged_in() ) { ?>
 				<!-- Google Analytics is restricted only to users who are not logged in. -->
 			<?php } else { ?>
 				<script type="text/javascript">
 					var _gaq = _gaq || [];
-					_gaq.push(['_setAccount', '<?php echo $option[ 'google_analytics' ] ?>']);
+					_gaq.push(['_setAccount', '<?php echo $global_option[ 'google_analytics' ] ?>']);
 					_gaq.push(['_trackPageview']);
 		
 					(function() {
