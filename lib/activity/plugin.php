@@ -198,48 +198,58 @@ class Activity_Tabs extends WP_Widget {
 				'orderby'	 	=> 'date'
 			)
 		);
-	
+
 		// Create the markup for the listing
 		$html = '<div class="tab-pane" id="recent">';
 			$html .= '<ul class="latest-posts">';
-			
-			foreach( $latest_posts as $post ) {
-			
-				$html .= '<li class="clearfix">';
-					
-					// Add the small featured image
-					if( has_post_thumbnail( $post->ID ) ) {
-						$html .= '<a class="latest-post-tn fademe" href="' . get_permalink( $post->ID ) . '" rel="nofollow">';
-							$html .= get_the_post_thumbnail( $post->ID, array( 50, 50 ) );
-						$html .= '</a>';
-					} // end if
-					
-					$html .='<div class="latest-meta">';	
+
+			if( count( $latest_posts ) > 0 ) {
 						
-						// Add the title
-						$html .= '<a href="' . get_permalink( $post->ID ) . '" rel="nofollow">';
-							$html .= get_the_title( $post->ID );
-						$html .= '</a>';
+				foreach( $latest_posts as $post ) {
+				
+					$html .= '<li class="clearfix">';
 						
-						// Add date posted
-						// If there's no title, then we need to turn the date into the link
-						if( strlen( get_the_title( $post->ID ) ) == 0 ) {
-							$html .= '<a href="' . get_permalink( $post->ID ) . '" rel="nofollow">';
-						} // end if
-						
-						$html .= '<span class="latest-date">';
-							$html .= get_the_time( get_option( 'date_format' ), $post->ID );
-						$html .= '</span>';
-						
-						// Close the anchor 
-						if(strlen( get_the_title( $post->ID ) ) == 0 ) {
+						// Add the small featured image
+						if( has_post_thumbnail( $post->ID ) ) {
+							$html .= '<a class="latest-post-tn fademe" href="' . get_permalink( $post->ID ) . '" rel="nofollow">';
+								$html .= get_the_post_thumbnail( $post->ID, array( 50, 50 ) );
 							$html .= '</a>';
 						} // end if
 						
-					$html .='</div>';
-					
+						$html .='<div class="latest-meta">';	
+							
+							// Add the title
+							$html .= '<a href="' . get_permalink( $post->ID ) . '" rel="nofollow">';
+								$html .= get_the_title( $post->ID );
+							$html .= '</a>';
+							
+							// Add date posted
+							// If there's no title, then we need to turn the date into the link
+							if( strlen( get_the_title( $post->ID ) ) == 0 ) {
+								$html .= '<a href="' . get_permalink( $post->ID ) . '" rel="nofollow">';
+							} // end if
+							
+							$html .= '<span class="latest-date">';
+								$html .= get_the_time( get_option( 'date_format' ), $post->ID );
+							$html .= '</span>';
+							
+							// Close the anchor 
+							if(strlen( get_the_title( $post->ID ) ) == 0 ) {
+								$html .= '</a>';
+							} // end if
+							
+						$html .='</div>';
+						
+					$html .= '</li>';
+				} // end foreach
+				
+			} else {
+			
+				$html .= '<li>';
+					$html .= '<p class="no-posts">' . __( "You have no recent posts.", 'standard' ) . '</p>';
 				$html .= '</li>';
-			} // end foreach
+			
+			} // end if/else
 			
 			$html .= '</ul>';
 		$html .= '</div>';
@@ -350,44 +360,54 @@ class Activity_Tabs extends WP_Widget {
 		// Create the markup for the listing
 		$html = '<div id="pop-comments" class="tab-pane">';
 			$html .= '<ul class="latest-comments">';
-			
-			foreach( $comments as $comment ) {
+
+			if( count( $comments ) > 0 ) {
+		
+				foreach( $comments as $comment ) {
+		
+					$html .= '<li class="clearfix">';
 	
-				$html .= '<li class="clearfix">';
+						$html .= '<a class="latest-comment-tn fademe" href="' . get_permalink( $comment->comment_post_ID ) . '" rel="nofollow">';
+							$html .= get_avatar($comment->comment_author_email, '50');
+						$html .= '</a>';
+												
+						// Link the comment to the post
+						$html .='<div class="comment-meta">';	
+							
+							// Add the title
+							if( strlen( $comment->comment_content ) <= 40 ) {
+								$html .= '<div class="comment-meta-author">' . $comment->comment_author . '</div>';
+								$html .= '<div class="comment-meta-comment">';
+									$html .= '<a href="' . get_comment_link( $comment ) . '" rel="nofollow">';
+										$html .= strip_tags( $comment->comment_content );
+									$html .= '</a>';
+								$html .= '</div>';
+							} else {
+								$html .= '<div class="comment-meta-author">' . $comment->comment_author . '</div>';
+								$html .= '<div class="comment-meta-comment">';
+									$html .= '<a href="' . get_comment_link( $comment ) . '" rel="nofollow">';
+										$html .= strip_tags( substr( $comment->comment_content, 0, 40 ) ) . '...';
+									$html .= '</a>';
+								$html .= '</div>';
+							} // end if/else	
+							
+							
+						$html .='</div>';
+	
+					$html .= '</li>';
+				} // end foreach
 
-					$html .= '<a class="latest-comment-tn fademe" href="' . get_permalink( $comment->comment_post_ID ) . '" rel="nofollow">';
-						$html .= get_avatar($comment->comment_author_email, '50');
-					$html .= '</a>';
-											
-					// Link the comment to the post
-					$html .='<div class="comment-meta">';	
-						
-						// Add the title
-						if( strlen( $comment->comment_content ) <= 40 ) {
-							$html .= '<div class="comment-meta-author">' . $comment->comment_author . '</div>';
-							$html .= '<div class="comment-meta-comment">';
-								$html .= '<a href="' . get_comment_link( $comment ) . '" rel="nofollow">';
-									$html .= strip_tags( $comment->comment_content );
-								$html .= '</a>';
-							$html .= '</div>';
-						} else {
-							$html .= '<div class="comment-meta-author">' . $comment->comment_author . '</div>';
-							$html .= '<div class="comment-meta-comment">';
-								$html .= '<a href="' . get_comment_link( $comment ) . '" rel="nofollow">';
-									$html .= strip_tags( substr( $comment->comment_content, 0, 40 ) ) . '...';
-								$html .= '</a>';
-							$html .= '</div>';
-						} // end if/else	
-						
-						
-					$html .='</div>';
-
-				$html .= '</li>';
-			} // end foreach
+				
+			} else {
 			
+				$html .= '<li>';
+					$html .= '<p class="no-comments">' . __( 'You have no comments.', 'standard' ) . '</p>';
+				$html .= '</li>';
+				
+			} // end if
+								
 			$html .= '</ul>';
 		$html .= '</div>';
-
 		
 		return $html;
 	
@@ -408,16 +428,18 @@ class Activity_Tabs extends WP_Widget {
 				 		'format' 	=> 'array'
 				 	) 
 				 );
-				 
+
 		// Create the markup
 		$html = '<div id="tags" class="tagcloud tab-pane">';		
-			if( $tags && count( $tags ) ) {
-				$html .= '<div class="post-tags">';
+			$html .= '<div class="post-tags">';
+				if( $tags && count( $tags ) > 0 ) {
 					foreach( $tags as $tag ) {
 						$html .= $tag;
 					} // end foreach
-				$html .= '</div>';
-			} // end if
+				} else {
+						$html .= '<p class="no-tags">' . __( 'You have no tags.', 'standard' ) . '</p>';
+				} // end if
+			$html .= '</div>';
 		$html .= '</div>';
 		
 		return $html; 
