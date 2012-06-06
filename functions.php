@@ -69,8 +69,9 @@ add_action( 'admin_menu', 'standard_theme_menu' );
 function get_standard_theme_default_presentation_options() {
 
 	$defaults = array(
-		'layout' 	=> 	'right_sidebar_layout',
-		'contrast'	=>	'light'
+		'fav_icon'	=>	'',
+		'contrast'	=>	'light',
+		'layout' 	=> 	'right_sidebar_layout'
 	);
 	
 	return apply_filters ( 'standard_theme_default_presenation_options', $defaults );
@@ -92,6 +93,22 @@ function standard_setup_theme_presentation_options() {
 		__( 'Layout', 'standard' ),
 		'standard_theme_presentation_options_display',
 		'standard_theme_presentation_options'
+	);
+	
+	add_settings_field(
+		'fav_icon',
+		__( 'Site Icon', 'standard' ),
+		'fav_icon_display',
+		'standard_theme_presentation_options',
+		'presentation'
+	);
+	
+	add_settings_field(
+		'contrast',
+		__( 'Contrast', 'standard' ),
+		'contrast_display',
+		'standard_theme_presentation_options',
+		'presentation'
 	);
 
 	add_settings_field(
@@ -126,14 +143,6 @@ function standard_setup_theme_presentation_options() {
 			'option_image_path' => get_template_directory_uri() . '/images/layout-full.gif'
 		)
 	);
-
-	add_settings_field(
-		'contrast',
-		__( 'Contrast', 'standard' ),
-		'contrast_display',
-		'standard_theme_presentation_options',
-		'presentation'
-	);
 	
 	register_setting(
 		'standard_theme_presentation_options',
@@ -150,6 +159,53 @@ add_action( 'admin_init', 'standard_setup_theme_presentation_options' );
 function standard_theme_presentation_options_display() {
 	_e( 'TODO', 'standard' );	
 } // end standard_theme_presentation_options_display
+
+/**
+ * Renders the option element for the Site Icon
+ */
+function fav_icon_display() {
+
+	$option = get_option( 'standard_theme_presentation_options' );
+	
+	$fav_icon = '';
+	if( isset( $option['fav_icon'] ) ) {
+		$fav_icon = $option['fav_icon'];
+	} // end if
+	
+	$dimensions = '';
+	if( '' != $fav_icon ) {
+		$dimensions = 'width="16" height="16"';
+	} // end if
+	
+	$html = '<img src="' . $fav_icon . '" id="image_upload_preview" alt="" ' . $dimensions . '/>';
+	$html .= '<input type="hidden" id="fav_icon" name="standard_theme_presentation_options[fav_icon]" value="' . esc_attr( $fav_icon ) . '" class="media-upload-field" />';
+	$html .= '<input type="button" class="button" id="upload_fav_icon" value="' . __( 'Upload Now', 'standard' ) . '"/>';
+	
+	if( '' != trim( $fav_icon ) ) {
+		$html .= '<input type="button" class="button" id="delete_fav_icon" value="' . __( 'Delete', 'standard' ) . '"/>';
+	} // end if
+	
+	$html .= '&nbsp;<span class="description">' . __( 'This icon will be used as both the fav icon and the iOS and Android homescreen icon.', 'standard' ) . '</span>';
+	
+	echo $html;
+	
+} // end fav_icon_display
+
+/**
+ * Renders the layout option for the contrast checkbox.
+ */
+function contrast_display() {
+
+	$options = get_option( 'standard_theme_presentation_options' );
+	
+	$html = '<select id="contrast" name="standard_theme_presentation_options[contrast]">';
+		$html .= '<option value="light"' . selected( $options['contrast'], 'light', false ) . '>' . __( 'Light', 'standard' ) . '</option>';
+		$html .= '<option value="dark"' . selected( $options['contrast'], 'dark', false ) . '>' . __( 'Dark', 'standard' )  . '</option>';
+	$html .= '</select>';
+
+	echo $html;
+	
+} // end contrast_display
 
 /**
  * Renders the left-sidebar layout option.
@@ -200,22 +256,6 @@ function full_width_presentation_display( $args ) {
 } // end full_width_presentation_display
 
 /**
- * Renders the layout option for the contrast checkbox.
- */
-function contrast_display() {
-
-	$options = get_option( 'standard_theme_presentation_options' );
-	
-	$html = '<select id="contrast" name="standard_theme_presentation_options[contrast]">';
-		$html .= '<option value="light"' . selected( $options['contrast'], 'light', false ) . '>' . __( 'Light', 'standard' ) . '</option>';
-		$html .= '<option value="dark"' . selected( $options['contrast'], 'dark', false ) . '>' . __( 'Dark', 'standard' )  . '</option>';
-	$html .= '</select>';
-
-	echo $html;
-	
-} // end contrast_display
-
-/**
  * Sanitization callback for the layout options. Since each of the layout options are checkboxes,
  * this function loops through the incoming options and verifies they are either empty strings
  * or the number 1.
@@ -230,7 +270,7 @@ function standard_theme_presentation_options_validate( $input ) {
 
 	foreach( $input as $key => $val ) {
 	
-		if( isset ( $input[$key] ) && $input[$key] == 'left_sidebar_layout' || $input[$key] == 'right_sidebar_layout' || $input[$key] == 'full_width_layout' || $key == 'contrast' ) {
+		if( isset ( $input[$key] ) ) {
 			$output[$key] = $input[$key];
 		} // end if	
 	
@@ -451,7 +491,6 @@ function get_standard_theme_default_global_options() {
 		'display_author_box'		=>	'on',
 		'display_featured_images' 	=> 	'always',
 		'offline_mode'				=>	'',
-		'fav_icon'					=>	'',
 		'google_analytics'			=>	'',
 		'affiliate_code'			=>	'',
 		'offline_display_message'	=>	__( 'Our site is currently offline.', 'standard' )
@@ -516,14 +555,6 @@ function standard_setup_theme_global_options() {
 		'affiliate_code',
 		__( 'Affiliate Code', 'standard' ),
 		'affiliate_code_display',
-		'standard_theme_global_options',
-		'global'
-	);
-	
-	add_settings_field(
-		'fav_icon',
-		__( 'Site Icon', 'standard' ),
-		'fav_icon_display',
 		'standard_theme_global_options',
 		'global'
 	);
@@ -663,35 +694,6 @@ function affiliate_code_display() {
 	
 	echo $html;
 
-} // end affiliate_code_display
-
-/**
- * Renders the option element for the Site Icon
- */
-function fav_icon_display() {
-
-	$option = get_option( 'standard_theme_global_options' );
-	
-	$fav_icon = '';
-	if( isset( $option['fav_icon'] ) ) {
-		$fav_icon = $option['fav_icon'];
-	} // end if
-	
-	$dimensions = '';
-	if( '' != $fav_icon ) {
-		$dimensions = 'width="16" height="16"';
-	} // end if
-	
-	$html = '<img src="' . $fav_icon . '" id="image_upload_preview" alt="" ' . $dimensions . '/>';
-	$html .= '<input type="hidden" id="fav_icon" name="standard_theme_global_options[fav_icon]" value="' . esc_attr( $fav_icon ) . '" class="media-upload-field" />';
-	$html .= '<input type="button" class="button" id="upload_fav_icon" value="' . __( 'Upload Now', 'standard' ) . '"/>';
-	
-	if( '' != trim( $fav_icon ) ) {
-		$html .= '<input type="button" class="button" id="delete_fav_icon" value="' . __( 'Delete', 'standard' ) . '"/>';
-	} // end if
-	
-	echo $html;
-	
 } // end affiliate_code_display
 
 /**
