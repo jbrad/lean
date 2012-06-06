@@ -8,11 +8,11 @@
 ?>
 <?php global $wp_query; ?>
 
-<?php if( is_single() ) { ?>
+<?php if( is_single() && 'post' == get_post_type() ) { ?>
 
 	<div id="single-post-nav">
 		<ul class="pager">
-		<?php $trunc_limit = 30; ?>
+			<?php $trunc_limit = 30; ?>
 			<li class="previous">
 			<?php previous_post_link( '<span class="previous-page">%link</span>', __( '<i class="icon-chevron-left"></i>', 'standard' ) . '&nbsp;' . standard_truncate_text( get_previous_post()->post_title, $trunc_limit ) ); ?>
 			</li>
