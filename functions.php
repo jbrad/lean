@@ -70,7 +70,7 @@ function get_standard_theme_default_layout_options() {
 
 	$defaults = array(
 		'layout' 	=> 	'right_sidebar_layout',
-		'contrast'	=>	''
+		'contrast'	=>	'light'
 	);
 	
 	return apply_filters ( 'standard_theme_default_layout_options', $defaults );
@@ -206,9 +206,11 @@ function contrast_display() {
 
 	$options = get_option( 'standard_theme_layout_options' );
 	
-	$html = '<input type="checkbox" id="contrast" name="standard_theme_layout_options[contrast]" value="on" ' . checked( 'on', $options['contrast'], false ) . ' />';
-	$html .= '&nbsp;<label for="contrast">' . __( 'Select this option if you are using a light background.', 'standard' ) . '</label>';
-	
+	$html = '<select id="contrast" name="standard_theme_layout_options[contrast]">';
+		$html .= '<option value="light"' . selected( $options['contrast'], 'light', false ) . '>' . __( 'Light', 'standard' ) . '</option>';
+		$html .= '<option value="dark"' . selected( $options['contrast'], 'dark', false ) . '>' . __( 'Dark', 'standard' )  . '</option>';
+	$html .= '</select>';
+
 	echo $html;
 	
 } // end contrast_display
@@ -1796,15 +1798,19 @@ function standard_add_theme_stylesheets() {
 	
 	// contrast
 	$options = get_option( 'standard_theme_layout_options' );
-	if( 'on' == $options['contrast'] ) {
+	if( 'dark' == $options['contrast'] ) {
+	
 		wp_register_style( 'standard-contrast', get_stylesheet_directory_uri() . '/css/theme.contrast-light.css' );
 		wp_enqueue_style( 'standard-contrast' ); 
+		
  	} // end if
 
 	// if video press is loaded, we need to add styles for responsive
 	if( class_exists( 'VideoPress' ) ) {
+	
 		wp_register_style( 'standard-videopress', get_stylesheet_directory_uri() . '/css/theme.videopress.css' );
 		wp_enqueue_style( 'standard-videopress' ); 
+		
 	} // end if
 
 } // end add_theme_stylesheets
