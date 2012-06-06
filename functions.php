@@ -547,7 +547,6 @@ function standard_theme_social_options_validate( $input ) {
 function get_standard_theme_default_global_options() {
 
 	$defaults = array(
-		'display_author_box'		=>	'on',
 		'offline_mode'				=>	'',
 		'google_analytics'			=>	'',
 		'affiliate_code'			=>	'',
@@ -575,14 +574,6 @@ function standard_setup_theme_global_options() {
 		__( 'Global', 'standard' ),
 		'standard_theme_global_options_display',
 		'standard_theme_global_options'
-	);
-
-	add_settings_field(
-		'display_author_box',
-		__( 'Author Box', 'standard' ),
-		'display_author_box_display',
-		'standard_theme_global_options',
-		'global'
 	);
 	
 	add_settings_field(
@@ -632,27 +623,6 @@ add_action( 'admin_init', 'standard_setup_theme_global_options' );
 function standard_theme_global_options_display() {
 	_e( 'Configure global options that influence how your blog renders content, tracks analytics, and more.', 'standard' );
 } // end standard_theme_global_options_display
-
-/**
- * Renders the breadcrumb options.
- *
- * @params	$args	The array of options used for rendering the option.
- */
-function display_author_box_display( $args ) {
-	
-	$options = get_option( 'standard_theme_global_options' );
-
-	$display_author_box = '';
-	if( isset( $options['display_author_box'] ) ) {
-		$display_author_box = $options['display_author_box'];
-	} // end if
-
-	$html = '<input type="checkbox" id="display_author_box" name="standard_theme_global_options[display_author_box]" value="on" ' . checked( 'on',$display_author_box, false ) . ' />';
-	$html .= '&nbsp;<label for="display_author_box">' . __( 'Displays between post content and comments. Includes <a href="profile.php">display name</a>, <a href="profile.php">website</a>, and <a href="profile.php">biographical info</a>.', 'standard' ) . '</label>';
-	
-	echo $html;
-	
-} // end display_breadcrumbs_display
 
 /**
  * Renders the option element for Google Analytics.
@@ -766,11 +736,12 @@ function standard_theme_global_options_validate( $input ) {
  * ----------------------------- */
  
  /**
- * Defines the default values for Standard's publishing options.
+ * Defines the default values for Standard's post options in the Publishing screen.
  */
 function get_standard_theme_default_publishing_options() {
 
 	$defaults = array(
+		'display_author_box'			=>	'on',
 		'post_advertisement_type' 		=> 'none',
 		'post_advertisement_image'		=>	'',
 		'post_advertisement_adsense'	=>	''
@@ -778,7 +749,7 @@ function get_standard_theme_default_publishing_options() {
 	
 	return apply_filters ( 'standard_theme_default_publishing_options', $defaults );
 
-} // end get_standard_theme_default_global_options
+} // end get_standard_theme_default_publishing_options
 
 /**
  * Defines Standard's "publishing" options.
@@ -790,10 +761,59 @@ function standard_setup_theme_publishing_options() {
 		add_option( 'standard_theme_publishing_options', apply_filters( 'standard_theme_publishing_options', get_standard_theme_default_publishing_options() ) );
 	} // end if
 	
+	// Publishing options (composed of Post and Pages)
 	add_settings_section(
 		'publishing',
 		__( 'Publishing', 'standard' ),
 		'standard_theme_publishing_options_display',
+		'standard_theme_publishing_options'
+	);
+
+	// Post options
+	add_settings_section(
+		'post',
+		__( 'Posts', 'standard' ),
+		'standard_theme_post_options_display',
+		'standard_theme_publishing_options'
+	);
+	
+	add_settings_field(
+		'display_author_box',
+		__( 'Author Box', 'standard' ),
+		'display_author_box_display',
+		'standard_theme_publishing_options',
+		'post'
+	);
+	
+	add_settings_field(
+		'post_advertisement_type',
+		__( 'Display Advertisements Using', 'standard' ),
+		'post_advertisement_type_display',
+		'standard_theme_publishing_options',
+		'post'
+	);
+	
+	add_settings_field(
+		'post_advertisement_image',
+		__( 'Advertisement Image', 'standard' ),
+		'post_advertisement_image_display',
+		'standard_theme_publishing_options',
+		'post'
+	);
+	
+	add_settings_field(
+		'post_advertisement_adsense',
+		__( 'Advertisement Adsense', 'standard' ),
+		'post_advertisement_adsense_display',
+		'standard_theme_publishing_options',
+		'post'
+	);
+	
+	// Page options
+	add_settings_section(
+		'page',
+		__( 'Page', 'standard' ),
+		'standard_theme_page_options_display',
 		'standard_theme_publishing_options'
 	);
 	
@@ -802,7 +822,7 @@ function standard_setup_theme_publishing_options() {
 		__( 'Privacy Policy', 'standard' ),
 		'privacy_policy_template_display',
 		'standard_theme_publishing_options',
-		'publishing'
+		'page'
 	);
 
 	add_settings_field(
@@ -810,48 +830,94 @@ function standard_setup_theme_publishing_options() {
 		__( 'Comment Policy', 'standard' ),
 		'comment_policy_template_display',
 		'standard_theme_publishing_options',
-		'publishing'
+		'page'
 	);
-	
-	add_settings_field(
-		'post_advertisement_type',
-		__( 'Display Advertisements Using', 'standard' ),
-		'post_advertisement_type_display',
+/*
+	register_setting(
+		'standard_theme_post_options',
 		'standard_theme_publishing_options',
-		'publishing'
-	);
-	
-	add_settings_field(
-		'post_advertisement_image',
-		__( 'Advertisement Image', 'standard' ),
-		'post_advertisement_image_display',
-		'standard_theme_publishing_options',
-		'publishing'
-	);
-	
-	add_settings_field(
-		'post_advertisement_adsense',
-		__( 'Advertisement Adsense', 'standard' ),
-		'post_advertisement_adsense_display',
-		'standard_theme_publishing_options',
-		'publishing'
+		'standard_theme_publishing_options_validate'
 	);
 
+	register_setting(
+		'standard_theme_page_options',
+		'standard_theme_publishing_options',
+		'standard_theme_publishing_options_validate'
+	);
+*/
 	register_setting(
 		'standard_theme_publishing_options',
 		'standard_theme_publishing_options',
 		'standard_theme_publishing_options_validate'
 	);
-	
+
 } // end standard_setup_theme_publishing_options
 add_action( 'admin_init', 'standard_setup_theme_publishing_options' );
 
 /** 
- * Renders the description for the "Publishing" options settings page.
+ * Renders the description for the "Post" options settings in the Publishing section.
  */
 function standard_theme_publishing_options_display() {
-	_e( 'TODO', 'standard' );
+	
+	do_settings_sections( 'standard_theme_post_options' );
+	settings_fields( 'standard_theme_post_options' );
+					
+	do_settings_sections( 'standard_theme_page_options' );
+	settings_fields( 'standard_theme_page_options' );
+	
 } // end standard_theme_publishing_options_display
+
+/** 
+ * Renders the description for the "Post" options settings in the Publishing section.
+ */
+function standard_theme_post_options_display() {
+	_e( 'Post TODO', 'standard' );
+} // end standard_theme_post_options_display
+
+/** 
+ * Renders the description for the "Page" options settings in the Publishing section.
+ */
+function standard_theme_page_options_display() {
+	_e( 'Page TODO', 'standard' );
+} // end standard_theme_page_options_display
+
+/**
+ * Renders the breadcrumb options.
+ *
+ * @params	$args	The array of options used for rendering the option.
+ */
+function display_author_box_display( $args ) {
+	
+	$options = get_option( 'standard_theme_publishing_options' );
+
+	$display_author_box = '';
+	if( isset( $options['display_author_box'] ) ) {
+		$display_author_box = $options['display_author_box'];
+	} // end if
+
+	$html = '<input type="checkbox" id="display_author_box" name="standard_theme_publishing_options[display_author_box]" value="on" ' . checked( 'on',$display_author_box, false ) . ' />';
+	$html .= '&nbsp;<label for="display_author_box">' . __( 'Displays between post content and comments. Includes <a href="profile.php">display name</a>, <a href="profile.php">website</a>, and <a href="profile.php">biographical info</a>.', 'standard' ) . '</label>';
+	
+	echo $html;
+	
+} // end display_breadcrumbs_display
+
+/**
+ * Renders the options for allows the user to select how to display their post-level advertisements.
+ */
+function post_advertisement_type_display() {
+
+	$options = get_option( 'standard_theme_publishing_options' );
+
+	$html = '<select id="post_advertisement_type" name="standard_theme_publishing_options[post_advertisement_type]">';
+		$html .= '<option value="none"' . selected( 'none', $options['post_advertisement_type'], false ) . '>' . __( 'None', 'standard' ) . '</option>';
+		$html .= '<option value="image"' . selected( 'image', $options['post_advertisement_type'], false ) . '>' . __( 'Banner Image', 'standard' ) . '</option>';
+		$html .= '<option value="adsense"' . selected( 'adsense', $options['post_advertisement_type'], false ) . '>' . __( 'Adsense', 'standard' ) . '</option>';
+	$html .= '</select>';
+	
+	echo $html;
+
+} // end post_advertisement_type_display
 
 /**
  * Renders the option for generating a Privacy Policy from within the Standard dashboard.
@@ -957,23 +1023,6 @@ function standard_generate_comment_policy_page( ) {
 add_action( 'wp_ajax_standard_generate_comment_policy_page', 'standard_generate_comment_policy_page' );
 
 /**
- * Renders the options for allows the user to select how to display their post-level advertisements.
- */
-function post_advertisement_type_display() {
-
-	$options = get_option( 'standard_theme_publishing_options' );
-
-	$html = '<select id="post_advertisement_type" name="standard_theme_publishing_options[post_advertisement_type]">';
-		$html .= '<option value="none"' . selected( 'none', $options['post_advertisement_type'], false ) . '>' . __( 'None', 'standard' ) . '</option>';
-		$html .= '<option value="image"' . selected( 'image', $options['post_advertisement_type'], false ) . '>' . __( 'Banner Image', 'standard' ) . '</option>';
-		$html .= '<option value="adsense"' . selected( 'adsense', $options['post_advertisement_type'], false ) . '>' . __( 'Adsense', 'standard' ) . '</option>';
-	$html .= '</select>';
-	
-	echo $html;
-
-} // end post_advertisement_type_display
-
-/**
  * Renders the image input option for allowing users to select the post-level advertisement.
  */
 function post_advertisement_image_display() {
@@ -1007,7 +1056,7 @@ function post_advertisement_adsense_display() {
 } // end post_advertisement_image_display
 
 /**
- * Sanitization callback for the publishing options.
+ * Sanitization callback for the post options in the Publishing options.
  *	
  * @params	$input	The unsanitized collection of options.
  *
@@ -1015,7 +1064,7 @@ function post_advertisement_adsense_display() {
  */
 function standard_theme_publishing_options_validate( $input ) {
 
-	$output = $defaults = get_standard_theme_default_publishing_options();
+	$output = array();
 
 	foreach( $input as $key => $val ) {
 
@@ -1032,7 +1081,7 @@ function standard_theme_publishing_options_validate( $input ) {
 	
 	} // end foreach
 
-	return apply_filters( 'standard_theme_publishing_options_validate', $output, $input, $defaults );
+	return apply_filters( 'standard_theme_publishing_options_validate', $output, $input, get_standard_theme_default_publishing_options() );
 
 } // end standard_theme_publishing_options_validate
 
@@ -1052,7 +1101,7 @@ add_action( 'admin_init', 'standard_is_current_version' );
  * Renders the theme options display page.
  */
 function standard_theme_options_display() {
-?>	
+?>
 	<div class="wrap">
 
 		<div id="icon-themes" class="icon32"></div>
@@ -1086,10 +1135,10 @@ function standard_theme_options_display() {
 					do_settings_sections( 'standard_theme_social_options' );					
 					
 				} else {
-				
-					settings_fields( 'standard_theme_publishing_options' );
+			
 					do_settings_sections( 'standard_theme_publishing_options' );
-				
+					settings_fields( 'standard_theme_publishing_options' );
+					
 				} // end if/else
 				
 				submit_button();
