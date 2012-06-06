@@ -1976,6 +1976,25 @@ add_action( 'admin_notices', 'standard_activate_theme' );
 // rel="generator" is an invalid HTML5 attribute
 remove_action( 'wp_head', 'wp_generator' );
 
+/** 
+ * Adds fields for Twitter, Facebook, and Google+ to the User Profile page so that users can populate this
+ * information and have it render in the author box.
+ * 
+ * @params	$user_contactmethods	The array of contact fields for the user's profile.
+ *
+ * @returns	The updated array of contact methods.
+ */
+function standard_add_user_profile_fields( $user_contactmethods ) {
+	
+	$user_contactmethods['twitter'] = __( 'Twitter', 'standard' );
+	$user_contactmethods['facebook'] = __( 'Facebook', 'standard' );
+	$user_contactmethods['google_plus'] = __( 'Google+', 'standard' );
+	
+	return $user_contactmethods;
+	
+} // end standard_add_user_profile_fields
+add_filter( 'user_contactmethods', 'standard_add_user_profile_fields' );
+
 /**
  * If running in native SEO mode and if the current page has a meta description, renders the description
  * to the browser.

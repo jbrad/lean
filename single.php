@@ -40,17 +40,23 @@
 									</div><!-- /.author-box-image -->
 									<h4 class="author-box-name"><?php the_author_meta( 'display_name' ); ?></h4>
 									<p>
+										<small class="author-box-url"><a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>" rel="author"><?php _e( 'Author\'s Posts', 'standard' ); ?></a></small></h4>
 									<?php if( strlen( trim( get_the_author_meta( 'user_url' ) ) ) > 0 ) { ?>
 										<small class="author-box-url"> <a href="<?php the_author_meta( 'user_url' ); ?>" target="_blank" rel="author"><?php _e( 'Website', 'standard' ); ?></a></small></h4>
 									<?php } // end if ?>
-									<small class="author-box-url"><a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>" rel="author"><?php _e( 'Author\'s Posts', 'standard' ); ?></a></small></h4>
+									
+										<small class="author-box-url"><a href="http://twitter.com/<?php echo get_user_meta( get_the_author_meta( 'ID' ), 'twitter', true ); ?>/" target="_blank"><?php _e( 'Twitter', 'standard'); ?></a></small>
+
+										<small class="author-box-url"><a href="http://facebook.com/<?php echo get_user_meta( get_the_author_meta( 'ID' ), 'facebook', true ); ?>/" target="_blank"><?php _e( 'Facebook', 'standard'); ?></a></small>
+
+										<small class="author-box-url"><a href="http://plus.google.com/<?php echo get_user_meta( get_the_author_meta( 'ID' ), 'google_plus', true ); ?>/" target="_blank"><?php _e( 'Google+', 'standard'); ?></a></small>
+									
 									</p>
 									<?php if( strlen( trim( the_author_meta( 'description' ) ) > 0 ) ) { ?>
 										<div class="author-box-description">
 											<p><?php the_author_meta( 'description' ); ?></p>
 										</div><!-- /.author-box-description -->
 									<?php } // end if ?>
-
 								</div><!-- /.author-box -->						
 							<?php } // end if ?>
 							
