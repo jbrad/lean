@@ -11,10 +11,10 @@ function sizeVideo() {
 
 	// Update the poster size
 	jQuery('.videopress-poster').
-		css('width', jQuery('.entry-content').width());
+		css('width', jQuery('.video-player').parent().width());
 		
 	// Update the actual video
 	jQuery('.video-player').children()
-		.css('width', jQuery('.entry-content').width()); 
+		.css('width', jQuery('.video-player').parent().width()); 
 
 } // end sizeVideo
