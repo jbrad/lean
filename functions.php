@@ -183,11 +183,11 @@ function standard_theme_presentation_options_display() {
  */
 function fav_icon_display() {
 
-	$option = get_option( 'standard_theme_presentation_options' );
+	$options = get_option( 'standard_theme_presentation_options' );
 	
 	$fav_icon = '';
-	if( isset( $option['fav_icon'] ) ) {
-		$fav_icon = $option['fav_icon'];
+	if( isset( $options['fav_icon'] ) ) {
+		$fav_icon = $options['fav_icon'];
 	} // end if
 	
 	$dimensions = '';
@@ -435,7 +435,7 @@ function standard_theme_social_options_display() {
 				$html .= '<p id="social-icon-max" class="hidden">' . __( 'Standard looks best with seven social icons.', 'standard' ) . '</p>';
 				$html .= '<div id="active-icon-url" class="hidden">';
 					$html .= '<label>' . __( 'Icon Address:', 'standard' ) . '</label>';
-					$html .= '<input type="text" id="" name="" value="" class="icon-url" data-via="" data-url="" />';
+					$html .= '<input type="text" id="social-icon-url" value="" class="icon-url" data-via="" data-url="" />';
 					$html .= '<input type="button" class="button" id="set-social-icon-url" value="' . __( 'Done', 'standard' ). '" />';
 				$html .= '</div><!-- /#active-icon-url -->';
 			$html .= '</div><!-- /#active-icons -->';
@@ -456,6 +456,7 @@ function standard_theme_social_options_display() {
 		$html .= '</div><!-- /.social-icons-available -->';
 		
 		$html .= '<span id="standard-save-social-icons-nonce" class="hidden">' . wp_create_nonce( 'standard_save_social_icons_nonce' ) . '</span>';
+		$html .= '<span id="standard-wordpress-rss-url" class="hidden">' . esc_url( (string)get_feed_link( 'rss2' ) ) . '</span>';
 		
 	$html .= '</div><!-- /.social-icons-wrapper -->';
 	
@@ -2024,8 +2025,7 @@ add_action( 'admin_enqueue_scripts', 'standard_add_admin_scripts' );
  * Once reset, all options will be reset to their default values.
  */
 function standard_activate_theme() {
-	// TODO fix this
-	return;
+
 	if( ! standard_is_current_version() ) {
 	
 		if( array_key_exists( 'standard_theme_reset_options', $_GET ) && 'true' == $_GET['standard_theme_reset_options'] ) {
@@ -2037,8 +2037,13 @@ function standard_activate_theme() {
 			update_option( 'standard_theme_version', '3.0' );
 			
 		} else {
-		
-			echo '<div id="standard-old-version" class="updated"><p>' . __( 'Standard has detected that you are running a preview version of the theme. In order to continue installation, your old settings must be reset. <a href="?standard_theme_reset_options=true">Please click here to reset your options</a>.', 'standard') . '</p></div>';
+
+			$url = '?standard_theme_reset_options=true';
+			if( isset( $_SERVER['argv'][0] ) ) {
+				$url = $_SERVER['argv'][0] . '&standard_theme_reset_options=true';
+			} // end if
+
+			echo '<div id="standard-old-version" class="updated"><p>' . __( 'Standard has detected that you are running a preview version of the theme. In order to continue installation, your old settings must be reset. <a href="' . $url . '">Please click here to reset your options</a>.', 'standard') . '</p></div>';
 		
 		} // end if/else
 	

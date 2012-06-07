@@ -8,17 +8,17 @@
  */
 ?>
 <?php get_header(); ?>
-<?php $options = get_option( 'standard_theme_presentation_options' ); ?>
+<?php $presentation_options = get_option( 'standard_theme_presentation_options' ); ?>
 
 <div id="wrapper">
 	<div class="container">
  		<div class="row">
 
-			<?php if ( 'left_sidebar_layout' == $options['layout'] ) { ?>
+			<?php if ( 'left_sidebar_layout' == $presentation_options['layout'] ) { ?>
 				<?php get_sidebar(); ?>
 			<?php } // end if ?>
 	
-			<div id="main" class="<?php echo 'full_width_layout' == $options['layout'] ? 'span12 fullwidth' : 'span8'; ?> clearfix" role="main">
+			<div id="main" class="<?php echo 'full_width_layout' == $presentation_options['layout'] ? 'span12 fullwidth' : 'span8'; ?> clearfix" role="main">
 				
 				<?php if( standard_google_custom_search_is_active() ) { ?>
 				
@@ -66,7 +66,7 @@
 					<?php } // end if/else ?>
 				</div><!-- /#main -->
 			
-				<?php if ( 'right_sidebar_layout' == $options['layout'] ) { ?>
+				<?php if ( 'right_sidebar_layout' == $presentation_options['layout'] ) { ?>
 					<?php get_sidebar(); ?>
 				<?php } // end if ?>
 			
