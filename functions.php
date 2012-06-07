@@ -833,19 +833,7 @@ function standard_setup_theme_publishing_options() {
 		'standard_theme_publishing_options',
 		'page'
 	);
-/*
-	register_setting(
-		'standard_theme_post_options',
-		'standard_theme_publishing_options',
-		'standard_theme_publishing_options_validate'
-	);
 
-	register_setting(
-		'standard_theme_page_options',
-		'standard_theme_publishing_options',
-		'standard_theme_publishing_options_validate'
-	);
-*/
 	register_setting(
 		'standard_theme_publishing_options',
 		'standard_theme_publishing_options',
@@ -2037,10 +2025,25 @@ function standard_activate_theme() {
 			update_option( 'standard_theme_version', '3.0' );
 			
 		} else {
-
+			
+			// Set the reset query string value
 			$url = '?standard_theme_reset_options=true';
+			
+			// If there are already query string values present...
 			if( isset( $_SERVER['argv'][0] ) ) {
-				$url = $_SERVER['argv'][0] . '&standard_theme_reset_options=true';
+			
+				// And if we're on the theme activation page
+				if( $_SERVER['argv'][0] == 'activated=true' ) {
+				
+					// Rebuild the query string
+					$url = 'themes.php?' . $_SERVER['argv'][0] . '&standard_theme_reset_options=true';
+				} else {
+				
+					// Otherwise, use the page we're on
+					$url = $_SERVER['argv'][0] . '&standard_theme_reset_options=true';
+					
+				} // end if/else
+				
 			} // end if
 
 			echo '<div id="standard-old-version" class="updated"><p>' . __( 'Standard has detected that you are running a preview version of the theme. In order to continue installation, your old settings must be reset. <a href="' . $url . '">Please click here to reset your options</a>.', 'standard') . '</p></div>';
