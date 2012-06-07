@@ -240,6 +240,13 @@ function checkForMaxIcons() {
 function setupIconClickHander($, $this) {
 
 	$this.click(function(evt) {
+		
+		var sRssUrl = '';
+		if($(evt.srcElement).attr('src') !== '') {
+			if($(evt.srcElement).attr('src').toString().indexOf('rss.png') > 0) {
+				sRssUrl = $('#standard-wordpress-rss-url').text();
+			} // end if
+		} // end if
 			
 		// if the input is visible, clear it out; otherwise, show it.
 		if($('#active-icon-url').is(':visible')) {
@@ -247,14 +254,14 @@ function setupIconClickHander($, $this) {
 			$(this).parent()
 				.siblings('#active-icon-url')
 				.children('input[type=text]')
-				.val();
+				.val('');
 		
 		} else {
 		
 			$(this).parent()
 				.siblings('#active-icon-url')
 				.removeClass('hidden');
-		
+
 		} // end if/else
 		
 		$(this).parent()
@@ -267,6 +274,10 @@ function setupIconClickHander($, $this) {
 		$(this).addClass('active-icon');
 		
 		updateIconValues();
+		
+		if('' !== sRssUrl) {
+			$('#social-icon-url').val(sRssUrl);
+		} // end if
 		
 	});
 
