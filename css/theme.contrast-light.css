@@ -71,6 +71,32 @@ h6 {
 	background: #101010;
 }
 
+/* author box */
+#author-box .author-link {
+	background-image: url(../images/icn-author-sprites-white.png);
+	color: #eee;
+}
+
+.page-link {
+	border-color: #303030;
+}
+
+#comments .comment-container .comment-entry .name {
+	color: #999;
+}
+
+#comments .date a {
+	color: #eee;
+}
+
+#comments .comment-container {
+	border-color: #303030;
+}
+
+#comments > ol > li > ul.children > li .comment-container {
+	border-color: #303030;
+}
+
 /* pagination icons */
 .pager [class^="icon-"], 
 .pager [class*=" icon-"] {

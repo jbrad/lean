@@ -964,12 +964,51 @@ a.post-permalink:hover {
 /* Post Author Box */
 
 #author-box {
-	margin-bottom: 0;
+	margin-bottom: 20px;
 }
 
 .author-box-image {
 	float: left;
 	margin-right: 20px;
+}
+
+#author-box .author-link {
+	background-image: url(images/icn-author-sprites.png);
+	background-repeat: no-repeat;
+	overflow: hidden;
+	line-height: 1;
+	padding-left: 14px;
+	display: inline-block;
+	text-indent: -999px;
+	-webkit-transition: opacity .25s ease-in-out;
+	-moz-transition: opacity .25s ease-in-out;
+	-o-transition: opacity .25s ease-in-out;
+	-ms-transition: opacity .25s ease-in-out;
+	transition: opacity .25s ease-in-out;
+}
+
+#author-box .author-link:hover {
+	opacity: 0.6;
+}
+
+.author-link.author-posts-url {
+	background-position: 0 0;
+}
+
+.author-link.author-url {
+	background-position: 0 -19px;
+}
+
+.author-link.icn-twitter {
+	background-position: 0 -37px;
+}
+
+.author-link.icn-facebook {
+	background-position: 0 -57px;
+}
+
+.author-link.icn-gplus {
+	background-position: 0 -78px;
 }
 
 /* Other post styles */
