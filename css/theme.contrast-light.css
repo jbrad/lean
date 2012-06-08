@@ -97,6 +97,16 @@ h6 {
 	border-color: #303030;
 }
 
+/* sidebar */
+table#wp-calendar caption {
+	background-color: #202020;
+	background-color: rgba(41,41,41,0.4);
+}
+
+.widget_calendar td {
+	color: #454545;
+}
+
 /* pagination icons */
 .pager [class^="icon-"], 
 .pager [class*=" icon-"] {
