@@ -1215,26 +1215,6 @@ a.post-permalink:hover {
     padding-left: 5px;
 }
 
-/* when custom background color/image */
-/*
-TODO jared do we need this?
-.custom-background #sidebar .widget {
-	background: #fff;
-	padding: 20px;
-	-webkit-border-radius: 4px;
-	-moz-border-radius: 4px;
-	border-radius: 4px;
-}
-
-.custom-background #sidebar .widget.tabbed-widget {
-	padding: 0;
-}
-
-.custom-background #sidebar .widget_search {
-	margin-bottom: 30px;
-}
-*/
-
 #footer-widgets .widget {
 	margin-bottom: 30px;
 }
