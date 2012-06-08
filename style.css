@@ -587,7 +587,7 @@ p.wp-caption-text {
 }
 
 #single-post-nav .pager {
-	margin-bottom: 0;
+	margin-bottom: 20px;
 }
 
 #single-post-nav .previous-page {
@@ -628,9 +628,9 @@ p.wp-caption-text {
 	font-size: 12px;
 	border-width: 0 0 0 0;
 	padding: 20px 15px;
-	-moz-border-radius: 0;
-	-webkit-border-radius: 0;
-	border-radius: 0;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
 	background-color: transparent;
 }
 
