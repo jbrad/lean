@@ -1142,6 +1142,149 @@ function standard_theme_options_display() {
  * ----------------------------------------------------------- */
 
 /**
+ * Implements the Theme Customizer for installations that are on WordPress 3.4 or greater.
+ * 
+ * @params	$wp_customize	The WordPress Theme Customizer
+ */
+if( 0 == strpos( get_bloginfo( 'version' ), '3.4' ) ) {
+	
+	function standard_customize_register( $wp_customize ) {
+
+		// Presentation Options
+		$wp_customize->add_section( 'standard_theme_presentation_options', 
+			array(
+				'title'          => __( 'Presentation', 'standard' ),
+				'priority'       => 150
+			) 
+		);
+	
+		// Contrast
+		$wp_customize->add_setting( 'standard_theme_presentation_options[contrast]', 
+			array(
+				'default'        => '',
+				'type'           => 'option',
+				'capability'     => 'edit_theme_options'
+			) 
+		);
+	
+		$wp_customize->add_control( 'standard_theme_presentation_options[contrast]', 
+			array(
+				'label'      => __( 'Contrast', 'standard' ),
+				'section'    => 'standard_theme_presentation_options',
+				'settings'   => 'standard_theme_presentation_options[contrast]',
+				'type'       => 'select',
+				'choices'    => array(
+					'light' => __( 'Light', 'standard' ),
+					'dark'  => __( 'Dark', 'standard' )
+				),
+			) 
+		);
+		
+		// Layout
+		$wp_customize->add_setting( 'standard_theme_presentation_options[layout]', 
+			array(
+				'default'        => 'right_sidebar_layout',
+				'type'           => 'option',
+				'capability'     => 'edit_theme_options'
+			) 
+		);
+	
+		$wp_customize->add_control( 'standard_theme_presentation_options[layout]', 
+			array(
+				'label'      => __( 'Layout', 'themename' ),
+				'section'    => 'standard_theme_presentation_options',
+				'settings'   => 'standard_theme_presentation_options[layout]',
+				'type'       => 'select',
+				'choices'    => array(
+					'left_sidebar_layout' 	=> __( 'Left Sidebar', 'standard' ),
+					'right_sidebar_layout' 	=> __( 'Right Sidebar', 'standard' ),
+					'full_width_layout'		=> __( 'Full-Width', 'standard' )
+				),
+			) 
+		);
+		
+		// Featured Images
+		$wp_customize->add_setting( 'standard_theme_presentation_options[display_featured_images]', 
+			array(
+				'default'        => 'on',
+				'type'           => 'option',
+				'capability'     => 'edit_theme_options'
+			) 
+		);
+	
+		$wp_customize->add_control( 'standard_theme_presentation_options[display_featured_images]', 
+			array(
+				'label'      => __( 'Display Featured Images', 'themename' ),
+				'section'    => 'standard_theme_presentation_options',
+				'settings'   => 'standard_theme_presentation_options[display_featured_images]',
+				'type'       => 'select',
+				'choices'    => array(
+					'always' 		=>	__( 'Always', 'standard' ),
+					'never' 		=>  __( 'Never', 'standard' ),
+					'index'			=>	__( 'On index only', 'standard' ),
+					'single-post'	=>	__( 'On single posts only', 'standard' )
+				),
+			) 
+		);
+		
+		// Breadcrumbs
+		$wp_customize->add_setting( 'standard_theme_presentation_options[display_breadcrumbs]', 
+			array(
+				'default'        => 'on',
+				'type'           => 'option',
+				'capability'     => 'edit_theme_options'
+			) 
+		);
+	
+		$wp_customize->add_control( 'standard_theme_presentation_options[display_breadcrumbs]', 
+			array(
+				'label'      => __( 'Display Breadcrumbs', 'standard' ),
+				'section'    => 'standard_theme_presentation_options',
+				'settings'   => 'standard_theme_presentation_options[display_breadcrumbs]',
+				'type'       => 'select',
+				'choices'    => array(
+					'on' 		=>	__( 'On single posts and pages', 'standard' ),
+					'off' 		=>  __( 'Never', 'standard' )
+				)
+			) 
+		);
+		
+		// Publishing Options
+		$wp_customize->add_section( 'standard_theme_publishing_options', 
+			array(
+				'title'          => __( 'Publishing', 'standard' ),
+				'priority'       => 151
+			) 
+		);
+	
+		// Author Box
+		$wp_customize->add_setting( 'standard_theme_publishing_options[display_author_box]', 
+			array(
+				'default'        => '',
+				'type'           => 'option',
+				'capability'     => 'edit_theme_options'
+			) 
+		);
+	
+		$wp_customize->add_control( 'standard_theme_publishing_options[display_author_box]', 
+			array(
+				'label'      => __( 'Display Author Box', 'standard' ),
+				'section'    => 'standard_theme_publishing_options',
+				'settings'   => 'standard_theme_publishing_options[display_author_box]',
+				'type'       => 'select',
+				'choices'    => array(
+					'on' 		=>	__( 'Below post content', 'standard' ),
+					'off' 		=>  __( 'Never', 'standard' )
+				)
+			) 
+		);
+		
+	} // end standard_customize_register
+	add_action( 'customize_register', 'standard_customize_register' );
+
+} // end if
+
+/**
  * Defines a custom meta box for displaying the post full width layout. Only renders
  * if the blog isn't using the full width layout.
  */
