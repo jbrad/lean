@@ -12,14 +12,18 @@
 
 	<div id="single-post-nav">
 		<ul class="pager">
+		
 			<?php $trunc_limit = 30; ?>
+			
 			<li class="previous">
 			<?php previous_post_link( '<span class="previous-page">%link</span>', __( '<i class="icon-chevron-left"></i>', 'standard' ) . '&nbsp;' . standard_truncate_text( get_previous_post()->post_title, $trunc_limit ) ); ?>
 			</li>
-			<li class="next">
-			<?php next_post_link( '<span class="no-previous-page-link next-page">%link</span>', '&nbsp;' . standard_truncate_text( get_next_post()->post_title, $trunc_limit ) . __( '<i class="icon-chevron-right"></i>', 'standard' ) ); ?>
-			</li>
-
+			
+			<?php if( '' != get_next_post() ) { ?>
+				<li class="next">
+				<?php next_post_link( '<span class="no-previous-page-link next-page">%link</span>', '&nbsp;' . standard_truncate_text( get_next_post()->post_title, $trunc_limit ) . __( '<i class="icon-chevron-right"></i>', 'standard' ) ); ?>
+				</li>
+			<?php } // end if ?>
 		</ul>	
 	</div><!-- /#single-post-nav -->
 
