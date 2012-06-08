@@ -33,7 +33,7 @@ class Standard_Nav_Walker extends Walker_Nav_Menu {
 					
 			} else { 
 				
-				$menu_item = '<li class="dropdown submenu' . $css_classes . '">';
+				$menu_item = '<li class="dropdown submenu ' . $css_classes . '">';
 					$menu_item .= '<a href="' . $item->url . '" class="dropdown-toggle" data-toggle="dropdown">';
 					
 			} // end if/else
