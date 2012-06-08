@@ -641,6 +641,15 @@ p.wp-caption-text {
 	cursor: pointer;
 }
 
+.page-link {
+	padding: 10px;
+	border: 1px solid #eee;
+}
+
+.page-link span {
+	font-weight: bold;
+}
+
 /*infinate handle */
 
 #infinite-handle span {
@@ -722,8 +731,15 @@ p.wp-caption-text {
 
 /* Password Protected Page/post */
 
+.post-password-required input[type="password"], .post-password-required label {
+	float: left;
+}
+
+
 .post-password-required input[type="submit"] {
 	margin-top: 0;
+	margin-left: 10px;
+	float: left;
 }
 
 /* Post Format Image */
