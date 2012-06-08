@@ -587,7 +587,7 @@ p.wp-caption-text {
 }
 
 #single-post-nav .pager {
-	margin-bottom: 0;
+	margin-bottom: 20px;
 }
 
 #single-post-nav .previous-page {
@@ -628,9 +628,9 @@ p.wp-caption-text {
 	font-size: 12px;
 	border-width: 0 0 0 0;
 	padding: 20px 15px;
-	-moz-border-radius: 0;
-	-webkit-border-radius: 0;
-	border-radius: 0;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
 	background-color: transparent;
 }
 
@@ -639,6 +639,15 @@ p.wp-caption-text {
 	background: #f5f5f5;
 	text-decoration: none;
 	cursor: pointer;
+}
+
+.page-link {
+	padding: 10px;
+	border: 1px solid #eee;
+}
+
+.page-link span {
+	font-weight: bold;
 }
 
 /*infinate handle */
@@ -722,8 +731,15 @@ p.wp-caption-text {
 
 /* Password Protected Page/post */
 
+.post-password-required input[type="password"], .post-password-required label {
+	float: left;
+}
+
+
 .post-password-required input[type="submit"] {
 	margin-top: 0;
+	margin-left: 10px;
+	float: left;
 }
 
 /* Post Format Image */
