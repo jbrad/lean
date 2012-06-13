@@ -27,12 +27,12 @@
 			<ol class="commentlist">
 				<?php wp_list_comments( 'avatar_size=50&callback=custom_comment&type=comment' ); ?>
 			</ol>    
-			<div class="comment-navigation">
-				<div class="fl">
-					<?php previous_comments_link(); ?>
+			<div class="comment-navigation clearfix">
+				<div class="comment-prev-nav">
+					<?php previous_comments_link('<i class="icon-chevron-left"></i>' . __( 'previus comments', 'standard' )); ?>
 				</div>
-				<div class="fr">
-					<?php next_comments_link(); ?>
+				<div class="comment-next-nav">
+					<?php next_comments_link(__( 'next comments', 'standard' ) . '<i class="icon-chevron-right"></i>'); ?>
 				</div>
 			</div>
 		</div><!-- /#comments -->
