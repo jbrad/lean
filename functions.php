@@ -2181,10 +2181,11 @@ function standard_activate_theme() {
 				
 					// Rebuild the query string
 					$url = 'themes.php?' . $_SERVER['argv'][0] . '&standard_theme_reset_options=true';
+					
 				} else {
 				
 					// Otherwise, use the page we're on
-					$url = $_SERVER['argv'][0] . '&standard_theme_reset_options=true';
+					$url = '?' . $_SERVER['argv'][0] . '&standard_theme_reset_options=true';
 					
 				} // end if/else
 				
