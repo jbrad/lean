@@ -1592,7 +1592,7 @@ if( ! function_exists( 'standard_add_theme_sidebars' ) ) {
 			array(
 				'name' 			=> __( 'Header', 'standard' ),
 				'id' 			=> 'sidebar-0',
-				'description'	=> __( 'The area for a 468x60 advertisement in the header.', 'standard' ),
+				'description'	=> __( 'This area is designed for a 468x60 advertisement, but other widgets can be used here as well.', 'standard' ),
 				'before_widget' => '<div id="%1$s" class="header-widget widget %2$s">',
 				'after_widget'  => '</div>',
 				'before_title'  => '<h3 class="widget-title">',
