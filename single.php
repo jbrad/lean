@@ -41,15 +41,22 @@
 									<h4 class="author-box-name"><?php the_author_meta( 'display_name' ); ?></h4>
 									<p>
 										<a class="author-link author-posts-url" href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>" title="<?php echo get_the_author_meta( 'display_name' ); ?> <?php _e( 'Posts', 'standard'); ?>" rel="author"><?php _e( 'Posts', 'standard' ); ?></a>
+										
 									<?php if( strlen( trim( get_the_author_meta( 'user_url' ) ) ) > 0 ) { ?>
 										<a class="author-link author-url" href="<?php the_author_meta( 'user_url' ); ?>" title="<?php _e( 'Website', 'standard'); ?>" target="_blank" rel="author"><?php _e( 'Website', 'standard' ); ?></a>
 									<?php } // end if ?>
 									
+									<?php if( strlen( trim( get_user_meta( get_the_author_meta( 'ID' ), 'twitter', true ) ) ) > 0 ) { ?>
 										<a class="author-link icn-twitter" href="http://twitter.com/<?php echo get_user_meta( get_the_author_meta( 'ID' ), 'twitter', true ); ?>/" title="<?php _e( 'Twitter', 'standard'); ?>" target="_blank"><?php _e( 'Twitter', 'standard'); ?></a>
+									<?php } // end if ?>
 
+									<?php if( strlen( trim( get_user_meta( get_the_author_meta( 'ID' ), 'facebook', true ) ) ) > 0 ) { ?>
 										<a class="author-link icn-facebook" href="http://facebook.com/<?php echo get_user_meta( get_the_author_meta( 'ID' ), 'facebook', true ); ?>/" title="<?php _e( 'Facebook', 'standard'); ?>" target="_blank"><?php _e( 'Facebook', 'standard'); ?></a>
-
+									<?php } // end if ?>
+									
+									<?php if( strlen( trim( get_user_meta( get_the_author_meta( 'ID' ), 'google_plus', true ) ) ) > 0 ) { ?>
 										<a class="author-link icn-gplus" href="http://plus.google.com/<?php echo get_user_meta( get_the_author_meta( 'ID' ), 'google_plus', true ); ?>/" title="<?php _e( 'Google+', 'standard'); ?>" target="_blank"><?php _e( 'Google+', 'standard'); ?></a>
+									<?php } // end if ?>
 									
 									</p>
 									<?php if( strlen( trim( the_author_meta( 'description' ) ) > 0 ) ) { ?>
