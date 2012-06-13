@@ -979,13 +979,14 @@ a.post-permalink:hover {
 }
 
 #author-box .author-link {
+	color: #999;
 	background-image: url(images/icn-author-sprites.png);
 	background-repeat: no-repeat;
 	overflow: hidden;
 	line-height: 1;
-	padding-left: 14px;
+	padding-left: 18px;
+	margin-right:10px;
 	display: inline-block;
-	text-indent: -999px;
 	-webkit-transition: opacity .25s ease-in-out;
 	-moz-transition: opacity .25s ease-in-out;
 	-o-transition: opacity .25s ease-in-out;
@@ -995,6 +996,7 @@ a.post-permalink:hover {
 
 #author-box .author-link:hover {
 	opacity: 0.6;
+	text-decoration: none;
 }
 
 .author-link.author-posts-url {
@@ -1010,7 +1012,7 @@ a.post-permalink:hover {
 }
 
 .author-link.icn-facebook {
-	background-position: 0 -57px;
+	background-position: 0 -58px;
 }
 
 .author-link.icn-gplus {
