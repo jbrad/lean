@@ -1,6 +1,11 @@
 (function($) {
 	$(function() {
 		
+		// Hide the 'Publishing' header for the posts and pages section
+		if($('h3:first').text().toLowerCase() === 'publishing') {
+			$('h3:first').hide();	 
+		} // end if
+		 
 		// Privacy Policy
 		$('#generate_privacy_policy').click(function(evt) {
 			
