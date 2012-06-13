@@ -667,6 +667,12 @@ p.wp-caption-text {
 	padding: 4px 17px;
 }
 
+.breadcrumb .active {
+	width: auto;
+	max-width: 100%;
+	word-wrap: break-word;
+}
+
 
 /* WP pagenavi styles */
 
