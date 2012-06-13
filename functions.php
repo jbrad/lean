@@ -662,7 +662,7 @@ function affiliate_code_display() {
 	} // end if
 	
 	$html = '<input type="text" id="affiliate_code" name="standard_theme_global_options[affiliate_code]" value="' . esc_attr( $affiliate_code ) . '" />';
-	$html .= '&nbsp;<span class="description">' . __( 'Enter your affiliate code here.', 'standard' ) . '</span>';
+	$html .= '&nbsp;<span class="description">' . __( 'Earn money by recommending Standard to your site visitors. Learn more <a href="http://docs.8bit.io/standard/affiliates">here</a>.', 'standard' ) . '</span>';
 	
 	echo $html;
 
