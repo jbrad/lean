@@ -21,7 +21,7 @@
 			<?php } else { ?>
 				<script type="text/javascript">
 					var _gaq = _gaq || [];
-					_gaq.push(['_setAccount', '<?php echo $global_option[ 'google_analytics' ] ?>']);
+					_gaq.push(['_setAccount', '<?php echo $global_options[ 'google_analytics' ] ?>']);
 					_gaq.push(['_trackPageview']);
 		
 					(function() {
