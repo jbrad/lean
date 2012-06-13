@@ -203,7 +203,7 @@ function fav_icon_display() {
 		$html .= '<input type="button" class="button" id="delete_fav_icon" value="' . __( 'Delete', 'standard' ) . '"/>';
 	} // end if
 	
-	$html .= '&nbsp;<span class="description">' . __( 'This icon will be used as both the fav icon and the iOS and Android homescreen icon.', 'standard' ) . '</span>';
+	$html .= '&nbsp;<span class="description">' . __( 'For best results, upload a 144x144 icon. This will be used for the favicon, Android, and iOS homescreen icons.', 'standard' ) . '</span>';
 	
 	echo $html;
 	
