@@ -39,7 +39,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 /* ------------------------------------------------------------------------ 1. Misc */
 
-* { 
+body * { 
 	word-wrap: break-word;
 	-ms-word-wrap: break-word;
 }
@@ -670,7 +670,8 @@ p.wp-caption-text {
 .breadcrumb .active {
 	width: auto;
 	max-width: 100%;
-	word-wrap: break-word;
+	display: inline;
+	word-break: break-all;
 }
 
 
@@ -1117,6 +1118,10 @@ a.post-permalink:hover {
 	width: 85%;
 }
 
+#comments .comment-container .comment-entry .comment-text {
+	word-break: break-all;
+}
+
 #comments .comment-container .comment-entry .name 	{
 	color: #444;
 }
@@ -1157,11 +1162,11 @@ a.post-permalink:hover {
 /* comment input */
 
 #respond {
-	padding: 20px !important;
+	padding: 20px;
 }
 
 .comment-container #respond {
-	padding: 20px 0 !important;
+	padding: 20px 0;
 	-moz-box-shadow: none;
 	-webkit-box-shadow: none;
 	box-shadow: none;
@@ -1198,6 +1203,7 @@ a.post-permalink:hover {
 
 #commentform #comment-form-avatar {
 	float: left;
+	margin-right: 20px;
 }
 
 #commentform #comment-form-wrapper #comment-form-elements,
