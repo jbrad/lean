@@ -10,7 +10,7 @@
 		<?php $presentation_options = get_option( 'standard_theme_presentation_options'); ?>
 		<?php if( '' != $presentation_options['fav_icon'] ) { ?>
 			<link rel="shortcut icon" href="<?php echo $presentation_options['fav_icon']; ?>" />
-			<link rel="apple-touch-icon" sizes="114x114" href="<?php echo $presentation_options['fav_icon']; ?>" />
+			<link rel="apple-touch-icon-precomposed" sizes="114x114" href="<?php echo $presentation_options['fav_icon']; ?>" />
 		<?php } // end if ?>
 		<?php $global_options = get_option( 'standard_theme_global_options' ); ?>
 		<?php if( '' != $global_options['google_analytics'] ) { ?>
