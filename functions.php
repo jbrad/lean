@@ -1835,11 +1835,11 @@ if( ! function_exists( 'standard_admin_header_style' ) ) {
 			}
 			
 			#header-top {
-				z-index: 2;
+				z-index: -1;
 			}
 			
 			#header-bottom {
-				z-index: 1;
+				z-index: -2;
 			}
 		</style>
 	<?php
