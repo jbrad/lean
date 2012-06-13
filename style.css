@@ -1269,7 +1269,30 @@ a.post-permalink:hover {
 }
 
 .comment-navigation {
-	padding: 20px 20px 0;
+	padding: 20px;
+}
+
+.comment-navigation a {
+	opacity: 0.6;
+	color: #999;
+}
+
+.comment-navigation a:hover {
+	opacity: 1;
+	text-decoration: none
+}
+
+.comment-navigation i {
+	opacity: 0.4;
+}
+
+.comment-prev-nav, .comment-prev-nav {
+	
+	float: left;
+}
+
+.comment-next-nav {
+	float: right;
 }
 
 
