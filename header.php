@@ -123,7 +123,11 @@
 								<div class="span12">	
 									<?php if ( ! empty( $header_image ) ) { ?>
 										<a href="<?php echo esc_url( home_url( '/' ) ); ?>">
-											<img src="<?php esc_url( header_image() ); ?>" width="<?php echo HEADER_IMAGE_WIDTH; ?>" height="<?php echo HEADER_IMAGE_HEIGHT; ?>" alt="<?php get_bloginfo( 'name' ); ?>" />
+											<?php if( standard_is_on_wp34() ) { ?>
+												<img src="<?php esc_url( header_image() ); ?>" width="<?php echo get_custom_header()->width; ?>" height="<?php echo get_custom_header()->height; ?>" alt="<?php get_bloginfo( 'name' ); ?>" />
+											<?php } else { ?>
+												<img src="<?php esc_url( header_image() ); ?>" width="<?php echo HEADER_IMAGE_WIDTH ?>" height="<?php echo HEADER_IMAGE_HEIGHT; ?>" alt="<?php get_bloginfo( 'name' ); ?>" />
+											<?php } // end if/else ?>
 										</a>
 									<?php } // end if ?>
 								</div> <!-- /#header-image -->

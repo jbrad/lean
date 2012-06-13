@@ -29,10 +29,10 @@
 			</ol>    
 			<div class="comment-navigation clearfix">
 				<div class="comment-prev-nav">
-					<?php previous_comments_link('<i class="icon-chevron-left"></i>' . __( 'previus comments', 'standard' )); ?>
+					<?php previous_comments_link( '<i class="icon-chevron-left"></i>' . __( 'Previous Comments', 'standard' ) ); ?>
 				</div>
 				<div class="comment-next-nav">
-					<?php next_comments_link(__( 'next comments', 'standard' ) . '<i class="icon-chevron-right"></i>'); ?>
+					<?php next_comments_link( __( 'Next Comments', 'standard' ) . '<i class="icon-chevron-right"></i>'); ?>
 				</div>
 			</div>
 		</div><!-- /#comments -->

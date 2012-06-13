@@ -1537,7 +1537,11 @@ if( ! function_exists( 'standard_page_menu' ) ) {
  */
 if( ! function_exists( 'standard_add_theme_background' ) ) { 
 	function standard_add_theme_background() {
-		add_custom_background();
+		if( standard_is_on_wp34() ) {
+			add_custom_background();
+		} else {
+			add_theme_support( 'custom-background' );
+		} // end if/else
 	} // end standard_add_theme_background
 	add_action( 'init', 'standard_add_theme_background' );
 } // end if
@@ -1659,6 +1663,9 @@ if( ! function_exists( 'standard_add_theme_sidebars' ) ) {
 if( ! function_exists( 'standard_add_theme_features' ) ) { 
 	function standard_add_theme_features() {
 	
+		// Feedlinks
+		add_theme_support( 'automatic-feed-links' );
+	
 		// enable select post formats
 		add_theme_support( 
 			'post-formats',
@@ -1739,33 +1746,48 @@ if( ! function_exists( 'standard_set_theme_colors' ) ) {
  * 4. Custom Header
  * ----------------------------------------------------------- */
  
-// The default header text color 
-if ( ! defined( 'HEADER_TEXTCOLOR' ) ) {
-	define( 'HEADER_TEXTCOLOR', '000' ); 
-} // end if
+if( standard_is_on_wp34() ) {
 
-// Remove support for header text
-if ( ! defined( 'NO_HEADER_TEXT' ) ) {
-	define( 'NO_HEADER_TEXT', false );
-} // end if
+	add_theme_support( 
+		'custom-header',
+		array(
+			'header-text'			=>	true,
+			'header-text-color'		=> 	'000',
+			'width'					=>	940,
+			'flex-width'			=>	true,
+			'height'				=>	250,
+			'flex-height'			=> 	true
+		)
+	);
 
-// Height and width of your custom header.
-if ( ! defined( 'HEADER_IMAGE_WIDTH' ) ) {
-	define( 'HEADER_IMAGE_WIDTH', 940 ); 
-} // end if
+} else {
 
-if ( ! defined( 'HEADER_IMAGE_HEIGHT' ) ) {
-	define( 'HEADER_IMAGE_HEIGHT', 250 );
-} // end if
+	// The default header text color 
+	if ( ! defined( 'HEADER_TEXTCOLOR' ) ) {
+		define( 'HEADER_TEXTCOLOR', '000' ); 
+	} // end if
+	
+	// Remove support for header text
+	if ( ! defined( 'NO_HEADER_TEXT' ) ) {
+		define( 'NO_HEADER_TEXT', false );
+	} // end if
+	
+	// Height and width of your custom header.
+	if ( ! defined( 'HEADER_IMAGE_WIDTH' ) ) {
+		define( 'HEADER_IMAGE_WIDTH', 940 ); 
+	} // end if
+	
+	if ( ! defined( 'HEADER_IMAGE_HEIGHT' ) ) {
+		define( 'HEADER_IMAGE_HEIGHT', 250 );
+	} // end if
+	
+	// Random header on by default
+	add_theme_support( 'custom-header');
+	
+	// Add Custom header in admin
+	add_custom_image_header( 'standard_header_style', 'standard_admin_header_style', 'standard_admin_header_image' );
 
-// Random header on by default
-add_theme_support( 'custom-header');
-
-// Add Custom header in admin
-add_custom_image_header( 'standard_header_style', 'standard_admin_header_style', 'standard_admin_header_image' );
-
-// Feedlinks
-add_theme_support( 'automatic-feed-links' );
+} // end if/else
 
 /**
  * Styles the default header.
@@ -2880,4 +2902,15 @@ function standard_add_plugin( $str_path ) {
 		include_once( get_template_directory() . $str_path );
 	} // end if	
 } // end standard_add_plugin
+
+
+/**
+ * Determines whether or not Standard is on WordPress 3.4.
+ *
+ * @returns	true	If Standard is running on WordPress 3.4 or greater.
+ */
+function standard_is_on_wp34() {
+	global $wp_version;
+	return $wp_version > '3.4';
+} // end standard_is_on_wp34
 ?>
