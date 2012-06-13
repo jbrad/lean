@@ -39,7 +39,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 /* ------------------------------------------------------------------------ 1. Misc */
 
-* { 
+body * { 
 	word-wrap: break-word;
 	-ms-word-wrap: break-word;
 }
@@ -670,7 +670,8 @@ p.wp-caption-text {
 .breadcrumb .active {
 	width: auto;
 	max-width: 100%;
-	word-wrap: break-word;
+	display: inline;
+	word-break: break-all;
 }
 
 
@@ -1115,6 +1116,10 @@ a.post-permalink:hover {
 	vertical-align: top;
 	padding-left: 15px;
 	width: 85%;
+}
+
+#comments .comment-container .comment-entry .comment-text {
+	word-break: break-all;
 }
 
 #comments .comment-container .comment-entry .name 	{
