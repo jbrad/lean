@@ -4,15 +4,6 @@
 
 (function($) {
 	$(function() {
-
-		// If the header image is present, we also need to fade the text.
-		if($('#header-image').length > 0) { 
-			$('#logo').hover(function() {
-				$('#header-image').fadeTo('fast', 0.5);
-			}, function() {
-				$('#header-image').fadeTo('fast', 1.0);
-			});
-		} // end if
 			
 		// Search
 		if($('#s').length > 0) {
