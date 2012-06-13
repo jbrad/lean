@@ -1389,7 +1389,7 @@ function standard_add_admin_bar_option() {
 		$wp_admin_bar->add_node(
 			array(
 				'id'		=>	'standard_theme_global_options',
-				'title'		=>	__( 'Global Options', 'standard' ),
+				'title'		=>	__( 'Global', 'standard' ),
 				'parent'	=>	'standard_options',
 				'href'		=>	home_url() . '/wp-admin/themes.php?page=theme_options&tab=standard_theme_global_options'
 			)
@@ -1399,7 +1399,7 @@ function standard_add_admin_bar_option() {
 		$wp_admin_bar->add_node(
 			array(
 				'id'		=>	'standard_theme_presentation_options',
-				'title'		=>	__( 'Layout', 'standard' ),
+				'title'		=>	__( 'Presentation', 'standard' ),
 				'parent'	=>	'standard_options',
 				'href'		=>	home_url() . '/wp-admin/themes.php?page=theme_options&tab=standard_theme_presentation_options'
 			)
@@ -1409,7 +1409,7 @@ function standard_add_admin_bar_option() {
 		$wp_admin_bar->add_node(
 			array(
 				'id'		=>	'standard_theme_social_options',
-				'title'		=>	__( 'Social Options', 'standard' ),
+				'title'		=>	__( 'Social', 'standard' ),
 				'parent'	=>	'standard_options',
 				'href'		=>	home_url() . '/wp-admin/themes.php?page=theme_options&tab=standard_theme_social_options'
 			)
