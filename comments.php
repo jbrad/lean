@@ -44,7 +44,7 @@
 				<?php _e( 'Trackbacks and Pingbacks:', 'standard' ); ?>
 			</h3>
 			<ol class="pinglist">
-				<?php wp_list_comments( 'type=pings&callback=list_pings' ); ?>
+				<?php wp_list_comments( 'type=pings&callback=list_pings&per_page=-1' ); ?>
 			</ol>
 		</div><!-- /#pings -->
 	<?php } // end if ?>	

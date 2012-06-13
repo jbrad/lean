@@ -1969,6 +1969,7 @@ function list_pings( $comment, $args, $depth ) {
 		<span class="pingcontent">
 			<?php comment_text(); ?>
 		</span>
+	</li>
 <?php } // end list_pings
  
 /* ----------------------------------------------------------- *
