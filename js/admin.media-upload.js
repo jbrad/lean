@@ -178,7 +178,11 @@ function standard_ad_banner_hide_unused_fields($, poller) {
 
 		// If we're looking at the URL field, remove the extra buttons and text
 		if($(this).hasClass('url')) {
-			$(this).children('.field').children('input').siblings().hide();
+		
+			var $input = $(this).children('.field').children('input');
+			$input.val('');
+			$input.siblings().hide();
+			
 		} // end if
 
 	});
