@@ -82,57 +82,54 @@
 			$head_class = ! empty( $header_image ) ? 'imageyup' : 'imageless';
 		?>
 			<div id="header" class="<?php echo $head_class ?>">
-				<div id="head-wrapper" class="clearfix">
-					<div class="container">
-						<div class="row">
-						
-							<?php if( 'imageyup' == $head_class ) { ?>
+				<div id="head-wrapper" class="container clearfix">
+											
+						<div id="hgroup" class="clearfix">			
+								<div id="logo">
+									<?php if( is_single() || is_page() ) { ?>
+										
+										<?php if( 'video' == get_post_format() || 'image' == get_post_format() || '' == get_the_title() ) { ?>
+									
+											<h1 id="site-title">
+												<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php get_bloginfo( 'name' ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
+											</h1>
+										
+										<?php } else { ?>
+										
+											<p id="site-title">
+												<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php get_bloginfo( 'name' ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
+											</p>
+										
+										<?php } // end if/else ?>
+										
+									<?php } else { ?>
+									
+										<h1 id="site-title">
+											<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php get_bloginfo( 'name' ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
+										</h1>
+									<?php } // end if/else ?>
+									
+									<small id="site-description"><?php bloginfo( 'description' ); ?></small>	
+							</div><!-- /#logo -->
 							
-								<div id="header-image" class="span12">	
+							<?php if ( !function_exists('dynamic_sidebar')  || !dynamic_sidebar( 'sidebar-0' ) ) :  ?>  
+								<!-- display top-ad section only if widget is in sidebar -->										
+							<?php endif; // end 468x60 ad sidebar ?>
+						
+						</div><!-- /#hgroup -->
+							
+						<?php if( 'imageyup' == $head_class ) { ?>
+							<div id="header-image" class="row">
+								<div class="span12">	
 									<?php if ( ! empty( $header_image ) ) { ?>
 										<a href="<?php echo esc_url( home_url( '/' ) ); ?>">
 											<img src="<?php esc_url( header_image() ); ?>" width="<?php echo HEADER_IMAGE_WIDTH; ?>" height="<?php echo HEADER_IMAGE_HEIGHT; ?>" alt="<?php get_bloginfo( 'name' ); ?>" />
 										</a>
 									<?php } // end if ?>
 								</div> <!-- /#header-image -->
-								
-							<?php } // end if ?>
+							</div> <!-- /row -->
+						<?php } // end if ?>
 							
-							<div id="logo" class="span5">
-								<?php if( is_single() || is_page() ) { ?>
-									
-									<?php if( 'video' == get_post_format() || 'image' == get_post_format() || '' == get_the_title() ) { ?>
-								
-										<h1 id="site-title">
-											<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php get_bloginfo( 'name' ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
-										</h1>
-									
-									<?php } else { ?>
-									
-										<p id="site-title">
-											<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php get_bloginfo( 'name' ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
-										</p>
-									
-									<?php } // end if/else ?>
-									
-								<?php } else { ?>
-								
-									<h1 id="site-title">
-										<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php get_bloginfo( 'name' ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
-									</h1>
-								<?php } // end if/else ?>
-								
-								<small id="site-description"><?php bloginfo( 'description' ); ?></small>	
-							</div><!-- /#logo -->
-							
-							<?php if ( !function_exists('dynamic_sidebar')  || !dynamic_sidebar( 'sidebar-0' ) ) :  ?>  
-								
-								<!-- display top-ad section only if widget is in sidebar -->	
-																	
-							<?php endif; ?>
-							
-						</div><!-- /row -->
-					</div><!--/container -->
 				</div> <!-- /#head-wrapper -->
 			</div> <!-- /#header -->
 
