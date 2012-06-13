@@ -1203,6 +1203,7 @@ a.post-permalink:hover {
 
 #commentform #comment-form-avatar {
 	float: left;
+	margin-right: 20px;
 }
 
 #commentform #comment-form-wrapper #comment-form-elements,
