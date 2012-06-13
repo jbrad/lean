@@ -14,7 +14,12 @@ if( function_exists( 'yoast_breadcrumb' ) ) {
 } else {
 
 	$presentation_options = get_option( 'standard_theme_presentation_options ' );
-	if( 'on' == $presentation_options['display_breadcrumbs'] ) {
+	$display_breadcrumbs = '';
+	if( isset( $presentation_options['display_breadcrumbs'] ) ) {
+		$display_breadcrumbs = $presentation_options['display_breadcrumbs'];
+	} // end if
+	
+	if( 'on' == $display_breadcrumbs ) {
 		if( '' !== get_the_ID() ) {
 			echo Standard_Breadcrumbs::get_breadcrumb_trail( get_the_ID() );
 		} // end if
