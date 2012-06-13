@@ -181,6 +181,7 @@ function standard_ad_banner_hide_unused_fields($, poller) {
 		
 			var $input = $(this).children('.field').children('input');
 			$input.val('');
+			$input.attr('placeholder', 'http://');
 			$input.siblings().hide();
 			
 		} // end if
