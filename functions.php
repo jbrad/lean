@@ -2249,12 +2249,24 @@ add_filter( 'user_contactmethods', 'standard_add_user_profile_fields' );
  */
 function standard_meta_description() {
 
+	// If we're rolling with Standard's native SEO, let's do the following...
 	if( standard_using_native_seo() ) {
 	
+		// If we're on the homepage, we're going to use the site's description
+		if( is_home() ) {
+			echo '<meta name="description" content="' . get_bloginfo( 'description' ) . '" />';
+		} // end if
+	
+		// For single pages, we're setting the meta description to what the user has provided (or nothing, if it's empty
 		if ( ( is_single() || is_page() ) && '' != get_post_meta( get_the_ID(), 'standard_seo_post_meta_description', true ) ) {
 			echo '<meta name="description" content="' . get_post_meta( get_the_ID(), 'standard_seo_post_meta_description', true ) . '" />';
 		} // end if/else
-	
+		
+		// And if we're on the categories or any other archives, we'll be using the description if it has been provided
+		if( is_archive() && '' != category_description() ) {
+			echo '<meta name="description" content="' . trim( str_replace( '</p>', '', str_replace( '<p>', '', category_description() ) ) ) . '" />';
+		} // end if
+		
 	} // end if
 	
 } // end standard_meta_description
