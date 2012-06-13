@@ -20,12 +20,14 @@ include_once( get_template_directory() . '/lib/Standard_Nav_Walker.class.php' );
 	6. Stylesheet and JavaScript Sources
 	7. Custom Filters
 	8. Helper Functions
-	9. PressTrends Integration
 */
 
 /* ----------------------------------------------------------- *
  * 1. Localization
  * ----------------------------------------------------------- */
+
+// Feedlinks
+add_theme_support( 'automatic-feed-links' );
 
 /**
  * Defines the path to the localization files for Standard.
@@ -1538,7 +1540,11 @@ if( ! function_exists( 'standard_page_menu' ) ) {
  */
 if( ! function_exists( 'standard_add_theme_background' ) ) { 
 	function standard_add_theme_background() {
-		add_custom_background();
+		if( standard_is_on_wp34() ) {
+			add_custom_background();
+		} else {
+			add_theme_support( 'custom-background' );
+		} // end if/else
 	} // end standard_add_theme_background
 	add_action( 'init', 'standard_add_theme_background' );
 } // end if
@@ -1740,39 +1746,55 @@ if( ! function_exists( 'standard_set_theme_colors' ) ) {
  * 4. Custom Header
  * ----------------------------------------------------------- */
  
-// The default header text color 
-if ( ! defined( 'HEADER_TEXTCOLOR' ) ) {
-	define( 'HEADER_TEXTCOLOR', '000' ); 
-} // end if
+if( standard_is_on_wp34() ) {
 
-// Remove support for header text
-if ( ! defined( 'NO_HEADER_TEXT' ) ) {
-	define( 'NO_HEADER_TEXT', false );
-} // end if
+	// The default header text color 
+	if ( ! defined( 'HEADER_TEXTCOLOR' ) ) {
+		define( 'HEADER_TEXTCOLOR', '000' ); 
+	} // end if
+	
+	// Remove support for header text
+	if ( ! defined( 'NO_HEADER_TEXT' ) ) {
+		define( 'NO_HEADER_TEXT', false );
+	} // end if
+	
+	// Height and width of your custom header.
+	if ( ! defined( 'HEADER_IMAGE_WIDTH' ) ) {
+		define( 'HEADER_IMAGE_WIDTH', 940 ); 
+	} // end if
+	
+	if ( ! defined( 'HEADER_IMAGE_HEIGHT' ) ) {
+		define( 'HEADER_IMAGE_HEIGHT', 250 );
+	} // end if
+	
+	// Random header on by default
+	add_theme_support( 'custom-header');
+	
+	// Add Custom header in admin
+	add_custom_image_header( 'standard_header_style', 'standard_admin_header_style', 'standard_admin_header_image' );
 
-// Height and width of your custom header.
-if ( ! defined( 'HEADER_IMAGE_WIDTH' ) ) {
-	define( 'HEADER_IMAGE_WIDTH', 940 ); 
-} // end if
+} else {
 
-if ( ! defined( 'HEADER_IMAGE_HEIGHT' ) ) {
-	define( 'HEADER_IMAGE_HEIGHT', 250 );
-} // end if
+	add_theme_support( 
+		'custom-header',
+		array(
+			'header-text'			=>	true,
+			'header-text-color'		=> 	'000',
+			'width'					=>	940,
+			'flex-width'			=>	true,
+			'height'				=>	250,
+			'flex-height'			=> 	true
+		)
+	);
 
-// Random header on by default
-add_theme_support( 'custom-header');
-
-// Add Custom header in admin
-add_custom_image_header( 'standard_header_style', 'standard_admin_header_style', 'standard_admin_header_image' );
-
-// Feedlinks
-add_theme_support( 'automatic-feed-links' );
+} // end if/else
 
 /**
  * Styles the default header.
  */
 if( ! function_exists( 'standard_header_style' ) ) {
 	function standard_header_style() { 
+	
 		if ( HEADER_TEXTCOLOR != get_header_textcolor() ) { ?>
 			<style type="text/css">
 				<?php if ( 'blank' == get_header_textcolor() ) { ?>
@@ -2882,64 +2904,15 @@ function standard_add_plugin( $str_path ) {
 	} // end if	
 } // end standard_add_plugin
 
-/* ----------------------------------------------------------- *
- * 9. PressTrends Integration
- * ----------------------------------------------------------- */
+/**
+ * Determines whether or not Standard is on WordPress 3.4.
+ *
+ * @returns	true	If Standard is running on WordPress 3.4 or greater.
+ */
+function standard_is_on_wp34() {
+	global $wp_version;
+	return $wp_version >= '3.4';
+} // end standard_is_on_wp34
 
-// Start of Presstrends Magic
-function presstrends() {
 
-	// PressTrends Account API Key
-	$api_key = '9fh4lc4ki76p5z3evxxhumir728x4f8mfph5';
-	
-	// Start of Metrics
-	global $wpdb;
-	$data = get_transient( 'presstrends_data' );
-	
-	if ( ! $data || $data == '' ){
-	
-		$api_base = 'http://api.presstrends.io/index.php/api/sites/update/api/';
-		$url = $api_base . $api_key . '/';
-		$data = array();
-		$count_posts = wp_count_posts();
-		$count_pages = wp_count_posts( 'page' );
-		$comments_count = wp_count_comments();
-		$theme_data = get_theme_data( get_stylesheet_directory() . '/style.css' );
-		$plugin_count = count( get_option( 'active_plugins' ) );
-		
-		$all_plugins = get_plugins();
-		foreach( $all_plugins as $plugin_file => $plugin_data ) {
-			$plugin_name .= $plugin_data['Name'];
-			$plugin_name .= '&';
-		} // end foreach
-		
-		$posts_with_comments = $wpdb->get_var( "SELECT COUNT(*) FROM {$wpdb->prefix}posts WHERE post_type='post' AND comment_count > 0" );
-		$comments_to_posts = number_format( ( $posts_with_comments / $count_posts->publish ) * 100, 0, '.', '' );
-		$pingback_result = $wpdb->get_var( 'SELECT COUNT(comment_ID) FROM '.$wpdb->comments.' WHERE comment_type = "pingback"' );
-		$data['url'] = stripslashes( str_replace( array( 'http://', '/', ':' ), '', site_url() ) );
-		$data['posts'] = $count_posts->publish;
-		$data['pages'] = $count_pages->publish;
-		$data['comments'] = $comments_count->total_comments;
-		$data['approved'] = $comments_count->approved;
-		$data['spam'] = $comments_count->spam;
-		$data['pingbacks'] = $pingback_result;
-		$data['post_conversion'] = $comments_to_posts;
-		$data['theme_version'] = $theme_data['Version'];
-		$data['theme_name'] = $theme_data['Name'];
-		$data['site_name'] = str_replace( ' ', '', get_bloginfo( 'name' ) );
-		$data['plugins'] = $plugin_count;
-		$data['plugin'] = urlencode($plugin_name);
-		$data['wpversion'] = get_bloginfo('version');
-		
-		foreach ( $data as $k => $v ) {
-			$url .= $k . '/' . $v . '/';
-		} // end foreach
-		
-		$response = wp_remote_get( $url );
-		set_transient('presstrends_data', $data, 60 * 60 * 24 );
-		
-	} // end if
-	
-} // end presstrends
-add_action( 'admin_init', 'presstrends' );
 ?>
