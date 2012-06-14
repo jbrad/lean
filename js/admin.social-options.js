@@ -274,6 +274,7 @@ function setupIconClickHander($, $this) {
 		$(this).addClass('active-icon');
 		
 		updateIconValues();
+		makeSortable($, '#active-icons', '#available-icons');
 		
 		if('' !== sRssUrl) {
 			$('#social-icon-url').val(sRssUrl);
