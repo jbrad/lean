@@ -1437,12 +1437,7 @@ function standard_add_maintenance_mode_admin_bar_note() {
 	// Remind the user if they are in maintenance mode
 	$options = get_option( 'standard_theme_global_options' );
 	
-	$offline_mode = '';
-	if( isset( $options['offline_mode'] ) ) {
-		$offline_mode = $options['offline_mode'];
-	}
-	
-	if( 'on' == $offline_mode ) {
+	if( 'on' == $options['offline_mode'] ) {
 		global $wp_admin_bar;
 		$wp_admin_bar->add_node(
 			array(
