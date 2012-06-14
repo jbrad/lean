@@ -108,7 +108,7 @@
 #social-icons-active #active-icons {
 	border: 1px solid #dfdfdf;
 	border-top: 0;
-	height: 215px;
+	min-height: 215px;
 	background: #FCFCFC;
 	float: left;
 	width: 99.9%;
