@@ -431,12 +431,12 @@ function standard_theme_social_options_display() {
 			$html .= '<div id="active-icons">';
 				$html .= '<p class="description">' . __( 'Click on each icon to give it an address to your social network.', 'standard' ) . '</p>';
 				$html .= '<ul id="active-icon-list"></ul>';
-				$html .= '<p id="social-icon-max" class="hidden">' . __( 'Standard looks best with seven social icons.', 'standard' ) . '</p>';
 				$html .= '<div id="active-icon-url" class="hidden">';
 					$html .= '<label>' . __( 'Icon Address:', 'standard' ) . '</label>';
 					$html .= '<input type="text" id="social-icon-url" value="" class="icon-url" data-via="" data-url="" />';
 					$html .= '<input type="button" class="button" id="set-social-icon-url" value="' . __( 'Done', 'standard' ). '" />';
 				$html .= '</div><!-- /#active-icon-url -->';
+				$html .= '<div id="social-icon-max" class="hidden alert alert-info"><i class="icon icon-warning"></i> ' . __( 'Standard looks best with seven social icons.', 'standard' ) . '</div>';
 			$html .= '</div><!-- /#active-icons -->';
 		$html .= '</div><!-- /#social-icons-active -->';
 		
@@ -447,11 +447,11 @@ function standard_theme_social_options_display() {
 			$html .= '<div id="available-icons">';
 				$html .= '<p class="description">' . __( 'Upload as many icons as many icons as you want. Chris can make this sound better.', 'standard' ) . '</p>';
 				$html .= '<ul id="available-icon-list"></ul>';
-			$html .= '</div><!-- /#available-icons -->';
+				$html .= '<div id="delete-icons" class="description"><i class="icon icon-trash"></i><br>' . __( 'Drag social icons here to remove them from your library.', 'standard' ) . '</div>';
 			$html .= '<div id="social-icons-operations">';
-				$html .= '<input type="button" class="button" id="upload-social-icon" value="' . __( 'Upload', 'standard') . '" />';
-				$html .= '<span id="delete-icons" class="description">' . __( 'Drag social icons here to remove them from your library.', 'standard' ) . '</span>';
+				$html .= '<input type="button" class="button" id="upload-social-icon" value="' . __( 'Upload New Icon', 'standard') . '" />';
 			$html .= '</div><!-- /#social-icons-operations -->';
+			$html .= '</div><!-- /#available-icons -->';
 		$html .= '</div><!-- /.social-icons-available -->';
 		
 		$html .= '<span id="standard-save-social-icons-nonce" class="hidden">' . wp_create_nonce( 'standard_save_social_icons_nonce' ) . '</span>';
