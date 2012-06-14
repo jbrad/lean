@@ -60,14 +60,17 @@
 	float: left;
 	width: 50%;
 	height: 25px;
+	display: table;
 } 
 
 .social-icons-wrapper ul li {
-	float: left;
-	margin: 0 6px 0 6px;
+	margin: 6px 5px 0 5px;
 	min-width: 16px;
 	width: auto;
-	height: 25px;
+	height: auto;
+	line-height: 1;
+	display: inline-table;
+	vertical-align: middle;
 }
 
 #social-icons-active {
@@ -118,7 +121,7 @@
 
 #social-icons-available #available-icons p,
 #social-icons-active #active-icons p {
-	margin: 10px 0 10px 10px;
+	margin: 20px 0 10px 10px;
 }
 
 #social-icon-max {
@@ -129,14 +132,14 @@
 #social-icons-active #active-icons ul {
 	width: 90%;
 	margin: 10px;
-	padding: 10px 0 10px 0;
+	padding: 10px;
 	border: 1px dashed #e0e0e0 !important;
 }
 
 #social-icons-available #available-icons ul {
 	width: 60%;
 	margin: 10px;
-	padding: 10px 0 10px 0;
+	padding: 10px;
 	border: 1px dashed #e0e0e0 !important;
 }
 
@@ -163,6 +166,7 @@
 	box-shadow: inset 0px 0px 8px rgba(0,0,0,0.26);
 	text-shadow: 0 1px 0 rgba(255,255,255,0.3);
 }
+
 
 #social-icons-available #delete-icons i {
 	margin: 10px 0;
