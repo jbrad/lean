@@ -128,6 +128,25 @@ function standard_fav_icon_hide_unused_fields($, poller) {
 		if(!$(this).hasClass('submit')) {
 			$(this).hide();
 		} // end if
+		
+		// Make sure that we select the 'Full Size' of the image
+		if($(this).hasClass('image-size')) {
+			$(this).children('.field').children().each(function() {
+				if($(this).children('input[type=radio]').attr('id').indexOf('-full-') > 0) {
+					$(this).children('input[type=radio]').attr('checked', 'checked');
+				} // end if
+			});
+		} // end if
+
+		// If we're looking at the URL field, remove the extra buttons and text
+		if($(this).hasClass('url')) {
+		
+			var $input = $(this).children('.field').children('input');
+			$input.val('');
+			$input.attr('placeholder', 'http://');
+			$input.siblings().hide();
+			
+		} // end if
 	
 	});
 	
