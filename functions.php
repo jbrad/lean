@@ -2639,8 +2639,8 @@ function standard_attachment_fields_to_edit( $form_fields, $post ) {
 	$form_fields['image_alt']['required'] = true;
 	
 	// Provide a Standard description for title and alt
-	$form_fields['post_title']['helps'] =	__( 'TODO', 'standard' );
-	$form_fields['image_alt']['helps'] = __( 'Provide a description for your image. TODO.', 'standard' );
+	$form_fields['post_title']['helps'] =	__( 'A title is required for search engines.', 'standard' );
+	$form_fields['image_alt']['helps'] = __( 'An alternate text description is required for search engines.', 'standard' );
 	
 	// If the alt field is empty, then we're populating it with the title
 	if( '' == $form_fields['image_alt']['value'] ) {
