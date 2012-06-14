@@ -1294,7 +1294,7 @@ function standard_add_full_width_single_post() {
 	
 		add_meta_box(
 			'post_level_layout',
-			__( 'Page Layout', 'standard' ),
+			__( 'Layout', 'standard' ),
 			'standard_post_level_layout_display',
 			'post',
 			'side',
@@ -1320,7 +1320,7 @@ function standard_post_level_layout_display( $post ) {
 	$html .= '&nbsp;';
 
 	$html .= '<label for="standard_seo_post_level_layout">';
-		$html .= __( 'Display this post in full width?', 'standard' );
+		$html .= __( 'Hide sidebar and display post at full width.', 'standard' );
 	$html .= '</label>';
 
 	echo $html;
