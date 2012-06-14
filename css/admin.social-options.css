@@ -59,7 +59,6 @@
 	float: left;
 	width: 50%;
 	height: 25px;
-	display: table;
 } 
 
 .social-icons-wrapper ul li {
@@ -133,10 +132,12 @@
 	margin: 10px;
 	padding: 10px;
 	border: 1px dashed #e0e0e0 !important;
+	display: table;
 }
 
 #social-icons-available #available-icons ul {
 	width: 60%;
+	min-height: 124px;
 	margin: 10px;
 	padding: 10px;
 	border: 1px dashed #e0e0e0 !important;
@@ -159,7 +160,7 @@
 	margin-top: 10px;
 	padding: 10px;
 	float: left;
-	width: 28%;
+	width: 26%;
 	background: #f0f0f0;
 	text-align: center;
 	box-shadow: inset 0px 0px 8px rgba(0,0,0,0.26);
