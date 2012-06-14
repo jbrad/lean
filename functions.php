@@ -2212,7 +2212,7 @@ function standard_activate_theme() {
 				
 			} // end if
 
-			echo '<div id="standard-old-version" class="updated"><p>' . __( 'Standard has detected that you are running a preview version of the theme. In order to continue installation, your old settings must be reset. <a href="' . $url . '">Please click here to reset your options</a>.', 'standard') . '</p></div>';
+			echo '<div id="standard-old-version" class="updated"><p>' . __( 'A previous version of Standard has been detected. In order to continue installation, your Standard option settings must be reset. <a href="' . $url . '">Click here to reset your options</a>.', 'standard') . '</p></div>';
 		
 		} // end if/else
 	
@@ -2925,4 +2925,5 @@ function standard_is_on_wp34() {
 	global $wp_version;
 	return $wp_version > '3.4';
 } // end standard_is_on_wp34
+
 ?>
