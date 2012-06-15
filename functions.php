@@ -886,7 +886,7 @@ function display_author_box_display( $args ) {
 	} // end if
 
 	$html = '<input type="checkbox" id="display_author_box" name="standard_theme_publishing_options[display_author_box]" value="on" ' . checked( 'on',$display_author_box, false ) . ' />';
-	$html .= '&nbsp;<label for="display_author_box">' . __( 'Displays between post content and comments. Includes <a href="profile.php">display name</a>, <a href="profile.php">website</a>, and <a href="profile.php">biographical info</a>.', 'standard' ) . '</label>';
+	$html .= '&nbsp;<label for="display_author_box">' . __( 'Displays between post content and comments. Includes <a href="profile.php">display name</a>, <a href="profile.php">website</a>, <a href="profile.php">social networking profiles</a>, and <a href="profile.php">biographical info</a>.', 'standard' ) . '</label>';
 	
 	echo $html;
 	
