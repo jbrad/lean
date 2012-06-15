@@ -935,7 +935,7 @@ function privacy_policy_template_display() {
 		
 		$html .= '<input type="submit" class="button-secondary" id="delete_privacy_policy" name="delete_privacy_policy" value="' . __( 'Delete Policy', 'standard' ) . '" />';
 		$html .= '&nbsp;';
-		$html .= '<span>' . __( 'Warning, customizations will be lost. You can view or edit your policy <a id="edit-privacy-policy" href="post.php?post=' . $policy_id . '&action=edit">here</a>.', 'standard' ) . '</span>';
+		$html .= '<span>' . __( 'Warning, customizations will be lost. You can view or edit your policy ', 'standard' ) . '<a id="edit-privacy-policy" href="post.php?post=' . $policy_id . '&action=edit">' . __( 'here', 'standard' ) . '</a>.</span>';
 		$html .= '<span class="hidden" id="privacy_policy_id">' . $policy_id . '</span>';
 	$html .= '</div><!-- /#has-privacy-policy-wrapper -->';
 	
@@ -969,7 +969,7 @@ function comment_policy_template_display() {
 		
 		$html .= '<input type="submit" class="button-secondary" id="delete_comment_policy" name="delete_comment_policy" value="' . __( 'Delete Policy', 'standard' ) . '" />';
 		$html .= '&nbsp;';
-		$html .= '<span>' . __( 'Warning, customizations will be lost. You can view or edit your policy <a id="edit-comment-policy" href="post.php?post=' . $policy_id . '&action=edit">here</a>.', 'standard' ) . '</span>';
+		$html .= '<span>' . __( 'Warning, customizations will be lost. You can view or edit your policy ', 'standard' ) . '<a id="edit-privacy-policy" href="post.php?post=' . $policy_id . '&action=edit">' . __( 'here', 'standard' ) . '</a>.</span>';
 		$html .= '<span class="hidden" id="comment_policy_id">' . $policy_id . '</span>';
 	$html .= '</div><!-- /#has-comment-policy-wrapper -->';
 	
