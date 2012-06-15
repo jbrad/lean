@@ -8,13 +8,12 @@
 				.hide();
 		} // end if
 		
-		// toggle the offline message when the label or checkbox is cliekd
+		// toggle the offline message when the label or checkbox is clicked
 		$('#offline_mode, label[for="offline_mode"]').click(function() {
-			if($('#offline_mode').is(':not(:checked)')) {
-				$('#offline_mode_message').parent()
-					.parent()
-					.toggle();
-			} // end if
+		
+			$parent = $('#offline_mode_message').parent().parent();
+			$('#offline_mode').is(':not(:checked)') ? $parent.hide() : $parent.show();
+			
 		});
 		
 	});
