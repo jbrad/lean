@@ -1910,11 +1910,6 @@ if( ! function_exists( 'standard_admin_header_style' ) ) {
 				position: relative;
 				width: 100%;
 			}
-			
-			#header-top {
-				z-index: -1;
-			}
-			
 			#header-bottom {
 				z-index: -2;
 			}

@@ -83,7 +83,7 @@
 		?>
 			<div id="header" class="<?php echo $head_class ?>">
 				<div id="head-wrapper" class="container clearfix">
-											
+
 						<div id="hgroup" class="clearfix">			
 								<div id="logo">
 									<?php if( is_single() || is_page() ) { ?>
@@ -112,8 +112,8 @@
 									<small id="site-description"><?php bloginfo( 'description' ); ?></small>	
 							</div><!-- /#logo -->
 							
-							<?php if ( !function_exists('dynamic_sidebar')  || !dynamic_sidebar( 'sidebar-0' ) ) :  ?>  
-								<!-- display top-ad section only if widget is in sidebar -->										
+							<?php if ( ! function_exists('dynamic_sidebar')  || ! dynamic_sidebar( 'sidebar-0' ) ) :  ?>  
+								<!-- TODO display top-ad section only if widget is in sidebar -->										
 							<?php endif; // end 468x60 ad sidebar ?>
 						
 						</div><!-- /#hgroup -->
@@ -122,7 +122,7 @@
 							<div id="header-image" class="row">
 								<div class="span12">	
 									<?php if ( ! empty( $header_image ) ) { ?>
-										<a href="<?php echo esc_url( home_url( '/' ) ); ?>">
+										<a id="header-background-image" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php get_bloginfo( 'name' ); ?>" rel="home">
 											<?php if( standard_is_on_wp34() ) { ?>
 												<img src="<?php esc_url( header_image() ); ?>" width="<?php echo get_custom_header()->width; ?>" height="<?php echo get_custom_header()->height; ?>" alt="<?php get_bloginfo( 'name' ); ?>" />
 											<?php } else { ?>

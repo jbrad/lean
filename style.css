@@ -352,16 +352,20 @@ html, body {
 
 /* ------------------------------------------------------------------------ 5. Header */
 
-#header { 	
-
-}
-
 #head-wrapper {
 	position: relative;
 }
 
 #hgroup {
-	padding: 45px 0;
+	/* TODO JARED padding: 45px 0; */
+	float: left;
+	position: relative;
+	margin-right: -100%;
+}
+
+#hgroup,
+#header-background-image {
+	float: left;
 }
 
 #logo {
@@ -394,22 +398,29 @@ html, body {
 
 #header-image img, #header-image a img {
 	max-width: 100%;
+	width: auto;
 	height: auto;
 	opacity: 1;
 }
 
 /* if header image is present lets adjust a few things */ 
 
+
 .imageyup #head-wrapper {
-	margin-top: 45px;
+	/*margin-top: 45px;
 	margin-bottom: 45px;
+	TODO JARED
+	*/
 }
 
 .imageyup #hgroup {
+/*
+TODO JARED
 	position: absolute;
 	width: 92%;
 	margin: 0 4%;
 	top: 26%;
+	*/
 }
 
 
