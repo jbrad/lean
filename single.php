@@ -48,15 +48,15 @@
 									<?php } // end if ?>
 									
 									<?php if( strlen( trim( get_user_meta( get_the_author_meta( 'ID' ), 'twitter', true ) ) ) > 0 ) { ?>
-										<a class="author-link icn-twitter" href="http://twitter.com/<?php echo get_user_meta( get_the_author_meta( 'ID' ), 'twitter', true ); ?>/" title="<?php _e( 'Twitter', 'standard'); ?>" target="_blank"><?php _e( 'Twitter', 'standard'); ?></a>
+										<a class="author-link icn-twitter" href="<?php echo get_user_meta( get_the_author_meta( 'ID' ), 'twitter', true ); ?>/" title="<?php _e( 'Twitter', 'standard'); ?>" target="_blank"><?php _e( 'Twitter', 'standard'); ?></a>
 									<?php } // end if ?>
 
 									<?php if( strlen( trim( get_user_meta( get_the_author_meta( 'ID' ), 'facebook', true ) ) ) > 0 ) { ?>
-										<a class="author-link icn-facebook" href="http://facebook.com/<?php echo get_user_meta( get_the_author_meta( 'ID' ), 'facebook', true ); ?>/" title="<?php _e( 'Facebook', 'standard'); ?>" target="_blank"><?php _e( 'Facebook', 'standard'); ?></a>
+										<a class="author-link icn-facebook" href="<?php echo get_user_meta( get_the_author_meta( 'ID' ), 'facebook', true ); ?>/" title="<?php _e( 'Facebook', 'standard'); ?>" target="_blank"><?php _e( 'Facebook', 'standard'); ?></a>
 									<?php } // end if ?>
 									
 									<?php if( strlen( trim( get_user_meta( get_the_author_meta( 'ID' ), 'google_plus', true ) ) ) > 0 ) { ?>
-										<a class="author-link icn-gplus" href="http://plus.google.com/<?php echo get_user_meta( get_the_author_meta( 'ID' ), 'google_plus', true ); ?>/" title="<?php _e( 'Google+', 'standard'); ?>" target="_blank"><?php _e( 'Google+', 'standard'); ?></a>
+										<a class="author-link icn-gplus" href="<?php echo get_user_meta( get_the_author_meta( 'ID' ), 'google_plus', true ); ?>/" title="<?php _e( 'Google+', 'standard'); ?>" target="_blank"><?php _e( 'Google+', 'standard'); ?></a>
 									<?php } // end if ?>
 									
 									</p>

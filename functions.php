@@ -2288,9 +2288,9 @@ remove_action( 'wp_head', 'wp_generator' );
  */
 function standard_add_user_profile_fields( $user_contactmethods ) {
 	
-	$user_contactmethods['twitter'] = __( 'Twitter', 'standard' );
-	$user_contactmethods['facebook'] = __( 'Facebook', 'standard' );
-	$user_contactmethods['google_plus'] = __( 'Google+', 'standard' );
+	$user_contactmethods['twitter'] = __( 'Twitter URL', 'standard' );
+	$user_contactmethods['facebook'] = __( 'Facebook URL', 'standard' );
+	$user_contactmethods['google_plus'] = __( 'Google+ URL', 'standard' );
 	
 	return $user_contactmethods;
 	
