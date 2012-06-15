@@ -663,7 +663,7 @@ function affiliate_code_display() {
 	} // end if
 	
 	$html = '<input type="text" id="affiliate_code" name="standard_theme_global_options[affiliate_code]" value="' . esc_attr( $affiliate_code ) . '" />';
-	$html .= '&nbsp;<span class="description">' . __( 'Earn money by recommending Standard to your site visitors. Learn more <a href="http://docs.8bit.io/standard/affiliates">here</a>.', 'standard' ) . '</span>';
+	$html .= '&nbsp;<span class="description">' . __( 'Earn money by recommending Standard to your site visitors. <a href="http://docs.8bit.io/standard/affiliates">Learn more</a>.', 'standard' ) . '</span>';
 	
 	echo $html;
 
@@ -886,7 +886,7 @@ function display_author_box_display( $args ) {
 	} // end if
 
 	$html = '<input type="checkbox" id="display_author_box" name="standard_theme_publishing_options[display_author_box]" value="on" ' . checked( 'on',$display_author_box, false ) . ' />';
-	$html .= '&nbsp;<label for="display_author_box">' . __( 'Displays between post content and comments. Includes <a href="profile.php">display name</a>, <a href="profile.php">website</a>, and <a href="profile.php">biographical info</a>.', 'standard' ) . '</label>';
+	$html .= '&nbsp;<label for="display_author_box">' . __( 'Displays between post content and comments. Includes <a href="profile.php">display name</a>, <a href="profile.php">website</a>, <a href="profile.php">social networking profiles</a>, and <a href="profile.php">biographical info</a>.', 'standard' ) . '</label>';
 	
 	echo $html;
 	
@@ -922,7 +922,7 @@ function privacy_policy_template_display() {
 		$html .= '<input type="submit" class="button-secondary" id="generate_privacy_policy" name="generate_privacy_policy" value="' . __( 'Generate Policy', 'standard' ) . '" />';
 		$html .= '<span id="standard-privacy-policy-nonce" class="hidden">' . wp_create_nonce( 'standard_generate_privacy_policy_nonce' ) . '</span>';
 		$html .= '&nbsp;';
-		$html .= '<span class="description">' . __( 'To learn more click <a href="http://docs.8bit.io/standard/options/privacy-policy">here</a>', 'standard' ) . '</span>';
+		$html .= '<span class="description">' . __( '<a href="http://docs.8bit.io/standard/options/privacy-policy">Learn more</a>.', 'standard' ) . '</span>';
 	$html .= '</div><!-- /#generate-private-policy-wrapper -->';
 	
 	// Options to display if the page already exists
@@ -935,7 +935,7 @@ function privacy_policy_template_display() {
 		
 		$html .= '<input type="submit" class="button-secondary" id="delete_privacy_policy" name="delete_privacy_policy" value="' . __( 'Delete Policy', 'standard' ) . '" />';
 		$html .= '&nbsp;';
-		$html .= '<span>' . __( 'Warning, customizations will be lost. You can view or edit your policy <a id="edit-privacy-policy" href="post.php?post=' . $policy_id . '&action=edit">here</a>.', 'standard' ) . '</span>';
+		$html .= '<span>' . __( 'Warning, customizations will be lost. You can view or edit your policy ', 'standard' ) . '<a id="edit-privacy-policy" href="post.php?post=' . $policy_id . '&action=edit">' . __( 'here', 'standard' ) . '</a>.</span>';
 		$html .= '<span class="hidden" id="privacy_policy_id">' . $policy_id . '</span>';
 	$html .= '</div><!-- /#has-privacy-policy-wrapper -->';
 	
@@ -956,7 +956,7 @@ function comment_policy_template_display() {
 		$html .= '<input type="submit" class="button-secondary" id="generate_comment_policy" name="generate_comment_policy" value="' . __( 'Generate Policy', 'standard' ) . '" />';
 		$html .= '<span id="standard-comment-policy-nonce" class="hidden">' . wp_create_nonce( 'standard_generate_comment_policy_nonce' ) . '</span>';
 		$html .= '&nbsp;';
-		$html .= '<span class="description">' . __( 'To learn more click <a href="http://docs.8bit.io/standard/options/comment-policy">here</a>.', 'standard' ) . '</span>';
+		$html .= '<span class="description">' . __( '<a href="http://docs.8bit.io/standard/options/comment-policy">Learn more</a>.', 'standard' ) . '</span>';
 	$html .= '</div><!-- /#generate-comment-policy-wrapper -->';
 	
 	// Options to display if the page already exists
@@ -969,7 +969,7 @@ function comment_policy_template_display() {
 		
 		$html .= '<input type="submit" class="button-secondary" id="delete_comment_policy" name="delete_comment_policy" value="' . __( 'Delete Policy', 'standard' ) . '" />';
 		$html .= '&nbsp;';
-		$html .= '<span>' . __( 'Warning, customizations will be lost. You can view or edit your policy <a id="edit-comment-policy" href="post.php?post=' . $policy_id . '&action=edit">here</a>.', 'standard' ) . '</span>';
+		$html .= '<span>' . __( 'Warning, customizations will be lost. You can view or edit your policy ', 'standard' ) . '<a id="edit-privacy-policy" href="post.php?post=' . $policy_id . '&action=edit">' . __( 'here', 'standard' ) . '</a>.</span>';
 		$html .= '<span class="hidden" id="comment_policy_id">' . $policy_id . '</span>';
 	$html .= '</div><!-- /#has-comment-policy-wrapper -->';
 	
@@ -2189,6 +2189,14 @@ function standard_add_admin_scripts() {
 	if( 'post'  == $screen->id || 'edit-page' == $screen->id || 'page' == $screen->id ) {
 		wp_register_script( 'standard-admin-sitemap', get_template_directory_uri() . '/js/admin.template-sitemap.js?using_sitemap=' . get_option( 'standard_using_sitemap' ) );
 		wp_enqueue_script( 'standard-admin-sitemap' );	
+	} // end if
+	
+	// widgets
+	if( 'widgets' == $screen->id ) {
+	
+		wp_register_script( 'standard-admin-widgets', get_template_directory_uri() . '/js/admin.widgets.js' );
+		wp_enqueue_script( 'standard-admin-widgets' );
+	
 	} // end if
 	
 	// favicon upload script
