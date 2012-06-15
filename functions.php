@@ -1592,9 +1592,9 @@ if( ! function_exists( 'standard_page_menu' ) ) {
 if( ! function_exists( 'standard_add_theme_background' ) ) { 
 	function standard_add_theme_background() {
 		if( standard_is_on_wp34() ) {
-			add_custom_background();
-		} else {
 			add_theme_support( 'custom-background' );
+		} else {
+			add_custom_background();
 		} // end if/else
 	} // end standard_add_theme_background
 	add_action( 'init', 'standard_add_theme_background' );
