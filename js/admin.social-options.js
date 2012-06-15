@@ -56,6 +56,14 @@
 		
 		});
 		
+		// Cancel entering a URL
+		$('#cancel-social-icon-url').click(function(evt) {
+			
+			evt.preventDefault();
+			cancelSettingIconURL($, $(this));
+			
+		});
+		
 		checkForMaxIcons();
 
 	});
@@ -182,8 +190,13 @@ function overHandler() {
 /**
  * Updates the list of active icons and available icons. Fired when sorting has been completed.
  */
-function updateIconValues() {
-	
+function updateIconValues(evt) {
+
+	// TODO
+	if(evt !== undefined && !jQuery('#active-icon-url').hasClass('hidden')) {
+		cancelSettingIconURL(jQuery, jQuery('#cancel-social-icon-url'));
+	} // end if
+
 	// Update the inputs to track the active icon arrangement.	
 	updateActiveIcons(jQuery);
 	
@@ -350,7 +363,7 @@ function makeIconsRemoveable($) {
 
 			$(evt.srcElement).hide().attr('src', '');
 			$(evt.srcElement).parent().hide();
-			
+
 			updateIconValues();
 			
 			updateAvailableIcons($);
@@ -361,7 +374,7 @@ function makeIconsRemoveable($) {
 		
 	});
 	
-	// Delete shortcut ala OS X
+	// Delete shortcut ala OS X. Kind of an easter egg :)
 	$('#available-icons > ul > li').click(function() {
 		
 		// Maintain a reference to the icon we're removing
@@ -394,6 +407,25 @@ function makeIconsRemoveable($) {
 	});
 
 } // end makeIconsRemoveable
+
+/**
+ * Resets the social media icon URL form, hides it, and unselects the active icon.
+ * 
+ * @params	$		The jQuery function
+ * @params	elem	The element element that triggered cancelling this. 
+ */
+function cancelSettingIconURL($, $elem) {
+	
+	// Empty the URL field and hide the container
+	$elem.siblings('input[type=text]:first').val('');
+	$elem.parent().addClass('hidden');
+	
+	// Remove the active status from the selected social icon
+	$('.active-icon').removeClass('active-icon');
+	
+	updateIconValues();
+	
+} // end cancelSettingIconValues
 
 /**
  * Hides fields that are irrelevant for the media uploader.

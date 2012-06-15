@@ -26,7 +26,12 @@
 		// Build the line item
 		$html .= '<li>';
 		if( isset( $url ) ) {	
+		
 			$html .= '<a href="' . esc_url( $url ) . '" class="fademe" target="_blank"><img src="' . esc_url( $icon ) . '" alt="" /></a>';
+			
+			// We have to unset the reference so the next icon doesn't inherit this url
+			unset( $url );
+			
 		} else {
 			$html .= '<img src="' . esc_url( $icon ) . '" alt="" />';
 		} // end if/else

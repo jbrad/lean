@@ -435,6 +435,8 @@ function standard_theme_social_options_display() {
 					$html .= '<label>' . __( 'Icon Address:', 'standard' ) . '</label>';
 					$html .= '<input type="text" id="social-icon-url" value="" class="icon-url" data-via="" data-url="" />';
 					$html .= '<input type="button" class="button" id="set-social-icon-url" value="' . __( 'Done', 'standard' ). '" />';
+					$html .= '&nbsp;';
+					$html .= '<a href="javascript:;" id="cancel-social-icon-url">' . __( 'Cancel', 'standard' ) . '</a>';
 				$html .= '</div><!-- /#active-icon-url -->';
 				$html .= '<div id="social-icon-max" class="hidden alert alert-info"><i class="icon icon-warning"></i> ' . __( 'Standard looks best with seven social icons.', 'standard' ) . '</div>';
 			$html .= '</div><!-- /#active-icons -->';
