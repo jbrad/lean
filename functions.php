@@ -2191,6 +2191,14 @@ function standard_add_admin_scripts() {
 		wp_enqueue_script( 'standard-admin-sitemap' );	
 	} // end if
 	
+	// widgets
+	if( 'widgets' == $screen->id ) {
+	
+		wp_register_script( 'standard-admin-widgets', get_template_directory_uri() . '/js/admin.widgets.js' );
+		wp_enqueue_script( 'standard-admin-widgets' );
+	
+	} // end if
+	
 	// favicon upload script
 	if( 'appearance_page_theme_options' == $screen->id) {
 		
