@@ -920,7 +920,7 @@ function privacy_policy_template_display() {
 		$html .= '<input type="submit" class="button-secondary" id="generate_privacy_policy" name="generate_privacy_policy" value="' . __( 'Generate Policy', 'standard' ) . '" />';
 		$html .= '<span id="standard-privacy-policy-nonce" class="hidden">' . wp_create_nonce( 'standard_generate_privacy_policy_nonce' ) . '</span>';
 		$html .= '&nbsp;';
-		$html .= '<span class="description">' . __( 'Click here to generate a Privacy Policy. TODO.', 'standard' ) . '</span>';
+		$html .= '<span class="description">' . __( 'To learn more click <a href="http://docs.8bit.io/standard/options/privacy-policy">here</a>', 'standard' ) . '</span>';
 	$html .= '</div><!-- /#generate-private-policy-wrapper -->';
 	
 	// Options to display if the page already exists
@@ -930,8 +930,11 @@ function privacy_policy_template_display() {
 		if( null != $privacy_policy ) {
 			$policy_id = $privacy_policy->ID;
 		} // end if
-
-		$html .= '<span>' . __( 'You can view and edit your privacy policy <a id="edit-privacy-policy" href="post.php?post=' . $policy_id . '&action=edit">here</a>.', 'standard' ) . '</span>';
+		
+		$html .= '<input type="submit" class="button-secondary" id="delete_privacy_policy" name="delete_privacy_policy" value="' . __( 'Delete Policy', 'standard' ) . '" />';
+		$html .= '&nbsp;';
+		$html .= '<span>' . __( 'Warning, customizations will be lost. You can view or edit your policy <a id="edit-privacy-policy" href="post.php?post=' . $policy_id . '&action=edit">here</a>.', 'standard' ) . '</span>';
+		$html .= '<span class="hidden" id="privacy_policy_id">' . $policy_id . '</span>';
 	$html .= '</div><!-- /#has-privacy-policy-wrapper -->';
 	
 	echo $html;
@@ -951,7 +954,7 @@ function comment_policy_template_display() {
 		$html .= '<input type="submit" class="button-secondary" id="generate_comment_policy" name="generate_comment_policy" value="' . __( 'Generate Policy', 'standard' ) . '" />';
 		$html .= '<span id="standard-comment-policy-nonce" class="hidden">' . wp_create_nonce( 'standard_generate_comment_policy_nonce' ) . '</span>';
 		$html .= '&nbsp;';
-		$html .= '<span class="description">' . __( 'Click here to generate a Comment Policy. TODO.', 'standard' ) . '</span>';
+		$html .= '<span class="description">' . __( 'To learn more click <a href="http://docs.8bit.io/standard/options/comment-policy">here</a>.', 'standard' ) . '</span>';
 	$html .= '</div><!-- /#generate-comment-policy-wrapper -->';
 	
 	// Options to display if the page already exists
@@ -961,7 +964,11 @@ function comment_policy_template_display() {
 		if( null != $comment_policy ) {
 			$policy_id = $comment_policy->ID;
 		} // end if
-		$html .= '<span>' . __( 'You can view and edit your comment policy <a id="edit-comment-policy" href="post.php?post=' . $policy_id . '&action=edit">here</a>.', 'standard' ) . '</span>';
+		
+		$html .= '<input type="submit" class="button-secondary" id="delete_comment_policy" name="delete_comment_policy" value="' . __( 'Delete Policy', 'standard' ) . '" />';
+		$html .= '&nbsp;';
+		$html .= '<span>' . __( 'Warning, customizations will be lost. You can view or edit your policy <a id="edit-comment-policy" href="post.php?post=' . $policy_id . '&action=edit">here</a>.', 'standard' ) . '</span>';
+		$html .= '<span class="hidden" id="comment_policy_id">' . $policy_id . '</span>';
 	$html .= '</div><!-- /#has-comment-policy-wrapper -->';
 	
 	echo $html;
@@ -990,6 +997,27 @@ function standard_generate_privacy_policy_page( ) {
 add_action( 'wp_ajax_standard_generate_privacy_policy_page', 'standard_generate_privacy_policy_page' );
 
 /**
+ * Callback function used in the Ajax request for deleting the Privacy Policy.
+ */
+function standard_delete_privacy_policy_page( ) {
+	
+	// We'll be using the same nonce for generating the policy.
+	if( wp_verify_nonce( $_REQUEST['nonce'], 'standard_generate_privacy_policy_nonce' ) && isset( $_POST['deletePrivacyPolicy'] ) && isset( $_POST['page_id'] ) ) {
+		
+		if( standard_delete_page( $_POST['page_id'] ) ) {
+			die( '0' );
+		} else {
+			die( '1' );
+		} // end if/else
+		
+	} else {
+		die( '-1' );
+	} // end if/else
+
+} // end standard_delete_privacy_policy_page
+add_action( 'wp_ajax_standard_delete_privacy_policy_page', 'standard_delete_privacy_policy_page' );
+
+/**
  * Callback function used in the Ajax request for generating the Comment Policy.
  */
 function standard_generate_comment_policy_page( ) {
@@ -1009,6 +1037,27 @@ function standard_generate_comment_policy_page( ) {
 
 } // end standard_generate_comment_policy_page
 add_action( 'wp_ajax_standard_generate_comment_policy_page', 'standard_generate_comment_policy_page' );
+
+/**
+ * Callback function used in the Ajax request for deleting the Privacy Policy.
+ */
+function standard_delete_comment_policy_page( ) {
+	
+	// We'll be using the same nonce for generating the policy.
+	if( wp_verify_nonce( $_REQUEST['nonce'], 'standard_generate_comment_policy_nonce' ) && isset( $_POST['deleteCommentPolicy'] ) && isset( $_POST['page_id'] ) ) {
+		
+		if( standard_delete_page( $_POST['page_id'] ) ) {
+			die( '0' );
+		} else {
+			die( '1' );
+		} // end if/else
+		
+	} else {
+		die( '-1' );
+	} // end if/else
+
+} // end standard_delete_comment_policy_page
+add_action( 'wp_ajax_standard_delete_comment_policy_page', 'standard_delete_comment_policy_page' );
 
 /**
  * Renders the image input option for allowing users to select the post-level advertisement.
@@ -2908,6 +2957,17 @@ function standard_create_page( $slug, $title, $template = '' ) {
 	return $page_id;
 
 } // end standard_create_page
+
+/**
+ * Helper function for programmatically deleting a page.
+ * 
+ * @params	$id			The ID of the page to delete
+ *
+ * @returns True if deleting of the page was successful; otherwise, false.
+ */
+function standard_delete_page( $id ) {
+	return null != wp_delete_post( $id, true );
+} // end standard_delete_page
 
 /**
  * If not already active, includes the plugin by using the specified path.

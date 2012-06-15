@@ -6,7 +6,7 @@
 			$('h3:first').hide();	 
 		} // end if
 		 
-		// Privacy Policy
+		// Generate Privacy Policy
 		$('#generate_privacy_policy').click(function(evt) {
 			
 			evt.preventDefault();
@@ -23,13 +23,13 @@
 
 						$('#generate-privacy-policy-wrapper').hide('fast', function() {
 						
-							var sNewHref = $('#edit-privacy-policy').attr('href');
-							sNewHref = sNewHref.replace('null-privacy-policy', response);
-							
-							$('#edit-privacy-policy').attr('href', sNewHref);
+							$('#privacy_policy_id').text(response);
+							$('#edit-privacy-policy').attr('href', 'post.php?post=' + response + '&action=edit');
 							$('#has-privacy-policy-wrapper').show();
 							
 						});
+						
+						$('#delete-privacy-policy-wrapper').show();
 						
 					} // end if
 					
@@ -37,7 +37,35 @@
 			
 		});
 		
-		// Comment Policy
+		// Delete Privacy Policy
+		$('#delete_privacy_policy').click(function(evt) {
+			
+			evt.preventDefault();
+			
+			$.post(ajaxurl, {
+				
+					action: 'standard_delete_privacy_policy_page',
+					nonce: $.trim($('#standard-privacy-policy-nonce').text()),
+					page_id: $('#privacy_policy_id').text(),
+					deletePrivacyPolicy: 'true'
+					
+				}, function(response) {
+				
+					if( parseInt(response) === 0 ) {
+						
+						$('#has-privacy-policy-wrapper').hide('fast', function() {
+						
+							$('#generate-privacy-policy-wrapper').show();
+							
+						});
+
+					} // end if
+					
+				});
+			
+		});
+		
+		// Generate Comment Policy
 		$('#generate_comment_policy').click(function(evt) {
 			
 			evt.preventDefault();
@@ -54,15 +82,40 @@
 					
 						$('#generate-comment-policy-wrapper').hide('fast', function() {
 						
-							var sNewHref = $('#edit-comment-policy').attr('href');
-							sNewHref = sNewHref.replace('null-comment-policy', response);
-							
-							$('#edit-comment-policy').attr('href', sNewHref);
-							console.log($('#edit-comment-policy'));
+							$('#comment_policy_id').text(response);
+							$('#edit-comment-policy').attr('href', 'post.php?post=' + response + '&action=edit');
 							$('#has-comment-policy-wrapper').show();
 							
 						});
 						
+					} // end if
+					
+				});
+			
+		});
+		
+		// Delete Comment Policy
+		$('#delete_comment_policy').click(function(evt) {
+			
+			evt.preventDefault();
+			
+			$.post(ajaxurl, {
+				
+					action: 'standard_delete_comment_policy_page',
+					nonce: $.trim($('#standard-comment-policy-nonce').text()),
+					page_id: $('#comment_policy_id').text(),
+					deleteCommentPolicy: 'true'
+					
+				}, function(response) {
+				
+					if( parseInt(response) === 0 ) {
+						
+						$('#has-comment-policy-wrapper').hide('fast', function() {
+
+							$('#generate-comment-policy-wrapper').show();
+							
+						});
+
 					} // end if
 					
 				});
