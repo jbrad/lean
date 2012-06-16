@@ -91,13 +91,25 @@
 										<?php if( 'video' == get_post_format() || 'image' == get_post_format() || '' == get_the_title() ) { ?>
 									
 											<h1 id="site-title">
-												<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php get_bloginfo( 'name' ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
+												<?php if( '' == $presentation_options['logo'] ) { ?>
+													<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php get_bloginfo( 'name' ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
+												<?php } else { ?>
+													<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php get_bloginfo( 'name' ); ?>" rel="home">
+														<img src="<?php echo $presentation_options['logo']; ?>" alt="<?php bloginfo( 'name' ); ?>" />
+													</a>
+												<?php } // end if/else ?>
 											</h1>
 										
 										<?php } else { ?>
 										
 											<p id="site-title">
-												<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php get_bloginfo( 'name' ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
+												<?php if( '' == $presentation_options['logo'] ) { ?>
+													<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php get_bloginfo( 'name' ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
+												<?php } else { ?>
+													<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php get_bloginfo( 'name' ); ?>" rel="home">
+														<img src="<?php echo $presentation_options['logo']; ?>" alt="<?php bloginfo( 'name' ); ?>" />
+													</a>
+												<?php } // end if/else ?>
 											</p>
 										
 										<?php } // end if/else ?>
@@ -105,7 +117,13 @@
 									<?php } else { ?>
 									
 										<h1 id="site-title">
-											<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php get_bloginfo( 'name' ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
+											<?php if( '' == $presentation_options['logo'] ) { ?>
+												<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php get_bloginfo( 'name' ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
+											<?php } else { ?>
+												<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php get_bloginfo( 'name' ); ?>" rel="home">
+													<img src="<?php echo $presentation_options['logo']; ?>" alt="<?php bloginfo( 'name' ); ?>" />
+												</a>
+											<?php } // end if/else ?>
 										</h1>
 									<?php } // end if/else ?>
 									

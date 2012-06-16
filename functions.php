@@ -113,6 +113,14 @@ function standard_setup_theme_presentation_options() {
 	);
 
 	add_settings_field(
+		'logo',
+		__( 'Logo', 'standard' ),
+		'logo_display',
+		'standard_theme_presentation_options',
+		'presentation'
+	);
+
+	add_settings_field(
 		'left_sidebar_layout',
 		__( 'Left Sidebar', 'standard' ),
 		'left_sidebar_presentation_display',
@@ -194,7 +202,7 @@ function fav_icon_display() {
 		$dimensions = 'width="16" height="16"';
 	} // end if
 	
-	$html = '<img src="' . $fav_icon . '" id="image_upload_preview" alt="" ' . $dimensions . '/>';
+	$html = '<img src="' . $fav_icon . '" id="fav_icon_preview" alt="" ' . $dimensions . '/>';
 	$html .= '<input type="hidden" id="fav_icon" name="standard_theme_presentation_options[fav_icon]" value="' . esc_attr( $fav_icon ) . '" class="media-upload-field" />';
 	$html .= '<input type="button" class="button" id="upload_fav_icon" value="' . __( 'Upload Now', 'standard' ) . '"/>';
 	
@@ -223,6 +231,32 @@ function contrast_display() {
 	echo $html;
 	
 } // end contrast_display
+
+/**
+ * Renders the option element for the Logo
+ */
+function logo_display() {
+
+	$options = get_option( 'standard_theme_presentation_options' );
+	
+	$logo = '';
+	if( isset( $options['logo'] ) ) {
+		$logo = $options['logo'];
+	} // end if
+	
+	$html = '<img src="' . $logo . '" id="logo_preview" alt="" />';
+	$html .= '<input type="hidden" id="logo" name="standard_theme_presentation_options[logo]" value="' . esc_attr( $logo ) . '" class="media-upload-field" />';
+	$html .= '<input type="button" class="button" id="upload_logo" value="' . __( 'Upload Now', 'standard' ) . '"/>';
+	
+	if( '' != trim( $logo ) ) {
+		$html .= '<input type="button" class="button" id="delete_logo" value="' . __( 'Delete', 'standard' ) . '"/>';
+	} // end if
+	
+	$html .= '&nbsp;<span class="description">' . __( 'TODO', 'standard' ) . '</span>';
+	
+	echo $html;
+	
+} // end logo_display
 
 /**
  * Renders the left-sidebar layout option.

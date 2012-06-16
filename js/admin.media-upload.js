@@ -1,3 +1,6 @@
+_standard_presentationPreviewImage = null;
+_standard_presentationPreviewUrl = null;
+
 (function($) {
 	$(function() {
 		
@@ -6,20 +9,24 @@
 		// Display the media uploader when the 'Upload' button is clicked
 		$('#upload_fav_icon').click(function() {
 			
+			// the element that will receive the preview image
+			_standard_presentationPreviewImage = 'fav_icon_preview';
+			_standard_presentationPreviewUrl = 'fav_icon';
+			
 			// Show the media uploader
 			tb_show('', 'media-upload.php?type=image&TB_iframe=true');
 			
 			$('#TB_iframeContent').load(function() {
 	
-				// if the user is uploading a new ad, we need to poll until we see the form fields
+				// if the user is uploading a new icon, we need to poll until we see the form fields
 				var fav_icon_poll = setInterval(function() {
 					if($('#TB_iframeContent').contents().find('#media-items').children().length > 0) {
-						standard_fav_icon_hide_unused_fields($, fav_icon_poll);
+						standard_upload_hide_unused_fields($, fav_icon_poll);
 					} // end if
 				}, 500);
 		
 				// if they aren't uploading, we'll clear the fields on load
-				standard_fav_icon_hide_unused_fields($);
+				standard_upload_hide_unused_fields($);
 			
 			});
 				
@@ -28,6 +35,41 @@
 		// Remove the URL of the fav icon
 		$('#delete_fav_icon').click(function() {
 			$('#fav_icon').val('');
+			$(this).siblings('img').hide();
+			$(this).hide();
+		});
+		
+		/* --- Logo --- */
+		
+		// Display the media uploader when the 'Upload' button is clicked
+		$('#upload_logo').click(function() {
+			
+			// the element that will receive the preview image
+			_standard_presentationPreviewImage = 'logo_preview';
+			_standard_presentationPreviewUrl = 'logo';
+			
+			// Show the media uploader
+			tb_show('', 'media-upload.php?type=image&TB_iframe=true');
+			
+			$('#TB_iframeContent').load(function() {
+	
+				// if the user is uploading a new logo, we need to poll until we see the form fields
+				var logo_poll = setInterval(function() {
+					if($('#TB_iframeContent').contents().find('#media-items').children().length > 0) {
+						standard_upload_hide_unused_fields($, logo_poll);
+					} // end if
+				}, 500);
+		
+				// if they aren't uploading, we'll clear the fields on load
+				standard_upload_hide_unused_fields($);
+			
+			});
+				
+		});
+		
+		// Remove the URL of the fav icon
+		$('#delete_logo').click(function() {
+			$('#logo').val('');
 			$(this).siblings('img').hide();
 			$(this).hide();
 		});
@@ -117,7 +159,7 @@
  * @params	$		A reference to the jQuery function
  * @params	poller	The polling mechanism used to look for the form fields when a user uploads an image	
  */
-function standard_fav_icon_hide_unused_fields($, poller) {
+function standard_upload_hide_unused_fields($, poller) {
 
 	// Hide unnecessary fields
 	var bHasHiddenFields = false;
@@ -155,7 +197,7 @@ function standard_fav_icon_hide_unused_fields($, poller) {
 	if($submit.length > 0 && $submit !== null) {
 	
 		/* Translators: This will need to be manually localized */
-		$submit.val('Save as Site Icon');
+		$submit.val('Save Image');
 		
 		bHasHiddenFields = true;
 		
@@ -166,7 +208,7 @@ function standard_fav_icon_hide_unused_fields($, poller) {
 		clearInterval(poller);
 	} // end if
 
-} // end standard_fav_icon_hide_unused_fields
+} // end standard_upload_hide_unused_fields
 
 /**
  * Hides fields that are irrelevant for the media uploader.
@@ -233,16 +275,22 @@ function standard_ad_banner_hide_unused_fields($, poller) {
  */ 
 window.send_to_editor = function(sHtml) {
 
+	// Set the container ID for the preview image that's being uploaded
+	var sPreviewId = '#' + _standard_presentationPreviewImage;
+	var sPreviewUrlId = '#' + _standard_presentationPreviewUrl;
+	
+	console.log(jQuery(sPreviewUrlId));
+
 	// Grab the URL of the image and set it into the field's ID.
 	// The raw class accepts a string of HTML, the other just the attribute
 	if(jQuery('.media-upload-field-raw').length > 0) {
 		jQuery('.media-upload-field-raw').val(sHtml);
 	} else {
-		jQuery('.media-upload-field').val(jQuery(sHtml).attr('src'));
+		jQuery(sPreviewUrlId).val(jQuery(sHtml).attr('src'));
 	} // end if/else
 	
 	// If the preview element exists, insert the image into the preview
-	if(jQuery('#image_upload_preview').length > 0) {
+	if(jQuery(sPreviewId).length > 0) {
 
 		// If there's an anchor in the markup, set a target="_blank" on it
 		if(jQuery(sHtml).attr('href') !== undefined && jQuery(sHtml).attr('href') !== null) {
@@ -250,11 +298,11 @@ window.send_to_editor = function(sHtml) {
 		} // end if
 		
 		if(jQuery('.media-upload-field-raw').length > 0) {
-			jQuery('#image_upload_preview').html(sHtml);
+			jQuery(sPreviewId).html(sHtml);
 		} else {
 		
-			jQuery('#image_upload_preview').attr('src', jQuery(sHtml).attr('src'));
-			jQuery('#image_upload_preview').css('width', 16).css('height', 16);
+			jQuery(sPreviewId).attr('src', jQuery(sHtml).attr('src'));
+			jQuery(sPreviewId).css('width', 16).css('height', 16);
 			
 		} // end if/else
 		
