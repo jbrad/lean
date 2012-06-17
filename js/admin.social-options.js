@@ -219,7 +219,10 @@ function updateIconValues(evt) {
 		if( parseInt(response) === 0 ) {
 
 			jQuery('#active-icon-list > li').each(function() {
-				setupIconClickHander(jQuery, jQuery(this));
+				
+				var bIsNowActive = evt === undefined ? false : jQuery(evt.srcElement).parents('ul').attr('id') === 'active-icon-list';
+				setupIconClickHander(jQuery, jQuery(this), bIsNowActive);
+				
 			});
 			
 		} // end if
@@ -250,12 +253,12 @@ function checkForMaxIcons() {
  * @params	$		The jQuery function
  * @params	$this	The element on which to attach the handler
  */
-function setupIconClickHander($, $this) {
+function setupIconClickHander($, $this, bIsNowActive) {
 
 	$this.click(function(evt) {
 		
 		var sRssUrl = '';
-		if($(evt.srcElement).attr('src') !== '') {
+		if($(evt.srcElement).attr('src') !== '' && $(evt.srcElement).attr('src') !== undefined) {
 			if($(evt.srcElement).attr('src').toString().indexOf('rss.png') > 0) {
 				sRssUrl = $('#standard-wordpress-rss-url').text();
 			} // end if
@@ -292,7 +295,7 @@ function setupIconClickHander($, $this) {
 		if('' !== sRssUrl) {
 			$('#social-icon-url').val(sRssUrl);
 		} // end if
-		
+				
 	});
 
 } // end setupIconClickHander
@@ -365,7 +368,7 @@ function makeIconsRemoveable($) {
 			$(evt.srcElement).parent().hide();
 
 			updateIconValues();
-			
+
 			updateAvailableIcons($);
 
 			$(this).css('border', 0);

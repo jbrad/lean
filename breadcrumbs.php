@@ -19,7 +19,7 @@ if( function_exists( 'yoast_breadcrumb' ) ) {
 		$display_breadcrumbs = $presentation_options['display_breadcrumbs'];
 	} // end if
 	
-	if( 'on' == $display_breadcrumbs ) {
+	if( 'always' == $display_breadcrumbs ) {
 		if( '' !== get_the_ID() ) {
 			echo Standard_Breadcrumbs::get_breadcrumb_trail( get_the_ID() );
 		} // end if

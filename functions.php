@@ -71,11 +71,11 @@ function get_standard_theme_default_presentation_options() {
 		'fav_icon'					=>	'',
 		'contrast'					=>	'light',
 		'layout' 					=> 	'right_sidebar_layout',
-		'display_breadcrumbs'		=>	'on',
+		'display_breadcrumbs'		=>	'always',
 		'display_featured_images' 	=> 	'always'
 	);
 	
-	return apply_filters ( 'standard_theme_default_presenation_options', $defaults );
+	return apply_filters ( 'standard_theme_default_presentation_options', $defaults );
 
 } // end standard_theme_default_presentation_options
   
@@ -89,10 +89,19 @@ function standard_setup_theme_presentation_options() {
 		add_option( 'standard_theme_presentation_options', apply_filters( 'standard_theme_default_presentation_options', get_standard_theme_default_presentation_options() ) );
 	} // end if
 	
+	// Presentation options (composed of layout and content)
 	add_settings_section(
 		'presentation',
-		__( 'Layout', 'standard' ),
-		'standard_theme_presentation_options_display',
+		__( 'Presentation', 'standard' ),
+		'',
+		'standard_theme_presentation_options'
+	);
+	
+	// Layout 
+	add_settings_section(
+		'layout',
+		__( 'Layout and Design', 'standard' ),
+		'standard_theme_layout_options_display',
 		'standard_theme_presentation_options'
 	);
 	
@@ -101,7 +110,7 @@ function standard_setup_theme_presentation_options() {
 		__( 'Site Icon', 'standard' ),
 		'fav_icon_display',
 		'standard_theme_presentation_options',
-		'presentation'
+		'layout'
 	);
 	
 	add_settings_field(
@@ -109,15 +118,15 @@ function standard_setup_theme_presentation_options() {
 		__( 'Contrast', 'standard' ),
 		'contrast_display',
 		'standard_theme_presentation_options',
-		'presentation'
+		'layout'
 	);
-
+	
 	add_settings_field(
 		'logo',
 		__( 'Logo', 'standard' ),
 		'logo_display',
 		'standard_theme_presentation_options',
-		'presentation'
+		'layout'
 	);
 
 	add_settings_field(
@@ -125,7 +134,7 @@ function standard_setup_theme_presentation_options() {
 		__( 'Left Sidebar', 'standard' ),
 		'left_sidebar_presentation_display',
 		'standard_theme_presentation_options',
-		'presentation',
+		'layout',
 		array(
 			'option_image_path' => get_template_directory_uri() . '/images/layout-left.gif'
 		)
@@ -136,7 +145,7 @@ function standard_setup_theme_presentation_options() {
 		__( 'Right Sidebar', 'standard' ),
 		'right_sidebar_presentation_display',
 		'standard_theme_presentation_options',
-		'presentation',
+		'layout',
 		array(
 			'option_image_path' => get_template_directory_uri() . '/images/layout-right.gif'
 		)
@@ -147,18 +156,26 @@ function standard_setup_theme_presentation_options() {
 		__( 'No Sidebar / Full Width', 'standard' ),
 		'full_width_presentation_display',
 		'standard_theme_presentation_options',
-		'presentation',
+		'layout',
 		array(
 			'option_image_path' => get_template_directory_uri() . '/images/layout-full.gif'
 		)
 	);
 	
+	// Content
+	add_settings_section(
+		'content',
+		__( 'Content', 'standard' ),
+		'standard_theme_content_options_display',
+		'standard_theme_presentation_options'
+	);
+	
 	add_settings_field(
 		'display_breadcrumbs',
-		__( 'Breadcrumbs', 'standard' ),
+		__( 'Display Breadcrumbs', 'standard' ),
 		'display_breadcrumbs_display',
 		'standard_theme_presentation_options',
-		'presentation'
+		'content'
 	);
 	
 	add_settings_field(
@@ -166,7 +183,7 @@ function standard_setup_theme_presentation_options() {
 		__( 'Display Featured Images', 'standard' ),
 		'display_featured_images_display',
 		'standard_theme_presentation_options',
-		'presentation'
+		'content'
 	);
 	
 	register_setting(
@@ -179,11 +196,18 @@ function standard_setup_theme_presentation_options() {
 add_action( 'admin_init', 'standard_setup_theme_presentation_options' );
 
 /** 
- * Renders the description for the "Presentation" options settings page.
+ * Renders the description for the "Layout and Design" options.
  */
-function standard_theme_presentation_options_display() {
-	_e( 'TODO', 'standard' );	
-} // end standard_theme_presentation_options_display
+function standard_theme_layout_options_display() {
+	_e( 'This section controls positioning and style elements.', 'standard' );
+} // end standard_theme_layout_display
+
+/** 
+ * Renders the description for the "Content" options.
+ */
+function standard_theme_content_options_display() {
+	_e( 'This section controls when content elements are displayed.', 'standard' );
+} // end standard_theme_content_display
 
 /**
  * Renders the option element for the Site Icon
@@ -204,13 +228,13 @@ function fav_icon_display() {
 	
 	$html = '<img src="' . $fav_icon . '" id="fav_icon_preview" alt="" ' . $dimensions . '/>';
 	$html .= '<input type="hidden" id="fav_icon" name="standard_theme_presentation_options[fav_icon]" value="' . esc_attr( $fav_icon ) . '" class="media-upload-field" />';
-	$html .= '<input type="button" class="button" id="upload_fav_icon" value="' . __( 'Upload Now', 'standard' ) . '"/>';
+	$html .= '<input type="button" class="button" id="upload_fav_icon" value="' . __( 'Upload', 'standard' ) . '"/>';
 	
 	if( '' != trim( $fav_icon ) ) {
 		$html .= '<input type="button" class="button" id="delete_fav_icon" value="' . __( 'Delete', 'standard' ) . '"/>';
 	} // end if
 	
-	$html .= '&nbsp;<span class="description">' . __( 'For best results, upload a 144x144 icon. This will be used for the favicon, Android, and iOS homescreen icons.', 'standard' ) . '</span>';
+	$html .= '&nbsp;<span class="description">' . __( 'Dimensions: 144px x 144px. Used for favicon and mobile devices. <a href="http://docs.8bit.io/standard/site-icon">Learn more</a>. ', 'standard' ) . '</span>';
 	
 	echo $html;
 	
@@ -227,6 +251,8 @@ function contrast_display() {
 		$html .= '<option value="light"' . selected( $options['contrast'], 'light', false ) . '>' . __( 'Light', 'standard' ) . '</option>';
 		$html .= '<option value="dark"' . selected( $options['contrast'], 'dark', false ) . '>' . __( 'Dark', 'standard' )  . '</option>';
 	$html .= '</select>';
+	$html .= '&nbsp;';
+	$html .= '<span class="description">' . __( 'Can be used with <a href="themes.php?page=custom-background">custom backgrounds</a>.', 'standard' ) . '</span>';
 
 	echo $html;
 	
@@ -246,7 +272,7 @@ function logo_display() {
 	
 	$html = '<img src="' . $logo . '" id="logo_preview" alt="" />';
 	$html .= '<input type="hidden" id="logo" name="standard_theme_presentation_options[logo]" value="' . esc_attr( $logo ) . '" class="media-upload-field" />';
-	$html .= '<input type="button" class="button" id="upload_logo" value="' . __( 'Upload Now', 'standard' ) . '"/>';
+	$html .= '<input type="button" class="button" id="upload_logo" value="' . __( 'Upload', 'standard' ) . '"/>';
 	
 	if( '' != trim( $logo ) ) {
 		$html .= '<input type="button" class="button" id="delete_logo" value="' . __( 'Delete', 'standard' ) . '"/>';
@@ -311,7 +337,7 @@ function full_width_presentation_display( $args ) {
  *
  * @params	$args	The array of options used for rendering the option.
  */
-function display_breadcrumbs_display( $args ) {
+function display_breadcrumbs_display() {
 	
 	$options = get_option( 'standard_theme_presentation_options' );
 
@@ -320,8 +346,12 @@ function display_breadcrumbs_display( $args ) {
 		$display_breadcrumbs = $options['display_breadcrumbs'];
 	} // end if
 
-	$html = '<input type="checkbox" id="display_breadcrumbs" name="standard_theme_presentation_options[display_breadcrumbs]" value="on" ' . checked( 'on', $display_breadcrumbs, false ) . ' />';
-	$html .= '&nbsp;<label for="display_breadcrumbs">' . __( 'Displays above post and page content.', 'standard' ) . '</label>';
+	$html = '<select id="display_breadcrumbs" name="standard_theme_presentation_options[display_breadcrumbs]">';
+		$html .= '<option value="always"'. selected( $options['display_breadcrumbs'], 'always', false ) . '>' . __( 'Always', 'standard' ) . '</option>';
+		$html .= '<option value="never"'. selected( $options['display_breadcrumbs'], 'never', false ) . '>' . __( 'Never', 'standard' ) . '</option>';
+	$html .= '</select>';
+
+	$html .= '&nbsp;<span class="description">' . __( 'SEO experts encourage breadcrumb use. <a href="http://docs.8bit.io/standard/breadcrumbs">Learn more</a>.', 'standard' ) . '</span>';
 	
 	echo $html;
 	
@@ -362,7 +392,7 @@ function standard_theme_presentation_options_validate( $input ) {
 	$output = array();
 
 	foreach( $input as $key => $val ) {
-	
+
 		if( isset ( $input[$key] ) ) {
 			$output[$key] = $input[$key];
 		} // end if	
@@ -454,7 +484,7 @@ add_action( 'admin_init', 'standard_setup_theme_social_options' );
  */
 function standard_theme_social_options_display() {
 
-	_e( 'To display an icon in the header for each social network below, add the full URL to the associated profile.', 'standard' );	
+	_e( 'This section controls social network icons in the site header. Drag, drop, and position desired icons from the Icon Library to the Active Icons area.', 'standard' );	
 
 	$html = '<div class="social-icons-wrapper">';
 	
@@ -463,25 +493,25 @@ function standard_theme_social_options_display() {
 				$html .= '<h3>' . __( 'Active Icons', 'standard' ) . '</h3>';
 			$html .= '</div><!-- /.sidebar-name -->';
 			$html .= '<div id="active-icons">';
-				$html .= '<p class="description">' . __( 'Click on each icon to give it an address to your social network.', 'standard' ) . '</p>';
+				$html .= '<p class="description">' . __( 'Click an icon to set the full URL.', 'standard' ) . '</p>';
 				$html .= '<ul id="active-icon-list"></ul>';
 				$html .= '<div id="active-icon-url" class="hidden">';
-					$html .= '<label>' . __( 'Icon Address:', 'standard' ) . '</label>';
+					$html .= '<label>' . __( 'Icon URL:', 'standard' ) . '</label>';
 					$html .= '<input type="text" id="social-icon-url" value="" class="icon-url" data-via="" data-url="" />';
 					$html .= '<input type="button" class="button" id="set-social-icon-url" value="' . __( 'Done', 'standard' ). '" />';
 					$html .= '&nbsp;';
 					$html .= '<a href="javascript:;" id="cancel-social-icon-url">' . __( 'Cancel', 'standard' ) . '</a>';
 				$html .= '</div><!-- /#active-icon-url -->';
-				$html .= '<div id="social-icon-max" class="hidden alert alert-info"><i class="icon icon-warning"></i> ' . __( 'Standard looks best with seven social icons.', 'standard' ) . '</div>';
+				$html .= '<div id="social-icon-max" class="hidden alert alert-info"><i class="icon icon-warning"></i> ' . __( 'Standard looks best with seven icons or fewer.', 'standard' ) . '</div>';
 			$html .= '</div><!-- /#active-icons -->';
 		$html .= '</div><!-- /#social-icons-active -->';
 		
 		$html .= '<div id="social-icons-available" class="right">';
 			$html .= '<div class="sidebar-name">';
-				$html .= '<h3>' . __( 'Available Icons', 'standard' ) . '</h3>';
+				$html .= '<h3>' . __( 'Icon Library', 'standard' ) . '</h3>';
 			$html .= '</div><!-- /.sidebar-name -->';
 			$html .= '<div id="available-icons">';
-				$html .= '<p class="description">' . __( 'Upload as many icons as many icons as you want. Chris can make this sound better.', 'standard' ) . '</p>';
+				$html .= '<p class="description">' . __( 'Use native social icons or upload your own.', 'standard' ) . '</p>';
 				$html .= '<ul id="available-icon-list"></ul>';
 				$html .= '<div id="delete-icons" class="description"><i class="icon icon-trash"></i><br>' . __( 'Drag social icons here to remove them from your library.', 'standard' ) . '</div>';
 			$html .= '<div id="social-icons-operations">';
@@ -657,7 +687,7 @@ add_action( 'admin_init', 'standard_setup_theme_global_options' );
  * Renders the description for the "Global" options settings page.
  */
 function standard_theme_global_options_display() {
-	_e( 'Configure global options that influence how your blog renders content, tracks analytics, and more.', 'standard' );
+	_e( 'This section controls site wide features.', 'standard' );
 } // end standard_theme_global_options_display
 
 /**
@@ -676,7 +706,7 @@ function google_analytics_display() {
 		} // end if
 		
 		$html = '<input type="text" id="google_analytics" name="standard_theme_global_options[google_analytics]" value="' . esc_attr( $analytics_id ) . '" />';
-		$html .= '&nbsp;<span class="description">' . __( 'Enter the ID only (i.e., UA-000000). Note that analytics are not tracked for users who are logged into WordPress.', 'standard' ) . '</span>';
+		$html .= '&nbsp;<span class="description">' . __( 'Enter the ID only (i.e., UA-000000).', 'standard' ) . '</span>';
 		
 		echo $html;
 
@@ -717,7 +747,7 @@ function offline_mode_display( ) {
 
 	$html = '<input type="checkbox" id="offline_mode" name="standard_theme_global_options[offline_mode]" value="on" ' . checked( 'on', $offline_mode, false ) . ' " />';
 	$html .= '&nbsp;<label for="offline_mode">';
-		$html .= __( 'Activate offline mode. Etc. TODO.', 'standard' );
+		$html .= __( 'Temporarily hide all site content from visitors and search engines while you edit your site.', 'standard' );
 	$html .= '</label>';
 
 	echo $html;
@@ -777,8 +807,7 @@ function standard_theme_global_options_validate( $input ) {
 function get_standard_theme_default_publishing_options() {
 
 	$defaults = array(
-		'display_author_box'			=>	'on',
-		'post_advertisement_image'		=>	''
+		'display_author_box'			=>	'always'
 	);
 	
 	return apply_filters ( 'standard_theme_default_publishing_options', $defaults );
@@ -799,7 +828,7 @@ function standard_setup_theme_publishing_options() {
 	add_settings_section(
 		'publishing',
 		__( 'Publishing', 'standard' ),
-		'standard_theme_publishing_options_display',
+		'',
 		'standard_theme_publishing_options'
 	);
 
@@ -813,16 +842,8 @@ function standard_setup_theme_publishing_options() {
 	
 	add_settings_field(
 		'display_author_box',
-		__( 'Author Box', 'standard' ),
+		__( 'Display Author Box', 'standard' ),
 		'display_author_box_display',
-		'standard_theme_publishing_options',
-		'post'
-	);
-	
-	add_settings_field(
-		'post_advertisement_image',
-		__( 'Advertisement Image', 'standard' ),
-		'post_advertisement_image_display',
 		'standard_theme_publishing_options',
 		'post'
 	);
@@ -863,36 +884,23 @@ add_action( 'admin_init', 'standard_setup_theme_publishing_options' );
 /** 
  * Renders the description for the "Post" options settings in the Publishing section.
  */
-function standard_theme_publishing_options_display() {
-	
-	do_settings_sections( 'standard_theme_post_options' );
-	settings_fields( 'standard_theme_post_options' );
-					
-	do_settings_sections( 'standard_theme_page_options' );
-	settings_fields( 'standard_theme_page_options' );
-	
-} // end standard_theme_publishing_options_display
-
-/** 
- * Renders the description for the "Post" options settings in the Publishing section.
- */
 function standard_theme_post_options_display() {
-	_e( 'Post TODO', 'standard' );
+	_e( 'This section controls publisher-centric features available on individual posts.', 'standard' );
 } // end standard_theme_post_options_display
 
 /** 
  * Renders the description for the "Page" options settings in the Publishing section.
  */
 function standard_theme_page_options_display() {
-	_e( 'Page TODO', 'standard' );
+	_e( 'This section controls publisher-centric features available for pages.', 'standard' );
 } // end standard_theme_page_options_display
 
 /**
- * Renders the breadcrumb options.
+ * Renders the author box option.
  *
  * @params	$args	The array of options used for rendering the option.
  */
-function display_author_box_display( $args ) {
+function display_author_box_display() {
 	
 	$options = get_option( 'standard_theme_publishing_options' );
 
@@ -901,12 +909,16 @@ function display_author_box_display( $args ) {
 		$display_author_box = $options['display_author_box'];
 	} // end if
 
-	$html = '<input type="checkbox" id="display_author_box" name="standard_theme_publishing_options[display_author_box]" value="on" ' . checked( 'on',$display_author_box, false ) . ' />';
-	$html .= '&nbsp;<label for="display_author_box">' . __( 'Displays between post content and comments. Includes <a href="profile.php">display name</a>, <a href="profile.php">website</a>, <a href="profile.php">social networking profiles</a>, and <a href="profile.php">biographical info</a>.', 'standard' ) . '</label>';
+	$html = '<select id="display_author_box" name="standard_theme_publishing_options[display_author_box]">';
+		$html .= '<option value="always"' . selected( $options['display_author_box'], 'always', false ) . '>' . __( 'Always', 'standard' ) . '</option>';
+		$html .= '<option value="never"' . selected( $options['display_author_box'], 'never', false ) . '>' . __( 'Never', 'standard' )  . '</option>';
+	$html .= '</select>';
+
+	$html .= '&nbsp;<span class="description">' . __( "Includes display name, website, social networks, and bio from the <a href='profile.php'>author's</a> profile. Displays after post content.", 'standard' ) . '</span>';
 	
 	echo $html;
 	
-} // end display_breadcrumbs_display
+} // end display_author_box_display
 
 /**
  * Renders the option for generating a Privacy Policy from within the Standard dashboard.
@@ -1061,28 +1073,6 @@ function standard_delete_comment_policy_page( ) {
 add_action( 'wp_ajax_standard_delete_comment_policy_page', 'standard_delete_comment_policy_page' );
 
 /**
- * Renders the image input option for allowing users to select the post-level advertisement.
- */
-function post_advertisement_image_display() {
-
-	$options = get_option( 'standard_theme_publishing_options' );
-
-	$html = '<input type="hidden" id="post_advertisement_image" name="standard_theme_publishing_options[post_advertisement_image]" value="' . esc_url( $options['post_advertisement_image'] ) . '" class="post_advertisement_image media-upload-field-raw" />';
-	
-	$html .= '<input type="button" class="button" id="upload_post_advertisement_image" value="' . __( 'Upload Now', 'standard' ) . '" class="post_advertisement_image" />';
-
-	if( '' != trim( $options['post_advertisement_image']) ) {
-		$html .= '<input type="button" class="button" id="delete_post_advertisement_image" value="' . __( 'Delete', 'standard' ) . '"/>';
-	} // end if
-	
-	$html .= '<span class="description">' . __( 'This advertisement will appear between your post content and your comments.', 'standard' ) . '</span>';
-	$html .= '<p id="image_upload_preview">' . $options['post_advertisement_image'] . '</p>';
-	
-	echo $html;
-
-} // end post_advertisement_image_display
-
-/**
  * Sanitization callback for the post options in the Publishing options.
  *	
  * @params	$input	The unsanitized collection of options.
@@ -1096,14 +1086,7 @@ function standard_theme_publishing_options_validate( $input ) {
 	foreach( $input as $key => $val ) {
 
 		if( isset ( $input[$key] ) ) {
-		
-			// If we're working with the post advertisement image, we don't need to remove tags because there's an anchor
-			if( 'post_advertisement_image' == $key ) {
-				$output[$key] = $input[$key];
-			} else {
-				$output[$key] = strip_tags( stripslashes( $input[$key] ) );
-			} // end if/else
-			
+			$output[$key] = strip_tags( stripslashes( $input[$key] ) );
 		} // end if	
 	
 	} // end foreach
@@ -1116,7 +1099,13 @@ function standard_theme_publishing_options_validate( $input ) {
  * Retrieves and optionally sets the version of the theme.
  */
 function standard_is_current_version() {
-	return get_option( 'standard_theme_version' );
+
+	$is_current_version = true;
+	if( '' != get_option( 'standard_theme_version' ) ) {
+		$is_current_version = ( '3.0' == get_option( 'standard_theme_version' ) );
+	} // end if/else
+	return $is_current_version;
+	
 } // end standard_is_current_version
 add_action( 'admin_init', 'standard_is_current_version' );
 
@@ -1133,6 +1122,15 @@ function standard_theme_options_display() {
 
 		<div id="icon-themes" class="icon32"></div>
 		<h2><?php _e( 'Standard Options', 'standard' ); ?></h2>
+		
+		<p id="standard-theme-options-description">
+			<ul>
+				<li><a href="http://docs.8bit.io/standard/"><?php _e( 'Documentation', 'standard' ); ?></a></li>
+				<li><a href="http://support.8bit.io"><?php _e( 'Support Community', 'standard' ); ?></a></li>
+				<li><a href="http://8bit.io"><?php _e( 'Blog', 'standard' ); ?></a></li>
+			</ul>
+		</p>
+		
 		<?php settings_errors(); ?>
 		
 		<?php $active_tab = isset( $_GET['tab'] ) ? $_GET['tab'] : 'standard_theme_global_options'; ?>
@@ -1265,7 +1263,7 @@ if( standard_is_on_wp34() ) {
 		// Featured Images
 		$wp_customize->add_setting( 'standard_theme_presentation_options[display_featured_images]', 
 			array(
-				'default'        => 'on',
+				'default'        => 'always',
 				'type'           => 'option',
 				'capability'     => 'edit_theme_options'
 			) 
@@ -1289,7 +1287,7 @@ if( standard_is_on_wp34() ) {
 		// Breadcrumbs
 		$wp_customize->add_setting( 'standard_theme_presentation_options[display_breadcrumbs]', 
 			array(
-				'default'        => 'on',
+				'default'        => 'always',
 				'type'           => 'option',
 				'capability'     => 'edit_theme_options'
 			) 
@@ -1302,8 +1300,8 @@ if( standard_is_on_wp34() ) {
 				'settings'   => 'standard_theme_presentation_options[display_breadcrumbs]',
 				'type'       => 'select',
 				'choices'    => array(
-					'on' 		=>	__( 'On single posts and pages', 'standard' ),
-					'off' 		=>  __( 'Never', 'standard' )
+					'always' 		=>	__( 'Always', 'standard' ),
+					'never' 		=>  __( 'Never', 'standard' )
 				)
 			) 
 		);
@@ -1319,7 +1317,7 @@ if( standard_is_on_wp34() ) {
 		// Author Box
 		$wp_customize->add_setting( 'standard_theme_publishing_options[display_author_box]', 
 			array(
-				'default'        => '',
+				'default'        => 'always',
 				'type'           => 'option',
 				'capability'     => 'edit_theme_options'
 			) 
@@ -1332,8 +1330,8 @@ if( standard_is_on_wp34() ) {
 				'settings'   => 'standard_theme_publishing_options[display_author_box]',
 				'type'       => 'select',
 				'choices'    => array(
-					'on' 		=>	__( 'Below post content', 'standard' ),
-					'off' 		=>  __( 'Never', 'standard' )
+					'always' 		=>	__( 'Always', 'standard' ),
+					'never' 		=>  __( 'Never', 'standard' )
 				)
 			) 
 		);
@@ -2236,6 +2234,10 @@ function standard_add_admin_scripts() {
 		// standard's media-upload script
 		wp_register_script( 'standard-media-upload', get_template_directory_uri() . '/js/admin.media-upload.js', array( 'jquery', 'jquery-ui-core', 'media-upload','thickbox' ) );
 		wp_enqueue_script( 'standard-media-upload' );
+		
+		// standard's presentation script'
+		wp_register_script( 'standard-presentation-options', get_template_directory_uri() . '/js/admin.presentation-options.js' );
+		wp_enqueue_script( 'standard-presentation-options' );
 		
 		// standard's policy generation script
 		wp_register_script( 'standard-publishing-options', get_template_directory_uri() . '/js/admin.publishing-options.js' );
