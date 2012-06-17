@@ -192,7 +192,7 @@ function overHandler() {
  */
 function updateIconValues(evt) {
 
-	// TODO
+	// Only cancel the icon setting URL if this function was triggered by an element
 	if(evt !== undefined && !jQuery('#active-icon-url').hasClass('hidden')) {
 		cancelSettingIconURL(jQuery, jQuery('#cancel-social-icon-url'));
 	} // end if

@@ -130,9 +130,9 @@
 									<small id="site-description"><?php bloginfo( 'description' ); ?></small>	
 							</div><!-- /#logo -->
 							
-							<?php if ( ! function_exists('dynamic_sidebar')  || ! dynamic_sidebar( 'sidebar-0' ) ) :  ?>  
-								<!-- TODO display top-ad section only if widget is in sidebar -->										
-							<?php endif; // end 468x60 ad sidebar ?>
+							<?php if ( is_active_sidebar( 'sidebar-0' ) ) {  ?>  
+								<?php dynamic_sidebar( 'sidebar-0' ); ?>									
+							<?php }; // end if ?>
 						
 						</div><!-- /#hgroup -->
 							
