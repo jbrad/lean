@@ -58,6 +58,17 @@ function standard_theme_menu() {
 } // end standard_theme_menu
 add_action( 'admin_menu', 'standard_theme_menu' );
 
+/**
+ * Serializes the version of Standard only if it's never been
+ * previously set.
+ */
+if( null == get_option( 'standard_theme_version' ) || false == get_option( 'standard_theme_version' ) ) {
+	function standard_set_theme_version() {
+		update_option( 'standard_theme_version', '3.0' );
+	} // end standard_set_theme_version
+	add_action( 'admin_init', 'standard_set_theme_version' );
+} // end if
+
 /* ----------------------------- *
  * Layout Options
  * ----------------------------- */
@@ -1099,13 +1110,7 @@ function standard_theme_publishing_options_validate( $input ) {
  * Retrieves and optionally sets the version of the theme.
  */
 function standard_is_current_version() {
-
-	$is_current_version = true;
-	if( '' != get_option( 'standard_theme_version' ) ) {
-		$is_current_version = ( '3.0' == get_option( 'standard_theme_version' ) );
-	} // end if/else
-	return $is_current_version;
-	
+	return '3.0' == get_option( 'standard_theme_version' );
 } // end standard_is_current_version
 add_action( 'admin_init', 'standard_is_current_version' );
 
