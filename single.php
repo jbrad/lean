@@ -34,7 +34,7 @@
 							<?php get_template_part( 'pagination '); ?>
 
 							<?php $social_options = get_option( 'standard_theme_social_options' ); ?>
-							<?php if( 'on' == $display_author_box ) { ?>
+							<?php if( 'always' == $display_author_box ) { ?>
 								<div id="author-box" class="well clearfix">
 									<div class="author-box-image">
 										<?php echo get_avatar( get_the_author_meta( 'user_email', $post->post_author, '80' ) ); ?>

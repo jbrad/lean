@@ -2324,8 +2324,11 @@ function standard_add_user_profile_fields( $user_contactmethods ) {
 	
 	$user_contactmethods['twitter'] = __( 'Twitter URL', 'standard' );
 	$user_contactmethods['facebook'] = __( 'Facebook URL', 'standard' );
-	$user_contactmethods['google_plus'] = __( 'Google+ URL', 'standard' );
 	
+	if( standard_using_native_seo() ) {
+		$user_contactmethods['google_plus'] = __( 'Google+ URL', 'standard' );
+	} // end if
+
 	return $user_contactmethods;
 	
 } // end standard_add_user_profile_fields

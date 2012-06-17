@@ -12,6 +12,10 @@
 			<link rel="shortcut icon" href="<?php echo $presentation_options['fav_icon']; ?>" />
 			<link rel="apple-touch-icon-precomposed" sizes="114x114" href="<?php echo $presentation_options['fav_icon']; ?>" />
 		<?php } // end if ?>
+		<?php global $post; ?>
+		<?php if( standard_using_native_seo() && ( ( is_single() || is_page() ) && ( 0 != strlen( trim( ( $google_plus = get_user_meta( $post->post_author, 'google_plus', true ) ) ) ) ) ) ) { ?>
+			<link rel="author" href="<?php echo $google_plus ?>/posts"/>
+		<?php } // end if ?>
 		<?php $global_options = get_option( 'standard_theme_global_options' ); ?>
 		<?php if( '' != $global_options['google_analytics'] ) { ?>
 			<?php if( is_user_logged_in() ) { ?>
