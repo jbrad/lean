@@ -53,6 +53,8 @@
 
 .social-icons-wrapper img {
 	cursor: pointer;
+	max-width: 32px;
+	max-height: 32px;
 }
 
 .social-icons-wrapper ul { 
