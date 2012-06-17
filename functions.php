@@ -2973,6 +2973,16 @@ function standard_create_page( $slug, $title, $template = '' ) {
 
 	$current_user = wp_get_current_user();
 	
+	// Grab the content for the page being created
+	$page_content = '';
+	if( 'privacy-policy' == $slug ) {
+		$page_content = file_get_contents( get_template_directory_uri() . '/lib/Standard_Privacy_Policy.template.html' );
+	} elseif( 'comment-policy' == $slug ) {
+		// TODO
+		// $page_content = file_get_contents( get_template_directory_uri() . '/lib/Standard_Privacy_Policy.template.html' );
+	} // end if/else
+	
+	// Create the page
 	$page_id = wp_insert_post(	
 		array(
 			'comment_status'	=>	'closed',
@@ -2981,7 +2991,8 @@ function standard_create_page( $slug, $title, $template = '' ) {
 			'post_name'			=>	$slug,
 			'post_title'		=>	$title,
 			'post_status'		=>	'publish',
-			'post_type'			=>	'page'
+			'post_type'			=>	'page',
+			'post_content'		=>	$page_content
 		)
 	);
 	
