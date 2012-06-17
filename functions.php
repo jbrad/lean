@@ -698,7 +698,12 @@ add_action( 'admin_init', 'standard_setup_theme_global_options' );
  * Renders the description for the "Global" options settings page.
  */
 function standard_theme_global_options_display() {
-	_e( 'This section controls site wide features.', 'standard' );
+
+	$html = '<h3>' . __( 'Site Configuration ', 'standard' ) . '</h3>';
+	$html .= __( 'This section controls site wide features.', 'standard' );
+	
+	echo $html;
+	
 } // end standard_theme_global_options_display
 
 /**
@@ -2239,8 +2244,12 @@ function standard_add_admin_scripts() {
 		// standard's media-upload script
 		wp_register_script( 'standard-media-upload', get_template_directory_uri() . '/js/admin.media-upload.js', array( 'jquery', 'jquery-ui-core', 'media-upload','thickbox' ) );
 		wp_enqueue_script( 'standard-media-upload' );
+
+		// standard's global script
+		wp_register_script( 'standard-global-options', get_template_directory_uri() . '/js/admin.global-options.js' );
+		wp_enqueue_script( 'standard-global-options' );
 		
-		// standard's presentation script'
+		// standard's presentation script
 		wp_register_script( 'standard-presentation-options', get_template_directory_uri() . '/js/admin.presentation-options.js' );
 		wp_enqueue_script( 'standard-presentation-options' );
 		

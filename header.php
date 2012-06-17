@@ -37,7 +37,7 @@
 		<?php wp_head(); ?>
 	</head>
 	<body <?php body_class(); ?>>
-	
+
 		<?php if( standard_is_offline() ) { ?>
 			<?php get_template_part( 'page', 'offline-mode' ); ?>
 			<?php exit; ?>
