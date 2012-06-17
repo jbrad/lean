@@ -1230,7 +1230,7 @@ function standard_theme_options_display() {
  * 
  * @params	$wp_customize	The WordPress Theme Customizer
  */
-if( 0 == strpos( get_bloginfo( 'version' ), '3.4' ) ) {
+if( standard_is_on_wp34() ) {
 	
 	function standard_customize_register( $wp_customize ) {
 
@@ -1262,6 +1262,27 @@ if( 0 == strpos( get_bloginfo( 'version' ), '3.4' ) ) {
 					'dark'  => __( 'Dark', 'standard' )
 				),
 			) 
+		);
+		
+		// Logo
+		$wp_customize->add_setting( 'standard_theme_presentation_options[logo]', 
+			array(
+				'default'        => '',
+				'type'           => 'option',
+				'capability'     => 'edit_theme_options'
+			) 
+		);
+		
+		$wp_customize->add_control( 
+			new WP_Customize_Image_Control( 
+				$wp_customize, 
+				'standard_theme_presentation_options[logo]',
+				array(
+					'label'		=>	__( 'Logo', 'standard' ),
+					'section'	=>	'standard_theme_presentation_options',
+					'settings'  => 'standard_theme_presentation_options[logo]'
+				)
+			)
 		);
 		
 		// Layout
@@ -3027,7 +3048,7 @@ function standard_add_plugin( $str_path ) {
  */
 function standard_is_on_wp34() {
 	global $wp_version;
-	return $wp_version > '3.4';
+	return $wp_version >= '3.4';
 } // end standard_is_on_wp34
 
 ?>
