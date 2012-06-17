@@ -778,9 +778,7 @@ function get_standard_theme_default_publishing_options() {
 
 	$defaults = array(
 		'display_author_box'			=>	'on',
-		'post_advertisement_type' 		=> 'none',
-		'post_advertisement_image'		=>	'',
-		'post_advertisement_adsense'	=>	''
+		'post_advertisement_image'		=>	''
 	);
 	
 	return apply_filters ( 'standard_theme_default_publishing_options', $defaults );
@@ -822,25 +820,9 @@ function standard_setup_theme_publishing_options() {
 	);
 	
 	add_settings_field(
-		'post_advertisement_type',
-		__( 'Display Advertisements Using', 'standard' ),
-		'post_advertisement_type_display',
-		'standard_theme_publishing_options',
-		'post'
-	);
-	
-	add_settings_field(
 		'post_advertisement_image',
 		__( 'Advertisement Image', 'standard' ),
 		'post_advertisement_image_display',
-		'standard_theme_publishing_options',
-		'post'
-	);
-	
-	add_settings_field(
-		'post_advertisement_adsense',
-		__( 'Advertisement Adsense', 'standard' ),
-		'post_advertisement_adsense_display',
 		'standard_theme_publishing_options',
 		'post'
 	);
@@ -925,23 +907,6 @@ function display_author_box_display( $args ) {
 	echo $html;
 	
 } // end display_breadcrumbs_display
-
-/**
- * Renders the options for allows the user to select how to display their post-level advertisements.
- */
-function post_advertisement_type_display() {
-
-	$options = get_option( 'standard_theme_publishing_options' );
-
-	$html = '<select id="post_advertisement_type" name="standard_theme_publishing_options[post_advertisement_type]">';
-		$html .= '<option value="none"' . selected( 'none', $options['post_advertisement_type'], false ) . '>' . __( 'None', 'standard' ) . '</option>';
-		$html .= '<option value="image"' . selected( 'image', $options['post_advertisement_type'], false ) . '>' . __( 'Banner Image', 'standard' ) . '</option>';
-		$html .= '<option value="adsense"' . selected( 'adsense', $options['post_advertisement_type'], false ) . '>' . __( 'Adsense', 'standard' ) . '</option>';
-	$html .= '</select>';
-	
-	echo $html;
-
-} // end post_advertisement_type_display
 
 /**
  * Renders the option for generating a Privacy Policy from within the Standard dashboard.
@@ -1114,17 +1079,6 @@ function post_advertisement_image_display() {
 	$html .= '<p id="image_upload_preview">' . $options['post_advertisement_image'] . '</p>';
 	
 	echo $html;
-
-} // end post_advertisement_image_display
-
-/**
- * Renders the field for the adsense input for the post-level advertisement.
- */
-function post_advertisement_adsense_display() {
-
-	$options = get_option( 'standard_theme_publishing_options' );
-
-	echo '<input type="text" id="post_advertisement_adsense" name="standard_theme_publishing_options[post_advertisement_adsense]" value="' . $options['post_advertisement_adsense'] . '" class="post_advertisement_adsense" />';
 
 } // end post_advertisement_image_display
 
@@ -1724,11 +1678,24 @@ if( ! function_exists( 'standard_add_theme_sidebars' ) ) {
 			)
 		);
 		
+		// post advertisements
+		register_sidebar(
+			array(
+				'name'			=>	__( 'Post Advertisements', 'standard'),
+				'id'			=>	'sidebar-2',
+				'description'	=>	__( 'Widgets between the post content and the sidebar. Ideal for advertisements. TODO.', 'standard' ),
+				'before_widget' => '<div id="%1$s" class="widget %2$s">',
+				'after_widget'  => '</div>',
+				'before_title'  => '<h3 class="widget-title">',
+				'after_title'   => '</h3>'
+			)
+		);
+		
 		// footer left
 		register_sidebar(
 			array(
 				'name' 			=> __( 'Footer Left', 'standard' ),
-				'id' 			=> 'sidebar-2',
+				'id' 			=> 'sidebar-3',
 				'description'	=> __( 'Shown in the first column of the footer.', 'standard' ),
 				'before_widget' => '<div id="%1$s" class="widget %2$s">',
 				'after_widget'  => '</div>',
@@ -1741,7 +1708,7 @@ if( ! function_exists( 'standard_add_theme_sidebars' ) ) {
 		register_sidebar(
 			array(
 				'name' 			=> __( 'Footer Center', 'standard' ),
-				'id' 			=> 'sidebar-3',
+				'id' 			=> 'sidebar-4',
 				'description'	=> __( 'Shown in the second column of the footer.', 'standard' ),
 				'before_widget' => '<div id="%1$s" class="widget %2$s">',
 				'after_widget'  => '</div>',
@@ -1754,7 +1721,7 @@ if( ! function_exists( 'standard_add_theme_sidebars' ) ) {
 		register_sidebar(
 			array(
 				'name' 			=> __( 'Footer Right', 'standard' ),
-				'id' 			=> 'sidebar-4',
+				'id' 			=> 'sidebar-5',
 				'description'	=> __( 'Shown in the third column of the footer.', 'standard' ),
 				'before_widget' => '<div id="%1$s" class="widget %2$s">',
 				'after_widget'  => '</div>',

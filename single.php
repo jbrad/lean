@@ -68,16 +68,10 @@
 								</div><!-- /.author-box -->						
 							<?php } // end if ?>
 							
-							<?php if( 'none' !== $publishing_options['post_advertisement_type'] ) { ?>			
-								<?php if( 'image' == $publishing_options['post_advertisement_type'] ) { ?>
-									<div id="standard-post-advertisement-image">
-										<?php echo $publishing_options['post_advertisement_image']; ?>
-									</div><!-- /#standard-post-advertisement-image -->
-								<?php } else { ?>
-									<div id="standard-post-advertisement-adsense">
-										<?php echo $publishing_options['post_advertisement_adsense']; ?>
-									</div><!-- /#standard-post-advertisement-image -->
-								<?php } // end if/else ?>
+							<?php if( is_active_sidebar( 'sidebar-2' ) ) { ?>
+								<div id="standard-post-advertisement">
+									<?php dynamic_sidebar( 'sidebar-2' ); ?>
+								</div><!-- #standard-post-advertisement -->
 							<?php } // end if ?>
 							
 							<?php get_template_part( 'pagination' ); ?>
