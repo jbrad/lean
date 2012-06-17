@@ -438,6 +438,9 @@ function cancelSettingIconURL($, $elem) {
  */
 function socialOptionsHideUnusedFields($, poller) {
 
+	// Hide the 'From URL' tabs
+	$( '#tab-type_url', $('#TB_iframeContent')[0].contentWindow.document ).hide();
+
 	// Hide unnecessary fields
 	var bHasHiddenFormFields = false;
 	var $formFields = $('.describe tbody tr, .savebutton', $('#TB_iframeContent')[0].contentWindow.document);
