@@ -867,7 +867,7 @@ function standard_setup_theme_publishing_options() {
 	// Page options
 	add_settings_section(
 		'page',
-		__( 'Page', 'standard' ),
+		__( 'Pages', 'standard' ),
 		'standard_theme_page_options_display',
 		'standard_theme_publishing_options'
 	);
@@ -946,7 +946,7 @@ function privacy_policy_template_display() {
 	
 	// Options to display if the page doesn't already exist
 	$html = '<div id="generate-privacy-policy-wrapper"' . ( '' == $privacy_policy ? ' ' : ' class="hidden" ' )  . '>';
-		$html .= '<input type="submit" class="button-secondary" id="generate_privacy_policy" name="generate_privacy_policy" value="' . __( 'Generate Policy', 'standard' ) . '" />';
+		$html .= '<input type="submit" class="button-secondary" id="generate_privacy_policy" name="generate_privacy_policy" value="' . __( 'Generate', 'standard' ) . '" />';
 		$html .= '<span id="standard-privacy-policy-nonce" class="hidden">' . wp_create_nonce( 'standard_generate_privacy_policy_nonce' ) . '</span>';
 		$html .= '&nbsp;';
 		$html .= '<span class="description">' . __( '<a href="http://docs.8bit.io/standard/options/privacy-policy">Learn more</a>.', 'standard' ) . '</span>';
@@ -960,7 +960,7 @@ function privacy_policy_template_display() {
 			$policy_id = $privacy_policy->ID;
 		} // end if
 		
-		$html .= '<input type="submit" class="button-secondary" id="delete_privacy_policy" name="delete_privacy_policy" value="' . __( 'Delete Policy', 'standard' ) . '" />';
+		$html .= '<input type="submit" class="button-secondary" id="delete_privacy_policy" name="delete_privacy_policy" value="' . __( 'Delete', 'standard' ) . '" />';
 		$html .= '&nbsp;';
 		$html .= '<span>' . __( 'Warning, customizations will be lost. You can view or edit your policy ', 'standard' ) . '<a id="edit-privacy-policy" href="post.php?post=' . $policy_id . '&action=edit">' . __( 'here', 'standard' ) . '</a>.</span>';
 		$html .= '<span class="hidden" id="privacy_policy_id">' . $policy_id . '</span>';
@@ -980,7 +980,7 @@ function comment_policy_template_display() {
 	
 	// Options to display if the page doesn't already exist
 	$html = '<div id="generate-comment-policy-wrapper"' . ( '' == $comment_policy ? ' ' : ' class="hidden" ' )  . '>';
-		$html .= '<input type="submit" class="button-secondary" id="generate_comment_policy" name="generate_comment_policy" value="' . __( 'Generate Policy', 'standard' ) . '" />';
+		$html .= '<input type="submit" class="button-secondary" id="generate_comment_policy" name="generate_comment_policy" value="' . __( 'Generate', 'standard' ) . '" />';
 		$html .= '<span id="standard-comment-policy-nonce" class="hidden">' . wp_create_nonce( 'standard_generate_comment_policy_nonce' ) . '</span>';
 		$html .= '&nbsp;';
 		$html .= '<span class="description">' . __( '<a href="http://docs.8bit.io/standard/options/comment-policy">Learn more</a>.', 'standard' ) . '</span>';
@@ -994,9 +994,9 @@ function comment_policy_template_display() {
 			$policy_id = $comment_policy->ID;
 		} // end if
 		
-		$html .= '<input type="submit" class="button-secondary" id="delete_comment_policy" name="delete_comment_policy" value="' . __( 'Delete Policy', 'standard' ) . '" />';
+		$html .= '<input type="submit" class="button-secondary" id="delete_comment_policy" name="delete_comment_policy" value="' . __( 'Delete', 'standard' ) . '" />';
 		$html .= '&nbsp;';
-		$html .= '<span>' . __( 'Warning, customizations will be lost. You can view or edit your policy ', 'standard' ) . '<a id="edit-privacy-policy" href="post.php?post=' . $policy_id . '&action=edit">' . __( 'here', 'standard' ) . '</a>.</span>';
+		$html .= '<span>' . __( 'Warning, customizations will be lost. You can view or edit your policy ', 'standard' ) . '<a id="edit-comment-policy" href="post.php?post=' . $policy_id . '&action=edit">' . __( 'here', 'standard' ) . '</a>.</span>';
 		$html .= '<span class="hidden" id="comment_policy_id">' . $policy_id . '</span>';
 	$html .= '</div><!-- /#has-comment-policy-wrapper -->';
 	
@@ -3004,7 +3004,8 @@ function standard_create_page( $slug, $title, $template = '' ) {
 			'post_title'		=>	$title,
 			'post_status'		=>	'publish',
 			'post_type'			=>	'page',
-			'post_content'		=>	$page_content
+			'post_content'		=>	$page_content,
+			'post_status'		=>	'draft'
 		)
 	);
 	
