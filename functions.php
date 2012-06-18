@@ -460,7 +460,7 @@ function standard_setup_theme_social_options() {
 	
 	add_settings_section(
 		'social',
-		__( 'Social Options', 'standard' ),
+		__( 'Social', 'standard' ),
 		'standard_theme_social_options_display',
 		'standard_theme_social_options'
 	);
@@ -1540,12 +1540,12 @@ function standard_detect_wordpress_seo() {
 		// WordPress SEO
 		if( defined( 'WPSEO_URL' ) ) {
 
-			echo '<div id="standard-hide-seo-message-notification" class="updated"><p>' . __( 'Standard has detected the activation of WordPress SEO and is now running in SEO compatibility mode. <a id="standard-hide-seo-message" href="javascript:;">Hide this message</a>. Click here to <a href="http://docs.8bit.io/standard/seo">Learn more</a>.', 'standard') . '</p><span id="standard-hide-seo-message-nonce" class="hidden">' . wp_create_nonce( 'standard_hide_seo_message_nonce' ) . '</span></div>';
+			echo '<div id="standard-hide-seo-message-notification" class="error"><p>' . __( 'Standard has detected the activation of WordPress SEO and is now running in SEO compatibility mode. <a href="http://docs.8bit.io/standard/seo">Learn more</a> or <a id="standard-hide-seo-message" href="javascript:;">hide this message</a>.', 'standard') . '</p><span id="standard-hide-seo-message-nonce" class="hidden">' . wp_create_nonce( 'standard_hide_seo_message_nonce' ) . '</span></div>';
 		
 		// All-in-One SEO
 		} elseif( class_exists( 'All_in_One_SEO_Pack' ) ) {
 		
-			echo '<div id="standard-hide-seo-message-notification" class="updated"><p>' . __( 'Standard has detected the activation of All-In-One SEO and is now running in SEO compatibility mode. <a id="standard-hide-seo-message" href="javascript:;">Hide this message</a>. Click here to <a href="http://docs.8bit.io/standard/seo">Learn more</a>.', 'standard') . '</p><span id="standard-hide-seo-message-nonce" class="hidden">' . wp_create_nonce( 'standard_hide_seo_message_nonce' ) . '</span></div>';
+			echo '<div id="standard-hide-seo-message-notification" class="error"><p>' . __( 'Standard has detected the activation of All-In-One SEO and is now running in SEO compatibility mode.  <a href="http://docs.8bit.io/standard/seo">Learn more</a> or <a id="standard-hide-seo-message" href="javascript:;">hide this message</a>.', 'standard') . '</p><span id="standard-hide-seo-message-nonce" class="hidden">' . wp_create_nonce( 'standard_hide_seo_message_nonce' ) . '</span></div>';
 		
 		} // end if/else
 		
