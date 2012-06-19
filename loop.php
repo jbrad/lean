@@ -65,9 +65,9 @@
 		?>
 	</div><!-- /.entry-content -->
 	
-	<div class="post-meta">
-		<div class="row-fluid">
-			<div class="meta-date-cat-tags span9">
+	<div class="post-meta clearfix">
+
+			<div class="meta-date-cat-tags pull-left">
 			
 				<?php $category_list = get_the_category_list( __( ', ', 'standard' ) ); ?>
 				<?php if( $category_list ) { ?>
@@ -81,14 +81,13 @@
 				
 			</div><!-- /meta-date-cat-tags -->
 			
-			<?php $permalink_span = ( 'post' != get_post_type() && 'page' != get_post_type() && '' == $category_list && '' == $tag_list ) ? 'span11' : 'span3'; ?>
-			<div class="meta-comment-link <?php echo $permalink_span; ?>">
-				<a class="fademe pull-right post-link" href="<?php the_permalink(); ?>" title="<?php esc_attr_e( 'permalink ', 'standard' ); ?>"><img src="<?php echo esc_url( get_template_directory_uri() . '/images/icn-permalink.png' ); ?>" alt="<?php esc_attr_e( 'permalink ', 'standard' ); ?>" /></a>
+			<div class="meta-comment-link pull-right">
+				<a class="pull-right post-link" href="<?php the_permalink(); ?>" title="<?php esc_attr_e( 'permalink ', 'standard' ); ?>"><img src="<?php echo esc_url( get_template_directory_uri() . '/images/icn-permalink.png' ); ?>" alt="<?php esc_attr_e( 'permalink ', 'standard' ); ?>" /></a>
 				<?php if ( '' != get_post_format() ) { ?>
 					<span class="the-comment-link"><?php comments_popup_link( __( 'Leave a comment', 'standard' ), __( '1 Comment', 'standard' ), __( '% Comments', 'standard' ), '', ''); ?></span>
 				<?php } // end if ?>
 			</div><!-- /meta-comment-link -->
-		</div><!--/row-fluid -->
+
 	</div><!-- /.post-meta -->
 
 </div> <!-- /#post- -->

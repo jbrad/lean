@@ -585,12 +585,13 @@ p.wp-caption-text {
 }
 
 .post-meta .the-comment-link, .post-meta .post-link {
-	float: right;
 }
 
 .post-meta .post-link {
 	padding-left: 10px;
+	margin-top: -1px;
 }
+
 
 #single-post-nav .pager {
 	margin-bottom: 20px;
@@ -2008,13 +2009,11 @@ ul#sitemap-posts ul {
 	}
 	
 	.meta-comment-link {
-		border-top: 1px solid #eee;
-		padding-top: 19px;
+
 	}
 	
 	.meta-date-cat-tags {
-		padding-bottom: 20px;
-		text-align: center;
+
 	}
 	
 	/* Post Comments */
