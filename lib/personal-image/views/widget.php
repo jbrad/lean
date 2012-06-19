@@ -10,5 +10,7 @@
 		</a>
 	<?php } // end if ?>
 	</div><!-- /.standard-pi-pic -->
-	<p class="standard-pi-bio"><?php echo $image_description; ?></p>
+	<?php if( '' != trim( $image_description ) ) { ?>
+		<p class="standard-pi-bio"><?php echo $image_description; ?></p>
+	<?php } // end if ?>
 </div><!-- /.standard-pi-widget -->
