@@ -1384,7 +1384,7 @@ a.post-permalink:hover {
 /* search widget */
 
 #header-widget .widget_search {
-	width: 100%;
+	width: 260px;
 	float: right;
 	background: rgba(255,255,255,0.2);
 	padding: 10px;
