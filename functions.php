@@ -58,17 +58,6 @@ function standard_theme_menu() {
 } // end standard_theme_menu
 add_action( 'admin_menu', 'standard_theme_menu' );
 
-/**
- * Serializes the version of Standard only if it's never been
- * previously set.
- */
-if( null == get_option( 'standard_theme_version' ) || false == get_option( 'standard_theme_version' ) ) {
-	function standard_set_theme_version() {
-		update_option( 'standard_theme_version', '3.0' );
-	} // end standard_set_theme_version
-	add_action( 'admin_init', 'standard_set_theme_version' );
-} // end if
-
 /* ----------------------------- *
  * Layout Options
  * ----------------------------- */
@@ -1115,7 +1104,27 @@ function standard_theme_publishing_options_validate( $input ) {
  * Retrieves and optionally sets the version of the theme.
  */
 function standard_is_current_version() {
-	return '3.0' == get_option( 'standard_theme_version' );
+
+	$is_current_version = false;
+
+	// For now, we need also look to see if they are running a Preview.
+	// The Previews had options in the 'general' section so we'll look for that key, first.
+	if( ( '' || false || null ) == get_option( 'standard_theme_general_options' ) ) {
+		
+		// If we're here, then this is the first time the user is installing a version of Standard
+		// that isn't following a preview.
+		update_option( 'standard_theme_version', '3.0' );
+		$is_current_version = true;
+		
+	} // end if
+	
+	// Now we'll look to see if the version is actually 3.0. This will be the standard way to detect moving forward.
+	if( ! $is_current_version ) {
+		$is_current_version = '3.0' == get_option( 'standard_theme_version' );
+	} // end if
+	
+	return $is_current_version;
+	
 } // end standard_is_current_version
 add_action( 'admin_init', 'standard_is_current_version' );
 
@@ -2280,11 +2289,20 @@ function standard_activate_theme() {
 	
 		if( array_key_exists( 'standard_theme_reset_options', $_GET ) && 'true' == $_GET['standard_theme_reset_options'] ) {
 		
-			delete_option( 'standard_theme_presentation_options' );
+			// Remove the Preview settings
+			delete_option( 'standard_theme_general_options' );
 			delete_option( 'standard_theme_social_options' );
-			delete_option( 'standard_theme_global_options' );
-			delete_option( 'standard_theme_publishing_options' );
+			delete_option( 'standard_theme_layout_options' );
+			
+			// Set defaults for Standard
+			get_standard_theme_default_global_options();
+			get_standard_theme_default_presentation_options();
+			get_standard_theme_default_social_options();
+			get_standard_theme_default_publishing_options();
+			
+			// Set the version
 			update_option( 'standard_theme_version', '3.0' );
+			
 			
 		} else {
 			
