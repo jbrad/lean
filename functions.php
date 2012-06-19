@@ -278,7 +278,7 @@ function logo_display() {
 		$html .= '<input type="button" class="button" id="delete_logo" value="' . __( 'Delete', 'standard' ) . '"/>';
 	} // end if
 	
-	$html .= '&nbsp;<span class="description">' . __( 'TODO', 'standard' ) . '</span>';
+	$html .= '&nbsp;<span class="description">' . __( 'Use an image in place of the Site Title and Tagline. <a href="themes.php?page=custom-header">Custom headers</a> are also available', 'standard' ) . '</span>';
 	
 	echo $html;
 	
