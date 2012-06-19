@@ -115,6 +115,14 @@ function standard_setup_theme_presentation_options() {
 		'standard_theme_layout_options_display',
 		'standard_theme_presentation_options'
 	);
+
+	add_settings_field(
+		'logo',
+		__( 'Logo', 'standard' ),
+		'logo_display',
+		'standard_theme_presentation_options',
+		'layout'
+	);
 	
 	add_settings_field(
 		'fav_icon',
@@ -128,14 +136,6 @@ function standard_setup_theme_presentation_options() {
 		'contrast',
 		__( 'Contrast', 'standard' ),
 		'contrast_display',
-		'standard_theme_presentation_options',
-		'layout'
-	);
-	
-	add_settings_field(
-		'logo',
-		__( 'Logo', 'standard' ),
-		'logo_display',
 		'standard_theme_presentation_options',
 		'layout'
 	);
