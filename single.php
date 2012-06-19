@@ -41,7 +41,7 @@
 									</div><!-- /.author-box-image -->
 									<h4 class="author-box-name"><?php the_author_meta( 'display_name' ); ?></h4>
 									<p>
-										<a class="author-link author-posts-url" href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>" title="<?php echo get_the_author_meta( 'display_name' ); ?> <?php _e( 'Posts', 'standard'); ?>" rel="author"><?php _e( 'Posts', 'standard' ); ?></a>
+										<a class="author-link author-posts-url" href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>" title="<?php echo get_the_author_meta( 'display_name' ); ?> <?php _e( 'Posts', 'standard'); ?>"><?php _e( 'Posts', 'standard' ); ?></a>
 										
 									<?php if( strlen( trim( get_the_author_meta( 'user_url' ) ) ) > 0 ) { ?>
 										<a class="author-link author-url" href="<?php the_author_meta( 'user_url' ); ?>" title="<?php _e( 'Website', 'standard'); ?>" target="_blank" rel="author"><?php _e( 'Website', 'standard' ); ?></a>
