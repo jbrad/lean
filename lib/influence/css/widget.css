@@ -20,6 +20,9 @@
 	background-image: -ms-linear-gradient(top, rgb(248, 248, 248), rgb(238, 238, 238));
 	filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#f8f8f8', EndColorStr='#eeeeee');
 	border: 1px solid #e0e0e0;
+	-moz-box-shadow: 0 0 8px rgba(255, 255, 255, 0.8) inset;
+	-webkit-box-shadow: 0 0 8px rgba(255, 255, 255, 0.8) inset;
+	box-shadow: 0 0 8px rgba(255, 255, 255, 0.8) inset;
 }
 
 .si-total-number {
@@ -32,7 +35,7 @@
 }
 
 .si-total-title {
-	color: #777;
+	color: #888;
 	font-size: 12px;
 	font-weight: normal;
 	font-style: italic;
