@@ -1,14 +1,15 @@
 .standard-ad-300x250-wrapper .preview_image_container,
 .standard-ad-300x250-wrapper .preview_image {
+	background-color: #fff;
+	background-image: url(fake-300.jpg);
+	background-repeat: no-repeat;
 	width: 225px;
 	height: 188px;
-	background: #fff;
 	cursor: pointer;
 }
 
 .standard-ad-300x250-wrapper .preview_image_container {
 	margin-bottom: 12px;
-	background: #fff url(fake-300.jpg) center center no-repeat;
 	opacity: 1;
 	cursor: pointer;
 	-webkit-transition: opacity .25s ease-in-out;
