@@ -13,8 +13,8 @@
 
 .standard-personal-image-wrapper .preview_image_container,
 .standard-personal-image-wrapper .preview_image {
+	background: #fff url(fake-personal.jpg);
 	width: 225px;
 	min-height: 200px;
-	background: #fff;
 	cursor: pointer;
 }
