@@ -1698,9 +1698,9 @@ if( ! function_exists( 'standard_add_theme_sidebars' ) ) {
 		// post advertisements
 		register_sidebar(
 			array(
-				'name'			=>	__( 'Post Advertisements', 'standard'),
+				'name'			=>	__( 'Single Post', 'standard'),
 				'id'			=>	'sidebar-2',
-				'description'	=>	__( 'Widgets between the post content and the sidebar. Ideal for advertisements. TODO.', 'standard' ),
+				'description'	=>	__( 'Shown after post content and before comments. Ideal for the 468x60 Ad Widget.', 'standard' ),
 				'before_widget' => '<div id="%1$s" class="widget %2$s">',
 				'after_widget'  => '</div>',
 				'before_title'  => '<h3 class="widget-title">',
