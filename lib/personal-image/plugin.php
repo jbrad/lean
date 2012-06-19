@@ -65,7 +65,7 @@ class Standard_Personal_Image extends WP_Widget {
 
 		$instance['image_src'] = strip_tags( stripslashes( $new_instance['image_src'] ) );
 		$instance['image_url'] = strip_tags( stripslashes( $new_instance['image_url'] ) );
-		$instance['image_description'] = strip_tags( stripslashes( $new_instance['image_description'] ) );
+		$instance['image_description'] = $new_instance['image_description'];
 		
 		return $instance;
 		
