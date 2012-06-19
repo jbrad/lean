@@ -1365,6 +1365,14 @@ a.post-permalink:hover {
 	color: #999;
 }
 
+/* post widget */
+
+#standard-post-advertisement {
+	margin: 40px 0;
+	text-align: center;
+}
+
+
 /* text widget */
 
 .textwidget img {
