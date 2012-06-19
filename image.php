@@ -45,7 +45,14 @@
 									<?php $image_attributes = wp_get_attachment_image_src( $attachment_id, 'large' ); ?>
 									<img src="<?php echo esc_url( $image_attributes[0] ); ?>" width="<?php echo $image_attributes[1]; ?>" height="<?php echo $image_attributes[2]; ?>" />
 								</div><!-- ./content -->
-								<?php previous_image_link(); next_image_link(); ?>
+								<div id="image-thumbnails" class="clearfix">
+									<div class="fl">
+										<?php previous_image_link(); ?>
+									</div>
+									<div class="fr">
+										<?php next_image_link(); ?>
+									</div>
+								</div><!-- /#image-thumbmails -->
 							</div><!-- /.entry-content -->
 						</div> <!-- /#post -->						
 						<?php comments_template( '', true ); ?>
