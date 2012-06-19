@@ -357,22 +357,16 @@ html, body {
 }
 
 #hgroup {
-	/* TODO JARED padding: 45px 0; */
-	float: left;
+	padding: 45px 0;
 	position: relative;
-	margin-right: -100%;
 }
 
-#hgroup,
-#header-background-image {
-	float: left;
-}
 
 #logo {
 	float: left;
 }
 
-.header-widget {
+#header-widget {
 	float: right;
 }
 
@@ -407,20 +401,15 @@ html, body {
 
 
 .imageyup #head-wrapper {
-	/*margin-top: 45px;
+	margin-top: 45px;
 	margin-bottom: 45px;
-	TODO JARED
-	*/
 }
 
 .imageyup #hgroup {
-/*
-TODO JARED
 	position: absolute;
 	width: 92%;
 	margin: 0 4%;
 	top: 26%;
-	*/
 }
 
 
@@ -1385,13 +1374,14 @@ a.post-permalink:hover {
 
 /* search widget */
 
-.header-widget.widget_search {
-	width: 40%;
+#header-widget .widget_search {
+	width: 100%;
+	float: right;
 	background: rgba(255,255,255,0.2);
 	padding: 10px;
 }
 
-.header-widget.widget_search form, .header-widget.widget_search form input {
+#header-widget .widget_search form, #header-widget .widget_search form input {
 	margin-bottom: 0
 }
 
@@ -1973,7 +1963,7 @@ ul#sitemap-posts ul {
 		padding: 0;
 	}
 	
-	.header-widget.widget_search {
+	#header-widget .widget_search {
 		width: 100%;
 		box-sizing: border-box;
 		margin-top: 20px;
