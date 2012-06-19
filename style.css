@@ -1908,6 +1908,12 @@ ul#sitemap-posts ul {
 	margin-bottom: 10px;
 }
 
+/* search results */
+
+#cse-search-results iframe {
+	width: 100%;
+}
+
 /* ------------------------------------------------------------------------ 12. IE8 Styles */
 
 #ie8 .format-image img {
