@@ -1369,8 +1369,11 @@ a.post-permalink:hover {
 /* post widget */
 
 #standard-post-advertisement {
-	margin: 40px 0;
 	text-align: center;
+}
+
+#standard-post-advertisement .widget {
+	margin-bottom: 20px;
 }
 
 
