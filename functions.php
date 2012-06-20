@@ -278,7 +278,7 @@ function logo_display() {
 		$html .= '<input type="button" class="button" id="delete_logo" value="' . __( 'Delete', 'standard' ) . '"/>';
 	} // end if
 	
-	$html .= '&nbsp;<span class="description">' . __( 'TODO', 'standard' ) . '</span>';
+	$html .= '&nbsp;<span class="description">' . __( 'Use an image in place of the Site Title and Tagline. <a href="themes.php?page=custom-header">Custom headers</a> are also available', 'standard' ) . '</span>';
 	
 	echo $html;
 	
@@ -1698,9 +1698,9 @@ if( ! function_exists( 'standard_add_theme_sidebars' ) ) {
 		// post advertisements
 		register_sidebar(
 			array(
-				'name'			=>	__( 'Post Advertisements', 'standard'),
+				'name'			=>	__( 'Single Post', 'standard'),
 				'id'			=>	'sidebar-2',
-				'description'	=>	__( 'Widgets between the post content and the sidebar. Ideal for advertisements. TODO.', 'standard' ),
+				'description'	=>	__( 'Shown after post content and before comments. Ideal for the 468x60 Ad Widget.', 'standard' ),
 				'before_widget' => '<div id="%1$s" class="widget %2$s">',
 				'after_widget'  => '</div>',
 				'before_title'  => '<h3 class="widget-title">',
