@@ -70,7 +70,7 @@ _standard_presentationPreviewUrl = null;
 		// Remove the URL of the fav icon
 		$('#delete_logo').click(function() {
 			$('#logo').val('');
-			$(this).siblings('img').hide();
+			$('#logo_preview_container').children('img:first').hide();
 			$(this).hide();
 		});
 		
@@ -203,8 +203,6 @@ window.send_to_editor = function(sHtml) {
 	var sPreviewId = '#' + _standard_presentationPreviewImage;
 	var sPreviewUrlId = '#' + _standard_presentationPreviewUrl;
 	
-	console.log(jQuery(sPreviewUrlId));
-
 	// Grab the URL of the image and set it into the field's ID.
 	// The raw class accepts a string of HTML, the other just the attribute
 	if(jQuery('.media-upload-field-raw').length > 0) {
@@ -224,10 +222,7 @@ window.send_to_editor = function(sHtml) {
 		if(jQuery('.media-upload-field-raw').length > 0) {
 			jQuery(sPreviewId).html(sHtml);
 		} else {
-		
-			jQuery(sPreviewId).attr('src', jQuery(sHtml).attr('src'));
-			jQuery(sPreviewId).css('width', 16).css('height', 16);
-			
+			jQuery(sPreviewId).attr('src', jQuery(sHtml).attr('src'));			
 		} // end if/else
 		
 		

@@ -93,7 +93,7 @@ function standard_setup_theme_presentation_options() {
 	add_settings_section(
 		'presentation',
 		__( 'Presentation', 'standard' ),
-		'',
+		'standard_theme_presentation_options_display',
 		'standard_theme_presentation_options'
 	);
 	
@@ -195,6 +195,12 @@ function standard_setup_theme_presentation_options() {
 } // end standard_setup_theme_presentation_options
 add_action( 'admin_init', 'standard_setup_theme_presentation_options' );
 
+function standard_theme_presentation_options_display() {
+	/* This is a placeholder function for the Presentation option. It's composed
+	 * of the Post and Page options. 
+	 */
+} // end standard_theme_presentation_options_display
+
 /** 
  * Renders the description for the "Layout and Design" options.
  */
@@ -221,12 +227,7 @@ function fav_icon_display() {
 		$fav_icon = $options['fav_icon'];
 	} // end if
 	
-	$dimensions = '';
-	if( '' != $fav_icon ) {
-		$dimensions = 'width="16" height="16"';
-	} // end if
-	
-	$html = '<img src="' . $fav_icon . '" id="fav_icon_preview" alt="" ' . $dimensions . '/>';
+	$html = '<img src="' . $fav_icon . '" id="fav_icon_preview" alt="" />';
 	$html .= '<input type="hidden" id="fav_icon" name="standard_theme_presentation_options[fav_icon]" value="' . esc_attr( $fav_icon ) . '" class="media-upload-field" />';
 	$html .= '<input type="button" class="button" id="upload_fav_icon" value="' . __( 'Upload', 'standard' ) . '"/>';
 	
@@ -270,7 +271,10 @@ function logo_display() {
 		$logo = $options['logo'];
 	} // end if
 	
-	$html = '<img src="' . $logo . '" id="logo_preview" alt="" />';
+	$html = '<div id="logo_preview_container">';
+		$html .= '<img src="' . $logo . '" id="logo_preview" alt="" />';
+	$html .= '</div><!-- #logo_preview_container -->';
+	
 	$html .= '<input type="hidden" id="logo" name="standard_theme_presentation_options[logo]" value="' . esc_attr( $logo ) . '" class="media-upload-field" />';
 	$html .= '<input type="button" class="button" id="upload_logo" value="' . __( 'Upload', 'standard' ) . '"/>';
 	
