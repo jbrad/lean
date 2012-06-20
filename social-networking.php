@@ -24,18 +24,24 @@
 		} // end if/else
 		
 		// Build the line item
-		$html .= '<li>';
-		if( isset( $url ) ) {	
+		if( isset( $url ) || '' != esc_url( $icon ) ) { 
 		
-			$html .= '<a href="' . esc_url( $url ) . '" class="fademe" target="_blank"><img src="' . esc_url( $icon ) . '" alt="" /></a>';
+			$html .= '<li>';
 			
-			// We have to unset the reference so the next icon doesn't inherit this url
-			unset( $url );
+			if( isset( $url ) ) {	
 			
-		} else {
-			$html .= '<img src="' . esc_url( $icon ) . '" alt="" />';
+				$html .= '<a href="' . esc_url( $url ) . '" class="fademe" target="_blank"><img src="' . esc_url( $icon ) . '" alt="" /></a>';
+				
+				// We have to unset the reference so the next icon doesn't inherit this url
+				unset( $url );
+				
+			} else {
+				$html .= '<img src="' . esc_url( $icon ) . '" alt="" />';
+			} // end if/else
+			
+			$html .= '</li>';
+		
 		} // end if/else
-		$html .= '</li>';
 		
 	} // end foreach
 	$html .= '</ul>';

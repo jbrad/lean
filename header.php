@@ -70,10 +70,13 @@
 							?>
 
 						</div><!-- /.nav-collapse -->		
-							
-						<div id="social-networking" class="clearfix">
-							<?php get_template_part( 'social-networking' ); ?>  
-						</div><!-- /#social-networking -->	
+						
+						<?php $social_options = get_option( 'standard_theme_social_options' ); ?>
+						<?php if( '' != $social_options['active-social-icons'] ) { ?>
+							<div id="social-networking" class="clearfix">
+								<?php get_template_part( 'social-networking' ); ?>  
+							</div><!-- /#social-networking -->	
+						<?php } // end if ?>
 
 					</div> <!-- /container -->
 				</div><!-- /navbar-inner -->
