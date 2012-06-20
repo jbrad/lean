@@ -15,10 +15,10 @@ class Google_Custom_Search extends WP_Widget {
 	function __construct() {
 
 		$widget_opts = array(
-			'classname' 	=> __( 'google-custom-search', 'standard' ), 
+			'classname' 	=> __( 'standard-google-custom-search', 'standard' ), 
 			'description' 	=> __( 'Easily add Google Custom Search to your Standard-powered blog.', 'standard' )
 		);	
-		$this->WP_Widget( 'google-custom-search', __( 'Google Custom Search (Standard)', 'standard' ), $widget_opts );
+		$this->WP_Widget( 'standard-google-custom-search', __( 'Google Custom Search', 'standard' ), $widget_opts );
 		
 		add_action( 'admin_print_styles', array( &$this, 'load_admin_stylesheets') );
 		add_action( 'wp_print_styles', array( &$this, 'load_stylesheets' ) );

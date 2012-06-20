@@ -17,7 +17,7 @@ class Standard_Ad_125x125 extends WP_Widget {
 			'classname' 	=> __( 'ad-125x125', 'standard' ), 
 			'description' 	=> __( 'Display a 125x125 advertisement.', 'standard' )
 		);	
-		$this->WP_Widget( 'standard-ad-125x125', __( '125x125 Ad (Standard)', 'standard' ), $widget_opts );
+		$this->WP_Widget( 'standard-ad-125x125', __( '125x125 Ad', 'standard' ), $widget_opts );
 		
 		// We don't want to load these on the Appearance Options because we're overiding window.send_to_editor there, too.
 		global $pagenow;

@@ -17,7 +17,7 @@ class Standard_Ad_468x60 extends WP_Widget {
 			'classname' 	=> __( 'ad-468x60', 'standard' ), 
 			'description' 	=> __( 'Display a 468x60 advertisement.', 'standard' )
 		);	
-		$this->WP_Widget( 'standard-ad-468x60', __( '468x60 Ad (Standard)', 'standard' ), $widget_opts );
+		$this->WP_Widget( 'standard-ad-468x60', __( '468x60 Ad', 'standard' ), $widget_opts );
 		
 		// We don't want to load these on the Appearance Options because we're overiding window.send_to_editor there, too.
 		global $pagenow;

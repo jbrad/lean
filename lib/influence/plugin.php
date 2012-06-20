@@ -14,10 +14,10 @@ class Standard_Influence extends WP_Widget {
 	public function __construct() {
 
 		$widget_opts = array(
-			'classname' 	=> __( 'social-influence', 'standard' ), 
+			'classname' 	=> __( 'standard-social-influence', 'standard' ), 
 			'description' 	=> __( 'Display your social influence by showcasing FeedBurner subscriptions, Twitter followers, and Facebook fans.', 'standard' )
 		);	
-		$this->WP_Widget( 'standard-influence-widget', __( 'Social Influence (Standard)', 'standard' ), $widget_opts );
+		$this->WP_Widget( 'standard-influence-widget', __( 'Social Influence', 'standard' ), $widget_opts );
 				
 		add_action( 'admin_print_styles', array( &$this, 'register_admin_styles' ) );
 		add_action( 'admin_enqueue_scripts', array( &$this, 'register_admin_scripts' ) );

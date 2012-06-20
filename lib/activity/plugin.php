@@ -17,10 +17,10 @@ class Activity_Tabs extends WP_Widget {
 	public function __construct() {
 
 		$widget_opts = array(
-			'classname' 	=> __( 'Activity Tabs', 'standard' ), 
+			'classname' 	=> __( 'standard-activity-tabs', 'standard' ), 
 			'description' 	=> __( 'Display your most recent posts, comments, popular posts, and tags.', 'standard' )
 		);	
-		$this->WP_Widget( 'activity-tabs', __( 'Activity Tabs (Standard)', 'standard' ), $widget_opts );
+		$this->WP_Widget( 'standard-activity-tabs', __( 'Activity Tabs', 'standard' ), $widget_opts );
 		
 		if( is_admin() ) {
 		
