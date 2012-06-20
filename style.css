@@ -1439,6 +1439,10 @@ a.post-permalink:hover {
 	color: #404040;
 }
 
+#standard-post-advertisement .widget {
+	margin-bottom: 20px;
+}
+
 
 /* tabbed popularity widget */ 
 
