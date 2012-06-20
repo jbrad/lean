@@ -159,7 +159,7 @@ class Google_Custom_Search extends WP_Widget {
 		
 			if( ( '' || false || null ) == get_post_meta( $page_id, 'standard_google_custom_search' ) ) {
 			
-				echo '<div id="standard-gcse-template-exists-notification" class="updated"><p>' . __( 'Standard has detected that you already have a search results template. Please <a href="post.php?post=' . $page_id . '&action=edit">delete this page</a> or change the page\'s permalink. TODO: Chris will need to rework this verbiage.', 'standard') . '</p></div>';
+				echo '<div id="standard-gcse-template-exists-notification" class="updated"><p>' . __( 'Could not configure Google Custom Search widget because the required "search-results" permalink is already in use. Please rename <a href="post.php?post=' . $page_id . '&action=edit">the existing page\'s permalink</a>, or <a href="post.php?post=' . $page_id . '&action=edit">delete the page</a>, and try again.', 'standard') . '</p></div>';
 			
 			} // end if
 
