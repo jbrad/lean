@@ -244,6 +244,10 @@ body {
 	filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#202020', EndColorStr='#1c1c1c');
 }
 
+.navbar .nav > li > a {
+	padding: 11px 10px 10px;
+}
+
 .navbar .nav {
 	margin-left: -10px;
 }
@@ -253,9 +257,16 @@ body {
 	margin-right: -10px;
 }
 
-.navbar .social-icons > li a {
-	margin: 12px 0 6px 20px;
+.navbar .social-icons > li {
+	margin: 12px 0 12px 12px;
 	padding: 0;
+	line-height: 0;
+}
+
+.navbar .social-icons > li a {
+	margin: 0;
+	padding: 0;
+	line-height: 0;
 }
 
 #menu-under-header {
@@ -1933,7 +1944,7 @@ ul#sitemap-posts ul {
 		float: left;
 	}
 	
-	.social-icons.nav > li a {
+	.social-icons.nav > li {
 		margin-left: 12px;
 	}
 	
