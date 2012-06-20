@@ -197,7 +197,7 @@ add_action( 'admin_init', 'standard_setup_theme_presentation_options' );
 
 function standard_theme_presentation_options_display() {
 	/* This is a placeholder function for the Presentation option. It's composed
-	 * of the Post and Page options. 
+	 * of the Layout and Content options. 
 	 */
 } // end standard_theme_presentation_options_display
 
@@ -843,7 +843,7 @@ function standard_setup_theme_publishing_options() {
 	add_settings_section(
 		'publishing',
 		__( 'Publishing', 'standard' ),
-		'',
+		'standard_theme_publishing_options_display',
 		'standard_theme_publishing_options'
 	);
 
@@ -895,6 +895,12 @@ function standard_setup_theme_publishing_options() {
 
 } // end standard_setup_theme_publishing_options
 add_action( 'admin_init', 'standard_setup_theme_publishing_options' );
+
+function standard_theme_publishing_options_display() {
+	/* This is a placeholder function for the Presentation option. It's composed
+	 * of the Post and Page options. 
+	 */
+} // end standard_theme_presentation_options_display
 
 /** 
  * Renders the description for the "Post" options settings in the Publishing section.
@@ -1284,8 +1290,30 @@ if( standard_is_on_wp34() ) {
 				'choices'    => array(
 					'left_sidebar_layout' 	=> __( 'Left Sidebar', 'standard' ),
 					'right_sidebar_layout' 	=> __( 'Right Sidebar', 'standard' ),
-					'full_width_layout'		=> __( 'Full-Width', 'standard' )
+					'full_width_layout'		=> __( 'No Sidebar / Full-Width', 'standard' )
 				),
+			) 
+		);
+		
+		// Breadcrumbs
+		$wp_customize->add_setting( 'standard_theme_presentation_options[display_breadcrumbs]', 
+			array(
+				'default'        => 'always',
+				'type'           => 'option',
+				'capability'     => 'edit_theme_options'
+			) 
+		);
+	
+		$wp_customize->add_control( 'standard_theme_presentation_options[display_breadcrumbs]', 
+			array(
+				'label'      => __( 'Display Breadcrumbs', 'standard' ),
+				'section'    => 'standard_theme_presentation_options',
+				'settings'   => 'standard_theme_presentation_options[display_breadcrumbs]',
+				'type'       => 'select',
+				'choices'    => array(
+					'always' 		=>	__( 'Always', 'standard' ),
+					'never' 		=>  __( 'Never', 'standard' )
+				)
 			) 
 		);
 		
@@ -1310,28 +1338,6 @@ if( standard_is_on_wp34() ) {
 					'index'			=>	__( 'On index only', 'standard' ),
 					'single-post'	=>	__( 'On single posts only', 'standard' )
 				),
-			) 
-		);
-		
-		// Breadcrumbs
-		$wp_customize->add_setting( 'standard_theme_presentation_options[display_breadcrumbs]', 
-			array(
-				'default'        => 'always',
-				'type'           => 'option',
-				'capability'     => 'edit_theme_options'
-			) 
-		);
-	
-		$wp_customize->add_control( 'standard_theme_presentation_options[display_breadcrumbs]', 
-			array(
-				'label'      => __( 'Display Breadcrumbs', 'standard' ),
-				'section'    => 'standard_theme_presentation_options',
-				'settings'   => 'standard_theme_presentation_options[display_breadcrumbs]',
-				'type'       => 'select',
-				'choices'    => array(
-					'always' 		=>	__( 'Always', 'standard' ),
-					'never' 		=>  __( 'Never', 'standard' )
-				)
 			) 
 		);
 		
@@ -1365,8 +1371,61 @@ if( standard_is_on_wp34() ) {
 			) 
 		);
 		
+		// Basic WordPress functionality (header display, backgrounds, etc)
+		if ( $wp_customize->is_preview() && ! is_admin() ) {
+			add_action( 'wp_footer', 'standard_customize_preview', 21);
+		} // end if
+		$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
+		$wp_customize->get_setting( 'background_attachment' )->transport = 'postMessage';
+		
 	} // end standard_customize_register
 	add_action( 'customize_register', 'standard_customize_register' );
+
+	/**
+	 * Renders the JavaScript responsible for hooking into the Theme Customizer to tweak
+	 * the built-in theme settings.
+	 */
+	function standard_customize_preview() { ?>
+		<script type="text/javascript">
+		(function( $ ) {
+		
+			// Mark the background as fixed, move it to scroll otherwise.
+			$('body').css('background-attachment', 'fixed');
+			wp.customize('background_attachment', function(value) {
+				value.bind(function(to) {
+					if( 'scroll' === to ) {
+						$('body').css('background-attachment', '');
+					} else if( 'fixed' === to ) {
+						$('body').css('background-attachment', 'fixed');
+					} // end if
+				});
+			});
+		
+			// Updating the header color and display
+			wp.customize('header_textcolor', function(value) {
+				value.bind(function(to) {
+					
+					// If 'to' is blank or empty then we're toggling the display
+					if( 'blank' === to ) {
+
+						$('#site-title').toggle();
+						$('#site-description').toggle();
+						
+					} else if( 0 === to.length ) {
+					
+						$('#site-title').toggle();
+						$('#site-description').toggle();
+					
+					} // end if/else
+
+					// Update the color of the link
+					$('#site-title a').css('color', to);
+					
+				});			
+			})
+		})( jQuery );
+		</script>
+	<?php  } // end standard_customize_preview
 
 } // end if
 
