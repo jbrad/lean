@@ -1054,7 +1054,7 @@ function standard_generate_privacy_policy_page( ) {
 	
 	if( wp_verify_nonce( $_REQUEST['nonce'], 'standard_generate_privacy_policy_nonce' ) && isset( $_POST['generatePrivacyPolicy'] ) ) {
 		
-		$page_id = standard_create_page( 'privacy-policy', __( 'Privacy Policy', 'standard' ), 'template-policy' );
+		$page_id = standard_create_page( 'privacy-policy', __( 'Privacy Policy', 'standard' ) );
 		if( $page_id > 0 ) {
 			die( (string)$page_id );
 		} else {
@@ -1096,7 +1096,7 @@ function standard_generate_comment_policy_page( ) {
 	
 	if( wp_verify_nonce( $_REQUEST['nonce'], 'standard_generate_comment_policy_nonce' ) && isset( $_POST['generateCommentPolicy'] ) ) {
 		
-		$page_id = standard_create_page( 'comment-policy', __( 'Comment Policy', 'standard' ), 'template-policy' );
+		$page_id = standard_create_page( 'comment-policy', __( 'Comment Policy', 'standard' ) );
 		if( $page_id > 0 ) {
 			die( (string)$page_id );
 		} else {
@@ -3135,7 +3135,9 @@ function standard_create_page( $slug, $title, $template = '' ) {
 	);
 	
 	// Set the template
-	update_post_meta( $page_id, '_wp_page_template', '' != $template ? $template .= '.php' : $template );
+	if( '' != $template ) {
+		update_post_meta( $page_id, '_wp_page_template', '' != $template ? $template .= '.php' : $template );
+	} // end if
 		
 	return $page_id;
 
