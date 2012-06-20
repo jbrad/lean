@@ -2702,7 +2702,7 @@ if( ! function_exists( 'standard_search_form' ) ) {
 	function standard_search_form() {
 	
 		// Get the default text for the search form
-		$query = strlen( get_search_query() ) == 0 ? __( 'Search...', 'standard' ) : get_search_query();
+		$query = strlen( get_search_query() ) == 0 ? '' : get_search_query();
 	
 		// Render the form
 		$form = '<form role="search" method="get" id="searchform" action="' . esc_url( home_url( '/' ) ) . '">';
