@@ -146,7 +146,7 @@ class Standard_Personal_Image extends WP_Widget {
 	public function register_widget_styles() {
 	
 		wp_register_style( 'standard-personal-image-widget', get_template_directory_uri() . '/lib/personal-image/css/widget.css' );
-		wp_enqueue_style( 'standard-personal-widget' );
+		wp_enqueue_style( 'standard-personal-image-widget' );
 	
 	} // end register_widget_styles
 
