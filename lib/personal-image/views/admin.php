@@ -21,8 +21,8 @@
     
     <div class="bio option">
     	<label for="<?php echo $this->get_field_id( 'image_description' ); ?>"><?php _e( 'Bio (Optional):', 'standard' ); ?></label>
-    	<textarea id="<?php echo $this->get_field_id( 'image_description' ); ?>" name="<?php echo $this->get_field_name( 'image_description' ); ?>" maxlength="160" rows="3" cols="30"><?php echo $image_description; ?></textarea>
-    	<span class="description"><?php _e( '160 character limit.', 'standard' ); ?></span>
+    	<textarea id="<?php echo $this->get_field_id( 'image_description' ); ?>" name="<?php echo $this->get_field_name( 'image_description' ); ?>" maxlength="400" rows="3" cols="30"><?php echo $image_description; ?></textarea>
+    	<span class="description"><?php _e( '400 character limit.', 'standard' ); ?></span>
     </div><!-- /.option -->
     
 </div><!-- /.standard-personal-image-wrapper -->
