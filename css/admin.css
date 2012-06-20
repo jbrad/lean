@@ -27,3 +27,9 @@ img.social_option {
 .widgets-holder-wrap .standard-widget-top {
 	margin-top: -1px;
 }
+
+.standard-widget-top .widget-title {
+	background-image: url(img/icn-standard.png);
+	background-repeat: no-repeat;
+	padding-left: 35px;
+}
