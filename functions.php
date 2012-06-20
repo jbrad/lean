@@ -1480,7 +1480,7 @@ function standard_add_full_width_single_post() {
 	
 		add_meta_box(
 			'post_level_layout',
-			__( 'Layout', 'standard' ),
+			__( 'Standard Layout', 'standard' ),
 			'standard_post_level_layout_display',
 			'post',
 			'side',
