@@ -15,7 +15,7 @@
 						<iframe width="560" height="315" src="http://www.youtube.com/embed/WUUptX0i55g" frameborder="0" allowfullscreen></iframe>
 						<?php $options = get_option( 'standard_theme_global_options' ); ?>
 						<h1>PC Load Letter? The Fck does that mean?</h1>
-						<p><?php echo $options['offline_mode_message']; ?></p> 
+						<p><?php echo $options['offline_message']; ?></p> 
 					</div>
 				</div><!-- /#main -->			
 			</div><!--/row -->

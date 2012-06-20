@@ -711,9 +711,9 @@ function standard_setup_theme_global_options() {
 	);
 	
 	add_settings_field(
-		'offline_mode_message',
-		__( 'Offline Mode Message', 'standard' ),
-		'offline_mode_message_display',
+		'offline_message',
+		__( 'Offline Message', 'standard' ),
+		'offline_message_display',
 		'standard_theme_global_options',
 		'global'
 	);
@@ -812,18 +812,18 @@ function site_mode_display( ) {
 /**
  * Renders the options for the short, 140-character message for the offline mode.
  */
-function offline_mode_message_display() {
+function offline_message_display() {
 
 	$options = get_option( 'standard_theme_global_options' );
 	
 	$offline_message = '';
-	if( isset( $options['offline_mode_message'] ) ) {
-		$offline_message = $options['offline_mode_message'];
+	if( isset( $options['offline_message'] ) ) {
+		$offline_message = $options['offline_message'];
 	} // end if
 	
-	echo '<input type="text" id="offline_mode_message" name="standard_theme_global_options[offline_mode_message]" value="' . esc_attr( $offline_message ) . '" maxlength="140" />';
+	echo '<input type="text" id="offline_message" name="standard_theme_global_options[offline_message]" value="' . esc_attr( $offline_message ) . '" maxlength="140" />';
 
-} // end offline_mode_message_display
+} // end offline_message_display
 
 /**
  * Sanitization callback for the global options.
