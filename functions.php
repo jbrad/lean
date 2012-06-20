@@ -975,7 +975,7 @@ function display_author_box_display() {
 		$html .= '<option value="never"' . selected( $options['display_author_box'], 'never', false ) . '>' . __( 'Never', 'standard' )  . '</option>';
 	$html .= '</select>';
 
-	$html .= '&nbsp;<span class="description">' . __( "Includes display name, website, social networks, and bio from the <a href='profile.php'>author's</a> profile. Displays after post content.", 'standard' ) . '</span>';
+	$html .= '&nbsp;<span class="description">' . __( "Display name, website, social networks, and bio from the <a href='profile.php'>author's profile</a> after post content.", 'standard' ) . '</span>';
 	
 	echo $html;
 	
