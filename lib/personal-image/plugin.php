@@ -14,7 +14,7 @@ class Standard_Personal_Image extends WP_Widget {
 	public function __construct() {
 
 		$widget_opts = array(
-			'classname' 	=> __( 'Personal Image', 'standard' ), 
+			'classname' 	=> __( 'personal-image', 'standard' ), 
 			'description' 	=> __( 'Display a personal image and an optional description.', 'standard' )
 		);	
 		$this->WP_Widget( 'standard-personal-image', __( 'Personal Image (Standard)', 'standard' ), $widget_opts );

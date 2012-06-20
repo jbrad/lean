@@ -137,9 +137,9 @@
 									
 							</div><!-- /#logo -->
 							
-							<?php if ( is_active_sidebar( 'sidebar-0' ) ) {  ?>  
+							<?php if ( is_active_sidebar( 'header-widget' ) ) {  ?>  
 								<div id="header-widget">
-									<?php dynamic_sidebar( 'sidebar-0' ); ?>
+									<?php dynamic_sidebar( 'header-widget' ); ?>
 								</div>							
 							<?php }; // end if ?>
 						

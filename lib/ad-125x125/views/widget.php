@@ -1,4 +1,4 @@
-<div class="standard-ad-125x125">
+<?php echo $args['before_widget']; ?>
 	<div class="ad-row">
 		<ul class="thumbnails">
 			<li class="span2">
@@ -27,4 +27,4 @@
 		</ul><!-- /.thumbnails -->
 		
 	</div><!-- /.ad-row -->
-</div><!-- /.standard-ad-125x125-wrapper -->
+<?php echo $args['after_widget']; ?>

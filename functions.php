@@ -1742,7 +1742,7 @@ if( ! function_exists( 'standard_add_theme_sidebars' ) ) {
 		register_sidebar(
 			array(
 				'name' 			=> __( 'Header', 'standard' ),
-				'id' 			=> 'sidebar-0',
+				'id' 			=> 'header-widget',
 				'description'	=> __( 'This area is designed for a 468x60 advertisement, but other widgets can be used here as well.', 'standard' ),
 				'before_widget' => '<div id="%1$s" class="header-widget widget %2$s">',
 				'after_widget'  => '</div>',
@@ -1767,9 +1767,9 @@ if( ! function_exists( 'standard_add_theme_sidebars' ) ) {
 		// post advertisements
 		register_sidebar(
 			array(
-				'name'			=>	__( 'Single Post', 'standard'),
+				'name'			=>	__( 'Below Single Post', 'standard'),
 				'id'			=>	'sidebar-2',
-				'description'	=>	__( 'Shown after post content and before comments. Ideal for the 468x60 Ad Widget.', 'standard' ),
+				'description'	=>	__( 'Shown after post content and before comments. Ideal for the 468x60 ad widget.', 'standard' ),
 				'before_widget' => '<div id="%1$s" class="widget %2$s">',
 				'after_widget'  => '</div>',
 				'before_title'  => '<h3 class="widget-title">',
