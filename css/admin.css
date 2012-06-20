@@ -9,3 +9,21 @@ img.social_option {
 	vertical-align: top;
 	margin: 4px 0 0 4px;
 }
+
+.standard-widget-top {
+	color: #d5d5d5 !important;
+	border: 1px solid #585858 !important;
+	text-shadow: 0 1px 0 #111 !important;
+	box-shadow: none !important;
+	background-color: #393939 !important;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(57, 57, 57)), to(rgb(36, 36, 36))) !important;
+	background-image: -webkit-linear-gradient(top, rgb(57, 57, 57), rgb(36, 36, 36)) !important;
+	background-image: -moz-linear-gradient(top, rgb(57, 57, 57), rgb(36, 36, 36)) !important;
+	background-image: -o-linear-gradient(top, rgb(57, 57, 57), rgb(36, 36, 36)) !important;
+	background-image: -ms-linear-gradient(top, rgb(57, 57, 57), rgb(36, 36, 36)) !important;
+	filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#393939', EndColorStr='#242424') !important;
+}
+
+.widgets-holder-wrap .standard-widget-top {
+	margin-top: -1px;
+}
