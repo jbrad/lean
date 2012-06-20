@@ -278,7 +278,7 @@ function logo_display() {
 		$html .= '<input type="button" class="button" id="delete_logo" value="' . __( 'Delete', 'standard' ) . '"/>';
 	} // end if
 	
-	$html .= '&nbsp;<span class="description">' . __( 'Use an image in place of the Site Title and Tagline. <a href="themes.php?page=custom-header">Custom headers</a> are also available', 'standard' ) . '</span>';
+	$html .= '&nbsp;<span class="description">' . __( 'Use an image in place of the <a href="themes.php?page=custom-header">Site Title and Tagline</a>. <a href="themes.php?page=custom-header">Custom headers</a> are also available.', 'standard' ) . '</span>';
 	
 	echo $html;
 	
@@ -613,7 +613,7 @@ function standard_theme_social_options_validate( $input ) {
 function get_standard_theme_default_global_options() {
 
 	$defaults = array(
-		'offline_mode'				=>	'',
+		'site_mode'					=>	'online',
 		'google_analytics'			=>	'',
 		'affiliate_code'			=>	'',
 		'offline_display_message'	=>	__( 'Our site is currently offline.', 'standard' )
@@ -659,9 +659,9 @@ function standard_setup_theme_global_options() {
 	);
 	
 	add_settings_field(
-		'offline_mode',
-		__( 'Offline Mode', 'standard' ),
-		'offline_mode_display',
+		'site_mode',
+		__( 'Site Mode', 'standard' ),
+		'site_mode_display',
 		'standard_theme_global_options',
 		'global'
 	);
@@ -741,23 +741,29 @@ function affiliate_code_display() {
 /**
  * Renders the options for activating Offline Line.
  */
-function offline_mode_display( ) {
+function site_mode_display( ) {
 
 	$options = get_option( 'standard_theme_global_options' );
 
-	$offline_mode = '';
-	if( isset( $options['offline_mode'] ) ) {
-		$offline_mode = $options['offline_mode'];
+	$site_mode = '';
+	if( isset( $options['site_mode'] ) ) {
+		$site_mode = $options['site_mode'];
 	} // end if
 
-	$html = '<input type="checkbox" id="offline_mode" name="standard_theme_global_options[offline_mode]" value="on" ' . checked( 'on', $offline_mode, false ) . ' " />';
-	$html .= '&nbsp;<label for="offline_mode">';
-		$html .= __( 'Temporarily hide all site content from visitors and search engines while you edit your site.', 'standard' );
-	$html .= '</label>';
+	$html = '<select id="site_mode" name="standard_theme_global_options[site_mode]">';
+		$html .= '<option value="online"' . selected( $site_mode, 'online', false ) . '>' . __( 'Online', 'standard' ) .'</option>';
+		$html .= '<option value="offline"' . selected( $site_mode, 'offline', false ) . '>' . __( 'Offline', 'standard' ) .'</option>';
+	$html .= '</select>';
+	
+	$html .= '&nbsp;';
+	
+	$html .= '<span class="description">';
+		$html .= __( 'WARNING: Taking site offline will hide all content from site visitors and search engines.', 'standard' );
+	$html .= '</span>';
 
 	echo $html;
 
-} // end offline_mode_display
+} // end site_mode_display
 
 /**
  * Renders the options for the short, 140-character message for the offline mode.
@@ -1509,21 +1515,21 @@ add_action( 'admin_bar_menu', 'standard_add_admin_bar_option', 40 );
 /**
  * Adds a reminder message to the admin bar that the user has set their site in offline mode.
  */
-function standard_add_maintenance_mode_admin_bar_note() {
+function standard_add_site_mode_admin_bar_note() {
 
 	// Remind the user if they are in maintenance mode
 	$options = get_option( 'standard_theme_global_options' );
 	
-	$offline_mode = '';
-	if( isset( $options['offline_mode'] ) ) {
-		$offline_mode = $options['offline_mode'];
+	$site_mode = '';
+	if( isset( $options['site_mode'] ) ) {
+		$site_mode = $options['site_mode'];
 	} // end if
 	
-	if( 'on' == $offline_mode ) {
+	if( 'offline' == $site_mode ) {
 		global $wp_admin_bar;
 		$wp_admin_bar->add_node(
 			array(
-				'id'	=>	'standard_theme_maintenance_mode',
+				'id'	=>	'standard_theme_site_mode',
 				'title'	=>	__( 'The site is currently offline. To bring it back online, click here.', 'standard' ),
 				'href'	=>	home_url() . '/wp-admin/themes.php?page=theme_options'
 			)
@@ -1531,7 +1537,7 @@ function standard_add_maintenance_mode_admin_bar_note() {
 	} // end if
 
 } // end standard_add_maintenance_mode_admin_bar_note
-add_action( 'admin_bar_menu' , 'standard_add_maintenance_mode_admin_bar_note', 90 );
+add_action( 'admin_bar_menu' , 'standard_add_site_mode_admin_bar_note', 90 );
 
 /**
  * Detects whether or not Yoast's WordPress SEO plugin has been installed. If so, it will display a notice that informs users
@@ -2215,8 +2221,8 @@ function standard_add_admin_scripts() {
 
 	// standard-specific styles
 	if( 'appearance_page_theme_options' == $screen->id ) {
-		wp_register_script( 'standard-offline-mode', get_template_directory_uri() . '/js/admin.offline-mode.js' );
-		wp_enqueue_script( 'standard-offline-mode' );
+		wp_register_script( 'standard-site-mode', get_template_directory_uri() . '/js/admin.site-mode.js' );
+		wp_enqueue_script( 'standard-site-mode' );
 	} // end if
 
 	// sitemap management script. 
@@ -2981,14 +2987,14 @@ function standard_is_offline() {
 
 	$global_options = get_option('standard_theme_global_options');
 	
-	$offline_mode = '';
-	if( isset( $global_options['offline_mode'] ) ) {
-		$offline_mode = $global_options['offline_mode'];
+	$site_mode = '';
+	if( isset( $global_options['site_mode'] ) ) {
+		$site_mode = $global_options['site_mode'];
 	} // end if
 	
-	return 'on' == $offline_mode && ! current_user_can( 'publish_posts' ); 
+	return 'offline' == $site_mode && ! current_user_can( 'publish_posts' ); 
 	
-} // end standard_offline_mode
+} // end standard_site_mode
 
 /**
  * Helper function for programmatically creating a page.
@@ -3009,7 +3015,7 @@ function standard_create_page( $slug, $title, $template = '' ) {
 		$page_content = file_get_contents( get_template_directory_uri() . '/lib/Standard_Privacy_Policy.template.html' );
 	} elseif( 'comment-policy' == $slug ) {
 		// TODO
-		// $page_content = file_get_contents( get_template_directory_uri() . '/lib/Standard_Privacy_Policy.template.html' );
+		// $page_content = file_get_contents( get_template_directory_uri() . '/lib/Standard_Comment_Policy.template.html' );
 	} // end if/else
 	
 	// Create the page
