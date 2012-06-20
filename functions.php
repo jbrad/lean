@@ -47,13 +47,53 @@ add_action( 'after_setup_theme', 'standard_set_theme_localization' );
  */
 function standard_theme_menu() {
 
-	add_theme_page(
+	add_menu_page(
+		__( 'standard', 'standard' ),
 		__( 'Standard', 'standard' ),
-		__( 'Standard Options', 'standard' ),
 		'administrator',
 		'theme_options',
+		'standard_theme_options_display',
+		get_template_directory_uri() . '/images/icn-standard-small.png',
+		60
+	);
+	
+	add_submenu_page(
+		'theme_options',
+		__( 'Global', 'standard' ),
+		__( 'Global', 'standard' ),
+		'administrator',
+		'theme_options&tab=standard_theme_global_options',
 		'standard_theme_options_display'
 	);
+	
+	add_submenu_page(
+		'theme_options',
+		__( 'Presentation', 'standard' ),
+		__( 'Presentation', 'standard' ),
+		'administrator',
+		'theme_options&tab=standard_theme_presentation_options',
+		'standard_theme_options_display'
+	);
+	
+	add_submenu_page(
+		'theme_options',
+		__( 'Social', 'standard' ),
+		__( 'Social', 'standard' ),
+		'administrator',
+		'theme_options&tab=standard_theme_social_options',
+		'standard_theme_options_display'
+	);
+	
+	add_submenu_page(
+		'theme_options',
+		__( 'Publishing', 'standard' ),
+		__( 'Publishing', 'standard' ),
+		'administrator',
+		'theme_options&tab=standard_theme_publishing_options',
+		'standard_theme_options_display'
+	);
+	
+	standard_add_admin_menu_separator( 59 );
 
 } // end standard_theme_menu
 add_action( 'admin_menu', 'standard_theme_menu' );
@@ -2248,7 +2288,7 @@ function standard_add_admin_stylesheets() {
 
 	wp_register_style( 'standard-admin', get_template_directory_uri() . '/css/admin.css' );
 	wp_enqueue_style( 'standard-admin' );
-	
+
 	if( 'appearance_page_custom-header' == $screen->id ) {
 	
 		wp_register_style( 'standard-admin-header', get_template_directory_uri() . '/css/admin.header.css' );
@@ -2257,7 +2297,7 @@ function standard_add_admin_stylesheets() {
 	} // end if
 	
 	// thickbox styles for the fav icon upload
-	if( 'appearance_page_theme_options' == $screen->id) {
+	if( ( 'toplevel_page_theme_options' || 'appearance_page_theme_options' ) == $screen->id) {
 	
 		wp_enqueue_style( 'thickbox' );
 		
@@ -2283,7 +2323,7 @@ function standard_add_admin_scripts() {
 	} // end if
 
 	// standard-specific styles
-	if( 'appearance_page_theme_options' == $screen->id ) {
+	if( ( 'toplevel_page_theme_options' || 'appearance_page_theme_options' ) == $screen->id ) {
 		wp_register_script( 'standard-site-mode', get_template_directory_uri() . '/js/admin.site-mode.js' );
 		wp_enqueue_script( 'standard-site-mode' );
 	} // end if
@@ -2303,7 +2343,7 @@ function standard_add_admin_scripts() {
 	} // end if
 	
 	// favicon upload script
-	if( 'appearance_page_theme_options' == $screen->id) {
+	if( ( 'toplevel_page_theme_options' || 'appearance_page_theme_options' ) == $screen->id) {
 		
 		// jquery ui
 		wp_enqueue_script( 'jquery-ui-core' );
@@ -3132,8 +3172,37 @@ function standard_add_plugin( $str_path ) {
  * @returns	true	If Standard is running on WordPress 3.4 or greater.
  */
 function standard_is_on_wp34() {
-	global $wp_version;
-	return $wp_version >= '3.4';
+	return function_exists( 'get_custom_header' );
 } // end standard_is_on_wp34
+
+/**
+ * Helper function used to add a separator to the admin menu. Used specifically
+ * to keep the WordPress menu organized.
+ *
+ * h/t		http://wordpress.stackexchange.com/questions/2666/add-a-separator-to-the-admin-menu
+ * 
+ * @params	$position	Where you want the separator to appear.
+ */
+function standard_add_admin_menu_separator( $position ) {
+
+  global $menu;
+  $index = 0;
+  
+  foreach( $menu as $offset => $section ) {
+  
+    if( substr( $section[2], 0, 9 ) == 'separator' ) {
+      $index++;
+    } // end if
+    
+    if ( $offset >= $position ) {
+    
+      $menu[$position] = array( '', 'read', "separator{$index}", '', 'wp-menu-separator' );
+      break;
+      
+    } // end if
+    
+  } // end foreach
+  
+} // end standard_add_admin_separator
 
 ?>
