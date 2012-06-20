@@ -1,4 +1,4 @@
-<div class="widget si-wrapper">
+<?php echo $args['before_widget']; ?>
 	
 	<?php if( 'both' == $display || 'total' == $display ) { ?>
 		<div class="si-total">
@@ -31,4 +31,4 @@
 		</div><!-- /.si-individual -->
 	<?php } // end if/else ?>
 	
-</div><!-- /.standard-influence-wrapper -->
+<?php echo $args['after_widget']; ?>

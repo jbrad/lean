@@ -14,7 +14,7 @@ class Standard_Influence extends WP_Widget {
 	public function __construct() {
 
 		$widget_opts = array(
-			'classname' 	=> __( 'Social Influence', 'standard' ), 
+			'classname' 	=> __( 'social-influence', 'standard' ), 
 			'description' 	=> __( 'Display your social influence by showcasing FeedBurner subscriptions, Twitter followers, and Facebook fans.', 'standard' )
 		);	
 		$this->WP_Widget( 'standard-influence-widget', __( 'Social Influence (Standard)', 'standard' ), $widget_opts );

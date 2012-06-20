@@ -14,7 +14,7 @@ class Standard_Ad_468x60 extends WP_Widget {
 	public function __construct() {
 
 		$widget_opts = array(
-			'classname' 	=> __( 'Ad 468x60', 'standard' ), 
+			'classname' 	=> __( 'ad-468x60', 'standard' ), 
 			'description' 	=> __( 'Display a 468x60 advertisement.', 'standard' )
 		);	
 		$this->WP_Widget( 'standard-ad-468x60', __( '468x60 Ad (Standard)', 'standard' ), $widget_opts );

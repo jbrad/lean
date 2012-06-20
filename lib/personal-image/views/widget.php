@@ -1,4 +1,4 @@
-<div class="widget standard-pi-widget">
+<?php echo $args['before_widget']; ?>
 	<div class="standard-pi-pic">
 	<?php if( strlen( trim( $image_url ) ) > 0 ) { ?>
 		<a href="<?php echo $image_url; ?>">
@@ -13,4 +13,4 @@
 	<?php if( '' != trim( $image_description ) ) { ?>
 		<p class="standard-pi-bio"><?php echo $image_description; ?></p>
 	<?php } // end if ?>
-</div><!-- /.standard-pi-widget -->
+<?php echo $args['after_widget']; ?>

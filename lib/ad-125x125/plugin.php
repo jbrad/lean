@@ -14,7 +14,7 @@ class Standard_Ad_125x125 extends WP_Widget {
 	public function __construct() {
 
 		$widget_opts = array(
-			'classname' 	=> __( 'Ad 125x125', 'standard' ), 
+			'classname' 	=> __( 'ad-125x125', 'standard' ), 
 			'description' 	=> __( 'Display a 125x125 advertisement.', 'standard' )
 		);	
 		$this->WP_Widget( 'standard-ad-125x125', __( '125x125 Ad (Standard)', 'standard' ), $widget_opts );
