@@ -54,7 +54,7 @@ function standard_theme_menu() {
 		'theme_options',
 		'standard_theme_options_display',
 		get_template_directory_uri() . '/images/icn-standard-small.png',
-		60
+		59
 	);
 	
 	add_submenu_page(
@@ -92,8 +92,8 @@ function standard_theme_menu() {
 		'theme_options&tab=standard_theme_publishing_options',
 		'standard_theme_options_display'
 	);
-	
-	standard_add_admin_menu_separator( 59 );
+	// TODO 
+	// standard_add_admin_menu_separator( 58 );
 
 } // end standard_theme_menu
 add_action( 'admin_menu', 'standard_theme_menu' );
@@ -2706,7 +2706,7 @@ if( ! function_exists( 'standard_search_form' ) ) {
 	
 		// Render the form
 		$form = '<form role="search" method="get" id="searchform" action="' . esc_url( home_url( '/' ) ) . '">';
-			$form .= '<input type="text" value="' . $query . '" name="s" id="s" />';
+			$form .= '<input placeholder="' . __( 'Search...', 'standard' ) . '" type="text" value="' . $query . '" name="s" id="s" />';
 		$form .= '</form>';
 		
 		return $form;
