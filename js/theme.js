@@ -79,6 +79,24 @@
 		// FitVid
 		$('.entry-content').fitVids();
 		
+		// Center Header Logo, if present
+		$(window).load(function() {
+		
+			if( ( $logo = $('#site-title').children(':first').children('img') ).length > 0) {
+				
+				$('#hgroup').css({
+					top:		0,
+					padding:	0
+				});
+				
+				$background = $('#header-image').children(':first').children('img');
+				$logo.css({
+					marginTop: Math.round( $background.height() / 2 ) - Math.round( $logo.height() / 2 )
+				});
+				
+			} // end ifs
+		});
+		
 	});
 })(jQuery);
 
