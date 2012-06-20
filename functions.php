@@ -47,14 +47,14 @@ add_action( 'after_setup_theme', 'standard_set_theme_localization' );
  */
 function standard_theme_menu() {
 
-	add_menu_page(
-		__( 'standard', 'standard' ),
+	add_menu_page( 
+		__( 'Standard Options', 'standard' ),
 		__( 'Standard', 'standard' ),
 		'administrator',
 		'theme_options',
 		'standard_theme_options_display',
 		get_template_directory_uri() . '/images/icn-standard-small.png',
-		60
+		59
 	);
 	
 	add_submenu_page(
@@ -92,8 +92,8 @@ function standard_theme_menu() {
 		'theme_options&tab=standard_theme_publishing_options',
 		'standard_theme_options_display'
 	);
-	
-	standard_add_admin_menu_separator( 59 );
+	// TODO 
+	// standard_add_admin_menu_separator( 58 );
 
 } // end standard_theme_menu
 add_action( 'admin_menu', 'standard_theme_menu' );
@@ -754,8 +754,8 @@ function google_analytics_display() {
 			$analytics_id = $option['google_analytics'];
 		} // end if
 		
-		$html = '<input type="text" id="google_analytics" name="standard_theme_global_options[google_analytics]" value="' . esc_attr( $analytics_id ) . '" />';
-		$html .= '&nbsp;<span class="description">' . __( 'Enter the ID only (i.e., UA-000000).', 'standard' ) . '</span>';
+		$html = '<input type="text" id="google_analytics" name="standard_theme_global_options[google_analytics]" placeholder="UA-000000" value="' . esc_attr( $analytics_id ) . '" />';
+		$html .= '&nbsp;<span class="description">' . __( 'Enter the ID only.', 'standard' ) . '</span>';
 		
 		echo $html;
 
@@ -2702,11 +2702,11 @@ if( ! function_exists( 'standard_search_form' ) ) {
 	function standard_search_form() {
 	
 		// Get the default text for the search form
-		$query = strlen( get_search_query() ) == 0 ? __( 'Search...', 'standard' ) : get_search_query();
+		$query = strlen( get_search_query() ) == 0 ? '' : get_search_query();
 	
 		// Render the form
 		$form = '<form role="search" method="get" id="searchform" action="' . esc_url( home_url( '/' ) ) . '">';
-			$form .= '<input type="text" value="' . $query . '" name="s" id="s" />';
+			$form .= '<input placeholder="' . __( 'Search...', 'standard' ) . '" type="text" value="' . $query . '" name="s" id="s" />';
 		$form .= '</form>';
 		
 		return $form;

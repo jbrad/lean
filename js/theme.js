@@ -4,22 +4,6 @@
 
 (function($) {
 	$(function() {
-			
-		// Search
-		if($('#s').length > 0) {
-			
-			var sQuery = $('#s').val();
-			$('#s').focus(function() {
-				if($('#s').val() === 'Search...') {
-					$('#s').val('');
-				} // end if
-			}).blur(function() {
-				if($('#s').val() === 'Search...' || $('#s').val().length === 0) {
-					$('#s').val(sQuery);
-				} // end if
-			});
-			
-		} // end if
 		
 		// Bootstrap Multi-Level Menus
 		$('.submenu').hover(function() {
