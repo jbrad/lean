@@ -93,7 +93,7 @@ function standard_setup_theme_presentation_options() {
 	add_settings_section(
 		'presentation',
 		__( 'Presentation', 'standard' ),
-		'',
+		'standard_theme_presentation_options_display',
 		'standard_theme_presentation_options'
 	);
 	
@@ -194,6 +194,12 @@ function standard_setup_theme_presentation_options() {
 
 } // end standard_setup_theme_presentation_options
 add_action( 'admin_init', 'standard_setup_theme_presentation_options' );
+
+function standard_theme_presentation_options_display() {
+	/* This is a placeholder function for the Presentation option. It's composed
+	 * of the Post and Page options. 
+	 */
+} // end standard_theme_presentation_options_display
 
 /** 
  * Renders the description for the "Layout and Design" options.
