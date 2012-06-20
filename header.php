@@ -109,7 +109,6 @@
 											<p id="site-title">
 												<?php if( '' == $presentation_options['logo'] ) { ?>
 													<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php get_bloginfo( 'name' ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
-													<p><small id="site-description"><?php bloginfo( 'description' ); ?></small></p>
 												<?php } else { ?>
 													<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php get_bloginfo( 'name' ); ?>" rel="home">
 														<img src="<?php echo $presentation_options['logo']; ?>" alt="<?php bloginfo( 'name' ); ?>" />
@@ -124,7 +123,6 @@
 										<h1 id="site-title">
 											<?php if( '' == $presentation_options['logo'] ) { ?>
 												<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php get_bloginfo( 'name' ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
-												<p><small id="site-description"><?php bloginfo( 'description' ); ?></small></p>
 											<?php } else { ?>
 												<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php get_bloginfo( 'name' ); ?>" rel="home">
 													<img src="<?php echo $presentation_options['logo']; ?>" alt="<?php bloginfo( 'name' ); ?>" />
@@ -132,7 +130,11 @@
 											<?php } // end if/else ?>
 										</h1>
 									<?php } // end if/else ?>
-	
+									
+									<?php if ( '' == $presentation_options['logo'] ) { ?>
+										<p><small id="site-description"><?php bloginfo( 'description' ); ?></small></p>
+									<?php } // end if ?>
+									
 							</div><!-- /#logo -->
 							
 							<?php if ( is_active_sidebar( 'sidebar-0' ) ) {  ?>  
@@ -147,13 +149,11 @@
 							<div id="header-image" class="row">
 								<div class="span12">	
 									<?php if ( ! empty( $header_image ) ) { ?>
-										<a id="header-background-image" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php get_bloginfo( 'name' ); ?>" rel="home">
-											<?php if( standard_is_on_wp34() ) { ?>
-												<img src="<?php esc_url( header_image() ); ?>" width="<?php echo get_custom_header()->width; ?>" height="<?php echo get_custom_header()->height; ?>" alt="<?php get_bloginfo( 'name' ); ?>" />
-											<?php } else { ?>
-												<img src="<?php esc_url( header_image() ); ?>" width="<?php echo HEADER_IMAGE_WIDTH ?>" height="<?php echo HEADER_IMAGE_HEIGHT; ?>" alt="<?php get_bloginfo( 'name' ); ?>" />
-											<?php } // end if/else ?>
-										</a>
+										<?php if( standard_is_on_wp34() ) { ?>
+											<img src="<?php esc_url( header_image() ); ?>" width="<?php echo get_custom_header()->width; ?>" height="<?php echo get_custom_header()->height; ?>" alt="<?php get_bloginfo( 'name' ); ?>" />
+										<?php } else { ?>
+											<img src="<?php esc_url( header_image() ); ?>" width="<?php echo HEADER_IMAGE_WIDTH ?>" height="<?php echo HEADER_IMAGE_HEIGHT; ?>" alt="<?php get_bloginfo( 'name' ); ?>" />
+										<?php } // end if/else ?>
 									<?php } // end if ?>
 								</div> <!-- /#header-image -->
 							</div> <!-- /row -->
