@@ -109,6 +109,7 @@
 											<p id="site-title">
 												<?php if( '' == $presentation_options['logo'] ) { ?>
 													<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php get_bloginfo( 'name' ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
+													<p><small id="site-description"><?php bloginfo( 'description' ); ?></small></p>
 												<?php } else { ?>
 													<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php get_bloginfo( 'name' ); ?>" rel="home">
 														<img src="<?php echo $presentation_options['logo']; ?>" alt="<?php bloginfo( 'name' ); ?>" />
@@ -123,6 +124,7 @@
 										<h1 id="site-title">
 											<?php if( '' == $presentation_options['logo'] ) { ?>
 												<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php get_bloginfo( 'name' ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
+												<p><small id="site-description"><?php bloginfo( 'description' ); ?></small></p>
 											<?php } else { ?>
 												<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php get_bloginfo( 'name' ); ?>" rel="home">
 													<img src="<?php echo $presentation_options['logo']; ?>" alt="<?php bloginfo( 'name' ); ?>" />
@@ -130,8 +132,7 @@
 											<?php } // end if/else ?>
 										</h1>
 									<?php } // end if/else ?>
-									
-									<small id="site-description"><?php bloginfo( 'description' ); ?></small>	
+	
 							</div><!-- /#logo -->
 							
 							<?php if ( is_active_sidebar( 'sidebar-0' ) ) {  ?>  
