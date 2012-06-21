@@ -294,6 +294,8 @@ function setupIconClickHander($, $this, bIsNowActive) {
 		
 		if('' !== sRssUrl) {
 			$('#social-icon-url').val(sRssUrl).attr('disabled', 'disabled');
+		} else {
+			$('#social-icon-url').removeAttr('disabled');
 		} // end if
 				
 	});
