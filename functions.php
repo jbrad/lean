@@ -1653,15 +1653,8 @@ add_action( 'admin_bar_menu', 'standard_add_admin_bar_option', 40 );
  */
 function standard_add_site_mode_admin_bar_note() {
 
-	// Remind the user if they are in maintenance mode
-	$options = get_option( 'standard_theme_global_options' );
-	
-	$site_mode = '';
-	if( isset( $options['site_mode'] ) ) {
-		$site_mode = $options['site_mode'];
-	} // end if
-	
-	if( 'offline' == $site_mode ) {
+	// Remind the user if they are in offline mode
+	if( standard_is_offline() ) {
 		global $wp_admin_bar;
 		$wp_admin_bar->add_node(
 			array(
@@ -2923,9 +2916,9 @@ add_action( 'attachment_fields_to_edit', 'standard_attachment_fields_to_edit', 1
 function standard_redirect_rss_feeds() {
 
 	global $feed;
-	
-	// If we're not on a feed or we're hitting feedburner, then stop
-	if( ! is_feed() || preg_match( '/feedburner/i', $_SERVER['HTTP_USER_AGENT'] ) ) {
+
+	// If we're not on a feed or we're requesting feedburner then stop the redirect
+	if( ! is_feed() || preg_match( '/feedburner/i', $_SERVER['HTTP_USER_AGENT'] ) || standard_is_offline() ) {
 		return;
 	} // end if
 	
@@ -2961,6 +2954,23 @@ function standard_redirect_rss_feeds() {
 	
 } // end standard_redirect_rss_feeds
 add_action( 'template_redirect', 'standard_redirect_rss_feeds' );
+
+/** 
+ * If Standard is in offline mode, then we'll stop all RSS feeds from publishing content.
+ */
+if( standard_is_offline() ) {
+
+	function standard_disable_feed() {
+		wp_die( get_bloginfo( 'Title' ) . __( ' is currently offline. ', 'standard' ) );
+	} // end standard_disable_feeds
+	
+	add_action( 'do_feed', 'standard_disable_feed', 1 );
+	add_action( 'do_feed_rdf', 'standard_disable_feed', 1 );
+	add_action( 'do_feed_rss', 'standard_disable_feed', 1 );
+	add_action( 'do_feed_rss2', 'standard_disable_feed', 1 );
+	add_action( 'do_feed_atom', 'standard_disable_feed', 1 );
+	
+} // end if
 
 /* ----------------------------------------------------------- *
  * 8. Helper Functions
