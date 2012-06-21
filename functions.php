@@ -2438,11 +2438,15 @@ function standard_activate_theme() {
 			get_standard_theme_default_presentation_options();
 			get_standard_theme_default_social_options();
 			get_standard_theme_default_publishing_options();
-			
+
+			// Set the default gravatar only if this is the first install
+			if( '3.0' != get_option( 'standard_theme_version' ) ) {
+				update_option( 'avatar_default', 'retro' );
+			} // end if
+
 			// Set the version
 			update_option( 'standard_theme_version', '3.0' );
-			
-			
+
 		} else {
 			
 			// Set the reset query string value

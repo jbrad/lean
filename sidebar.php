@@ -6,7 +6,7 @@
 ?>
 <div id="sidebar" class="span4">
 	<?php if ( ! dynamic_sidebar( 'sidebar-1' ) ) { ?>
-	
+
 		<div class="widget">
 			<?php get_search_form(); ?>
 		</div><!-- /.widget -->
