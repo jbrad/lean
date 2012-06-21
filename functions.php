@@ -563,7 +563,9 @@ function standard_theme_social_options_display() {
 		$html .= '</div><!-- /.social-icons-available -->';
 		
 		$html .= '<span id="standard-save-social-icons-nonce" class="hidden">' . wp_create_nonce( 'standard_save_social_icons_nonce' ) . '</span>';
-		$html .= '<span id="standard-wordpress-rss-url" class="hidden">' . esc_url( (string)get_feed_link( 'rss2' ) ) . '</span>';
+		
+		$html .= '<span id="standard-wordpress-rss-url" class="hidden">' . esc_url( standard_get_rss_feed_url() ) . '</span>';
+		
 		
 	$html .= '</div><!-- /.social-icons-wrapper -->';
 	
@@ -3211,6 +3213,23 @@ function standard_add_plugin( $str_path ) {
 function standard_is_on_wp34() {
 	return function_exists( 'get_custom_header' );
 } // end standard_is_on_wp34
+
+/**
+ * Returns the URL to the RSS feed based on what option the user
+ * has selected throughout the theme.
+ */
+function standard_get_rss_feed_url() {
+
+	$global_options = get_option( 'standard_theme_global_options' );
+	
+	$url = (string)get_feed_link( 'rss2' );
+	if( isset( $global_options['feedburner_url'] ) && '' != $global_options['feedburner_url'] ) {
+		$url = $global_options['feedburner_url'];
+	} // end if
+
+	return $url;
+
+} // end standard_get_rss_feed_url
 
 /**
  * Custom action that is used to initialize the Standard menu separator.

@@ -293,7 +293,7 @@ function setupIconClickHander($, $this, bIsNowActive) {
 		makeSortable($, '#active-icons', '#available-icons');
 		
 		if('' !== sRssUrl) {
-			$('#social-icon-url').val(sRssUrl);
+			$('#social-icon-url').val(sRssUrl).attr('disabled', 'disabled');
 		} // end if
 				
 	});

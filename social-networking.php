@@ -30,6 +30,10 @@
 			
 			if( isset( $url ) ) {	
 			
+				// if we're looking at the rss icon, we need to get the proper url for it
+				if( strpos( $icon, 'rss.png' ) > 0 ) {
+					$url = standard_get_rss_feed_url();					
+				} // end if
 				$html .= '<a href="' . esc_url( $url ) . '" class="fademe" target="_blank"><img src="' . esc_url( $icon ) . '" alt="" /></a>';
 				
 				// We have to unset the reference so the next icon doesn't inherit this url
