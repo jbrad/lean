@@ -2394,6 +2394,10 @@ function standard_add_admin_scripts() {
 		wp_register_script( 'standard-media-upload', get_template_directory_uri() . '/js/admin.media-upload.js', array( 'jquery', 'jquery-ui-core', 'media-upload','thickbox' ) );
 		wp_enqueue_script( 'standard-media-upload' );
 
+		// standard's admin menu controller
+		wp_register_script( 'standard-admin-menu', get_template_directory_uri() . '/js/admin.menu.js' );
+		wp_enqueue_script( 'standard-admin-menu' );
+
 		// standard's global script
 		wp_register_script( 'standard-global-options', get_template_directory_uri() . '/js/admin.global-options.js' );
 		wp_enqueue_script( 'standard-global-options' );
