@@ -1453,8 +1453,8 @@ if( standard_is_on_wp34() ) {
 		
 	} // end standard_customize_register
 	add_action( 'customize_register', 'standard_customize_register' );
-
-	/**
+	
+ 	/**
 	 * Renders the JavaScript responsible for hooking into the Theme Customizer to tweak
 	 * the built-in theme settings.
 	 */
