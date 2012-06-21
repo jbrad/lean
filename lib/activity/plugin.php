@@ -22,17 +22,8 @@ class Activity_Tabs extends WP_Widget {
 		);	
 		$this->WP_Widget( 'standard-activity-tabs', __( 'Activity Tabs', 'standard' ), $widget_opts );
 		
-		if( is_admin() ) {
-		
-			wp_register_style( 'activity-tabs-admin', get_template_directory_uri() . '/lib/activity/css/admin.css' );
-			wp_enqueue_style( 'activity-tabs-admin' );
-			
-		} else {
-		
-			wp_register_script( 'activity-tabs', get_template_directory_uri() . '/lib/activity/js/widget.js', array( 'jquery' ) );
-			wp_enqueue_script( 'activity-tabs');
-			
-		} // end if
+		add_action( 'admin_enqueue_scripts', array( &$this, 'register_admin_styles' ) );
+		add_action( 'wp_print_styles', array( &$this, 'register_widget_styles' ) );
 		
 	} // end constructor
 
@@ -107,6 +98,32 @@ class Activity_Tabs extends WP_Widget {
     	include( get_template_directory() . '/lib/activity/views/admin.php' );
 		
 	} // end form
+	
+
+	/*--------------------------------------------------------*
+	 * Helper Functions
+	 *--------------------------------------------------------*/
+
+	/** 
+	 * Registers and Enqueues the stylesheets for the Media Uploader and this widget.
+	 */
+	public function register_admin_styles() {
+
+		wp_register_style( 'standard-activity-tabs', get_template_directory_uri() . '/lib/activity/css/admin.css' );
+		wp_enqueue_style( 'standard-activity-tabs' );
+		
+	} // end register_admin_styles
+	
+	
+	/** 
+	 * Registers and Enqueues the stylesheets for this widget.
+	 */
+	public function register_widget_styles() {
+	
+		wp_register_style( 'standard-activity-tabs', get_template_directory_uri() . '/lib/activity/css/widget.css' );
+		wp_enqueue_style( 'standard-activity-tabs' );
+	
+	} // end register_widget_styles
 
 	/*--------------------------------------------------------*
 	 * Private Functions

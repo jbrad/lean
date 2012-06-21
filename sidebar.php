@@ -7,7 +7,30 @@
 <div id="sidebar" class="span4">
 	<?php if ( ! dynamic_sidebar( 'sidebar-1' ) ) { ?>
 	
-		<!-- TODO -->
+		<div class="widget">
+			<?php get_search_form(); ?>
+		</div><!-- /.widget -->
+		
+		<?php
+		$activity = new Activity_Tabs();
+		$activity->widget(
+			null,
+			array(
+				'post_count'	=> 	10,
+				'popular_count'	=>	10,
+				'comment_count'	=>	10,
+				'tag_count'		=>	10
+			)
+		);
+		
+		$ads_125 = new Standard_Ad_125x125();
+		$ads_125->widget(
+			null,
+			array(
+			)
+		);
+		
+		?>
 		
 	<?php } // end if ?>
 </div><!-- /#sidebar -->
