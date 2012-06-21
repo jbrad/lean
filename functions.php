@@ -43,7 +43,7 @@ add_action( 'after_setup_theme', 'standard_set_theme_localization' );
  * ----------------------------- */
 
 /** 
- * Adds the Standard options menu to the 'Appearance' menu.
+ * Adds the Standard options menu.
  */
 function standard_theme_menu() {
 
@@ -656,6 +656,7 @@ function get_standard_theme_default_global_options() {
 
 	$defaults = array(
 		'site_mode'					=>	'online',
+		'feedburner_url'			=>	'',
 		'google_analytics'			=>	'',
 		'affiliate_code'			=>	'',
 		'offline_display_message'	=>	__( 'Our site is currently offline.', 'standard' )
@@ -682,6 +683,14 @@ function standard_setup_theme_global_options() {
 		__( 'Global', 'standard' ),
 		'standard_theme_global_options_display',
 		'standard_theme_global_options'
+	);
+	
+	add_settings_field(
+		'feedburner_url',
+		__( 'FeedBurner URL', 'standard' ),
+		'feedburner_url_display',
+		'standard_theme_global_options',
+		'global'
 	);
 	
 	add_settings_field(
@@ -736,6 +745,30 @@ function standard_theme_global_options_display() {
 	echo $html;
 	
 } // end standard_theme_global_options_display
+
+/**
+ * Renders the option element for Google Analytics.
+ */
+function feedburner_url_display() {
+
+	$option = get_option( 'standard_theme_global_options' );
+	
+	// Only render this option for administrators
+	if( current_user_can( 'manage_options' ) ) {
+	
+		$feedburner_url = '';
+		if( true == isset ( $option['feedburner_url'] ) ) {
+			$feedburner_url = $option['feedburner_url'];
+		} // end if
+		
+		$html = '<input type="text" id="feedburner_url" name="standard_theme_global_options[feedburner_url]" placeholder="http://feeds.feedburner.com/example" value="' . esc_attr( $feedburner_url ) . '" />';
+		$html .= '&nbsp;<span class="description">' . __( 'Use in place of the native RSS feed.', 'standard' ) . '</span>';
+		
+		echo $html;
+
+	} // end if/else
+	
+} // end google_analytics_display
 
 /**
  * Renders the option element for Google Analytics.
@@ -2360,6 +2393,10 @@ function standard_add_admin_scripts() {
 		// standard's media-upload script
 		wp_register_script( 'standard-media-upload', get_template_directory_uri() . '/js/admin.media-upload.js', array( 'jquery', 'jquery-ui-core', 'media-upload','thickbox' ) );
 		wp_enqueue_script( 'standard-media-upload' );
+
+		// standard's admin menu controller
+		wp_register_script( 'standard-admin-menu', get_template_directory_uri() . '/js/admin.menu.js' );
+		wp_enqueue_script( 'standard-admin-menu' );
 
 		// standard's global script
 		wp_register_script( 'standard-global-options', get_template_directory_uri() . '/js/admin.global-options.js' );
