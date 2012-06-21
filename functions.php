@@ -1193,7 +1193,7 @@ add_action( 'admin_init', 'standard_is_current_version' );
  */
 function standard_theme_options_display() {
 ?>
-	<div class="wrap">
+	<div id="standard-options" class="wrap">
 
 		<div id="icon-themes" class="icon32"></div>
 		<h2><?php _e( 'Standard Options', 'standard' ); ?></h2>
