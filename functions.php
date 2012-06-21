@@ -1473,25 +1473,23 @@ if( standard_is_on_wp34() ) {
 					} // end if
 				});
 			});
-		
-			// Updating the header color and display
+
 			wp.customize('header_textcolor', function(value) {
 				value.bind(function(to) {
-					
+
 					// If 'to' is blank or empty then we're toggling the display
 					if( 'blank' === to ) {
-
-						$('#site-title').toggle();
-						$('#site-description').toggle();
+	
+						$('#site-title').hide();
+						$('#site-description').hide();
 						
-					} else if( 0 === to.length ) {
+					} else {
 					
-						$('#site-title').toggle();
-						$('#site-description').toggle();
-					
+						$('#site-title').show();
+						$('#site-description').show();
+						
 					} // end if/else
-
-					// Update the color of the link
+					
 					$('#site-title a').css('color', to);
 					
 				});			
@@ -1755,7 +1753,7 @@ if( ! function_exists( 'standard_page_menu' ) ) {
 if( ! function_exists( 'standard_add_theme_background' ) ) { 
 	function standard_add_theme_background() {
 		if( standard_is_on_wp34() ) {
-			add_theme_support( 'custom-background' );
+			add_theme_support( 'custom-background', array( 'default-color' => 'efefef' ) );
 		} else {
 			add_custom_background();
 		} // end if/else
@@ -1981,12 +1979,15 @@ if( standard_is_on_wp34() ) {
 	add_theme_support( 
 		'custom-header',
 		array(
-			'header-text'			=>	true,
-			'header-text-color'		=> 	'000',
-			'width'					=>	940,
-			'flex-width'			=>	true,
-			'height'				=>	250,
-			'flex-height'			=> 	true
+			'header-text'				=>	true,
+			'default-text-color'		=> 	'000',
+			'width'						=>	940,
+			'flex-width'				=>	true,
+			'height'					=>	250,
+			'flex-height'				=> 	true,
+			'wp-head-callback'			=>  'standard_header_style',
+			'admin-head-callback'		=>	'standard_admin_header_style',
+			'admin-preview-callback'	=>	'standard_admin_header_image'
 		)
 	);
 
