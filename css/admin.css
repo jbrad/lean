@@ -33,3 +33,34 @@ img.social_option {
 	background-repeat: no-repeat;
 	padding-left: 35px;
 }
+
+/* Standard admin options styles */
+
+
+#standard-options .form-table {
+	border-top: 1px solid #eee;
+	margin-bottom: 20px;
+}
+
+#standard-options h3 {
+	margin: 1em 0 0;
+}
+
+#standard-options .form-table th, .form-wrap label {
+	font-weight: bold;
+	border-right: 1px solid #eee;
+}
+
+#standard-options #logo_preview_container {
+	background: #f0f0f0;
+	padding: 10px;
+	margin-bottom: 20px;
+	width: 190px;
+	min-height: 40px;
+	overflow: hidden;
+}
+
+#standard-options #logo_preview_container > img {
+	width: 100%;
+	height: auto;
+}
