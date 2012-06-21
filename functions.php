@@ -2916,6 +2916,52 @@ function standard_attachment_fields_to_edit( $form_fields, $post ) {
 } // end standard_attachment_fields_to_edit
 add_action( 'attachment_fields_to_edit', 'standard_attachment_fields_to_edit', 11, 2 );
 
+/**
+ * If the user has set a FeedBurner URL in the Global Options, then we'll
+ * redirect all traffic from the existing WordPress feed to FeedBurner.
+ */
+function standard_redirect_rss_feeds() {
+
+	global $feed;
+	
+	// If we're not on a feed or we're hitting feedburner, then stop
+	if( ! is_feed() || preg_match( '/feedburner/i', $_SERVER['HTTP_USER_AGENT'] ) ) {
+		return;
+	} // end if
+	
+	// Otherwise, get the RSS feed from the user's settings
+	$rss_feed_url = standard_get_rss_feed_url();
+
+	// If they have setup feedburner, let's redirect them
+	if( strpos( $rss_feed_url, 'feedburner' ) > 0 && '' != $rss_feed_url ) {
+	
+		switch( $feed ) {
+		
+			case 'feed':
+			case 'rdf':
+			case 'rss':
+			case 'rss2':
+			case 'atom':
+			
+				if( '' != $rss_feed_url ) {
+	
+					header( "Location: " . $rss_feed_url );
+					die;
+					
+				} // end if
+				
+				break;
+				
+			default:
+				break;
+				
+		} // end switch/case
+		
+	} // end if
+	
+} // end standard_redirect_rss_feeds
+add_action( 'template_redirect', 'standard_redirect_rss_feeds' );
+
 /* ----------------------------------------------------------- *
  * 8. Helper Functions
  * ----------------------------------------------------------- */
@@ -3255,8 +3301,10 @@ add_action( 'init_standard_menu', 'standard_add_admin_menu_separator' );
  * Defines the function used to set the position of the custom separator.
  */
 function standard_set_admin_menu_separator() {
-	// Eventually, we should make teh 57 value more flexible
+
+	// Eventually, we should make the 57 value more flexible
 	do_action( 'init_standard_menu', 57 );
+	
 } // end standard_set_admin_menu_separator
 add_action( 'init', 'standard_set_admin_menu_separator' );
 
