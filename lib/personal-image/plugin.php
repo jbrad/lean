@@ -17,7 +17,7 @@ class Standard_Personal_Image extends WP_Widget {
 			'classname' 	=> __( 'personal-image', 'standard' ), 
 			'description' 	=> __( 'Display a personal image and an optional description.', 'standard' )
 		);	
-		$this->WP_Widget( 'standard-personal-image', __( 'Personal Image (Standard)', 'standard' ), $widget_opts );
+		$this->WP_Widget( 'standard-personal-image', __( 'Personal Image', 'standard' ), $widget_opts );
 		
 		// We don't want to load these on the Appearance Options because we're overiding window.send_to_editor there, too.
 		global $pagenow;

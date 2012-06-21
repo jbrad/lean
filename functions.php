@@ -92,8 +92,6 @@ function standard_theme_menu() {
 		'theme_options&tab=standard_theme_publishing_options',
 		'standard_theme_options_display'
 	);
-	// TODO 
-	// standard_add_admin_menu_separator( 58 );
 
 } // end standard_theme_menu
 add_action( 'admin_menu', 'standard_theme_menu' );
@@ -1056,7 +1054,7 @@ function standard_generate_privacy_policy_page( ) {
 	
 	if( wp_verify_nonce( $_REQUEST['nonce'], 'standard_generate_privacy_policy_nonce' ) && isset( $_POST['generatePrivacyPolicy'] ) ) {
 		
-		$page_id = standard_create_page( 'privacy-policy', __( 'Privacy Policy', 'standard' ), 'template-policy' );
+		$page_id = standard_create_page( 'privacy-policy', __( 'Privacy Policy', 'standard' ) );
 		if( $page_id > 0 ) {
 			die( (string)$page_id );
 		} else {
@@ -1098,7 +1096,7 @@ function standard_generate_comment_policy_page( ) {
 	
 	if( wp_verify_nonce( $_REQUEST['nonce'], 'standard_generate_comment_policy_nonce' ) && isset( $_POST['generateCommentPolicy'] ) ) {
 		
-		$page_id = standard_create_page( 'comment-policy', __( 'Comment Policy', 'standard' ), 'template-policy' );
+		$page_id = standard_create_page( 'comment-policy', __( 'Comment Policy', 'standard' ) );
 		if( $page_id > 0 ) {
 			die( (string)$page_id );
 		} else {
@@ -3137,7 +3135,9 @@ function standard_create_page( $slug, $title, $template = '' ) {
 	);
 	
 	// Set the template
-	update_post_meta( $page_id, '_wp_page_template', '' != $template ? $template .= '.php' : $template );
+	if( '' != $template ) {
+		update_post_meta( $page_id, '_wp_page_template', '' != $template ? $template .= '.php' : $template );
+	} // end if
 		
 	return $page_id;
 
@@ -3176,33 +3176,32 @@ function standard_is_on_wp34() {
 } // end standard_is_on_wp34
 
 /**
- * Helper function used to add a separator to the admin menu. Used specifically
- * to keep the WordPress menu organized.
+ * Custom action that is used to initialize the Standard menu separator.
  *
- * h/t		http://wordpress.stackexchange.com/questions/2666/add-a-separator-to-the-admin-menu
- * 
  * @params	$position	Where you want the separator to appear.
  */
 function standard_add_admin_menu_separator( $position ) {
 
   global $menu;
-  $index = 0;
-  
-  foreach( $menu as $offset => $section ) {
-  
-    if( substr( $section[2], 0, 9 ) == 'separator' ) {
-      $index++;
-    } // end if
-    
-    if ( $offset >= $position ) {
-    
-      $menu[$position] = array( '', 'read', "separator{$index}", '', 'wp-menu-separator' );
-      break;
-      
-    } // end if
-    
-  } // end foreach
-  
+
+  $menu[$position] = array(
+  	0	=>	'',
+  	1	=>	'read',
+  	2	=>	'separator' . $position,
+  	3	=>	'',
+  	4	=>	'wp-menu-separator'
+  );
+
 } // end standard_add_admin_separator
+add_action( 'init_standard_menu', 'standard_add_admin_menu_separator' );
+
+/**
+ * Defines the function used to set the position of the custom separator.
+ */
+function standard_set_admin_menu_separator() {
+	// Eventually, we should make teh 57 value more flexible
+	do_action( 'init_standard_menu', 57 );
+} // end standard_set_admin_menu_separator
+add_action( 'init', 'standard_set_admin_menu_separator' );
 
 ?>
