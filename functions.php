@@ -2446,14 +2446,6 @@ function standard_add_admin_scripts() {
 		// standard's admin menu controller
 		wp_register_script( 'standard-admin-menu', get_template_directory_uri() . '/js/admin.menu.js' );
 		wp_enqueue_script( 'standard-admin-menu' );
-
-		// standard's global script
-		wp_register_script( 'standard-global-options', get_template_directory_uri() . '/js/admin.global-options.js' );
-		wp_enqueue_script( 'standard-global-options' );
-		
-		// standard's presentation script
-		wp_register_script( 'standard-presentation-options', get_template_directory_uri() . '/js/admin.presentation-options.js' );
-		wp_enqueue_script( 'standard-presentation-options' );
 		
 		// standard's policy generation script
 		wp_register_script( 'standard-publishing-options', get_template_directory_uri() . '/js/admin.publishing-options.js' );
