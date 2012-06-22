@@ -21,6 +21,7 @@ class Google_Custom_Search extends WP_Widget {
 		$this->WP_Widget( 'standard-google-custom-search', __( 'Google Custom Search', 'standard' ), $widget_opts );
 		
 		add_action( 'admin_print_styles', array( &$this, 'load_admin_stylesheets') );
+		add_action( 'admin_enqueue_scripts', array( &$this, 'load_admin_scripts') );
 		add_action( 'wp_enqueue_scripts', array( &$this, 'load_stylesheets' ) );
 		
 		// If this widget isn't active and our search results page exists, let's delete it
@@ -105,6 +106,16 @@ class Google_Custom_Search extends WP_Widget {
 		
 		wp_register_style( 'gcse-admin', get_template_directory_uri() . '/lib/google-custom-search/css/admin.css' );
 		wp_enqueue_style( 'gcse-admin' );
+		
+	} // end load_stylesheets
+	
+	/**
+	 * Loads the administrative JavaScripts for the dashboard.
+	 */
+	function load_admin_scripts() {
+		
+		wp_register_script( 'gcse-admin', get_template_directory_uri() . '/lib/google-custom-search/js/admin.js' );
+		wp_enqueue_script( 'gcse-admin' );
 		
 	} // end load_stylesheets
 	
