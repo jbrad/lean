@@ -27,6 +27,12 @@
 			
 		});
 		
+		// Center Header Logo only if the background image is present
+		processLogoAndBackground($);
+		$(window).resize(function() {
+			processLogoAndBackground($);
+		});
+		
 		// If the Activity Widget is present, activate the first tab
 		if($('.tabbed-widget').length > 0) { 
 			
@@ -63,24 +69,6 @@
 		// FitVid
 		$('.entry-content').fitVids();
 		
-		// Center Header Logo, if present
-		$(window).load(function() {
-		
-			if( ( $logo = $('#site-title').children(':first').children('img') ).length > 0) {
-				
-				$('#hgroup').css({
-					top:		0,
-					padding:	0
-				});
-				
-				$background = $('#header-image').children(':first').children('img');
-				$logo.css({
-					marginTop: Math.round( $background.height() / 2 ) - Math.round( $logo.height() / 2 )
-				});
-				
-			} // end ifs
-		});
-		
 	});
 })(jQuery);
 
@@ -96,3 +84,19 @@ function moveSidebarInLeftSidebarLayout($) {
 	} // end if
 
 } // end moveSidebarInLeftSidebarLayout
+
+/**
+ * TODO
+ */
+function processLogoAndBackground($) {
+	
+	if( ( $background = $('#header-image').children(':first').children('img') ).length > 0 ) {
+	
+		$('#hgroup').css({
+			padding: 0,
+			marginTop: Math.round( $background.height() / 2 ) - Math.round( $('#hgroup').height() / 2 )
+		});
+		
+	} // end if
+
+} // end processLogoAndBackground
