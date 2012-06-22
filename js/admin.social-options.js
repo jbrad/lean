@@ -365,15 +365,44 @@ function makeIconsRemoveable($) {
 		over: overHandler, 
 		
 		drop: function(evt) {
+		
+			// Don't let users delete the core set of icons
 
-			$(evt.srcElement).hide().attr('src', '');
-			$(evt.srcElement).parent().hide();
+			if(isStandardIcon($(evt.srcElement))) { 
+			
+				$.post(ajaxurl, {
+				
+					action: 'standard_delete_social_icons',
+					nonce: $.trim($('#standard-delete-social-icon-nonce').text()),
+					
+				}, function(response) {
+					
+					// Display the message only if a prior message doesn't exist
+					if($('#standard-delete-social-icons').length === 0) {
+						$('#message-container').append(response);
+					} // end if
+					
+					$('#standard-hide-delete-social-icon-message').click(function(evt) {
+					
+						evt.preventDefault();
+						$('#standard-delete-social-icons').remove();
+						
+					});
+					
+				});
+			
+			} else {
 
-			updateIconValues();
-
-			updateAvailableIcons($);
-
-			$(this).css('border', 0);
+				$(evt.srcElement).hide().attr('src', '');
+				$(evt.srcElement).parent().hide();
+	
+				updateIconValues();
+	
+				updateAvailableIcons($);
+	
+				$(this).css('border', 0);
+			
+			} // end if
 
 		} // end drop
 		
@@ -471,6 +500,17 @@ function socialOptionsHideUnusedFields($, poller) {
 	} // end if
 
 } // end hideUnusedFields
+
+/**
+ * Determines if the specified image is part of the Standard icon library.
+ *
+ * @params	img	The image element being evaluated
+ *
+ * @returns		True if the image belongs in the core set of Standard icons.
+ */
+function isStandardIcon($img) {
+	return $img.attr('src').toString().indexOf('/images/social/small/') > 0;	
+} // end isStandardIcon
 
 /**
  * Overrides the core send_to_editor function in the media-upload script. Grabs the URL of the image after being uploaded and 

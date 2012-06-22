@@ -600,6 +600,31 @@ function standard_save_social_icons( ) {
 add_action( 'wp_ajax_standard_save_social_icons', 'standard_save_social_icons' );
 
 /**
+ * Displays the message for users attempting to delete the core set of Standard social icons.
+ */
+function standard_delete_social_icons() {
+	if( wp_verify_nonce( $_REQUEST['nonce'], 'standard-delete-social-icon-nonce' ) ) {
+		die( standard_display_delete_social_icon_message() );
+	} // end if
+} // end standard_delete_social_icons
+add_action( 'wp_ajax_standard_delete_social_icons', 'standard_delete_social_icons' );
+
+/**
+ * Generates a message to be displayed when the user attempts to delete a Standard social icon.
+ */
+function standard_display_delete_social_icon_message() {
+
+	$html = '<div id="standard-delete-social-icons" class="updated">';
+		$html .= '<p>';
+			$html .= __( 'You cannot delete the default set of Standard social icons. <a href="javascript:;" id="standard-hide-delete-social-icon-message">Hide this message.</a>', 'standard' );
+		$html .= '</p>';
+	$html .= '</div><!-- /#standard-delete-social-icons -->';
+	
+	echo $html;
+		
+} // end standard_display_delete_social_icon_message
+
+/**
  * Renders the available social icon input. This field is hidden and is manipulated by the functionality for powering
  * the drag and drop functionality of the icons.
  */
@@ -607,7 +632,10 @@ function standard_available_icons_display() {
 	
 	$options = get_option( 'standard_theme_social_options' );
 	
-	echo '<input type="text" id="available-social-icons" name="standard_theme_social_options[available-social-icons]" value="' . $options['available-social-icons'] . '" />';
+	$html = '<input type="text" id="available-social-icons" name="standard_theme_social_options[available-social-icons]" value="' . $options['available-social-icons'] . '" />';
+	$html .= '<span id="standard-delete-social-icon-nonce" class="">' . wp_create_nonce( 'standard-delete-social-icon-nonce' ) . '</span>';
+	
+	echo $html;
 	
 } // end standard_available_icons_display
 
@@ -1239,7 +1267,7 @@ function standard_theme_options_display() {
 			</ul>
 		</p>
 		
-		<?php settings_errors(); ?>
+		<div id="message-container"><?php settings_errors(); ?></div>
 		
 		<?php $active_tab = isset( $_GET['tab'] ) ? $_GET['tab'] : 'standard_theme_global_options'; ?>
 		<h2 class="nav-tab-wrapper">
