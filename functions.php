@@ -1461,7 +1461,7 @@ if( standard_is_on_wp34() ) {
 	function standard_customize_preview() { ?>
 		<script type="text/javascript">
 		(function( $ ) {
-		
+
 			// Mark the background as fixed, move it to scroll otherwise.
 			$('body').css('background-attachment', 'fixed');
 			wp.customize('background_attachment', function(value) {
@@ -1476,7 +1476,7 @@ if( standard_is_on_wp34() ) {
 
 			wp.customize('header_textcolor', function(value) {
 				value.bind(function(to) {
-
+					
 					// If 'to' is blank or empty then we're toggling the display
 					if( 'blank' === to ) {
 	
@@ -1488,9 +1488,11 @@ if( standard_is_on_wp34() ) {
 						$('#site-title').show();
 						$('#site-description').show();
 						
+						$('#site-title a, #site-title').css('color', to.toString());
+						console.log(to);
+						console.log($("#site-title a").css('color'));
+						
 					} // end if/else
-					
-					$('#site-title a').css('color', to);
 					
 				});			
 			})
@@ -2038,7 +2040,7 @@ if( ! function_exists( 'standard_header_style' ) ) {
 				<?php } else { ?>
 					#site-title a,
 					#site-description {
-						color: #<?php echo get_header_textcolor(); ?> !important;
+						color: #<?php echo get_header_textcolor(); ?>;
 					}
 				<?php } // end if ?>		
 			</style>
