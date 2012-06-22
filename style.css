@@ -1531,7 +1531,12 @@ table#wp-calendar th, table#wp-calendar td {
 }
 
 /* 125x125 Standard ad widget */
-.standard-ad-125x125 .thumbnails > li .thumbnail {
+
+.ad-125x125 .thumbnails {
+	margin-left: -20px;
+}
+
+.ad-125x125 .thumbnails > li .thumbnail {
 	/* max-height: 125px; */
 	display: block;
 	overflow: hidden;
@@ -1545,7 +1550,7 @@ table#wp-calendar th, table#wp-calendar td {
 	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.015);
 }
 
-.standard-ad-125x125 .thumbnails > li a.thumbnail:hover {
+.ad-125x125 .thumbnails > li a.thumbnail:hover {
 	border-color: #dedede;
 	-moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075);
 	-webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075);
@@ -1553,18 +1558,18 @@ table#wp-calendar th, table#wp-calendar td {
 }
 
 
-.standard-ad-125x125 .thumbnails > li .thumbnail > img {
+.ad-125x125 .thumbnails > li .thumbnail > img {
 	padding: 2px 0;
 	width: 125px;
 	height: auto;
 }
 
 /* 300x250 Standard ad widget */
-.standard-ad-300x250 {
+.ad-300x250 {
 	
 }
 
-.standard-ad-300x250 img {
+.ad-300x250 img {
 	width: 100%;
 }
 
@@ -1924,7 +1929,7 @@ ul#sitemap-posts ul {
 /* tablet and mobile */ 
 @media (max-width: 979px) {	
 
-	.standard-ad-468x60 {
+	.ad-468x60 {
 		margin-top: 10px;
 	}
 
