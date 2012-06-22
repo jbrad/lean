@@ -1267,9 +1267,9 @@ function standard_theme_options_display() {
 		
 		<div id="standard-options-links">
 			<ul>
-				<li><a class="standard-docs" href="http://docs.8bit.io/standard/"><?php _e( 'Documentation', 'standard' ); ?></a></li>
-				<li><a class="standard-support" href="http://support.8bit.io"><?php _e( 'Support Community', 'standard' ); ?></a></li>
-				<li><a class="standard-blog" href="http://8bit.io"><?php _e( 'Blog', 'standard' ); ?></a></li>
+				<li><a class="standard-docs" href="http://docs.8bit.io/standard/" target="_blank"><?php _e( 'Documentation', 'standard' ); ?></a></li>
+				<li><a class="standard-support" href="http://support.8bit.io" target="_blank"><?php _e( 'Support Community', 'standard' ); ?></a></li>
+				<li><a class="standard-blog" href="http://8bit.io" target="_blank"><?php _e( 'Blog', 'standard' ); ?></a></li>
 			</ul>
 		</div>
 		
@@ -3260,8 +3260,7 @@ function standard_create_page( $slug, $title, $template = '' ) {
 	if( 'privacy-policy' == $slug ) {
 		$page_content = file_get_contents( get_template_directory_uri() . '/lib/Standard_Privacy_Policy.template.html' );
 	} elseif( 'comment-policy' == $slug ) {
-		// TODO
-		// $page_content = file_get_contents( get_template_directory_uri() . '/lib/Standard_Comment_Policy.template.html' );
+		$page_content = file_get_contents( get_template_directory_uri() . '/lib/Standard_Comment_Policy.template.html' );
 	} // end if/else
 	
 	// Create the page
