@@ -1,24 +1,64 @@
 (function($) {
-	$(function() {
-		
-		// If the header bottom element is present, then there's a background image
+
+	$(window).load(function() {
+
+		// If the header bottom element	$('#standard-theme-logo').hide(); is present, then there's a background image
 		if($('#header-bottom').length > 0) {
 			$('#header-top').addClass('has-background');
 		} // end if
 		
 		// Make sure the description color matches the color of the header, if custom colors are being used.			
 		$(document).mouseup(function() {
-			updateDescriptionTextColor($);
+			//updateDescriptionTextColor($);
 		});
 		
 		$('#text-color').keyup(function() {
-			updateDescriptionTextColor($);
+			//updateDescriptionTextColor($);
 		});
 		
 		// If the 'Reset Header Text' button is visible, provide the custom color.
 		if($('#resettext').is(':visible')) {
-			updateDescriptionTextColor($);
+			//updateDescriptionTextColor($);
 		} // end if 
+		
+		// If we're editing the header and the user has uploaded a background image and a logo...
+		if( $('#header-bottom').length > 0 ) {
+
+			// Get the logo depending on if it's an image or text 
+			var $logo = null;
+			if( ( $logo = $('#standard-theme-logo') ).length === 0 ) {
+				$logo = $('#header-top');
+			} // end if
+
+			// Position the logo
+			$background = $('#standard-theme-background');
+			$logo.css({
+				marginTop: Math.round( $background.height() / 2 ) - Math.round( $logo.height() / 4 )
+			}).fadeIn('fast');
+			
+		} else {
+		
+			$('#header-top').css('margin-bottom', '0');
+			if($('#standard-theme-logo').length > 0) {
+				$('#standard-theme-logo').fadeIn('fast');
+			} // end if
+			
+		} // end if
+		
+		// Hide the options for the text input if we're using a logo
+		if( $('#standard-theme-logo').length > 0 ) {
+			$('h3').each(function() {
+			
+				/* Translators: This will need to be translated. */
+				if($(this).text().toLowerCase() === 'header text') {
+				
+					$(this).hide();
+					$(this).next().hide();
+					
+				} // end if
+				
+			});
+		} // end if
 	
 	});
 	
@@ -29,10 +69,7 @@
  * to match what the user will see on the frontend.
  */
 function updateDescriptionTextColor($) {
+	if($('#desc').is(':visible')) {
 
-	if($('#text-color').val().length === 4 || $('#text-color').val().length === 7) {
-		$('#desc').removeAttr('style')
-				.css('color', $('#text-color').val().toString() + ' !important');
 	} // end if 
-	
 } // updateDescriptionTextColor

@@ -130,7 +130,7 @@ function standard_setup_theme_presentation_options() {
 	// Presentation options (composed of layout and content)
 	add_settings_section(
 		'presentation',
-		__( 'Presentation', 'standard' ),
+		'',
 		'standard_theme_presentation_options_display',
 		'standard_theme_presentation_options'
 	);
@@ -491,7 +491,7 @@ function standard_setup_theme_social_options() {
 	
 	add_settings_section(
 		'social',
-		__( 'Social', 'standard' ),
+		'',
 		'standard_theme_social_options_display',
 		'standard_theme_social_options'
 	);
@@ -710,7 +710,7 @@ function standard_setup_theme_global_options() {
 	
 	add_settings_section(
 		'global',
-		__( 'Global', 'standard' ),
+		'',
 		'standard_theme_global_options_display',
 		'standard_theme_global_options'
 	);
@@ -943,7 +943,7 @@ function standard_setup_theme_publishing_options() {
 	// Publishing options (composed of Post and Pages)
 	add_settings_section(
 		'publishing',
-		__( 'Publishing', 'standard' ),
+		'',
 		'standard_theme_publishing_options_display',
 		'standard_theme_publishing_options'
 	);
@@ -2102,13 +2102,12 @@ if( ! function_exists( 'standard_admin_header_style' ) ) {
 				font-size: 14px;
 				line-height: 23px;
 				padding: 0 0 3em;
-				color: #7A7A7A !important;
-			
+				color: #7A7A7A;
 			}
-			#headimg img {
-				max-width: 1000px;
+			#header-bottom img {
+				width: 900px;
 				height: auto;
-				width: 100%;
+				margin-left: -4%;
 			}
 			.float {
 				float: left;
@@ -2117,7 +2116,7 @@ if( ! function_exists( 'standard_admin_header_style' ) ) {
 			}
 			#header-bottom {
 				z-index: -2;
-			}
+			}			
 		</style>
 	<?php
 	} // admin_header_style
@@ -2138,13 +2137,29 @@ if( ! function_exists( 'standard_admin_header_image' ) ) {
 			} // end if/else ?>
 	   
 	   		<div id="header-top" class="float">
-				<h1><a id="name"<?php echo $style; ?> onclick="return false;" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php bloginfo( 'name' ); ?></a></h1> 
-				<div id="desc"<?php echo $style; ?>><?php bloginfo( 'description' ); ?></div> 
+			<?php   		
+	   			$presentation_options = get_option('standard_theme_presentation_options');
+				if( '' == $presentation_options['logo'] ) {
+			?>
+					<h1><a id="name"<?php echo $style; ?> onclick="return false;" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php bloginfo( 'name' ); ?></a></h1> 
+					<div id="desc"<?php echo $style; ?>><?php bloginfo( 'description' ); ?></div> 
+			<?php
+				} else {
+			?>
+				<h1>
+					<a id="name"<?php echo $style; ?> onclick="return false;" href="<?php echo esc_url( home_url( '/' ) ); ?>">
+						<img id="standard-theme-logo" src="<?php echo $presentation_options['logo']; ?>" alt="<?php bloginfo( 'name' ); ?>" style="display:none;" />
+					</a>
+				</h1> 
+			<?php
+				} // end if/else
+			?>
+				
 			</div>
 			
 			<?php if ( ! empty( $header_image ) ) { ?>
 				<div id="header-bottom" class="float">
-					<img src="<?php echo esc_url( $header_image ); ?>" alt="" />
+					<img id="standard-theme-background" src="<?php echo esc_url( $header_image ); ?>" alt="" />
 				</div>
 			<?php } // end if ?>
 			
