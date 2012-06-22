@@ -21,9 +21,14 @@ class Google_Custom_Search extends WP_Widget {
 		$this->WP_Widget( 'standard-google-custom-search', __( 'Google Custom Search', 'standard' ), $widget_opts );
 		
 		add_action( 'admin_print_styles', array( &$this, 'load_admin_stylesheets') );
-		add_action( 'wp_print_styles', array( &$this, 'load_stylesheets' ) );
+		add_action( 'wp_enqueue_scripts', array( &$this, 'load_stylesheets' ) );
 		
-		$this->create_search_results_template();
+		// If this widget isn't active and our search results page exists, let's delete it
+		if( is_active_widget( false, false, $this->id_base, true ) ) {
+			$this->create_search_results_template();
+		} else {
+			$this->delete_search_results_template();
+		} // end f
 		
 	} // end constructor
 
@@ -118,12 +123,12 @@ class Google_Custom_Search extends WP_Widget {
 	 * If a page with the 'Search Results' slug already exists, an error will be thrown.
 	 */
 	private function create_search_results_template() {
-		
+	
 		if( 0 == count( get_page_by_path( 'search-results' ) ) ) { 
 
 			// Get the current user
 			$current_user = wp_get_current_user();
-			
+
 			// Create the page
 			$page_id = wp_insert_post(	
 				array(
@@ -139,7 +144,7 @@ class Google_Custom_Search extends WP_Widget {
 			);
 			
 			update_post_meta( $page_id, 'standard_google_custom_search', true );
-		
+
 		} else {
 		
 			add_action( 'admin_notices', array( &$this, 'existing_search_results_template' ) );
@@ -147,6 +152,21 @@ class Google_Custom_Search extends WP_Widget {
 		} // end if
 		
 	} // end create_search_results_template
+	
+	/**
+	 * Deletes the search results page when the widget is no longer active.
+	 */
+	public function delete_search_results_template() {
+		
+		$query = new WP_Query('post_type=page&meta_key=standard_google_custom_search');
+		if( $query->have_posts() ) {
+		
+			$query->the_post();
+			wp_delete_post( get_the_ID(), true );
+			
+		} // end
+		
+	} // end delete_search_results_template
 	
 	/**
 	 * Renders a notification if the user already has an existing search results template.
