@@ -10,7 +10,7 @@ img.social_option {
 	margin: 4px 0 0 4px;
 }
 
-.standard-widget-top {
+.standard-widget-top, #post_level_seo .hndle, #post_level_layout .hndle {
 	color: #d5d5d5 !important;
 	border: 1px solid #585858 !important;
 	text-shadow: 0 1px 0 #111 !important;
@@ -32,6 +32,11 @@ img.social_option {
 	background-image: url(img/icn-standard.png);
 	background-repeat: no-repeat;
 	padding-left: 35px;
+}
+
+#post_level_seo .hndle span, #post_level_layout .hndle span {
+	background: url(../images/icn-standard-small.png) left center no-repeat;
+	padding-left: 25px;
 }
 
 /* Standard admin options styles */
