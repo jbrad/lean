@@ -36,6 +36,82 @@ img.social_option {
 
 /* Standard admin options styles */
 
+#standard-options div.updated, #standard-options .message {
+	color: #444;
+	background-color: #D0EDF3;
+	border-color: transparent;
+}
+
+#standard-options #standard-info {
+	float: left;
+	width: 65%;
+	margin-right: 10px;
+	padding: 15px 15px 15px 0;
+}
+
+#standard-options #icon-themes {
+	background: url(img/standard-logo.png) no-repeat;
+	width: 102px;
+	height: 102px;
+	margin-right: 15px;
+}
+
+#standard-options #standard-title {
+	font-size: 22px;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+}
+
+#standard-options #standard-info p {
+	color: #7b7b7b;
+	font-size: 16px;
+	line-height: 1.2;
+	margin-top: 5px;
+	font-weight: 200;
+}
+
+#standard-options #standard-title span {
+	color: #999;
+	font-size: 12px;
+	font-weight: normal;
+	text-transform: lowercase;
+	font-style: italic;
+	letter-spacing: 0;
+}
+
+#standard-options #standard-options-links {
+	border-left: 1px solid #eee;
+	padding: 20px;
+	float: right;
+	margin-top: 25px;
+}
+
+#standard-options #standard-options-links a {
+	color: #2e2e2e;
+	display: block;
+	overflow: hidden;
+	padding-left: 20px;
+	text-decoration: none;
+	line-height: 16px;
+}
+
+#standard-options #standard-options-links a:hover {
+	text-decoration: underline;
+}
+
+#standard-options .standard-docs {
+	background: url(img/icn-wrench.png) left center no-repeat;
+}
+
+#standard-options .standard-support {
+	background: url(img/icn-blog.png) left center no-repeat;
+}
+
+#standard-options .standard-blog {
+	background: url(img/icn-heart.png) left center no-repeat;
+}
+
 
 #standard-options .form-table {
 	border-top: 1px solid #eee;
@@ -63,4 +139,32 @@ img.social_option {
 #standard-options #logo_preview_container > img {
 	width: 100%;
 	height: auto;
+}
+
+hr {
+	clear: both;
+}
+
+@media (max-width: 650px) {
+	#standard-options #standard-info {
+		float: none;
+		width: 100%;
+		margin-right: 0;
+	}
+	#standard-options #standard-options-links {
+		float: none;
+		border-left: none;
+		border-top: 1px solid #eee;
+		padding: 5px 0;
+		margin-top: 0;
+		margin-bottom: 20px;
+	}
+	#standard-options #standard-options-links ul li {
+		display: inline;
+	}
+	#standard-options #standard-options-links ul li a {
+		display: inline-block;
+		margin-left: 10px;
+	}
+	
 }
