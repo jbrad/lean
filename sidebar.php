@@ -5,7 +5,7 @@
  */
 ?>
 <div id="sidebar" class="span4">
-	<?php if ( ! dynamic_sidebar( 'sidebar-1' ) ) { ?>
+	<?php if ( ! dynamic_sidebar( 'sidebar-0' ) ) { ?>
 
 		<div class="widget">
 			<?php get_search_form(); ?>
@@ -18,8 +18,7 @@
 			array(
 				'post_count'	=> 	10,
 				'popular_count'	=>	10,
-				'comment_count'	=>	10,
-				'tag_count'		=>	10
+				'comment_count'	=>	10
 			)
 		);
 		
@@ -29,7 +28,6 @@
 			array(
 			)
 		);
-		
 		?>
 		
 	<?php } // end if ?>

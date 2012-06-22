@@ -1804,26 +1804,26 @@ if( ! function_exists( 'standard_add_theme_menus' ) ) {
 if( ! function_exists( 'standard_add_theme_sidebars' ) ) { 
 	function standard_add_theme_sidebars() {
 		
-		// header
+		// main
 		register_sidebar(
 			array(
-				'name' 			=> __( 'Header', 'standard' ),
-				'id' 			=> 'header-widget',
-				'description'	=> __( 'This area is designed for a 468x60 advertisement, but other widgets can be used here as well.', 'standard' ),
-				'before_widget' => '<div id="%1$s" class="header-widget widget %2$s">',
+				'name' 			=> __( 'Sidebar', 'standard' ),
+				'id' 			=> 'sidebar-0',
+				'description'	=> __( 'The primary sidebar.', 'standard' ),
+				'before_widget' => '<div id="%1$s" class="widget %2$s">',
 				'after_widget'  => '</div>',
 				'before_title'  => '<h3 class="widget-title">',
 				'after_title'   => '</h3>'
 			)
 		);
 		
-		// main
+		// header
 		register_sidebar(
 			array(
-				'name' 			=> __( 'Sidebar', 'standard' ),
+				'name' 			=> __( 'Header', 'standard' ),
 				'id' 			=> 'sidebar-1',
-				'description'	=> __( 'The primary sidebar.', 'standard' ),
-				'before_widget' => '<div id="%1$s" class="widget %2$s">',
+				'description'	=> __( 'This area is designed for a 468x60 advertisement, but other widgets can be used here as well.', 'standard' ),
+				'before_widget' => '<div id="%1$s" class="header-widget widget %2$s">',
 				'after_widget'  => '</div>',
 				'before_title'  => '<h3 class="widget-title">',
 				'after_title'   => '</h3>'
