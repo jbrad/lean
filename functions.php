@@ -1255,19 +1255,25 @@ add_action( 'admin_init', 'standard_is_current_version' );
 function standard_theme_options_display() {
 ?>
 	<div id="standard-options" class="wrap">
-
-		<div id="icon-themes" class="icon32"></div>
-		<h2><?php _e( 'Standard Options', 'standard' ); ?></h2>
+		<div id="standard-info">
 		
-		<p id="standard-theme-options-description">
+			<div id="icon-themes" class="icon32"></div>
+			<h3 id="standard-title"><?php _e( 'Standard', 'standard' ); ?> <span><?php _e( 'taking publishers further', 'standard' ); ?></span></h3>
+			
+			<div id="standard-desc">
+				<p>onotonectally productivate optimal markets with efficient catalysts for change. Proactively generate economically sound partnerships through seamless e-services. Uniquely.</p>
+			</div>
+		</div><!--/#standard-info -->
+		
+		<div id="standard-options-links">
 			<ul>
-				<li><a href="http://docs.8bit.io/standard/"><?php _e( 'Documentation', 'standard' ); ?></a></li>
-				<li><a href="http://support.8bit.io"><?php _e( 'Support Community', 'standard' ); ?></a></li>
-				<li><a href="http://8bit.io"><?php _e( 'Blog', 'standard' ); ?></a></li>
+				<li><a class="standard-docs" href="http://docs.8bit.io/standard/"><?php _e( 'Documentation', 'standard' ); ?></a></li>
+				<li><a class="standard-support" href="http://support.8bit.io"><?php _e( 'Support Community', 'standard' ); ?></a></li>
+				<li><a class="standard-blog" href="http://8bit.io"><?php _e( 'Blog', 'standard' ); ?></a></li>
 			</ul>
-		</p>
+		</div>
 		
-		<div id="message-container"><?php settings_errors(); ?></div>
+		<div class="clear"></div>
 		
 		<?php $active_tab = isset( $_GET['tab'] ) ? $_GET['tab'] : 'standard_theme_global_options'; ?>
 		<h2 class="nav-tab-wrapper">
@@ -1276,6 +1282,8 @@ function standard_theme_options_display() {
 			<a class="nav-tab <?php echo $active_tab == 'standard_theme_social_options' ? 'nav-tab-active' : ''; ?>" href="?page=theme_options&amp;tab=standard_theme_social_options"><?php _e( 'Social', 'standard' ); ?></a>
 			<a class="nav-tab <?php echo $active_tab == 'standard_theme_publishing_options' ? 'nav-tab-active' : ''; ?>" href="?page=theme_options&amp;tab=standard_theme_publishing_options"><?php _e( 'Publishing', 'standard' ); ?></a>
 		</h2>
+		
+		<div id="message-container"><?php settings_errors(); ?></div>
 
 		<form method="post" action="options.php">
 			<?php

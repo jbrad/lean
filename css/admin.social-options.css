@@ -28,7 +28,7 @@
 .alert-info {
 	color: #545454;
 	background-color: #d0edf3;
-	border-color: #cecece;
+	border-color: transparent;
 	font-style: italic;
 }
 
