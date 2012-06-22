@@ -86,7 +86,10 @@ function moveSidebarInLeftSidebarLayout($) {
 } // end moveSidebarInLeftSidebarLayout
 
 /**
- * TODO
+ * This positions the logo against the background so that it's centered and properly positioned for
+ * responsive behavior.
+ *
+ * @params	$	A reference to the jQuery function.
  */
 function processLogoAndBackground($) {
 	
