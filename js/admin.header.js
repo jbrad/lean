@@ -74,7 +74,7 @@ function processStandardHeader($) {
 	if( $('#standard-theme-logo').length > 0 ) {
 		$('h3').each(function() {
 		
-			/* Translators: This will need to be translated. */
+			/* Translators: This will need to be localized. */
 			if($(this).text().toLowerCase() === 'header text') {
 			
 				$(this).hide();
