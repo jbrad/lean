@@ -488,7 +488,7 @@ function socialOptionsHideUnusedFields($, poller) {
 	var $submit = $('.savesend input[type="submit"]', $('#TB_iframeContent')[0].contentWindow.document);
 	if($submit.length > 0 && $submit !== null) {
 	
-		/* Translators: For now, this has to be localized inline. */
+		/* Translators: This will need to be translated. */
 		$submit.val('Upload Social Icon');
 		
 		bHasHiddenFormFields = true;

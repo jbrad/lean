@@ -120,7 +120,7 @@ function standard_upload_hide_unused_fields($, poller) {
 	var $submit = $('.savesend input[type="submit"]', $('#TB_iframeContent')[0].contentWindow.document);
 	if($submit.length > 0 && $submit !== null) {
 	
-		/* Translators: This will need to be manually localized */
+		/* Translators: This will need to be translated. */
 		$submit.val('Save Image');
 		
 		bHasHiddenFields = true;
