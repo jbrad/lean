@@ -86,7 +86,7 @@ class Standard_SEO {
 			$html .= '<div id="standard-seo-description-wrapper">';
 				$html .= '<p class="description">';
 					$html .= __( 'The meta description is limited to 140 characters. If not provided, no description will be added to the page.', 'standard' );
-					$html .= __( 'You have ', 'standard' ) . '<span id="character-count">' . __( '140', 'standard' ) . '</span>' . __( ' characters remaining.', 'standard' );
+					$html .= '&nbsp;<span id="character-count">' . __( '140', 'standard' ) . '</span>' . __( ' characters remaining.', 'standard' );
 				$html .= '</p>';
 			$html .= '</div><!-- /#standard-seo-description-wrapper -->';
 		
