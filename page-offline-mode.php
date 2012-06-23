@@ -7,18 +7,28 @@
  */
 ?>
 <?php get_header(); ?>
-	<div id="wrapper">
 		<div class="container">
-			<div class="row">
-				<div id="main" class="span12 clearfix" role="main">
-					<div style="width:640px;margin:0 auto;padding:120px;text-align:center;">
-						<iframe width="560" height="315" src="http://www.youtube.com/embed/WUUptX0i55g" frameborder="0" allowfullscreen></iframe>
-						<?php $options = get_option( 'standard_theme_global_options' ); ?>
-						<h1>PC Load Letter? The Fck does that mean?</h1>
-						<p><?php echo $options['offline_message']; ?></p> 
-					</div>
-				</div><!-- /#main -->			
-			</div><!--/row -->
+		
+			<?php $options = get_option( 'standard_theme_global_options' ); ?>
+				<div class="row" role="main">
+					<div class="span12">
+						<div id="offline-wrapper">
+							<div id="offline-container">
+						
+							<div id="offline-content">
+								<div class="offline-message">
+									<p><?php echo $options['offline_message']; ?></p> 
+								</div><!--/offline-message -->
+								
+								<div class="offline-title-wrapper">
+									<h1 id="offline-title"><?php bloginfo( 'name' ); ?> <small><?php bloginfo( 'description' ); ?></small></h1>
+								</div><!--/offline-title -->
+								
+							</div><!--/offline-content -->
+						</div><!--/offline-container -->
+					</div><!--/offline-wrapper -->
+				</div><!--/.span12 -->
+			</div><!--/.row -->
+
 		</div><!-- /container -->
-	</div> <!-- /#wrapper -->
 <?php get_footer(); ?>

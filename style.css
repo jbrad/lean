@@ -31,6 +31,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 	10. Search Page
 	11. Page templates
 			 -sitemap
+			 - offline page template
 	12. IE8 Styles
 	13. Inline Grid
 	14. Media queries
@@ -1740,7 +1741,7 @@ body.error404 {
 	padding: 20px 0;
 }
 
-/* ------------------------------------------------------------------------ 12. Page Templates */
+/* ------------------------------------------------------------------------ 11. Page Templates */
 
 /* site map */
 
@@ -1801,6 +1802,47 @@ ul#sitemap-posts ul {
 
 #cse-search-results iframe {
 	width: 100%;
+}
+
+/* offline page template */
+
+#offline-wrapper {
+	width: 100%;
+	height: 800px;
+	text-align: center;
+	display: table;
+	overflow: hidden;
+}
+
+#offline-container {
+	display: table-cell;
+	vertical-align: middle;
+}
+
+#offline-content {
+	position: relative;
+	top: -50%;
+}
+
+#offline-wrapper .offline-message {
+	margin: 20px 0 40px;
+	padding-bottom: 40px;
+	border-bottom: 1px solid #e0e0e0;
+}
+
+#offline-wrapper .offline-message p {
+	font-size: 48px;
+	font-weight: 900;
+	line-height: 1;
+}
+
+#offline-wrapper #offline-title {
+	font-size: 18px;
+}
+
+#offline-wrapper #offline-title small {
+	color: #888;
+	font-size: 14px;
 }
 
 /* ------------------------------------------------------------------------ 12. IE8 Styles */
