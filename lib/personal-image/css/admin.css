@@ -12,6 +12,10 @@
 	margin-top: 5px;
 }
 
+.standard-personal-image-wrapper .description span {
+	font-weight: bold;
+}
+
 .standard-personal-image-wrapper .preview_image_container,
 .standard-personal-image-wrapper .preview_image {
 	background: #fff url(fake-personal.jpg) no-repeat;
