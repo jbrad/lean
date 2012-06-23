@@ -12,12 +12,7 @@
 
 .standard-influence-wrapper input {
 	width: 100%;
-	margin: 3px 0 3px 0;
-}
-
-.standard-influence-wrapper .example {
-	font-size: 11px;
-	color: #666;
+	margin: 3px 0 12px 0;
 }
 
 .standard-influence-wrapper fieldset {
