@@ -32,7 +32,12 @@
 			if(sActiveTab.indexOf('_publishing_') > 0) {
 				$('a:contains("Publishing")').parent().addClass('current');
 			} // end if
-			
+	
+		} else {
+		
+			// If they click the top-level menu item, we'll default to Global
+			$('a:contains("Global")').parent().addClass('current');
+				
 		} // end if
 	
 	});
