@@ -23,7 +23,7 @@ class Activity_Tabs extends WP_Widget {
 		$this->WP_Widget( 'standard-activity-tabs', __( 'Activity Tabs', 'standard' ), $widget_opts );
 		
 		add_action( 'admin_enqueue_scripts', array( &$this, 'register_admin_styles' ) );
-		add_action( 'wp_print_styles', array( &$this, 'register_widget_styles' ) );
+		add_action( 'wp_enqueue_scripts', array( &$this, 'register_widget_styles' ) );
 		
 	} // end constructor
 
