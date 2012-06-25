@@ -34,13 +34,13 @@
 			} // end if
 	
 		} else {
-		
+
 			// If they click the top-level menu item, we'll default to Global
 			/* Translators: This will need to be localized. */
-			if($('.wp-menu-open').text().toLowerCase() === 'standard') {
+			if($('a.wp-menu-open').text().toLowerCase() === 'standard') {
 				$('a:contains("Global")').parent().addClass('current');
 			} // end if
-				
+
 		} // end if
 	
 	});
