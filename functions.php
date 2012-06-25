@@ -3139,10 +3139,11 @@ function standard_get_link_post_format_attribute( $attr ) {
 function standard_google_custom_search_is_active() {
 	
 	$gcse_is_active = false;
+
 	foreach( ( $widgets = get_option( 'sidebars_widgets' ) ) as $key => $val ) { 
 		if( is_array( $widgets[$key] ) ) {
 			foreach($widgets[$key] as $widget) {
-				if( $key != 'wp_inactive_widgets' ) {
+				if( $key != 'wp_inactive_widgets' && strpos( $key, 'phaned_widgets_' ) == 0 ) {
 					if( strpos( $widget, '-custom-search' ) > 0 ) {
 						$gcse_is_active = true;
 					} // end if
