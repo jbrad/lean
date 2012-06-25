@@ -1635,7 +1635,7 @@ function standard_add_admin_bar_option() {
 			array(
 				'id'	=>	'standard_options',
 				'title'	=>	__( 'Standard', 'standard' ),
-				'href'	=>	home_url() . '/wp-admin/themes.php?page=theme_options'
+				'href'	=>	home_url() . '/wp-admin/admin.php?page=theme_options'
 			)
 		);
 		
@@ -1645,7 +1645,7 @@ function standard_add_admin_bar_option() {
 				'id'		=>	'standard_theme_global_options',
 				'title'		=>	__( 'Global', 'standard' ),
 				'parent'	=>	'standard_options',
-				'href'		=>	home_url() . '/wp-admin/themes.php?page=theme_options&tab=standard_theme_global_options'
+				'href'		=>	home_url() . '/wp-admin/admin.php?page=theme_options&tab=standard_theme_global_options'
 			)
 		);
 	
@@ -1655,7 +1655,7 @@ function standard_add_admin_bar_option() {
 				'id'		=>	'standard_theme_presentation_options',
 				'title'		=>	__( 'Presentation', 'standard' ),
 				'parent'	=>	'standard_options',
-				'href'		=>	home_url() . '/wp-admin/themes.php?page=theme_options&tab=standard_theme_presentation_options'
+				'href'		=>	home_url() . '/wp-admin/admin.php?page=theme_options&tab=standard_theme_presentation_options'
 			)
 		);
 		
@@ -1665,7 +1665,7 @@ function standard_add_admin_bar_option() {
 				'id'		=>	'standard_theme_social_options',
 				'title'		=>	__( 'Social', 'standard' ),
 				'parent'	=>	'standard_options',
-				'href'		=>	home_url() . '/wp-admin/themes.php?page=theme_options&tab=standard_theme_social_options'
+				'href'		=>	home_url() . '/wp-admin/admin.php?page=theme_options&tab=standard_theme_social_options'
 			)
 		);
 		
@@ -1675,7 +1675,7 @@ function standard_add_admin_bar_option() {
 				'id'		=>	'standard_theme_publishing_options',
 				'title'		=>	__( 'Publishing', 'standard' ),
 				'parent'	=>	'standard_options',
-				'href'		=>	home_url() . '/wp-admin/themes.php?page=theme_options&tab=standard_theme_publishing_options'
+				'href'		=>	home_url() . '/wp-admin/admin.php?page=theme_options&tab=standard_theme_publishing_options'
 			)
 		);
 		
