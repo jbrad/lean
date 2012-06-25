@@ -2538,11 +2538,11 @@ remove_action( 'wp_head', 'wp_generator' );
  */
 function standard_add_user_profile_fields( $user_contactmethods ) {
 	
-	$user_contactmethods['twitter'] = __( 'Twitter URL', 'standard' );
-	$user_contactmethods['facebook'] = __( 'Facebook URL', 'standard' );
+	$user_contactmethods['twitter'] = __( '<span class="standard-user-profile" id="standard-user-profile-twitter">Twitter URL</span>', 'standard' );
+	$user_contactmethods['facebook'] = __( '<span class="standard-user-profile" id="standard-user-profile-facebook">Facebook URL</span>', 'standard' );
 	
 	if( standard_using_native_seo() ) {
-		$user_contactmethods['google_plus'] = __( 'Google+ URL', 'standard' );
+		$user_contactmethods['google_plus'] = __( '<span class="standard-user-profile" id="standard-user-profile-google-plus">Google+ URL</span>', 'standard' );
 	} // end if
 
 	return $user_contactmethods;
