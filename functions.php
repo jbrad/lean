@@ -2093,6 +2093,7 @@ if( ! function_exists( 'standard_admin_header_style' ) ) {
 		<style type="text/css">
 			.appearance_page_custom-header #headimg {
 				border: none;
+				margin-left: 40px;
 			}
 			#headimg h1,
 			#desc {

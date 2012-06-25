@@ -31,8 +31,10 @@
 		processLogoAndBackground($);
 		$(window).resize(function() {
 			processLogoAndBackground($);
+		}).load(function() {
+			processLogoAndBackground($);
 		});
-		
+
 		// If the Activity Widget is present, activate the first tab
 		if($('.tabbed-widget').length > 0) { 
 			

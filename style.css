@@ -421,7 +421,7 @@ body {
 
 .imageyup #hgroup {
 	position: absolute;
-	width: 92%;
+	width: 94%;
 	margin: 0 4%;
 }
 
@@ -1906,10 +1906,15 @@ ul#sitemap-posts ul {
 		margin-top: 20px;
 	}
 	
-	
 	#header.imageyup #logo #site-title a, #header.imageyup #logo #site-title {
 		font-size: 1.25em;
 		line-height: 1;
+	}
+	
+	#header-widget .ad-468x60 {
+		width: 92%;
+		margin: 0 auto;
+		text-align: center;
 	}
 	
 	/* posts */
@@ -1971,7 +1976,7 @@ ul#sitemap-posts ul {
 /* tablet and mobile */ 
 @media (max-width: 979px) {	
 
-	.ad-468x60 {
+	#header-widget .ad-468x60 {
 		margin-top: 10px;
 	}
 
@@ -2046,11 +2051,17 @@ ul#sitemap-posts ul {
 /* mobile to tablet */ 
 @media only screen and (max-width: 767px) {
 
-	
 	#header.imageyup #logo #site-title a, #header.imageyup #logo #site-title {
 		font-size: 1.25em;
 		line-height: 1;
 	}
+	
+	#header-widget .ad-468x60 {
+		width: 92%;
+		margin: 0 auto;
+		text-align: center;
+	}
+	
 	
 	body {
 		padding-left: 0;
@@ -2081,13 +2092,6 @@ ul#sitemap-posts ul {
 		margin: 0 20px 20px 0;
 	}
 	
-}
-
-
-/* Landscape tablets */
-@media (min-width: 768px) and (max-width: 979px) {
-	
-
 }
 
 /* default desktop */
