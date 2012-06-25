@@ -27,12 +27,12 @@ class Standard_Nav_Walker extends Walker_Nav_Menu {
 		if( $args->has_children ) {
 		
 			if( $item->menu_item_parent == 0 ) {
-		
+
 				$menu_item = get_permalink() == $item->url ? '<li class="dropdown ' . $css_classes . '">' : '<li class="dropdown ' . $css_classes . '">';
 					$menu_item .= '<a href="' . $item->url . '" class="dropdown-toggle" data-toggle="dropdown">';
 					
 			} else { 
-				
+
 				$menu_item = '<li class="dropdown submenu ' . $css_classes . '">';
 					$menu_item .= '<a href="' . $item->url . '" class="dropdown-toggle" data-toggle="dropdown">';
 					
@@ -40,8 +40,8 @@ class Standard_Nav_Walker extends Walker_Nav_Menu {
 		
 		// Otherwise, it's business as usual.		
 		} else {
-		
-			$menu_item = get_permalink() == $item->url ? '<li class="active ' . $css_classes . '">' : '<li>';
+
+			$menu_item = get_permalink() == $item->url ? '<li class="active ' . $css_classes . '">' : '<li class="' . $css_classes . '">';
 				$menu_item .= '<a href="' . $item->url . '">';
 					
 		} // end if
