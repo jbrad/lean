@@ -3232,14 +3232,14 @@ function standard_using_native_seo() {
  */
 function standard_is_offline() {
 
-	$global_options = get_option('standard_theme_global_options');
+	$global_options = get_option( 'standard_theme_global_options' );
 	
 	$site_mode = '';
-	if( isset( $global_options['site_mode'] ) ) {
+	if( isset( $global_options['site_mode'] ) && '' != $global_options['site_mode'] ) {
 		$site_mode = $global_options['site_mode'];
 	} // end if
 	
-	return 'offline' == $site_mode && ! current_user_can( 'publish_posts' ); 
+	return 'offline' == $site_mode && current_user_can( 'manage_options' ); 
 	
 } // end standard_site_mode
 
