@@ -1258,10 +1258,10 @@ function standard_theme_options_display() {
 		<div id="standard-info">
 		
 			<div id="icon-themes" class="icon32"></div>
-			<h3 id="standard-title"><?php _e( 'Standard', 'standard' ); ?> <span><?php _e( 'taking publishers further', 'standard' ); ?></span></h3>
+			<h3 id="standard-title"><?php _e( 'Standard', 'standard' ); ?> <span><?php _e( 'for publishers', 'standard' ); ?></span></h3>
 			
 			<div id="standard-desc">
-				<p>onotonectally productivate optimal markets with efficient catalysts for change. Proactively generate economically sound partnerships through seamless e-services. Uniquely.</p>
+				<p><?php _e( 'Standard is a sleek, exacting product designed for professional publishing. Your content will be uncluttered and sophisticated from desktop to mobile and everything in between.', 'standard' ); ?></p>
 			</div>
 		</div><!--/#standard-info -->
 		
