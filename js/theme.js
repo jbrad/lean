@@ -95,6 +95,7 @@ function moveSidebarInLeftSidebarLayout($) {
  */
 function processLogoAndBackground($) {
 	
+	var $background = null;
 	if( ( $background = $('#header-image').children(':first').children('img') ).length > 0 ) {
 	
 		$('#hgroup').css({
@@ -104,8 +105,8 @@ function processLogoAndBackground($) {
 		
 	} // end if
 	
-	// Find out if there's a header advertisement
-	if( $('#header-widget').children('.ad-468x60').length > 0) {
+	// Center header widgets only if the background is presents
+	if( $background.length > 0 && $('#header-logo').length > 0 ) {
 		$('#header-widget').css({
 			marginTop: $('#header-widget').height() / 2
 		});
