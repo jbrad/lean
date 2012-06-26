@@ -2383,7 +2383,7 @@ function standard_add_admin_stylesheets() {
 	} // end if
 	
 	// thickbox styles for the fav icon upload
-	if( ( 'toplevel_page_theme_options' || 'appearance_page_theme_options' ) == $screen->id) {
+	if( 'toplevel_page_theme_options' == $screen->id || 'appearance_page_theme_options' == $screen->id ) {
 	
 		wp_enqueue_style( 'thickbox' );
 		
@@ -2429,7 +2429,7 @@ function standard_add_admin_scripts() {
 	} // end if
 	
 	// favicon upload script
-	if( ( 'toplevel_page_theme_options' || 'appearance_page_theme_options' ) == $screen->id) {
+	if( 'toplevel_page_theme_options' == $screen->id || 'appearance_page_theme_options' == $screen->id ) {
 		
 		// jquery ui
 		wp_enqueue_script( 'jquery-ui-core' );
@@ -2445,7 +2445,7 @@ function standard_add_admin_scripts() {
 		// thickbox for overlay
 		wp_enqueue_script( 'thickbox' );
 		
-		// standard's media-upload script
+		// standard's media-upload script. only upload this on the admin pages
 		wp_register_script( 'standard-media-upload', get_template_directory_uri() . '/js/admin.media-upload.js', array( 'jquery', 'jquery-ui-core', 'media-upload','thickbox' ) );
 		wp_enqueue_script( 'standard-media-upload' );
 
