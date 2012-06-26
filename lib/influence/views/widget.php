@@ -12,19 +12,19 @@
 			<ul class="si-indvidual-list block-grid three-up">
 				<?php if( '' != $twitter ) { ?>
 					<li class="si-twitter">
-						<a href="http://twitter.com/<?php echo $twitter; ?>/" title="twitter"><?php echo number_format( $this->twitter_follower_count( $twitter ) ); ?></a>
+						<a href="http://twitter.com/<?php echo $twitter; ?>/" title="Twitter" target="_blank"><?php echo number_format( $this->twitter_follower_count( $twitter ) ); ?></a>
 					</li>
 				<?php } // end if ?>
 				
 				<?php if( '' != $facebook ) { ?>
 					<li class="si-facebook">
-						<a href="http://facebook.com/<?php echo $facebook; ?>/" title="Facebook"><?php echo number_format( $this->facebook_like_count( $facebook ) ); ?></a>
+						<a href="http://facebook.com/<?php echo $facebook; ?>/" title="Facebook" target="_blank"><?php echo number_format( $this->facebook_like_count( $facebook ) ); ?></a>
 					</li>
 				<?php } // end if ?>
 				
 				<?php if( '' != $feedburner ) { ?>
 					<li class="si-rss">
-						<a href="http://feeds.feedburner.com/<?php echo $feedburner; ?>/" title="FeedBurner"><?php echo number_format( $this->feedburner_subscriber_count( $feedburner ) ); ?></a>
+						<a href="http://feeds.feedburner.com/<?php echo $feedburner; ?>/" title="FeedBurner" target="_blank"><?php echo number_format( $this->feedburner_subscriber_count( $feedburner ) ); ?></a>
 					</li>
 				<?php } // end if ?>	
 			</ul>

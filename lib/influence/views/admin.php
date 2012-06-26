@@ -1,18 +1,18 @@
 <div class="standard-influence-wrapper">
 
 	<div class="option">
-		<label><?php _e( 'Twitter URL:', 'standard' ); ?></label>
-		<input type="text" id="<?php echo $this->get_field_id( 'twitter' ); ?>" name="<?php echo $this->get_field_name( 'twitter' ); ?>" value="<?php echo $twitter; ?>" placeholder="<?php _e( 'http://twitter.com/username', 'standard' ) ?>" />
+		<label><?php _e( 'Twitter Username:', 'standard' ); ?></label>
+		<input type="text" id="<?php echo $this->get_field_id( 'twitter' ); ?>" name="<?php echo $this->get_field_name( 'twitter' ); ?>" value="<?php echo $twitter; ?>" />
 	</div><!-- /.option -->
 
 	<div class="option">
-		<label><?php _e( 'Facebook Fan Page:', 'standard' ); ?></label>
-		<input type="text" id="<?php echo $this->get_field_id( 'facebook' ); ?>" name="<?php echo $this->get_field_name( 'facebook' ); ?>" value="<?php echo $facebook; ?>" placeholder="<?php _e( 'http://facebook/fan.page', 'standard' ) ?>" />
+		<label><?php _e( 'Facebook Page Username:', 'standard' ); ?></label>
+		<input type="text" id="<?php echo $this->get_field_id( 'facebook' ); ?>" name="<?php echo $this->get_field_name( 'facebook' ); ?>" value="<?php echo $facebook; ?>" />
 	</div><!-- /.option -->
 	
 	<div class="option">
-		<label><?php _e( 'FeedBurner URL:', 'standard' ); ?></label>
-		<input type="text" id="<?php echo $this->get_field_id( 'feedburner' ); ?>" name="<?php echo $this->get_field_name( 'feedburner' ); ?>" value="<?php echo $feedburner; ?>" placeholder="<?php _e( 'http://feeds.feedburner.com/blog', 'standard' ) ?>" />
+		<label><?php _e( 'FeedBurner Username:', 'standard' ); ?></label>
+		<input type="text" id="<?php echo $this->get_field_id( 'feedburner' ); ?>" name="<?php echo $this->get_field_name( 'feedburner' ); ?>" value="<?php echo $feedburner; ?>" />
 	</div><!-- /.option -->
 
 	<div class="option">
