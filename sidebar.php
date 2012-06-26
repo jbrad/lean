@@ -14,7 +14,7 @@
 		<?php
 		$activity = new Activity_Tabs();
 		$activity->widget(
-			null,
+			array(),
 			array(
 				'post_count'	=> 	10,
 				'popular_count'	=>	10,
@@ -24,9 +24,8 @@
 		
 		$ads_125 = new Standard_Ad_125x125();
 		$ads_125->widget(
-			null,
-			array(
-			)
+			array(),
+			array()
 		);
 		?>
 		
