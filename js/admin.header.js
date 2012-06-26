@@ -47,11 +47,9 @@ function processStandardHeader($) {
 		if( ( $logo = $('#standard-theme-logo') ).length === 0 ) {
 			$logo = $('#header-top');
 		} // end if
-
-		// Position the logo
-		$background = $('#standard-theme-background');
 		
-		// Make sure that we can get the closest margins as possible
+		// Position the logo making sure that we can get the closest margins as possible
+		$background = $('#standard-theme-background');
 		var iTopMargin = Math.round( $background.height() / 2 ) - Math.round( $logo.height() / 4 );
 		if( Math.round( $background.height() / 2 ) - Math.round( $logo.height() / 2 ) ) {
 			iTopMargin = Math.round( $background.height() / 2 ) - Math.round( $logo.height() / 2 );

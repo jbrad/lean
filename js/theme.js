@@ -103,5 +103,14 @@ function processLogoAndBackground($) {
 		});
 		
 	} // end if
+	
+	// Find out if there's a header advertisement
+	if( $('#header-widget').children('.ad-468x60').length > 0) {
+		$('#header-widget').css({
+			marginTop: $('#header-widget').height() / 2
+		});
+	} // end if
+		
+	
 
 } // end processLogoAndBackground
