@@ -292,10 +292,20 @@ function setupIconClickHander($, $this, bIsNowActive) {
 		updateIconValues();
 		makeSortable($, '#active-icons', '#available-icons');
 		
+		// If we're looking at the RSS feed icon, disable the input
+		// and link the user to the Global options for where to set it.
 		if('' !== sRssUrl) {
+		
 			$('#social-icon-url').val(sRssUrl).attr('disabled', 'disabled');
+			$('#social-rss-icon-controls').removeClass('hidden');
+			$('#social-icon-controls').addClass('hidden');
+			
 		} else {
+		
 			$('#social-icon-url').removeAttr('disabled');
+			$('#social-icon-controls').removeClass('hidden');
+			$('#social-rss-icon-controls').addClass('hidden');
+			
 		} // end if
 				
 	});
