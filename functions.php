@@ -2448,10 +2448,6 @@ function standard_add_admin_scripts() {
 		// standard's media-upload script. only upload this on the admin pages
 		wp_register_script( 'standard-media-upload', get_template_directory_uri() . '/js/admin.media-upload.js', array( 'jquery', 'jquery-ui-core', 'media-upload','thickbox' ) );
 		wp_enqueue_script( 'standard-media-upload' );
-
-		// standard's admin menu controller
-		wp_register_script( 'standard-admin-menu', get_template_directory_uri() . '/js/admin.menu.js' );
-		wp_enqueue_script( 'standard-admin-menu' );
 		
 		// standard's policy generation script
 		wp_register_script( 'standard-publishing-options', get_template_directory_uri() . '/js/admin.publishing-options.js' );
@@ -2462,6 +2458,10 @@ function standard_add_admin_scripts() {
 		wp_enqueue_script( 'standard-admin-social-options' );
 		
 	} // end if
+	
+	// standard's admin menu controller
+	wp_register_script( 'standard-admin-menu', get_template_directory_uri() . '/js/admin.menu.js' );
+	wp_enqueue_script( 'standard-admin-menu' );
 
 } // end add_admin_scripts
 add_action( 'admin_enqueue_scripts', 'standard_add_admin_scripts' );
