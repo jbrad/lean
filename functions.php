@@ -1266,14 +1266,14 @@ function standard_theme_options_display() {
 			<h3 id="standard-title"><?php _e( 'Standard', 'standard' ); ?> <span><?php _e( 'for publishers', 'standard' ); ?></span></h3>
 			
 			<div id="standard-desc">
-				<p><?php _e( 'Standard is a sleek, exacting product designed for professional publishing. Your content will be uncluttered and sophisticated from desktop to mobile and everything in between.', 'standard' ); ?></p>
+				<p><?php _e( 'Standard is a sleek, exacting product designed for uncluttered and sophisticated presentation of your content on desktop and mobile devices.', 'standard' ); ?></p>
 			</div>
 		</div><!--/#standard-info -->
 		
 		<div id="standard-options-links">
 			<ul>
 				<li><a class="standard-docs" href="http://docs.8bit.io/standard/" target="_blank"><?php _e( 'Documentation', 'standard' ); ?></a></li>
-				<li><a class="standard-support" href="http://support.8bit.io" target="_blank"><?php _e( 'Support Community', 'standard' ); ?></a></li>
+				<li><a class="standard-support" href="http://support.8bit.io" target="_blank"><?php _e( 'Support', 'standard' ); ?></a></li>
 				<li><a class="standard-blog" href="http://8bit.io" target="_blank"><?php _e( 'Blog', 'standard' ); ?></a></li>
 			</ul>
 		</div>
