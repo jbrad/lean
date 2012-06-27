@@ -153,6 +153,10 @@ img.social_option {
 	margin-top: 10px;
 }
 
+#standard-options .social-icons-wrapper h3 {
+	margin: 0;
+}
+
 hr {
 	clear: both;
 }
