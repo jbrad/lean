@@ -38,7 +38,7 @@ class Standard_SeoTitles {
 		
 			$query = $_GET[ 's' ];
 		
-			$search = new WP_Query( 's=$query&posts_per_page=-1' );
+			$search = new WP_Query( 's=' . $query . '&posts_per_page=-1' );
 			$key = trim( esc_html( $query, 1 ) );
 			$count = $search->post_count;
 			
