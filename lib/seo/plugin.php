@@ -125,6 +125,11 @@ class Standard_SEO {
 			// Read the meta description
 			$meta_description = $_POST['standard_seo_post_meta_description'];
 
+			// Delete the data if it exists. I don't want to add extra rows to the table.
+			if( 0 == count( get_post_meta( $post_id, 'standard_seo_post_meta_description' ) ) ) {
+				delete_post_meta( $post_id, 'standard_seo_post_meta_description' );
+			} // end if
+
 			// Update it for this post
 			update_post_meta( $post_id, 'standard_seo_post_meta_description', $meta_description );
 
