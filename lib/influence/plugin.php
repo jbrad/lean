@@ -167,7 +167,7 @@ class Standard_Influence extends WP_Widget {
 		if( ! ( $follower_count = get_transient( $transient_key ) ) ) {
 		
 			// If it's not available, we'll attempt to read the value from Twitter
-			if( ( $response = file_get_contents( 'https://twitter.com/users/show/' . $username . '.json ' ) ) ) {
+			if( null != ( $response = $this->get_feed_response( 'https://twitter.com/users/show/' . $username . '.json ' ) ) ) {
 			
 				// Attempt to decode the JSON response
 				if( ( $twitter = json_decode( $response ) ) && isset( $twitter->followers_count ) ) {
@@ -236,7 +236,7 @@ class Standard_Influence extends WP_Widget {
 		if( ! ( $like_count = get_transient( $transient_key ) ) ) {
 		
 			// If it's not available, we'll attempt to read the value from Twitter
-			if( ( $response = file_get_contents( 'http://graph.facebook.com/' . $username . '/' ) ) ) {
+			if( null != ( $response = $this->get_feed_response( 'http://graph.facebook.com/' . $username . '/' ) ) ) {
 			
 				// Attempt to decode the JSON response
 				if( ( $facebook = json_decode( $response ) ) && isset( $facebook->likes ) ) {
@@ -307,7 +307,7 @@ class Standard_Influence extends WP_Widget {
 		if( ! ( $subscriber_count = get_transient( $transient_key ) ) ) {
 		
 			// If it's not available, we'll attempt to read the value from FeedBurner. We're suppressing errors since we're catching them.
-			if( ( $response = @file_get_contents( 'http://feedburner.google.com/api/awareness/1.0/GetFeedData?uri=' . $username ) ) ) {
+			if( null != ( $response = $this->get_feed_response( 'http://feedburner.google.com/api/awareness/1.0/GetFeedData?uri=' . $username ) ) ) {
 
 				// Attempt to decode the XML response
 				if( ( $xml = new SimpleXmlElement( $response, LIBXML_NOCDATA ) ) ) {
@@ -385,6 +385,71 @@ class Standard_Influence extends WP_Widget {
 		return $influence;
 	
 	} // end get_total_influence_count
+	
+	/**
+	 * Retrieves the response from the specified URL using one of PHP's outbound request facilities.
+	 *
+	 * @params	$url	The URL of the feed to retrieve.
+	 * @returns			The response from the URL; null if empty.
+	 */
+	private function get_feed_response( $url ) {
+		
+		$response = null;
+		
+		// First, check to see if curl is enabled. If so, we'll use it.
+		if( function_exists( 'curl_init' ) ) {
+			$response = $this->curl( $url );
+		} elseif( function_exists( 'file_get_contents' ) ) {
+			$response = $this->file_get_contents( $url );
+		} // end if
+		
+		return $response;
+		
+	} // end get_feed_response
+	
+	/**
+	 * Retrieves the response from the specified URL using PHP's cURL module.
+	 *
+	 * @params	$url	The URL of the feed to retrieve.
+	 * @returns			The response from the URL.
+	 */
+	private function curl( $url ) {
+		
+		$curl = curl_init( $url );
+
+		curl_setopt( $curl, CURLOPT_RETURNTRANSFER, true );
+		curl_setopt( $curl, CURLOPT_HEADER, 0 );
+		curl_setopt( $curl, CURLOPT_USERAGENT, '' );
+		curl_setopt( $curl, CURLOPT_TIMEOUT, 10 );
+		
+		$response = curl_exec( $curl );
+		if( 0 !== curl_errno( $curl ) || 200 !== curl_getinfo( $curl, CURLINFO_HTTP_CODE ) ) {
+			$response = null;
+		} // end if
+		curl_close( $curl );
+		
+		return $response;
+		
+	} // end curl
+	
+	/**
+	 * Retrieves the response from the specified URL using PHP's file_get_contents method.
+	 *
+	 * @params	$url	The URL of the feed to retrieve.
+	 * @returns			The response from the URL.
+	 */
+	private function file_get_contents( $url ) {
+		return file_get_contents( $url );
+	} // end file_get_contents
+	
+	/**
+	 * Determines if the current hosting platform supports curl or file_get_contents for making outbound requests.
+	 *
+	 * @returns		True if the server supports outbound requests; false, otherwise.
+	 */
+	private function supports_outbound_requests() {
+		return function_exists( 'curl_init' ) || function_exists( 'file_get_contents' );
+	} // end supports_outbound_requests
 
 } // end class
 add_action( 'widgets_init', create_function( '', 'register_widget( "Standard_Influence" );' ) ); 
