@@ -41,7 +41,6 @@ class Standard_SeoTitles {
 			$search = new WP_Query( 's=$query&posts_per_page=-1' );
 			$key = trim( esc_html( $query, 1 ) );
 			$count = $search->post_count;
-			wp_reset_postdata();
 			
 			$title = __( 'Search Results For' , 'standard' ) . ' ' . $key . ' | ' . $count . ' ' . __( 'Results', 'standard' ) . ' | ' . get_bloginfo( 'name' );
 			
