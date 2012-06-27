@@ -13,7 +13,7 @@
 			$('select[name=page_template]').change(function() {
 
 				if($('option:selected[value="template-sitemap.php"]').length > 0) {
-					$('option[value="template-sitemap.php"]').attr('disabled', 'disabled');	
+			$('option[value="template-sitemap.php"]').attr('disabled', 'disabled');	
 				} else {
 					$('option[value="template-sitemap.php"]').removeAttr('disabled');
 				} // end if/else

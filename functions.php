@@ -2416,6 +2416,7 @@ function standard_add_admin_scripts() {
 
 	// sitemap management script. 
 	if( 'post'  == $screen->id || 'edit-page' == $screen->id || 'page' == $screen->id ) {
+		print_r( get_option( 'standard_using_sitemap' ) ) ;
 		wp_register_script( 'standard-admin-sitemap', get_template_directory_uri() . '/js/admin.template-sitemap.js?using_sitemap=' . get_option( 'standard_using_sitemap' ) );
 		wp_enqueue_script( 'standard-admin-sitemap' );	
 	} // end if
@@ -2914,7 +2915,7 @@ function standard_save_post( ) {
 		} // end if
 	
 		// if we're not using the sitemap, but this post has it set, update the option with this post's id
-		if( get_option( 'standard_using_sitemap' ) == false && strpos( $_POST['page_template'], 'template-sitemap.php' ) > -1 ) {
+		if( ( '' == get_option( 'standard_using_sitemap' ) || false == get_option( 'standard_using_sitemap' ) ) && strpos( $_POST['page_template'], 'template-sitemap.php' ) > -1 ) {
 			update_option( 'standard_using_sitemap', $_POST['post_ID'] );
 		} // end if
 	
