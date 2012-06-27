@@ -1619,7 +1619,12 @@ function standard_save_post_layout_data( $post_id ) {
 			$post_level_layout = $_POST['standard_seo_post_level_layout'];
 		} // end if
 		
-		// Update it for this post
+		// If the value exists, delete it first. I don't want to write extra rows into the table.
+		if ( 0 == count( get_post_meta( $post_id, 'standard_seo_post_level_layout' ) ) ) {
+			delete_post_meta( $post_id, 'standard_seo_post_level_layout' );
+		} // end if
+		
+		// Update it for this post.
 		update_post_meta( $post_id, 'standard_seo_post_level_layout', $post_level_layout );
 
 	} // end if
@@ -2416,7 +2421,6 @@ function standard_add_admin_scripts() {
 
 	// sitemap management script. 
 	if( 'post'  == $screen->id || 'edit-page' == $screen->id || 'page' == $screen->id ) {
-		print_r( get_option( 'standard_using_sitemap' ) ) ;
 		wp_register_script( 'standard-admin-sitemap', get_template_directory_uri() . '/js/admin.template-sitemap.js?using_sitemap=' . get_option( 'standard_using_sitemap' ) );
 		wp_enqueue_script( 'standard-admin-sitemap' );	
 	} // end if
