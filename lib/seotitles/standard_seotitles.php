@@ -34,7 +34,7 @@ class Standard_SeoTitles {
 		
 		if( is_home() ) {
 			$title = get_bloginfo( 'name' ) . ' | ' . get_bloginfo( 'description' );
-		} elseif (is_search()) {
+		} elseif ( is_search() ) {
 		
 			$query = $_GET[ 's' ];
 		
@@ -46,9 +46,9 @@ class Standard_SeoTitles {
 			
 		} elseif( is_404() ) {
 			$title = get_bloginfo( 'name' ) . ' | ' . __( '404 Nothing Found', 'standard' ); 
-		} elseif(is_author()) {
+		} elseif( is_author() ) {
 			$title = get_bloginfo( 'name' ) . ' | ' . __( 'Author Archives', 'standard' ); 
-		} elseif(is_single()) {
+		} elseif( is_single() ) {
 		
 			if( strlen( trim( get_the_title( $page_id) ) ) == 0 ) {
 				$title = get_bloginfo( 'name' ) . ' | ' . get_bloginfo( 'description' );
