@@ -1502,6 +1502,13 @@ if( standard_is_on_wp34() ) {
 	function standard_customize_preview() { ?>
 		<script type="text/javascript">
 		(function( $ ) {
+		
+			// We need to the hide the header widget area when previewing the theme *unless* there are only Standard widgets
+			// present. If Standard widgets are present, it means they've customized it already; otherwise, we're 
+			// coming from another theme.
+			if( $('#header-widget').children().length !== $('#header-widget').children('div[id*=standard]').length ) {
+				$('#header-widget').hide();
+			} // end if
 
 			// Mark the background as fixed, move it to scroll otherwise.
 			$('body').css('background-attachment', 'fixed');
@@ -1530,8 +1537,6 @@ if( standard_is_on_wp34() ) {
 						$('#site-description').show();
 						
 						$('#site-title a, #site-title').css('color', to.toString());
-						console.log(to);
-						console.log($("#site-title a").css('color'));
 						
 					} // end if/else
 					
