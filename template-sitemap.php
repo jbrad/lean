@@ -51,6 +51,7 @@
 														echo '</div>';
 													echo '</li>';
 												} // end if
+												wp_reset_postdata();
 											} // end foreach
 											?>
 										</ul>
