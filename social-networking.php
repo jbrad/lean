@@ -12,6 +12,7 @@
 	foreach( $social_icons_urls as $icon_url ) {
 	
 		$icon_url_array = explode( '|' , $icon_url );
+		$url = null;
 		if( count( $icon_url_array ) == 1 ) {
 		
 			$icon = $icon_url_array[0];
