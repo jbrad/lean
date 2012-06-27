@@ -1536,7 +1536,7 @@ if( standard_is_on_wp34() ) {
 						$('#site-title').show();
 						$('#site-description').show();
 						
-						$('#site-title a, #site-title').css('color', to.toString());
+						$('#site-title a, #site-title, #site-description').css('color', to.toString());
 						
 					} // end if/else
 					
