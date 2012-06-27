@@ -36,7 +36,7 @@
 				<div class="row">
 					<div id="footer-links" class="span7">
 						<?php  
-							if( has_nav_menu( 'footer_menu' ) ) {
+							if( has_nav_menu( 'footer_menu' ) && ! standard_is_offline() ) {
 								wp_nav_menu( 
 									array(
 										'theme_location'  	=> 'footer_menu',
@@ -50,7 +50,7 @@
 						?>
 					</div><!-- /#footer-links -->			
 					<?php $global_options = get_option( 'standard_theme_global_options' ); ?>		
-					<div id="credit" class="<?php echo has_nav_menu( 'footer_menu' ) ? 'span5' : 'span12'; ?>">
+					<div id="credit" class="<?php echo has_nav_menu( 'footer_menu' ) && ! standard_is_offline() ? 'span5' : 'span12'; ?>">
 						<?php $standard_url = strlen( trim( $global_options['affiliate_code'] ) ) == 0 ? 'http://standardtheme.com' : $global_options['affiliate_code']; ?>
 						<?php printf( __( '&copy; %1$s %2$s. %3$s.', 'standard' ), date( 'Y' ), '<a href="' . site_url() . '">' . get_bloginfo( 'name' ) . '</a>', '<a href="' . $standard_url . '">Standard</a>' ); ?>
 					</div><!-- /#credits -->
