@@ -14,7 +14,7 @@
 	<div class="container">
 		<div class="row">
 
-			<?php if ( 'left_sidebar_layout' == $presentation_options['layout'] ) { ?>
+			<?php if ( 'left_sidebar_layout' == $presentation_options['layout'] && ! get_post_meta( get_the_ID(), 'standard_seo_post_level_layout', true ) ) { ?>
 				<?php get_sidebar(); ?>
 			<?php } // end if ?>
 
@@ -83,7 +83,7 @@
 				<?php } // end if ?>
 			</div><!-- /#main -->
 			
-			<?php if ( 'right_sidebar_layout' == $presentation_options['layout'] ) { ?>
+			<?php if ( 'right_sidebar_layout' == $presentation_options['layout'] && ! get_post_meta( get_the_ID(), 'standard_seo_post_level_layout', true ) ) { ?>
 				<?php get_sidebar(); ?>
 			<?php } // end if ?>
 				

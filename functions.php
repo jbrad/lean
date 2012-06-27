@@ -3215,7 +3215,7 @@ function standard_comment_form() {
 
 function standard_truncate_text( $string, $character_limit = 50, $truncation_indicator = '...' ) {
 
-	$truncated = $string;
+	$truncated = null == $string ? '' : $string;
     if ( strlen( $string ) >= ( $character_limit + 1 ) ) {
     
         $truncated = substr( $string, 0, $character_limit );

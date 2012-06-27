@@ -18,7 +18,7 @@ class Activity_Tabs extends WP_Widget {
 
 		$widget_opts = array(
 			'classname' 	=> __( 'standard-activity-tabs', 'standard' ), 
-			'description' 	=> __( 'Display your most recent posts, comments, popular posts, and tags.', 'standard' )
+			'description' 	=> __( 'Display your most recent posts, comments, popular posts, and tags.', 'standard' ),
 		);	
 		$this->WP_Widget( 'standard-activity-tabs', __( 'Activity Tabs', 'standard' ), $widget_opts );
 		
