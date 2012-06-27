@@ -157,6 +157,10 @@ img.social_option {
 	margin: 0;
 }
 
+#standard-options input[disabled=disabled] {
+	color: #ccc;
+}
+
 hr {
 	clear: both;
 }

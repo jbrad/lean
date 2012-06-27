@@ -273,7 +273,7 @@ function fav_icon_display() {
 		$html .= '<input type="button" class="button" id="delete_fav_icon" value="' . __( 'Delete', 'standard' ) . '"/>';
 	} // end if
 	
-	$html .= '&nbsp;<span class="description">' . __( 'Dimensions: 144px x 144px. Used for favicon and mobile devices. <a href="http://docs.8bit.io/standard/site-icon">Learn more</a>. ', 'standard' ) . '</span>';
+	$html .= '&nbsp;<span class="description">' . __( 'Dimensions: 144px x 144px. Used for favicon and mobile devices. <a href="http://docs.8bit.io/standard/site-icon" target="_blank">' . __( 'Learn more', 'standard' ) . '</a>. ', 'standard' ) . '</span>';
 	
 	echo $html;
 	
@@ -541,7 +541,7 @@ function standard_theme_social_options_display() {
 					$html .= '<label>' . __( 'Icon URL:', 'standard' ) . '</label>';
 					$html .= '<input type="text" id="social-icon-url" value="" class="icon-url" data-via="" data-url="" />';
 					$html .= '&nbsp;<span class="description" id="social-rss-icon-controls">';
-						$html .= '<a href="http://docs.8bit.io/standard/social">' . __( 'Learn More', 'standard' ) . '</a>';
+						$html .= '<a href="http://docs.8bit.io/standard/social" target="_blank">' . __( 'Learn More', 'standard' ) . '</a>';
 					$html .= '</span><!-- /#social-rss-icon-controls -->';
 					$html .= '<span id="social-icon-controls">';
 						$html .= '<input type="button" class="button" id="set-social-icon-url" value="' . __( 'Done', 'standard' ). '" />';
@@ -842,7 +842,7 @@ function affiliate_code_display() {
 	} // end if
 	
 	$html = '<input type="text" id="affiliate_code" name="standard_theme_global_options[affiliate_code]" value="' . esc_attr( $affiliate_code ) . '" />';
-	$html .= '&nbsp;<span class="description">' . __( 'Earn money by recommending Standard to your site visitors. <a href="http://docs.8bit.io/standard/affiliates">Learn more</a>.', 'standard' ) . '</span>';
+	$html .= '&nbsp;<span class="description">' . __( 'Earn money by recommending Standard to your site visitors. <a href="http://docs.8bit.io/standard/affiliates" target="_blank">Learn more</a>.', 'standard' ) . '</span>';
 	
 	echo $html;
 
@@ -1060,7 +1060,7 @@ function privacy_policy_template_display() {
 		$html .= '<input type="submit" class="button-secondary" id="generate_privacy_policy" name="generate_privacy_policy" value="' . __( 'Generate', 'standard' ) . '" />';
 		$html .= '<span id="standard-privacy-policy-nonce" class="hidden">' . wp_create_nonce( 'standard_generate_privacy_policy_nonce' ) . '</span>';
 		$html .= '&nbsp;';
-		$html .= '<span class="description">' . __( '<a href="http://docs.8bit.io/standard/options/privacy-policy">Learn more</a>.', 'standard' ) . '</span>';
+		$html .= '<span class="description">' . __( '<a href="http://docs.8bit.io/standard/options/privacy-policy" target="_blank">' . __( 'Learn more', 'standard' ) . '</a>.', 'standard' ) . '</span>';
 	$html .= '</div><!-- /#generate-private-policy-wrapper -->';
 	
 	// Options to display if the page already exists
@@ -1094,7 +1094,7 @@ function comment_policy_template_display() {
 		$html .= '<input type="submit" class="button-secondary" id="generate_comment_policy" name="generate_comment_policy" value="' . __( 'Generate', 'standard' ) . '" />';
 		$html .= '<span id="standard-comment-policy-nonce" class="hidden">' . wp_create_nonce( 'standard_generate_comment_policy_nonce' ) . '</span>';
 		$html .= '&nbsp;';
-		$html .= '<span class="description">' . __( '<a href="http://docs.8bit.io/standard/options/comment-policy">Learn more</a>.', 'standard' ) . '</span>';
+		$html .= '<span class="description">' . __( '<a href="http://docs.8bit.io/standard/options/comment-policy" target="_blank">' . __( 'Learn more', 'standard' ) . '</a>.', 'standard' ) . '</span>';
 	$html .= '</div><!-- /#generate-comment-policy-wrapper -->';
 	
 	// Options to display if the page already exists
@@ -1725,12 +1725,12 @@ function standard_detect_wordpress_seo() {
 		// WordPress SEO
 		if( defined( 'WPSEO_URL' ) ) {
 
-			echo '<div id="standard-hide-seo-message-notification" class="error"><p>' . __( 'Standard has detected the activation of WordPress SEO and is now running in SEO compatibility mode. <a href="http://docs.8bit.io/standard/seo">Learn more</a> or <a id="standard-hide-seo-message" href="javascript:;">hide this message</a>.', 'standard') . '</p><span id="standard-hide-seo-message-nonce" class="hidden">' . wp_create_nonce( 'standard_hide_seo_message_nonce' ) . '</span></div>';
+			echo '<div id="standard-hide-seo-message-notification" class="error"><p>' . __( 'Standard has detected the activation of WordPress SEO and is now running in SEO compatibility mode. <a href="http://docs.8bit.io/standard/seo" target="_blank">' . __( 'Learn more', 'standard' ) . '</a> or <a id="standard-hide-seo-message" href="javascript:;">hide this message</a>.', 'standard') . '</p><span id="standard-hide-seo-message-nonce" class="hidden">' . wp_create_nonce( 'standard_hide_seo_message_nonce' ) . '</span></div>';
 		
 		// All-in-One SEO
 		} elseif( class_exists( 'All_in_One_SEO_Pack' ) ) {
 		
-			echo '<div id="standard-hide-seo-message-notification" class="error"><p>' . __( 'Standard has detected the activation of All-In-One SEO and is now running in SEO compatibility mode.  <a href="http://docs.8bit.io/standard/seo">Learn more</a> or <a id="standard-hide-seo-message" href="javascript:;">hide this message</a>.', 'standard') . '</p><span id="standard-hide-seo-message-nonce" class="hidden">' . wp_create_nonce( 'standard_hide_seo_message_nonce' ) . '</span></div>';
+			echo '<div id="standard-hide-seo-message-notification" class="error"><p>' . __( 'Standard has detected the activation of All-In-One SEO and is now running in SEO compatibility mode.  <a href="http://docs.8bit.io/standard/seo" target="_blank">' . __( 'Learn more', 'standard' ) . '</a> or <a id="standard-hide-seo-message" href="javascript:;">hide this message</a>.', 'standard') . '</p><span id="standard-hide-seo-message-nonce" class="hidden">' . wp_create_nonce( 'standard_hide_seo_message_nonce' ) . '</span></div>';
 		
 		} // end if/else
 		
