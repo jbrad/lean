@@ -3246,7 +3246,7 @@ function standard_is_offline() {
 		$site_mode = $global_options['site_mode'];
 	} // end if
 	
-	return 'offline' == $site_mode && ! current_user_can( 'manage_options' ); 
+	return 'offline' == $site_mode;
 	
 } // end standard_site_mode
 

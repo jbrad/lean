@@ -38,7 +38,7 @@
 	</head>
 	<body <?php body_class(); ?>>
 
-		<?php if( standard_is_offline() ) { ?>
+		<?php if( standard_is_offline() && ! current_user_can( 'manage_options' ) ) { ?>
 			<?php get_template_part( 'page', 'offline-mode' ); ?>
 			<?php exit; ?>
 		<?php } // end if ?>
