@@ -71,7 +71,7 @@ class Standard_SEO {
 			$html .= '<p id="search-results-meta"><span id="permalink"></span></p>';
 
 			$html .= '<p id="search-results-meta-description"><span id="date">Date</span> - <span id="description">' . get_post_meta( $post->ID, 'standard_seo_post_meta_description', true ) . '</span></p>';
-			$html .= '<span id="site-title" class="hidden">' . get_bloginfo( 'title' ) . '</span>';
+			$html .= '<span id="site-title" class="hidden">' . get_bloginfo( 'name' ) . '</span>';
 			$html .= '<span id="todays-date" class="hidden">' . date( get_option( 'date_format' ) ) . '</span>';
 			
 		$html .= '</div><!-- /#search-engine-preview -->';
@@ -79,7 +79,7 @@ class Standard_SEO {
 		$html .= '<div id="meta-description-container">';
 		
 			// The label for the meta description
-			$html .= '<p>' . __( 'Meta Description: ', 'standard' ) . '(<span id="character-count">' . __( '140', 'standard' ) . '</span>' . __( ' characters remaining)', 'standard' );'</p>';
+			$html .= '<p>' . __( 'Meta Description ', 'standard' ) . '(<span id="character-count">' . __( '140', 'standard' ) . '</span>' . __( ' characters remaining)', 'standard' );'</p>';
 			
 			// The input field for the meta description			
 			$html .= '<textarea id="standard_seo_post_meta_description" name="standard_seo_post_meta_description" maxlength="140">' . get_post_meta( $post->ID, 'standard_seo_post_meta_description', true ) . '</textarea>';
