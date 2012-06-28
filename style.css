@@ -493,6 +493,10 @@ body {
 	height: auto;
 }
 
+.entry-content .twitter-tweet-rendered {
+	max-width: 100% !important;
+}
+
 .entry-content .wp-caption {
 	border: 1px solid #eee;
 	text-align: center;
