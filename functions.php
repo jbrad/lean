@@ -1841,8 +1841,8 @@ if( ! function_exists( 'standard_add_theme_menus' ) ) {
 	
 		register_nav_menus(
 			array(
-				'menu_above_logo' 	=> __( 'Menu Above Logo', 'standard' ),
-				'menu_below_logo' 	=> __( 'Menu Below Logo', 'standard' ),
+				'menu_above_logo' 	=> __( 'Header Menu (Upper)', 'standard' ),
+				'menu_below_logo' 	=> __( 'Header Menu (Lower)', 'standard' ),
 				'footer_menu' 		=> __( 'Footer Menu', 'standard' )
 			)
 		);

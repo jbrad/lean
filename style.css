@@ -496,7 +496,7 @@ body {
 .entry-content .wp-caption {
 	border: 1px solid #eee;
 	text-align: center;
-	background-color: #f8f8f8;
+	background-color: #f8f8f8;	
 	padding-top: 4px;
 	margin: 0;
 	-moz-border-radius: 3px;
@@ -847,7 +847,7 @@ p.wp-caption-text {
 
 .format-video .entry-content > *  {
 	margin-left: 20px;
-	margin-right: 20px;
+	margin-right: 20px;	
 }
 
 .format-video .entry-content *:first-child,
@@ -1223,7 +1223,6 @@ a.post-permalink:hover {
 
 #commentform #comment-form-avatar {
 	float: left;
-	margin-right: 20px;
 }
 
 #commentform #comment-form-wrapper #comment-form-elements,
@@ -1852,7 +1851,37 @@ ul#sitemap-posts ul {
 	width: auto\9;
 }
 
+#ie8 body .entry-content .wp-caption {
+	background: #f6f6f6;
+}
 
+#ie8 body .post .thumbnail {
+	width: 150px;
+	height: 150px;
+}
+
+#ie8 body .format-image .entry-content img,
+#ie8 body .format-image .entry-content a {
+	min-width: 100%;
+	max-width: 100%;
+}
+
+#ie8 body .format-video .entry-content > * {
+	margin-top: -20px;
+}
+
+#ie8 body .post.format-status .post-header {
+	border: 1px solid #f6f6f6;
+}
+
+#ie8 body #comments .comment-container .avatar-holder {
+	width: 50px;
+}
+
+#ie8 body #comment-form-avatar img {
+	min-width: 50px;
+	min-height: 50px;
+}
 
 /* ------------------------------------------------------------------------ 13. inline-grid */
 
