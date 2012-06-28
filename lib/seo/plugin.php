@@ -79,7 +79,7 @@ class Standard_SEO {
 		$html .= '<div id="meta-description-container">';
 		
 			// The label for the meta description
-			$html .= '<p>' . __( 'Meta Description: ', 'standard' ) . '(<span id="character-count">' . __( '140', 'standard' ) . '</span>' . __( ' characters remaining.)', 'standard' );'</p>';
+			$html .= '<p>' . __( 'Meta Description: ', 'standard' ) . '(<span id="character-count">' . __( '140', 'standard' ) . '</span>' . __( ' characters remaining)', 'standard' );'</p>';
 			
 			// The input field for the meta description			
 			$html .= '<textarea id="standard_seo_post_meta_description" name="standard_seo_post_meta_description" maxlength="140">' . get_post_meta( $post->ID, 'standard_seo_post_meta_description', true ) . '</textarea>';

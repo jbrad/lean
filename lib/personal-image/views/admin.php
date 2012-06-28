@@ -22,7 +22,7 @@
     <div class="bio option">
     	<label for="<?php echo $this->get_field_id( 'image_description' ); ?>"><?php _e( 'Bio (Optional):', 'standard' ); ?></label>
     	<textarea id="<?php echo $this->get_field_id( 'image_description' ); ?>" name="<?php echo $this->get_field_name( 'image_description' ); ?>" maxlength="400" rows="3" cols="30"><?php echo $image_description; ?></textarea>
-    	<p class="description"><span><?php _e( '400', 'standad' ); ?></span><?php _e( ' characters remaining.', 'standard' ); ?></p>
+    	<p class="description"><span><?php _e( '400', 'standad' ); ?></span><?php _e( ' characters remaining', 'standard' ); ?></p>
     </div><!-- /.option -->
     
 </div><!-- /.standard-personal-image-wrapper -->
