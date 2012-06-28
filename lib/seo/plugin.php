@@ -64,10 +64,12 @@ class Standard_SEO {
 
 		wp_nonce_field( plugin_basename( __FILE__ ), 'standard_seo_nonce' );
 	
-		$html = '<div id="search-engine-preview">';
-			
+		$html = '<p>' . __( 'Search Results Preview ', 'standard' ) . '</p>';
+		$html .= '<div id="search-engine-preview">';
+
 			$html .= '<p id="search-results-title"><span id="post-title"></span>' . __( ' - ', 'standard' ) . '<span id="blog-title"></span></p>';
 			$html .= '<p id="search-results-meta"><span id="permalink"></span></p>';
+
 			$html .= '<p id="search-results-meta-description"><span id="date">Date</span> - <span id="description">' . get_post_meta( $post->ID, 'standard_seo_post_meta_description', true ) . '</span></p>';
 			$html .= '<span id="site-title" class="hidden">' . get_bloginfo( 'title' ) . '</span>';
 			$html .= '<span id="todays-date" class="hidden">' . date( get_option( 'date_format' ) ) . '</span>';
@@ -77,18 +79,15 @@ class Standard_SEO {
 		$html .= '<div id="meta-description-container">';
 		
 			// The label for the meta description
-			$html .= '<p>' . __( 'Meta Description: ', 'standard' ) . '</p>';
+			$html .= '<p>' . __( 'Meta Description: ', 'standard' ) . '(<span id="character-count">' . __( '140', 'standard' ) . '</span>' . __( ' characters remaining.)', 'standard' );'</p>';
 			
-			// The input field for the meta description
+			// The input field for the meta description			
 			$html .= '<textarea id="standard_seo_post_meta_description" name="standard_seo_post_meta_description" maxlength="140">' . get_post_meta( $post->ID, 'standard_seo_post_meta_description', true ) . '</textarea>';
 			
 			// The description for the field
-			$html .= '<div id="standard-seo-description-wrapper">';
-				$html .= '<p class="description">';
-					$html .= __( 'The meta description is limited to 140 characters. If not provided, no description will be added to the page.', 'standard' );
-					$html .= '&nbsp;<span id="character-count">' . __( '140', 'standard' ) . '</span>' . __( ' characters remaining.', 'standard' );
-				$html .= '</p>';
-			$html .= '</div><!-- /#standard-seo-description-wrapper -->';
+			$html .= '<p class="description">';
+				$html .= __( 'Writing a meta description for every post is strongly recommended for SEO. If not provided, no description will be published.', 'standard' );
+			$html .= '</p>';
 		
 		$html .= '</div><!-- /#meta-description-container -->';
 		

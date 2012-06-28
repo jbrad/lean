@@ -23,6 +23,10 @@
 	line-height: 15px;
 }
 
+#search-results-meta-description #date {
+	color: #666;
+}
+
 #search-results-meta #permalink {
 	color: #282;
 }
@@ -36,6 +40,6 @@
 	width: 100%;
 }
 
-#standard-seo-description-wrapper #character-count {
+#character-count {
 	font-weight: bold;
 }
