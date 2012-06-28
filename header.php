@@ -89,20 +89,10 @@
 			$head_class = ! empty( $header_image ) ? 'imageyup' : 'imageless';
 		?>
 		
-		<?php
-		
-			// TODO: tom clean up
-			// check to see if there is a logo
-			 if( '' == $presentation_options['logo'] ) {
-				 $hgroup_class = 'no-logo'; 
-				 } else {
-				 $hgroup_class = 'has-logo';
-				 }
-		?>
 			<div id="header" class="<?php echo $head_class ?>">
 				<div id="head-wrapper" class="container clearfix">
 
-						<div id="hgroup" class="clearfix <?php echo $hgroup_class ?>">			
+						<div id="hgroup" class="clearfix <?php echo '' == $presentation_options['logo'] ? 'no-logo' : 'has-logo'; ?>">			
 								<div id="logo">
 									<?php if( is_single() || is_page() ) { ?>
 										
