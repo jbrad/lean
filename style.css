@@ -1576,7 +1576,7 @@ table#wp-calendar th, table#wp-calendar td {
 
 /* Jetpack Widgets */
 
-.twitter-tweet-rendered {
+.entry-content .twitter-tweet-rendered {
 	max-width: 100% !important;
 }
 
