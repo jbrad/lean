@@ -149,6 +149,14 @@ img.social_option {
 	height: auto;
 }
 
+#standard-options #fav_icon_preview_container > img {
+	width: auto;
+	max-width: 64px;
+	height: auto;
+	max-height: 64px;
+}
+
+
 #standard-options .social-icons-wrapper {
 	margin-top: 10px;
 }

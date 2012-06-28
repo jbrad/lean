@@ -265,7 +265,9 @@ function fav_icon_display() {
 		$fav_icon = $options['fav_icon'];
 	} // end if
 	
-	$html = '<img src="' . $fav_icon . '" id="fav_icon_preview" alt="" />';
+	$html = '<div id="fav_icon_preview_container">';
+		$html .= '<img src="' . $fav_icon . '" id="fav_icon_preview" alt="" />';
+	$html .= '</div>';
 	$html .= '<input type="hidden" id="fav_icon" name="standard_theme_presentation_options[fav_icon]" value="' . esc_attr( $fav_icon ) . '" class="media-upload-field" />';
 	$html .= '<input type="button" class="button" id="upload_fav_icon" value="' . __( 'Upload', 'standard' ) . '"/>';
 	
@@ -320,7 +322,7 @@ function logo_display() {
 		$html .= '<input type="button" class="button" id="delete_logo" value="' . __( 'Delete', 'standard' ) . '"/>';
 	} // end if
 	
-	$html .= '&nbsp;<span class="description">' . __( 'Use an image in place of the <a href="themes.php?page=custom-header">Site Title and Tagline</a>. <a href="themes.php?page=custom-header">Custom headers</a> are also available.', 'standard' ) . '</span>';
+	$html .= '&nbsp;<span class="description">' . __( 'Use an image in place of the <a href="themes.php?page=custom-header">Site Title and Tagline</a>. <a href="themes.php?page=custom-header">Custom Headers</a> are also available.', 'standard' ) . '</span>';
 	
 	echo $html;
 	

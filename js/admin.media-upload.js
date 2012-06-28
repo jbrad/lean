@@ -35,7 +35,7 @@ _standard_presentationPreviewUrl = null;
 		// Remove the URL of the fav icon
 		$('#delete_fav_icon').click(function() {
 			$('#fav_icon').val('');
-			$(this).siblings('img').hide();
+			$('#fav_icon_preview_container').children('img').hide();
 			$(this).hide();
 		});
 		
@@ -62,7 +62,7 @@ _standard_presentationPreviewUrl = null;
 		
 				// if they aren't uploading, we'll clear the fields on load
 				standard_upload_hide_unused_fields($);
-			
+
 			});
 				
 		});
@@ -84,6 +84,9 @@ _standard_presentationPreviewUrl = null;
  * @params	poller	The polling mechanism used to look for the form fields when a user uploads an image	
  */
 function standard_upload_hide_unused_fields($, poller) {
+
+	// Hide the 'From URL' tabs
+	$( '#tab-type_url', $('#TB_iframeContent')[0].contentWindow.document ).hide();
 
 	// Hide unnecessary fields
 	var bHasHiddenFields = false;
@@ -135,63 +138,6 @@ function standard_upload_hide_unused_fields($, poller) {
 } // end standard_upload_hide_unused_fields
 
 /**
- * Hides fields that are irrelevant for the media uploader.
- *
- * @params	$		A reference to the jQuery function
- * @params	poller	The polling mechanism used to look for the form fields when a user uploads an image	
- */
-function standard_ad_banner_hide_unused_fields($, poller) {
-
-	// Hide unnecessary fields
-	var bHasHiddenFields = false;
-	var $formFields = $('.describe tbody tr, .savebutton', $('#TB_iframeContent')[0].contentWindow.document);
-	$formFields.each(function() {
-
-		// Remove everything except the URL field
-		if(!($(this).hasClass('submit') || $(this).hasClass('url'))) {
-			$(this).hide();
-		} // end if
-
-		// Make sure that we select the 'Full Size' of the image
-		if($(this).hasClass('image-size')) {
-			$(this).children('.field').children().each(function() {
-				if($(this).children('input[type=radio]').attr('id').indexOf('-full-') > 0) {
-					$(this).children('input[type=radio]').attr('checked', 'checked');
-				} // end if
-			});
-		} // end if
-
-		// If we're looking at the URL field, remove the extra buttons and text
-		if($(this).hasClass('url')) {
-		
-			var $input = $(this).children('.field').children('input');
-			$input.val('');
-			$input.attr('placeholder', 'http://');
-			$input.siblings().hide();
-			
-		} // end if
-
-	});
-
-	// Change the text of the submit button
-	var $submit = $('.savesend input[type="submit"]', $('#TB_iframeContent')[0].contentWindow.document);
-	if($submit.length > 0 && $submit !== null) {
-	
-		/* Translators: This will need to be manually localized */
-		$submit.val('Save Post Advertisement');
-
-		bHasHiddenFields = true;
-
-	} // end if
-						
-	// Clear the polling interfval
-	if(poller !== null && bHasHiddenFields) {
-		clearInterval(poller);
-	} // end if
-
-} // end standard_ad_banner_hide_unused_fields
-
-/**
  * Overrides the core send_to_editor function in the media-upload script. Grabs the URL of the image after being uploaded and 
  * populates the favicon's text field with its URL.
  *
@@ -222,9 +168,10 @@ window.send_to_editor = function(sHtml) {
 		if(jQuery('.media-upload-field-raw').length > 0) {
 			jQuery(sPreviewId).html(sHtml);
 		} else {
+			
 			jQuery(sPreviewId).attr('src', jQuery(sHtml).attr('src'));			
-		} // end if/else
-		
+
+		} // end if/else		
 		
 	} // end if
 			
