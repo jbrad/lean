@@ -493,10 +493,6 @@ body {
 	height: auto;
 }
 
-.entry-content .twitter-tweet-rendered {
-	max-width: 100% !important;
-}
-
 .entry-content .wp-caption {
 	border: 1px solid #eee;
 	text-align: center;
@@ -1579,6 +1575,10 @@ table#wp-calendar th, table#wp-calendar td {
 
 
 /* Jetpack Widgets */
+
+.twitter-tweet-rendered {
+	max-width: 100% !important;
+}
 
 .widget_freshposts ul li img {
 	width: 100%;
