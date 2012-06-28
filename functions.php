@@ -2879,7 +2879,7 @@ if( ! function_exists( 'standard_modify_widget_titles' ) ) {
 	function standard_modify_widget_titles( $params ) {
 	
 		$params[0]['before_title'] = '<h4 class="' . $params[0]['widget_name'] . ' widget-title">' ;
-		$params[0]['aftert_title'] = '</h4>';
+		$params[0]['after_title'] = '</h4>';
 		
 	    return $params;
 	    
