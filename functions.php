@@ -3029,7 +3029,7 @@ add_action( 'template_redirect', 'standard_redirect_rss_feeds' );
 if( standard_is_offline() ) {
 
 	function standard_disable_feed() {
-		wp_die( get_bloginfo( 'Title' ) . __( ' is currently offline. ', 'standard' ) );
+		wp_die( get_bloginfo( 'name' ) . __( ' is currently offline. ', 'standard' ) );
 	} // end standard_disable_feeds
 	
 	add_action( 'do_feed', 'standard_disable_feed', 1 );
