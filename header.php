@@ -88,10 +88,11 @@
 			$header_image = get_header_image();
 			$head_class = ! empty( $header_image ) ? 'imageyup' : 'imageless';
 		?>
+		
 			<div id="header" class="<?php echo $head_class ?>">
 				<div id="head-wrapper" class="container clearfix">
 
-						<div id="hgroup" class="clearfix">			
+						<div id="hgroup" class="clearfix <?php echo '' == $presentation_options['logo'] ? 'no-logo' : 'has-logo'; ?>">			
 								<div id="logo">
 									<?php if( is_single() || is_page() ) { ?>
 										

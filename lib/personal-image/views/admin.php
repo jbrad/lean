@@ -4,7 +4,7 @@
     
     	<label for="<?php echo $this->get_field_id( 'image_src' ); ?>"><?php _e( 'Personal Image:', 'standard' ); ?></label>
 
-		<div class="preview_image_container">
+		<div class="personal_image_preview_image_container">
 	    	<img src="<?php echo $image_src; ?>" alt="" class="preview_image" />
 	    </div><!-- /.preview_image_container -->
     	

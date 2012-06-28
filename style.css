@@ -691,7 +691,7 @@ p.wp-caption-text {
 	width: auto;
 	max-width: 100%;
 	display: inline;
-	word-break: break-all;
+	word-wrap: break-word;
 }
 
 
@@ -1139,7 +1139,7 @@ a.post-permalink:hover {
 }
 
 #comments .comment-container .comment-entry .comment-text {
-	word-break: break-all;
+	word-wrap: break-word;
 }
 
 #comments .comment-container .comment-entry .name 	{
@@ -1927,13 +1927,6 @@ ul#sitemap-posts ul {
 		padding: 0;
 	}
 	
-	.imageyup #hgroup {
-		position: absolute;
-		width: 100%;
-		margin: 0;
-		padding: 0;
-	}
-	
 	#header-widget .widget_search {
 		width: 100%;
 		box-sizing: border-box;
@@ -2009,6 +2002,28 @@ ul#sitemap-posts ul {
 
 /* tablet and mobile */ 
 @media (max-width: 979px) {	
+
+	
+	.imageyup #hgroup.no-logo {
+		position: absolute;
+		width: 100%;
+		margin: 0;
+		padding: 0;
+		text-align: center;
+	}
+	
+	.imageyup #hgroup.has-logo {
+		position: relative;
+		width: 100%;
+		margin: 0 0 20px 0 !important;
+		padding: 0;
+		text-align: center;
+	}
+	
+	.imageyup #hgroup > * {
+		float: none;
+	}
+	
 
 	#header-widget .ad-468x60 {
 		margin-top: 10px;

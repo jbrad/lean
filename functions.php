@@ -243,14 +243,14 @@ function standard_theme_presentation_options_display() {
  * Renders the description for the "Layout and Design" options.
  */
 function standard_theme_layout_options_display() {
-	_e( 'This section controls positioning and style elements.', 'standard' );
+	echo '<p>' . __( 'This section controls positioning and style elements.', 'standard' ) . '</p>';
 } // end standard_theme_layout_display
 
 /** 
  * Renders the description for the "Content" options.
  */
 function standard_theme_content_options_display() {
-	_e( 'This section controls when content elements are displayed.', 'standard' );
+	echo '<p>' . __( 'This section controls when content elements are displayed.', 'standard' ) . '</p>';
 } // end standard_theme_content_display
 
 /**
@@ -777,7 +777,7 @@ add_action( 'admin_init', 'standard_setup_theme_global_options' );
 function standard_theme_global_options_display() {
 
 	$html = '<h3>' . __( 'Site Configuration ', 'standard' ) . '</h3>';
-	$html .= __( 'This section controls site wide features.', 'standard' );
+	$html .= '<p>' . __( 'This section controls site wide features.', 'standard' ) . '</p>';
 	
 	echo $html;
 	
@@ -1014,14 +1014,14 @@ function standard_theme_publishing_options_display() {
  * Renders the description for the "Post" options settings in the Publishing section.
  */
 function standard_theme_post_options_display() {
-	_e( 'This section controls publisher-centric features available on individual posts.', 'standard' );
+	echo '<p>' . __( 'This section controls publisher-centric features available on individual posts.', 'standard' ) . '</p>';
 } // end standard_theme_post_options_display
 
 /** 
  * Renders the description for the "Page" options settings in the Publishing section.
  */
 function standard_theme_page_options_display() {
-	_e( 'This section controls publisher-centric features available for pages.', 'standard' );
+	echo '<p>' . __( 'This section controls publisher-centric features available for pages.', 'standard' ) . '</p>';
 } // end standard_theme_page_options_display
 
 /**
