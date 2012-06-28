@@ -51,8 +51,8 @@
 					</div><!-- /#footer-links -->			
 					<?php $global_options = get_option( 'standard_theme_global_options' ); ?>		
 					<div id="credit" class="<?php echo has_nav_menu( 'footer_menu' ) && ! standard_is_offline() ? 'span5' : 'span12'; ?>">
-						<?php $standard_url = strlen( trim( $global_options['affiliate_code'] ) ) == 0 ? 'http://standardtheme.com/?utm_source=standard-theme&utm_medium=footer&utm_content=wp-org&utm_campaign=Standard%2BFooter' : $global_options['affiliate_code'];
-						$eightbit_url = 'http://8bit.io/?utm_source=standard-theme&utm_medium=footer&utm_content=wp-org&utm_campaign=Standard%2BFooter';
+						<?php $standard_url = strlen( trim( $global_options['affiliate_code'] ) ) == 0 ? 'http://standardtheme.com/?utm_source=standard-theme&amp;utm_medium=footer&amp;utm_content=wp-org&amp;utm_campaign=Standard%2BFooter' : $global_options['affiliate_code'];
+						$eightbit_url = 'http://8bit.io/?utm_source=standard-theme&amp;utm_medium=footer&amp;utm_content=wp-org&amp;utm_campaign=Standard%2BFooter';
 						?>
 						
 						<?php if( null != get_page_by_path( 'privacy-policy' ) && 0 != get_page_by_path( 'privacy-policy' )->ID && 'publish' == get_page_by_path( 'privacy-policy' )->post_status ) { ?>	

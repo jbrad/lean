@@ -1576,6 +1576,10 @@ table#wp-calendar th, table#wp-calendar td {
 
 /* Jetpack Widgets */
 
+.twitter-tweet-rendered {
+	max-width: 100% !important;
+}
+
 .widget_freshposts ul li img {
 	width: 100%;
 	height: auto;

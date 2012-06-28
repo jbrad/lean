@@ -38,7 +38,7 @@
 			} // end if
 			
 			// display the image
-			$html .= '<img src="' . esc_url( $icon ) . '" />';
+			$html .= '<img src="' . esc_url( $icon ) . '" alt="" />';
 			
 			// ...and if the image has a URL, close the anchor
 			if( '' != $url ) {
