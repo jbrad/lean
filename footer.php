@@ -51,8 +51,16 @@
 					</div><!-- /#footer-links -->			
 					<?php $global_options = get_option( 'standard_theme_global_options' ); ?>		
 					<div id="credit" class="<?php echo has_nav_menu( 'footer_menu' ) && ! standard_is_offline() ? 'span5' : 'span12'; ?>">
-						<?php $standard_url = strlen( trim( $global_options['affiliate_code'] ) ) == 0 ? 'http://standardtheme.com' : $global_options['affiliate_code']; ?>
-						<?php printf( __( '&copy; %1$s %2$s. %3$s.', 'standard' ), date( 'Y' ), '<a href="' . site_url() . '">' . get_bloginfo( 'name' ) . '</a>', '<a href="' . $standard_url . '">Standard</a>' ); ?>
+						<?php $standard_url = strlen( trim( $global_options['affiliate_code'] ) ) == 0 ? 'http://standardtheme.com/?utm_source=standard-theme&utm_medium=footer&utm_content=wp-org&utm_campaign=Standard%2BFooter' : $global_options['affiliate_code'];
+						$eightbit_url = 'http://8bit.io/?utm_source=standard-theme&utm_medium=footer&utm_content=wp-org&utm_campaign=Standard%2BFooter';
+						?>
+						
+						<?php if( null != get_page_by_path( 'privacy-policy' ) && 0 != get_page_by_path( 'privacy-policy' )->ID ) { ?>
+							<?php printf( __( '&copy; %1$s %2$s &mdash; %3$s &mdash; %4$s by %5$s,', 'standard' ), date( 'Y' ), '<a href="' . site_url() . '">' . get_bloginfo( 'name' ) . '</a>', '<a href="privacy-policy">Privacy Policy</a>', '<a href="' . $standard_url . '" target="_blank">Standard</a>', '<a href="' . $eightbit_url . '" target="_blank">8BIT</a>' ); ?>
+						<?php } else { ?>
+							<?php printf( __( '&copy; %1$s %2$s &mdash; %3$s by %4$s', 'standard' ), date( 'Y' ), '<a href="' . site_url() . '">' . get_bloginfo( 'name' ) . '</a>', '<a href="' . $standard_url . '" target="_blank">Standard</a>', '<a href="' . $eightbit_url . '" target="_blank">8BIT</a>' ); ?>
+						<?php } // end if/else ?>
+						
 					</div><!-- /#credits -->
 
 				</div><!-- /row -->
