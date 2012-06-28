@@ -691,7 +691,7 @@ p.wp-caption-text {
 	width: auto;
 	max-width: 100%;
 	display: inline;
-	word-break: break-all;
+	word-wrap: break-word;
 }
 
 
@@ -1139,7 +1139,7 @@ a.post-permalink:hover {
 }
 
 #comments .comment-container .comment-entry .comment-text {
-	word-break: break-all;
+	word-wrap: break-word;
 }
 
 #comments .comment-container .comment-entry .name 	{
