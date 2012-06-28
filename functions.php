@@ -3290,7 +3290,6 @@ function standard_create_page( $slug, $title, $template = '' ) {
 			'post_author'		=>	$current_user->ID,
 			'post_name'			=>	$slug,
 			'post_title'		=>	$title,
-			'post_status'		=>	'publish',
 			'post_type'			=>	'page',
 			'post_content'		=>	$page_content,
 			'post_status'		=>	'draft'
