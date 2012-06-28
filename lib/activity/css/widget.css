@@ -37,7 +37,6 @@
 	background-image: linear-gradient(top, #333333, #222222);
 	background-repeat: repeat-x;
 	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#333333', endColorstr='#222222', GradientType=0);
-
 }
 
 .tabbed-widget .nav-tabs > li > a:hover {
@@ -49,6 +48,10 @@
 	color: #444;
 	background: #fff;
 	border-color: #e4e4e4;
+	
+	/* IE10, IE9 */
+	filter: none;
+	
 }
 
 .tabbed-widget .tab-count-1 > li.active > a {
