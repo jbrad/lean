@@ -2003,7 +2003,16 @@ ul#sitemap-posts ul {
 /* tablet and mobile */ 
 @media (max-width: 979px) {	
 
-	.imageyup #hgroup {
+	
+	.imageyup #hgroup.no-logo {
+		position: absolute;
+		width: 100%;
+		margin: 0;
+		padding: 0;
+		text-align: center;
+	}
+	
+	.imageyup #hgroup.has-logo {
 		position: relative;
 		width: 100%;
 		margin: 0 0 20px 0 !important;
@@ -2014,6 +2023,7 @@ ul#sitemap-posts ul {
 	.imageyup #hgroup > * {
 		float: none;
 	}
+	
 
 	#header-widget .ad-468x60 {
 		margin-top: 10px;
