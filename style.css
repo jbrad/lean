@@ -758,20 +758,6 @@ p.wp-caption-text {
           border-radius: 0 3px 3px 0;
 }
 
-
-/* Password Protected Page/post */
-
-.post-password-required input[type="password"], .post-password-required label {
-	float: left;
-}
-
-
-.post-password-required input[type="submit"] {
-	margin-top: 0;
-	margin-left: 10px;
-	float: left;
-}
-
 /* Post Format Image */
 	
 .format-image .entry-content {
