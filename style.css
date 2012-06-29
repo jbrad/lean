@@ -535,7 +535,7 @@ p.wp-caption-text {
 
 /* content Tables */
 
-.entry-content table {
+#main table {
 	width: 100%;
 	margin: 20px 0;
 	border: 1px solid #dddddd;
@@ -546,7 +546,7 @@ p.wp-caption-text {
 	border-radius: 4px;
 }
 
-.entry-content table th, .entry-content table td {
+#main table th, #main table td {
 	padding: 8px;
 	line-height: 18px;
 	text-align: left;
@@ -555,31 +555,31 @@ p.wp-caption-text {
 	border-left: 1px solid #dddddd;
 }
 
-.entry-content table thead:first-child tr:first-child th,
-.entry-content table tbody:first-child tr:first-child th,
-.entry-content table tbody:first-child tr:first-child td {
+#main table thead:first-child tr:first-child th,
+#main table tbody:first-child tr:first-child th,
+#main table tbody:first-child tr:first-child td {
   border-top: 0;
 }
-.entry-content table thead:first-child tr:first-child th:first-child,
-.entry-content table tbody:first-child tr:first-child td:first-child {
+#main table thead:first-child tr:first-child th:first-child,
+#main table tbody:first-child tr:first-child td:first-child {
   -webkit-border-radius: 4px 0 0 0;
   -moz-border-radius: 4px 0 0 0;
   border-radius: 4px 0 0 0;
 }
-.entry-content table thead:first-child tr:first-child th:last-child,
-.entry-content table tbody:first-child tr:first-child td:last-child {
+#main table thead:first-child tr:first-child th:last-child,
+#main table tbody:first-child tr:first-child td:last-child {
   -webkit-border-radius: 0 4px 0 0;
   -moz-border-radius: 0 4px 0 0;
   border-radius: 0 4px 0 0;
 }
-.entry-content table thead:last-child tr:last-child th:first-child,
-.entry-content table tbody:last-child tr:last-child td:first-child {
+#main table thead:last-child tr:last-child th:first-child,
+#main table tbody:last-child tr:last-child td:first-child {
   -webkit-border-radius: 0 0 0 4px;
   -moz-border-radius: 0 0 0 4px;
   border-radius: 0 0 0 4px;
 }
-.entry-content table thead:last-child tr:last-child th:last-child,
-.entry-content table tbody:last-child tr:last-child td:last-child {
+#main table thead:last-child tr:last-child th:last-child,
+#main table tbody:last-child tr:last-child td:last-child {
   -webkit-border-radius: 0 0 4px 0;
   -moz-border-radius: 0 0 4px 0;
   border-radius: 0 0 4px 0;
