@@ -1998,6 +1998,12 @@ ul#sitemap-posts ul {
 	height: auto;
 }
 
+	/* sitemap tweaks */
+	
+	#sitemap-authors li {
+		margin-right: 20px;
+	}
+
 }
 
 /* tablet and mobile */ 
