@@ -1945,7 +1945,6 @@ ul#sitemap-posts ul {
 	}
 	
 	/* posts */
-	
 	.post .thumbnail img {
 		width: 80px;
 		height: auto;
@@ -1962,16 +1961,11 @@ ul#sitemap-posts ul {
 		height: 210px; /* Setting a height - Android displays correctly, iPhone was showing letterbox. */
 	}
 	
-	.meta-comment-link {
-
+	.entry-content .gallery img {
+		max-width: 94%;
 	}
 	
-	.meta-date-cat-tags {
-
-	}
-	
-	/* Post Comments */
-	
+	/* Post Comments */	
 	.author-box-image img {
 		width: 50px;
 		height: auto;
@@ -1982,7 +1976,6 @@ ul#sitemap-posts ul {
 	}
 	
 	/* post format video */
-	
 	.format-video embed, .format-video iframe, .format-video object {
 	 	max-width: 100%;
 	}
@@ -1999,9 +1992,14 @@ ul#sitemap-posts ul {
 }
 
 	/* sitemap tweaks */
-	
 	#sitemap-authors li {
 		margin-right: 20px;
+	}
+	
+	/* sidebar / widgets */
+	.ad-125x125 .thumbnails > li .thumbnail > img {
+		max-width: 112px;
+		padding: 0;
 	}
 
 }
