@@ -165,7 +165,7 @@ class Standard_Influence extends WP_Widget {
 	
 		// First, we check the cache to see if it's available.
 		if( ! ( $follower_count = get_transient( $transient_key ) ) ) {
-		
+			
 			// If it's not available, we'll attempt to read the value from Twitter
 			if( null != ( $response = $this->get_feed_response( 'https://twitter.com/users/show/' . $username . '.json ' ) ) ) {
 			
@@ -197,12 +197,14 @@ class Standard_Influence extends WP_Widget {
 			} // end if	
 		
 		// If it's not in the cache, try to read the last known good value
-		} else {
+		} else if( '' == $follower_count || false == $follower_count || null == $follower_count ) {
+		
 			$follower_count = get_option( $transient_key );	
+				
 		} // end if
 
 		// If debug mode is running, return the raw follower count; otherwise, return the value or 0 if it's an error.
-		$follower_count = $debug ? $follower_count : ( $follower_count < 0 ? 0 : $follower_count );
+		$follower_count = $debug ? $follower_count : ( $follower_count <= 0 ? 0 : $follower_count );
 		
 		return $follower_count;
 
@@ -266,12 +268,12 @@ class Standard_Influence extends WP_Widget {
 			} // end if	
 		
 		// If it's not in the cache, try to read the last known good value
-		} else {
+		} else if( '' == $like_count || false == $like_count || null == $like_count ) {
 			$like_count = get_option( $transient_key );
 		} // end if
 
 		// If debug mode is running, return the raw like count; otherwise, return the value or 0 if it's an error.
-		$like_count = $debug ? $like_count : ( $like_count < 0 ? 0 : $like_count );
+		$like_count = $debug ? $like_count : ( $like_count <= 0 ? 0 : $like_count );
 
 		return $like_count;
 
@@ -344,12 +346,12 @@ class Standard_Influence extends WP_Widget {
 			} // end if	
 		
 		// If it's not in the cache, try to read the last known good value
-		} else {
+		} else if( '' == $subscriber_count || false == $subscriber_count || null == $subscriber_count ) {
 			$subscriber_count = get_option( $transient_key );	
 		} // end if
 
 		// If debug mode is running, return the raw like count; otherwise, return the value or 0 if it's an error.
-		$subscriber_count = $debug ? $subscriber_count : ( $subscriber_count < 0 ? 0 : $subscriber_count );
+		$subscriber_count = $debug ? $subscriber_count : ( $subscriber_count <= 0 ? 0 : $subscriber_count );
 
 		return $subscriber_count;	
 	
