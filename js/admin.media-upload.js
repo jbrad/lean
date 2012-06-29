@@ -70,7 +70,7 @@ _standard_presentationPreviewUrl = null;
 		// Remove the URL of the fav icon
 		$('#delete_logo').click(function() {
 			$('#logo').val('');
-			$('#logo_preview_container').children('img:first').hide();
+			$('#logo_preview_container').children('img:first').addClass('hidden');
 			$(this).hide();
 		});
 		
@@ -171,7 +171,11 @@ window.send_to_editor = function(sHtml) {
 			
 			jQuery(sPreviewId).attr('src', jQuery(sHtml).attr('src'));			
 
-		} // end if/else		
+		} // end if/else	
+		
+		// Toggle the visibility of the preview and the delete button if they're hidden
+		jQuery('#logo_preview_container').children('img:first').removeClass('hidden');
+		jQuery('#delete_fav_icon').show();
 		
 	} // end if
 			

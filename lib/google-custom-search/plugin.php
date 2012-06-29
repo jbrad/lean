@@ -47,7 +47,6 @@ class Google_Custom_Search extends WP_Widget {
 	
 		extract( $args, EXTR_SKIP );
 
-		$gcse_title = empty( $instance['gcse_title'] ) ? '' : apply_filters( 'gcse_title', $instance['gcse_title'] );
 		$gcse_content = empty( $instance['gcse_content'] ) ? '' : apply_filters( 'gcse_content', $instance['gcse_content'] );
     
 		// Display the widget
@@ -65,7 +64,6 @@ class Google_Custom_Search extends WP_Widget {
 		
 		$instance = $old_instance;
 
-		$instance['gcse_title'] = strip_tags( stripslashes( $new_instance['gcse_title'] ) );
 		$instance['gcse_content'] = $new_instance['gcse_content'];
 		
 		return $instance;
@@ -82,12 +80,10 @@ class Google_Custom_Search extends WP_Widget {
 		$instance = wp_parse_args(
 			(array)$instance,
 			array(
-				'gcse_title' 		=> '',
 				'gcse_content' 		=> ''
 			)
 		);
-		
-    	$gcse_title = strip_tags( stripslashes( $instance['gcse_title'] ) );
+
     	$gcse_content = esc_textarea( $instance['gcse_content'] );
    
 		// Display the admin form

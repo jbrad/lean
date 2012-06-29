@@ -20,24 +20,11 @@
 	
 			<div id="main" class="<?php echo 'full_width_layout' == $presentation_options['layout'] ? 'span12 fullwidth' : 'span8'; ?> clearfix" role="main">
 				
-				<?php if( standard_google_custom_search_is_active() ) { ?>
-				
-					<div id="search-page-title"> 
-	                    <h3><?php _e( 'Search Results For "', 'standard' ); echo get_query_var( 'q' ); _e( '"', 'standard' ); ?></h3>
-	                </div> 
-				
-					<div id="cse-search-results"></div>
-					<script type="text/javascript">
-					  var googleSearchIframeName = "cse-search-results";
-					  var googleSearchFormName = "cse-search-box";
-					  var googleSearchFrameWidth = 600;
-					  var googleSearchDomain = "www.google.com";
-					  var googleSearchPath = "/cse";
-					</script>
-					<script type="text/javascript" src="http://www.google.com/afsonline/show_afs_search.js"></script>
-				
-				<?php } else { ?>
-				
+				<?php // Even if google custom search is active, we may be coming from the 4040 page so we'll run this template. ?>
+				<?php if( ! standard_google_custom_search_is_active() || '' != get_query_var( 's' ) ) { ?>
+					
+					<?php get_template_part( 'breadcrumbs' ); ?>
+
 					<div id="search-page-title"> 
 	                    <h3><?php _e( 'Search Results For "', 'standard' ); echo get_query_var( 's' ); _e( '"', 'standard' ); ?></h3>
 	                </div> 
