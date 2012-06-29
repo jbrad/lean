@@ -18,49 +18,24 @@
 		
 		// Setup the handler for triggering the social icon url
 		$('#set-social-icon-url').click(function(evt) {
+			saveIconUrl($, evt);
+		});
 		
-			evt.preventDefault();
-			
-			if($.trim($(this).prev().val()).length > 0) {
-			
-				// Set the list item's URL
-				var sUrl = $(this).prev().val();	
-				$('li.active-icon').attr('data-url', sUrl);
-				
-				// Clear out the input
-				$(this).prev().val('');
-				
-				// Hide the container
-				$(this).parent().addClass('hidden');
-				
-				// Remove active icons
-				$('.active-icon').removeClass('active-icon');
-				
-				// Update the data
-				updateIconValues();
-				
-				// Update the icons
-				updateActiveIcons($);
-			
-			} else {
-			
-				// Hide the container
-				$(this).parent().addClass('hidden');
-				
-				// Remove active icons
-				$('.active-icon').removeClass('active-icon');
-				
+		// Save the input field if the user presses enter
+		$(document).keypress(function(evt) {
+
+			if(evt.keyCode === 13) {
+				evt.preventDefault();
+				saveIconUrl($, evt);
 			} // end if
 			
-			$('.icon-url').val('');
-		
 		});
 		
 		// Cancel entering a URL
 		$('#cancel-social-icon-url').click(function(evt) {
 			
 			evt.preventDefault();
-			cancelSettingIconURL($, $(this));
+			cancelSettingIconURL($);
 			
 		});
 		
@@ -68,6 +43,52 @@
 
 	});
 })(jQuery);
+
+/**
+ * Helper function that's fired when the user clicks 'Done' or hits 'Enter'
+ * when working to save their social icons.
+ *
+ * @params	$	A reference to the jQuery functioin
+ * @params	evt	The source event of this handler
+ */
+function saveIconUrl($, evt) {
+		
+	evt.preventDefault();
+
+	if( $.trim($('#social-icon-url').val()).length > 0 ) {
+	
+		// Set the list item's URL
+		var sUrl = $('#social-icon-url').val();	
+		$('li.active-icon').attr('data-url', sUrl);
+		
+		// Clear out the input
+		$('#social-icon-url').val('');
+		
+		// Hide the container
+		$('#active-icon-url').addClass('hidden');
+		
+		// Remove active icons
+		$('.active-icon').removeClass('active-icon');
+		
+		// Update the data
+		updateIconValues();
+		
+		// Update the icons
+		updateActiveIcons($);
+	
+	} else {
+	
+		// Hide the container
+		$('#active-icon-url').addClass('hidden');
+		
+		// Remove active icons
+		$('.active-icon').removeClass('active-icon');
+		
+	} // end if
+	
+	$('.icon-url').val('');
+	
+} // end if
 
 /**
  * Sets up the icon media uploader to render with limited fields when the upload button
@@ -194,7 +215,7 @@ function updateIconValues(evt) {
 
 	// Only cancel the icon setting URL if this function was triggered by an element
 	if(evt !== undefined && !jQuery('#active-icon-url').hasClass('hidden')) {
-		cancelSettingIconURL(jQuery, jQuery('#cancel-social-icon-url'));
+		cancelSettingIconURL(jQuery);
 	} // end if
 
 	// Update the inputs to track the active icon arrangement.	
@@ -456,13 +477,12 @@ function makeIconsRemoveable($) {
  * Resets the social media icon URL form, hides it, and unselects the active icon.
  * 
  * @params	$		The jQuery function
- * @params	elem	The element element that triggered cancelling this. 
  */
-function cancelSettingIconURL($, $elem) {
+function cancelSettingIconURL($) {
 	
 	// Empty the URL field and hide the container
-	$elem.siblings('input[type=text]:first').val('');
-	$elem.parent().addClass('hidden');
+	$('#social-icon-url').siblings('input[type=text]:first').val('');
+	$('#active-icon-url').addClass('hidden');
 	
 	// Remove the active status from the selected social icon
 	$('.active-icon').removeClass('active-icon');
