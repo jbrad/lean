@@ -38,8 +38,8 @@
 	                            <?php echo single_tag_title() ?> 
 	                        <?php } // end if/else ?> 
 	                    </h3>
-						<?php if( '' != category_description() ) { ?>
-	                        <p><?php echo category_description(); ?></p>
+	            <?php if( '' != category_description() ) { ?>
+	                       <?php echo category_description(); ?>
 	                    <?php } // end if ?> 
 	                </div> 
 	            <?php } // end if ?> 
