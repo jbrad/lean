@@ -26,8 +26,8 @@
 
 Many hours of research and development went into the crafting of our policies. There are a few noteworthy sources whose contributions and personal example were of significant inspiration in this process. Thank you!
 
-* W3C's Platform for Privacy Preferences 1.1 (P3P1.1) Specification - http://www.w3.org/TR/P3P11/
-* Aza Rask - http://www.azarask.in/blog/post/privacy-icons/
-* John Saddington, original gansta - http://tentblogger.com
-* Michael Hyatt, author of Platofrm - http://michaelhyatt.com
+* [W3C's Platform for Privacy Preferences 1.1 (P3P1.1) Specification](http://www.w3.org/TR/P3P11/)
+* [Aza Rask](http://www.azarask.in/blog/post/privacy-icons/)
+* [John Saddington, original gangsta](http://tentblogger.com)
+* [Michael Hyatt, author of Platform](http://michaelhyatt.com)
 
