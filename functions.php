@@ -275,7 +275,7 @@ function fav_icon_display() {
 		$html .= '<input type="button" class="button" id="delete_fav_icon" value="' . __( 'Delete', 'standard' ) . '"/>';
 	} // end if
 	
-	$html .= '&nbsp;<span class="description">' . __( 'Dimensions: 144px x 144px. Used for favicon and mobile devices. <a href="http://docs.8bit.io/standard/site-icon" target="_blank">' . __( 'Learn more', 'standard' ) . '</a>. ', 'standard' ) . '</span>';
+	$html .= '&nbsp;<span class="description">' . __( 'Dimensions: 144px x 144px. Used for favicon and mobile devices. <a href="http://docs.8bit.io/standard/admin-panel/presentation/" target="_blank">' . __( 'Learn more', 'standard' ) . '</a>. ', 'standard' ) . '</span>';
 	
 	echo $html;
 	
@@ -395,7 +395,7 @@ function display_breadcrumbs_display() {
 		$html .= '<option value="never"'. selected( $options['display_breadcrumbs'], 'never', false ) . '>' . __( 'Never', 'standard' ) . '</option>';
 	$html .= '</select>';
 
-	$html .= '&nbsp;<span class="description">' . __( 'SEO experts encourage breadcrumb use. <a href="http://docs.8bit.io/standard/breadcrumbs">Learn more</a>.', 'standard' ) . '</span>';
+	$html .= '&nbsp;<span class="description">' . __( 'SEO experts encourage breadcrumb use. <a href="http://docs.8bit.io/standard/admin-panel/presentation/">Learn more</a>.', 'standard' ) . '</span>';
 	
 	echo $html;
 	
@@ -1062,7 +1062,7 @@ function privacy_policy_template_display() {
 		$html .= '<input type="submit" class="button-secondary" id="generate_privacy_policy" name="generate_privacy_policy" value="' . __( 'Generate', 'standard' ) . '" />';
 		$html .= '<span id="standard-privacy-policy-nonce" class="hidden">' . wp_create_nonce( 'standard_generate_privacy_policy_nonce' ) . '</span>';
 		$html .= '&nbsp;';
-		$html .= '<span class="description">' . __( '<a href="http://docs.8bit.io/standard/options/privacy-policy" target="_blank">' . __( 'Learn more', 'standard' ) . '</a>.', 'standard' ) . '</span>';
+		$html .= '<span class="description">' . __( '<a href="http://docs.8bit.io/standard/admin-panel/publishing/" target="_blank">' . __( 'Learn more', 'standard' ) . '</a>.', 'standard' ) . '</span>';
 	$html .= '</div><!-- /#generate-private-policy-wrapper -->';
 	
 	// Options to display if the page already exists
@@ -1096,7 +1096,7 @@ function comment_policy_template_display() {
 		$html .= '<input type="submit" class="button-secondary" id="generate_comment_policy" name="generate_comment_policy" value="' . __( 'Generate', 'standard' ) . '" />';
 		$html .= '<span id="standard-comment-policy-nonce" class="hidden">' . wp_create_nonce( 'standard_generate_comment_policy_nonce' ) . '</span>';
 		$html .= '&nbsp;';
-		$html .= '<span class="description">' . __( '<a href="http://docs.8bit.io/standard/options/comment-policy" target="_blank">' . __( 'Learn more', 'standard' ) . '</a>.', 'standard' ) . '</span>';
+		$html .= '<span class="description">' . __( '<a href="http://docs.8bit.io/standard/admin-panel/publishing/" target="_blank">' . __( 'Learn more', 'standard' ) . '</a>.', 'standard' ) . '</span>';
 	$html .= '</div><!-- /#generate-comment-policy-wrapper -->';
 	
 	// Options to display if the page already exists
