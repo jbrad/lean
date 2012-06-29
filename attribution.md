@@ -28,6 +28,6 @@ Many hours of research and development went into the crafting of our policies. T
 
 * W3C's Platform for Privacy Preferences 1.1 (P3P1.1) Specification - http://www.w3.org/TR/P3P11/
 * Aza Rask - http://www.azarask.in/blog/post/privacy-icons/
-* John Saddington - http://tentblogger.com
-* Michael Hyatt - http://michaelhyatt.com
+* John Saddington, original gansta - http://tentblogger.com
+* Michael Hyatt, author of Platofrm - http://michaelhyatt.com
 
