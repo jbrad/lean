@@ -213,6 +213,10 @@ ins {
 	text-decoration: none;
 }
 
+pre {
+	margin-bottom: 20px;
+}
+
 /* ------------------------------------------------------------------------ 3. Main Styles */
 
 html {
