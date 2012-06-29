@@ -1,3 +1,11 @@
 .standard-google-custom-search form div input[type=text] {
 	width: 72%;
 }
+
+#sidebar .standard-google-custom-search {
+	margin-bottom: 10px;
+}
+
+#cse-search-box {
+	margin-bottom: 0;
+}

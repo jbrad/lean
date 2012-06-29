@@ -3159,17 +3159,22 @@ function standard_google_custom_search_is_active() {
 	
 	$gcse_is_active = false;
 
-	foreach( ( $widgets = get_option( 'sidebars_widgets' ) ) as $key => $val ) { 
-		if( is_array( $widgets[$key] ) ) {
-			foreach($widgets[$key] as $widget) {
-				if( $key != 'wp_inactive_widgets' && strpos( $key, 'phaned_widgets_' ) == 0 ) {
-					if( strpos( $widget, '-custom-search' ) > 0 ) {
-						$gcse_is_active = true;
+	if( true ) { 
+		foreach( ( $widgets = get_option( 'sidebars_widgets' ) ) as $key => $val ) { 
+			if( is_array( $widgets[$key] ) ) {
+				foreach($widgets[$key] as $widget) {
+				
+					// We're using 'phaned_widgets' as a subset of 'orphaned_widgets' to make sure we aren't getting the 0 index
+					if( $key != 'wp_inactive_widgets' && strpos( $key, 'phaned_widgets_' ) == 0 ) {
+						if( strpos( $widget, '-custom-search' ) > 0 ) {
+							$gcse_is_active = true;
+						} // end if
 					} // end if
-				} // end if
-			} // end foreach
-		} // end if
-	} // end foreach 
+					
+				} // end foreach
+			} // end if
+		} // end foreach 
+	} // end if
 
 	return $gcse_is_active;
 

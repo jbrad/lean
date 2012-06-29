@@ -1720,19 +1720,18 @@ body.error404 {
 }
 
 /* ------------------------------------------------------------------------ 10. Search/archive page */
+
+#search-page-title,
 #archive-page-title {
 	margin-bottom: 20px;
 }
 
-#archive-page-title h3, 
-#search-page-title h3 { 
+#search-page-title h3,
+#archive-page-title h3 { 
 	color: #999;
 	font-size: 14px; 
 	font-weight: normal;
 	margin-bottom: 0;
-}
-
-#archive-page-title p {
 }
 
 .no-results {
