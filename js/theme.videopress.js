@@ -18,7 +18,7 @@ function sizeVideo() {
 		.css('width', jQuery('.video-player').parent().width()); 
 
 	// If the site is full-width, fix the float issue ont he thumbnail
-	if( jQuery('.full-width').length > 0 ) {
+	if( jQuery('.fullwidth').length > 0 ) {
 	
 		jQuery('.videopress-poster')
 			.css('float', 'left')
