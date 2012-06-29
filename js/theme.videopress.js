@@ -21,7 +21,6 @@ function sizeVideo() {
 	if( jQuery('.fullwidth').length > 0 ) {
 	
 		jQuery('.videopress-poster')
-			.css('float', 'left')
 			.height('100%');
 			
 		jQuery('.videopress-placeholder')
