@@ -1569,6 +1569,10 @@ table#wp-calendar th, table#wp-calendar td {
 	max-width: 100% !important;
 }
 
+.entry-content .sharing {
+	clear: both;
+}
+
 .widget_freshposts ul li img {
 	width: 100%;
 	height: auto;
