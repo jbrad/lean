@@ -13,7 +13,7 @@
 			$('select[name=page_template]').change(function() {
 
 				if($('option:selected[value="template-sitemap.php"]').length > 0) {
-			$('option[value="template-sitemap.php"]').attr('disabled', 'disabled');	
+					$('option[value="template-sitemap.php"]').attr('disabled', 'disabled');	
 				} else {
 					$('option[value="template-sitemap.php"]').removeAttr('disabled');
 				} // end if/else
@@ -23,11 +23,12 @@
 		} // end if
 		
 		// For 'Post Editor'
-		if($('select[name="page_template"]').length > 0 && $('#page_template').length > 0) {
+		if($('select[name="page_template"]').length > 0 && $('#page_template').length > 0 && sitemapPageID($) > -1) {
 		
+			// Disable the sitemap option there's already a sitemap
 			$('#page_template').children('option')
 				.each(function() {
-					if($(this).val() == 'template-sitemap.php') {
+					if($(this).val() === 'template-sitemap.php') {
 						$(this).attr('disabled', 'disabled');
 					} // end if
 				});
