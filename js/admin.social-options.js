@@ -395,10 +395,12 @@ function makeIconsRemoveable($) {
 		
 		over: overHandler, 
 		
-		drop: function(evt) {
+		drop: function(evt, ui) {
 		
-			// Don't let users delete the core set of icons
+			// Set the srcElement based on which browser (ui.draggable is for Firefox)
+			evt.srcElement = evt.srcElement ? evt.srcElement : ui.draggable.children(':first');
 
+			// Don't let users delete the core set of icons
 			if(isStandardIcon($(evt.srcElement))) { 
 			
 				$.post(ajaxurl, {

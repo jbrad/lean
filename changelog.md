@@ -10,6 +10,7 @@
 * Version detection improvements
 * Improving core theme JavaScript functionality to support child themes that disable responsive functionality
 * Removed maximum-scale value in the site meta to support zooming on mobile devices
+* Fixed the issue of not being able to delete social icons in Firefox for Mac
 
 ## 3.0 (June 29th, 2012)
 
