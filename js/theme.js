@@ -51,26 +51,31 @@
 			window.location = $(this).attr('href');
 		});
 		
-		// Force menus to collapse if resizing from mobile to full
-		$(window).resize(function() {
-			if($(this).width() >= 979) {
-				$('.btn-navbar').trigger('click');
-			} // end if
-		});
+		// Introduce responsive functionality but only if the CSS is loaded
+		if($('link[id*="bootstrap-responsive-css"]').length > 0) {
 		
-		// Move sidebar below content on left sidebar layout
-		if($('#sidebar').length > 0 && $('#wrapper > .container > .row').children(':first').attr('id') == 'sidebar') {
-		
-			moveSidebarInLeftSidebarLayout($);
+			// Force menus to collapse if resizing from mobile to full
 			$(window).resize(function() {
-				moveSidebarInLeftSidebarLayout($);
+				if($(this).width() >= 979) {
+					$('.btn-navbar').trigger('click');
+				} // end if
 			});
-		
+			
+			// Move sidebar below content on left sidebar layout
+			if($('#sidebar').length > 0 && $('#wrapper > .container > .row').children(':first').attr('id') == 'sidebar') {
+			
+				moveSidebarInLeftSidebarLayout($);
+				$(window).resize(function() {
+					moveSidebarInLeftSidebarLayout($);
+				});
+			
+			} // end if
+			
+			// FitVid
+			$('.entry-content').fitVids();
+			
 		} // end if
-		
-		// FitVid
-		$('.entry-content').fitVids();
-		
+
 	});
 })(jQuery);
 

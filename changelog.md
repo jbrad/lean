@@ -8,6 +8,7 @@
 * Introducing compatibility with Platinum SEO
 * Properly importing VideoPress-related JavaScript for better compatibility with child themes
 * Version detection improvements
+* Improving core theme JavaScript functionality to support child themes that disable responsive functionality
 
 ## 3.0 (June 29th, 2012)
 
