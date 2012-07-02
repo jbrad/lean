@@ -4,7 +4,8 @@
 
 ## Theme
 
-* Resolving the issue that marked the 'SItemap' option as disabled in the single Page editor.
+* Resolving the issue that marked the 'Sitemap' option as disabled in the single Page editor.
+* Introducing compatibility with Platinum SEO
 
 ## 3.0 (June 29th, 2012)
 

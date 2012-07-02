@@ -1233,6 +1233,7 @@ function standard_is_current_version() {
 
 	// For now, we need also look to see if they are running a Preview.
 	// The Previews had options in the 'general' section so we'll look for that key, first.
+	// TODO this can be fixed
 	if( ( '' || false || null ) == get_option( 'standard_theme_general_options' ) ) {
 		
 		// If we're here, then this is the first time the user is installing a version of Standard
@@ -1734,22 +1735,32 @@ function standard_detect_wordpress_seo() {
 	
 	if( 'true' != get_option( 'standard_theme_seo_notification_options' ) ) {
 		
+		$html = '';
+		
 		// WordPress SEO
 		if( defined( 'WPSEO_URL' ) ) {
 
-			echo '<div id="standard-hide-seo-message-notification" class="error"><p>' . __( 'Standard has detected the activation of WordPress SEO and is now running in SEO compatibility mode. <a href="http://docs.8bit.io/standard/seo" target="_blank">' . __( 'Learn more', 'standard' ) . '</a> or <a id="standard-hide-seo-message" href="javascript:;">hide this message</a>.', 'standard') . '</p><span id="standard-hide-seo-message-nonce" class="hidden">' . wp_create_nonce( 'standard_hide_seo_message_nonce' ) . '</span></div>';
+			$html = '<div id="standard-hide-seo-message-notification" class="error"><p>' . __( 'Standard has detected the activation of WordPress SEO and is now running in SEO compatibility mode. <a href="http://docs.8bit.io/standard/seo" target="_blank">' . __( 'Learn more', 'standard' ) . '</a> or <a id="standard-hide-seo-message" href="javascript:;">hide this message</a>.', 'standard') . '</p><span id="standard-hide-seo-message-nonce" class="hidden">' . wp_create_nonce( 'standard_hide_seo_message_nonce' ) . '</span></div>';
 		
 		// All-in-One SEO
 		} elseif( class_exists( 'All_in_One_SEO_Pack' ) ) {
 		
-			echo '<div id="standard-hide-seo-message-notification" class="error"><p>' . __( 'Standard has detected the activation of All-In-One SEO and is now running in SEO compatibility mode.  <a href="http://docs.8bit.io/standard/seo" target="_blank">' . __( 'Learn more', 'standard' ) . '</a> or <a id="standard-hide-seo-message" href="javascript:;">hide this message</a>.', 'standard') . '</p><span id="standard-hide-seo-message-nonce" class="hidden">' . wp_create_nonce( 'standard_hide_seo_message_nonce' ) . '</span></div>';
+			$html = '<div id="standard-hide-seo-message-notification" class="error"><p>' . __( 'Standard has detected the activation of All-In-One SEO and is now running in SEO compatibility mode.  <a href="http://docs.8bit.io/standard/seo" target="_blank">' . __( 'Learn more', 'standard' ) . '</a> or <a id="standard-hide-seo-message" href="javascript:;">hide this message</a>.', 'standard') . '</p><span id="standard-hide-seo-message-nonce" class="hidden">' . wp_create_nonce( 'standard_hide_seo_message_nonce' ) . '</span></div>';
 		
-		} // end if/else
+		// Platinum SEO
+		} elseif( class_exists( 'Platinum_SEO_Pack' ) ) {
+		
+			$html =  '<div id="standard-hide-seo-message-notification" class="error"><p>' . __( 'Standard has detected the activation of Platinum SEO and is now running in SEO compatibility mode.  <a href="http://docs.8bit.io/standard/seo" target="_blank">' . __( 'Learn more', 'standard' ) . '</a> or <a id="standard-hide-seo-message" href="javascript:;">hide this message</a>.', 'standard') . '</p><span id="standard-hide-seo-message-nonce" class="hidden">' . wp_create_nonce( 'standard_hide_seo_message_nonce' ) . '</span></div>';
+		
+		} // end if/ese
+		
+		// Return the notice
+		echo $html;
 		
 	} // end if
 
 	// Set the option to false if the plugin is deactivated
-	if( 'true' == get_option( 'standard_theme_seo_notification_options') && ! defined( 'WPSEO_URL' ) ) {
+	if( 'true' == get_option( 'standard_theme_seo_notification_options') && standard_using_native_seo() ) {
 		update_option( 'standard_theme_seo_notification_options', 'false' );
 	} // end if
 
@@ -2858,7 +2869,7 @@ if( ! function_exists( 'standard_post_format_rss' ) ) {
  * Calls the Standard SEO Titles plugin during the wp_title action to render
  * SEO-friendly page titles.
  */
-if( ! ( defined( 'WPSEO_URL' ) || class_exists( 'All_in_One_SEO_Pack' ) ) ) {
+if( standard_using_native_seo() ) {
 	function standard_seo_titles() {
 			
 		include_once( get_template_directory() . '/lib/seotitles/standard_seotitles.php' );
@@ -3248,7 +3259,7 @@ function standard_truncate_text( $string, $character_limit = 50, $truncation_ind
  * @returns	True if 'WordPress SEO' or 'All In One SEO' are installed.
  */
 function standard_using_native_seo() {
-	return ! ( defined( 'WPSEO_URL' ) || class_exists( 'All_in_One_SEO_Pack' ) );
+	return ! ( defined( 'WPSEO_URL' ) || class_exists( 'All_in_One_SEO_Pack' ) || class_exists( 'Platinum_SEO_Pack' ) );
 } // end standard_using_native_seo 
 
 /**
