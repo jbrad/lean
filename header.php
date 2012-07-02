@@ -92,17 +92,20 @@
 			<div id="header" class="<?php echo $head_class ?>">
 				<div id="head-wrapper" class="container clearfix">
 
-						<div id="hgroup" class="clearfix <?php echo '' == $presentation_options['logo'] ? 'no-logo' : 'has-logo'; ?>">			
+						<?php /* We only want to display #hgroup if the options have a logo or have header text defined. */ ?>
+						<?php if( '' != $presentation_options['logo'] || ! ( 'blank' == get_theme_mod( 'header_textcolor', HEADER_TEXTCOLOR ) || '' == get_theme_mod( 'header_textcolor', HEADER_TEXTCOLOR ) ) ) { ?>
+							
+							<div id="hgroup" class="clearfix <?php echo '' == $presentation_options['logo'] ? 'no-logo' : 'has-logo'; ?>">			
 								<div id="logo">
 									<?php if( is_single() || is_page() ) { ?>
 										
-										<?php if( 'video' == get_post_format() || 'image' == get_post_format() || '' == get_the_title() ) { ?>
+										<?php if( ( 'video' == get_post_format() || 'image' == get_post_format() || '' == get_the_title() ) ) { ?>
 									
 											<h1 id="site-title">
 												<?php if( '' == $presentation_options['logo'] ) { ?>
-													<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php get_bloginfo( 'name' ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
+													<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php bloginfo( 'name' ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
 												<?php } else { ?>
-													<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php get_bloginfo( 'name' ); ?>" rel="home">
+													<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php bloginfo( 'name' ); ?>" rel="home">
 														<img src="<?php echo $presentation_options['logo']; ?>" alt="<?php bloginfo( 'name' ); ?>" id="header-logo" />
 													</a>
 												<?php } // end if/else ?>
@@ -112,9 +115,9 @@
 										
 											<p id="site-title">
 												<?php if( '' == $presentation_options['logo'] ) { ?>
-													<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php get_bloginfo( 'name' ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
+													<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php bloginfo( 'name' ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
 												<?php } else { ?>
-													<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php get_bloginfo( 'name' ); ?>" rel="home">
+													<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php bloginfo( 'name' ); ?>" rel="home">
 														<img src="<?php echo $presentation_options['logo']; ?>" alt="<?php bloginfo( 'name' ); ?>" id="header-logo" />
 													</a>
 												<?php } // end if/else ?>
@@ -123,41 +126,62 @@
 										<?php } // end if/else ?>
 										
 									<?php } else { ?>
+
+										<?php if( true ) { ?>
+
+											<h1 id="site-title">
+												<?php if( '' == $presentation_options['logo'] ) { ?>
+													<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php bloginfo( 'name' ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
+												<?php } else { ?>
+													<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php bloginfo( 'name' ); ?>" rel="home">
+														<img src="<?php echo $presentation_options['logo']; ?>" alt="<?php bloginfo( 'name' ); ?>" id="header-logo" />
+													</a>
+												<?php } // end if/else ?>
+											</h1>
 									
-										<h1 id="site-title">
-											<?php if( '' == $presentation_options['logo'] ) { ?>
-												<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php get_bloginfo( 'name' ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
-											<?php } else { ?>
-												<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php get_bloginfo( 'name' ); ?>" rel="home">
-													<img src="<?php echo $presentation_options['logo']; ?>" alt="<?php bloginfo( 'name' ); ?>" id="header-logo" />
-												</a>
-											<?php } // end if/else ?>
-										</h1>
-									<?php } // end if/else ?>
+										<?php } // end if ?>
+										
+									<?php } // end if ?>
 									
 									<?php if ( '' == $presentation_options['logo'] ) { ?>
 										<p><small id="site-description"><?php bloginfo( 'description' ); ?></small></p>
 									<?php } // end if ?>
 									
-							</div><!-- /#logo -->
-							
-							<?php if ( is_active_sidebar( 'sidebar-1' ) ) {  ?>  
-								<div id="header-widget">
-									<?php dynamic_sidebar( 'sidebar-1' ); ?>
-								</div>							
-							<?php }; // end if ?>
+								</div><!-- /#logo -->
+								
+								<?php if ( is_active_sidebar( 'sidebar-1' ) ) {  ?>  
+									<div id="header-widget">
+										<?php dynamic_sidebar( 'sidebar-1' ); ?>
+									</div>							
+								<?php }; // end if ?>
 						
-						</div><!-- /#hgroup -->
+							</div><!-- /#hgroup -->
 							
+						<?php } // end if ?>
+
 						<?php if( 'imageyup' == $head_class ) { ?>
 							<div id="header-image" class="row">
 								<div class="span12">	
 									<?php if ( ! empty( $header_image ) ) { ?>
+									
+										<?php /* We only want to link the header image if the logo and the header text are both blank. */ ?>
+										<?php if( '' == $presentation_options['logo'] && ( 'blank' == get_theme_mod( 'header_textcolor', HEADER_TEXTCOLOR ) || '' == get_theme_mod( 'header_textcolor', HEADER_TEXTCOLOR ) ) ) { ?>
+											<?php echo ( is_single() || is_page() ) && ( 'video' == get_post_format() || 'image' == get_post_format() || '' == get_the_title() )  ? '<h1 id="site-title">' : '<p id="site-title">'; ?>
+											<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php bloginfo( 'name' ); ?>" rel="home">
+										<?php } // end if ?>
+									
 										<?php if( standard_is_on_wp34() ) { ?>
-											<img src="<?php esc_url( header_image() ); ?>" width="<?php echo get_custom_header()->width; ?>" height="<?php echo get_custom_header()->height; ?>" alt="<?php get_bloginfo( 'name' ); ?>" />
+											<img src="<?php esc_url( header_image() ); ?>" width="<?php echo get_custom_header()->width; ?>" height="<?php echo get_custom_header()->height; ?>" alt="<?php bloginfo( 'name' ); ?>" />
 										<?php } else { ?>
-											<img src="<?php esc_url( header_image() ); ?>" width="<?php echo HEADER_IMAGE_WIDTH ?>" height="<?php echo HEADER_IMAGE_HEIGHT; ?>" alt="<?php get_bloginfo( 'name' ); ?>" />
+											<img src="<?php esc_url( header_image() ); ?>" width="<?php echo HEADER_IMAGE_WIDTH ?>" height="<?php echo HEADER_IMAGE_HEIGHT; ?>" alt="<?php bloginfo( 'name' ); ?>" />
 										<?php } // end if/else ?>
+										
+										<?php /* We only want to link the header image if the logo and the header text are both blank. */ ?>
+										<?php if( '' == $presentation_options['logo'] && ( 'blank' == get_theme_mod( 'header_textcolor', HEADER_TEXTCOLOR ) || '' == get_theme_mod( 'header_textcolor', HEADER_TEXTCOLOR ) ) ) { ?>
+											</a>													
+											<?php echo is_single() || is_page() ? '</h1">' : '</p>'; ?>
+										<?php } // end if ?>
+										
 									<?php } // end if ?>
 								</div> <!-- /#header-image -->
 							</div> <!-- /row -->

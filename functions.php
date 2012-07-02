@@ -2096,7 +2096,6 @@ if( ! function_exists( 'standard_header_style' ) ) {
 					#site-title,
 					#site-description,
 					#logo {
-						position: absolute !important;
 						clip: rect(1px 1px 1px 1px);
 						clip: rect(1px, 1px, 1px, 1px);
 					}
@@ -2121,6 +2120,9 @@ if( ! function_exists( 'standard_admin_header_style' ) ) {
 			.appearance_page_custom-header #headimg {
 				border: none;
 				margin-left: 40px;
+			}
+			#header-top.no-background {
+				margin-left: -40px;
 			}
 			#headimg h1,
 			#desc {

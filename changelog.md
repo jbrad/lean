@@ -11,6 +11,9 @@
 * Improving core theme JavaScript functionality to support child themes that disable responsive functionality
 * Removed maximum-scale value in the site meta to support zooming on mobile devices
 * Fixed the issue of not being able to delete social icons in Firefox for Mac
+* Fixed an issue with the logo not properly displaying in the header
+* Resolved issues with having only a header image, a header image with a logo, a header image with text, and a logo or text without a header image
+* General SEO improvements to the header
 
 ## 3.0 (June 29th, 2012)
 

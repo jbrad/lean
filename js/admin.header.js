@@ -22,6 +22,8 @@ function processStandardHeader($) {
 	// If the header bottom element	$('#standard-theme-logo').hide(); is present, then there's a background image
 	if($('#header-bottom').length > 0) {
 		$('#header-top').addClass('has-background');
+	} else {
+		$('#header-top').addClass('no-background');
 	} // end if
 	
 	// Make sure the description color matches the color of the header, if custom colors are being used.			
