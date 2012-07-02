@@ -23,6 +23,11 @@
 	min-height: 200px;
 	cursor: pointer;
 	line-height: 0;
+	
+	/* Adding floats for Firefox, but works for other browsers, too */
+	float: left;
+	margin-bottom: 4px;
+	
 }
 
 a.img_delete {

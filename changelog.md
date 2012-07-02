@@ -14,6 +14,7 @@
 * Fixed an issue with the logo not properly displaying in the header
 * Resolved issues with having only a header image, a header image with a logo, a header image with text, and a logo or text without a header image
 * General SEO improvements to the header
+* Resolving a problem that prevented the Personal Image widget placeholder from displaying in Firefox
 
 ## 3.0 (June 29th, 2012)
 
