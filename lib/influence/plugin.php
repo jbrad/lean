@@ -183,27 +183,35 @@ class Standard_Influence extends WP_Widget {
 				
 			} else {
 			
-				// If it's not present, then we attempt to contact Twitter
-				$response = $this->get_feed_response( 'https://twitter.com/users/show/' . $username . '.json' );
+				// Attempt to read the XML from Twitter
+				$response = $this->get_feed_response('http://twitter.com/users/show.xml?screen_name=' . $username );
+				try {
+					$xml = new SimpleXmlElement( $response, LIBXML_NOCDATA );
+				} catch ( Exception $ex ) {
+					$xml = null;
+				} // end try/catch
 				
-				// If the response is null, then the response from Twitter failed
-				if( null == $response ) {
-					
+				// If the XML response isn't valid, store the error
+				if( null == $xml ) {
+				
 					$follower_count = -2;
 					
-				// Otherwise, we have a response so let's parse it
 				} else {
-				
-					// Decode the JSON string and attempt to ready the follower count value
-					$twitter = json_decode( $response );
-					if( isset( $twitter->followers_count ) ) {
-						$follower_count = $twitter->followers_count;
-					} else {
+					
+					// If it's null, store the error.
+					if( null == (string)$xml->followers_count ) {
+						
 						$follower_count = -3;
-					} // end if
+					
+					// Otherwise, we're good to go
+					} else {
+						
+						$follower_count = (string)$xml->followers_count;
+						
+					} // end if/else
+					
+				} // end if/else
 				
-				} // end if
-			 
 			} // end if/else
 			
 		} // end if/else
