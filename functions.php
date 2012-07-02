@@ -1233,8 +1233,7 @@ function standard_is_current_version() {
 
 	// For now, we need also look to see if they are running a Preview.
 	// The Previews had options in the 'general' section so we'll look for that key, first.
-	// TODO this can be fixed
-	if( ( '' || false || null ) == get_option( 'standard_theme_general_options' ) ) {
+	if( '' == get_option( 'standard_theme_general_options' ) || false == get_option( 'standard_theme_general_options' ) || null == get_option( 'standard_theme_general_options' ) ) {
 		
 		// If we're here, then this is the first time the user is installing a version of Standard
 		// that isn't following a preview.

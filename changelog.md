@@ -7,6 +7,7 @@
 * Resolving the issue that marked the 'Sitemap' option as disabled in the single Page editor
 * Introducing compatibility with Platinum SEO
 * Properly importing VideoPress-related JavaScript for better compatibility with child themes
+* Version detection improvements
 
 ## 3.0 (June 29th, 2012)
 
