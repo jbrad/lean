@@ -3,7 +3,7 @@
  * Influence is a widget for showing an aggregate of your Twitter followers,
  * FeedBurner subscribers, and more.
  *
- * version 1.0
+ * version 1.1
  */
 class Standard_Influence extends WP_Widget {
 
@@ -65,10 +65,15 @@ class Standard_Influence extends WP_Widget {
 		$instance['feedburner'] = strip_tags( stripslashes( $new_instance['feedburner'] ) );
 		$instance['display'] = strip_tags( stripslashes( $new_instance['display'] ) );
 
-		// Let's also clear the transient values
-		delete_transient( 'influence_twitter_' . $instance['twitter'] );
-		delete_transient( 'influence_facebook_' . $instance['facebook'] );
-		delete_transient( 'influence_feedburner_' . $instance['feedburner'] );
+
+		$this->delete_values( 'twitter', $old_instance );
+		$this->delete_values( 'twitter', $instance );
+		
+		$this->delete_values( 'facebook', $old_instance );
+		$this->delete_values( 'facebook', $instance );
+
+		$this->delete_values( 'feedburner', $old_instance );
+		$this->delete_values( 'feedburner', $instance );
 
 		return $instance;
 		
@@ -158,56 +163,67 @@ class Standard_Influence extends WP_Widget {
 	 */
 	private function twitter_follower_count( $username, $debug = false ) {
 	
-		// This value represents an uninitialized value
+		// This represents an uninitialize value
 		$follower_count = -1;
 		
+		// Key values for the database
 		$transient_key = 'influence_twitter_' . $username;
-	
-		// First, we check the cache to see if it's available.
-		if( ! ( $follower_count = get_transient( $transient_key ) ) ) {
+		
+		// Check to see if the value exists in the cache and it isn't 0
+		if( true == get_transient( $transient_key ) && 0 < get_transient( $transient_key ) ) {
 			
-			// If it's not available, we'll attempt to read the value from Twitter
-			if( null != ( $response = $this->get_feed_response( 'https://twitter.com/users/show/' . $username . '.json ' ) ) ) {
+			$follower_count = get_transient( $transient_key );
+			 
+		} else {
 			
-				// Attempt to decode the JSON response
-				if( ( $twitter = json_decode( $response ) ) && isset( $twitter->followers_count ) ) {
+			// Check to see if the option exists and that it's not zero
+			if( true == get_option( $transient_key ) && 0 < get_option( $transient_key ) ) {
 				
-					$follower_count = $twitter->followers_count;
+				$follower_count = get_option( $transient_key );
+				
+			} else {
+			
+				// If it's not present, then we attempt to contact Twitter
+				$response = $this->get_feed_response( 'https://twitter.com/users/show/' . $username . '.json' );
+				
+				// If the response is null, then the response from Twitter failed
+				if( null == $response ) {
 					
-					// Cache the value for 24 hours
-					set_transient( $transient_key, $follower_count, 60 * 60 * 24 );
+					$follower_count = -2;
 					
-					// Store a last known good value so we can always pull something later
-					if( $follower_count > 0 ) {
-						update_option( $transient_key, $follower_count );
-					} // end if
-					
+				// Otherwise, we have a response so let's parse it
 				} else {
 				
-					// This value indicates that there was a problem decoding JSON
-					$follower_count = -3;
-					
-				} // end if/else
+					// Decode the JSON string and attempt to ready the follower count value
+					$twitter = json_decode( $response );
+					if( isset( $twitter->followers_count ) ) {
+						$follower_count = $twitter->followers_count;
+					} else {
+						$follower_count = -3;
+					} // end if
+				
+				} // end if
+			 
+			} // end if/else
 			
-			} else {
-				
-				// This value indicates that there was a problem getting a response from Twitter
-				$follower_count = -2;
-					
-			} // end if	
+		} // end if/else
 		
-		// If it's not in the cache, try to read the last known good value
-		} else if( '' == $follower_count || false == $follower_count || null == $follower_count ) {
-		
-			$follower_count = get_option( $transient_key );	
-				
+		// Store it as the last known good value
+		if( true == get_option( $transient_key ) ) {
+			update_option( $transient_key, $follower_count );
+		} else {
+			delete_option( $transient_key );
+			add_option( $transient_key, $follower_count );
 		} // end if
-
+		
+		// And cache it for 24 hours
+		set_transient( $transient_key, $follower_count, 60 * 60 * 24 );
+		
 		// If debug mode is running, return the raw follower count; otherwise, return the value or 0 if it's an error.
 		$follower_count = $debug ? $follower_count : ( $follower_count <= 0 ? 0 : $follower_count );
 		
 		return $follower_count;
-
+		
 	} // end twitter_follower_count
 	
 	/** 
@@ -229,52 +245,65 @@ class Standard_Influence extends WP_Widget {
 	 */
 	private function facebook_like_count( $username, $debug = false ) {
 	
-		// This value represents an uninitialized value
+		// This represents an uninitialize value
 		$like_count = -1;
 		
+		// Key values for the database
 		$transient_key = 'influence_facebook_' . $username;
-
-		// First, we check the cache to see if it's available.
-		if( ! ( $like_count = get_transient( $transient_key ) ) ) {
 		
-			// If it's not available, we'll attempt to read the value from Twitter
-			if( null != ( $response = $this->get_feed_response( 'http://graph.facebook.com/' . $username . '/' ) ) ) {
+		// Check to see if the value exists in the cache and it isn't 0
+		if( true == get_transient( $transient_key ) && 0 < get_transient( $transient_key ) ) {
 			
-				// Attempt to decode the JSON response
-				if( ( $facebook = json_decode( $response ) ) && isset( $facebook->likes ) ) {
+			$like_count = get_transient( $transient_key );
+			 
+		} else {
+			
+			// Check to see if the option exists and that it's not zero
+			if( true == get_option( $transient_key ) && 0 < get_option( $transient_key ) ) {
 				
-					$like_count = $facebook->likes;
+				$like_count = get_option( $transient_key );
+				
+			} else {
+			
+				// If it's not present, then we attempt to contact Facebook
+				$response = $this->get_feed_response( 'http://graph.facebook.com/' . $username . '/' );
+				
+				// If the response is null, then the response from Twitter failed
+				if( null == $response ) {
 					
-					// Cache the value for 24 hours
-					set_transient( $transient_key, $like_count, 60 * 60 * 24 );
+					$like_count = -2;
 					
-					// Store a last known good value so we can always pull something later
-					if( $like_count > 0 ) {
-						update_option( $transient_key, $like_count );
-					} // end if
-					
+				// Otherwise, we have a response so let's parse it
 				} else {
 				
-					// This value indicates that there was a problem decoding JSON
-					$like_count = -3;
-					
-				} // end if/else
-			
-			} else {
+					// Decode the JSON string and attempt to ready the follower count value
+					$facebook = json_decode( $response );
+					if( isset( $facebook->likes ) ) {
+						$like_count = $facebook->likes;
+					} else {
+						$like_count = -3;
+					} // end if
 				
-				// This value indicates that there was a problem getting a response from Twitter
-				$like_count = -2;
-					
-			} // end if	
+				} // end if
+			 
+			} // end if/else
+			
+		} // end if/else
 		
-		// If it's not in the cache, try to read the last known good value
-		} else if( '' == $like_count || false == $like_count || null == $like_count ) {
-			$like_count = get_option( $transient_key );
+		// Store it as the last known good value
+		if( true == get_option( $transient_key ) ) {
+			update_option( $transient_key, $like_count );
+		} else {
+			delete_option( $transient_key );
+			add_option( $transient_key, $like_count );
 		} // end if
-
-		// If debug mode is running, return the raw like count; otherwise, return the value or 0 if it's an error.
+		
+		// And cache it for 24 hours
+		set_transient( $transient_key, $like_count, 60 * 60 * 24 );
+		
+		// If debug mode is running, return the raw follower count; otherwise, return the value or 0 if it's an error.
 		$like_count = $debug ? $like_count : ( $like_count <= 0 ? 0 : $like_count );
-
+		
 		return $like_count;
 
 	} // end facebook_like_count
@@ -300,60 +329,73 @@ class Standard_Influence extends WP_Widget {
 	 */
 	private function feedburner_subscriber_count( $username, $debug = false ) {
 	
-		// This value represents an uninitialized value
+		// This represents an uninitialize value
 		$subscriber_count = -1;
 		
+		// Key values for the database
 		$transient_key = 'influence_feedburner_' . $username;
-
-		// First, we check the cache to see if it's available.
-		if( ! ( $subscriber_count = get_transient( $transient_key ) ) ) {
 		
-			// If it's not available, we'll attempt to read the value from FeedBurner. We're suppressing errors since we're catching them.
-			if( null != ( $response = $this->get_feed_response( 'http://feedburner.google.com/api/awareness/1.0/GetFeedData?uri=' . $username ) ) ) {
-
-				// Attempt to decode the XML response
-				if( ( $xml = new SimpleXmlElement( $response, LIBXML_NOCDATA ) ) ) {
-
-					if( ( $subscriber_count = (string)$xml->feed->entry['circulation'] ) ) {
-					
-						// Cache the value for 24 hours
-						set_transient( $transient_key, $subscriber_count, 60 * 60 * 24 );
-						
-						// Store a last known good value so we can always pull something later
-						if( $subscriber_count > 0 ) {
-							update_option( $transient_key, $subscriber_count );
-						} // end if
-						
-					} else {
-					
-						// This value indicates that the circulation value could not be retrieved
-						$subscriber_count = -4;
-						
-					} // end if
-
-				} else {
+		// Check to see if the value exists in the cache and it isn't 0
+		if( true == get_transient( $transient_key ) && 0 < get_transient( $transient_key ) ) {
+			
+			$subscriber_count = get_transient( $transient_key );
+			 
+		} else {
+			
+			// Check to see if the option exists and that it's not zero
+			if( true == get_option( $transient_key ) && 0 < get_option( $transient_key ) ) {
 				
-					// This value indicates that there was a problem decoding JSON
-					$subscriber_count = -3;
+				$subscriber_count = get_option( $transient_key );
+				
+			} else {
+			
+				// If it's not present, then we attempt to contact FeedBurner and parse the XML
+				$response = $this->get_feed_response( 'http://feedburner.google.com/api/awareness/1.0/GetFeedData?uri=' . $username );
+				try {
+					$xml = new SimpleXmlElement( $response, LIBXML_NOCDATA );
+				} catch ( Exception $ex ) {
+					$xml = null;
+				} // end try/catch
+				
+				// If the XML response isn't valid, store the error
+				if( null == $xml ) {
+				
+					$subscriber_count = -2;
+					
+				// Otherwise, attempt to parse the XML
+				} else {
+					
+					// If it's null, store the error
+					if( null == (string)$xml->feed->entry['circulation'] ) {
+					
+						$subscriber_count = -3;
+						
+					// Otherwise, we're good to go.
+					} else {
+						$subscriber_count = (string)$xml->feed->entry['circulation'];	
+					} // end if/else
 					
 				} // end if/else
+			 
+			} // end if/else
 			
-			} else {
-				
-				// This value indicates that there was a problem getting a response from FeedBurner
-				$subscriber_count = -2;
-					
-			} // end if	
+		} // end if/else
 		
-		// If it's not in the cache, try to read the last known good value
-		} else if( '' == $subscriber_count || false == $subscriber_count || null == $subscriber_count ) {
-			$subscriber_count = get_option( $transient_key );	
+		// Store it as the last known good value
+		if( true == get_option( $transient_key ) ) {
+			update_option( $transient_key, $subscriber_count );
+		} else {
+			delete_option( $transient_key );
+			add_option( $transient_key, $subscriber_count );
 		} // end if
-
-		// If debug mode is running, return the raw like count; otherwise, return the value or 0 if it's an error.
+		
+		// And cache it for 24 hours
+		set_transient( $transient_key, $subscriber_count, 60 * 60 * 24 );
+		
+		// If debug mode is running, return the raw follower count; otherwise, return the value or 0 if it's an error.
 		$subscriber_count = $debug ? $subscriber_count : ( $subscriber_count <= 0 ? 0 : $subscriber_count );
-
-		return $subscriber_count;	
+		
+		return $subscriber_count;
 	
 	} // end feedburner_subscriber_count
 	
@@ -387,6 +429,19 @@ class Standard_Influence extends WP_Widget {
 		return $influence;
 	
 	} // end get_total_influence_count
+	
+	/**
+	 * Helper functions for easily deleting transient and option values from the database.
+	 *
+	 * @params	$key		The ID of the option to remove
+	 * @params	$instance	Which instance of the widget to remove
+	 */
+	private function delete_values( $key, $instance ) {
+		
+		delete_transient( 'influence_' . $key . '_' . $instance[$key] );
+		delete_option( 'influence_' . $key . '_' . $instance[$key] );
+		
+	} // end delete_values
 	
 	/**
 	 * Retrieves the response from the specified URL using one of PHP's outbound request facilities.

@@ -11,21 +11,21 @@
 		<?php if( 'both' == $display || 'each' == $display ) { ?>
 			<div class="si-individual">
 				<ul class="si-indvidual-list block-grid three-up">
-					<?php if( '' != $twitter ) { ?>
+					<?php if( '' != $twitter && 0 < ( $followers = number_format( $this->twitter_follower_count( $twitter ) ) ) ) { ?>
 						<li class="si-twitter">
-							<a href="http://twitter.com/<?php echo $twitter; ?>/" title="Twitter" target="_blank"><?php echo number_format( $this->twitter_follower_count( $twitter ) ); ?></a>
+							<a href="http://twitter.com/<?php echo $twitter; ?>/" title="Twitter" target="_blank"><?php echo $followers; ?></a>
 						</li>
 					<?php } // end if ?>
 					
-					<?php if( '' != $facebook ) { ?>
+					<?php if( '' != $facebook && 0 < ( $likes = number_format( $this->facebook_like_count( $facebook ) ) ) ) { ?>
 						<li class="si-facebook">
-							<a href="http://facebook.com/<?php echo $facebook; ?>/" title="Facebook" target="_blank"><?php echo number_format( $this->facebook_like_count( $facebook ) ); ?></a>
+							<a href="http://facebook.com/<?php echo $facebook; ?>/" title="Facebook" target="_blank"><?php echo $likes; ?></a>
 						</li>
 					<?php } // end if ?>
 					
-					<?php if( '' != $feedburner ) { ?>
+					<?php if( '' != $feedburner && 0 < ( $subscribers = number_format( $this->feedburner_subscriber_count( $feedburner ) ) ) ) { ?>
 						<li class="si-rss">
-							<a href="http://feeds.feedburner.com/<?php echo $feedburner; ?>/" title="FeedBurner" target="_blank"><?php echo number_format( $this->feedburner_subscriber_count( $feedburner ) ); ?></a>
+							<a href="http://feeds.feedburner.com/<?php echo $feedburner; ?>/" title="FeedBurner" target="_blank"><?php echo $subscribers; ?></a>
 						</li>
 					<?php } // end if ?>	
 				</ul>

@@ -2,7 +2,7 @@
 
 ## 3.0.1 (July X, 2012)
 
-## Theme
+### Core Theme
 
 * Resolving the issue that marked the 'Sitemap' option as disabled in the single Page editor
 * Introducing compatibility with Platinum SEO
@@ -15,6 +15,13 @@
 * Resolved issues with having only a header image, a header image with a logo, a header image with text, and a logo or text without a header image
 * General SEO improvements to the header
 * Resolving a problem that prevented the Personal Image widget placeholder from displaying in Firefox
+
+### Influence Widget
+
+* Improved communication between Standard and Twitter, Facebook, and FeedBurner
+* Introduced better caching and value serialization
+* Added improvements to clearing out old values
+* No longers displays individual counts if they are equal to zero
 
 ## 3.0 (June 29th, 2012)
 
