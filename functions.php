@@ -2334,7 +2334,7 @@ function standard_add_theme_stylesheets() {
 		
  	} // end if
 
-	// if video press is loaded, we need to add styles for responsive
+	// if VideoPress is loaded, we need to add styles for responsive
 	if( class_exists( 'VideoPress' ) ) {
 	
 		wp_register_style( 'standard-videopress', get_stylesheet_directory_uri() . '/css/theme.videopress.css' );
@@ -2379,10 +2379,12 @@ function standard_add_theme_scripts() {
 	wp_register_script( 'theme', get_template_directory_uri() . '/js/theme.js' );
 	wp_enqueue_script( 'theme' );	
 	
-	// if video press is loaded, we need to add scripts for responsive
+	// if VideoPress is loaded, we need to add scripts for responsive
 	if( class_exists( 'VideoPress' ) ) {
-			wp_register_script( 'standard-videopress', get_stylesheet_directory_uri() . '/js/theme.videopress.js' );
-			wp_enqueue_script( 'standard-videopress' ); 
+	
+		wp_register_script( 'standard-videopress', get_template_directory_uri() . '/js/theme.videopress.js' );
+		wp_enqueue_script( 'standard-videopress' ); 
+			
 	} // end if
 
 } // end add_theme_scripts
