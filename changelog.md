@@ -21,7 +21,7 @@
 * Improved communication between Standard and Twitter, Facebook, and FeedBurner
 * Introduced better caching and value serialization
 * Added improvements to clearing out old values
-* No longers displays individual counts if they are equal to zero
+* No longer displays individual counts if they are equal to zero
 
 ## 3.0 (June 29th, 2012)
 
