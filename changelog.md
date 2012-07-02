@@ -1,6 +1,6 @@
 # Changelog
 
-## 3.0.1 (July X, 2012)
+## 3.0.1 (July 9th, 2012)
 
 ### Core Theme
 
