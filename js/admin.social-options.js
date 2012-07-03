@@ -40,6 +40,26 @@
 		});
 		
 		checkForMaxIcons();
+		
+		// Offer the ability to reset the icons
+		$('#reset-social-icons').click(function(evt) {
+		
+			evt.preventDefault();
+			
+			var $this = $(this);
+			$.post(ajaxurl, {
+	
+				action: 'standard_reset_social_icons',
+				nonce: $.trim($('#standard-reset-social-icons').text())
+				
+			}, function() {
+			
+				$this.siblings('form').submit();	
+				location.reload(true);
+				
+			});
+		
+		});
 
 	});
 })(jQuery);

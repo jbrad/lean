@@ -573,7 +573,6 @@ function standard_theme_social_options_display() {
 		
 		$html .= '<span id="standard-wordpress-rss-url" class="hidden">' . esc_url( standard_get_rss_feed_url() ) . '</span>';
 		
-		
 	$html .= '</div><!-- /.social-icons-wrapper -->';
 	
 	echo $html;
@@ -605,6 +604,16 @@ function standard_save_social_icons( ) {
 
 } // end standard_save_social_icons
 add_action( 'wp_ajax_standard_save_social_icons', 'standard_save_social_icons' );
+
+/**
+ * Callback function used in the Ajax request for resetting the Social Icons.
+ */
+function standard_reset_social_icons( ) {
+	if( wp_verify_nonce( $_REQUEST['nonce'], 'standard_reset_social_icons_nonce' ) ) {
+		die( delete_option( 'standard_theme_social_options' ) );
+	} // end if/else
+} // end standard_save_social_icons
+add_action( 'wp_ajax_standard_reset_social_icons', 'standard_reset_social_icons' );
 
 /**
  * Displays the message for users attempting to delete the core set of Standard social icons.
@@ -1317,7 +1326,21 @@ function standard_theme_options_display() {
 					
 				} // end if/else
 				
+				// Display the 'Save Changes' button
 				submit_button();
+				
+				// If we're on the Social Options page, show the reset button.
+				if( 'standard_theme_social_options' == $active_tab ) {
+				
+					$html = '<p class="submit">';
+						$html .= '<input type="button" id="reset-social-icons" class="button" value="' . __( 'Reset Icons', 'standard' ) . '" />';
+						$html .= '<span id="standard-reset-social-icons" class="hidden">' . wp_create_nonce( 'standard_reset_social_icons_nonce' ) . '</span>';
+					$html .= '</p>';
+					
+					echo $html;
+				
+				} // end if/else
+				
 			?>
 		</form>
 	</div><!-- /.wrap -->
