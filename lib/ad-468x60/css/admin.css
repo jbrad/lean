@@ -1,5 +1,6 @@
 .standard-ad-468x60-wrapper .preview_image {
-	background: #fff url(fake-468.jpg) no-repeat;
+	background: #fff url('./fake-468.jpg') no-repeat;
+	background-image: url('./fake-468.jpg');
 	width: 100%;
 	min-height: 30px;
 	cursor: pointer;
@@ -14,6 +15,12 @@
 	-o-transition: opacity .25s ease-in-out;
 	-ms-transition: opacity .25s ease-in-out;
 	transition: opacity .25s ease-in-out;
+	height: 32px;
+}
+
+/* For Firefox */
+.standard-ad-468x60-wrapper .preview_image_container img {
+	float: left;
 }
 
 .standard-ad-468x60-wrapper .preview_image_container:hover {

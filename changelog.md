@@ -16,6 +16,7 @@
 * General SEO improvements to the header
 * Resolving a problem that prevented the Personal Image widget placeholder from displaying in Firefox
 * Introducing the ability to reset the social icons (ideal for those who ran previews, betas, or who want to clear out their available icons)
+* Improvement to the 468x60 placeholder in Firefox
 
 ### Influence Widget
 
