@@ -110,11 +110,17 @@ function processLogoAndBackground($) {
 		
 	} // end if
 	
-	// Center header widgets only if the background is presents
-	if( $background.length > 0 && $('#header-logo').length > 0 ) {
-		$('#header-widget').css({
-			marginTop: $('#header-widget').height() / 2
-		});
+	// Center header widgets based on if the backgroound and logo is present
+	if( $('#header-widget').length > 0) {	
+		if( $('#logo').length > 0 && $('#logo').children().length >= 1) {
+			$('#header-widget').css({
+				marginTop: Math.round( $('#hgroup').height() / 2 ) - Math.round( $('#header-widget').height() / 2 )
+			});			
+		} else {
+			$('#header-widget').css({
+				marginTop: Math.round( $('#header-image').height() / 2 ) - Math.round( $('#header-widget').height() )
+			});	
+		} // end if/else
 	} // end if
 		
 	

@@ -1,6 +1,6 @@
 # Changelog
 
-## 3.0.1 (July 9th, 2012)
+## 3.0.1 (July TODO, 2012)
 
 ### Core Theme
 
@@ -15,14 +15,22 @@
 * Resolved issues with having only a header image, a header image with a logo, a header image with text, and a logo or text without a header image
 * General SEO improvements to the header
 * Resolving a problem that prevented the Personal Image widget placeholder from displaying in Firefox
-* Introducing the ability to reset the social icons (ideal for those who ran previews, betas, or who want to clear out their available icons)
-* Improvement to the 468x60 placeholder in Firefox
+* Introducing the ability to reset the social icons (ideal for those who ran previews, betas, or who want to restore default social icon functionality)
+* Moved two functions that were in 'Helper Functions' to 'Custom Filters' in functions.php
+* Added two helper functions to help refactor the header template
+* Refactored the header template to improve readability and to better support use of header images, logos, and text
+* Improved header functionality to support header widgets with only header images
+* Improved positioning of logos and widgets when a background is present
 
 ### Influence Widget
 
 * Improved communication between Standard and Twitter, Facebook, and FeedBurner
 * Introduced better caching and value serialization
 * Added improvements to clearing out old values
+
+### 468x60 Ad Widget
+
+* Improvement to the 468x60 placeholder in Firefox
 
 ## 3.0 (June 29th, 2012)
 

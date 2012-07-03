@@ -3079,6 +3079,37 @@ if( standard_is_offline() ) {
 	
 } // end if
 
+/**
+ * Custom action that is used to initialize the Standard menu separator.
+ *
+ * @params	$position	Where you want the separator to appear.
+ */
+function standard_add_admin_menu_separator( $position ) {
+
+  global $menu;
+
+  $menu[$position] = array(
+  	0	=>	'',
+  	1	=>	'read',
+  	2	=>	'separator' . $position,
+  	3	=>	'',
+  	4	=>	'wp-menu-separator'
+  );
+
+} // end standard_add_admin_separator
+add_action( 'init_standard_menu', 'standard_add_admin_menu_separator' );
+
+/**
+ * Defines the function used to set the position of the custom separator.
+ */
+function standard_set_admin_menu_separator() {
+
+	// Eventually, we should make the 57 value more flexible
+	do_action( 'init_standard_menu', 57 );
+	
+} // end standard_set_admin_menu_separator
+add_action( 'init', 'standard_set_admin_menu_separator' );
+
 /* ----------------------------------------------------------- *
  * 8. Helper Functions
  * ----------------------------------------------------------- */
@@ -3399,34 +3430,25 @@ function standard_get_rss_feed_url() {
 } // end standard_get_rss_feed_url
 
 /**
- * Custom action that is used to initialize the Standard menu separator.
+ * Returns whether or not the user has uploaded a logo.
  *
- * @params	$position	Where you want the separator to appear.
+ * @returns	True if the user has uploaded a logo, false, if not.
  */
-function standard_add_admin_menu_separator( $position ) {
+function standard_has_logo() {
 
-  global $menu;
+	$presentation_options = get_option( 'standard_theme_presentation_options' );
+	
+	return '' != $presentation_options['logo'];;
 
-  $menu[$position] = array(
-  	0	=>	'',
-  	1	=>	'read',
-  	2	=>	'separator' . $position,
-  	3	=>	'',
-  	4	=>	'wp-menu-separator'
-  );
-
-} // end standard_add_admin_separator
-add_action( 'init_standard_menu', 'standard_add_admin_menu_separator' );
+} // end standard_has_logo
 
 /**
- * Defines the function used to set the position of the custom separator.
+ * Returns whether or not the user has specified to display header text.
+ *
+ * @returns	True if the user wants to display header text; otherwise, false.
  */
-function standard_set_admin_menu_separator() {
-
-	// Eventually, we should make the 57 value more flexible
-	do_action( 'init_standard_menu', 57 );
-	
-} // end standard_set_admin_menu_separator
-add_action( 'init', 'standard_set_admin_menu_separator' );
+function standard_has_header_text() {
+	return ! ( 'blank' == get_theme_mod( 'header_textcolor', HEADER_TEXTCOLOR ) || '' == get_theme_mod( 'header_textcolor', HEADER_TEXTCOLOR ) );
+} // end standard_has_header_text
 
 ?>
