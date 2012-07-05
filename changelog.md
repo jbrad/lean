@@ -23,6 +23,7 @@
 * Improved positioning of logos and widgets when a background is present
 * Updating editor-style.css to reflect how unordered lists look on published posts
 * Resolving an issue that prevented proper linking of the privacy policy when not using pretty permalinks
+* Making sure the image in the image post format displays in RSS
 
 ### Influence Widget
 

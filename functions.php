@@ -2859,6 +2859,7 @@ if( ! function_exists( 'standard_search_form' ) ) {
 if( ! function_exists( 'standard_post_format_rss' ) ) {
 	function standard_post_format_rss( $content ) {
 	
+		// If it's a link post format, make sure the link and title are properly rendered
 		if( 'link' == get_post_format( get_the_ID() ) ) {
 			
 			global $post;
@@ -2882,6 +2883,17 @@ if( ! function_exists( 'standard_post_format_rss' ) ) {
 				} // end if/else
 			
 			$content .= '</a>';
+		
+		// If it's an image post format, make sure the featured image is prepended to the content
+		} elseif ( 'image' == get_post_format( get_the_ID() ) && '' != get_the_post_thumbnail( get_the_ID() ) ) { 
+		
+			$featured_image = '<p>';
+				$featured_image .= '<a href="' . get_permalink( get_the_ID() ) . '" target="_blank" title="' . get_the_title() . '">';
+					$featured_image .= get_the_post_thumbnail( get_the_ID(), 'large' );
+				$featured_image .= '</a>';
+			$featured_image .= '</p>';
+			
+			$content = $featured_image . $content;
 			
 		} // end if
 		
