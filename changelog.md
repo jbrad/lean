@@ -1,6 +1,6 @@
 # Changelog
 
-## 3.0.1 (July TODO, 2012)
+## 3.0.1 (July 9th, 2012)
 
 ### Core Theme
 
@@ -21,6 +21,7 @@
 * Refactored the header template to improve readability and to better support use of header images, logos, and text
 * Improved header functionality to support header widgets with only header images
 * Improved positioning of logos and widgets when a background is present
+* Updating editor-style.css to reflect how unordered lists look on published posts
 
 ### Influence Widget
 
