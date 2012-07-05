@@ -22,6 +22,7 @@
 * Improved header functionality to support header widgets with only header images
 * Improved positioning of logos and widgets when a background is present
 * Updating editor-style.css to reflect how unordered lists look on published posts
+* Resolving an issue that prevented proper linking of the privacy policy when not using pretty permalinks
 
 ### Influence Widget
 

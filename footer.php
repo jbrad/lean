@@ -55,8 +55,8 @@
 						$eightbit_url = 'http://8bit.io/?utm_source=standard-theme&amp;utm_medium=footer&amp;utm_content=wp-org&amp;utm_campaign=Standard%2BFooter';
 						?>
 						
-						<?php if( null != get_page_by_path( 'privacy-policy' ) && 0 != get_page_by_path( 'privacy-policy' )->ID && 'publish' == get_page_by_path( 'privacy-policy' )->post_status ) { ?>	
-							<?php printf( __( '&copy; %1$s %2$s &mdash; %3$s &mdash; %4$s by %5$s,', 'standard' ), date( 'Y' ), '<a href="' . site_url() . '">' . get_bloginfo( 'name' ) . '</a>', '<a href="privacy-policy">Privacy Policy</a>', '<a href="' . $standard_url . '" target="_blank">Standard</a>', '<a href="' . $eightbit_url . '" target="_blank">8BIT</a>' ); ?>
+						<?php if( null != get_page_by_path( 'privacy-policy' ) && 0 != get_page_by_path( 'privacy-policy' )->ID && 'publish' == get_page_by_path( 'privacy-policy' )->post_status ) { ?>							
+							<?php printf( __( '&copy; %1$s %2$s &mdash; %3$s &mdash; %4$s by %5$s,', 'standard' ), date( 'Y' ), '<a href="' . site_url() . '">' . get_bloginfo( 'name' ) . '</a>', '<a href="' . get_permalink( get_page_by_path( 'privacy-policy' )->ID ) . '">Privacy Policy</a>', '<a href="' . $standard_url . '" target="_blank">Standard</a>', '<a href="' . $eightbit_url . '" target="_blank">8BIT</a>' ); ?>
 						<?php } else { ?>
 							<?php printf( __( '&copy; %1$s %2$s &mdash; %3$s by %4$s', 'standard' ), date( 'Y' ), '<a href="' . site_url() . '">' . get_bloginfo( 'name' ) . '</a>', '<a href="' . $standard_url . '" target="_blank">Standard</a>', '<a href="' . $eightbit_url . '" target="_blank">8BIT</a>' ); ?>
 						<?php } // end if/else ?>
