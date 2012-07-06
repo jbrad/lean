@@ -380,6 +380,10 @@ body {
 }
 
 
+#header {
+	min-height: 20px;
+}
+
 #logo {
 	float: left;
 }

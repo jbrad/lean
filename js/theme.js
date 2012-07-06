@@ -29,9 +29,7 @@
 		
 		// Center Header Logo only if the background image is present
 		processLogoAndBackground($);
-		$(window).resize(function() {
-			processLogoAndBackground($);
-		}).load(function() {
+		$(window).load(function() {
 			processLogoAndBackground($);
 		});
 
@@ -100,29 +98,48 @@ function moveSidebarInLeftSidebarLayout($) {
  */
 function processLogoAndBackground($) {
 	
-	var $background = null;
-	if( ( $background = $('#header-image').children(':first').children('img') ).length > 0 ) {
-	
-		$('#hgroup').css({
-			padding: 0,
-			marginTop: Math.round( $background.height() / 2 ) - Math.round( $('#hgroup').height() / 2 )
-		});
+	// If there's no logo and header image, we don't care about adjusting margins
+	if( $('#header-image').length > 0 || $('#site-title > a').children('img').length > 0 ) { 
+
+		var $background = null;
+		if( ( $background = $('#header-image').children(':first').children('img')).length > 0 ) {
 		
-	} // end if
-	
-	// Center header widgets based on if the backgroound and logo is present
-	if( $('#header-widget').length > 0) {	
-		if( $('#logo').length > 0 && $('#logo').children().length >= 1) {
-			$('#header-widget').css({
-				marginTop: Math.round( $('#hgroup').height() / 2 ) - Math.round( $('#header-widget').height() / 2 )
-			});			
-		} else {
-			$('#header-widget').css({
-				marginTop: Math.round( $('#header-image').height() / 2 ) - Math.round( $('#header-widget').height() )
-			});	
-		} // end if/else
-	} // end if
+			$('#hgroup').css({
+				padding: 0,
+				marginTop: Math.round( $background.height() / 2 ) - Math.round( $('#hgroup').height() / 2 )
+			});
+			
+		} // end if
 		
-	
+		// If the widget is present...
+		if($('#header-widget').length > 0) {
+
+			// ...and there is a logo or header text
+			if( $('#logo').length > 0 ) {
+
+				$('#header-widget').css({
+					marginTop: Math.round( $('#hgroup').height() / 2 ) - Math.round( $('#header-widget').height() / 2 )
+				});	
+			
+			// ...or there is no logo or no header text
+			} else {
+
+				$('#header-widget').css({
+					marginTop: Math.round( $('#header-image').height() / 2 ) - Math.round( $('#header-widget').height() )
+				});
+				
+				// If there's a header widget but no logo or text, then we need to make the hgroup and the logo an anchor
+				$('#hgroup')
+					.css('cursor', 'pointer')
+					.click(function(evt) {
+						window.location = $('#site-title').children('a').attr('href');
+					});
+				
+				
+			} // end if
+			
+		} // end if
+			
+	} // end if 
 
 } // end processLogoAndBackground
