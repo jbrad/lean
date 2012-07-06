@@ -14,7 +14,6 @@
 * Fixed an issue with the logo not properly displaying in the header
 * Resolved issues with having only a header image, a header image with a logo, a header image with text, and a logo or text without a header image
 * General SEO improvements to the header
-* Resolving a problem that prevented the Personal Image widget placeholder from displaying in Firefox
 * Introducing the ability to reset the social icons (ideal for those who ran previews, betas, or who want to restore default social icon functionality)
 * Moved two functions that were in 'Helper Functions' to 'Custom Filters' in functions.php
 * Added two helper functions to help refactor the header template
@@ -24,7 +23,12 @@
 * Updating editor-style.css to reflect how unordered lists look on published posts
 * Resolving an issue that prevented proper linking of the privacy policy when not using pretty permalinks
 * Making sure the image in the image post format displays in RSS
+
+### Personal Image Widget
+
 * Resolved a bug with the Personal Image widget that displayed the same image in the admin when multiple Personal Image widgets are present
+* Centering Personal Image if the width is less than 300 pixels.
+* Resolving a problem that prevented the Personal Image widget placeholder from displaying in Firefox
 
 ### Influence Widget
 
