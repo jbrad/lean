@@ -24,7 +24,7 @@
 * Updating editor-style.css to reflect how unordered lists look on published posts
 * Resolving an issue that prevented proper linking of the privacy policy when not using pretty permalinks
 * Making sure the image in the image post format displays in RSS
-* Resolved a bug with the Personal Image widget that displayed the same image in the admin when multiple Presonal Image widgets are present
+* Resolved a bug with the Personal Image widget that displayed the same image in the admin when multiple Personal Image widgets are present
 
 ### Influence Widget
 
