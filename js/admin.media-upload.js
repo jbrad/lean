@@ -4,7 +4,7 @@ _standard_presentationPreviewUrl = null;
 (function($) {
 	$(function() {
 		
-		/* --- Fav Icon --- */
+		/* --- Site Icon --- */
 		
 		// Display the media uploader when the 'Upload' button is clicked
 		$('#upload_fav_icon').click(function() {
@@ -29,6 +29,9 @@ _standard_presentationPreviewUrl = null;
 				standard_upload_hide_unused_fields($);
 			
 			});
+			
+			// Show the site icon if it's hidden
+			$('#fav_icon_preview').show();
 				
 		});
 		

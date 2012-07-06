@@ -25,6 +25,7 @@
 * Making sure the image in the image post format displays in RSS
 * Updating the way VideoPress stylesheets and JavaScript sources are imported
 * Updating the way Contrast stylesheets imported
+* Fixing a problem that prevented the Site Icon from displaying after deleting and uploading without first saving
 
 ### Personal Image Widget
 
