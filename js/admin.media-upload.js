@@ -37,6 +37,7 @@ _standard_presentationPreviewUrl = null;
 		
 		// Remove the URL of the fav icon
 		$('#delete_fav_icon').click(function() {
+			$('#fav_icon_preview').attr('src', '');
 			$('#fav_icon').val('');
 			$('#fav_icon_preview_container').children('img').hide();
 			$(this).hide();
