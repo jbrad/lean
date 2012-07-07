@@ -528,7 +528,7 @@ add_action( 'admin_init', 'standard_setup_theme_social_options' );
  */
 function standard_theme_social_options_display() {
 
-	_e( 'This section controls social network icons in the site header. Drag, drop, and position desired icons from the Icon Library to the Active Icons area.', 'standard' );	
+	_e( 'This section controls social network icons in the site header. Drag, drop, and position desired icons from the Icon Library to the Active Icons area. This section controls social network icons in the site header. Drag, drop, and position desired icons from the Icon Library to the Active Icons area. You can also delete all icons and <a href="javascript:;" id="reset-social-icons" class="ad_delete">restore defaults.</a>', 'standard' );	
 
 	$html = '<div class="social-icons-wrapper">';
 	
@@ -570,8 +570,8 @@ function standard_theme_social_options_display() {
 		$html .= '</div><!-- /.social-icons-available -->';
 		
 		$html .= '<span id="standard-save-social-icons-nonce" class="hidden">' . wp_create_nonce( 'standard_save_social_icons_nonce' ) . '</span>';
-		
 		$html .= '<span id="standard-wordpress-rss-url" class="hidden">' . esc_url( standard_get_rss_feed_url() ) . '</span>';
+		$html .= '<span id="standard-reset-social-icons" class="hidden">' . wp_create_nonce( 'standard_reset_social_icons_nonce' ) . '</span>';
 		
 	$html .= '</div><!-- /.social-icons-wrapper -->';
 	
@@ -1328,18 +1328,6 @@ function standard_theme_options_display() {
 				
 				// Display the 'Save Changes' button
 				submit_button();
-				
-				// If we're on the Social Options page, show the reset button.
-				if( 'standard_theme_social_options' == $active_tab ) {
-				
-					$html = '<p class="submit">';
-						$html .= '<input type="button" id="reset-social-icons" class="button" value="' . __( 'Reset Icons', 'standard' ) . '" />';
-						$html .= '<span id="standard-reset-social-icons" class="hidden">' . wp_create_nonce( 'standard_reset_social_icons_nonce' ) . '</span>';
-					$html .= '</p>';
-					
-					echo $html;
-				
-				} // end if/else
 				
 			?>
 		</form>
