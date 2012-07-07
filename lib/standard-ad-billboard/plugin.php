@@ -14,7 +14,7 @@ class Standard_Ad_468x60 extends WP_Widget {
 	public function __construct() {
 
 		$widget_opts = array(
-			'classname' 	=> __( 'ad-468x60', 'standard' ), 
+			'classname' 	=> __( 'standard-ad-billboard', 'standard' ), 
 			'description' 	=> __( 'Display a 468x60 advertisement.', 'standard' )
 		);	
 		$this->WP_Widget( 'standard-ad-468x60', __( '468x60 Ad', 'standard' ), $widget_opts );
@@ -104,7 +104,7 @@ class Standard_Ad_468x60 extends WP_Widget {
 	
 		wp_enqueue_style( 'thickbox' );
 		
-		wp_register_style( 'standard-ad-468x60', get_template_directory_uri() . '/lib/ad-468x60/css/admin.css' );
+		wp_register_style( 'standard-ad-468x60', get_template_directory_uri() . '/lib/standard-ad-billboard/css/admin.css' );
 		wp_enqueue_style( 'standard-ad-468x60' );
 		
 	} // end register_admin_styles
@@ -125,7 +125,7 @@ class Standard_Ad_468x60 extends WP_Widget {
 			wp_enqueue_script('thickbox');
 	
 			// admin
-			wp_register_script( 'standard-ad-468x60', get_template_directory_uri() . '/lib/ad-468x60/js/admin.js', array( 'jquery', 'media-upload','thickbox') );
+			wp_register_script( 'standard-ad-468x60', get_template_directory_uri() . '/lib/standard-ad-billboard/js/admin.js', array( 'jquery', 'media-upload','thickbox') );
 			wp_enqueue_script( 'standard-ad-468x60' );
 		
 		} // end if
@@ -137,7 +137,7 @@ class Standard_Ad_468x60 extends WP_Widget {
 	 */
 	public function register_widget_styles() {
 
-		wp_register_style( 'standard-ad-468x60', get_template_directory_uri() . '/lib/ad-468x60/css/widget.css' );
+		wp_register_style( 'standard-ad-468x60', get_template_directory_uri() . '/lib/standard-ad-billboard/css/widget.css' );
 		wp_enqueue_style( 'standard-ad-468x60' );
 		
 	} // end register_admin_styles

@@ -43,11 +43,17 @@
 ### 125x125 Ad Widget
 
 * Changing class names to prevent ad-blocking software from hiding the advertisements
-* Removing the import of the widget.css (as it was unused)
+
+### 300x250 Widget
+
+* Renaming widget directory to prevent ad-blocking software from hiding the advertisements
+* Moving styles from from styles.css to this widget's widget.css
 
 ### 468x60 Ad Widget
 
 * Improvement to the 468x60 placeholder in Firefox
+* Renaming widget directory to prevent ad-blocking software from hiding the advertisements
+* Moving styles from from styles.css to this widget's widget.css
 
 ## 3.0 (June 29th, 2012)
 
