@@ -8,7 +8,7 @@
 ?>
 
 <?php echo $args['before_widget']; ?>
-	<div class="ad-row">
+	<div class="banner-row">
 		<ul class="thumbnails">
 			<li class="span2">
 			
@@ -44,5 +44,5 @@
 			</li><!-- /.right -->
 		</ul><!-- /.thumbnails -->
 		
-	</div><!-- /.ad-row -->
+	</div><!-- /.banner-row -->
 <?php echo $args['after_widget']; ?>

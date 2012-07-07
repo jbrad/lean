@@ -40,6 +40,11 @@
 * Introduced better caching and value serialization
 * Added improvements to clearing out old values
 
+### 125x125 Ad Widget
+
+* Changing class names to prevent ad-blocking software from hiding the advertisements
+* Removing the import of the widget.css (as it was unused)
+
 ### 468x60 Ad Widget
 
 * Improvement to the 468x60 placeholder in Firefox

@@ -28,8 +28,6 @@ class Standard_Ad_125x125 extends WP_Widget {
 			
 		} // end if
 		
-		add_action( 'wp_enqueue_scripts', array( &$this, 'register_widget_styles' ) );
-		
 	} // end constructor
 
 	/*--------------------------------------------------------*
@@ -149,16 +147,6 @@ class Standard_Ad_125x125 extends WP_Widget {
 		} // end if 
 		
 	} // end register_admin_scripts
-	
-	/** 
-	 * Registers and Enqueues the stylesheets for this widget.
-	 */
-	public function register_widget_styles() {
-	
-		wp_register_style( 'standard-ad-125x125-widget', get_template_directory_uri() . '/lib/ad-125x125/css/widget.css' );
-		wp_enqueue_style( 'standard-ad-125x125-widget' );
-	
-	} // end register_widget_styles
 
 } // end class
 add_action( 'widgets_init', create_function( '', 'register_widget( "Standard_Ad_125x125" );' ) ); 
