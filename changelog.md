@@ -26,6 +26,7 @@
 * Updating the way VideoPress stylesheets and JavaScript sources are imported
 * Updating the way Contrast stylesheets imported
 * Fixing a problem that prevented the Site Icon from displaying after deleting and uploading without first saving
+* Resolved an issue with the Theme Customizer that improperly toggled the display of the logo
 
 ### Personal Image Widget
 

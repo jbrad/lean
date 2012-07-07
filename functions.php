@@ -1550,20 +1550,25 @@ if( standard_is_on_wp34() ) {
 			wp.customize('header_textcolor', function(value) {
 				value.bind(function(to) {
 					
-					// If 'to' is blank or empty then we're toggling the display
-					if( 'blank' === to ) {
-	
-						$('#site-title').hide();
-						$('#site-description').hide();
-						
-					} else {
+					// We only care about this if there's no logo
+					if($('#header-logo').length === 0) {
 					
-						$('#site-title').show();
-						$('#site-description').show();
+						// If 'to' is blank or empty then we're toggling the display
+						if( 'blank' === to ) {
+		
+							$('#site-title').hide();
+							$('#site-description').hide();
+							
+						} else {
 						
-						$('#site-title a, #site-title, #site-description').css('color', to.toString());
-						
-					} // end if/else
+							$('#site-title').show();
+							$('#site-description').show();
+							
+							$('#site-title a, #site-title, #site-description').css('color', to.toString());
+							
+						} // end if/else
+					
+					} // end if
 					
 				});			
 			})
