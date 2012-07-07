@@ -7,7 +7,7 @@
 	} // end if
 ?>
 
-<?php echo $args['before_widget']; ?>
+<?php echo isset( $args['before_widget'] ) ? $args['before_widget'] : ''; ?>
 	<div class="standard-ad-row">
 		<ul class="thumbnails">
 			<li class="span2">
@@ -44,5 +44,5 @@
 			</li><!-- /.right -->
 		</ul><!-- /.thumbnails -->
 		
-	</div><!-- /.banner-row -->
-<?php echo $args['after_widget']; ?>
+	</div><!-- /.standard-ad-row -->
+<?php echo isset( $args['after_widget'] ) ? $args['after_widget'] : ''; ?>

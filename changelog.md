@@ -27,6 +27,8 @@
 * Updating the way Contrast stylesheets imported
 * Fixing a problem that prevented the Site Icon from displaying after deleting and uploading without first saving
 * Resolved an issue with the Theme Customizer that improperly toggled the display of the logo
+* Additional debogger improvements for the Activity Tabs and the 125x125 widget
+* Resolving issue that was improperly showing a comma in the footer when the Privacy Policy template was active
 
 ### Personal Image Widget
 

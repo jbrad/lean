@@ -49,9 +49,15 @@ class Activity_Tabs extends WP_Widget {
 		// Display the widget
 		if( $post_count > 0 || $popular_count > 0 || $comment_count > 0 || $tag_count > 0 ) {
 		
-			echo $args['before_widget'];
+			if( isset( $args['before_widget'] ) ) {
+				echo $args['before_widget'];
+			} // end if
+			
 			echo self::get_popular_content( $post_count, $popular_count, $comment_count, $tag_count );
-			echo $args['after_widget'];
+			
+			if( isset( $args['after_widget'] ) ) {
+				echo $args['after_widget'];
+			} // end if
 			
 		} // end if
 		
