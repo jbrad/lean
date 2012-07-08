@@ -112,7 +112,7 @@
 					?>
 				
 					<?php // If the user has set a logo or set to display header text, render the hgroup container ?>
-					<?php if ( true || standard_has_logo() || standard_has_header_text() ) { ?>
+					<?php if (  is_active_sidebar( 'sidebar-1' ) || standard_has_logo() || standard_has_header_text() ) { ?>
 						<div id="hgroup" class="clearfix <?php echo standard_has_logo() ? 'has-logo' : 'no-logo'; ?>">
 
 								<?php if ( standard_has_logo() || standard_has_header_text() ) { ?>

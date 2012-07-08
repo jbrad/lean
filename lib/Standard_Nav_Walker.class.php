@@ -21,9 +21,10 @@ class Standard_Nav_Walker extends Walker_Nav_Menu {
 	function start_el( &$output, $item, $depth, $args ) {
 		
 		$css_classes = implode( ' ', $item->classes );
+		$target = isset( $item->target ) && '' != $item->target ? ' target="_blank" ' : '';
 
 		// If the current menu item has children, we need to set the proper class names on the list items
-		// and the anchors.
+		// and the anchors. Parent menu items can't have blank targets.
 		if( $args->has_children ) {
 		
 			if( $item->menu_item_parent == 0 ) {
@@ -34,7 +35,7 @@ class Standard_Nav_Walker extends Walker_Nav_Menu {
 			} else { 
 
 				$menu_item = '<li class="dropdown submenu ' . $css_classes . '">';
-					$menu_item .= '<a href="' . $item->url . '" class="dropdown-toggle" data-toggle="dropdown">';
+					$menu_item .= '<a href="' . $item->url . '" class="dropdown-toggle" data-toggle="dropdown"' . $target . '>';
 					
 			} // end if/else
 		
@@ -42,7 +43,7 @@ class Standard_Nav_Walker extends Walker_Nav_Menu {
 		} else {
 
 			$menu_item = get_permalink() == $item->url ? '<li class="active ' . $css_classes . '">' : '<li class="' . $css_classes . '">';
-				$menu_item .= '<a href="' . $item->url . '">';
+				$menu_item .= '<a href="' . $item->url . '"' . $target . '>';
 					
 		} // end if
 		
