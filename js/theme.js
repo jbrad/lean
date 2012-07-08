@@ -125,9 +125,14 @@ function processLogoAndBackground($) {
 		
 			if( $('#header-widget').length > 0 ) {
 			
-				$('#header-widget').css({
-					marginTop: '20px'
-				});
+				// Only set the margin of the header widget to 20 if there's no logo
+				if( $('#logo').length > 0 ) {
+				
+					$('#header-widget').css({
+						marginTop: '20px'
+					});
+					
+				} // end if
 				
 			} // end if
 		
