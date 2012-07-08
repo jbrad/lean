@@ -31,6 +31,8 @@
 		processLogoAndBackground($);
 		$(window).load(function() {
 			processLogoAndBackground($);
+		}).resize(function() {
+			processLogoAndBackground($);
 		});
 
 		// If the Activity Widget is present, activate the first tab
@@ -98,6 +100,31 @@ function moveSidebarInLeftSidebarLayout($) {
  */
 function processLogoAndBackground($) {
 	
+	// If we're viewing the mobile version of the site, we need to position the header elements
+	if( $('.btn-navbar').is(':visible') ) {
+	
+		// If the header image is larger than the logo container, we subtract half the height of the header from the background image...
+		if( $('#header-image').height() > $('#hgroup').height() ) {
+		
+			$('#hgroup').css({
+				marginTop: Math.round( $('#header-image').height() / 2 ) - Math.round( $('#hgroup').height() / 2 )
+			});
+		
+		// ...otherwise, we'll subtract the height of the hgroup from the header image	
+		} else {
+		
+			$('#hgroup').css({
+				marginTop: Math.round( $('#header-image').height() / 2 ) - Math.round( $('#hgroup').height() )
+			});
+			
+		} // end if
+		
+		$('#header-widget').css({
+			marginTop: '20px'
+		});
+		
+	} else {
+	
 	// If there's no logo and header image, we don't care about adjusting margins
 	if( $('#header-image').length > 0 || $('#site-title > a').children('img').length > 0 ) { 
 
@@ -141,5 +168,7 @@ function processLogoAndBackground($) {
 		} // end if
 			
 	} // end if 
+	
+	}
 
 } // end processLogoAndBackground
