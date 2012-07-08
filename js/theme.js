@@ -103,72 +103,82 @@ function processLogoAndBackground($) {
 	// If we're viewing the mobile version of the site, we need to position the header elements
 	if( $('.btn-navbar').is(':visible') ) {
 	
-		// If the header image is larger than the logo container, we subtract half the height of the header from the background image...
-		if( $('#header-image').height() > $('#hgroup').height() ) {
+		if( $('#header-image').length > 0 ) { 
+
+			// If the header image is larger than the logo container, we subtract half the height of the header from the background image...
+			if( $('#header-image').height() > $('#hgroup').height() ) {
+			
+				$('#hgroup').css({
+					marginTop: Math.round( $('#header-image').height() / 2 ) - Math.round( $('#hgroup').height() / 2 )
+				});
+			
+			// ...otherwise, we'll subtract the height of the hgroup from the header image	
+			} else {
+			
+				$('#hgroup').css({
+					marginTop: Math.round( $('#header-image').height() / 2 ) - Math.round( $('#hgroup').height() )
+				});
+				
+			} // end if
 		
-			$('#hgroup').css({
-				marginTop: Math.round( $('#header-image').height() / 2 ) - Math.round( $('#hgroup').height() / 2 )
-			});
-		
-		// ...otherwise, we'll subtract the height of the hgroup from the header image	
 		} else {
 		
-			$('#hgroup').css({
-				marginTop: Math.round( $('#header-image').height() / 2 ) - Math.round( $('#hgroup').height() )
-			});
+			if( $('#header-widget').length > 0 ) {
 			
-		} // end if
+				$('#header-widget').css({
+					marginTop: '20px'
+				});
+				
+			} // end if
 		
-		$('#header-widget').css({
-			marginTop: '20px'
-		});
+		} // end if/else
 		
 	} else {
 	
-	// If there's no logo and header image, we don't care about adjusting margins
-	if( $('#header-image').length > 0 || $('#site-title > a').children('img').length > 0 ) { 
-
-		var $background = null;
-		if( ( $background = $('#header-image').children(':first').children('img')).length > 0 ) {
-		
-			$('#hgroup').css({
-				padding: 0,
-				marginTop: Math.round( $background.height() / 2 ) - Math.round( $('#hgroup').height() / 2 )
-			});
+		// If there's no logo and header image, we don't care about adjusting margins
+		if( $('#header-image').length > 0 || $('#site-title > a').children('img').length > 0 ) { 
+	
+			var $background = null;
+			if( ( $background = $('#header-image').children(':first').children('img')).length > 0 ) {
 			
-		} // end if
-		
-		// If the widget is present...
-		if($('#header-widget').length > 0) {
-
-			// ...and there is a logo or header text
-			if( $('#logo').length > 0 ) {
-
-				$('#header-widget').css({
-					marginTop: Math.round( $('#hgroup').height() / 2 ) - Math.round( $('#header-widget').height() / 2 )
-				});	
-			
-			// ...or there is no logo or no header text
-			} else {
-
-				$('#header-widget').css({
-					marginTop: Math.round( $('#header-image').height() / 2 ) - Math.round( $('#header-widget').height() )
+				$('#hgroup').css({
+					padding: 0,
+					marginTop: Math.round( $background.height() / 2 ) - Math.round( $('#hgroup').height() / 2 )
 				});
-				
-				// If there's a header widget but no logo or text, then we need to make the hgroup and the logo an anchor
-				$('#hgroup')
-					.css('cursor', 'pointer')
-					.click(function(evt) {
-						window.location = $('#site-title').children('a').attr('href');
-					});
-				
 				
 			} // end if
 			
-		} // end if
-			
-	} // end if 
+			// If the widget is present...
+			if($('#header-widget').length > 0) {
 	
-	}
-
+				// ...and there is a logo or header text
+				if( $('#logo').length > 0 ) {
+	
+					$('#header-widget').css({
+						marginTop: Math.round( $('#hgroup').height() / 2 ) - Math.round( $('#header-widget').height() / 2 )
+					});	
+				
+				// ...or there is no logo or no header text
+				} else {
+	
+					$('#header-widget').css({
+						marginTop: Math.round( $('#header-image').height() / 2 ) - Math.round( $('#header-widget').height() )
+					});
+					
+					// If there's a header widget but no logo or text, then we need to make the hgroup and the logo an anchor
+					$('#hgroup')
+						.css('cursor', 'pointer')
+						.click(function(evt) {
+							window.location = $('#site-title').children('a').attr('href');
+						});
+					
+					
+				} // end if
+				
+			} // end if
+				
+		} // end if 
+	
+	} // end if
+	
 } // end processLogoAndBackground
