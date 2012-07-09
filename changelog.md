@@ -28,6 +28,7 @@
 combinations.
 * Improves SEO of header elements.
 * Promotes two "helper functions" to "custom filters" in functions.php.
+* Removes unused images.
 
 ### Personal Image Widget
 
