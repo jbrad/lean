@@ -30,6 +30,7 @@
 * Additional debogger improvements for the Activity Tabs and the 125x125 widget
 * Resolving issue that was improperly showing a comma in the footer when the Privacy Policy template was active
 * Updating the Navigation Walker to make sure menu links can open in new tabs when set in the Menu dashboard
+* Updating the Twitter widget to match the new branding
 
 ### Personal Image Widget
 
