@@ -57,6 +57,36 @@ combinations.
 * Fixes issues with placeholder not displaying in Firefox.
 * Moves misplaced styles from styles.css to widget.css.
 
+### Change Set
+
+* css/admin.css
+* css/editor-style.css
+* functions.php
+* footer.php
+* header.php
+* ~~images/bg-admin.png~~
+* ~~images/default-gravatar.jpg~~
+* ~~images/img-brand.png~~
+* ~~images/img-logo.png~~
+* images/social/small/twitter.png
+* js/admin.header.js
+* js/admin.media-upload.js
+* js/admin.social-options.js
+* js/admin.template-sitemap.js
+* js/theme.js
+* lang/standard.mo
+* lang/standard.po
+* lib/ad-125x125 → lib/standard-ad-125x125
+* lib/ad-300x250 → lib/standard-ad-300x250
+* lib/ad-468x60 → lib/standard-ad-billboard
+* lib/influence/plugin.php
+* lib/influence/views/widget.php
+* lib/personal-image/css/admin.css
+* lib/personal-image/css/widget.css
+* lib/personal-image/js/admin.js
+* lib/Standard_Nav_Walker.class.php
+* style.css
+
 ## 3.0 (June 29th, 2012)
 
 ## Documentation
