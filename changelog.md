@@ -1,15 +1,34 @@
 # Changelog
 
-## 3.0.2 (July 17th, 2012)
+## 3.0.2 (July 19th, 2012)
 
-## Core Theme
+### Core Theme
 
-* Fixes the problem of fonts not scaling when browser font size is increased
-* Fixes a positioning problem of header images when there is no top-level menu
+* Fixes fonts not scaling when browser zooms.
+* Fixes header image positioning when using menu below header.
+* Fixes comments in loop-quote.php.
 
-## Social Influence Widget
+### Social Influence Widget
 
-* Additional improvements to caching and value serialization.
+* Fixes issues with media uploader not firing in Mac Firefox.
+
+### 125x125 Ad Widget
+
+* Fixes 
+
+### Full-Width Template
+
+* Adds comments to template.
+
+### Change Set
+
+* lang/standard.mo
+* lang/standard.po
+* lib/influence/plugin.php
+* lib/standard-ad-125x125/css/admin.css
+* loop-quote.php
+* style.css
+* template-fullwidth.php
 
 ## 3.0.1 (July 9th, 2012)
 
@@ -25,7 +44,7 @@
 * Fixes an issue with "Sitemap" page template being disabled.
 * Fixes VideoPress related imports for child themes.
 * Fixes contrast import for child themes.
-* Fixes social icon delete issues in Firefox for Mac.
+* Fixes social icon delete issues in Mac Firefox.
 * Fixes an issue with the logo not working in the header.
 * Fixes editor-style.css to reflect how unordered lists look on published posts.
 * Fixes footer privacy policy link to adhere to permalink settings.
