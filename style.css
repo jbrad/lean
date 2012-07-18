@@ -220,7 +220,6 @@ pre {
 /* ------------------------------------------------------------------------ 3. Main Styles */
 
 html {
-	background: #000; /* color of footer bucket */
 	overflow-y: auto;
 	-webkit-text-size-adjust: auto;
 }
@@ -230,7 +229,7 @@ body {
 }
 
 #wrapper {
-	padding: 0 0 40px;
+	padding: 20px 0 40px;
 }
 
 /* ------------------------------------------------------------------------ 4. Menu-Navigation */
@@ -275,7 +274,7 @@ body {
 }
 
 #menu-under-header {
-	margin: 0 0 20px;
+	margin: 0;
 	z-index: auto;
 }
 
@@ -375,7 +374,7 @@ body {
 
 
 #hgroup {
-	padding: 45px 0;
+	padding: 45px 0 20px;
 	position: relative;
 }
 
@@ -420,11 +419,6 @@ body {
 }
 
 /* if header image is present lets adjust a few things */ 
-
-.imageyup #head-wrapper {
-   margin-top: 0; 
-   padding-top: 45px;
-}
 
 .imageyup #hgroup {
 	position: absolute;
