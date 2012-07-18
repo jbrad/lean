@@ -11,6 +11,12 @@
 	float: right;
 }
 
+/* Added for Firefox on Mac */
+.left img, 
+.right img {
+	float: left;	
+}
+
 .row span {
 	width: 90px;
 	height: 90px;
