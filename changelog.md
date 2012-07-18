@@ -1,5 +1,13 @@
 # Changelog
 
+## 3.0.2 (July 17th, 2012)
+
+## Core Theme
+
+## Social Influence Widget
+
+* Additional improvements to caching and value serialization.
+
 ## 3.0.1 (July 9th, 2012)
 
 ### Core Theme

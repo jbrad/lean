@@ -3,7 +3,7 @@
  * Influence is a widget for showing an aggregate of your Twitter followers,
  * FeedBurner subscribers, and more.
  *
- * version 1.1
+ * version 1.2
  */
 class Standard_Influence extends WP_Widget {
 
@@ -168,61 +168,45 @@ class Standard_Influence extends WP_Widget {
 		
 		// Key values for the database
 		$transient_key = 'influence_twitter_' . $username;
-		
+
 		// Check to see if the value exists in the cache and it isn't 0
 		if( true == get_transient( $transient_key ) && 0 < get_transient( $transient_key ) ) {
 			
 			$follower_count = get_transient( $transient_key );
-			 
+		
+		// If the value doesn't exist as a transient, let's read the value from Twitter	 
 		} else {
+ 
+			// Attempt to read the XML from Twitter
+			$response = $this->get_feed_response('http://twitter.com/users/show.xml?screen_name=' . $username );
+			try {
+				$xml = new SimpleXmlElement( $response, LIBXML_NOCDATA );
+			} catch ( Exception $ex ) {
+				$xml = null;
+			} // end try/catch
 			
-			// Check to see if the option exists and that it's not zero
-			if( true == get_option( $transient_key ) && 0 < get_option( $transient_key ) ) {
-				
-				$follower_count = get_option( $transient_key );
+			// If the XML response isn't valid, store the error
+			if( null == $xml ) {
+			
+				$follower_count = -2;
 				
 			} else {
-			
-				// Attempt to read the XML from Twitter
-				$response = $this->get_feed_response('http://twitter.com/users/show.xml?screen_name=' . $username );
-				try {
-					$xml = new SimpleXmlElement( $response, LIBXML_NOCDATA );
-				} catch ( Exception $ex ) {
-					$xml = null;
-				} // end try/catch
 				
-				// If the XML response isn't valid, store the error
-				if( null == $xml ) {
-				
-					$follower_count = -2;
+				// If it's null, store the error.
+				if( null == (string)$xml->followers_count ) {
 					
+					$follower_count = -3;
+				
+				// Otherwise, we're good to go
 				} else {
-					
-					// If it's null, store the error.
-					if( null == (string)$xml->followers_count ) {
-						
-						$follower_count = -3;
-					
-					// Otherwise, we're good to go
-					} else {
-						
-						$follower_count = (string)$xml->followers_count;
-						
-					} // end if/else
+
+					$follower_count = (string)$xml->followers_count;
 					
 				} // end if/else
 				
 			} // end if/else
 			
 		} // end if/else
-		
-		// Store it as the last known good value
-		if( true == get_option( $transient_key ) ) {
-			update_option( $transient_key, $follower_count );
-		} else {
-			delete_option( $transient_key );
-			add_option( $transient_key, $follower_count );
-		} // end if
 		
 		// And cache it for 24 hours
 		set_transient( $transient_key, $follower_count, 60 * 60 * 24 );
@@ -266,45 +250,28 @@ class Standard_Influence extends WP_Widget {
 			 
 		} else {
 			
-			// Check to see if the option exists and that it's not zero
-			if( true == get_option( $transient_key ) && 0 < get_option( $transient_key ) ) {
+			// If it's not present, then we attempt to contact Facebook
+			$response = $this->get_feed_response( 'http://graph.facebook.com/' . $username . '/' );
+			
+			// If the response is null, then the response from Twitter failed
+			if( null == $response ) {
 				
-				$like_count = get_option( $transient_key );
+				$like_count = -2;
 				
+			// Otherwise, we have a response so let's parse it
 			} else {
 			
-				// If it's not present, then we attempt to contact Facebook
-				$response = $this->get_feed_response( 'http://graph.facebook.com/' . $username . '/' );
-				
-				// If the response is null, then the response from Twitter failed
-				if( null == $response ) {
-					
-					$like_count = -2;
-					
-				// Otherwise, we have a response so let's parse it
+				// Decode the JSON string and attempt to ready the follower count value
+				$facebook = json_decode( $response );
+				if( isset( $facebook->likes ) ) {
+					$like_count = $facebook->likes;
 				} else {
-				
-					// Decode the JSON string and attempt to ready the follower count value
-					$facebook = json_decode( $response );
-					if( isset( $facebook->likes ) ) {
-						$like_count = $facebook->likes;
-					} else {
-						$like_count = -3;
-					} // end if
-				
+					$like_count = -3;
 				} // end if
-			 
-			} // end if/else
+			
+			} // end if
 			
 		} // end if/else
-		
-		// Store it as the last known good value
-		if( true == get_option( $transient_key ) ) {
-			update_option( $transient_key, $like_count );
-		} else {
-			delete_option( $transient_key );
-			add_option( $transient_key, $like_count );
-		} // end if
 		
 		// And cache it for 24 hours
 		set_transient( $transient_key, $like_count, 60 * 60 * 24 );
@@ -350,53 +317,36 @@ class Standard_Influence extends WP_Widget {
 			 
 		} else {
 			
-			// Check to see if the option exists and that it's not zero
-			if( true == get_option( $transient_key ) && 0 < get_option( $transient_key ) ) {
-				
-				$subscriber_count = get_option( $transient_key );
-				
-			} else {
+			// If it's not present, then we attempt to contact FeedBurner and parse the XML
+			$response = $this->get_feed_response( 'http://feedburner.google.com/api/awareness/1.0/GetFeedData?uri=' . $username );
+			try {
+				$xml = new SimpleXmlElement( $response, LIBXML_NOCDATA );
+			} catch ( Exception $ex ) {
+				$xml = null;
+			} // end try/catch
 			
-				// If it's not present, then we attempt to contact FeedBurner and parse the XML
-				$response = $this->get_feed_response( 'http://feedburner.google.com/api/awareness/1.0/GetFeedData?uri=' . $username );
-				try {
-					$xml = new SimpleXmlElement( $response, LIBXML_NOCDATA );
-				} catch ( Exception $ex ) {
-					$xml = null;
-				} // end try/catch
+			// If the XML response isn't valid, store the error
+			if( null == $xml ) {
+			
+				$subscriber_count = -2;
 				
-				// If the XML response isn't valid, store the error
-				if( null == $xml ) {
+			// Otherwise, attempt to parse the XML
+			} else {
 				
-					$subscriber_count = -2;
+				// If it's null, store the error
+				if( null == (string)$xml->feed->entry['circulation'] ) {
+				
+					$subscriber_count = -3;
 					
-				// Otherwise, attempt to parse the XML
+				// Otherwise, we're good to go.
 				} else {
-					
-					// If it's null, store the error
-					if( null == (string)$xml->feed->entry['circulation'] ) {
-					
-						$subscriber_count = -3;
-						
-					// Otherwise, we're good to go.
-					} else {
-						$subscriber_count = (string)$xml->feed->entry['circulation'];	
-					} // end if/else
-					
+					$subscriber_count = (string)$xml->feed->entry['circulation'];	
 				} // end if/else
-			 
+				
 			} // end if/else
 			
 		} // end if/else
-		
-		// Store it as the last known good value
-		if( true == get_option( $transient_key ) ) {
-			update_option( $transient_key, $subscriber_count );
-		} else {
-			delete_option( $transient_key );
-			add_option( $transient_key, $subscriber_count );
-		} // end if
-		
+
 		// And cache it for 24 hours
 		set_transient( $transient_key, $subscriber_count, 60 * 60 * 24 );
 		
@@ -447,7 +397,12 @@ class Standard_Influence extends WP_Widget {
 	private function delete_values( $key, $instance ) {
 		
 		delete_transient( 'influence_' . $key . '_' . $instance[$key] );
-		delete_option( 'influence_' . $key . '_' . $instance[$key] );
+		
+		// If the option exists, we need to delete it. This is a carry over from < 3.0.2.
+		// We can eventually remove this line, perhaps in 3.1.
+		if( true == get_option( 'influence_' . $key . '_' . $instance[$key] ) ) {
+			delete_option( 'influence_' . $key . '_' . $instance[$key] );
+		} // end if
 		
 	} // end delete_values
 	
