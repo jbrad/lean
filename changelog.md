@@ -5,6 +5,7 @@
 ## Core Theme
 
 * Fixes the problem of fonts not scaling when browser font size is increased
+* Fixes a positioning problem of header images when there is no top-level menu
 
 ## Social Influence Widget
 
