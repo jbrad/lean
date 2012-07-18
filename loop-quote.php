@@ -18,7 +18,7 @@
 				<?php } else { ?>
 					<?php the_content( __( 'Continue Reading...', 'standard' ) ); ?>
 				<?php } // end if/else ?>
-			</div>
+			</div><!-- /.entry-content -->
 	</div> <!-- /.post-header -->
 
 	<div id="content-<?php the_ID(); ?>" class="entry-content clearfix">	
