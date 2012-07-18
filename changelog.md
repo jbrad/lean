@@ -4,6 +4,8 @@
 
 ## Core Theme
 
+* Fixes the problem of fonts not scaling when browser font size is increased
+
 ## Social Influence Widget
 
 * Additional improvements to caching and value serialization.

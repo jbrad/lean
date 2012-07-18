@@ -222,7 +222,7 @@ pre {
 html {
 	background: #000; /* color of footer bucket */
 	overflow-y: auto;
-	-webkit-text-size-adjust: none;
+	-webkit-text-size-adjust: auto;
 }
 
 body {
