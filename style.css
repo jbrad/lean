@@ -274,10 +274,6 @@ body {
 	line-height: 0;
 }
 
-#menu-above-header {
-	margin-bottom: 45px;
-}
-
 #menu-under-header {
 	margin: 0 0 20px;
 	z-index: auto;
@@ -426,8 +422,8 @@ body {
 /* if header image is present lets adjust a few things */ 
 
 .imageyup #head-wrapper {
-	margin-top: 0;
-	margin-bottom: 45px;
+   margin-top: 0; 
+   padding-top: 45px;
 }
 
 .imageyup #hgroup {
@@ -618,7 +614,6 @@ p.wp-caption-text {
 	padding-left: 10px;
 	margin-top: -1px;
 }
-
 
 #single-post-nav .pager {
 	margin-bottom: 20px;
