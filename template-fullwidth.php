@@ -30,6 +30,7 @@
 						</div> <!-- /#post- -->
 					<?php } // end while ?>
 				<?php } // end if ?>
+				<?php comments_template( '', true ); ?>
 			</div><!-- /#main -->
 			
 		</div><!--/row -->
