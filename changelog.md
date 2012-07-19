@@ -10,11 +10,11 @@
 
 ### Social Influence Widget
 
-* Fixes issues with media uploader not firing in Mac Firefox.
+* Fixes issues with counts not expiring and automatically updating.
 
 ### 125x125 Ad Widget
 
-* Fixes 
+* Fixes issues with media uploader not firing in Mac Firefox.
 
 ### Full-Width Template
 
