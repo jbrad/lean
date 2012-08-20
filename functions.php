@@ -3320,10 +3320,10 @@ function standard_truncate_text( $string, $character_limit = 50, $truncation_ind
 /**
  * Helper function for determining if any other SEO plugins are installed. Returns true, if so.
  *
- * @returns	True if 'WordPress SEO' or 'All In One SEO' are installed.
+ * @return	True if 'WordPress SEO', 'All In One SEO', 'Platinum SEO Pack', or 'wpSEO' are installed.
  */
 function standard_using_native_seo() {
-	return ! ( defined( 'WPSEO_URL' ) || class_exists( 'All_in_One_SEO_Pack' ) || class_exists( 'Platinum_SEO_Pack' ) );
+	return ! ( defined( 'WPSEO_URL' ) || class_exists( 'All_in_One_SEO_Pack' ) || class_exists( 'Platinum_SEO_Pack' ) || class_exists( 'wpSEO_Base' ) );
 } // end standard_using_native_seo 
 
 /**
