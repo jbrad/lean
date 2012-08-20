@@ -3437,13 +3437,18 @@ function standard_get_rss_feed_url() {
 /**
  * Returns whether or not the user has uploaded a logo.
  *
- * @returns	True if the user has uploaded a logo, false, if not.
+ * @return	True if the user has uploaded a logo, false, if not.
  */
 function standard_has_logo() {
 
-	$presentation_options = get_option( 'standard_theme_presentation_options' );
-	
-	return '' != $presentation_options['logo'];;
+    $presentation_options = get_option( 'standard_theme_presentation_options' );
+
+    $logo = '';
+    if( isset( $presentation_options['logo'] ) ) {
+        $logo = $presentation_options['logo'];
+    } // end if
+
+    return $logo;
 
 } // end standard_has_logo
 
