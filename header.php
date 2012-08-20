@@ -72,7 +72,7 @@
 						</div><!-- /.nav-collapse -->		
 						
 						<?php $social_options = get_option( 'standard_theme_social_options' ); ?>
-						<?php if( '' != $social_options['active-social-icons'] ) { ?>
+						<?php if( isset( $social_options['active-social-icons'] ) && '' != $social_options['active-social-icons'] ) { ?>
 							<div id="social-networking" class="clearfix">
 								<?php get_template_part( 'social-networking' ); ?>  
 							</div><!-- /#social-networking -->	
