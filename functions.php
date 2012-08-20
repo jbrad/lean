@@ -2228,72 +2228,74 @@ if( ! function_exists( 'standard_admin_header_image' ) ) {
  /**
  * Generates the content container for each post (and page if enabled).
  *
- * @comment	The current comment being displayed.
- * @args	Array containing arguments for displaying the comment.
- * @depth	The depth of where this comment falls in the tree.
+ * @param	$comment	The current comment being displayed.
+ * @param	$args		Array containing arguments for displaying the comment.
+ * @param	$depth		The depth of where this comment falls in the tree.
  */
-function custom_comment( $comment, $args, $depth ) {
-	$GLOBALS['comment'] = $comment; ?>
-	<li <?php comment_class( 'clearfix' ); ?> id="li-comment-<?php comment_ID(); ?>">
-		<div class="comment-container">
-			<?php if ( "comment" == get_comment_type() ) { ?>
-				<div class="avatar-holder">
-					<?php 
-					$default = null;
-					if( get_comment_author_email() == get_the_author_meta( 'user_email' ) ) {
-						$default = get_the_author_meta( 'user_email' );
-					} else {
-						$default = get_comment_author_email();
-					} // end if/else
-					echo get_avatar( $default, '50' );
-					?>
-				</div><!-- /.avatar-holder -->
-			<?php } // end if ?>	
-			
-			<div class="comment-entry"	id="comment-<?php comment_ID(); ?>">
-			
-				<div class="comment-head">
-					<span class="name">
-						<?php if( '' == get_comment_author_url() ) { ?>
-							<?php comment_author(); ?>
-						<?php } else { ?>
-							<a href="<?php comment_author_url(); ?>" target="_blank"><?php comment_author(); ?></a>
-						<?php } // end if/else ?>
-					</span>
-					<?php if ( get_comment_type() == "comment" ) { ?>
-						<span class="date"><a href="<?php echo get_comment_link(); ?>" title="<?php esc_attr_e( 'Permalink', 'standard'); ?>"><?php printf( __( '%1$s at %2$s', '_s' ), get_comment_date( get_option( 'date_format' ) ), get_comment_time( get_option( 'time_format' ) ) ); ?></a></span>
-						<span class="edit"><?php edit_comment_link( __( 'Edit', 'standard' ), '', '' ); ?></span>
-					<?php } // end if ?>
-				</div><!-- /.comment-head -->
-				
-				<?php if ( '0' == $comment->comment_approved ) { ?>
-					<span class='unapproved label warning'>
-						<?php _e( 'Your comment will appear after being approved.', 'standard' ); ?>
-					</span>
-				<?php } // end if ?>
-				
-				<div class="comment-text">
-					<?php comment_text(); ?>
-				</div><!-- /.comment-text -->
-				
-				<div class="reply">
-					<?php 
-						comment_reply_link( 
-							array_merge( 
-								$args, 
-								array(
-									'depth' 		=> $depth, 
-									'max_depth' 	=> $args['max_depth'], 
-									'reply_text' 	=> __( 'Reply', 'standard') 
-								) 
-							) 
-						); 
+if( ! function_exists( 'custom_comment' ) ) {
+	function custom_comment( $comment, $args, $depth ) {
+		$GLOBALS['comment'] = $comment; ?>
+		<li <?php comment_class( 'clearfix' ); ?> id="li-comment-<?php comment_ID(); ?>">
+			<div class="comment-container">
+				<?php if ( "comment" == get_comment_type() ) { ?>
+					<div class="avatar-holder">
+						<?php 
+						$default = null;
+						if( get_comment_author_email() == get_the_author_meta( 'user_email' ) ) {
+							$default = get_the_author_meta( 'user_email' );
+						} else {
+							$default = get_comment_author_email();
+						} // end if/else
+						echo get_avatar( $default, '50' );
 						?>
-				</div><!-- /.reply -->
+					</div><!-- /.avatar-holder -->
+				<?php } // end if ?>	
 				
-			</div><!-- /.comment-entry -->
-		</div><!-- /comment-container -->
-<?php } // end custom_comment
+				<div class="comment-entry"	id="comment-<?php comment_ID(); ?>">
+				
+					<div class="comment-head">
+						<span class="name">
+							<?php if( '' == get_comment_author_url() ) { ?>
+								<?php comment_author(); ?>
+							<?php } else { ?>
+								<a href="<?php comment_author_url(); ?>" target="_blank"><?php comment_author(); ?></a>
+							<?php } // end if/else ?>
+						</span>
+						<?php if ( get_comment_type() == "comment" ) { ?>
+							<span class="date"><a href="<?php echo get_comment_link(); ?>" title="<?php esc_attr_e( 'Permalink', 'standard'); ?>"><?php printf( __( '%1$s at %2$s', '_s' ), get_comment_date( get_option( 'date_format' ) ), get_comment_time( get_option( 'time_format' ) ) ); ?></a></span>
+							<span class="edit"><?php edit_comment_link( __( 'Edit', 'standard' ), '', '' ); ?></span>
+						<?php } // end if ?>
+					</div><!-- /.comment-head -->
+					
+					<?php if ( '0' == $comment->comment_approved ) { ?>
+						<span class='unapproved label warning'>
+							<?php _e( 'Your comment will appear after being approved.', 'standard' ); ?>
+						</span>
+					<?php } // end if ?>
+					
+					<div class="comment-text">
+						<?php comment_text(); ?>
+					</div><!-- /.comment-text -->
+					
+					<div class="reply">
+						<?php 
+							comment_reply_link( 
+								array_merge( 
+									$args, 
+									array(
+										'depth' 		=> $depth, 
+										'max_depth' 	=> $args['max_depth'], 
+										'reply_text' 	=> __( 'Reply', 'standard') 
+									) 
+								) 
+							); 
+							?>
+					</div><!-- /.reply -->
+					
+				</div><!-- /.comment-entry -->
+			</div><!-- /comment-container -->
+	<?php } // end custom_comment
+} // end if 
 
 /**
  * Generates the list of pings for the given post.
@@ -2714,8 +2716,8 @@ function standard_fallback_nav_menu( ) {
 /**
  * Removes any paragraph tags that are wrapping anchors.
  *
- * @params		$content	The post content
- * @returns					The anchor without paragraph tags.
+ * @param		$content	The post content
+ * @return					The anchor without paragraph tags.
  */
 if( ! function_exists( 'standard_process_link_post_format_content' ) ) {
 	function standard_process_link_post_format_content( $content ) {
