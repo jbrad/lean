@@ -2606,7 +2606,7 @@ add_filter( 'user_contactmethods', 'standard_add_user_profile_fields' );
  */
 function standard_meta_description() {
 
-	// If we're rolling with Standard's native SEO, let's do the following...
+	// If we're using Standard's native SEO, let's do the following...
 	if( standard_using_native_seo() ) {
 	
 		// If we're on the homepage, we're going to use the site's description
@@ -2620,7 +2620,7 @@ function standard_meta_description() {
 		} // end if/else
 		
 		// And if we're on the categories or any other archives, we'll be using the description if it has been provided
-		if( is_archive() && '' != category_description() ) {
+		if( is_archive() && '' != trim( category_description() ) ) {
 			echo '<meta name="description" content="' . trim( str_replace( '</p>', '', str_replace( '<p>', '', category_description() ) ) ) . '" />';
 		} // end if
 		
