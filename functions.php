@@ -2445,7 +2445,7 @@ add_action( 'admin_print_styles', 'standard_add_admin_stylesheets' );
 function standard_add_admin_scripts() {
 
 	$screen = get_current_screen();
-
+	
 	// admin header script	
 	if( 'appearance_page_custom-header' == $screen->id ) {
 		wp_register_script( 'standard-admin-header', get_template_directory_uri() . '/js/admin.header.js' );
@@ -2460,8 +2460,10 @@ function standard_add_admin_scripts() {
 
 	// sitemap management script. 
 	if( 'post'  == $screen->id || 'edit-page' == $screen->id || 'page' == $screen->id ) {
+	
 		wp_register_script( 'standard-admin-sitemap', get_template_directory_uri() . '/js/admin.template-sitemap.js?using_sitemap=' . get_option( 'standard_using_sitemap' ) );
 		wp_enqueue_script( 'standard-admin-sitemap' );	
+		
 	} // end if
 	
 	// widgets
@@ -2501,6 +2503,14 @@ function standard_add_admin_scripts() {
 		wp_register_script( 'standard-admin-social-options', get_template_directory_uri() . '/js/admin.social-options.js' );
 		wp_enqueue_script( 'standard-admin-social-options' );
 		
+	} // end if
+
+	// standard's post-title notification	
+	if( 'post' == $screen->id || 'page' == $screen->id ) {
+
+		wp_register_script( 'standard-post-editor', get_template_directory_uri() . '/js/admin.post.js' );
+		wp_enqueue_script( 'standard-post-editor' );
+	
 	} // end if
 	
 	// standard's admin menu controller

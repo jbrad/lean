@@ -41,14 +41,16 @@ img.social_option {
 
 /* Standard admin options styles */
 
-#standard-options div.updated, #standard-options .message {
+#standard-options div.updated, 
+#standard-options .message,
+#standard-post-editor {
 	color: #444;
 	background-color: #D0EDF3;
 	border-color: transparent;
 	margin: 15px 0 10px;
 }
 
-#standard-options #standard-info {
+#standard-options #standard-info, {
 	float: left;
 	width: 65%;
 	margin-right: 10px;
@@ -173,6 +175,18 @@ img.social_option {
 
 #standard-options input[disabled=disabled] {
 	color: #ccc;
+}
+
+/* Standard post editor notification styles */
+
+#standard-post-editor {
+	padding: 0.3em 0.6em;
+	border-radius: 3px;
+}
+
+#standard-post-editor p {
+	margin: .5em 0;
+	padding: 2px;
 }
 
 hr {
