@@ -8,7 +8,7 @@
 ?>
 <div id="footer" class="clearfix">
 	
-		<?php if( ! standard_is_offline() ) { ?>
+		<?php if( ! standard_is_offline() || is_user_logged_in() ) { ?>
 			<?php if( is_active_sidebar( 'sidebar-3' ) || is_active_sidebar( 'sidebar-4' ) || is_active_sidebar( 'sidebar-5' ) ) { ?>
 				<div id="footer-widgets" class="clearfix">
 					<div class="container">
