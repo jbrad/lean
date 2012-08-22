@@ -50,7 +50,7 @@ class Standard_SeoTitles {
 			$title = get_bloginfo( 'name' ) . ' | ' . __( 'Author Archives', 'standard' ); 
 		} elseif( is_single() ) {
 		
-			if( strlen( trim( get_the_title( $page_id) ) ) == 0 ) {
+			if( strlen( trim( get_the_title( $page_id ) ) ) == 0 ) {
 				$title = get_bloginfo( 'name' ) . ' | ' . get_bloginfo( 'description' );
 			} else {
 				$title = strip_tags( htmlspecialchars_decode( get_the_title( $page_id ) ) ) . ' | ' . get_bloginfo( 'name' );
@@ -73,6 +73,8 @@ class Standard_SeoTitles {
 			$title = get_bloginfo( 'name' ) . ' | ' . __( 'Archive', 'standard' ) . ' | ' . get_the_time( get_option( 'date_format' ) );
 		} elseif( is_tag() ) {
 			$title = get_bloginfo( 'name' ) . ' | ' . __( 'Tag Archive', 'standard' ) . ' | ' . single_tag_title( '', false );
+		} elseif( is_feed() ) {
+			$title = ' | ' . get_bloginfo( 'description' );
 		} // end if/else
 		
 		return $title;
