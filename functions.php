@@ -2339,10 +2339,6 @@ function standard_add_theme_stylesheets() {
 	// bootstrap-responsive
 	wp_register_style( 'bootstrap-responsive', get_template_directory_uri() . '/css/lib/bootstrap-responsive.css' );
 	wp_enqueue_style( 'bootstrap-responsive' ); 
-
-	// theme
-	wp_register_style( 'standard', get_stylesheet_directory_uri() . '/style.css' );
-	wp_enqueue_style( 'standard' ); 
 	
 	// contrast
 	$options = get_option( 'standard_theme_presentation_options' );
@@ -2360,9 +2356,13 @@ function standard_add_theme_stylesheets() {
 		wp_enqueue_style( 'standard-videopress' ); 
 		
 	} // end if
+	
+	// theme
+	wp_register_style( 'standard', get_stylesheet_directory_uri() . '/style.css' );
+	wp_enqueue_style( 'standard' ); 
 
 } // end add_theme_stylesheets
-add_action( 'wp_enqueue_scripts', 'standard_add_theme_stylesheets' );
+add_action( 'wp_enqueue_scripts', 'standard_add_theme_stylesheets', 999 );
 
 
 /**

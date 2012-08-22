@@ -28,7 +28,7 @@ class Standard_Ad_300x250 extends WP_Widget {
 			
 		} // end if
 		
-		add_action( 'wp_print_styles', array( &$this, 'register_widget_styles' ) );
+		add_action( 'wp_enqueue_scripts', array( &$this, 'register_widget_styles' ) );
 		
 	} // end constructor
 
