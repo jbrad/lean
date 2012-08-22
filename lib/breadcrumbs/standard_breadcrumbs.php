@@ -276,7 +276,7 @@ class Standard_Breadcrumbs {
 	 */
 	private static function get_author_display_name() {
 	
-		$author_data = get_userdata( get_query_var('author') );
+		$author_data = get_userdata( user_trailingslashit( get_query_var( 'author' ) ) );
 		
 		$author_link = '<a href="' . esc_html( get_author_posts_url( $author_data->ID ) ) . '">';
 			$author_link .= $author_data->display_name;
