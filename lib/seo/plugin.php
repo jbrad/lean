@@ -69,6 +69,21 @@ class Standard_SEO {
 
 			$html .= '<p id="search-results-title"><span id="post-title"></span>' . __( ' - ', 'standard' ) . '<span id="blog-title"></span></p>';
 			$html .= '<p id="search-results-meta"><span id="permalink"></span></p>';
+			
+			// Look to see if the user has the Google Profile URL specified
+			$current_user = wp_get_current_user();
+			if( '' != get_user_meta( $current_user->ID, 'google_plus', true ) ) {
+			
+				// Get the user's Google+ ID from their profile
+				$google_plus_id = explode( '/', user_trailingslashit( get_user_meta( $current_user->ID, 'google_plus', true ) ) );
+				$google_plus_id = $google_plus_id[ count( $google_plus_id ) - 1 ];
+				
+				// Now create the element
+				$html .= '<p id="google-plus-avatar">';
+					$html .= '<img src="https://profiles.google.com/s2/photos/profile/' . $google_plus_id . '" alt="" width="44" height="44" />';
+				$html .= '</p>';
+				
+			} // end if
 
 			$html .= '<p id="search-results-meta-description"><span id="date">Date</span> - <span id="description">' . get_post_meta( $post->ID, 'standard_seo_post_meta_description', true ) . '</span></p>';
 			$html .= '<span id="site-title" class="hidden">' . get_bloginfo( 'name' ) . '</span>';
