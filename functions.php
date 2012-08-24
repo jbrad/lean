@@ -1656,6 +1656,81 @@ function standard_save_post_layout_data( $post_id ) {
 add_action( 'save_post', 'standard_save_post_layout_data' );
 
 /**
+ * Add the post meta box for the link post format URL.
+ */
+function standard_add_url_field_to_link_post_format() {
+	
+	add_meta_box(
+		'link_format_url',
+		__( 'Link URL', 'standard' ),
+		'standard_link_url_field_display',
+		'post',
+		'side',
+		'high'
+	);
+	
+} // end hudson_add_url_to_link_post_type
+add_action( 'add_meta_boxes', 'standard_add_url_field_to_link_post_format' );
+
+/**
+ * Renders the input field for the URL.
+ * 
+ * @params	$post	The post on which this meta box is attached.
+ */
+function standard_link_url_field_display( $post ) {
+	
+	wp_nonce_field( plugin_basename( __FILE__ ), 'standard_link_url_field_nonce' );
+
+	echo '<input type="text" id="standard_link_url_field" name="standard_link_url_field" value="' . get_post_meta( $post->ID, 'standard_link_url_field', true ) . '" />';
+	
+} // end standard_link_url_field_display
+
+/**
+ * Sets the URL for the given post.
+ *
+ * @params	$post_id	The ID of the post that we're serializing
+ */
+function standard_save_link_url_data( $post_id ) {
+	
+	if( isset( $_POST['standard_link_url_field_nonce'] ) && isset( $_POST['post_type'] ) ) {
+	
+		// Don't save if the user hasn't submitted the changes
+		if( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
+			return;
+		} // end if
+		
+		// Verify that the input is coming from the proper form
+		if( ! wp_verify_nonce( $_POST['standard_link_url_field_nonce'], plugin_basename( __FILE__ ) ) ) {
+			return;
+		} // end if
+		
+		// Make sure the user has permissions to post
+		if( 'post' == $_POST['post_type']) {
+			if( ! current_user_can( 'edit_post', $post_id ) ) {
+				return;
+			} // end if
+		} // end if/else
+	
+		// Read the Link's URL
+		$link_url = '';
+		if( isset( $_POST['standard_link_url_field'] ) ) {
+			$link_url = esc_url( $_POST['standard_link_url_field'] );
+		} // end if
+		
+		// If the value exists, delete it first. I don't want to write extra rows into the table.
+		if ( 0 == count( get_post_meta( $post_id, 'standard_link_url_field' ) ) ) {
+			delete_post_meta( $post_id, 'standard_link_url_field' );
+		} // end if
+
+		// Update it for this post.
+		update_post_meta( $post_id, 'standard_link_url_field', $link_url );
+
+	} // end if
+
+} // end standard_save_post_layout_data
+add_action( 'save_post', 'standard_save_link_url_data' );
+
+/**
  * Adds the 'Standard' menu to the admin bar on the non-admin pages.
  */
 function standard_add_admin_bar_option() {
@@ -2732,7 +2807,7 @@ function standard_fallback_nav_menu( ) {
 if( ! function_exists( 'standard_process_link_post_format_content' ) ) {
 	function standard_process_link_post_format_content( $content ) {
 	
-		// If this is an image post type, remove the paragraph wrapper from it.
+		// If this is an link post type, remove the paragraph wrapper from it
 		if( 'link' == get_post_format( get_the_ID() ) ) {
 			$content = preg_replace( '/<p>\s*(<a .*>)?\s*(<\/a>)?\s*<\/p>/iU', '\1\2\3', $content );
 		} // end if
@@ -2867,27 +2942,33 @@ if( ! function_exists( 'standard_post_format_rss' ) ) {
 		// If it's a link post format, make sure the link and title are properly rendered
 		if( 'link' == get_post_format( get_the_ID() ) ) {
 			
+			// Get the post title and the post content
 			global $post;
 			$post_content = $post->post_content;
 			$post_title = $post->post_title;
 			
-			// Read the attribute of the anchor from the post format
-			$title = standard_get_link_post_format_attribute( 'title' );
-			$href = standard_get_link_post_format_attribute( 'href' );
-			$target = standard_get_link_post_format_attribute( 'target' );
+			// If there's no link meta data, then we'll handle this the 3.0 way. TODO mark this as deprecated.
+			if( '' == get_post_meta( get_the_ID(), 'standard_link_url_field', true ) ) {
 			
-			// Build up the link
-			$content = '<a href="' . $href . '" title="' . $title . '" target="' . $target . '">';
+				// Read the attribute of the anchor from the post format
+				$title = standard_get_link_post_format_attribute( 'title' );
+				$href = standard_get_link_post_format_attribute( 'href' );
+				$target = standard_get_link_post_format_attribute( 'target' );
+				
+				// Build up the link
+				$content = '<a href="' . $href . '" title="' . $title . '" target="' . $target . '">';
+				
+					if( strlen( trim( $post_title ) ) > 0 ) {
+						$content .= $post_title;
+					} elseif( strlen( trim( $title ) ) > 0 ) {
+						$content .= $title;
+					} else {
+						$content .= $post_content;
+					} // end if/else
+				
+				$content .= '</a>';
 			
-				if( strlen( trim( $post_title ) ) > 0 ) {
-					$content .= $post_title;
-				} elseif( strlen( trim( $title ) ) > 0 ) {
-					$content .= $title;
-				} else {
-					$content .= $post_content;
-				} // end if/else
-			
-			$content .= '</a>';
+			} // end if
 		
 		// If it's an image post format, make sure the featured image is prepended to the content
 		} elseif ( 'image' == get_post_format( get_the_ID() ) && '' != get_the_post_thumbnail( get_the_ID() ) ) { 
@@ -3226,7 +3307,6 @@ function standard_get_link_post_format_attribute( $attr ) {
 			break;
 			
 		default:
-			$result = '';
 			break;
 		
 	} // end switch

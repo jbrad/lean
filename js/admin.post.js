@@ -25,6 +25,24 @@
 			} // end if
 		
 		});
+		
+		// Initially hide the link post format unless this is a Link
+		if ('post-format-link' !== $('#post-formats-select').children(':checked').attr('id')) {
+			$('#link_format_url').hide();
+		} // end if
+
+		// Monitor which post format is selected
+		$('#post-formats-select').children()
+			.click(function () {
+
+				// If the link post format is selected, toggle the visibility
+				if ('post-format-link' === $(this).attr('id')) {
+					$('#link_format_url').show();
+				} else {
+					$('#link_format_url').hide();
+				} // end if/else
+
+			});
 	
 	});
 }(jQuery));

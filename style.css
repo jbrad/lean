@@ -970,6 +970,10 @@ a.post-permalink:hover {
 	float: right;
 }
 
+.post.format-link .link-description {
+	margin-top: 20px;
+}
+
 #standard-post-advertisement-image,
 #standard-post-advertisement-adsense {
 	text-align: center;
