@@ -72,7 +72,7 @@
 			} // end if
 			
 			// FitVid
-			$('.entry-content').fitVids();
+			$('.entry-content, .comment-text').fitVids();
 			
 		} // end if
 
