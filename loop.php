@@ -36,9 +36,9 @@
 					<span class="the-author"><a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>" title="<?php echo get_the_author_meta( 'display_name' ); ?>"><?php echo the_author_meta( 'display_name' ); ?></a>&nbsp;&mdash;&nbsp;</span>
 				<?php } // end if ?>
 				<?php if( strlen( trim( get_the_title() ) ) == 0 ) { ?>
-					<a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php printf( esc_attr__( '%s', 'standard' ), the_title_attribute( 'echo=0' ) ); ?>"><span class="the-time"><?php the_time( get_option( 'date_format' ) ); ?></span></a>
+					<a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php printf( esc_attr__( '%s', 'standard' ), the_title_attribute( 'echo=0' ) ); ?>"><span class="the-time updated"><?php the_time( get_option( 'date_format' ) ); ?></span></a>
 				<?php } else { ?>
-					<span class="the-time"><?php the_time( get_option( 'date_format' ) ); ?></span>
+					<span class="the-time updated"><?php the_time( get_option( 'date_format' ) ); ?></span>
 				<?php } // end if/else ?>
 				<?php if( comments_open() ) { ?>
 					<span class="the-comment-link">&mdash;&nbsp;<?php comments_popup_link( __( 'Leave a comment', 'standard' ), __( '1 Comment', 'standard' ), __( '% Comments', 'standard' ), '', '' ); ?></span>

@@ -32,9 +32,9 @@
 									<h1 class="post-title"><?php the_title(); ?></h1>	
 									<div class="post-header-meta">
 										<?php if( strlen( trim( get_the_title() ) ) == 0 ) { ?>
-											<a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php printf( esc_attr__( 'Permalink to %s', 'standard' ), the_title_attribute( 'echo=0' ) ); ?>"><span class="the-time"><?php the_time( get_option( 'date_format' ) ); ?></span></a>
+											<a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php printf( esc_attr__( 'Permalink to %s', 'standard' ), the_title_attribute( 'echo=0' ) ); ?>"><span class="the-time updated"><?php the_time( get_option( 'date_format' ) ); ?></span></a>
 										<?php } else { ?>
-											<span class="the-time"><?php the_time( get_option( 'date_format' ) ); ?></span>
+											<span class="the-time updated"><?php the_time( get_option( 'date_format' ) ); ?></span>
 										<?php } // end if/else ?>
 									</div><!-- /.post-header-meta -->
 								</div><!-- /.title-wrap -->
