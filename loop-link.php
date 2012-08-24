@@ -26,7 +26,7 @@
 				?>
 
 				<?php if( is_single() && '' !== get_the_title() ) { ?>
-					<h1 class="post-title">
+					<h1 class="post-title entry-title">
 						<a href="<?php echo $href; ?>" title="<?php echo strlen( trim( $title ) ) > 0 ? $title : $post_title; ?>" target="<?php echo $target; ?>" rel="bookmark">
 							<?php if( strlen( trim($post_title) ) > 0 ) { ?>
 								<?php echo $post_title; ?>
@@ -38,7 +38,7 @@
 						</a>
 					</h1>
 				<?php } else { ?>
-					<h2 class="post-title">
+					<h2 class="post-title entry-title">
 						<a href="<?php echo $href; ?>" title="<?php echo strlen( trim( $title ) ) > 0 ? $title : $post_title; ?>" target="<?php echo $target; ?>" rel="bookmark">
 							<?php if( strlen( trim($post_title) ) > 0 ) { ?>
 								<?php echo $post_title; ?>

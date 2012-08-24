@@ -22,7 +22,7 @@
 						 the_post(); ?>
 						<div id="post-<?php the_ID(); ?> format-standard" <?php post_class( 'post' ); ?>>
 							<div class="post-header clearfix">
-								<h1 class="post-title"><?php the_title(); ?></h1>	
+								<h1 class="post-title entry-title"><?php the_title(); ?></h1>	
 							</div> <!-- /.post-header -->						
 							<div id="content-<?php the_ID(); ?>" class="entry-content">
 								<?php the_content(); ?>
