@@ -2549,7 +2549,7 @@ function standard_add_admin_scripts() {
 	
 	} // end if
 	
-	// favicon upload script
+	// favicon and post/page upload script
 	if( 'toplevel_page_theme_options' == $screen->id || 'appearance_page_theme_options' == $screen->id ) {
 		
 		// jquery ui
@@ -3104,9 +3104,35 @@ function standard_attachment_fields_to_edit( $form_fields, $post ) {
 	$form_fields['post_title']['helps'] =	__( 'A title is required for search engines.', 'standard' );
 	$form_fields['image_alt']['helps'] = __( 'An alternate text description is required for search engines.', 'standard' );
 	
-	// If the alt field is empty, then we're populating it with the title
+	// If the alt field is empty, then we're populating it with the title of the post
 	if( '' == $form_fields['image_alt']['value'] ) {
-		$form_fields['image_alt']['value'] = $form_fields['post_title']['value'];
+
+		// First, get the parent post of this image (since each image is a child post)	
+		$parent_post = get_post( $post->post_parent );
+		
+		// If the parent post title is empty or is an auto draft, then we'll go with the file name
+		if( '' == get_the_title( $parent_post->ID ) || 'auto draft' == strtolower( get_the_title( $parent_post->ID ) ) ) {
+		
+			$post_title =  $form_fields['post_title']['value'];
+			
+			// But first, we replace all '.' with ':' to cover timestamps
+			$post_title =  str_replace( '.', ':', $post_title );
+			
+			// And we replace all underscores with hyphens
+			$post_title = str_replace( '_', '-', $post_title );
+			
+			// And we replace all spaces with hyphens
+			$post_title = str_replace( ' ', '-', $post_title );
+			
+		// Otherwise, let's go with the post title
+		} else {
+			$post_title = get_the_title( $parent_post->ID );
+		} // end if/else
+		
+		// Set the image alt tag equal to that of the post title we've determined
+		$form_fields['post_title']['value'] = $post_title;
+		$form_fields['image_alt']['value'] = $post_title;
+		
 	} // end if
 	
 	return $form_fields;
