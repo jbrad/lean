@@ -1743,7 +1743,7 @@ function standard_add_admin_bar_option() {
 			array(
 				'id'	=>	'standard_options',
 				'title'	=>	__( 'Standard', 'standard' ),
-				'href'	=>	home_url() . '/wp-admin/admin.php?page=theme_options'
+				'href'	=>	site_url() . '/wp-admin/admin.php?page=theme_options'
 			)
 		);
 		
@@ -1753,7 +1753,7 @@ function standard_add_admin_bar_option() {
 				'id'		=>	'standard_theme_global_options',
 				'title'		=>	__( 'Global', 'standard' ),
 				'parent'	=>	'standard_options',
-				'href'		=>	home_url() . '/wp-admin/admin.php?page=theme_options&tab=standard_theme_global_options'
+				'href'		=>	site_url() . '/wp-admin/admin.php?page=theme_options&tab=standard_theme_global_options'
 			)
 		);
 	
@@ -1763,7 +1763,7 @@ function standard_add_admin_bar_option() {
 				'id'		=>	'standard_theme_presentation_options',
 				'title'		=>	__( 'Presentation', 'standard' ),
 				'parent'	=>	'standard_options',
-				'href'		=>	home_url() . '/wp-admin/admin.php?page=theme_options&tab=standard_theme_presentation_options'
+				'href'		=>	site_url() . '/wp-admin/admin.php?page=theme_options&tab=standard_theme_presentation_options'
 			)
 		);
 		
@@ -1773,7 +1773,7 @@ function standard_add_admin_bar_option() {
 				'id'		=>	'standard_theme_social_options',
 				'title'		=>	__( 'Social', 'standard' ),
 				'parent'	=>	'standard_options',
-				'href'		=>	home_url() . '/wp-admin/admin.php?page=theme_options&tab=standard_theme_social_options'
+				'href'		=>	site_url() . '/wp-admin/admin.php?page=theme_options&tab=standard_theme_social_options'
 			)
 		);
 		
@@ -1783,7 +1783,7 @@ function standard_add_admin_bar_option() {
 				'id'		=>	'standard_theme_publishing_options',
 				'title'		=>	__( 'Publishing', 'standard' ),
 				'parent'	=>	'standard_options',
-				'href'		=>	home_url() . '/wp-admin/admin.php?page=theme_options&tab=standard_theme_publishing_options'
+				'href'		=>	site_url() . '/wp-admin/admin.php?page=theme_options&tab=standard_theme_publishing_options'
 			)
 		);
 		
@@ -1804,7 +1804,7 @@ function standard_add_site_mode_admin_bar_note() {
 			array(
 				'id'	=>	'standard_theme_site_mode',
 				'title'	=>	__( 'The site is currently offline. To bring it back online, click here.', 'standard' ),
-				'href'	=>	home_url() . '/wp-admin/themes.php?page=theme_options'
+				'href'	=>	site_url() . '/wp-admin/themes.php?page=theme_options'
 			)
 		);
 	} // end if
