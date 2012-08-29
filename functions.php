@@ -2126,6 +2126,39 @@ if( ! function_exists( 'standard_set_theme_colors' ) ) {
 	add_action( 'init', 'standard_set_theme_colors' );
 } // end if
 
+/**
+ * Determine which search form to display based on if the author has enabled
+ * Google Custom Search Widget activated.
+ */
+function standard_get_search_form() {
+	
+	// First, detect if the Google Custom Search widget is active
+	if( is_active_widget( false, '', 'standard-google-custom-search', true ) ) {
+
+		// Read the author's Google Search Engine ID. If they have multiple instances,
+		// then we need to read the most recent instance of the widget.
+		$gcse_options = get_option( 'widget_standard-google-custom-search' );
+		$gcse_options = $gcse_options[ count( $gcse_options ) ];
+		
+		// Programmatically create the widget	
+		$o = new Google_Custom_Search();
+		$o->widget( 
+			array(
+				'before_widget' => '', 
+				'after_widget' 	=> '' 
+			), 
+			array( 
+				'gcse_content' 	=> 	$gcse_options['gcse_content'] 
+			) 
+		);
+	
+	// Otherwise, display the default 
+	} else {
+		get_search_form();
+	} // end if
+	
+} // end standard_get_google_search_form
+
 /* ----------------------------------------------------------- *
  * 4. Custom Header
  * ----------------------------------------------------------- */
