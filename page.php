@@ -19,7 +19,11 @@
 							
 				<div id="main" class="<?php echo 'full_width_layout' == $presentation_options['layout'] ? 'span12 fullwidth' : 'span8'; ?> clearfix" role="main">
 				
-					<?php get_template_part( 'breadcrumbs' ); ?>
+					<?php 
+					if( ! is_front_page() ) {
+						get_template_part( 'breadcrumbs' );
+					} // end if
+					?>
 				
 					<?php if ( have_posts() ) { ?>
 						<?php while ( have_posts() ) {
