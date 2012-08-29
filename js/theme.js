@@ -74,6 +74,11 @@
 			// FitVid
 			$('.entry-content, .comment-text').fitVids();
 			
+			// If there is no content below the video container, then kill the margin
+			if(0 < $('.video-container').length && 0 === $('.video-container').next().length) {
+				$('.video-container, .fluid-width-video-wrapper').css('margin-bottom', '0px');
+			} // end if
+			
 		} // end if
 
 	});
