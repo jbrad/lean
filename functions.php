@@ -2414,15 +2414,6 @@ function standard_add_theme_stylesheets() {
 	// bootstrap-responsive
 	wp_register_style( 'bootstrap-responsive', get_template_directory_uri() . '/css/lib/bootstrap-responsive.css' );
 	wp_enqueue_style( 'bootstrap-responsive' ); 
-	
-	// contrast
-	$options = get_option( 'standard_theme_presentation_options' );
-	if( 'dark' == $options['contrast'] ) {
-	
-		wp_register_style( 'standard-contrast', get_template_directory_uri() . '/css/theme.contrast-light.css' );
-		wp_enqueue_style( 'standard-contrast' ); 
-		
- 	} // end if
 
 	// if VideoPress is loaded, we need to add styles for responsive
 	if( class_exists( 'VideoPress' ) ) {
@@ -2435,6 +2426,15 @@ function standard_add_theme_stylesheets() {
 	// theme
 	wp_register_style( 'standard', get_stylesheet_directory_uri() . '/style.css' );
 	wp_enqueue_style( 'standard' ); 
+	
+	// contrast
+	$options = get_option( 'standard_theme_presentation_options' );
+	if( 'dark' == $options['contrast'] ) {
+	
+		wp_register_style( 'standard-contrast', get_template_directory_uri() . '/css/theme.contrast-light.css' );
+		wp_enqueue_style( 'standard-contrast' ); 
+		
+ 	} // end if
 
 } // end add_theme_stylesheets
 add_action( 'wp_enqueue_scripts', 'standard_add_theme_stylesheets', 999 );
