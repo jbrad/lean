@@ -64,6 +64,23 @@ input[type="submit"]:hover {
 	padding: 0 0 40px;
 }
 
+#head-wrapper {
+	position: relative;
+}
+
+#hgroup { 
+	padding: 45px 0 20px; 
+	position: relative; 
+}
+
+#logo { 
+	float: right; 
+}
+
+#header-widget { 
+	float: left; 
+}
+
 /* ------------------------------------------------------------------------ 3. Menu-Navigation */
 
 .topbar .social-icons {
