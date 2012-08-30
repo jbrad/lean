@@ -1808,6 +1808,16 @@ ul#sitemap-posts ul {
 
 /* ------------------------------------------------------------------------ 12. IE8 Styles */
 
+#ie8 .thumbnail,
+#ie8 .thumbnail a,
+#ie8 .thumbnail a img {
+	width: auto;
+}
+
+#ie8 .post-title a {
+	display: block;
+}
+
 #ie8 .format-image img {
 	width: auto\9;
 }
