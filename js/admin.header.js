@@ -52,10 +52,10 @@ function processStandardHeader($) {
 		
 		// Position the logo making sure that we can get the closest margins as possible
 		$background = $('#standard-theme-background');
-		var iTopMargin = Math.round( $background.height() / 2 ) - Math.round( $logo.height() / 4 );
-		if( Math.round( $background.height() / 2 ) - Math.round( ( $('#name').height() + $('#desc').height() ) / 2 ) ) {
+		var iTopMargin = Math.round( $background.height() / 2 ) - Math.round( $logo.height() / 2 );
+		if(0 < $.trim($('#name').text()).length) {
 			iTopMargin = Math.round( $background.height() / 2 ) - Math.round( ( $('#name').height() + $('#desc').height() ) / 2 );
-		} // end if/else
+		} // end if
 		
 		$logo.css({
 			marginTop: iTopMargin
