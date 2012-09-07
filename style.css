@@ -1637,11 +1637,15 @@ table#wp-calendar th, table#wp-calendar td {
 	padding: 10px 0;
 }
 
+#footer-links {
+	float: right;
+}
 
 #sub-floor #credit {
 	color: #666;
 	padding: 10px 0;
 	text-align: right;
+	float: right;
 }
 
 #sub-floor #credit a {
@@ -2103,8 +2107,20 @@ ul#sitemap-posts ul {
 		padding-right: 20px;
 	}
 	
-	#sub-floor #credit {
+	#footer .container {
+		padding-left: 0;
+		padding-right: 0;
+	}
+	
+	#footer #footer-links {
+		float: none;
+		padding: 0 20px;
+	}
+	
+	#footer #credit {
 		text-align: center;
+		float: none;
+		padding: 0 20px;
 	}
 	
 	/* post format status */
