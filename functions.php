@@ -3612,4 +3612,37 @@ function standard_has_header_text() {
 	return ! ( 'blank' == get_theme_mod( 'header_textcolor', HEADER_TEXTCOLOR ) || '' == get_theme_mod( 'header_textcolor', HEADER_TEXTCOLOR ) );
 } // end standard_has_header_text
 
+/**
+ * Determines if the incoming URL is a gplus.to URL or a raw Google+ URL.
+ *
+ * @param	$url	The URL to evaluate
+ * @return			Whether or not the URL is a gplus.to URL
+ */
+function standard_is_gplusto_url( $url ) {
+	return strpos( $url, 'gplus.to' );
+} // end standard_is_gplusto_url
+
+/**
+ * Retrieves the user's Google+ ID from their gplus.to address.
+ *
+ * @param	$url	The URL to evaluate
+ * @return			The full Google+ URL from the incoming URL.
+ */
+function standard_get_google_plus_from_gplus( $url ) {
+
+	$gplus_url = $url;
+	
+	// Get the headers from the gplus.to, URL
+	$headers = @get_headers( $url );
+	$url_parts = explode( '/', $headers[5] );
+	
+	// If the 5th index exists, the Google+ ID will be here
+	if( isset( $url_parts[5] ) ) {
+		$gplus_url = 'https://plus.google.com/' . $url_parts[5];
+	} // end if
+	
+	return $gplus_url;
+	
+} // standard_get_google_plus_from_gplus
+
 ?>
