@@ -97,6 +97,11 @@ h6 {
 	border-color: #303030;
 }
 
+#comments .bypostauthor > .comment-container {
+    background: #2F2F2F;
+    border-right: 5px solid #F9F9F9;
+}
+
 /* sidebar */
 table#wp-calendar caption {
 	background-color: #202020;
