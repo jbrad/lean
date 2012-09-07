@@ -76,7 +76,15 @@
 			
 			// If there is no content below the video container, then kill the margin
 			if(0 < $('.video-container').length && 0 === $('.video-container').next().length) {
-				$('.video-container, .fluid-width-video-wrapper').css('margin-bottom', '0px');
+				$('.video-container, .fluid-width-video-wrapper').css('margin-bottom', '0');
+			} // end if
+			
+			// If there is no content below the link container, then kill the margin
+			if(0 === $('.format-link .entry-content').children('p').length) {
+				$('.format-link .entry-content').css({
+					marginTop: 0,
+					paddingBottom: 0
+				});
 			} // end if
 			
 		} // end if
