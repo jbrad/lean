@@ -125,3 +125,9 @@ table#wp-calendar caption {
 	background-color: #202020;
 	background-color: rgba(41,41,41,0.4);
 }
+
+/* jetpack comments */
+.comment-container #respond, #respond {
+	background: #454545; 
+	padding: 20px;
+}
