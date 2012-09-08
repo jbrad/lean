@@ -34,11 +34,11 @@
 			
 			// if the image has a URL, setup the anchor...
 			if( '' != $url ) {
-				$html .= '<a href="' . esc_url( $url ) . '" class="fademe" target="_blank">';
+				$html .= '<a href="' . esc_url( str_replace( 'https://', 'http://', $url ) ) . '" class="fademe" target="_blank">';
 			} // end if
 			
-			// display the image
-			$html .= '<img src="' . esc_url( $icon ) . '" alt="" />';
+				// display the image
+				$html .= '<img src="' . esc_url( $icon ) . '" alt="" />';
 			
 			// ...and if the image has a URL, close the anchor
 			if( '' != $url ) {
