@@ -30,8 +30,14 @@
 	                        <?php if( standard_is_date_archive() ) { ?>
 	                        	<?php echo standard_get_date_archive_label(); ?>
 	                    	<?php } elseif ( is_author() ) { ?>
-	                    		<?php $author_data = get_userdata( user_trailingslashit( get_query_var( 'author' ) ) ); ?>
-	                        	<?php echo $author_data->display_name; ?>
+	                    	
+	                    		<?php 
+	                    			$author_data = standard_is_using_pretty_permalinks() ? 
+	                    				get_userdata( get_query_var( 'author' ) )  : 
+	                    				get_userdata( user_trailingslashit( get_query_var( 'author' ) ) );
+	                    			echo $author_data->display_name; 
+	                    		?>
+	                        	
 	                        <?php } elseif ( '' == single_tag_title( '', false ) ) { ?> 
 	                            <?php echo get_cat_name( get_query_var( 'cat' ) ); ?> 
 	                        <?php } else { ?> 
