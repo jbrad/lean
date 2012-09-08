@@ -145,3 +145,9 @@ table#wp-calendar caption {
 	background: #454545; 
 	padding: 20px;
 }
+
+/* 404 page */
+
+.error404 #nothing-found h1 {
+	color: #fff;
+}
