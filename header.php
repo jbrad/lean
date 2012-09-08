@@ -15,7 +15,10 @@
 		<?php } // end if ?>
 		<?php global $post; ?>
 		<?php if( standard_using_native_seo() && ( ( is_single() || is_page() ) && ( 0 != strlen( trim( ( $google_plus = get_user_meta( $post->post_author, 'google_plus', true ) ) ) ) ) ) ) { ?>
-			<link rel="author" href="<?php echo trailingslashit( $google_plus ) ?>posts"/>
+			<?php if( false != standard_is_gplusto_url( $google_plus ) ) { ?>
+				<?php $google_plus = standard_get_google_plus_from_gplus( $google_plus ); ?>
+			<?php } // end if ?>
+			<link rel="author" href="<?php echo trailingslashit( $google_plus ); ?>"/>
 		<?php } // end if ?>
 		<?php $global_options = get_option( 'standard_theme_global_options' ); ?>
 		<?php if( '' != $global_options['google_analytics'] ) { ?>
