@@ -6,6 +6,12 @@
 	margin-bottom: 0;
 }
 
+.gsc-search-box-tools .gsc-search-box .gsc-input {
+	-moz-box-shadow: none;
+	-webkit-box-shadow: none;
+	box-shadow:none;
+}
+
 /* Smartphones */
 @media (max-width: 480px) {
 	.standard-google-custom-search form div input[type=text] {
