@@ -275,9 +275,17 @@ class Standard_Breadcrumbs {
 	 * Returns the name of the author based on the ID in the query string.
 	 */
 	private static function get_author_display_name() {
-	
-		$author_data = get_userdata( user_trailingslashit( get_query_var( 'author' ) ) );
+
+		global $wp_rewrite;
 		
+		// If we're using permalinks, then we need to add user_trailingslashit;
+		// Otherwise, we use the old way of doing it.
+		if( standard_is_using_pretty_permalinks() ) { 		
+			$author_data = get_userdata( get_query_var( 'author' ) );
+		} else {
+			$author_data = get_userdata( user_trailingslashit( get_query_var( 'author' ) ) );			
+		} // end if
+
 		$author_link = '<a href="' . esc_html( get_author_posts_url( $author_data->ID ) ) . '">';
 			$author_link .= $author_data->display_name;
 		$author_link .= '</a>';

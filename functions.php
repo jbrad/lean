@@ -3617,6 +3617,7 @@ function standard_has_header_text() {
  *
  * @param	$url	The URL to evaluate
  * @return			Whether or not the URL is a gplus.to URL
+ * @since	3.2
  */
 function standard_is_gplusto_url( $url ) {
 	return strpos( $url, 'gplus.to' );
@@ -3627,6 +3628,7 @@ function standard_is_gplusto_url( $url ) {
  *
  * @param	$url	The URL to evaluate
  * @return			The full Google+ URL from the incoming URL.
+ * @since	3.2
  */
 function standard_get_google_plus_from_gplus( $url ) {
 
@@ -3644,5 +3646,18 @@ function standard_get_google_plus_from_gplus( $url ) {
 	return user_trailingslashit( $gplus_url );
 	
 } // standard_get_google_plus_from_gplus
+
+/**
+ * Determines whether or not the user is using pretty permalinks.
+ *
+ * @return	True if pretty permalinks are enabled; false, otherwise.
+ * @since	3.2
+ */
+function standard_is_using_pretty_permalinks() {
+	
+	global $wp_rewrite;
+	return '/%postname%/' == $wp_rewrite->permalink_structure;
+	
+} // end standard_is_using_pretty_premalinks
 
 ?>
