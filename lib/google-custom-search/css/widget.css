@@ -12,6 +12,27 @@
 	box-shadow:none;
 }
 
+.error404 form.gsc-search-box {
+	background: transparent;
+	border-width: 1px;
+}
+
+.error404 .cse .gsc-search-button input.gsc-search-button-v2,
+.error404 input.gsc-search-button-v2 {
+	margin-top: 0;
+}
+
+.error404 #main table {
+	margin: 0 0 2px 0!important;
+	border: none;
+}
+
+.error404 #main table th,
+.error404 #main table td {
+	padding: 4px;
+	border: none;
+}
+
 /* Smartphones */
 @media (max-width: 480px) {
 	.standard-google-custom-search form div input[type=text] {
