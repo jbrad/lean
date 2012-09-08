@@ -717,29 +717,33 @@ p.wp-caption-text {
 
 .wp-pagenavi a, .wp-pagenavi .pages, .wp-pagenavi .current {
 	background: #fff;
-  float: left;
-  display: block;
-  padding: 0 14px;
-  line-height: 34px;
-  text-decoration: none;
-  border: 1px solid #ddd;
-  border-left-width: 0;
+	float: left;
+	display: block;
+	padding: 0 14px;
+	line-height: 34px;
+	text-decoration: none;
+	border: 1px solid #ddd;
+	border-left-width: 0;
+}
+
+.wp-pagenavi .extend { 
+	display: none; 
 }
 
 .wp-pagenavi a:hover,
 .wp-pagenavi .active a {
-  background-color: #f5f5f5;
+ 	background-color: #f5f5f5;
 }
 
 .wp-pagenavi .current {
-  color: #999999;
-  cursor: default;
+	color: #999999;
+	cursor: default;
 }
 
 .wp-pagenavi .current {
-  color: #999999;
-  cursor: default;
-  background-color: transparent;
+	color: #999999;
+	cursor: default;
+	background-color: transparent;
 }
 
 .wp-pagenavi .pages {
@@ -1638,7 +1642,7 @@ table#wp-calendar th, table#wp-calendar td {
 }
 
 #footer-links {
-	float: right;
+	float: left;
 }
 
 #sub-floor #credit {
@@ -1704,6 +1708,7 @@ body.error404 {
 .no-results .entry-content {
 	padding: 20px 0;
 }
+
 
 /* ------------------------------------------------------------------------ 11. Page Templates */
 
@@ -2067,6 +2072,12 @@ ul#sitemap-posts ul {
 	
 	.navbar .btn-navbar {
 		margin-left: 15px;
+	}
+	
+	/* wp-pagnavi */
+	.wp-pagenavi .larger, 
+	.wp-pagenavi .smaller { 
+		display: none; 
 	}
 	
 			
