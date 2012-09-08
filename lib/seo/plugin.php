@@ -74,9 +74,17 @@ class Standard_SEO {
 			$current_user = wp_get_current_user();
 			if( '' != get_user_meta( $current_user->ID, 'google_plus', true ) ) {
 			
-				// Get the user's Google+ ID from their profile
-				$google_plus_id = explode( '/', user_trailingslashit( get_user_meta( $current_user->ID, 'google_plus', true ) ) );
-				$google_plus_id = $google_plus_id[ count( $google_plus_id ) - 1 ];
+				// Determine if the user is using a gplus.to address
+				$google_plus_url = user_trailingslashit( get_user_meta( $current_user->ID, 'google_plus', true ) );
+				if( standard_is_gplusto_url ( $google_plus_url ) ) {
+					$google_plus_url = standard_get_google_plus_from_gplus( $google_plus_url ); 					
+				} // end if/else
+				
+				// Read the URL into an array
+				$google_plus_id = explode( '/',  $google_plus_url );
+				
+				// Note the third index of this array should alwas be at 3 after user_trailingslashit
+				$google_plus_id = $google_plus_id[3];
 				
 				// Now create the element
 				$html .= '<p id="google-plus-avatar">';

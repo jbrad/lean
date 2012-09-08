@@ -3641,7 +3641,7 @@ function standard_get_google_plus_from_gplus( $url ) {
 		$gplus_url = 'https://plus.google.com/' . $url_parts[5];
 	} // end if
 	
-	return $gplus_url;
+	return user_trailingslashit( $gplus_url );
 	
 } // standard_get_google_plus_from_gplus
 
