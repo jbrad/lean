@@ -85,6 +85,18 @@ img {
 	margin-right: auto !important; 
 }
 
+
+/* override Bootstrap span class that was causing issues with some post_class() tags */
+[class*="span"] {
+    float: none;
+    margin-left: 0;
+}
+
+[class^="span"] {
+    float: left;
+    margin-left: 20px;
+}
+
 input[type="submit"] {
 	cursor: pointer;
 	display: inline-block;
