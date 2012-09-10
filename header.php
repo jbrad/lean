@@ -49,10 +49,6 @@
 		
 		<?php get_template_part( 'lib/breadcrumbs/standard_breadcrumbs' ); ?>
 		
-		
-		<div class="">hello world this is a an araea</div>
-		
-		
 		<?php if( ! has_nav_menu( 'menu_below_logo' ) || has_nav_menu( 'menu_above_logo' ) ) { ?>
 			<div id="menu-above-header" class="menu-navigation navbar navbar-fixed-top">
 				<div class="navbar-inner ">
