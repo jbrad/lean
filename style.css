@@ -385,6 +385,7 @@ body {
 
 #head-wrapper {
 	position: relative;
+	overflow: hidden;
 }
 
 
