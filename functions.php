@@ -452,16 +452,18 @@ function standard_theme_presentation_options_validate( $input ) {
  * ----------------------------- */
 
 /**
- * Defines the default values for Standard's social options.
+ * Loads the social icons from the 'images/social/small' directory.
+ *
+ * @return		A list of the URL's to each of the available icons.
+ * @since		3.1
  */
-function get_standard_theme_default_social_options() {
+function standard_load_available_social_icons() {
 
-	// Build up the semicolon delimited string of the default icons
 	$available_icons = '';
 	if( $handle = opendir( get_template_directory() . '/images/social/small' ) ) {
 	
 		while( false !== ( $filename = readdir( $handle ) ) ) {
-			if( $filename != '.' && $filename != '..' ) {
+			if( '.' != $filename && '..' != $filename && '.ds_store' != strtolower( $filename ) ) {
 				$available_icons .= get_template_directory_uri() . '/images/social/small/' . $filename . ';';
 			} // end if
 		} // end while
@@ -469,13 +471,42 @@ function get_standard_theme_default_social_options() {
 		closedir( $handle );
 		
 	} // end if
+	
+	return $available_icons;
 
+} // end standard_test
+
+/**
+ * Looks for new social icons in the social icon directory and adds it to the available icon array.
+ * Fires on theme activation.
+ *
+ * @since	3.1
+ */
+function standard_refresh_available_social_icons() {
+	
+	// Load the social options
+	$social_options = get_option( 'standard_theme_default_social_options' );
+	
+	// Update the available icons with what's in the directory
+	$social_options['available-social-icons'] = standard_load_available_social_icons();
+	
+	// Save the option
+	update_option( 'standard_theme_social_options', $social_options );
+	
+} // end standard_todo
+add_action( 'init', 'standard_refresh_available_social_icons' );
+
+/**
+ * Defines the default values for Standard's social options.
+ */
+function get_standard_theme_default_social_options() {
+	
 	$defaults = array(
 		'active-social-icons'		=> '',
-		'available-social-icons' 	=> $available_icons
+		'available-social-icons' 	=> standard_load_available_social_icons()
 	);
 	
-	return apply_filters ( 'standard_theme_default_social_options', $defaults );
+	return apply_filters ( 'standard_theme_social_options', $defaults );
 
 } // end get_standard_theme_default_social_options
 
@@ -1246,14 +1277,14 @@ function standard_is_current_version() {
 		
 		// If we're here, then this is the first time the user is installing a version of Standard
 		// that isn't following a preview.
-		update_option( 'standard_theme_version', '3.0' );
+		update_option( 'standard_theme_version', '3.1' );
 		$is_current_version = true;
 		
 	} // end if
 	
 	// Now we'll look to see if the version is actually 3.0. This will be the standard way to detect moving forward.
 	if( ! $is_current_version ) {
-		$is_current_version = '3.0' == get_option( 'standard_theme_version' );
+		$is_current_version = '3.1' == get_option( 'standard_theme_version' );
 	} // end if
 	
 	return $is_current_version;
@@ -2654,12 +2685,12 @@ function standard_activate_theme() {
 			get_standard_theme_default_publishing_options();
 
 			// Set the default gravatar only if this is the first install
-			if( '3.0' != get_option( 'standard_theme_version' ) ) {
+			if( '3.1' != get_option( 'standard_theme_version' ) ) {
 				update_option( 'avatar_default', 'retro' );
 			} // end if
 
 			// Set the version
-			update_option( 'standard_theme_version', '3.0' );
+			update_option( 'standard_theme_version', '3.1' );
 
 		} else {
 			
