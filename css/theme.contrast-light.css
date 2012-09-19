@@ -151,3 +151,9 @@ table#wp-calendar caption {
 .error404 #nothing-found h1 {
 	color: #fff;
 }
+
+/* footer */
+
+#footer {
+	background: #191919;
+}
