@@ -61,6 +61,11 @@ function processStandardHeader($) {
 			marginTop: iTopMargin
 		}).fadeIn('fast');
 		
+		// If the background image's height is smaller than the logo, then set the logo's height equal to background image's height
+		if($background.height() < $logo.height()) {
+			$logo.height($background.height());
+		} // end if
+		
 	} else {
 	
 		$('#header-top').css('margin-bottom', '0');
