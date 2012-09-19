@@ -3472,7 +3472,7 @@ function standard_truncate_text( $string, $character_limit = 50, $truncation_ind
  * @return	True if 'WordPress SEO', 'All In One SEO', 'Platinum SEO Pack', or 'wpSEO' are installed.
  */
 function standard_using_native_seo() {
-	return ! ( defined( 'WPSEO_URL' ) || class_exists( 'All_in_One_SEO_Pack' ) || class_exists( 'Platinum_SEO_Pack' ) || class_exists( 'wpSEO_Base' ) );
+	return ! ( defined( 'WPSEO_URL' ) || class_exists( 'All_in_One_SEO_Pack' ) || class_exists( 'Platinum_SEO_Pack' ) );
 } // end standard_using_native_seo 
 
 /**
