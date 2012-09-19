@@ -459,22 +459,37 @@ function standard_theme_presentation_options_validate( $input ) {
  */
 function standard_load_available_social_icons() {
 
+	// Read the currently active social icons
+	$social_icons = get_option( 'standard_theme_social_options' );
+	$active_icons = $social_icons['active-social-icons'];
+
 	$available_icons = '';
 	if( $handle = opendir( get_template_directory() . '/images/social/small' ) ) {
 	
 		while( false !== ( $filename = readdir( $handle ) ) ) {
-			if( '.' != $filename && '..' != $filename && '.ds_store' != strtolower( $filename ) ) {
-				$available_icons .= get_template_directory_uri() . '/images/social/small/' . $filename . ';';
-			} // end if
-		} // end while
 		
+			// If we're not looking at the directory, the top-level directory, or the mac .DS_Store
+			if( '.' != $filename && '..' != $filename && '.ds_store' != strtolower( $filename ) ) {
+			
+				// Get the new icons file name
+				$new_icon = get_template_directory_uri() . '/images/social/small/' . $filename . ';';
+
+				// If it's not already in the available icons. Also make sure not to display any icons already available in active icons
+				if( false == strpos( $available_icons, $new_icon ) && ! is_numeric( strpos( $active_icons, $new_icon ) ) ) {
+					$available_icons .= $new_icon;	
+				} // end if
+				
+			} // end if
+			
+		} // end while
+
 		closedir( $handle );
 		
 	} // end if
 	
 	return $available_icons;
 
-} // end standard_test
+} // end standard_load_available_social_icons
 
 /**
  * Looks for new social icons in the social icon directory and adds it to the available icon array.
@@ -483,18 +498,14 @@ function standard_load_available_social_icons() {
  * @since	3.1
  */
 function standard_refresh_available_social_icons() {
+
+	$social_icons = get_option( 'standard_theme_social_options' );
+	$social_icons['available-social-icons'] = standard_load_available_social_icons();
 	
-	// Load the social options
-	$social_options = get_option( 'standard_theme_default_social_options' );
-	
-	// Update the available icons with what's in the directory
-	$social_options['available-social-icons'] = standard_load_available_social_icons();
-	
-	// Save the option
-	update_option( 'standard_theme_social_options', $social_options );
-	
+	update_option( 'standard_theme_social_options', $social_icons );
+
 } // end standard_todo
-add_action( 'init', 'standard_refresh_available_social_icons' );
+add_action( 'after_setup_theme', 'standard_refresh_available_social_icons' );
 
 /**
  * Defines the default values for Standard's social options.
@@ -3648,7 +3659,7 @@ function standard_has_header_text() {
  *
  * @param	$url	The URL to evaluate
  * @return			Whether or not the URL is a gplus.to URL
- * @since	3.2
+ * @since	3.1
  */
 function standard_is_gplusto_url( $url ) {
 	return strpos( $url, 'gplus.to' );
@@ -3659,7 +3670,7 @@ function standard_is_gplusto_url( $url ) {
  *
  * @param	$url	The URL to evaluate
  * @return			The full Google+ URL from the incoming URL.
- * @since	3.2
+ * @since	3.1
  */
 function standard_get_google_plus_from_gplus( $url ) {
 
@@ -3682,7 +3693,7 @@ function standard_get_google_plus_from_gplus( $url ) {
  * Determines whether or not the user is using pretty permalinks.
  *
  * @return	True if pretty permalinks are enabled; false, otherwise.
- * @since	3.2
+ * @since	3.1
  */
 function standard_is_using_pretty_permalinks() {
 	
