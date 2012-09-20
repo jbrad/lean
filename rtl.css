@@ -12,6 +12,7 @@
 	5. Sidebar
 		-Widgets
 	6. Footer
+	7. IE8
 */
 
 
@@ -326,8 +327,13 @@ table#wp-calendar tfoot td#next {
 	text-align: left;
 }
 
-/* ------------------------------------------------------------------------ 6. Footer */
+/* ------------------------------------------------------------------------ 7. IE8 */
 
 #sub-floor #credit {
 	text-align: left;
+}
+
+#ie8 #menu-above-header .navbar-inner,
+#ie8 #menu-below-header .navbar-inner,{
+	float:right;
 }

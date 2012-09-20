@@ -1879,6 +1879,13 @@ ul#sitemap-posts ul {
 	min-height: 50px;
 }
 
+#ie8 #menu-above-header .navbar-inner,
+#ie8 #menu-below-header .navbar-inner,{
+	width:100%;
+	position:relative;
+	float:left;
+}
+
 /* ------------------------------------------------------------------------ 13. inline-grid */
 
 .inline-grid { display: block; overflow: hidden; }
