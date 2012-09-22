@@ -146,6 +146,13 @@ input[type="submit"]:hover {
 	padding-right: 0;
 }
 
+blockquote {
+	padding: 0 15px 0 0;
+	border-right: 5px solid #eee;
+	border-left: 0;
+	text-align: right;
+}
+
 /* Post Format Video */
 
 .format-video p, .format-video h1, .format-video h2, .format-video h3, .format-video blockquote  {
