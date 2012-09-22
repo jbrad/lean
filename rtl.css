@@ -146,6 +146,10 @@ input[type="submit"]:hover {
 	padding-right: 0;
 }
 
+.entry-content ol {
+	margin: 0 25px 9px 0;	
+}
+
 blockquote {
 	padding: 0 15px 0 0;
 	border-right: 5px solid #eee;
