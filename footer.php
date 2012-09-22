@@ -6,6 +6,7 @@
  * @since 3.0
  */
 ?>
+
 <div id="footer" class="clearfix">
 	
 		<?php if( ! standard_is_offline() || is_user_logged_in() ) { ?>
