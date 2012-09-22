@@ -331,7 +331,7 @@ function logo_display() {
 /**
  * Renders the left-sidebar layout option.
  *
- * @params	$args	The array of options used for rendering the option. Includes a path to the option's image.
+ * @param	$args	The array of options used for rendering the option. Includes a path to the option's image.
  */
 function left_sidebar_presentation_display( $args ) {
 	
@@ -347,7 +347,7 @@ function left_sidebar_presentation_display( $args ) {
 /**
  * Renders the right-sidebar layout option.
  *
- * @params	$args	The array of options used for rendering the option. Includes a path to the option's image.
+ * @param	$args	The array of options used for rendering the option. Includes a path to the option's image.
  */
 function right_sidebar_presentation_display( $args ) {
 	
@@ -363,7 +363,7 @@ function right_sidebar_presentation_display( $args ) {
 /**
  * Renders the full width layout option.
  *
- * @params	$args	The array of options used for rendering the option. Includes a path to the option's image.
+ * @param	$args	The array of options used for rendering the option. Includes a path to the option's image.
  */
 function full_width_presentation_display( $args ) {
 
@@ -379,7 +379,7 @@ function full_width_presentation_display( $args ) {
 /**
  * Renders the breadcrumb options.
  *
- * @params	$args	The array of options used for rendering the option.
+ * @param	$args	The array of options used for rendering the option.
  */
 function display_breadcrumbs_display() {
 	
@@ -404,7 +404,7 @@ function display_breadcrumbs_display() {
 /**
  * Renders the options for displaying Featured Images.
  *
- * @params	$args	The array of options used for rendering the option.
+ * @param	$args	The array of options used for rendering the option.
  */
 function display_featured_images_display( $args ) {
 
@@ -427,9 +427,9 @@ function display_featured_images_display( $args ) {
  * this function loops through the incoming options and verifies they are either empty strings
  * or the number 1.
  *	
- * @params	$input	The unsanitized collection of options.
+ * @param	$input	The unsanitized collection of options.
  *
- * @returns			The collection of sanitized values.
+ * @return			The collection of sanitized values.
  */
 function standard_theme_presentation_options_validate( $input ) {
 	
@@ -713,9 +713,9 @@ function standard_active_icons_display() {
  * this function loops through the incoming option and strips all tags and slashes from the value
  * before serializing it.
  *	
- * @params	$input	The unsanitized collection of options.
+ * @param	$input	The unsanitized collection of options.
  *
- * @returns			The collection of sanitized values.
+ * @return			The collection of sanitized values.
  */
 function standard_theme_social_options_validate( $input ) {
 
@@ -947,9 +947,9 @@ function offline_message_display() {
 /**
  * Sanitization callback for the global options.
  *	
- * @params	$input	The unsanitized collection of options.
+ * @param	$input	The unsanitized collection of options.
  *
- * @returns			The collection of sanitized values.
+ * @return			The collection of sanitized values.
  */
 function standard_theme_global_options_validate( $input ) {
 
@@ -1078,7 +1078,7 @@ function standard_theme_page_options_display() {
 /**
  * Renders the author box option.
  *
- * @params	$args	The array of options used for rendering the option.
+ * @param	$args	The array of options used for rendering the option.
  */
 function display_author_box_display() {
 	
@@ -1255,9 +1255,9 @@ add_action( 'wp_ajax_standard_delete_comment_policy_page', 'standard_delete_comm
 /**
  * Sanitization callback for the post options in the Publishing options.
  *	
- * @params	$input	The unsanitized collection of options.
+ * @param	$input	The unsanitized collection of options.
  *
- * @returns			The collection of sanitized values.
+ * @return			The collection of sanitized values.
  */
 function standard_theme_publishing_options_validate( $input ) {
 
@@ -1384,7 +1384,7 @@ function standard_theme_options_display() {
 /**
  * Implements the Theme Customizer for installations that are on WordPress 3.4 or greater.
  * 
- * @params	$wp_customize	The WordPress Theme Customizer
+ * @param	$wp_customize	The WordPress Theme Customizer
  */
 if( standard_is_on_wp34() ) {
 	
@@ -1634,7 +1634,7 @@ add_action( 'add_meta_boxes', 'standard_add_full_width_single_post' );
 /**
  * Renders the display for the full-width post option.
  *
- * @params	$post	The post on which the box should be rendered.
+ * @param	$post	The post on which the box should be rendered.
  */
 function standard_post_level_layout_display( $post ) {
 	
@@ -1655,7 +1655,7 @@ function standard_post_level_layout_display( $post ) {
 /**
  * Saves the post data to post defined by the incoming ID.
  *
- * @params	$post_id	The ID of the post to which we're saving the post data.
+ * @param	$post_id	The ID of the post to which we're saving the post data.
  */
 function standard_save_post_layout_data( $post_id ) {
 	
@@ -1717,7 +1717,7 @@ add_action( 'add_meta_boxes', 'standard_add_url_field_to_link_post_format' );
 /**
  * Renders the input field for the URL.
  * 
- * @params	$post	The post on which this meta box is attached.
+ * @param	$post	The post on which this meta box is attached.
  */
 function standard_link_url_field_display( $post ) {
 	
@@ -1730,7 +1730,7 @@ function standard_link_url_field_display( $post ) {
 /**
  * Sets the URL for the given post.
  *
- * @params	$post_id	The ID of the post that we're serializing
+ * @param	$post_id	The ID of the post that we're serializing
  */
 function standard_save_link_url_data( $post_id ) {
 	
@@ -1936,7 +1936,7 @@ add_action( 'wp_ajax_standard_save_wordpress_seo_message_setting', 'standard_sav
  * 
  * @param	ulclass		The classname for the menu
  *
- * @returns	The markup for the unordered list.
+ * @return	The markup for the unordered list.
  */
 if( ! function_exists( 'standard_page_menu' ) ) { 
 	function standard_page_menu( $ulclass ) {
@@ -2742,9 +2742,9 @@ remove_action( 'wp_head', 'wp_generator' );
  * Adds fields for Twitter, Facebook, and Google+ to the User Profile page so that users can populate this
  * information and have it render in the author box.
  * 
- * @params	$user_contactmethods	The array of contact fields for the user's profile.
+ * @param	$user_contactmethods	The array of contact fields for the user's profile.
  *
- * @returns	The updated array of contact methods.
+ * @return	The updated array of contact methods.
  */
 function standard_add_user_profile_fields( $user_contactmethods ) {
 	
@@ -2794,7 +2794,7 @@ add_action( 'wp_head', 'standard_meta_description' );
  * These are invalid HTML5 attributes.
  *
  * @param   $str    The default set of attributes.
- * @returns         The stripped relationship tag.
+ * @return         The stripped relationship tag.
  */
 function standard_remove_category_anchor_rel( $str ) {
 
@@ -2814,7 +2814,7 @@ add_filter( 'the_category', 'standard_remove_category_anchor_rel' );
  * These are invalid HTML5 attributes.
  *
  * @param   $str    The default set of attributes.
- * @returns         The stripped relationship tag.
+ * @return         The stripped relationship tag.
  */
 function standard_remove_anchor_attachment_rel( $str ) {
     return preg_replace( '/(rel="attachment)[a-zA-Z0-9\s\-]*\"/', trim( '' ), trim( $str ) );
@@ -2824,8 +2824,8 @@ add_filter( 'the_content', 'standard_remove_anchor_attachment_rel' );
 /**
  * Adds a "previous" relationship attribute to the 'Next' pagination option.
  *
- * @params  $attrs  The current set of attributes of the anchor
- * @returns         The pagination link with the additional attribute.
+ * @param  $attrs  The current set of attributes of the anchor
+ * @return         The pagination link with the additional attribute.
  */
 function standard_add_rel_to_next_pagination( $attrs ) {
     $attrs .= 'rel="previous"';
@@ -2836,8 +2836,8 @@ add_filter( 'next_posts_link_attributes', 'standard_add_rel_to_next_pagination' 
 /**
  * Adds a "next" relationship attribute to the 'Previous' pagination option.
  *
- * @params  $attrs  The current set of attributes of the anchor
- * @returns         The pagination link with the additional attribute.
+ * @param  $attrs  The current set of attributes of the anchor
+ * @return         The pagination link with the additional attribute.
  */
 function standard_add_rel_to_previous_pagination( $attrs ) {
     $attrs .= 'rel="next"';
@@ -2853,7 +2853,7 @@ add_filter( 'previous_posts_link_attributes', 'standard_add_rel_to_previous_pagi
  * @param   $id     The ID of the image
  * @param   $alt    The alternative text of the image
  * @param   $title  The title of the image (autogenerated by WordPress or editing by users)
- * @returns         The markup with an alt tag.
+ * @return         The markup with an alt tag.
  */
 function standard_apply_image_alt_in_editor( $html, $id, $alt, $title ) {
 
@@ -2897,9 +2897,9 @@ if( ! function_exists( 'standard_process_link_post_format_content' ) ) {
  * Removes any paragraph tags that are wrapping images, anchors around images,
  * or paragraphs around iframes or objects.
  *
- * @params		$title		The the of the post
- * @params		$id			The ID of the current post
- * @returns					The title based on the status of the post and the link
+ * @param		$title		The the of the post
+ * @param		$id			The ID of the current post
+ * @return					The title based on the status of the post and the link
  */
 if( ! function_exists( 'standard_process_link_post_format_title' ) ) {
 	function standard_process_link_post_format_title( $title, $id ) {
@@ -2935,8 +2935,8 @@ if( ! function_exists( 'standard_process_link_post_format_title' ) ) {
  * Removes any paragraph tags that are wrapping images, anchors around images,
  * or paragraphs around iframes or objects.
  *
- * @params		$content	The post content
- * @returns					The [optional] anchor and image.
+ * @param		$content	The post content
+ * @return					The [optional] anchor and image.
  */
 if( ! function_exists( 'standard_remove_paragraph_on_media' ) ) {
 	function standard_remove_paragraph_on_media( $content ) {
@@ -2968,7 +2968,7 @@ if( ! function_exists( 'standard_remove_paragraph_on_media' ) ) {
  * @param	$html	The content of the video post format
  * @param	$url	The url of the post
  * @param	$args	Additional arguments passed in by WordPress core
- * @returns			The post content wrapped in a container.
+ * @return			The post content wrapped in a container.
  */
 if( ! function_exists( 'standard_wrap_embeds' ) ) {
 	function standard_wrap_embeds( $html, $url, $args ) {
@@ -2986,7 +2986,7 @@ if( ! function_exists( 'standard_wrap_embeds' ) ) {
 /**
  * Renders a simplified version of the search form.
  *
- * @returns		The search form.
+ * @return		The search form.
  */
 if( ! function_exists( 'standard_search_form' ) ) {
 	function standard_search_form() {
@@ -3008,8 +3008,8 @@ if( ! function_exists( 'standard_search_form' ) ) {
 /**
  * Formats the link post format properly for the RSS feed.
  *
- * @params		$content	The post content
- * @returns					The properly content formatted for RSS
+ * @param		$content	The post content
+ * @return					The properly content formatted for RSS
  */
 if( ! function_exists( 'standard_post_format_rss' ) ) {
 	function standard_post_format_rss( $content ) {
@@ -3082,8 +3082,8 @@ if( standard_using_native_seo() ) {
  * Place all widget titles in h4 tags rather than h3 tags to improve SEO. Also adds the
  * 'widget-title' class to the heading elements.
  *
- * @params	$params		The array of parameters that provide styling for the widget.
- * @returns				The updated array of parameters.
+ * @param	$params		The array of parameters that provide styling for the widget.
+ * @return				The updated array of parameters.
  */
 if( ! function_exists( 'standard_modify_widget_titles' ) ) {
 	function standard_modify_widget_titles( $params ) {
@@ -3100,8 +3100,8 @@ if( ! function_exists( 'standard_modify_widget_titles' ) ) {
 /**
  * Adds the title attribute to the 'Next and 'Previous' post pagination anchors.
  *
- * @params	$attrs	The current set of attributes of the anchor
- * @returns			The pagination link with the additional attribute.
+ * @param	$attrs	The current set of attributes of the anchor
+ * @return			The pagination link with the additional attribute.
  */
 if( ! function_exists( 'standard_add_title_to_single_post_pagination' ) ) {
 	function standard_add_title_to_single_post_pagination( $link ) {
@@ -3150,7 +3150,7 @@ add_action( 'save_post', 'standard_save_post' );
 /**
  * Updates the Standard Sitemap Flag if the post being deleted is the actual sitemap.
  *
- * @params	$id		The ID of the post being deleted.
+ * @param	$id		The ID of the post being deleted.
  */
 function standard_delete_post( $id ) {
 
@@ -3167,8 +3167,10 @@ add_action( 'before_delete_post', 'standard_delete_post' );
  * Also marks the alternate tag as required. Will populate it with the title
  * if it is left empty.
  *
- * @params	$form_fields	The array of form fields in the uploader
- * @params	$post			The post object
+ * @param	$form_fields	The array of form fields in the uploader
+ * @param	$post			The post object
+ * @return					The updated array of form fields
+ * @since	3.1
  */
 function standard_attachment_fields_to_edit( $form_fields, $post ) {
 
@@ -3178,35 +3180,19 @@ function standard_attachment_fields_to_edit( $form_fields, $post ) {
 	// Provide a Standard description for title and alt
 	$form_fields['post_title']['helps'] =	__( 'A title is required for search engines.', 'standard' );
 	$form_fields['image_alt']['helps'] = __( 'An alternate text description is required for search engines.', 'standard' );
-	
-	// If the alt field is empty, then we're populating it with the title of the post
-	if( '' == $form_fields['image_alt']['value'] ) {
 
-		// First, get the parent post of this image (since each image is a child post)	
-		$parent_post = get_post( $post->post_parent );
+	// If the image alt is empty, then we'll provide it by cleaning up the image's file name
+	if( empty( $form_fields['image_alt']['value'] ) ) {
+			
+		// First, we grab the image's file name
+		$filename = $form_fields['post_title']['value'];
 		
-		// If the parent post title is empty or is an auto draft, then we'll go with the file name
-		if( '' == get_the_title( $parent_post->ID ) || 'auto draft' == strtolower( get_the_title( $parent_post->ID ) ) ) {
-		
-			$post_title =  $form_fields['post_title']['value'];
-			
-			// But first, we replace all '.' with ':' to cover timestamps
-			$post_title =  str_replace( '.', ':', $post_title );
-			
-			// And we replace all underscores with hyphens
-			$post_title = str_replace( '_', '-', $post_title );
-			
-			// And we replace all spaces with hyphens
-			$post_title = str_replace( ' ', '-', $post_title );
-			
-		// Otherwise, let's go with the post title
-		} else {
-			$post_title = get_the_title( $parent_post->ID );
-		} // end if/else
-		
-		// Set the image alt tag equal to that of the post title we've determined
-		$form_fields['post_title']['value'] = $post_title;
-		$form_fields['image_alt']['value'] = $post_title;
+		// Next, we strip out all anything that isn't alphanumeric
+		$filename = preg_replace('/[^a-z0-9.]+/i', ' ', $filename);
+				
+		// Then we update both the image and the post title
+		$form_fields['image_alt']['value'] = $filename;
+		$form_fields['post_title']['value'] = $filename;
 		
 	} // end if
 	
@@ -3281,7 +3267,7 @@ if( standard_is_offline() ) {
 /**
  * Custom action that is used to initialize the Standard menu separator.
  *
- * @params	$position	Where you want the separator to appear.
+ * @param	$position	Where you want the separator to appear.
  */
 function standard_add_admin_menu_separator( $position ) {
 
@@ -3316,7 +3302,7 @@ add_action( 'init', 'standard_set_admin_menu_separator' );
 /**
  * Determines whether or not the user is viewing a date archive.
  *
- * @returns	True if the current page is for a date archive.
+ * @return	True if the current page is for a date archive.
  */
 function standard_is_date_archive() {
 	return '' != get_query_var( 'year' ) || '' != get_query_var( 'monthnum' ) || '' != get_query_var( 'day' ) || '' != get_query_var( 'm' );
@@ -3326,7 +3312,7 @@ function standard_is_date_archive() {
  * Generates a label for the current archive based on whether or not the user is viewing year, month, or day. Uses the
  * users date format to properly format the date.
  *
- * @returns	The label for the current archive
+ * @return	The label for the current archive
  */
 function standard_get_date_archive_label() {
 
@@ -3376,7 +3362,7 @@ function standard_get_date_archive_label() {
  *
  * @param	$attr	The attribute to extract from the link.
  *
- * @returns			The value of the attribute or empty for none.
+ * @return			The value of the attribute or empty for none.
  */
 function standard_get_link_post_format_attribute( $attr ) {
 
@@ -3419,7 +3405,7 @@ function standard_get_link_post_format_attribute( $attr ) {
 /**
  * Looks at the active widgets to determine whether or not the Google Custom Search widget is active.
  *
- * @returns	Whether or not the Google Custom Search is active
+ * @return	Whether or not the Google Custom Search is active
  */
 function standard_google_custom_search_is_active() {
 	
@@ -3537,11 +3523,11 @@ function standard_is_offline() {
 /**
  * Helper function for programmatically creating a page.
  * 
- * @params	$slug		The slug by which the page will be accessed
- * @params	$title		The title of the page
- * @params	$template	The name of the template file (without the file extension)
+ * @param	$slug		The slug by which the page will be accessed
+ * @param	$title		The title of the page
+ * @param	$template	The name of the template file (without the file extension)
  *
- * @returns	The ID of the page once it was created, or 0 if it failed.
+ * @return	The ID of the page once it was created, or 0 if it failed.
  */
 function standard_create_page( $slug, $title, $template = '' ) {
 
@@ -3581,9 +3567,9 @@ function standard_create_page( $slug, $title, $template = '' ) {
 /**
  * Helper function for programmatically deleting a page.
  * 
- * @params	$id			The ID of the page to delete
+ * @param	$id			The ID of the page to delete
  *
- * @returns True if deleting of the page was successful; otherwise, false.
+ * @return True if deleting of the page was successful; otherwise, false.
  */
 function standard_delete_page( $id ) {
 	return null != wp_delete_post( $id, true );
@@ -3592,7 +3578,7 @@ function standard_delete_page( $id ) {
 /**
  * If not already active, includes the plugin by using the specified path.
  *
- * @params	$str_path	The path to the plugin to include.
+ * @param	$str_path	The path to the plugin to include.
  */
 function standard_add_plugin( $str_path ) {
 	if( ! in_array( get_template_directory() . $str_path, apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {
@@ -3604,7 +3590,7 @@ function standard_add_plugin( $str_path ) {
 /**
  * Determines whether or not Standard is on WordPress 3.4.
  *
- * @returns	true	If Standard is running on WordPress 3.4 or greater.
+ * @return	true	If Standard is running on WordPress 3.4 or greater.
  */
 function standard_is_on_wp34() {
 	return function_exists( 'get_custom_header' );
@@ -3648,7 +3634,7 @@ function standard_has_logo() {
 /**
  * Returns whether or not the user has specified to display header text.
  *
- * @returns	True if the user wants to display header text; otherwise, false.
+ * @return	True if the user wants to display header text; otherwise, false.
  */
 function standard_has_header_text() {
 	return ! ( 'blank' == get_theme_mod( 'header_textcolor', HEADER_TEXTCOLOR ) || '' == get_theme_mod( 'header_textcolor', HEADER_TEXTCOLOR ) );
