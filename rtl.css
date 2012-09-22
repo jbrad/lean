@@ -82,7 +82,19 @@ input[type="submit"]:hover {
 	float: left; 
 }
 
-/* ------------------------------------------------------------------------ 3. Menu-Navigation */
+/* ------------------------------------------------------------------------ 3. Menu Navigation */
+
+.menu-header-container { 
+	float: right;
+}
+
+.navbar .nav > li {
+	float: right;
+}
+
+#social-networking {
+	float: left;
+}
 
 .topbar .social-icons {
 	float: left;
