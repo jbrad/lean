@@ -2,12 +2,13 @@
 	$(function () {
 
 		// Create the notice that will appear above the post title
+		/* Translators: This will need to be localized. */
 		var $titleMessage = $('<div />')
 			.attr('id', 'standard-post-editor')
 			.attr('class', 'warning')
 			.append(
 				$('<p />')
-					.html('<strong>Your title is too long.</strong>')
+					.html('<strong>Standard has detected a long post title. Search engines prefer titles with 70 characters or less.</strong>')
 			);
 
 		// Display the notice if the existing title is too long ( >= 70 characters)
