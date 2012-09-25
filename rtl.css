@@ -62,7 +62,7 @@ input[type="submit"]:hover {
 /* ------------------------------------------------------------------------ 2. Main Styles */
 
 #wrapper {
-	padding: 0 0 40px;
+	padding: 20px 0 40px;
 }
 
 #head-wrapper {
@@ -88,7 +88,8 @@ input[type="submit"]:hover {
 	float: right;
 }
 
-.navbar .nav > li {
+.menu-header-container .nav,
+.menu .nav {
 	float: right;
 }
 
@@ -111,6 +112,14 @@ input[type="submit"]:hover {
 }
 
 #top-ad.imageyup {
+	float: left;
+}
+
+#footer-links {
+	float: right;
+}
+
+#sub-floor #credit {
 	float: left;
 }
 
@@ -165,16 +174,15 @@ blockquote {
 	padding-right: 20px;
 }
 
-/* Post format status */
+/* Post format Status */
 
 .post.format-status .post-avatar {
 	float: right;
 }
 
 .post.format-status .post-header .entry-content {
-	float: right;
-	padding-right: 20px;
-	padding-left: 0;
+	float: left;
+	margin-left: -10px;
 }
 
 /* Post format Quote */
