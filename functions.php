@@ -452,62 +452,6 @@ function standard_theme_presentation_options_validate( $input ) {
  * ----------------------------- */
 
 /**
- * Loads the social icons from the 'images/social/small' directory.
- *
- * @return		A list of the URL's to each of the available icons.
- * @since		3.1
- */
-function standard_load_available_social_icons() {
-
-	// Read the currently active social icons
-	$social_icons = get_option( 'standard_theme_social_options' );
-	$active_icons = $social_icons['active-social-icons'];
-
-	$available_icons = '';
-	if( $handle = opendir( get_template_directory() . '/images/social/small' ) ) {
-	
-		while( false !== ( $filename = readdir( $handle ) ) ) {
-		
-			// If we're not looking at the directory, the top-level directory, or the mac .DS_Store
-			if( '.' != $filename && '..' != $filename && '.ds_store' != strtolower( $filename ) ) {
-			
-				// Get the new icons file name
-				$new_icon = get_template_directory_uri() . '/images/social/small/' . $filename . ';';
-
-				// If it's not already in the available icons. Also make sure not to display any icons already available in active icons
-				if( false == strpos( $available_icons, $new_icon ) && ! is_numeric( strpos( $active_icons, $new_icon ) ) ) {
-					$available_icons .= $new_icon;	
-				} // end if
-				
-			} // end if
-			
-		} // end while
-
-		closedir( $handle );
-		
-	} // end if
-	
-	return $available_icons;
-
-} // end standard_load_available_social_icons
-
-/**
- * Looks for new social icons in the social icon directory and adds it to the available icon array.
- * Fires on theme activation.
- *
- * @since	3.1
- */
-function standard_refresh_available_social_icons() {
-
-	$social_icons = get_option( 'standard_theme_social_options' );
-	$social_icons['available-social-icons'] = standard_load_available_social_icons();
-	
-	update_option( 'standard_theme_social_options', $social_icons );
-
-} // end standard_todo
-add_action( 'after_setup_theme', 'standard_refresh_available_social_icons' );
-
-/**
  * Defines the default values for Standard's social options.
  */
 function get_standard_theme_default_social_options() {
