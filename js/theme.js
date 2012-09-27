@@ -74,13 +74,26 @@
 			// FitVid
 			$('.entry-content, .comment-text').fitVids();
 			
-			// If there is no content below the video container, then kill the margin
-			if (0 < $('.video-container').length && 0 === $('.video-container').next().length) {
-				$('.video-container, .fluid-width-video-wrapper').css('margin-bottom', '0');
-			} else if (0 < $('.embed-youtube').length && 0 == $('.embed-youtube').siblings().length) {
-				$('.embed-youtube').parent('p').css('margin-bottom', 0);
-			} else if(0 === $('.fluid-width-video-wrapper').next().length) {
-				$('.fluid-width-video-wrapper').css('margin-bottom', 0);
+			// Look to see if there are any video wrappers
+			if(0 < $('.fluid-width-video-wrapper').length) { 
+			
+				// If there are, apply changes to each of them...
+				$('.fluid-width-video-wrapper').each(function() {
+				
+					// If there are no siblings, change the margins for the
+					// fluid-width-container and its parent
+					if(0 === $(this).parent().siblings('p').length) {
+					
+						var $css = { marginBottom: 0 };
+					
+						$(this)
+							.css($css)
+							.parents('.video-container')
+							.css($css);
+						
+					} // end if
+					
+				});
 			} // end if
 			
 			// If there is no content below the link container, then kill the margin
