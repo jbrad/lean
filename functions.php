@@ -458,7 +458,7 @@ function get_standard_theme_default_social_options() {
 	
 	$defaults = array(
 		'active-social-icons'		=> '',
-		'available-social-icons' 	=> standard_load_available_social_icons()
+		'available-social-icons' 	=> ''
 	);
 	
 	return apply_filters ( 'standard_theme_social_options', $defaults );
@@ -474,6 +474,8 @@ function standard_setup_theme_social_options() {
 	if( false == get_option( 'standard_theme_social_options' ) ) {	
 		add_option( 'standard_theme_social_options', apply_filters( 'standard_theme_default_social_options', get_standard_theme_default_social_options() ) );
 	} // end if
+	
+	standard_find_new_social_icons();	
 
 	/* ------------------ Social Networks ------------------ */
 	
@@ -676,6 +678,52 @@ function standard_theme_social_options_validate( $input ) {
 	return apply_filters( 'standard_theme_social_options_validate', $output, $input, $defaults );
 
 } // end standard_theme_options_validate
+
+/**
+ * When upgrading to newer versions of Standard, looks for any new icons that may exist in the social
+ * icons directory.
+ *
+ * If so, it will add them to the available icons. It exempts icons that are already active.
+ *
+ * If users have uploaded their own icons for ones that we have included, such as LinkedIn or
+ * SoundCloud then they'll need to 'Restore Defaults' and configure their own. 
+ *
+ * @since	3.1
+ */
+function standard_find_new_social_icons() {
+	
+	// Be sure to look for any additional social icons
+	$social_options = get_option( 'standard_theme_social_options' );
+	
+	if( $handle = opendir( get_template_directory() . '/images/social/small' ) ) {
+		
+		$available_icons = '';
+		while( false != ( $filename = readdir( $handle ) ) ) {
+			
+			// If we're not looking at the current directory, the directory above, or DS_Store...
+			if( '.' != $filename && '..' != $filename && '.ds_store' != strtolower( $filename) ) {
+				
+				// Get the icons filename
+				$new_icon_filename = '/images/social/small/' . $filename . ';';
+				
+				// Now if this filename is not found in the active icons, we'll add it
+				if( ! is_numeric ( strpos( $social_options['active-social-icons'], $new_icon_filename ) ) ) {
+					$available_icons .= get_template_directory_uri() . $new_icon_filename;
+				} // end if
+				
+			} // end if
+			
+		} // end while
+		
+		// Set the new icons
+		$social_options['available-social-icons'] = $available_icons;
+		
+		// Update the option
+		update_option( 'standard_theme_social_options', $social_options );
+		
+	} // end if
+	
+} // end standard_find_new_social_icons
 
 /* ----------------------------- *
  * 	Global Options
