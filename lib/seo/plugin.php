@@ -77,15 +77,26 @@ class Standard_SEO {
 				// Determine if the user is using a gplus.to address
 				$google_plus_url = user_trailingslashit( get_user_meta( $current_user->ID, 'google_plus', true ) );
 				if( standard_is_gplusto_url ( $google_plus_url ) ) {
+				
 					$google_plus_url = standard_get_google_plus_from_gplus( $google_plus_url ); 					
+
+					// Read the URL into an array
+					$google_plus_id = explode( '/',  trailingslashit( $google_plus_url ) );
+					
+					// Note the third index of this array should alwas be at 3 after user_trailingslashit
+					$google_plus_id = $google_plus_id[3];
+				
+				// The user isn't using gplus.to, so the index of the ID is different
+				} else {
+
+					// Read the URL into an array
+					$google_plus_id = explode( '/',  trailingslashit( $google_plus_url ) );
+					
+					// Note the third index of this array should alwas be at 5 after user_trailingslashit
+					$google_plus_id = $google_plus_id[5];
+				
 				} // end if/else
-				
-				// Read the URL into an array
-				$google_plus_id = explode( '/',  $google_plus_url );
-				
-				// Note the third index of this array should alwas be at 3 after user_trailingslashit
-				$google_plus_id = $google_plus_id[3];
-				
+								
 				// Now create the element
 				$html .= '<p id="google-plus-avatar">';
 					$html .= '<img src="https://profiles.google.com/s2/photos/profile/' . $google_plus_id . '" alt="" width="44" height="44" />';
