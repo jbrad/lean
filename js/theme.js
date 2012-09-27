@@ -93,6 +93,15 @@
 						
 					} // end if
 					
+					// If we're using IE8 and VideoPress is present, then we need to adjust the margins
+					if(1 === $('#ie8').length && 0 < $('.video-player').length) {
+						
+						$('.video-player')
+							.parents('.post')
+							.css('margin-top', '20px');
+						
+					} // end if
+					
 				});
 			} // end if
 			
