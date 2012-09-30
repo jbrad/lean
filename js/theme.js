@@ -74,35 +74,27 @@
 			// FitVid
 			$('.entry-content, .comment-text').fitVids();
 			
-			// Look to see if there are any video wrappers
+			// Look to see if there are any video wrappers from FitVid
 			if(0 < $('.fluid-width-video-wrapper').length) { 
-			
-				// If there are, apply changes to each of them...
+
+				// For each video wrapper, we only want to change the styles if the video is posted alone (without text)
+				var $css = { margin: 0, padding: 0 };
 				$('.fluid-width-video-wrapper').each(function() {
-				
-					// If there are no siblings, change the margins for the
-					// fluid-width-container and its parent
-					if(0 === $(this).parent().siblings('p').length) {
 					
-						var $css = { marginBottom: 0 };
+					// First, clear the margin on the video itself
+					$(this).css('margin', 0);
+					
+					// Next, if the video is the only content, we can remove both margin and padding
+					if(0 == $(this).parents('p').siblings().length) {
 					
 						$(this)
-							.css($css)
-							.parents('.video-container')
-							.css($css);
-						
-					} // end if
-					
-					// If we're using IE8 and VideoPress is present, then we need to adjust the margins
-					if(1 === $('#ie8').length && 0 < $('.video-player').length) {
-						
-						$('.video-player')
-							.parents('.post')
-							.css('margin-top', '20px');
-						
+							.parents('p')
+							.css({ margin: 0, padding: 0 });
+							
 					} // end if
 					
 				});
+			
 			} // end if
 			
 			// If there is no content below the link container, then kill the margin
