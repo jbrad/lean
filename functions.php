@@ -475,7 +475,8 @@ function standard_setup_theme_social_options() {
 		add_option( 'standard_theme_social_options', apply_filters( 'standard_theme_default_social_options', get_standard_theme_default_social_options() ) );
 	} // end if
 	
-	standard_find_new_social_icons();	
+	// Look to see if any new icons have been added to the library since the last version of the theme
+	get_standard_theme_default_social_options();
 
 	/* ------------------ Social Networks ------------------ */
 	
@@ -1266,34 +1267,6 @@ function standard_theme_publishing_options_validate( $input ) {
 	return apply_filters( 'standard_theme_publishing_options_validate', $output, $input, get_standard_theme_default_publishing_options() );
 
 } // end standard_theme_publishing_options_validate
-
-/**
- * Retrieves and optionally sets the version of the theme.
- */
-function standard_is_current_version() {
-
-	$is_current_version = false;
-
-	// For now, we need also look to see if they are running a Preview.
-	// The Previews had options in the 'general' section so we'll look for that key, first.
-	if( '' == get_option( 'standard_theme_general_options' ) || false == get_option( 'standard_theme_general_options' ) || null == get_option( 'standard_theme_general_options' ) ) {
-		
-		// If we're here, then this is the first time the user is installing a version of Standard
-		// that isn't following a preview.
-		update_option( 'standard_theme_version', '3.1' );
-		$is_current_version = true;
-		
-	} // end if
-	
-	// Now we'll look to see if the version is actually 3.0. This will be the standard way to detect moving forward.
-	if( ! $is_current_version ) {
-		$is_current_version = '3.1' == get_option( 'standard_theme_version' );
-	} // end if
-	
-	return $is_current_version;
-	
-} // end standard_is_current_version
-add_action( 'admin_init', 'standard_is_current_version' );
 
 /* ----------------------------- *
  * 	Options Page
@@ -2672,16 +2645,18 @@ add_action( 'admin_enqueue_scripts', 'standard_add_admin_scripts' );
  */
 function standard_activate_theme() {
 
+	// If we're not using the most recent version of Standard...
 	if( ! standard_is_current_version() ) {
 	
-		if( array_key_exists( 'standard_theme_reset_options', $_GET ) && 'true' == $_GET['standard_theme_reset_options'] ) {
-		
-			// Remove the Preview settings
+		// If they've set the query string to reset options, then we'll...
+		if( array_key_exists( 'standard_theme_reset_otpions', $_GET ) && 'true' == $_GET['standard_theme_reset_options'] ) {
+			
+			// Delete all the options...
 			delete_option( 'standard_theme_general_options' );
 			delete_option( 'standard_theme_social_options' );
 			delete_option( 'standard_theme_layout_options' );
 			
-			// Set defaults for Standard
+			// Set the default options...
 			get_standard_theme_default_global_options();
 			get_standard_theme_default_presentation_options();
 			get_standard_theme_default_social_options();
@@ -2691,41 +2666,19 @@ function standard_activate_theme() {
 			if( '3.1' != get_option( 'standard_theme_version' ) ) {
 				update_option( 'avatar_default', 'retro' );
 			} // end if
-
-			// Set the version
-			update_option( 'standard_theme_version', '3.1' );
-
-		} else {
 			
-			// Set the reset query string value
-			$url = '?standard_theme_reset_options=true';
-			
-			// If there are already query string values present...
-			if( isset( $_SERVER['argv'][0] ) ) {
-			
-				// And if we're on the theme activation page
-				if( $_SERVER['argv'][0] == 'activated=true' ) {
-				
-					// Rebuild the query string
-					$url = 'themes.php?' . $_SERVER['argv'][0] . '&standard_theme_reset_options=true';
-					
-				} else {
-				
-					// Otherwise, use the page we're on
-					$url = '?' . $_SERVER['argv'][0] . '&standard_theme_reset_options=true';
-					
-				} // end if/else
-				
-			} // end if
-
-			echo '<div id="standard-old-version" class="updated"><p>' . __( 'A previous version of Standard has been detected. In order to continue installation, your Standard option settings must be reset. <a href="' . $url . '">Click here to reset your options</a>.', 'standard') . '</p></div>';
+		} // end if
 		
-		} // end if/else
+		// Set the current version of the theme
+		update_option( 'standard_theme_version', '3.1' );
 	
-	} // end if
+		// If they aren't requesting to reset the options, then we just need to make sure look for the new icons
+		standard_find_new_social_icons();
+		
+	} // end if/else
 		
 } // end standard_activate_theme
-add_action( 'admin_notices', 'standard_activate_theme' );
+add_action( 'init', 'standard_activate_theme' );
 
 // rel="generator" is an invalid HTML5 attribute
 remove_action( 'wp_head', 'wp_generator' );
@@ -3679,5 +3632,14 @@ function standard_is_using_pretty_permalinks() {
 	return '/%postname%/' == $wp_rewrite->permalink_structure;
 	
 } // end standard_is_using_pretty_premalinks
+
+/**
+ * 
+ * @returns	True if the current version of Standard is 3.1; false, otherwise.
+ * @since 	3.1
+ */
+function standard_is_current_version() {
+	return '3.1' == get_option( 'standard_theme_version' ) ? true : false;
+} // end standard_is_current_version
 
 ?>
