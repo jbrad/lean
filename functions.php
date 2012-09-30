@@ -2167,12 +2167,12 @@ if( ! function_exists( 'standard_set_theme_colors' ) ) {
 function standard_get_search_form() {
 	
 	// First, detect if the Google Custom Search widget is active
-	if( is_active_widget( false, '', 'standard-google-custom-search', true ) ) {
+	if( standard_google_custom_search_is_active() ) {
 
 		// Read the author's Google Search Engine ID. If they have multiple instances,
 		// then we need to read the most recent instance of the widget.
-		$gcse_options = get_option( 'widget_standard-google-custom-search' );
-		$gcse_options = $gcse_options[ count( $gcse_options ) ];
+		$gcse = get_option( 'widget_standard-google-custom-search' );
+		$gcse = array_shift( array_values ( $gcse ) );
 		
 		// Programmatically create the widget	
 		$o = new Google_Custom_Search();
@@ -2182,7 +2182,7 @@ function standard_get_search_form() {
 				'after_widget' 	=> '' 
 			), 
 			array( 
-				'gcse_content' 	=> 	$gcse_options['gcse_content'] 
+				'gcse_content' 	=> 	trim( $gcse['gcse_content'] )
 			) 
 		);
 	
