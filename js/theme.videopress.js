@@ -46,6 +46,15 @@ function sizeVideo() {
 			marginBottom:	0
 		});
 
+	// Unfortunately, there's a bug in IE8 with margins so we have update the entry content of the video player
+	if(0 < jQuery('#ie8').length) {
+	
+		jQuery('.video-player')
+			.parents('.entry-content')
+			.css('margin-top', '20px');
+		
+	} // end if
+
 	// If there's text after the video, set a margin
 	if(0 < jQuery('.video-player').siblings().length) {
 		jQuery('.video-player').css('margin-bottom', '20px');
