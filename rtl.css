@@ -178,6 +178,7 @@ blockquote {
 
 .post.format-status .post-avatar {
 	float: right;
+	margin: 0 0 20px 20px;
 }
 
 .post.format-status .post-header .entry-content {
@@ -368,4 +369,12 @@ table#wp-calendar tfoot td#next {
 #ie8 #menu-above-header .navbar-inner,
 #ie8 #menu-below-header .navbar-inner,{
 	float:right;
+}
+
+/* Smartphones */
+@media (max-width: 768px) {
+
+	.post.format-status .post-header .entry-content {
+		float: none;
+	}
 }
