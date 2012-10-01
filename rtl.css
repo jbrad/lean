@@ -157,7 +157,7 @@ input[type="submit"]:hover {
 
 .entry-content ol,
 .entry-content ul {
-	margin: 0 25px 9px 0;	
+	margin: 0 25px 9px 0 !important;	
 }
 
 blockquote {
