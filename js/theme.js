@@ -34,7 +34,7 @@
 		}).resize(function() {
 			processLogoAndBackground($);
 		});
-
+		
 		// If the Activity Widget is present, activate the first tab
 		if($('.tabbed-widget').length > 0) { 
 			
@@ -54,13 +54,6 @@
 		// Introduce responsive functionality but only if the CSS is loaded
 		if($('link[id*="bootstrap-responsive-css"]').length > 0) {
 		
-			// Force menus to collapse if resizing from mobile to full
-			$(window).resize(function() {
-				if($(this).width() >= 979) {
-					$('.btn-navbar').trigger('click');
-				} // end if
-			});
-			
 			// Move sidebar below content on left sidebar layout
 			if($('#sidebar').length > 0 && $('#wrapper > .container > .row').children(':first').attr('id') == 'sidebar') {
 			
@@ -70,7 +63,7 @@
 				});
 			
 			} // end if
-			
+
 			// FitVid
 			$('.entry-content, .comment-text').fitVids();
 			
@@ -78,7 +71,6 @@
 			if(0 < $('.fluid-width-video-wrapper').length) { 
 
 				// For each video wrapper, we only want to change the styles if the video is posted alone (without text)
-				var $css = { margin: 0, padding: 0 };
 				$('.fluid-width-video-wrapper').each(function() {
 					
 					// First, clear the margin on the video itself
@@ -96,7 +88,7 @@
 				});
 			
 			} // end if
-			
+
 			// If there is no content below the link container, then kill the margin
 			if(0 === $('.format-link .entry-content').children('p').length) {
 				$('.format-link .entry-content').css({
@@ -104,9 +96,9 @@
 					paddingBottom: 0
 				});
 			} // end if
-			
-		} // end if
 
+		} // end if
+		
 	});
 })(jQuery);
 

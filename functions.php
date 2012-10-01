@@ -708,7 +708,7 @@ function standard_find_new_social_icons() {
 				$new_icon_filename = '/images/social/small/' . $filename . ';';
 				
 				// Now if this filename is not found in the active icons, we'll add it
-				if( ! is_numeric ( strpos( $social_options['active-social-icons'], $new_icon_filename ) ) ) {
+				if( ! is_numeric ( strpos( $social_options['active-social-icons'], substr($new_icon_filename, 0, strlen( $new_icon_filename ) - 1) ) ) ) {
 					$available_icons .= get_template_directory_uri() . $new_icon_filename;
 				} // end if
 				
