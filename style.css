@@ -1879,8 +1879,8 @@ ul#sitemap-posts ul {
 	min-height: 50px;
 }
 
-#ie8 .nav-collapse {
-	float: left;
+#ie8 .menu-navigation {
+	min-height: 40px;
 }
 
 /* ------------------------------------------------------------------------ 13. inline-grid */
