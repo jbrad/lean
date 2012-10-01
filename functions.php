@@ -2642,43 +2642,48 @@ add_action( 'admin_enqueue_scripts', 'standard_add_admin_scripts' );
 /** 
  * This function is fired  if the current version of Standard is not the latest version. If it's not, then the user will be prompted to reset their settings.
  * Once reset, all options will be reset to their default values.
+ *
+ * TODO review this function for 3.2
  */
 function standard_activate_theme() {
 
 	// If we're not using the most recent version of Standard...
 	if( ! standard_is_current_version() ) {
-	
-		// If they've set the query string to reset options, then we'll...
-		if( array_key_exists( 'standard_theme_reset_otpions', $_GET ) && 'true' == $_GET['standard_theme_reset_options'] ) {
-			
-			// Delete all the options...
-			delete_option( 'standard_theme_general_options' );
-			delete_option( 'standard_theme_social_options' );
-			delete_option( 'standard_theme_layout_options' );
-			
-			// Set the default options...
-			get_standard_theme_default_global_options();
-			get_standard_theme_default_presentation_options();
-			get_standard_theme_default_social_options();
-			get_standard_theme_default_publishing_options();
 
+		// .. and the user has opted to reset the otpions
+		if( array_key_exists( 'standard_theme_reset_options', $_GET ) && 'true' == $_GET['standard_theme_reset_options'] ) {
+			
+				// Remove the Preview settings. TODO remove this in 3.2.
+				delete_option( 'standard_theme_general_options' );
+				delete_option( 'standard_theme_social_options' );
+				delete_option( 'standard_theme_layout_options' );
+				
+				// Set defaults for Standard
+				get_standard_theme_default_global_options();
+				get_standard_theme_default_presentation_options();
+				get_standard_theme_default_social_options();
+				get_standard_theme_default_publishing_options();
+				
+		// Otherwise, we have some other things to do...
+		} else {
+			
 			// Set the default gravatar only if this is the first install
 			if( '3.1' != get_option( 'standard_theme_version' ) ) {
+				
+				update_option( 'standard_theme_version', '3.1' );
 				update_option( 'avatar_default', 'retro' );
+				
 			} // end if
 			
-		} // end if
-		
-		// Set the current version of the theme
-		update_option( 'standard_theme_version', '3.1' );
-	
-		// If they aren't requesting to reset the options, then we just need to make sure look for the new icons
-		standard_find_new_social_icons();
+		} // end if/else
 		
 	} // end if/else
 		
+	// Reset the icons
+	standard_find_new_social_icons();	
+		
 } // end standard_activate_theme
-add_action( 'init', 'standard_activate_theme' );
+add_action( 'admin_notices', 'standard_activate_theme' );
 
 // rel="generator" is an invalid HTML5 attribute
 remove_action( 'wp_head', 'wp_generator' );
