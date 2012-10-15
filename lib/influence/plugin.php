@@ -3,7 +3,7 @@
  * Influence is a widget for showing an aggregate of your Twitter followers,
  * FeedBurner subscribers, and more.
  *
- * version 1.2
+ * version 1.3
  */
 class Standard_Influence extends WP_Widget {
 
@@ -178,7 +178,7 @@ class Standard_Influence extends WP_Widget {
 		} else {
  
 			// Attempt to read the XML from Twitter
-			$response = $this->get_feed_response('http://twitter.com/users/show.xml?screen_name=' . $username );
+			$response = $this->get_feed_response('http://twitter.com/users/' . $username . '.xml' );
 			try {
 				$xml = new SimpleXmlElement( $response, LIBXML_NOCDATA );
 			} catch ( Exception $ex ) {
