@@ -1,5 +1,22 @@
 # Changelog
 
+## 3.1.1 (October 16th, 2012)
+
+### Core Theme
+
+* Updates version number.
+
+### Social Influence Widget
+
+* Fixes Twitter always returning a ```0``` count due to a Twitter API change.
+
+### Change Set
+
+**Modified**
+
+* lib/influence/plugin.php
+* style.css
+
 ## 3.1 (October 3rd, 2012)
 
 ### Core Theme
