@@ -10,7 +10,7 @@
 	
 		<?php if( 'both' == $display || 'each' == $display ) { ?>
 			<div class="si-individual">
-				<ul class="si-indvidual-list block-grid three-up">
+				<ul class="si-indvidual-list">
 					<?php if( '' != $twitter ) { ?>
 						<li class="si-twitter">
 							<a href="http://twitter.com/<?php echo $twitter; ?>/" title="Twitter" target="_blank"><?php echo number_format( $this->twitter_follower_count( $twitter ) ); ?></a>
