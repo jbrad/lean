@@ -1,9 +1,9 @@
 <?php
 /**
- * Influence is a widget for showing an aggregate of your Twitter followers,
- * FeedBurner subscribers, and more.
+ * Influence is a widget for showing an aggregate of your Twitter followers and
+ * Facebook fans.
  *
- * version 1.3
+ * @version	1.4
  */
 class Standard_Influence extends WP_Widget {
 
@@ -15,7 +15,7 @@ class Standard_Influence extends WP_Widget {
 
 		$widget_opts = array(
 			'classname' 	=> __( 'standard-social-influence', 'standard' ), 
-			'description' 	=> __( 'Display your social influence by showcasing FeedBurner subscriptions, Twitter followers, and Facebook fans.', 'standard' )
+			'description' 	=> __( 'Display your social influence by showcasing Twitter followers and Facebook fans.', 'standard' )
 		);	
 		$this->WP_Widget( 'standard-influence-widget', __( 'Social Influence', 'standard' ), $widget_opts );
 				
@@ -42,7 +42,6 @@ class Standard_Influence extends WP_Widget {
 		
 		$twitter = empty( $instance['twitter']) ? '' : apply_filters( 'twitter', $instance['twitter'] );
 		$facebook = empty( $instance['facebook']) ? '' : apply_filters( 'facebook', $instance['facebook'] );
-		$feedburner = empty( $instance['feedburner']) ? '' : apply_filters( 'feedburner', $instance['feedburner'] );
 		$display = empty( $instance['display']) ? '' : apply_filters( 'display', $instance['display'] );
 		
 		// Display the widget
@@ -62,7 +61,6 @@ class Standard_Influence extends WP_Widget {
 
 		$instance['twitter'] = strip_tags( stripslashes( $new_instance['twitter'] ) );
 		$instance['facebook'] = strip_tags( stripslashes( $new_instance['facebook'] ) );
-		$instance['feedburner'] = strip_tags( stripslashes( $new_instance['feedburner'] ) );
 		$instance['display'] = strip_tags( stripslashes( $new_instance['display'] ) );
 
 
@@ -71,9 +69,6 @@ class Standard_Influence extends WP_Widget {
 		
 		$this->delete_values( 'facebook', $old_instance );
 		$this->delete_values( 'facebook', $instance );
-
-		$this->delete_values( 'feedburner', $old_instance );
-		$this->delete_values( 'feedburner', $instance );
 
 		return $instance;
 		
@@ -91,14 +86,12 @@ class Standard_Influence extends WP_Widget {
 			array(
 				'twitter'		=>	'',
 				'facebook'		=>	'',
-				'feedburner'	=>	'',
 				'display'		=>	'both'
 			)
 		);
     
 		$twitter = stripslashes( strip_tags( $instance['twitter'] ) );
 		$facebook = stripslashes( strip_tags( $instance['facebook'] ) );
-		$feedburner = stripslashes( strip_tags( $instance['feedburner'] ) );
 		$display = stripslashes( strip_tags( $instance['display'] ) );
 
 		// Display the admin form
@@ -283,92 +276,16 @@ class Standard_Influence extends WP_Widget {
 
 	} // end facebook_like_count
 	
-	/** 
-	 * Retrieves the number of subscribers for the FeedBurner feed identified by the
-	 * incoming user name.
-	 *
-	 * The function fill first check the cache to see if it's available. If not,
-	 * a request will be sent to Facebook for a JSON response. If the request or
-	 * the response fails, then the follower count value will be given a negative
-	 * value.
-	 *
-	 * Error codes:
-	 * -1: Uninitialize value
-	 * -2: Problem with a response from Facebook
-	 * -3: Problem decoding the JSON returned from Facebook
-	 * -4: Indicates that there was a problem retireving the circulation XML value.
-	 *
-	 * @params	$username	The username of the FeedBurner feed from which to pull subscribers
-	 *
-	 * @returns	The total number of subscribers for the given FeedBurner feed.
-	 */
-	private function feedburner_subscriber_count( $username, $debug = false ) {
-	
-		// This represents an uninitialize value
-		$subscriber_count = -1;
-		
-		// Key values for the database
-		$transient_key = 'influence_feedburner_' . $username;
-		
-		// Check to see if the value exists in the cache and it isn't 0
-		if( true == get_transient( $transient_key ) && 0 < get_transient( $transient_key ) ) {
-			
-			$subscriber_count = get_transient( $transient_key );
-			 
-		} else {
-			
-			// If it's not present, then we attempt to contact FeedBurner and parse the XML
-			$response = $this->get_feed_response( 'http://feedburner.google.com/api/awareness/1.0/GetFeedData?uri=' . $username );
-			try {
-				$xml = new SimpleXmlElement( $response, LIBXML_NOCDATA );
-			} catch ( Exception $ex ) {
-				$xml = null;
-			} // end try/catch
-			
-			// If the XML response isn't valid, store the error
-			if( null == $xml ) {
-			
-				$subscriber_count = -2;
-				
-			// Otherwise, attempt to parse the XML
-			} else {
-				
-				// If it's null, store the error
-				if( null == (string)$xml->feed->entry['circulation'] ) {
-				
-					$subscriber_count = -3;
-					
-				// Otherwise, we're good to go.
-				} else {
-					$subscriber_count = (string)$xml->feed->entry['circulation'];	
-				} // end if/else
-				
-			} // end if/else
-			
-		} // end if/else
-
-		// And cache it for 24 hours
-		set_transient( $transient_key, $subscriber_count, 60 * 60 * 24 );
-		
-		// If debug mode is running, return the raw follower count; otherwise, return the value or 0 if it's an error.
-		$subscriber_count = $debug ? $subscriber_count : ( $subscriber_count <= 0 ? 0 : $subscriber_count );
-		
-		return $subscriber_count;
-	
-	} // end feedburner_subscriber_count
-	
 	
 	/** 
-	 * Retrieves the number of subscribers for the FeedBurner feed identified by the
-	 * incoming user name.
+	 * Retrieves the total number of subscribers for each account.
 	 *
 	 * @params	$twitter	The Twitter username from which to pull followers
 	 * @params	$facebook	The ID of the Facebook page from which to pull likes
-	 * @params	$feedburner	The FeedBurner feed from which to pull subscribers
 	 *
 	 * @returns	The total influence as calculated by all three services.
 	 */
-	private function get_total_influence_count( $twitter, $facebook, $feedburner, $debug = false ) {
+	private function get_total_influence_count( $twitter, $facebook, $debug = false ) {
 	
 		$influence = 0;
 	
@@ -378,10 +295,6 @@ class Standard_Influence extends WP_Widget {
 		
 		if( '' != $facebook ) {
 			$influence += $this->facebook_like_count( $facebook, $debug );
-		} // end if
-		
-		if( '' != $feedburner ) { 
-			$influence += $this->feedburner_subscriber_count( $feedburner, $debug );
 		} // end if
 	
 		return $influence;
