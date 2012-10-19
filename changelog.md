@@ -1,5 +1,33 @@
 # Changelog
 
+## 3.1.2 (October 19th, 2012)
+
+### Core Theme
+
+* Fixes missing markup comment in loop.php.
+* Updates version number.
+
+### Social Influence Widget
+
+* Removes support for FeedBurner since Google is deprecating the API on October 20th, 2012.
+* Updates styles to adjust for FeedBurner being removed.
+
+### Change Set
+
+**Removed**
+
+* lib/influence/js/admin.js
+
+**Modified**
+
+* lib/influence/css/icn-social-sprites.png
+* lib/influence/css/widget.css
+* lib/influence/plugin.php
+* lib/influence/views/admin.php
+* lib/influence/views/widget.php
+* loop.php
+* style.css
+
 ## 3.1.1 (October 16th, 2012)
 
 ### Core Theme
