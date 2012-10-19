@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Standard 3.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-10-02 21:17-0500\n"
-"PO-Revision-Date: 2012-10-02 21:17-0500\n"
+"POT-Creation-Date: 2012-10-19 18:28-0500\n"
+"PO-Revision-Date: 2012-10-19 18:28-0500\n"
 "Last-Translator: Tom McFarlin <tom@tommcfarlin.com>\n"
 "Language-Team: 8BIT <info@8bit.io>\n"
 "Language: en_US\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-KeywordsList: __;_e\n"
 "X-Poedit-Basepath: .\n"
-"X-Generator: Poedit 1.5.3\n"
+"X-Generator: Poedit 1.5.4\n"
 "X-Poedit-SearchPath-0: ..\n"
 
 #: ../404.php:20
@@ -708,11 +708,11 @@ msgstr ""
 msgid "\""
 msgstr ""
 
-#: ../single.php:51 ../lib/influence/views/admin.php:36
+#: ../single.php:51 ../lib/influence/views/admin.php:31
 msgid "Twitter"
 msgstr ""
 
-#: ../single.php:55 ../lib/influence/views/admin.php:43
+#: ../single.php:55 ../lib/influence/views/admin.php:38
 msgid "Facebook"
 msgstr ""
 
@@ -880,8 +880,8 @@ msgstr ""
 
 #: ../lib/influence/plugin.php:18
 msgid ""
-"Display your social influence by showcasing FeedBurner subscriptions, "
-"Twitter followers, and Facebook fans."
+"Display your social influence by showcasing Twitter followers and Facebook "
+"fans."
 msgstr ""
 
 #: ../lib/influence/plugin.php:20
@@ -905,40 +905,28 @@ msgid "Username only"
 msgstr ""
 
 #: ../lib/influence/views/admin.php:16
-msgid "FeedBurner:"
-msgstr ""
-
-#: ../lib/influence/views/admin.php:17
-msgid "Feed name only"
-msgstr ""
-
-#: ../lib/influence/views/admin.php:21
 msgid "Display"
 msgstr ""
 
-#: ../lib/influence/views/admin.php:23
+#: ../lib/influence/views/admin.php:18
 msgid "Individual count"
 msgstr ""
 
-#: ../lib/influence/views/admin.php:24
+#: ../lib/influence/views/admin.php:19
 msgid "Total influence"
 msgstr ""
 
-#: ../lib/influence/views/admin.php:25
+#: ../lib/influence/views/admin.php:20
 msgid "Both"
 msgstr ""
 
 #: ../lib/influence/views/admin.php:50
-msgid "FeedBurner"
-msgstr ""
-
-#: ../lib/influence/views/admin.php:62
 msgid ""
 "Unfortunately, your web host does not support features that this widget "
 "requires."
 msgstr ""
 
-#: ../lib/influence/views/admin.php:63
+#: ../lib/influence/views/admin.php:51
 msgid "<a href=\"TODO\">Learn more</a> about this error."
 msgstr ""
 
