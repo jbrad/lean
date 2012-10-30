@@ -25,7 +25,7 @@
 		<div id="comments" class="clearfix">
 			<h3><?php comments_number( __( 'No responses', 'standard' ), __( 'One response', 'standard' ), __( '% responses', 'standard' ) );?> <?php _e( 'to',  'standard' ); ?> <em><?php the_title(); ?></em></h3>
 			<ol class="commentlist">
-				<?php wp_list_comments( 'avatar_size=50&callback=custom_comment&type=comment' ); ?>
+				<?php wp_list_comments( 'avatar_size=50&callback=standard_custom_comment&type=comment' ); ?>
 			</ol>    
 			<div class="comment-navigation clearfix">
 				<div class="comment-prev-nav">

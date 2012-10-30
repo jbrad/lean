@@ -2347,8 +2347,8 @@ if( ! function_exists( 'standard_admin_header_image' ) ) {
  * @param	$args		Array containing arguments for displaying the comment.
  * @param	$depth		The depth of where this comment falls in the tree.
  */
-if( ! function_exists( 'custom_comment' ) ) {
-	function custom_comment( $comment, $args, $depth ) {
+if( ! function_exists( 'standard_custom_comment' ) ) {
+	function standard_custom_comment( $comment, $args, $depth ) {
 		$GLOBALS['comment'] = $comment; ?>
 		<li <?php comment_class( 'clearfix' ); ?> id="li-comment-<?php comment_ID(); ?>">
 			<div class="comment-container">
@@ -2409,7 +2409,7 @@ if( ! function_exists( 'custom_comment' ) ) {
 					
 				</div><!-- /.comment-entry -->
 			</div><!-- /comment-container -->
-	<?php } // end custom_comment
+	<?php } // end standard_custom_comment
 } // end if 
 
 /**
