@@ -80,7 +80,7 @@
 										'container_class'	=> 'menu-header-container',
 										'theme_location'  	=> 'menu_above_logo',
 										'items_wrap'      	=> '<ul id="%1$s" class="nav nav-menu %2$s">%3$s</ul>',
-										'fallback_cb'	  	=> 'standard_fallback_nav_menu',
+										'fallback_cb'	  	=> null,
 										'walker'			=> new Standard_Nav_Walker()
 								 	)
 								 );

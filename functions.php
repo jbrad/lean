@@ -2816,13 +2816,6 @@ function standard_apply_image_alt_in_editor( $html, $id, $alt, $title ) {
 } // end standard_apply_image_alt_in_editor
 add_filter( 'get_image_tag', 'standard_apply_image_alt_in_editor', 10, 4 );
 
-/** 
- * Called when no menus are active by the wp_nav_menu located above the header.
- */
-function standard_fallback_nav_menu( ) {
-	wp_page_menu( 'show_home=1&include=-1' );
-} // end standard_fallback_nav_menu
-
 /**
  * Removes any paragraph tags that are wrapping anchors.
  *
