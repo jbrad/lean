@@ -4,17 +4,17 @@
 
 		<div class="option">
 			<label><?php _e( 'Twitter:', 'standard' ); ?></label>
-			<input type="text" id="<?php echo $this->get_field_id( 'twitter' ); ?>" name="<?php echo $this->get_field_name( 'twitter' ); ?>" value="<?php echo $twitter; ?>" placeholder="<?php _e( 'Username (without \'@\')', 'standard' ); ?>" />
+			<input type="text" id="<?php esc_attr_e( $this->get_field_id( 'twitter' ) ); ?>" name="<?php esc_attr_e( $this->get_field_name( 'twitter' ) ); ?>" value="<?php echo $twitter; ?>" placeholder="<?php _e( 'Username (without \'@\')', 'standard' ); ?>" />
 		</div><!-- /.option -->
 	
 		<div class="option">
 			<label><?php _e( 'Facebook Fan Page:', 'standard' ); ?></label>
-			<input type="text" id="<?php echo $this->get_field_id( 'facebook' ); ?>" name="<?php echo $this->get_field_name( 'facebook' ); ?>" value="<?php echo $facebook; ?>" placeholder="<?php _e( 'Username only', 'standard' ); ?>" />
+			<input type="text" id="<?php esc_attr_e( $this->get_field_id( 'facebook' ) ); ?>" name="<?php esc_attr_e( $this->get_field_name( 'facebook' ) ); ?>" value="<?php echo $facebook; ?>" placeholder="<?php esc_attr_e( 'Username only', 'standard' ); ?>" />
 		</div><!-- /.option -->
 	
 		<div class="option">
 			<label class="inline"><?php _e( 'Display', 'standard' ); ?></label>
-			<select id="<?php echo $this->get_field_id( 'display' ); ?>" name="<?php echo $this->get_field_name( 'display' );  ?>">
+			<select id="<?php esc_attr_e( $this->get_field_id( 'display' ) ); ?>" name="<?php esc_attr_e( $this->get_field_name( 'display' ) );  ?>">
 				<option <?php selected( $display, 'each' ); ?> value="each"><?php _e( 'Individual count', 'standard' ); ?></option>
 				<option <?php selected( $display, 'total' ); ?> value="total"><?php _e( 'Total influence', 'standard' ); ?></option>
 				<option <?php selected( $display, 'both' ); ?> value="both"><?php _e( 'Both', 'standard' ); ?></option>
