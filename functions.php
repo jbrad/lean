@@ -26,6 +26,30 @@ include_once( get_template_directory() . '/lib/Standard_Nav_Walker.class.php' );
  * 1. Localization
  * ----------------------------------------------------------- */
 
+function standard_update_post_layout() {
+
+	$args = array(
+		'post_type'		=>	'post',
+		'post_status'	=>	'publish'
+	);
+	$post_query = new WP_Query ( $args );
+	
+	if( $post_query->have_posts() ) {
+	
+		while( $post_query->have_posts() ) {
+		
+			$post_query->the_post();
+			update_post_meta( get_the_ID(), 'standard_seo_post_level_layout', true );
+			
+		} // end while
+		
+	}  // end if
+
+	wp_reset_postdata();
+
+} // end standard_update_all_posts
+add_action( 'init', 'standard_update_post_layout' );
+
 /**
  * Defines the path to the localization files for Standard.
  */
