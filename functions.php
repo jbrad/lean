@@ -1,57 +1,48 @@
 <?php
 
+/**
+ * Standard 3.2
+ * Standard is a sleek, exacting product designed for uncluttered and sophisticated presentation of your content on desktop and mobile devices.
+ *
+ * This file enables core features of Standard including sidebars, menus, post thumbnails, post formats, header, backgrounds, and more.
+ * Some functions are able to be overridden using child themes. These functions will be wrapped in a function_exists() conditional.
+ *
+ * This file is broken in the following areas:
+ *
+ *	1. Localization
+ *	2. Theme Settings
+ *		- Menu Page
+ *		- Global Options
+ *		- Layout Options
+ *		- Social Options
+ *		- Publishing
+ *		- Page Options
+ *		- Options Page
+ * 	3. Features
+ * 	4. Custom Header
+ *	5. Comments Template
+ *	6. Stylesheet and JavaScript Sources
+ *	7. Custom Filters
+ *	8. Helper Functions
+ *
+ * @package	Standard
+ * @since	3.0
+ * @version	3.2
+ *
+ */
+ 
+// Imports the Standard_Nav_Walker for the custom menu functionality.
 include_once( get_template_directory() . '/lib/Standard_Nav_Walker.class.php' );
-
-/*
-/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\ CONTENTS /\/\/\/\/\/\/\/\/\/\/\/\/\/\//\/\/\/\
-
-	1. Localization
-	2. Theme Settings
-		- Menu Page
-		- Global Options
-		- Layout Options
-		- Social Options
-		- Publishing
-		- Page Options
-		- Options Page
-	3. Features
-	4. Custom Header
-	5. Comments Template
-	6. Stylesheet and JavaScript Sources
-	7. Custom Filters
-	8. Helper Functions
-*/
-
+ 
 /* ----------------------------------------------------------- *
  * 1. Localization
  * ----------------------------------------------------------- */
 
-function standard_update_post_layout() {
-
-	$args = array(
-		'post_type'		=>	'post',
-		'post_status'	=>	'publish'
-	);
-	$post_query = new WP_Query ( $args );
-	
-	if( $post_query->have_posts() ) {
-	
-		while( $post_query->have_posts() ) {
-		
-			$post_query->the_post();
-			update_post_meta( get_the_ID(), 'standard_seo_post_level_layout', true );
-			
-		} // end while
-		
-	}  // end if
-
-	wp_reset_postdata();
-
-} // end standard_update_all_posts
-add_action( 'init', 'standard_update_post_layout' );
-
 /**
- * Defines the path to the localization files for Standard.
+ * Defines the path to the localization files.
+ *
+ * @since	3.0
+ * @version	3.2
  */
 function standard_set_theme_localization() {
 	load_theme_textdomain( 'standard', get_template_directory() . '/lang' );
@@ -67,7 +58,10 @@ add_action( 'after_setup_theme', 'standard_set_theme_localization' );
  * ----------------------------- */
 
 /** 
- * Adds the Standard options menu.
+ * Adds the menu page and the submenu options to the WordPress Dashboard.
+ * 
+ * @since	3.0
+ * @version	3.2
  */
 function standard_theme_menu() {
 
@@ -125,7 +119,10 @@ add_action( 'admin_menu', 'standard_theme_menu' );
  * ----------------------------- */
 
 /**
- * Provides a default value for the Standard Theme layout setting.
+ * Provides the default values for the Presentation Options.
+ *
+ * @since	3.0
+ * @version	3.2
  */
 function get_standard_theme_default_presentation_options() {
 
@@ -142,7 +139,11 @@ function get_standard_theme_default_presentation_options() {
 } // end standard_theme_default_presentation_options
   
 /**
- * Defines Standard's presentation options.
+ * Defines the Presentation Options. Specifically, the sections and the settings. Will also
+ * create the option if it does not already exist in the database.
+ * 
+ * @since	3.0
+ * @version	3.2
  */
 function standard_setup_theme_presentation_options() {
 
@@ -257,14 +258,11 @@ function standard_setup_theme_presentation_options() {
 } // end standard_setup_theme_presentation_options
 add_action( 'admin_init', 'standard_setup_theme_presentation_options' );
 
-function standard_theme_presentation_options_display() {
-	/* This is a placeholder function for the Presentation option. It's composed
-	 * of the Layout and Content options. 
-	 */
-} // end standard_theme_presentation_options_display
-
 /** 
  * Renders the description for the "Layout and Design" options.
+ *
+ * @since	3.0
+ * @version	3.2
  */
 function standard_theme_layout_options_display() {
 	echo '<p>' . __( 'This section controls positioning and style elements.', 'standard' ) . '</p>';
@@ -272,13 +270,19 @@ function standard_theme_layout_options_display() {
 
 /** 
  * Renders the description for the "Content" options.
+ *
+ * @since	3.0
+ * @version	3.2
  */
 function standard_theme_content_options_display() {
 	echo '<p>' . __( 'This section controls when content elements are displayed.', 'standard' ) . '</p>';
 } // end standard_theme_content_display
 
 /**
- * Renders the option element for the Site Icon
+ * Renders the option element for the Site Icon.
+ *
+ * @since	3.0
+ * @version	3.2
  */
 function fav_icon_display() {
 
@@ -306,7 +310,10 @@ function fav_icon_display() {
 } // end fav_icon_display
 
 /**
- * Renders the layout option for the contrast checkbox.
+ * Renders the option element for the Contrast setting.
+ *
+ * @since	3.0
+ * @version	3.2
  */
 function contrast_display() {
 
@@ -324,7 +331,10 @@ function contrast_display() {
 } // end contrast_display
 
 /**
- * Renders the option element for the Logo
+ * Renders the option element for the Logo.
+ *
+ * @since	3.0
+ * @version	3.2
  */
 function logo_display() {
 
@@ -353,9 +363,11 @@ function logo_display() {
 } // end logo_display
 
 /**
- * Renders the left-sidebar layout option.
+ * Renders the option element for the Left-Sidebar Layout.
  *
  * @param	$args	The array of options used for rendering the option. Includes a path to the option's image.
+ * @since	3.0
+ * @version	3.2
  */
 function left_sidebar_presentation_display( $args ) {
 	
@@ -369,9 +381,11 @@ function left_sidebar_presentation_display( $args ) {
 } // end left_sidebar_presentation_display
 
 /**
- * Renders the right-sidebar layout option.
+ * Renders the option element for the Right-Sidebar Layout.
  *
  * @param	$args	The array of options used for rendering the option. Includes a path to the option's image.
+ * @since	3.0
+ * @version	3.2
  */
 function right_sidebar_presentation_display( $args ) {
 	
@@ -385,9 +399,11 @@ function right_sidebar_presentation_display( $args ) {
 } // end right_sidebar_presentation_display
 
 /**
- * Renders the full width layout option.
+ * Renders the option element for the Full-Width Layout.
  *
  * @param	$args	The array of options used for rendering the option. Includes a path to the option's image.
+ * @since	3.0
+ * @version	3.2
  */
 function full_width_presentation_display( $args ) {
 
@@ -401,9 +417,10 @@ function full_width_presentation_display( $args ) {
 } // end full_width_presentation_display
 
 /**
- * Renders the breadcrumb options.
+ * Renders the option element for the Breadcrumb.
  *
- * @param	$args	The array of options used for rendering the option.
+ * @since	3.0
+ * @version	3.2
  */
 function display_breadcrumbs_display() {
 	
@@ -426,11 +443,12 @@ function display_breadcrumbs_display() {
 } // end display_breadcrumbs_display
 
 /**
- * Renders the options for displaying Featured Images.
+ * Renders the option element for Featured Images.
  *
- * @param	$args	The array of options used for rendering the option.
+ * @since	3.0
+ * @version	3.2
  */
-function display_featured_images_display( $args ) {
+function display_featured_images_display() {
 
 	$options = get_option( 'standard_theme_presentation_options' );
 
@@ -447,13 +465,14 @@ function display_featured_images_display( $args ) {
 
 
 /**
- * Sanitization callback for the layout options. Since each of the layout options are checkboxes,
+ * Sanitization callback for the Layout. Since each of the Layout Options are checkboxes,
  * this function loops through the incoming options and verifies they are either empty strings
- * or the number 1.
+ * or contain the value of '1.'
  *	
  * @param	$input	The unsanitized collection of options.
- *
  * @return			The collection of sanitized values.
+ * @since	3.0
+ * @version	3.2
  */
 function standard_theme_presentation_options_validate( $input ) {
 	
@@ -476,7 +495,10 @@ function standard_theme_presentation_options_validate( $input ) {
  * ----------------------------- */
 
 /**
- * Defines the default values for Standard's social options.
+ * Provides the default values for the Social Options.
+ *
+ * @since	3.0
+ * @version	3.2
  */
 function get_standard_theme_default_social_options() {
 	
@@ -490,7 +512,11 @@ function get_standard_theme_default_social_options() {
 } // end get_standard_theme_default_social_options
 
 /**
- * Defines Standard's "social" options.
+ * Defines the Social Options. Specifically, the sections and the settings. Will also
+ * create the option if it does not already exist in the database.
+ * 
+ * @since	3.0
+ * @version	3.2
  */
 function standard_setup_theme_social_options() {
 
@@ -537,7 +563,10 @@ function standard_setup_theme_social_options() {
 add_action( 'admin_init', 'standard_setup_theme_social_options' );
 
 /** 
- * Renders the description for the "Social" options settings page.
+ * Renders the description for the Social Options page.
+ *
+ * @since	3.0
+ * @version	3.2
  */
 function standard_theme_social_options_display() {
 
@@ -594,6 +623,9 @@ function standard_theme_social_options_display() {
 
 /**
  * Callback function used in the Ajax request for generating the Social Icons.
+ *
+ * @since 	3.0
+ * @version	3.2
  */
 function standard_save_social_icons( ) {
 	
@@ -620,6 +652,9 @@ add_action( 'wp_ajax_standard_save_social_icons', 'standard_save_social_icons' )
 
 /**
  * Callback function used in the Ajax request for resetting the Social Icons.
+ *
+ * @since 	3.0
+ * @version	3.2
  */
 function standard_reset_social_icons( ) {
 	if( wp_verify_nonce( $_REQUEST['nonce'], 'standard_reset_social_icons_nonce' ) ) {
@@ -629,7 +664,10 @@ function standard_reset_social_icons( ) {
 add_action( 'wp_ajax_standard_reset_social_icons', 'standard_reset_social_icons' );
 
 /**
- * Displays the message for users attempting to delete the core set of Standard social icons.
+ * Displays the message for users attempting to delete the core set of social icons.
+ *
+ * @since 	3.0
+ * @version	3.2
  */
 function standard_delete_social_icons() {
 	if( wp_verify_nonce( $_REQUEST['nonce'], 'standard-delete-social-icon-nonce' ) ) {
@@ -639,7 +677,10 @@ function standard_delete_social_icons() {
 add_action( 'wp_ajax_standard_delete_social_icons', 'standard_delete_social_icons' );
 
 /**
- * Generates a message to be displayed when the user attempts to delete a Standard social icon.
+ * Generates a message to be displayed when the user attempts to delete a social icon.
+ *
+ * @since 	3.0
+ * @version	3.2
  */
 function standard_display_delete_social_icon_message() {
 
@@ -655,7 +696,10 @@ function standard_display_delete_social_icon_message() {
 
 /**
  * Renders the available social icon input. This field is hidden and is manipulated by the functionality for powering
- * the drag and drop functionality of the icons.
+ * the drag and drop ability of the icons.
+ *
+ * @since 	3.0
+ * @version	3.2
  */
 function standard_available_icons_display() {
 	
@@ -670,7 +714,10 @@ function standard_available_icons_display() {
 
 /**
  * Renders the active social icon input. This field is hidden and is manipulated by the functionality for powering
- * the drag and drop functionality of the icons.
+ * the drag and drop ability of the icons.
+ *
+ * @since 	3.0
+ * @version	3.2
  */
 function standard_active_icons_display() {
 
@@ -680,13 +727,14 @@ function standard_active_icons_display() {
 } // end standard_active_icons_display
 
 /**
- * Sanitization callback for the social options. Since each of the social options are text inputs,
+ * Sanitization callback for the Social Options. Since each of the options are text inputs,
  * this function loops through the incoming option and strips all tags and slashes from the value
  * before serializing it.
  *	
  * @param	$input	The unsanitized collection of options.
- *
  * @return			The collection of sanitized values.
+ * @since 	3.0
+ * @version	3.2
  */
 function standard_theme_social_options_validate( $input ) {
 
@@ -705,15 +753,15 @@ function standard_theme_social_options_validate( $input ) {
 } // end standard_theme_options_validate
 
 /**
- * When upgrading to newer versions of Standard, looks for any new icons that may exist in the social
- * icons directory.
+ * When upgrading to newer versions of Standard, this function looks for any new icons that may exist in the social icons directory.
  *
- * If so, it will add them to the available icons. It exempts icons that are already active.
+ * If so, it will add them to the available icons. It excludes icons that are already active.
  *
  * If users have uploaded their own icons for ones that we have included, such as LinkedIn or
  * SoundCloud then they'll need to 'Restore Defaults' and configure their own. 
  *
- * @since	3.1
+ * @since 	3.1
+ * @version	3.1
  */
 function standard_find_new_social_icons() {
 	
@@ -755,7 +803,10 @@ function standard_find_new_social_icons() {
  * ----------------------------- */
 
 /**
- * Defines the default values for Standard's global options.
+ * Provides the default values for the Global Options.
+ *
+ * @since	3.0
+ * @version	3.2
  */
 function get_standard_theme_default_global_options() {
 
@@ -772,7 +823,11 @@ function get_standard_theme_default_global_options() {
 } // end get_standard_theme_default_global_options
 
 /**
- * Defines Standard's "global" options.
+ * Defines the Global Options. Specifically, the sections and the settings. Will also
+ * create the option if it does not already exist in the database.
+ * 
+ * @since	3.0
+ * @version	3.2
  */
 function standard_setup_theme_global_options() {
 
@@ -840,7 +895,10 @@ function standard_setup_theme_global_options() {
 add_action( 'admin_init', 'standard_setup_theme_global_options' );
 
 /** 
- * Renders the description for the "Global" options settings page.
+ * Renders the description for the Global Options page.
+ *
+ * @since	3.0
+ * @version	3.2
  */
 function standard_theme_global_options_display() {
 
@@ -852,7 +910,10 @@ function standard_theme_global_options_display() {
 } // end standard_theme_global_options_display
 
 /**
- * Renders the option element for Google Analytics.
+ * Renders the option element for FeedBurner.
+ *
+ * @since	3.0
+ * @version	3.2
  */
 function feedburner_url_display() {
 
@@ -877,6 +938,9 @@ function feedburner_url_display() {
 
 /**
  * Renders the option element for Google Analytics.
+ *
+ * @since	3.0
+ * @version	3.2
  */
 function google_analytics_display() {
 
@@ -900,7 +964,10 @@ function google_analytics_display() {
 } // end google_analytics_display
 
 /**
- * Renders the option element for the Affiliate Code
+ * Renders the option element for the Affiliate Code.
+ *
+ * @since	3.0
+ * @version	3.2
  */
 function affiliate_code_display() {
 
@@ -919,7 +986,10 @@ function affiliate_code_display() {
 } // end affiliate_code_display
 
 /**
- * Renders the options for activating Offline Line.
+ * Renders the option element for activating Offline Mode.
+ *
+ * @since	3.0
+ * @version	3.2
  */
 function site_mode_display( ) {
 
@@ -946,7 +1016,10 @@ function site_mode_display( ) {
 } // end site_mode_display
 
 /**
- * Renders the options for the short, 140-character message for the offline mode.
+ * Renders the option element for the 140-character message for Offline Mode.
+ *
+ * @since	3.0
+ * @version	3.2
  */
 function offline_message_display() {
 
@@ -962,11 +1035,14 @@ function offline_message_display() {
 } // end offline_message_display
 
 /**
- * Sanitization callback for the global options.
+ * Sanitization callback for the Global Options. Since each of the options are text inputs,
+ * this function loops through the incoming option and strips all tags and slashes from the value
+ * before serializing it.
  *	
  * @param	$input	The unsanitized collection of options.
- *
  * @return			The collection of sanitized values.
+ * @since 	3.0
+ * @version	3.2
  */
 function standard_theme_global_options_validate( $input ) {
 
@@ -992,8 +1068,11 @@ function standard_theme_global_options_validate( $input ) {
  * 	Publishing Options
  * ----------------------------- */
  
- /**
- * Defines the default values for Standard's post options in the Publishing screen.
+/**
+ * Provides the default values for the Post Options on the Publishing Options page.
+ *
+ * @since	3.0
+ * @version	3.2
  */
 function get_standard_theme_default_publishing_options() {
 
@@ -1006,7 +1085,11 @@ function get_standard_theme_default_publishing_options() {
 } // end get_standard_theme_default_publishing_options
 
 /**
- * Defines Standard's "publishing" options.
+ * Defines the Publishing Options. Specifically, the sections and the settings. Will also
+ * create the option if it does not already exist in the database.
+ * 
+ * @since	3.0
+ * @version	3.2
  */
 function standard_setup_theme_publishing_options() {
 
@@ -1072,30 +1155,43 @@ function standard_setup_theme_publishing_options() {
 } // end standard_setup_theme_publishing_options
 add_action( 'admin_init', 'standard_setup_theme_publishing_options' );
 
-function standard_theme_publishing_options_display() {
-	/* This is a placeholder function for the Presentation option. It's composed
-	 * of the Post and Page options. 
-	 */
-} // end standard_theme_presentation_options_display
+/**
+ * Placeholder function for the Publishing Options display function. The section contains
+ * both Post and Page options each of which are responsible for displaying their own
+ * own options screen.
+ *
+ * This function is required by the Settings API.
+ *
+ * @since	3.0
+ * @version	3.2
+ */
+function standard_theme_publishing_options_display() {}
 
 /** 
- * Renders the description for the "Post" options settings in the Publishing section.
+ * Renders the description for the Post Options settings on the Publishing page.
+ *
+ * @since	3.0
+ * @version	3.2
  */
 function standard_theme_post_options_display() {
 	echo '<p>' . __( 'This section controls publisher-centric features available on individual posts.', 'standard' ) . '</p>';
 } // end standard_theme_post_options_display
 
 /** 
- * Renders the description for the "Page" options settings in the Publishing section.
+ * Renders the description for the Page Options settings on the Publishing page.
+ *
+ * @since	3.0
+ * @version	3.2
  */
 function standard_theme_page_options_display() {
 	echo '<p>' . __( 'This section controls publisher-centric features available for pages.', 'standard' ) . '</p>';
 } // end standard_theme_page_options_display
 
 /**
- * Renders the author box option.
+ * Renders the option element for the Author Box.
  *
- * @param	$args	The array of options used for rendering the option.
+ * @since	3.0
+ * @version	3.2
  */
 function display_author_box_display() {
 	
@@ -1118,7 +1214,10 @@ function display_author_box_display() {
 } // end display_author_box_display
 
 /**
- * Renders the option for generating a Privacy Policy from within the Standard dashboard.
+ * Renders the option for generating the Privacy Policy from within the WorsPress Dashboard.
+ *
+ * @since	3.0
+ * @version	3.2
  */
 function privacy_policy_template_display() {
 
@@ -1152,7 +1251,10 @@ function privacy_policy_template_display() {
 } // end privacy_policy_template_display
 
 /**
- * Renders the option for generating a Comment Policy from within the Standard dashboard.
+ * Renders the option for generating the Comment Policy from within the WordPress Dashboard.
+ *
+ * @since	3.0
+ * @version	3.2
  */
 function comment_policy_template_display() {
 
@@ -1187,6 +1289,9 @@ function comment_policy_template_display() {
 
 /**
  * Callback function used in the Ajax request for generating the Privacy Policy.
+ *
+ * @since	3.0
+ * @version	3.2
  */
 function standard_generate_privacy_policy_page( ) {
 	
@@ -1208,6 +1313,9 @@ add_action( 'wp_ajax_standard_generate_privacy_policy_page', 'standard_generate_
 
 /**
  * Callback function used in the Ajax request for deleting the Privacy Policy.
+ *
+ * @since	3.0
+ * @version	3.2
  */
 function standard_delete_privacy_policy_page( ) {
 	
@@ -1229,6 +1337,9 @@ add_action( 'wp_ajax_standard_delete_privacy_policy_page', 'standard_delete_priv
 
 /**
  * Callback function used in the Ajax request for generating the Comment Policy.
+ *
+ * @since	3.0
+ * @version	3.2
  */
 function standard_generate_comment_policy_page( ) {
 	
@@ -1250,6 +1361,9 @@ add_action( 'wp_ajax_standard_generate_comment_policy_page', 'standard_generate_
 
 /**
  * Callback function used in the Ajax request for deleting the Privacy Policy.
+ *
+ * @since	3.0
+ * @version	3.2
  */
 function standard_delete_comment_policy_page( ) {
 	
@@ -1270,11 +1384,14 @@ function standard_delete_comment_policy_page( ) {
 add_action( 'wp_ajax_standard_delete_comment_policy_page', 'standard_delete_comment_policy_page' );
 
 /**
- * Sanitization callback for the post options in the Publishing options.
+ * Sanitization callback for the Publishing Options. Since each of the options are text inputs,
+ * this function loops through the incoming option and strips all tags and slashes from the value
+ * before serializing it.
  *	
  * @param	$input	The unsanitized collection of options.
- *
  * @return			The collection of sanitized values.
+ * @since 	3.0
+ * @version	3.2
  */
 function standard_theme_publishing_options_validate( $input ) {
 
@@ -1282,8 +1399,8 @@ function standard_theme_publishing_options_validate( $input ) {
 
 	foreach( $input as $key => $val ) {
 
-		if( isset ( $input[$key] ) ) {
-			$output[$key] = strip_tags( stripslashes( $input[$key] ) );
+		if( isset ( $input[ $key ] ) ) {
+			$output[$key] = strip_tags( stripslashes( $input[ $key ] ) );
 		} // end if	
 	
 	} // end foreach
@@ -1297,7 +1414,10 @@ function standard_theme_publishing_options_validate( $input ) {
  * ----------------------------- */
 
 /**
- * Renders the theme options display page.
+ * Renders the header for the theme options page.
+ *
+ * @since	3.0
+ * @version	3.2
  */
 function standard_theme_options_display() {
 ?>
@@ -1372,8 +1492,12 @@ function standard_theme_options_display() {
 
 /**
  * Implements the Theme Customizer for installations that are on WordPress 3.4 or greater.
+ * This function will become part of Standard Core in 3.4 as its dependent function,
+ * that is standard_is_on_wp34, is depcrecated in 3.2 and will be removed in 3.4.
  * 
  * @param	$wp_customize	The WordPress Theme Customizer
+ * @since	3.0
+ * @version	3.2
  */
 if( standard_is_on_wp34() ) {
 	
@@ -1542,6 +1666,9 @@ if( standard_is_on_wp34() ) {
  	/**
 	 * Renders the JavaScript responsible for hooking into the Theme Customizer to tweak
 	 * the built-in theme settings.
+	 *
+	 * @since	3.0
+	 * @version	3.2
 	 */
 	function standard_customize_preview() { ?>
 		<script type="text/javascript">
@@ -1598,8 +1725,11 @@ if( standard_is_on_wp34() ) {
 } // end if
 
 /**
- * Defines a custom meta box for displaying the post full width layout. Only renders
- * if the blog isn't using the full width layout.
+ * Defines a custom meta box for displaying the post full-width layout. Only renders
+ * if the blog isn't using the full-width layout.
+ *
+ * @since	3.0
+ * @version	3.2
  */
 function standard_add_full_width_single_post() {
 
@@ -1624,6 +1754,8 @@ add_action( 'add_meta_boxes', 'standard_add_full_width_single_post' );
  * Renders the display for the full-width post option.
  *
  * @param	$post	The post on which the box should be rendered.
+ * @since	3.0
+ * @version	3.2
  */
 function standard_post_level_layout_display( $post ) {
 	
@@ -1642,9 +1774,11 @@ function standard_post_level_layout_display( $post ) {
 } // end standard_post_level_layout_display
 
 /**
- * Saves the post data to post defined by the incoming ID.
+ * Saves the post data for the post layout to post defined by the incoming ID.
  *
  * @param	$post_id	The ID of the post to which we're saving the post data.
+ * @since	3.0
+ * @version	3.2
  */
 function standard_save_post_layout_data( $post_id ) {
 	
@@ -1687,7 +1821,10 @@ function standard_save_post_layout_data( $post_id ) {
 add_action( 'save_post', 'standard_save_post_layout_data' );
 
 /**
- * Add the post meta box for the link post format URL.
+ * Adds the post meta box for the URL to be included in the Link Post Format.
+ *
+ * @since	3.1
+ * @version	3.2
  */
 function standard_add_url_field_to_link_post_format() {
 	
@@ -1704,9 +1841,12 @@ function standard_add_url_field_to_link_post_format() {
 add_action( 'add_meta_boxes', 'standard_add_url_field_to_link_post_format' );
 
 /**
- * Renders the input field for the URL.
+ * Renders the input field for the URL in the Link Post Format related to the
+ * meta box defined in the standard_add_url_field_to_link_post_format() function.
  * 
  * @param	$post	The post on which this meta box is attached.
+ * @since	3.1
+ * @version	3.2
  */
 function standard_link_url_field_display( $post ) {
 	
@@ -1717,9 +1857,12 @@ function standard_link_url_field_display( $post ) {
 } // end standard_link_url_field_display
 
 /**
- * Sets the URL for the given post.
+ * Saves the specified URL for the post specified by the incoming post ID. This is
+ * related to the standard_link_url_field_display() function.
  *
  * @param	$post_id	The ID of the post that we're serializing
+ * @since	3.1
+ * @version	3.2
  */
 function standard_save_link_url_data( $post_id ) {
 	
@@ -1763,6 +1906,9 @@ add_action( 'save_post', 'standard_save_link_url_data' );
 
 /**
  * Adds the 'Standard' menu to the admin bar on the non-admin pages.
+ *
+ * @since	3.0
+ * @version	3.2
  */
 function standard_add_admin_bar_option() {
 	
@@ -1824,7 +1970,10 @@ function standard_add_admin_bar_option() {
 add_action( 'admin_bar_menu', 'standard_add_admin_bar_option', 40 );
 
 /**
- * Adds a reminder message to the admin bar that the user has set their site in offline mode.
+ * Adds a reminder message to the admin bar that the user has the site set in Offline Mode.
+ *
+ * @since	3.0
+ * @version	3.2
  */
 function standard_add_site_mode_admin_bar_note() {
 
@@ -1844,8 +1993,16 @@ function standard_add_site_mode_admin_bar_note() {
 add_action( 'admin_bar_menu' , 'standard_add_site_mode_admin_bar_note', 90 );
 
 /**
- * Detects whether or not Yoast's WordPress SEO plugin has been installed. If so, it will display a notice that informs users
- * it will enhance the SEO of their Standard installation.
+ * Detects whether or not any of the major SEO plugins have been installed. If so, Standard's built-in SEO features will be disabled in favor of the active plugin.
+ *
+ * Currently, Standard supports:
+ *
+ * - WordPress SEO
+ * - All in One SEO
+ * - Platinum SEO
+ *
+ * @since	3.0
+ * @version	3.2
  */
 function standard_detect_wordpress_seo() {
 
@@ -1891,12 +2048,12 @@ add_action( 'admin_notices', 'standard_detect_wordpress_seo' );
 /**
  * Registers and enqueues the JavaScript responsible for saving the option for hiding the 
  * WordPress SEO notification.
+ *
+ * @since	3.0
+ * @version	3.2
  */
 function standard_register_wordpress_seo_message_script() {
-	
-	wp_register_script( 'seo-notification', get_template_directory_uri() . '/js/admin.seo-notification.js' );
-	wp_enqueue_script( 'seo-notification' );
-
+	wp_enqueue_script( 'seo-notification', get_template_directory_uri() . '/js/admin.seo-notification.js' );
 } // end standard_register_wordpress_seo_message_script
 add_action( 'admin_head', 'standard_register_wordpress_seo_message_script' );
 
@@ -1922,10 +2079,13 @@ add_action( 'wp_ajax_standard_save_wordpress_seo_message_setting', 'standard_sav
 
 /**
  * Adds a custom class to the wp_page_menu when users don't set an active menu.
- * 
- * @param	ulclass		The classname for the menu
  *
+ * This function can be overridden by child themes.
+ *
+ * @param	$ulclass		The classname for the menu
  * @return	The markup for the unordered list.
+ * @since	3.0
+ * @version	3.2
  */
 if( ! function_exists( 'standard_page_menu' ) ) { 
 	function standard_page_menu( $ulclass ) {
@@ -1936,6 +2096,11 @@ if( ! function_exists( 'standard_page_menu' ) ) {
  
 /**
  * Adds custom background support.
+ *
+ * This function can be overridden by child themes.
+ *
+ * @since	3.0
+ * @version	3.2
  */
 if( ! function_exists( 'standard_add_theme_background' ) ) { 
 	function standard_add_theme_background() {
@@ -1950,6 +2115,9 @@ if( ! function_exists( 'standard_add_theme_background' ) ) {
 
 /**
  * Includes the post editor stylesheet.
+ *
+ * @since	3.0
+ * @version	3.2
  */
 if( ! function_exists( 'standard_add_theme_editor_style' ) ) { 
 	function standard_add_theme_editor_style() {
@@ -1967,6 +2135,11 @@ if( ! function_exists( 'standard_add_theme_editor_style' ) ) {
 
 /**
  * Adds three menu areas: above the logo, below the logo, and in the footer.
+ *
+ * This function can be overridden by child themes.
+ *
+ * @since	3.0
+ * @version	3.2
  */
 if( ! function_exists( 'standard_add_theme_menus' ) ) { 
 	function standard_add_theme_menus() {
@@ -1985,6 +2158,11 @@ if( ! function_exists( 'standard_add_theme_menus' ) ) {
 
 /**
  * Adds four widgetized areas: the sidebar, the left footer, center footer, and right footer.
+ *
+ * This function can be overridden by child themes.
+ *
+ * @since	3.0
+ * @version	3.2
  */
 if( ! function_exists( 'standard_add_theme_sidebars' ) ) { 
 	function standard_add_theme_sidebars() {
@@ -2074,6 +2252,11 @@ if( ! function_exists( 'standard_add_theme_sidebars' ) ) {
 /**
  * Adds support for Post Formats, Post Thumbnails, Activity Tabs widget
  * Custom Image Sizes for post formats.
+ *
+ * This function can be overridden by child themes.
+ *
+ * @since	3.0
+ * @version	3.2
  */
 if( ! function_exists( 'standard_add_theme_features' ) ) { 
 	function standard_add_theme_features() {
@@ -2115,6 +2298,11 @@ if( ! function_exists( 'standard_add_theme_features' ) ) {
 /*
  * Sets the media embed width to 580 or 900 (based on the layout) which is optimized 
  * for the theme's post size.
+ *
+ * This function can be overridden by child themes.
+ *
+ * @since	3.0
+ * @version	3.2
  */
 if( ! function_exists( 'standard_set_media_embed_size' ) ) { 
 	function standard_set_media_embed_size() {
@@ -2141,6 +2329,11 @@ if( ! function_exists( 'standard_set_media_embed_size' ) ) {
 /**
  * Sets the values for the default color scheme of Standard for use
  * in other plugins.
+ *
+ * This function can be overridden by child themes.
+ *
+ * @since	3.0
+ * @version	3.2
  */
 if( ! function_exists( 'standard_set_theme_colors' ) ) { 
 	function standard_set_theme_colors() {
@@ -2160,6 +2353,9 @@ if( ! function_exists( 'standard_set_theme_colors' ) ) {
 /**
  * Determine which search form to display based on if the author has enabled
  * Google Custom Search Widget activated.
+ *
+ * @since	3.0
+ * @version	3.2
  */
 function standard_get_search_form() {
 	
@@ -2183,7 +2379,7 @@ function standard_get_search_form() {
 			) 
 		);
 	
-	// Otherwise, display the default 
+	// Otherwise, display the default search form
 	} else {
 		get_search_form();
 	} // end if
@@ -2241,7 +2437,12 @@ if( standard_is_on_wp34() ) {
 } // end if/else
 
 /**
- * Styles the default header.
+ * Styles the default header as per the WordPress API.
+ *
+ * This function can be overridden by child themes.
+ *
+ * @since	3.0
+ * @version	3.2
  */
 if( ! function_exists( 'standard_header_style' ) ) {
 	function standard_header_style() { 
@@ -2267,7 +2468,12 @@ if( ! function_exists( 'standard_header_style' ) ) {
 } // end if
 
 /**
- * Styles the default header in the admin dashboard.
+ * Styles the default header in the admin panel as per the WordPress API.
+ *
+ * This function can be overridden by child themes.
+ *
+ * @since	3.0
+ * @version	3.2
  */
 if( ! function_exists( 'standard_admin_header_style' ) ) {
 	function standard_admin_header_style() { ?>
@@ -2316,7 +2522,12 @@ if( ! function_exists( 'standard_admin_header_style' ) ) {
 } // end if
 
 /**
- * Marks and styles the header image in the admin dashboard.
+ * Marksup and styles the default header in the admin panel as per the WordPress API.
+ *
+ * This function can be overridden by child themes.
+ *
+ * @since	3.0
+ * @version	3.2
  */
 if( ! function_exists( 'standard_admin_header_image' ) ) {
 	function standard_admin_header_image() { ?>
@@ -2364,12 +2575,14 @@ if( ! function_exists( 'standard_admin_header_image' ) ) {
  * 5. Comments Template
  * ----------------------------------------------------------- */
   
- /**
- * Generates the content container for each post (and page if enabled).
+/**
+ * Generates the comment container for each post (and page if enabled).
  *
  * @param	$comment	The current comment being displayed.
  * @param	$args		Array containing arguments for displaying the comment.
  * @param	$depth		The depth of where this comment falls in the tree.
+ * @since	3.0
+ * @version	3.2
  */
 if( ! function_exists( 'standard_custom_comment' ) ) {
 	function standard_custom_comment( $comment, $args, $depth ) {
@@ -2437,13 +2650,14 @@ if( ! function_exists( 'standard_custom_comment' ) ) {
 } // end if 
 
 /**
- * Generates the list of pings for the given post.
+ * Generates the comment container for each post (and page if enabled).
  *
  * @comment	The current ping being displayed.
  * @args	Array containing arguments for displaying the ping.
  * @depth	The depth of where this comment falls in the tree.
+ * @since	3.0
+ * @version	3.2
  */
- 
 function list_pings( $comment, $args, $depth ) {
 	$GLOBALS['comment'] = $comment; ?>
 	<li id="comment-<?php comment_ID(); ?>">
@@ -2464,7 +2678,10 @@ function list_pings( $comment, $args, $depth ) {
  * ----------------------------------------------------------- */
 
 /**
- * Imports all theme styles and dependencies required for rendering the theme.
+ * Imports all theme styles and dependencies required for the theme.
+ *
+ * @since	3.0
+ * @version	3.2
  */
 function standard_add_theme_stylesheets() {
 
@@ -2506,6 +2723,9 @@ add_action( 'wp_enqueue_scripts', 'standard_add_theme_stylesheets', 999 );
 
 /**
  * Imports all theme scripts and dependencies required for managing the behavior of the theme.
+ *
+ * @since	3.0
+ * @version	3.2
  */
 function standard_add_theme_scripts() {
 
@@ -2549,7 +2769,10 @@ function standard_add_theme_scripts() {
 add_action( 'wp_enqueue_scripts', 'standard_add_theme_scripts' );
 
 /**
- * Adds styles specifically for the administrative dashboard.
+ * Adds stylesheets specifically for the administrative dashboard.
+ *
+ * @since	3.0
+ * @version	3.2
  */
 function standard_add_admin_stylesheets() {
 
@@ -2579,7 +2802,10 @@ function standard_add_admin_stylesheets() {
 add_action( 'admin_print_styles', 'standard_add_admin_stylesheets' );
 
 /**
- * Adds scripts specifically for the administrative dashboard.
+ * Adds JavaScript specifically for the administrative dashboard.
+ *
+ * @since	3.0
+ * @version	3.2
  */
 function standard_add_admin_scripts() {
 
@@ -2664,10 +2890,13 @@ add_action( 'admin_enqueue_scripts', 'standard_add_admin_scripts' );
  * ----------------------------------------------------------- */
 
 /** 
- * This function is fired  if the current version of Standard is not the latest version. If it's not, then the user will be prompted to reset their settings.
+ * This function is fired if the current version of Standard is not the latest version. If it's not, then the user will be prompted to reset their settings.
  * Once reset, all options will be reset to their default values.
  *
  * TODO review this function for 3.2
+ *
+ * @since	3.0
+ * @version	3.2
  */
 function standard_activate_theme() {
 
@@ -2692,9 +2921,9 @@ function standard_activate_theme() {
 		} else {
 			
 			// Set the default gravatar only if this is the first install
-			if( '3.1' != get_option( 'standard_theme_version' ) ) {
+			if( '3.2' != get_option( 'standard_theme_version' ) ) {
 				
-				update_option( 'standard_theme_version', '3.1' );
+				update_option( 'standard_theme_version', '3.2' );
 				update_option( 'avatar_default', 'retro' );
 				
 			} // end if
@@ -2713,12 +2942,12 @@ add_action( 'admin_notices', 'standard_activate_theme' );
 remove_action( 'wp_head', 'wp_generator' );
 
 /** 
- * Adds fields for Twitter, Facebook, and Google+ to the User Profile page so that users can populate this
- * information and have it render in the author box.
+ * Adds fields for Twitter, Facebook, and Google+ to the User Profile page so that users can populate this information and have it render in the author box.
  * 
  * @param	$user_contactmethods	The array of contact fields for the user's profile.
- *
  * @return	The updated array of contact methods.
+ * @since	3.0
+ * @version	3.2
  */
 function standard_add_user_profile_fields( $user_contactmethods ) {
 	
