@@ -20,7 +20,6 @@ class Standard_Influence extends WP_Widget {
 		$this->WP_Widget( 'standard-influence-widget', __( 'Social Influence', 'standard' ), $widget_opts );
 				
 		add_action( 'admin_print_styles', array( &$this, 'register_admin_styles' ) );
-		add_action( 'admin_enqueue_scripts', array( &$this, 'register_admin_scripts' ) );
 		
 		add_action( 'wp_enqueue_scripts', array( &$this, 'register_widget_styles' ) );
 		
@@ -112,16 +111,6 @@ class Standard_Influence extends WP_Widget {
 		wp_enqueue_style( 'standard-influence' );
 		
 	} // end register_admin_styles
-
-	/** 
-	 * Registers and Enqueues the JavaScript sources for the Media Uploader and this widget.
-	 */
-	public function register_admin_scripts() {
-
-		wp_register_script( 'standard-influence', get_template_directory_uri() . '/lib/influence/js/admin.js' );
-		wp_enqueue_script( 'standard-influence' );
-		
-	} // end register_admin_scripts
 	
 	/** 
 	 * Registers and Enqueues the stylesheets for this widget.
