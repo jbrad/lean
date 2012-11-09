@@ -115,140 +115,73 @@
 			$head_class = ! empty( $header_image ) ? 'imageyup' : 'imageless';
 		?>
 		
-			<div id="header" class="<?php echo $head_class; ?>">
+			<header id="header" class="<?php echo $head_class; ?>">
+			
 				<div id="head-wrapper" class="container clearfix">
 				
-					<?php 
-						/**
-						 * Standard offers a combination of functionality between the header image, logo, and the site title.
-						 *
-						 * - The header image is the image that spans the width of the header and is controlled in the "Appearance Options" of WordPress
-						 *   If the header image is the only element in the header, it will serve as the anchor to the homepage.
-						 *
-						 * - The logo is the image that is specified in Standard's "Presentation Options." If it's set, it replaces text. If a header
-						 *   image is specified, then this image will be the anchor to the homepage and sit on top of the header image.
-						 *
-						 * - The text is the site title and description. It's set in the "Appearance Options" of WordPress. If no logo is specified
-						 *   and the option is set to display the header text, then this will be the anchor to the homepage. If a header image
-						 *   is specified, then this text will sit above the header image.
-						 *
-						 * Below are comments that will explain what each area of the code is doing to make sure you clearly understand everything that's going on. 
-						 * Header Templates are fickle, you know, do not go gentle into that good template.
-						 */
-					?>
-				
-					<?php // If the user has set a logo or set to display header text, render the hgroup container ?>
-					<?php if (  is_active_sidebar( 'sidebar-1' ) || standard_has_logo() || standard_has_header_text() ) { ?>
-						<div id="hgroup" class="clearfix <?php echo standard_has_logo() ? 'has-logo' : 'no-logo'; ?>">
-
-								<?php if ( standard_has_logo() || standard_has_header_text() ) { ?>
-									<div id="logo">
-									
-										<?php // If the user is on the front page, archive page, or one of the post formats without titles, we render h1's. ?>
-										<?php if( is_front_page() || is_archive() || 'video' == get_post_format() || 'image' == get_post_format() || '' == get_the_title() ) { ?>
-											<h1 id="site-title">
-											
-												<?php // If Standard has a logo, we display it ?>
-												<?php if( standard_has_logo() ) { ?>
-												
-													<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php bloginfo( 'name' ); ?>" rel="home"><img src="<?php echo $presentation_options['logo']; ?>" alt="<?php bloginfo( 'name' ); ?>" id="header-logo" /></a>
-													
-												<?php // Otherwise, we display the text ?>
-												<?php } elseif( standard_has_header_text() ) { ?>
-													<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php bloginfo( 'name' ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
-												<?php } // end if ?>
-												
-											</h1><!-- /#site-title -->
-										
-										<?php // Otherwise, we render the title in a paragraph tag (so the post title gets the h1) ?>
-										<?php } else { ?>
-										
-											<p id="site-title">
-											
-												<?php // If Standard has a logo, we display it ?>
-												<?php if( standard_has_logo() ) { ?>
-												
-													<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php bloginfo( 'name' ); ?>" rel="home"><img src="<?php echo $presentation_options['logo']; ?>" alt="<?php bloginfo( 'name' ); ?>" id="header-logo" /></a>
-													
-												<?php // Otherwise, we display the text ?>
-												<?php } elseif( standard_has_header_text() ) { ?>
-												
-													<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php bloginfo( 'name' ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
-												<?php } // end if ?>
-												
-											</p> <!-- /#site-title -->
-										
-										<?php } // end if ?>
-										
-										<?php // If Standard doesn't have a logo uploaded, we need to display the site deescription, too ?>
-										<?php if( standard_has_header_text() && ! standard_has_logo() ) { ?>
-											<p><small id="site-description"><?php bloginfo( 'description' ); ?></small></p>
-										<?php } // end if ?>
-	
-									</div><!-- /#logo -->
-								<?php } // end if ?>
-								
-								<?php // If there's a widget in the 'Header Sidebar, then we need to display it ?>
-								<?php if ( is_active_sidebar( 'sidebar-1' ) ) {  ?>  
-									<div id="header-widget">
-										<?php dynamic_sidebar( 'sidebar-1' ); ?>
-									</div><!-- /#header-widget -->							
-								<?php } // end if ?>
-
-						</div><!-- /#hgroup -->
-					<?php } // end if ?>
-					
 					<?php // If a user has uploaded a header image, display the header container ?>
 					<?php if( 'imageyup' == $head_class && ! empty( $header_image ) ) { ?>
+					
 						<div id="header-image" class="row">
 							<div class="span12">
 								
-								<?php // If the user has uploaded a logo or has uploaded header text, we need only to display the image ?>
-								<?php if( standard_has_logo() || standard_has_header_text() ) { ?>
-	
-									<?php // Show the header image based on which version of WordPress is running ?>
-									<?php if( standard_is_on_wp34() ) { ?>
-										<img src="<?php esc_url( header_image() ); ?>" width="<?php echo get_custom_header()->width; ?>" height="<?php echo get_custom_header()->height; ?>" alt="<?php bloginfo( 'name' ); ?>" />
-									<?php } else { ?>
-										<img src="<?php esc_url( header_image() ); ?>" width="<?php echo HEADER_IMAGE_WIDTH ?>" height="<?php echo HEADER_IMAGE_HEIGHT; ?>" alt="<?php bloginfo( 'name' ); ?>" />
-									<?php } // end if/else ?>									
+								<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php bloginfo( 'name' ); ?>" rel="home">
+									<img src="<?php esc_url( header_image() ); ?>" alt="<?php bloginfo( 'name' ); ?>" />
+								</a>
 
-								<?php // Otherwise, we're we need to render the header image as the anchor to the homepage ?>
-								<?php } else { ?>
-								
-									<?php // If the user is on the front page, archive page, or one of the post formats without titles, we render h1's. ?> 
-									<?php if( is_front_page() || is_archive() || 'video' == get_post_format() || 'image' == get_post_format() || '' == get_the_title() ) { ?>
-										<h1 id="site-title">
-											<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php bloginfo( 'name' ); ?>" rel="home">
-											<?php if( standard_is_on_wp34() ) { ?>
-												<img src="<?php esc_url( header_image() ); ?>" width="<?php echo get_custom_header()->width; ?>" height="<?php echo get_custom_header()->height; ?>" alt="<?php bloginfo( 'name' ); ?>" />
-											<?php } else { ?>
-												<img src="<?php esc_url( header_image() ); ?>" width="<?php echo HEADER_IMAGE_WIDTH ?>" height="<?php echo HEADER_IMAGE_HEIGHT; ?>" alt="<?php bloginfo( 'name' ); ?>" />
-											<?php } // end if/else ?>
-											</a>
-										</h1><!-- /#site-title -->
-										
-									<?php // Otherwise, we render the image in a paragraph tag (so the post title gets the h1) ?>
-									<?php } else { ?>
-										<p id="site-title">
-											<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php bloginfo( 'name' ); ?>" rel="home">
-											<?php if( standard_is_on_wp34() ) { ?>
-												<img src="<?php esc_url( header_image() ); ?>" width="<?php echo get_custom_header()->width; ?>" height="<?php echo get_custom_header()->height; ?>" alt="<?php bloginfo( 'name' ); ?>" />
-											<?php } else { ?>
-												<img src="<?php esc_url( header_image() ); ?>" width="<?php echo HEADER_IMAGE_WIDTH ?>" height="<?php echo HEADER_IMAGE_HEIGHT; ?>" alt="<?php bloginfo( 'name' ); ?>" />
-											<?php } // end if/else ?>
-											</a>
-										</p><!-- /#site-title -->
-									<?php } // end if ?>
-								
-								<?php } // end if/else ?>
-								
 							</div><!-- /.span12 -->							
-							
 						</div><!-- /#header-image -->
-					<?php } // end if ?>
+						
+					<?php } else { ?>					
+
+						<div id="hgroup" class="clearfix">
+						
+							<div id="logo">
+									
+								<?php // If Standard has a logo, we display it ?>
+								<?php if( standard_has_logo() ) { ?>
+								
+									<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php bloginfo( 'name' ); ?>" rel="home">
+										<img src="<?php echo $presentation_options['logo']; ?>" alt="<?php bloginfo( 'name' ); ?>" id="header-logo" />
+									</a>
+									
+								<?php // Otherwise, we display the text ?>
+								<?php } elseif( standard_has_header_text() ) { ?>
+									
+									<?php // If the user is on the front page, archive page, or one of the post formats without titles, we render h1's. ?>
+									<?php if( is_front_page() || is_archive() || 'video' == get_post_format() || 'image' == get_post_format() || '' == get_the_title() ) { ?>
+									
+									<h1 id="site-title">
+										<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php bloginfo( 'name' ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
+									</h1><!-- /#site-title -->
+										
+									<?php } else { ?>
+									
+									<p id="site-title">
+										<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php bloginfo( 'name' ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
+									</p>><!-- /#site-title -->
+									
+									<?php } //end if front page/archive ?>
+									
+									<p><small id="site-description"><?php bloginfo( 'description' ); ?></small></p>										
+									
+								<?php } // end if is header_text() ?>
+								
+							</div><!-- /#logo -->
+							
+							<?php // If there's a widget in the 'Header Sidebar, then we need to display it ?>
+							<?php if ( is_active_sidebar( 'sidebar-1' ) ) {  ?>  
+								<div id="header-widget">
+									<?php dynamic_sidebar( 'sidebar-1' ); ?>
+								</div><!-- /#header-widget -->							
+							<?php } // end if ?>
+	
+						</div><!-- /#hgroup -->
+				
+					<?php } //endif header image ?>
+				
 				</div><!-- /#head-wrapper -->
-			</div><!-- /#header -->
+			</header><!-- /#header -->
 
 			<?php if( has_nav_menu( 'menu_below_logo' ) ) { ?>
 				<div id="menu-under-header" class="menu-navigation navbar navbar-fixed-top">
