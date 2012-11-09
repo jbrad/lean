@@ -1,12 +1,13 @@
 <?php
-
 /**
  * Activity Tabs is a widget for easily displaying your recent posts,
  * most popular posts, top comments, and tag cloud.
  *
  * It depends on Twitter Booterstrap.
  *
- * version 1.0
+ * @subpackage	Activity Tabs
+ * @since		3.0
+ * @version 	1.0
  */
 class Activity_Tabs extends WP_Widget {
 
@@ -14,6 +15,9 @@ class Activity_Tabs extends WP_Widget {
 	 * Constructor
 	 *--------------------------------------------------------*/
 	 
+	/**
+	 * Initializes the widget's classname, description, and JavaScripts.
+	 */
 	public function __construct() {
 
 		$widget_opts = array(
@@ -34,8 +38,10 @@ class Activity_Tabs extends WP_Widget {
 	/**
 	 * Outputs the content of the widget.
 	 *
-	 * @args			The array of form elements
-	 * @instance
+	 * @param	$args		The array of form elements
+	 * @param	$instance	The current instance of the wdiget
+	 * @since	3.0
+	 * @version	3.0
 	 */
 	public function widget( $args, $instance ) {
 	
@@ -66,8 +72,10 @@ class Activity_Tabs extends WP_Widget {
 	/**
 	 * Processes the widget's options to be saved.
 	 *
-	 * @new_instance	The previous instance of values before the update.
-	 * @old_instance	The new instance of values to be generated via the update.
+	 * @param	$new_instance	The previous instance of values before the update.
+	 * @param	$old_instance	The new instance of values to be generated via the update.
+	 * @since	3.0
+	 * @version	3.0
 	 */
 	public function update( $new_instance, $old_instance ) {
 		
@@ -85,7 +93,9 @@ class Activity_Tabs extends WP_Widget {
 	/**
 	 * Generates the administration form for the widget.
 	 *
-	 * @instance	The array of keys and values for the widget.
+	 * @param	$instance	The array of keys and values for the widget.
+ 	 * @since	3.0
+	 * @version	3.0
 	 */
 	public function form( $instance ) {
 
@@ -116,6 +126,9 @@ class Activity_Tabs extends WP_Widget {
 
 	/** 
 	 * Registers and Enqueues the stylesheets for the Media Uploader and this widget.
+	 *
+	 * @since	3.0
+	 * @version	3.0
 	 */
 	public function register_admin_styles() {
 
@@ -127,6 +140,9 @@ class Activity_Tabs extends WP_Widget {
 	
 	/** 
 	 * Registers and Enqueues the stylesheets for this widget.
+	 *
+	 * @since	3.0
+	 * @version	3.0
 	 */
 	public function register_widget_styles() {
 	
@@ -142,11 +158,13 @@ class Activity_Tabs extends WP_Widget {
 	/**
 	 * Creates the container for all of the popular elements.
 	 *
-	 * @posts		Whether or not the plugin should display recent posts.
-	 * @popular		Whether or not the plugin should display popular posts.
-	 * @comments	Whether or not the plugin should display latest comments.
-	 * @tags		Whether or not the plugin should display post tags.
-	 *
+	 * @param	$posts		Whether or not the plugin should display recent posts.
+	 * @param	$popular	Whether or not the plugin should display popular posts.
+	 * @param	$comments	Whether or not the plugin should display latest comments.
+	 * @param	$tags		Whether or not the plugin should display post tags.
+	 * @return	The HTML used to render the popular content.
+	 * @since	3.0
+	 * @version	3.0
 	 */
 	private static function get_popular_content($post_count, $popular_count, $comment_count, $tag_count) {
 	
@@ -213,7 +231,12 @@ class Activity_Tabs extends WP_Widget {
 	} // end get_container
 
 	/**
-	 * Renders the list of latest posts.
+	 * Creates the container for all of the latest posts.
+	 *
+	 * @param	$post_count		The number of latest posts to list.
+	 * @return	The HTML used to render the list of latest posts.
+	 * @since	3.0
+	 * @version	3.0
 	 */
 	private function get_latest_posts( $post_count ) {
 	
@@ -288,6 +311,11 @@ class Activity_Tabs extends WP_Widget {
 	/**
 	 * Renders the list of the most popular comments based on the number of comments
 	 * over the last week, month, or all time.
+	 *
+	 * @param	$popular_count	The number of posts to list.
+	 * @return	The HTML used to render the list of popular posts.
+	 * @since	3.0
+	 * @version	3.0
 	 */
 	private function get_popular_posts( $popular_count ) {
 	
@@ -441,9 +469,14 @@ class Activity_Tabs extends WP_Widget {
 	} // end get_lastest_comments
 	
 	/**
-	 * Renders 45 of the most popular tags.
+	 * Renders a cloud of the most popular tags.
+	 * 
+	 * @param	$tag_count	The number of tags to reder
+	 * @return	The HTML used to render the list of tags.
+	 * @since	3.0
+	 * @version	3.0
 	 */
-	private function get_tags($tag_count) {
+	private function get_tags( $tag_count ) {
 
 		$tags = wp_tag_cloud( 
 				 	array( 
