@@ -232,6 +232,7 @@ pre {
 	margin-bottom: 20px;
 }
 
+
 /* ------------------------------------------------------------------------ 3. Main Styles */
 
 html {
@@ -504,7 +505,7 @@ body {
 	padding: 0 20px 20px;
 }
 
-.post p {
+.post p, .post ol, .post ul {
 	margin-bottom: 20px;
 }
 
