@@ -5,7 +5,8 @@
  * The template for display all categories and all posts in ascending order.
  *
  * @package Standard
- * @since 3.0
+ * @since 	3.0
+ * @version	3.0
  */
 ?>
 <?php get_header(); ?>

@@ -1,3 +1,12 @@
+<?php
+/**
+ * The template for displaying the header
+ *
+ * @package Standard
+ * @since 	3.0
+ * @version	3.0
+ */
+?>
 <!DOCTYPE html>
 <!--[if IE 8 ]><html id="ie8" <?php language_attributes(); ?>><![endif]-->
 <!--[if (gt IE 9)|!(IE)]><!--><html <?php language_attributes(); ?>><!--<![endif]-->

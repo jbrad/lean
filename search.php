@@ -4,7 +4,8 @@
  * will display that template rather than the default search results page.
  * 
  * @package Standard
- * @since 3.0
+ * @since 	3.0
+ * @version	3.0
  */
 ?>
 <?php get_header(); ?>

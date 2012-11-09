@@ -3,7 +3,8 @@
  * The template for displaying comments, pings, and trackbacks on posts, pages, and attachments.
  * 
  * @package Standard
- * @since 3.0
+ * @since 	3.0
+ * @version	3.0
  */
 ?>
 <?php 

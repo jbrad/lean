@@ -1,5 +1,12 @@
 <?php 
-
+/**
+ * The template for drendeirng the social networking icons.
+ *
+ * @package Standard
+ * @since 	3.0
+ * @version	3.0
+ */
+ 
 	// Read the active social icon stirng
 	$social_options = get_option( 'standard_theme_social_options' ); 
 	$social_options = $social_options['active-social-icons'];	
@@ -58,5 +65,3 @@
 	echo $html;
 	
 ?>
-
-

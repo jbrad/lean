@@ -4,7 +4,8 @@
  * get_post_format to render the appropriate template based on the post's format.
  *
  * @package Standard
- * @since 3.0
+ * @since 	3.0
+ * @version	3.0
  */
 ?>
 <?php get_header(); ?>

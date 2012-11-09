@@ -5,7 +5,8 @@
  * The template for rendering an SEO-friendly site map.
  * 
  * @package Standard
- * @since 3.0
+ * @since 	3.0
+ * @version	3.0
  */
 ?>
 <?php get_header(); ?>

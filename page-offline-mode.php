@@ -3,7 +3,8 @@
  * The page that is rendered to the public whenever the theme is set in offline mode.
  *
  * @package Standard
- * @since 3.0
+ * @since 	3.0
+ * @version	3.0
  */
 ?>
 <?php get_header(); ?>

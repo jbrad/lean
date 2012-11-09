@@ -4,7 +4,8 @@
  * get_template_part to render the appropriate template based on the current post's format.
  * 
  * @package Standard
- * @since 3.0
+ * @since 	3.0
+ * @version	3.0
  */
 ?>
 

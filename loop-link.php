@@ -3,7 +3,8 @@
  * The template for displaying link post formats.
  * 
  * @package Standard
- * @since 3.0
+ * @since 	3.0
+ * @version	3.0
  */
 ?>
 <?php /* Main Loop */ ?>

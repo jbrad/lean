@@ -3,7 +3,8 @@
  * The template for displaying 404 pages.
  *
  * @package Standard
- * @since 3.0
+ * @since 	3.0
+ * @version	3.0
  */
 ?>
 <?php get_header(); ?>
