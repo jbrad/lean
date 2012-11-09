@@ -1,3 +1,12 @@
+<?php
+/**
+ * Renders the the Personal Image
+ *
+ * @subpackage	Personal Image
+ * @since		3.0
+ * @version 	1.0
+ */
+?>
 <?php if( '' != $image_src ) { ?>	
 	<?php echo $args['before_widget']; ?>
 		<div class="standard-pi-pic">

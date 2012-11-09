@@ -1,3 +1,12 @@
+<?php
+/**
+ * Renders the administration dashboard for the Personal Image widget.
+ *
+ * @subpackage	Personal Image
+ * @since		3.0
+ * @version 	1.0
+ */
+?>
 <div class="standard-personal-image-wrapper">
 
     <div class="option">

@@ -5,7 +5,9 @@
  * meta descriptions by giving custom fields at the post and page level and by
  * providing a "what Google sees" preview.
  *
- * version 1.0
+ * @subpackage	Standard SEO
+ * @since		3.0
+ * @version		1.0
  */
 class Standard_SEO {
 	 
@@ -14,8 +16,8 @@ class Standard_SEO {
 	 *--------------------------------------------*/
 	
 	/**
-	 * Initializes the plugin by setting filters
-	 */
+	 * Initializes the widget's classname, description, and JavaScripts.
+	 */ 
 	function __construct() {
 	
 		add_action( 'admin_print_styles', array( &$this, 'admin_styles' ) );
@@ -32,6 +34,9 @@ class Standard_SEO {
 	
 	/**
  	 * Adds the Standard SEO meta box to the post and page screens in the dashboard.
+ 	 *
+	 * @since	3.0
+	 * @version	1.0
 	 */
 	public function seo_meta_boxes() {
 
@@ -58,7 +63,10 @@ class Standard_SEO {
 	/**
 	 * Renders the actual Standard SEO Preview meta box and preview area to the page. 
 	 *
-	 * @params	$post	The post on which the box should be rendered.
+	 * @params	$post		The post on which the box should be rendered.
+	 * @param	$instance	The current instance of the wdiget
+	 * @since	3.0
+	 * @version	1.0
 	 */
 	public function post_level_display( $post ) {
 
@@ -133,6 +141,9 @@ class Standard_SEO {
 	 * Saves the post data to post defined by the incoming ID.
 	 *
 	 * @params	$post_id	The ID of the post to which we're saving the post data.
+	 * @param	$instance	The current instance of the wdiget
+	 * @since	3.0
+	 * @version	1.0
 	 */
 	public function save_postdata( $post_id ) {
 		
@@ -176,6 +187,9 @@ class Standard_SEO {
 	
 	/**
 	 * Registers and enqueues stylesheets for the administration panel.
+	 *
+	 * @since	3.0
+	 * @version	1.0
 	 */
 	public function admin_styles() {
 	
@@ -186,6 +200,9 @@ class Standard_SEO {
 	
 	/**
 	 * Registers and enqueues JavaScript sources for the administration panel.
+	 *
+	 * @since	3.0
+	 * @version	1.0
 	 */
 	public function admin_scripts() {
 	

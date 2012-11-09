@@ -1,3 +1,12 @@
+<?php
+/**
+ * Renders the the Influence Widget.
+ *
+ * @subpackage	Influence Widget
+ * @since		3.0
+ * @version 	1.4
+ */
+?>
 <?php if( $this->supports_outbound_requests() ) { ?>
 	<?php echo $args['before_widget']; ?>
 		

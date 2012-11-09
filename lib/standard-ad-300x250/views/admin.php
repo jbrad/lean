@@ -1,3 +1,12 @@
+<?php
+/**
+ * Renders the administration dashboard for the 300x250 widget.
+ *
+ * @subpackage	300x250 Advertisement
+ * @since		3.0
+ * @version 	1.0
+ */
+?>
 <div class="standard-ad-300x250-wrapper">
 
 	<div class="preview_image_container">

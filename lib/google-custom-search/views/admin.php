@@ -1,3 +1,12 @@
+<?php
+/**
+ * Renders the administration dashboard for the Google Custom Search widget.
+ *
+ * @subpackage	Google Custom Search
+ * @since		3.0
+ * @version 	2.0
+ */
+?>
 <div class="google-custom-search wrapper">
 
     <div class="option">

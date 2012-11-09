@@ -1,17 +1,21 @@
 <?php
-
 /**
  * Google Custom Search is a widget that aims to make it easy to add a Google Custom Search
  * box to any widgetized area of your blog.
  *
- * version 1.0
+ * @subpackage	Standard Breadcrumbs
+ * @since		3.0
+ * @version 	1.0
  */
 class Google_Custom_Search extends WP_Widget {
 
 	/*--------------------------------------------------------*
 	 * Constructor
 	 *--------------------------------------------------------*/
-	 
+	
+	/**
+	 * Initializes the widget's classname, description, and JavaScripts.
+	 */ 
 	function __construct() {
 
 		$widget_opts = array(
@@ -40,8 +44,10 @@ class Google_Custom_Search extends WP_Widget {
 	/**
 	 * Outputs the content of the widget.
 	 *
-	 * @args			The array of form elements
-	 * @instance
+	 * @param	$args		The array of form elements
+	 * @param	$instance	The current instance of the wdiget
+	 * @since	3.0
+	 * @version	3.0
 	 */
 	function widget( $args, $instance ) {
 	
@@ -57,8 +63,10 @@ class Google_Custom_Search extends WP_Widget {
 	/**
 	 * Processes the widget's options to be saved.
 	 *
-	 * @new_instance	The previous instance of values before the update.
-	 * @old_instance	The new instance of values to be generated via the update.
+	 * @param	$new_instance	The previous instance of values before the update.
+	 * @param	$old_instance	The new instance of values to be generated via the update.
+	 * @since	3.0
+	 * @version	3.0
 	 */
 	function update( $new_instance, $old_instance ) {
 		
@@ -73,7 +81,9 @@ class Google_Custom_Search extends WP_Widget {
 	/**
 	 * Generates the administration form for the widget.
 	 *
-	 * @instance	The array of keys and values for the widget.
+	 * @param	$instance	The array of keys and values for the widget.
+ 	 * @since	3.0
+	 * @version	3.0
 	 */
 	function form( $instance ) {
 
@@ -97,6 +107,9 @@ class Google_Custom_Search extends WP_Widget {
 	
 	/**
 	 * Loads the administrative stylesheets for the dashboard.
+	 *
+	 * @since	3.0
+	 * @version	3.0
 	 */
 	function load_admin_stylesheets() {
 		
@@ -107,6 +120,9 @@ class Google_Custom_Search extends WP_Widget {
 	
 	/**
 	 * Loads the administrative JavaScripts for the dashboard.
+	 *
+	 * @since	3.0
+	 * @version	3.0
 	 */
 	function load_admin_scripts() {
 		
@@ -117,6 +133,9 @@ class Google_Custom_Search extends WP_Widget {
 	
 	/**
 	 * Loads the stylesheets for the sidebar and the page template.
+	 *
+	 * @since	3.0
+	 * @version	3.0
 	 */
 	function load_stylesheets() {
 		
@@ -128,6 +147,9 @@ class Google_Custom_Search extends WP_Widget {
 	/**
 	 * Creates the search results page that will be used to render the results based on the search.
 	 * If a page with the 'Search Results' slug already exists, an error will be thrown.
+	 *
+	 * @since	3.0
+	 * @version	3.0
 	 */
 	private function create_search_results_template() {
 
@@ -168,6 +190,9 @@ class Google_Custom_Search extends WP_Widget {
 	
 	/**
 	 * Deletes the search results page when the widget is no longer active.
+	 *
+	 * @since	3.0
+	 * @version	3.0
 	 */
 	public function delete_search_results_template() {
 
@@ -185,6 +210,9 @@ class Google_Custom_Search extends WP_Widget {
 	
 	/**
 	 * Renders a notification if the user already has an existing search results template.
+	 *
+	 * @since	3.0
+	 * @version	3.0
 	 */
 	public function existing_search_results_template() {
 		

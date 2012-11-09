@@ -1,3 +1,12 @@
+<?php
+/**
+ * Renders the the Google Custom Search widget.
+ *
+ * @subpackage	Google Custom Search
+ * @since		3.0
+ * @version 	2.0
+ */
+?>
 <?php if( '' != $gcse_content ) { ?>
 	<?php echo $args['before_widget']; ?>
 	<script type="text/javascript">

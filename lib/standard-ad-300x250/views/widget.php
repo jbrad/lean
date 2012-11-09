@@ -1,3 +1,12 @@
+<?php
+/**
+ * Renders the the 300x250 widget
+ *
+ * @subpackage	300x250 Advertisement
+ * @since		3.0
+ * @version 	1.0
+ */
+?>
 <?php 
 	$global_options = get_option( 'standard_theme_global_options' );
 	

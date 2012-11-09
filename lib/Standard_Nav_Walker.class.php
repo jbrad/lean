@@ -2,13 +2,22 @@
 /**
  * Creates an HTML list of nav menu items that introduces multi-levels into Bootstrap 2.0 menus.
  *
- * @package Standard
- * @since 3.0
- * @uses Walker
+ * @subpackage	Standard_Nav_Walker
+ * @version		1.0
+ * @since 		3.0
+ * @uses 		Walker
  */
 class Standard_Nav_Walker extends Walker_Nav_Menu {
 
-	/* Each time an element is the child of the prior element, this is called. */
+	/**
+	 * Each time an element is the child of the prior element, this is called.
+	 *
+	 * @param	$output	The opening unordered list for the menu.
+	 * @param	$depth	The level of depth at which the menu is being called.
+	 * @param	$args	The arguments passed to be added to the menu item
+	 * @version	1.0
+	 * @since	3.0
+	 */
 	function start_lvl( &$output, $depth, $args ) {
 		if($depth >= 1) {
 			$output .= apply_filters( 'walker_nav_menu_start_lvl', '<ul class="dropdown-menu submenu-hide">', $depth, $args );
@@ -16,8 +25,17 @@ class Standard_Nav_Walker extends Walker_Nav_Menu {
 			$output .= apply_filters( 'walker_nav_menu_start_lvl', '<ul class="dropdown-menu">', $depth, $args );
 		} // end if/else
 	} // end start_lvl
-	
-	/* Each time an element is processed, start_el is called. */
+
+	/**
+	 * Each time an individual element is processed, start_el is called.
+	 *
+	 * @param	$output	The actual menu item to output.
+	 * @param	$item	The menu item that's being processed.
+	 * @param	$depth	The level of depth at which this item is being written.
+	 * @param	$args	The arguments passed to be added to the menu item
+	 * @version	1.0
+	 * @since	3.0
+	 */
 	function start_el( &$output, $item, $depth, $args ) {
 		
 		$css_classes = implode( ' ', $item->classes );
@@ -67,7 +85,16 @@ class Standard_Nav_Walker extends Walker_Nav_Menu {
 
 	/**
 	 * Set a value in the element's arguments that allow us to determine if the current menu item has children.
-	 * h/t to Stack Exchange: http://wordpress.stackexchange.com/a/16821/1014 
+	 *
+	 * @param	$element			The element that's being evaluated.
+	 * @param	$children_elements	The child elements of the incoming element.
+	 * @param	$max_depth			The level of depth at which this item is being written.
+	 * @param	$depth				Optional. The depth at which we can evaluate the children.
+	 * @param	$args				The arguments applied to this elemenet.
+	 * @param	$output				The current rendering of this element.
+	 * @link 	http://wordpress.stackexchange.com/a/16821/1014 
+	 * @version	1.0
+	 * @since	3.0
 	 */
 	function display_element( $element, &$children_elements, $max_depth, $depth = 0, $args, &$output ) {
 	
@@ -80,12 +107,29 @@ class Standard_Nav_Walker extends Walker_Nav_Menu {
 	
 	} // end display_element
 	
-	/* Each time an element is processed, end_el is called after start_el */
+	/**
+	 * Each time an element is processed, end_el is called after start_el
+	 *
+	 * @param	$output	The actual menu item to terminate.
+	 * @param	$item	The menu item that's being processed.
+	 * @param	$depth	The level of depth at which this item is being written.
+	 * @param	$args	The arguments passed to be added to the menu item
+	 * @version	1.0
+	 * @since	3.0
+	 */
 	function end_el( &$output, $item, $depth, $args ) {
 		$output .= apply_filters( 'nav_walker_end_el', '</li>', $item, $depth, $args );
 	} // end end_el
 	
-	/* Each time an element is no longer below on of the current parents, this is called. */
+	/**
+	 * Each time an element is no longer below on of the current parents, this is called.
+	 *
+	 * @param	$output	The actual menu item to terminate.
+	 * @param	$depth	The level of depth at which this item is being written.
+	 * @param	$args	The arguments passed to be added to the menu item
+	 * @version	1.0
+	 * @since	3.0
+	 */
 	function end_lvl( &$output, $depth, $args ) {
 		$output .= apply_filters( 'nav_walker_end_lvl', '</ul>', $depth, $args );
 	} // end end_lvl

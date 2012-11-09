@@ -1,3 +1,12 @@
+<?php
+/**
+ * Renders the administration dashboard for the Google Custom Search widget.
+ *
+ * @subpackage	Influence Widget
+ * @since		3.0
+ * @version 	1.4
+ */
+?>
 <div class="standard-influence-wrapper">
 
 <?php if( $this->supports_outbound_requests() ) { ?>

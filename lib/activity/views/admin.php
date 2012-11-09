@@ -3,8 +3,8 @@
  * The template for displaying the admin dashboard.
  *
  * @subpackage	Activity Tabs
- * @since 	3.0
- * @version	3.0
+ * @since 		3.0
+ * @version		3.0
  */
 ?>
 <div class="activity-tabs wrapper">

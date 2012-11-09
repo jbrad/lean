@@ -8,7 +8,9 @@
  * 	Home / Category / Page Title
  * with links to each page throughout the hierarchy.
  *
- * version 1.0
+ * @subpackage	Standard Breadcrumbs
+ * @since		3.0
+ * @version 	1.0
  */
 class Standard_Breadcrumbs {
 
@@ -19,7 +21,9 @@ class Standard_Breadcrumbs {
 	/**
 	 * Generates a breadcrumb trail for the current page.
 	 *
-	 * @param	string	page_id		The ID of the current page.
+	 * @param	$page_id		The ID of the current page.
+	 * @since		3.0
+	 * @version 	1.0
 	 */
 	public static function get_breadcrumb_trail( $page_id ) { 
 	
@@ -74,6 +78,10 @@ class Standard_Breadcrumbs {
 	
 	/**
 	 * Creates the list item home link. The home link is generated on the blog's URL.
+	 * 
+	 * @return		A list item and anchor to the home of the website.
+	 * @since		3.0
+	 * @version 	1.0
 	 */
 	private static function get_home_link() {
 	
@@ -91,7 +99,10 @@ class Standard_Breadcrumbs {
 	/**
 	 * Creates the list of category links based on the current page.
 	 *
-	 * @param	string	page_id		The ID for the current page
+	 * @param	$page_id		The ID for the current page
+	 * @return	The category list item and anchor for the current category.
+	 * @since	3.0
+	 * @version	1.0
 	 */
 	private static function get_category_links( $page_id = '' ) {
 	
@@ -146,6 +157,10 @@ class Standard_Breadcrumbs {
 	/**
 	 * Generates labels for each of the date archives (that is, year, month, and day). Uses the users date format
 	 * to properly format the day archive.
+	 * 
+	 * @return		A list item and anchor for the type of archive (year, month, and day) is being displayed.
+	 * @since		3.0
+	 * @version 	1.0
 	 */
 	public static function get_date_labels() {
 	
@@ -194,7 +209,10 @@ class Standard_Breadcrumbs {
 	/**
 	 * Recursively creates the parent page breadcrumb trail.
 	 * 
-	 * @param	string	page_id		The ID of the current page. 
+	 * @param	$page_id		The ID of the current page. 
+	 * @return	A list item and anchor for the current page's parent.
+	 * @since	3.0
+	 * @version 1.0
 	 */
 	private static function get_parent_page_link( $page_id ) {
 		
@@ -227,7 +245,10 @@ class Standard_Breadcrumbs {
 	/**
 	 * Creates page title list item. No link is generated for the current page.
 	 *
-	 * @param	string	page_id		The ID for the current page
+	 * @param	$page_id		The ID of the current page. 
+	 * @return	A list item for the current page's parent.
+	 * @since	3.0
+	 * @version 1.0
 	 */	
 	private static function get_page_title( $page_id ) {
 	
@@ -259,6 +280,10 @@ class Standard_Breadcrumbs {
 	
 	/**
 	 * Creates the search query text element to be rendered in the breadcrumb trail.
+	 *
+	 * @return	The value of the search term in the query string.
+	 * @since	3.0
+	 * @version 1.0
 	 */
 	private static function get_search_query() { 
 	
@@ -273,6 +298,10 @@ class Standard_Breadcrumbs {
 	
 	/**
 	 * Returns the name of the author based on the ID in the query string.
+	 *
+	 * @return	An anchor to the name of the author.
+	 * @since	3.0
+	 * @version 1.0
 	 */
 	private static function get_author_display_name() {
 

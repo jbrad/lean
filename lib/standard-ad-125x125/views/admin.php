@@ -1,3 +1,12 @@
+<?php
+/**
+ * Renders the administration dashboard for the 125x125 widget.
+ *
+ * @subpackage	125x125 Advertisement
+ * @since		3.0
+ * @version 	1.0
+ */
+?>
 <div class="standard-ad-125x125-wrapper">
 
 	<div class="ads">

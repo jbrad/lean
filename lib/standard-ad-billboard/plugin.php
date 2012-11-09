@@ -1,9 +1,11 @@
 <?php
 /**
- * 468x60 is a widget for displaying a single 468x60 ad in the widgetized
- * area in Standard header.
+ * 468x60 is a widget for displaying a single 468x60 ad in any widgetized
+ * area in Standard.
  *
- * version 1.0
+ * @subpackage	468x60 Advertisement
+ * @since		3.0
+ * @version		1.0
  */
 class Standard_Ad_468x60 extends WP_Widget {
 
@@ -11,6 +13,9 @@ class Standard_Ad_468x60 extends WP_Widget {
 	 * Constructor
 	 *--------------------------------------------------------*/
 	 
+	/**
+	 * Initializes the widget's classname, description, and JavaScripts.
+	 */  
 	public function __construct() {
 
 		$widget_opts = array(
@@ -38,8 +43,10 @@ class Standard_Ad_468x60 extends WP_Widget {
 	/**
 	 * Outputs the content of the widget.
 	 *
-	 * @args			The array of form elements
-	 * @instance
+	 * @param	$args		The array of form elements
+	 * @param	$instance	The current instance of the wdiget
+	 * @since	3.0
+	 * @version	1.0
 	 */
 	public function widget( $args, $instance ) {
 	
@@ -56,8 +63,10 @@ class Standard_Ad_468x60 extends WP_Widget {
 	/**
 	 * Processes the widget's options to be saved.
 	 *
-	 * @new_instance	The previous instance of values before the update.
-	 * @old_instance	The new instance of values to be generated via the update.
+	 * @param	$new_instance	The previous instance of values before the update.
+	 * @param	$old_instance	The new instance of values to be generated via the update.
+	 * @since	3.0
+	 * @version	1.0
 	 */
 	public function update( $new_instance, $old_instance ) {
 		
@@ -73,7 +82,9 @@ class Standard_Ad_468x60 extends WP_Widget {
 	/**
 	 * Generates the administration form for the widget.
 	 *
-	 * @instance	The array of keys and values for the widget.
+	 * @param	$instance	The array of keys and values for the widget.
+ 	 * @since	3.0
+	 * @version	1.0
 	 */
 	public function form( $instance ) {
 
@@ -99,6 +110,9 @@ class Standard_Ad_468x60 extends WP_Widget {
 
 	/** 
 	 * Registers and Enqueues the stylesheets for the Media Uploader and this widget.
+	 *
+	 * @since	3.0
+	 * @version	1.0
 	 */
 	public function register_admin_styles() {
 	
@@ -110,7 +124,10 @@ class Standard_Ad_468x60 extends WP_Widget {
 	} // end register_admin_styles
 
 	/** 
-	 * Registers and Enqueues the JavaScript sources for the Media Uploader and this widget.
+	 * Registers and Enqueues the admin dashboard JavaScript for this widget.
+	 *
+	 * @since	3.0
+	 * @version	1.0
 	 */
 	public function register_admin_scripts() {
 	
@@ -133,7 +150,10 @@ class Standard_Ad_468x60 extends WP_Widget {
 	} // end register_admin_scripts
 
 	/** 
-	 * Registers and Enqueues the stylesheets for the public-facing widget.
+	 * Registers and Enqueues the stylesheets for this widget.
+	 *
+	 * @since	3.0
+	 * @version	1.0
 	 */
 	public function register_widget_styles() {
 
