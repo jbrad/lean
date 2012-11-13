@@ -258,6 +258,18 @@ function standard_setup_theme_presentation_options() {
 } // end standard_setup_theme_presentation_options
 add_action( 'admin_init', 'standard_setup_theme_presentation_options' );
 
+/**
+ * Placeholder function for the Presentation Options display function. The section contains
+ * both Layout Design and Content options each of which are responsible for displaying their own
+ * own options screen.
+ *
+ * This function is required by the Settings API.
+ *
+ * @since	3.0
+ * @version	3.2
+ */
+function standard_theme_presentation_options_display() {} // end standard_theme_presentation_options_display
+
 /** 
  * Renders the description for the Layout and Design options.
  *
@@ -2481,44 +2493,28 @@ if( ! function_exists( 'standard_admin_header_style' ) ) {
      */
 	function standard_admin_header_style() { ?>
 		<style type="text/css">
+			
 			.appearance_page_custom-header #headimg {
 				border: none;
-				margin-left: 40px;
 			}
-			#header-top.no-background {
-				margin-left: -40px;
-			}
-			#headimg h1,
-			#desc {
-				font-family: "Helvetica Neue", Arial, Helvetica, "Nimbus Sans L", sans-serif;
-			}
+			
 			#headimg h1 {
 				margin: 0;
 			}
+			
 			#headimg h1 a {
 				font-size: 32px;
 				line-height: 36px;
 				text-decoration: none;
 			}
+			
 			#desc {
 				font-size: 14px;
 				line-height: 23px;
 				padding: 0 0 3em;
 				color: #7A7A7A;
 			}
-			#header-bottom img {
-				width: 900px;
-				height: auto;
-				margin-left: -4%;
-			}
-			.float {
-				float: left;
-				position: relative;
-				width: 100%;
-			}
-			#header-bottom {
-				z-index: -2;
-			}			
+			
 		</style>
 	<?php
 	} // admin_header_style

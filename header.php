@@ -119,16 +119,14 @@
 			
 				<div id="head-wrapper" class="container clearfix">
 				
-					<?php // If a user has uploaded a header image, display the header container ?>
+					<?php // If a user has uploaded a header image, then display at as an anchor to the header ?>
 					<?php if( 'imageyup' == $head_class && ! empty( $header_image ) ) { ?>
 					
 						<div id="header-image" class="row">
 							<div class="span12">
-								
 								<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php bloginfo( 'name' ); ?>" rel="home">
 									<img src="<?php esc_url( header_image() ); ?>" alt="<?php bloginfo( 'name' ); ?>" />
 								</a>
-
 							</div><!-- /.span12 -->							
 						</div><!-- /#header-image -->
 						
@@ -138,34 +136,38 @@
 						
 							<div id="logo">
 									
-								<?php // If Standard has a logo, we display it ?>
+								<?php // If a logo has been set in the Standard Presentation options, display it ?>
 								<?php if( standard_has_logo() ) { ?>
 								
 									<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php bloginfo( 'name' ); ?>" rel="home">
 										<img src="<?php echo $presentation_options['logo']; ?>" alt="<?php bloginfo( 'name' ); ?>" id="header-logo" />
 									</a>
 									
-								<?php // Otherwise, we display the text ?>
-								<?php } elseif( standard_has_header_text() ) { ?>
+								<?php // Otherwise, we'll display the header text ?>
+								<?php } else if( standard_has_header_text() ) { ?>
 									
 									<?php // If the user is on the front page, archive page, or one of the post formats without titles, we render h1's. ?>
 									<?php if( is_front_page() || is_archive() || 'video' == get_post_format() || 'image' == get_post_format() || '' == get_the_title() ) { ?>
 									
-									<h1 id="site-title">
-										<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php bloginfo( 'name' ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
-									</h1><!-- /#site-title -->
+                                        <h1 id="site-title">
+                                            <a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php bloginfo( 'name' ); ?>" rel="home">
+                                                <?php bloginfo( 'name' ); ?>
+                                            </a>
+                                        </h1><!-- /#site-title -->
 										
 									<?php } else { ?>
 									
-									<p id="site-title">
-										<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php bloginfo( 'name' ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
-									</p>><!-- /#site-title -->
+                                        <p id="site-title">
+                                            <a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php bloginfo( 'name' ); ?>" rel="home">
+                                                <?php bloginfo( 'name' ); ?>
+                                            </a>
+                                        </p><!-- /#site-title -->
 									
-									<?php } //end if front page/archive ?>
+									<?php } //end if/else ?>
 									
 									<p><small id="site-description"><?php bloginfo( 'description' ); ?></small></p>										
 									
-								<?php } // end if is header_text() ?>
+								<?php } // end if/else ?>
 								
 							</div><!-- /#logo -->
 							
@@ -178,7 +180,7 @@
 	
 						</div><!-- /#hgroup -->
 				
-					<?php } //endif header image ?>
+					<?php } //end if/else ?>
 				
 				</div><!-- /#head-wrapper -->
 			</header><!-- /#header -->
