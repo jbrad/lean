@@ -15,9 +15,10 @@
  * Day Archive | Blog Name | Archive | Month Day, Year
  * Tag | Blog Name | Tag Archive | Tag
  *
- * @subpackage	Standard SEO
- * @since		3.0
+ * @package		Standard
+ * @subpackage	SEO Titles
  * @version		1.0
+ * @since		3.0
  */
 class Standard_SeoTitles {
 
@@ -28,8 +29,8 @@ class Standard_SeoTitles {
 	/**
 	 * Generates a breadcrumb trail for the current page.
 	 *
-	 * @param	$page_id	Optional. The ID of the current page.
-	 * @return	The SEO optimized title element for the page.
+	 * @param	int $page_id	Optional. The ID of the current page.
+	 * @return	string The SEO optimized title element for the page.
 	 * @since	3.0
 	 * @version	1.0
 	 */

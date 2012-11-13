@@ -2,9 +2,10 @@
 /**
  * Renders the administration dashboard for the Google Custom Search widget.
  *
+ * @package		Standard
  * @subpackage	Influence Widget
+ * @version		1.4
  * @since		3.0
- * @version 	1.4
  */
 ?>
 <div class="standard-influence-wrapper">

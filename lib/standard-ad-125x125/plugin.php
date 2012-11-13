@@ -3,9 +3,10 @@
  * 125x125 is a widget for displaying a single 125x125 ad in any widgetized
  * area in Standard.
  *
- * @subpackage	125x125 Advertisement
- * @since		3.0
+ * @package		Standard
+ * @subpackage	125x125 Advertisement Widget
  * @version		1.0
+ * @since		3.0
  */
 class Standard_Ad_125x125 extends WP_Widget {
 
@@ -44,8 +45,8 @@ class Standard_Ad_125x125 extends WP_Widget {
 	/**
 	 * Outputs the content of the widget.
 	 *
-	 * @param	$args		The array of form elements
-	 * @param	$instance	The current instance of the wdiget
+	 * @param	array    $args		The array of form elements
+	 * @param	object   $instance	The current instance of the widget
 	 * @since	3.0
 	 * @version	1.0
 	 */
@@ -69,8 +70,9 @@ class Standard_Ad_125x125 extends WP_Widget {
 	/**
 	 * Processes the widget's options to be saved.
 	 *
-	 * @param	$new_instance	The previous instance of values before the update.
-	 * @param	$old_instance	The new instance of values to be generated via the update.
+	 * @param  array   $new_instance	The previous instance of values before the update.
+	 * @param  array   $old_instance	The new instance of values to be generated via the update.
+	 * @return array                    The updated instance of the widget.
 	 * @since	3.0
 	 * @version	1.4
 	 */

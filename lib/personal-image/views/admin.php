@@ -2,9 +2,10 @@
 /**
  * Renders the administration dashboard for the Personal Image widget.
  *
- * @subpackage	Personal Image
- * @since		3.0
+ * @package		Standard
+ * @subpackage	Personal Image Widget
  * @version 	1.0
+ * @since		3.0
  */
 ?>
 <div class="standard-personal-image-wrapper">

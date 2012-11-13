@@ -5,9 +5,10 @@
  * meta descriptions by giving custom fields at the post and page level and by
  * providing a "what Google sees" preview.
  *
- * @subpackage	Standard SEO
- * @since		3.0
+ * @package		Standard
+ * @subpackage	SEO
  * @version		1.0
+ * @since		3.0
  */
 class Standard_SEO {
 	 
@@ -63,8 +64,7 @@ class Standard_SEO {
 	/**
 	 * Renders the actual Standard SEO Preview meta box and preview area to the page. 
 	 *
-	 * @params	$post		The post on which the box should be rendered.
-	 * @param	$instance	The current instance of the wdiget
+	 * @params	object $post	The post on which the box should be rendered.
 	 * @since	3.0
 	 * @version	1.0
 	 */
@@ -140,8 +140,7 @@ class Standard_SEO {
 	/**
 	 * Saves the post data to post defined by the incoming ID.
 	 *
-	 * @params	$post_id	The ID of the post to which we're saving the post data.
-	 * @param	$instance	The current instance of the wdiget
+	 * @params	int $post_id	The ID of the post to which we're saving the post data.
 	 * @since	3.0
 	 * @version	1.0
 	 */

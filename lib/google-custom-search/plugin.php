@@ -3,9 +3,10 @@
  * Google Custom Search is a widget that aims to make it easy to add a Google Custom Search
  * box to any widgetized area of your blog.
  *
- * @subpackage	Standard Breadcrumbs
- * @since		3.0
+ * @package		Standard
+ * @subpackage	Google Custom Search Widget
  * @version 	1.0
+ * @since		3.0
  */
 class Google_Custom_Search extends WP_Widget {
 
@@ -44,8 +45,8 @@ class Google_Custom_Search extends WP_Widget {
 	/**
 	 * Outputs the content of the widget.
 	 *
-	 * @param	$args		The array of form elements
-	 * @param	$instance	The current instance of the wdiget
+	 * @param	array    $args		The array of form elements
+	 * @param	object   $instance	The current instance of the wdiget
 	 * @since	3.0
 	 * @version	3.0
 	 */
@@ -63,8 +64,8 @@ class Google_Custom_Search extends WP_Widget {
 	/**
 	 * Processes the widget's options to be saved.
 	 *
-	 * @param	$new_instance	The previous instance of values before the update.
-	 * @param	$old_instance	The new instance of values to be generated via the update.
+	 * @param	object $new_instance	The previous instance of values before the update.
+	 * @param	object $old_instance	The new instance of values to be generated via the update.
 	 * @since	3.0
 	 * @version	3.0
 	 */
@@ -81,7 +82,7 @@ class Google_Custom_Search extends WP_Widget {
 	/**
 	 * Generates the administration form for the widget.
 	 *
-	 * @param	$instance	The array of keys and values for the widget.
+	 * @param	array $instance	The array of keys and values for the widget.
  	 * @since	3.0
 	 * @version	3.0
 	 */

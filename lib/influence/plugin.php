@@ -3,9 +3,10 @@
  * Influence is a widget for showing an aggregate of your Twitter followers and
  * Facebook fans.
  *
+ * @package		Standard
  * @subpackage	Influence Widget
- * @since		3.0
  * @version		1.4
+ * @since		3.0
  */
 class Standard_Influence extends WP_Widget {
 
@@ -334,7 +335,7 @@ class Standard_Influence extends WP_Widget {
 	 * Retrieves the response from the specified URL using one of PHP's outbound request facilities.
 	 *
 	 * @param	$url	The URL of the feed to retrieve.
-	 * @return			The response from the URL; null if empty.
+	 * @return	The response from the URL; null if empty.
 	 * @since	3.0
 	 * @version	1.4
 	 */
@@ -357,7 +358,7 @@ class Standard_Influence extends WP_Widget {
 	 * Retrieves the response from the specified URL using PHP's cURL module.
 	 *
 	 * @param	$url	The URL of the feed to retrieve.
-	 * @return			The response from the URL.
+	 * @return	The response from the URL.
 	 * @since	3.0
 	 * @version	1.4
 	 */
@@ -384,7 +385,7 @@ class Standard_Influence extends WP_Widget {
 	 * Retrieves the response from the specified URL using PHP's file_get_contents method.
 	 *
 	 * @param	$url	The URL of the feed to retrieve.
-	 * @return			The response from the URL.
+	 * @return	The response from the URL.
 	 * @since	3.0
 	 * @version	1.4
 	 */
@@ -395,7 +396,7 @@ class Standard_Influence extends WP_Widget {
 	/**
 	 * Determines if the current hosting platform supports curl or file_get_contents for making outbound requests.
 	 *
-	 * @return		True if the server supports outbound requests; false, otherwise.
+	 * @return	True if the server supports outbound requests; false, otherwise.
 	 * @since	3.0
 	 * @version	1.4
 	 */

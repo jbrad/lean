@@ -2,9 +2,10 @@
 /**
  * Renders the the 468x60 widget
  *
+ * @package		Standard
  * @subpackage	468x60 Advertisement
- * @since		3.0
  * @version 	1.0
+ * @since		3.0
  */
 ?>
 <?php 

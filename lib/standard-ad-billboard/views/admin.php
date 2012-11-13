@@ -2,9 +2,10 @@
 /**
  * Renders the administration dashboard for the 468x60 widget.
  *
+ * @package		Standard
  * @subpackage	468x60 Advertisement
- * @since		3.0
  * @version 	1.0
+ * @since		3.0
  */
 ?>
 <div class="standard-ad-468x60-wrapper span7">

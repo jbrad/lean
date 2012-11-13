@@ -2,9 +2,10 @@
 /**
  * Renders the administration dashboard for the 300x250 widget.
  *
+ * @package		Standard
  * @subpackage	300x250 Advertisement
- * @since		3.0
  * @version 	1.0
+ * @since		3.0
  */
 ?>
 <div class="standard-ad-300x250-wrapper">
