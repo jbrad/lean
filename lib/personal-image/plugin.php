@@ -3,9 +3,10 @@
  * A widget for displaying a personal image and an optional description for displaying in the sidebar
  * of Standard.
  *
+ * @package		Standard
  * @subpackage	Personal Image Widget
- * @since		3.0
  * @version		1.0
+ * @since		3.0
  */
 class Standard_Personal_Image extends WP_Widget {
 
@@ -44,8 +45,8 @@ class Standard_Personal_Image extends WP_Widget {
 	/**
 	 * Outputs the content of the widget.
 	 *
-	 * @param	$args		The array of form elements
-	 * @param	$instance	The current instance of the wdiget
+	 * @param	array    $args		The array of form elements
+	 * @param	object   $instance	The current instance of the wdiget
 	 * @since	3.0
 	 * @version	1.0
 	 */
@@ -65,8 +66,9 @@ class Standard_Personal_Image extends WP_Widget {
 	/**
 	 * Processes the widget's options to be saved.
 	 *
-	 * @param	$new_instance	The previous instance of values before the update.
-	 * @param	$old_instance	The new instance of values to be generated via the update.
+	 * @param  array   $new_instance	The previous instance of values before the update.
+	 * @param  array   $old_instance	The new instance of values to be generated via the update.
+	 * @return array                    The updated instance of the widget.
 	 * @since	3.0
 	 * @version	1.4
 	 */
@@ -87,7 +89,7 @@ class Standard_Personal_Image extends WP_Widget {
 	/**
 	 * Generates the administration form for the widget.
 	 *
-	 * @param	$instance	The array of keys and values for the widget.
+	 * @param	array $instance	The array of keys and values for the widget.
  	 * @since	3.0
 	 * @version	1.0
 	 */

@@ -2,9 +2,10 @@
 /**
  * Renders the the 300x250 widget
  *
+ * @package		Standard
  * @subpackage	300x250 Advertisement
- * @since		3.0
  * @version 	1.0
+ * @since		3.0
  */
 ?>
 <?php 

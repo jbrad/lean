@@ -2,9 +2,10 @@
 /**
  * Renders the the Influence Widget.
  *
+ * @package		Standard
  * @subpackage	Influence Widget
- * @since		3.0
  * @version 	1.4
+ * @since		3.0
  */
 ?>
 <?php if( $this->supports_outbound_requests() ) { ?>

@@ -2,9 +2,10 @@
 /**
  * Renders the the Google Custom Search widget.
  *
+ * @package		Standard
  * @subpackage	Google Custom Search
- * @since		3.0
  * @version 	2.0
+ * @since		3.0
  */
 ?>
 <?php if( '' != $gcse_content ) { ?>
