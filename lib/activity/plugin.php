@@ -104,10 +104,10 @@ class Activity_Tabs extends WP_Widget {
 		$instance = wp_parse_args(
 			(array)$instance,
 			array(
-				'post_count' 		=> '',
-				'popular_count' 	=> '',
-        		'comment_count' 	=> '',
-        		'tag_count' 	=> ''
+				'post_count'      => '',
+				'popular_count'   => '',
+        		'comment_count'   => '',
+        		'tag_count'       => ''
 			)
 		);
     
@@ -264,7 +264,9 @@ class Activity_Tabs extends WP_Widget {
 						// Add the small featured image
 						if( has_post_thumbnail( $post->ID ) ) {
 							$html .= '<a class="latest-post-tn fademe" href="' . get_permalink( $post->ID ) . '" rel="nofollow">';
-								$html .= get_the_post_thumbnail( $post->ID, array( 50, 50 ) );
+								if( 0 < strlen( get_the_post_thumbnail( $post->ID ) ) ) {
+									$html .= get_the_post_thumbnail( $post->ID, 'thumbnail' );
+								} // end if 
 							$html .= '</a>';
 						} // end if
 						
