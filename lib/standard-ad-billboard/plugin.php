@@ -144,7 +144,7 @@ class Standard_Ad_468x60 extends WP_Widget {
 			wp_enqueue_script('thickbox');
 	
 			// admin
-			wp_register_script( 'standard-ad-468x60', get_template_directory_uri() . '/lib/standard-ad-billboard/js/admin.js', array( 'jquery', 'media-upload','thickbox') );
+			wp_register_script( 'standard-ad-468x60', get_template_directory_uri() . '/lib/standard-ad-billboard/js/admin.min.js', array( 'jquery', 'media-upload','thickbox') );
 			wp_enqueue_script( 'standard-ad-468x60' );
 		
 		} // end if

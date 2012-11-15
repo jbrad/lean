@@ -209,7 +209,7 @@ class Standard_SEO {
 		
 		if( 'post' == $screen->id || 'page' == $screen->id ) { 
 		
-			wp_register_script( 'standard-seo-admin', get_template_directory_uri() . '/lib/seo/js/admin.js' );
+			wp_register_script( 'standard-seo-admin', get_template_directory_uri() . '/lib/seo/js/admin.min.js' );
 			wp_enqueue_script( 'standard-seo-admin' );
 			
 		} // end if 

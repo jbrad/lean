@@ -151,7 +151,7 @@ class Standard_Personal_Image extends WP_Widget {
 			wp_enqueue_script('thickbox');
 	
 			// admin
-			wp_register_script( 'standard-personal-image', get_template_directory_uri() . '/lib/personal-image/js/admin.js', array( 'jquery', 'media-upload','thickbox') );
+			wp_register_script( 'standard-personal-image', get_template_directory_uri() . '/lib/personal-image/js/admin.min.js', array( 'jquery', 'media-upload','thickbox') );
 			wp_enqueue_script( 'standard-personal-image' );
 		
 		} // end if

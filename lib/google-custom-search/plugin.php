@@ -127,7 +127,7 @@ class Google_Custom_Search extends WP_Widget {
 	 */
 	function load_admin_scripts() {
 		
-		wp_register_script( 'gcse-admin', get_template_directory_uri() . '/lib/google-custom-search/js/admin.js' );
+		wp_register_script( 'gcse-admin', get_template_directory_uri() . '/lib/google-custom-search/js/admin.min.js' );
 		wp_enqueue_script( 'gcse-admin' );
 		
 	} // end load_stylesheets

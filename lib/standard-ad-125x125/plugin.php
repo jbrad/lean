@@ -162,7 +162,7 @@ class Standard_Ad_125x125 extends WP_Widget {
 			wp_enqueue_script('thickbox');
 	
 			// admin
-			wp_register_script( 'standard-ad-125x125', get_template_directory_uri() . '/lib/standard-ad-125x125/js/admin.js', array( 'jquery', 'media-upload','thickbox') );
+			wp_register_script( 'standard-ad-125x125', get_template_directory_uri() . '/lib/standard-ad-125x125/js/admin.min.js', array( 'jquery', 'media-upload','thickbox') );
 			wp_enqueue_script( 'standard-ad-125x125' );
 		
 		} // end if 
