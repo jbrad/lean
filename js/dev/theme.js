@@ -1,112 +1,9 @@
-/* ---------------------------------------------------------------- *
- * Post-page load functionality
- * ---------------------------------------------------------------- */
-
-(function($) {
-	$(function() {
-		
-		// Bootstrap Multi-Level Menus
-		$('.submenu').hover(function() {
-			
-			// Display the submenu on hover
-			$(this).children('ul')
-				.removeClass('submenu-hide')
-				.addClass('submenu-show');
-				
-		}, function() {
-		
-			// Hide the submenu when not on hover
-			$(this).children('ul')
-				.removeClass('.submenu-show')
-				.addClass('submenu-hide');
-			
-		}).click(function() {
-		
-			// If the submenu item is clicked, navigate to its anchor
-			window.location = $(this).children('a').attr('href');
-			
-		});
-		
-		// Center Header Logo only if the background image is present
-		processLogoAndBackground($);
-		$(window).load(function() {
-			processLogoAndBackground($);
-		}).resize(function() {
-			processLogoAndBackground($);
-		});
-		
-		// If the Activity Widget is present, activate the first tab
-		if($('.tabbed-widget').length > 0) { 
-			
-			$('.nav-tabs').children('li:first')
-				.addClass('active');
-				
-			$('.tab-content').children('.tab-pane:first')
-				.addClass('active');
-			
-		} // end if
-		
-		// Navigate to the menu item's anchor
-		$('.dropdown a').click(function() {
-			window.location = $(this).attr('href');
-		});
-		
-		// Introduce responsive functionality but only if the CSS is loaded
-		if($('link[id*="bootstrap-responsive-css"]').length > 0) {
-		
-			// Move sidebar below content on left sidebar layout
-			if($('#sidebar').length > 0 && $('#wrapper > .container > .row').children(':first').attr('id') == 'sidebar') {
-			
-				moveSidebarInLeftSidebarLayout($);
-				$(window).resize(function() {
-					moveSidebarInLeftSidebarLayout($);
-				});
-			
-			} // end if
-
-			// FitVid
-			$('.entry-content, .comment-text').fitVids();
-			
-			// Look to see if there are any video wrappers from FitVid
-			if(0 < $('.fluid-width-video-wrapper').length) { 
-
-				// For each video wrapper, we only want to change the styles if the video is posted alone (without text)
-				$('.fluid-width-video-wrapper').each(function() {
-					
-					// First, clear the margin on the video itself
-					$(this).css('margin', 0);
-					
-					// Next, if the video is the only content, we can remove both margin and padding
-					if(0 == $(this).parents('p').siblings().length) {
-					
-						$(this)
-							.parents('p')
-							.css({ margin: 0, padding: 0 });
-							
-					} // end if
-					
-				});
-			
-			} // end if
-
-			// If there is no content below the link container, then kill the margin
-			if(0 === $('.format-link .entry-content').children('p').length) {
-				$('.format-link .entry-content').css({
-					marginTop: 0,
-					paddingBottom: 0
-				});
-			} // end if
-
-		} // end if
-		
-	});
-})(jQuery);
-
 /**
  * In mobile view with the left-sidebar layout, repositions the sidebar below the content.
  */
 function moveSidebarInLeftSidebarLayout($) {
-
+	"use strict";
+	
 	if($('#wrapper').width() < 768) {
 		$('#sidebar').insertAfter('#main');
 	} else {
@@ -122,6 +19,7 @@ function moveSidebarInLeftSidebarLayout($) {
  * @params	$	A reference to the jQuery function.
  */
 function processLogoAndBackground($) {
+	"use strict";
 	
 	// If we're viewing the mobile version of the site, we need to position the header elements
 	if( $('.btn-navbar').is(':visible') ) {
@@ -210,3 +108,108 @@ function processLogoAndBackground($) {
 	} // end if
 	
 } // end processLogoAndBackground
+
+/* ---------------------------------------------------------------- *
+ * Post-page load functionality
+ * ---------------------------------------------------------------- */
+
+(function($) {
+	"use strict";
+	$(function() {
+		
+		// Bootstrap Multi-Level Menus
+		$('.submenu').hover(function() {
+			
+			// Display the submenu on hover
+			$(this).children('ul')
+				.removeClass('submenu-hide')
+				.addClass('submenu-show');
+				
+		}, function() {
+		
+			// Hide the submenu when not on hover
+			$(this).children('ul')
+				.removeClass('.submenu-show')
+				.addClass('submenu-hide');
+			
+		}).click(function() {
+		
+			// If the submenu item is clicked, navigate to its anchor
+			window.location = $(this).children('a').attr('href');
+			
+		});
+		
+		// Center Header Logo only if the background image is present
+		processLogoAndBackground($);
+		$(window).load(function() {
+			processLogoAndBackground($);
+		}).resize(function() {
+			processLogoAndBackground($);
+		});
+		
+		// If the Activity Widget is present, activate the first tab
+		if($('.tabbed-widget').length > 0) { 
+			
+			$('.nav-tabs').children('li:first')
+				.addClass('active');
+				
+			$('.tab-content').children('.tab-pane:first')
+				.addClass('active');
+			
+		} // end if
+		
+		// Navigate to the menu item's anchor
+		$('.dropdown a').click(function() {
+			window.location = $(this).attr('href');
+		});
+		
+		// Introduce responsive functionality but only if the CSS is loaded
+		if($('link[id*="bootstrap-responsive-css"]').length > 0) {
+		
+			// Move sidebar below content on left sidebar layout
+			if($('#sidebar').length > 0 && $('#wrapper > .container > .row').children(':first').attr('id') === 'sidebar') {
+			
+				moveSidebarInLeftSidebarLayout($);
+				$(window).resize(function() {
+					moveSidebarInLeftSidebarLayout($);
+				});
+			
+			} // end if
+
+			// FitVid
+			$('.entry-content, .comment-text').fitVids();
+			
+			// Look to see if there are any video wrappers from FitVid
+			if(0 < $('.fluid-width-video-wrapper').length) { 
+
+				// For each video wrapper, we only want to change the styles if the video is posted alone (without text)
+				$('.fluid-width-video-wrapper').each(function() {
+					
+					// First, clear the margin on the video itself
+					$(this).css('margin', 0);
+					
+					// Next, if the video is the only content, we can remove both margin and padding
+					if(0 === $(this).parents('p').siblings().length) {
+					
+						$(this)
+							.parents('p')
+							.css({ margin: 0, padding: 0 });
+							
+					} // end if
+					
+				});
+			
+			} // end if
+
+			// If there is no content below the link container, then kill the margin
+			if(0 === $('.format-link .entry-content').children('p').length) {
+				$('.format-link .entry-content').css({
+					marginTop: 0,
+					paddingBottom: 0
+				});
+			} // end if
+
+		} // end if
+		
+	});
+}(jQuery));

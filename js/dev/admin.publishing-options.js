@@ -1,5 +1,6 @@
 (function($) {
-	$(function() {
+	"use strict";
+	$(function () {
 
 		// Generate Privacy Policy
 		$('#generate_privacy_policy').click(function(evt) {
@@ -14,7 +15,7 @@
 					
 				}, function(response) {
 				
-					if( parseInt(response) > 0 ) {
+					if( parseInt(response, 10) > 0 ) {
 
 						$('#generate-privacy-policy-wrapper').hide('fast', function() {
 						
@@ -46,7 +47,7 @@
 					
 				}, function(response) {
 				
-					if( parseInt(response) === 0 ) {
+					if( parseInt(response, 10) === 0 ) {
 						
 						$('#has-privacy-policy-wrapper').hide('fast', function() {
 						
@@ -73,7 +74,7 @@
 					
 				}, function(response) {
 
-					if( parseInt(response) > 0 ) {
+					if( parseInt(response, 10) > 0 ) {
 					
 						$('#generate-comment-policy-wrapper').hide('fast', function() {
 						
@@ -103,7 +104,7 @@
 					
 				}, function(response) {
 				
-					if( parseInt(response) === 0 ) {
+					if( parseInt(response, 10) === 0 ) {
 						
 						$('#has-comment-policy-wrapper').hide('fast', function() {
 
@@ -118,4 +119,4 @@
 		});
 		
 	});
-})(jQuery);
+}(jQuery));

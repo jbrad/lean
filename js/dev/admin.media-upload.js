@@ -1,7 +1,7 @@
 _standard_presentationPreviewImage = null;
 _standard_presentationPreviewUrl = null;
-
-(function($) {
+(function ($) {
+	"use strict";
 	$(function() {
 		
 		/* --- Site Icon --- */
@@ -79,7 +79,7 @@ _standard_presentationPreviewUrl = null;
 		});
 		
 	});
-})(jQuery);
+}(jQuery));
 
 /**
  * Hides fields that are irrelevant for the media uploader.

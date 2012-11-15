@@ -1,9 +1,11 @@
 (function($) {
-	$(function() {
+	"use strict";
+	$(function () {
 		
+		var $gravatar, sDefaultImageUrl, sUrl;
 		// Grab a reference to the gravatar container and its default image
 		$gravatar = $('#comment-form-avatar').children('img');
-		var sDefaultImageUrl = $gravatar.attr('src');
+		sDefaultImageUrl = $gravatar.attr('src');
 		
 		// When the focus blurs from the field, update the gravatar
 		$('#email').blur(function() {
@@ -14,7 +16,7 @@
 				
 			} else {
 
-				var sUrl = 'http://www.gravatar.com/avatar/' + md5($(this).val()) + '?d=' + sDefaultImageUrl;		
+				sUrl = 'http://www.gravatar.com/avatar/' + md5($(this).val()) + '?d=' + sDefaultImageUrl;		
 				$gravatar.attr('src', sUrl);
 			
 			} // end if/else
@@ -34,4 +36,4 @@
 		} // end if
 		
 	});
-})(jQuery);
+}(jQuery));

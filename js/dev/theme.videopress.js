@@ -1,15 +1,8 @@
-(function($) {
-	$(function() {
-		sizeVideo();
-		$(window)
-			.load(sizeVideo)
-			.resize(sizeVideo);
-	});
-})(jQuery);
-
 function sizeVideo() {
-
-	var $this = jQuery($this);
+	"use strict";
+	
+	var $this;
+	$this = jQuery($this);
 
 	// Clear the current video player's style
 	jQuery('.video-player').attr('style', '');
@@ -30,7 +23,7 @@ function sizeVideo() {
 	jQuery('.video-player')
 		.children()
 		.css({
-			width:	jQuery('.video-player').parent().width(),
+			width:	jQuery('.video-player').parent().width()
 		})
 		.attr('height', jQuery('.entry-content').height());
 		
@@ -61,3 +54,13 @@ function sizeVideo() {
 	} // end if
 
 } // end sizeVideo
+
+(function($) {
+	"use strict";
+	$(function() {
+		sizeVideo();
+		$(window)
+			.load(sizeVideo)
+			.resize(sizeVideo);
+	});
+}(jQuery));

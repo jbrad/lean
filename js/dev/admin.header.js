@@ -1,4 +1,5 @@
 (function ($) {
+	"use strict";
     $(function () {
        
         // Unconditionally hide the ability to check to include text with the image

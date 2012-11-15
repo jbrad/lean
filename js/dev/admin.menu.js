@@ -1,17 +1,20 @@
-(function($) {
-	$(function() {
+(function ($) {
+	"use strict";
+	$(function () {
 	
 		// Hide the 'Standard' item under the custom menu
 		$('.wp-submenu-head:contains("Standard")')
 			.next()
 			.children(':first')
-			.hide()
+			.hide();
 			
 		// Mark the proper list item as active
-		var aActiveTab = document.location.href.split('tab=');
+		var aActiveTab, sActiveTab;
+		
+		aActiveTab = document.location.href.split('tab=');
 		if(aActiveTab !== undefined && aActiveTab !== null && aActiveTab.length > 1) {
 		
-			var sActiveTab = aActiveTab[1];
+			sActiveTab = aActiveTab[1];
 
 			// Global
 			if(sActiveTab.indexOf('_global_') > 0) {
@@ -44,4 +47,4 @@
 		} // end if
 	
 	});
-})(jQuery);
+}(jQuery));

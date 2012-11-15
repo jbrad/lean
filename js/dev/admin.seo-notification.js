@@ -1,5 +1,6 @@
 (function($) {
-	$(function() {
+	"use strict";
+	$(function () {
 		
 		if($('#standard-hide-seo-message').length > 0) {
 		
@@ -15,7 +16,7 @@
 					
 				}, function(response) {
 
-					if(parseInt(response) === 0) {
+					if(parseInt(response, 10) === 0) {
 						$('#standard-hide-seo-message-notification').hide();
 					} // end if
 					
@@ -26,4 +27,4 @@
 		} // end if
 		
 	});
-})(jQuery);
+}(jQuery));

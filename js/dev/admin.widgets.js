@@ -1,4 +1,5 @@
 (function($) {
+	"use strict";
 	$(function() {
 		$('h4').each(function() {
 
@@ -9,4 +10,4 @@
 			} // end if
 		});
 	});
-})(jQuery);
+}(jQuery));

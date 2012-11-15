@@ -1,4 +1,5 @@
 (function ($) {
+	"use strict";
 	$(function () {
 
 		// Create the notice that will appear above the post title

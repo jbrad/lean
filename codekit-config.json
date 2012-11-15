@@ -22,6 +22,17 @@
       "initialSize" : 331,
       "fileType" : 8192
     },
+    "\/js\/dev\/admin.seo-notification.js" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/js\/dev\/admin.seo-notification.js",
+      "outputStyle" : 1,
+      "syntaxCheckerStyle" : 2,
+      "outputAbbreviatedPath" : "\/js\/admin.seo-notification.min.js",
+      "fileType" : 64
+    },
     "\/lib\/activity\/css\/less\/widget.less" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -134,17 +145,6 @@
       "fileType" : 1,
       "debugStyle" : 0
     },
-    "\/js\/admin.menu.js" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/js\/admin.menu.js",
-      "outputStyle" : 1,
-      "syntaxCheckerStyle" : 2,
-      "outputAbbreviatedPath" : "\/admin.menu.min.js",
-      "fileType" : 64
-    },
     "\/css\/admin.social-options.css" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 1,
@@ -175,6 +175,17 @@
       "outputAbbreviatedPath" : "\/images\/social\/small\/google_plus.png",
       "initialSize" : 611,
       "fileType" : 8192
+    },
+    "\/js\/dev\/admin.header.js" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/js\/dev\/admin.header.js",
+      "outputStyle" : 1,
+      "syntaxCheckerStyle" : 2,
+      "outputAbbreviatedPath" : "\/js\/admin.header.min.js",
+      "fileType" : 64
     },
     "\/lib\/google-custom-search\/views\/widget.php" : {
       "ignoreWasSetByUser" : 0,
@@ -276,6 +287,28 @@
       "fileType" : 1,
       "debugStyle" : 0
     },
+    "\/js\/admin.header.min.js" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 1,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/js\/admin.header.min.js",
+      "outputStyle" : 1,
+      "syntaxCheckerStyle" : 2,
+      "outputAbbreviatedPath" : "\/admin.header.min.min.js",
+      "fileType" : 64
+    },
+    "\/js\/theme.videopress.min.js" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 1,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/js\/theme.videopress.min.js",
+      "outputStyle" : 1,
+      "syntaxCheckerStyle" : 2,
+      "outputAbbreviatedPath" : "\/theme.videopress.min.min.js",
+      "fileType" : 64
+    },
     "\/page.php" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -309,6 +342,15 @@
       "fileType" : 1,
       "debugStyle" : 0
     },
+    "\/lib\/seotitles\/standard_seotitles.php" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/lib\/seotitles\/standard_seotitles.php",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
     "\/style.css" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -318,12 +360,12 @@
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 16
     },
-    "\/lib\/seotitles\/standard_seotitles.php" : {
+    "\/loop-link.php" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/lib\/seotitles\/standard_seotitles.php",
+      "inputAbbreviatedPath" : "\/loop-link.php",
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 2048
     },
@@ -339,17 +381,6 @@
       "strictImports" : 1,
       "fileType" : 1,
       "debugStyle" : 0
-    },
-    "\/js\/admin.social-options.js" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/js\/admin.social-options.js",
-      "outputStyle" : 1,
-      "syntaxCheckerStyle" : 2,
-      "outputAbbreviatedPath" : "\/admin.social-options.min.js",
-      "fileType" : 64
     },
     "\/image.php" : {
       "ignoreWasSetByUser" : 0,
@@ -369,17 +400,6 @@
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 16
     },
-    "\/js\/admin.post.js" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/js\/admin.post.js",
-      "outputStyle" : 1,
-      "syntaxCheckerStyle" : 2,
-      "outputAbbreviatedPath" : "\/admin.post.min.js",
-      "fileType" : 64
-    },
     "\/js\/lib\/bootstrap\/bootstrap.min.js" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -397,15 +417,6 @@
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
       "inputAbbreviatedPath" : "\/lib\/Standard_Nav_Walker.class.php",
-      "outputAbbreviatedPath" : "No Output Path",
-      "fileType" : 2048
-    },
-    "\/loop-link.php" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/loop-link.php",
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 2048
     },
@@ -453,17 +464,6 @@
       "initialSize" : 8777,
       "fileType" : 8192
     },
-    "\/js\/admin.widgets.js" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/js\/admin.widgets.js",
-      "outputStyle" : 1,
-      "syntaxCheckerStyle" : 2,
-      "outputAbbreviatedPath" : "\/admin.widgets.min.js",
-      "fileType" : 64
-    },
     "\/css\/less\/admin.social-options.less" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -476,17 +476,6 @@
       "strictImports" : 1,
       "fileType" : 1,
       "debugStyle" : 0
-    },
-    "\/js\/admin.publishing-options.js" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/js\/admin.publishing-options.js",
-      "outputStyle" : 1,
-      "syntaxCheckerStyle" : 2,
-      "outputAbbreviatedPath" : "\/admin.publishing-options.min.js",
-      "fileType" : 64
     },
     "\/lib\/activity\/css\/widget.css" : {
       "ignoreWasSetByUser" : 0,
@@ -509,6 +498,17 @@
       "strictImports" : 1,
       "fileType" : 1,
       "debugStyle" : 0
+    },
+    "\/js\/dev\/theme.videopress.js" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/js\/dev\/theme.videopress.js",
+      "outputStyle" : 1,
+      "syntaxCheckerStyle" : 2,
+      "outputAbbreviatedPath" : "\/js\/theme.videopress.min.js",
+      "fileType" : 64
     },
     "\/loop-status.php" : {
       "ignoreWasSetByUser" : 0,
@@ -536,6 +536,39 @@
       "inputAbbreviatedPath" : "\/lib\/personal-image\/views\/widget.php",
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 2048
+    },
+    "\/js\/admin.seo-notification.min.js" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 1,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/js\/admin.seo-notification.min.js",
+      "outputStyle" : 1,
+      "syntaxCheckerStyle" : 2,
+      "outputAbbreviatedPath" : "\/admin.seo-notification.min.min.js",
+      "fileType" : 64
+    },
+    "\/js\/dev\/theme.js" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/js\/dev\/theme.js",
+      "outputStyle" : 1,
+      "syntaxCheckerStyle" : 2,
+      "outputAbbreviatedPath" : "\/js\/theme.min.js",
+      "fileType" : 64
+    },
+    "\/js\/admin.widgets.min.js" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 1,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/js\/admin.widgets.min.js",
+      "outputStyle" : 1,
+      "syntaxCheckerStyle" : 2,
+      "outputAbbreviatedPath" : "\/admin.widgets.min.min.js",
+      "fileType" : 64
     },
     "\/lib\/standard-ad-125x125\/views\/widget.php" : {
       "ignoreWasSetByUser" : 0,
@@ -568,6 +601,17 @@
       "fileType" : 1,
       "debugStyle" : 0
     },
+    "\/js\/lib\/jquery.fitvids.js" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/js\/lib\/jquery.fitvids.js",
+      "outputStyle" : 1,
+      "syntaxCheckerStyle" : 2,
+      "outputAbbreviatedPath" : "\/js\/jquery.fitvids.min.js",
+      "fileType" : 64
+    },
     "\/images\/social\/small\/twitter.png" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -579,17 +623,6 @@
       "initialSize" : 646,
       "fileType" : 8192
     },
-    "\/js\/admin.header.js" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/js\/admin.header.js",
-      "outputStyle" : 1,
-      "syntaxCheckerStyle" : 2,
-      "outputAbbreviatedPath" : "\/admin.header.min.js",
-      "fileType" : 64
-    },
     "\/404.php" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -598,17 +631,6 @@
       "inputAbbreviatedPath" : "\/404.php",
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 2048
-    },
-    "\/js\/theme.js" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/js\/theme.js",
-      "outputStyle" : 1,
-      "syntaxCheckerStyle" : 2,
-      "outputAbbreviatedPath" : "\/theme.min.js",
-      "fileType" : 64
     },
     "\/images\/social\/small\/foursquare.png" : {
       "ignoreWasSetByUser" : 0,
@@ -657,17 +679,6 @@
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 2048
     },
-    "\/js\/lib\/jquery.fitvids.js" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/js\/lib\/jquery.fitvids.js",
-      "outputStyle" : 1,
-      "syntaxCheckerStyle" : 2,
-      "outputAbbreviatedPath" : "\/js\/jquery.fitvids.min.js",
-      "fileType" : 64
-    },
     "\/lib\/personal-image\/css\/widget.css" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 1,
@@ -676,17 +687,6 @@
       "inputAbbreviatedPath" : "\/lib\/personal-image\/css\/widget.css",
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 16
-    },
-    "\/js\/theme.comments.js" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/js\/theme.comments.js",
-      "outputStyle" : 1,
-      "syntaxCheckerStyle" : 2,
-      "outputAbbreviatedPath" : "\/theme.comments.min.js",
-      "fileType" : 64
     },
     "\/lib\/standard-ad-125x125\/images\/standard-125-2.jpg" : {
       "ignoreWasSetByUser" : 0,
@@ -699,14 +699,16 @@
       "initialSize" : 4868,
       "fileType" : 4096
     },
-    "\/lib\/google-custom-search\/css\/admin.css" : {
+    "\/js\/admin.site-mode.min.js" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 1,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/lib\/google-custom-search\/css\/admin.css",
-      "outputAbbreviatedPath" : "No Output Path",
-      "fileType" : 16
+      "inputAbbreviatedPath" : "\/js\/admin.site-mode.min.js",
+      "outputStyle" : 1,
+      "syntaxCheckerStyle" : 2,
+      "outputAbbreviatedPath" : "\/admin.site-mode.min.min.js",
+      "fileType" : 64
     },
     "\/css\/img\/icn-heart.png" : {
       "ignoreWasSetByUser" : 0,
@@ -810,6 +812,15 @@
       "initialSize" : 12799,
       "fileType" : 8192
     },
+    "\/lib\/google-custom-search\/css\/admin.css" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 1,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/lib\/google-custom-search\/css\/admin.css",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 16
+    },
     "\/css\/theme.contrast-light.css" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 1,
@@ -818,6 +829,28 @@
       "inputAbbreviatedPath" : "\/css\/theme.contrast-light.css",
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 16
+    },
+    "\/js\/dev\/admin.publishing-options.js" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/js\/dev\/admin.publishing-options.js",
+      "outputStyle" : 1,
+      "syntaxCheckerStyle" : 2,
+      "outputAbbreviatedPath" : "\/js\/admin.publishing-options.min.js",
+      "fileType" : 64
+    },
+    "\/js\/dev\/admin.media-upload.js" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/js\/dev\/admin.media-upload.js",
+      "outputStyle" : 1,
+      "syntaxCheckerStyle" : 2,
+      "outputAbbreviatedPath" : "\/js\/admin.media-upload.min.js",
+      "fileType" : 64
     },
     "\/images\/social\/small\/rss.png" : {
       "ignoreWasSetByUser" : 0,
@@ -881,17 +914,6 @@
       "initialSize" : 1225,
       "fileType" : 8192
     },
-    "\/js\/admin.site-mode.js" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/js\/admin.site-mode.js",
-      "outputStyle" : 1,
-      "syntaxCheckerStyle" : 2,
-      "outputAbbreviatedPath" : "\/admin.site-mode.min.js",
-      "fileType" : 64
-    },
     "\/images\/icn-author-sprites-white.png" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -911,17 +933,6 @@
       "inputAbbreviatedPath" : "\/lib\/standard-ad-300x250\/css\/widget.css",
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 16
-    },
-    "\/js\/admin.seo-notification.js" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/js\/admin.seo-notification.js",
-      "outputStyle" : 1,
-      "syntaxCheckerStyle" : 2,
-      "outputAbbreviatedPath" : "\/admin.seo-notification.min.js",
-      "fileType" : 64
     },
     "\/lib\/activity\/views\/admin.php" : {
       "ignoreWasSetByUser" : 0,
@@ -1013,6 +1024,17 @@
       "initialSize" : 1565,
       "fileType" : 8192
     },
+    "\/js\/dev\/admin.template-sitemap.js" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/js\/dev\/admin.template-sitemap.js",
+      "outputStyle" : 1,
+      "syntaxCheckerStyle" : 2,
+      "outputAbbreviatedPath" : "\/js\/admin.template-sitemap.min.js",
+      "fileType" : 64
+    },
     "\/lib\/standard-ad-300x250\/css\/admin.css" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 1,
@@ -1021,6 +1043,17 @@
       "inputAbbreviatedPath" : "\/lib\/standard-ad-300x250\/css\/admin.css",
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 16
+    },
+    "\/js\/dev\/admin.social-options.js" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/js\/dev\/admin.social-options.js",
+      "outputStyle" : 1,
+      "syntaxCheckerStyle" : 2,
+      "outputAbbreviatedPath" : "\/js\/admin.social-options.min.js",
+      "fileType" : 64
     },
     "\/lib\/standard-ad-300x250\/css\/fake-300.jpg" : {
       "ignoreWasSetByUser" : 0,
@@ -1126,6 +1159,28 @@
       "outputAbbreviatedPath" : "\/lib\/standard-ad-125x125\/admin.min.js",
       "fileType" : 64
     },
+    "\/js\/theme.min.js" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 1,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/js\/theme.min.js",
+      "outputStyle" : 1,
+      "syntaxCheckerStyle" : 2,
+      "outputAbbreviatedPath" : "\/theme.min.min.js",
+      "fileType" : 64
+    },
+    "\/js\/admin.publishing-options.min.js" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 1,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/js\/admin.publishing-options.min.js",
+      "outputStyle" : 1,
+      "syntaxCheckerStyle" : 2,
+      "outputAbbreviatedPath" : "\/admin.publishing-options.min.min.js",
+      "fileType" : 64
+    },
     "\/lib\/standard-ad-125x125\/css\/widget.css" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 1,
@@ -1208,15 +1263,15 @@
       "fileType" : 1,
       "debugStyle" : 0
     },
-    "\/js\/admin.media-upload.js" : {
+    "\/js\/dev\/admin.menu.js" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/js\/admin.media-upload.js",
+      "inputAbbreviatedPath" : "\/js\/dev\/admin.menu.js",
       "outputStyle" : 1,
       "syntaxCheckerStyle" : 2,
-      "outputAbbreviatedPath" : "\/admin.media-upload.min.js",
+      "outputAbbreviatedPath" : "\/js\/admin.menu.min.js",
       "fileType" : 64
     },
     "\/css\/standard-responsive.css" : {
@@ -1239,6 +1294,17 @@
       "initialSize" : 1220,
       "fileType" : 8192
     },
+    "\/js\/admin.media-upload.min.js" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 1,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/js\/admin.media-upload.min.js",
+      "outputStyle" : 1,
+      "syntaxCheckerStyle" : 2,
+      "outputAbbreviatedPath" : "\/admin.media-upload.min.min.js",
+      "fileType" : 64
+    },
     "\/css\/img\/icn-wrench.png" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -1258,6 +1324,17 @@
       "inputAbbreviatedPath" : "\/lib\/influence\/views\/widget.php",
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 2048
+    },
+    "\/js\/theme.comments.min.js" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 1,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/js\/theme.comments.min.js",
+      "outputStyle" : 1,
+      "syntaxCheckerStyle" : 2,
+      "outputAbbreviatedPath" : "\/theme.comments.min.min.js",
+      "fileType" : 64
     },
     "\/header.php" : {
       "ignoreWasSetByUser" : 0,
@@ -1288,6 +1365,39 @@
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 2048
     },
+    "\/js\/dev\/admin.site-mode.js" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/js\/dev\/admin.site-mode.js",
+      "outputStyle" : 1,
+      "syntaxCheckerStyle" : 2,
+      "outputAbbreviatedPath" : "\/js\/admin.site-mode.min.js",
+      "fileType" : 64
+    },
+    "\/js\/dev\/admin.post.js" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/js\/dev\/admin.post.js",
+      "outputStyle" : 1,
+      "syntaxCheckerStyle" : 2,
+      "outputAbbreviatedPath" : "\/js\/admin.post.min.js",
+      "fileType" : 64
+    },
+    "\/js\/dev\/theme.comments.js" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/js\/dev\/theme.comments.js",
+      "outputStyle" : 1,
+      "syntaxCheckerStyle" : 2,
+      "outputAbbreviatedPath" : "\/js\/theme.comments.min.js",
+      "fileType" : 64
+    },
     "\/lib\/standard-ad-125x125\/css\/less\/widget.less" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -1312,6 +1422,28 @@
       "initialSize" : 439,
       "fileType" : 8192
     },
+    "\/js\/admin.post.min.js" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 1,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/js\/admin.post.min.js",
+      "outputStyle" : 1,
+      "syntaxCheckerStyle" : 2,
+      "outputAbbreviatedPath" : "\/admin.post.min.min.js",
+      "fileType" : 64
+    },
+    "\/js\/admin.social-options.min.js" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 1,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/js\/admin.social-options.min.js",
+      "outputStyle" : 1,
+      "syntaxCheckerStyle" : 2,
+      "outputAbbreviatedPath" : "\/admin.social-options.min.min.js",
+      "fileType" : 64
+    },
     "\/lib\/standard-ad-300x250\/js\/admin.js" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -1321,17 +1453,6 @@
       "outputStyle" : 1,
       "syntaxCheckerStyle" : 2,
       "outputAbbreviatedPath" : "\/lib\/standard-ad-300x250\/admin.min.js",
-      "fileType" : 64
-    },
-    "\/js\/admin.template-sitemap.js" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/js\/admin.template-sitemap.js",
-      "outputStyle" : 1,
-      "syntaxCheckerStyle" : 2,
-      "outputAbbreviatedPath" : "\/admin.template-sitemap.min.js",
       "fileType" : 64
     },
     "\/lib\/standard-ad-125x125\/views\/admin.php" : {
@@ -1376,18 +1497,16 @@
       "fileType" : 1,
       "debugStyle" : 0
     },
-    "\/css\/less\/admin.header.less" : {
+    "\/js\/dev\/admin.widgets.js" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/css\/less\/admin.header.less",
+      "inputAbbreviatedPath" : "\/js\/dev\/admin.widgets.js",
       "outputStyle" : 1,
-      "shouldRunBless" : 1,
-      "outputAbbreviatedPath" : "\/css\/admin.header.css",
-      "strictImports" : 1,
-      "fileType" : 1,
-      "debugStyle" : 0
+      "syntaxCheckerStyle" : 2,
+      "outputAbbreviatedPath" : "\/js\/admin.widgets.min.js",
+      "fileType" : 64
     },
     "\/lib\/activity\/css\/admin.css" : {
       "ignoreWasSetByUser" : 0,
@@ -1422,6 +1541,28 @@
       "initialSize" : 824,
       "fileType" : 8192
     },
+    "\/css\/less\/admin.header.less" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/css\/less\/admin.header.less",
+      "outputStyle" : 1,
+      "shouldRunBless" : 1,
+      "outputAbbreviatedPath" : "\/css\/admin.header.css",
+      "strictImports" : 1,
+      "fileType" : 1,
+      "debugStyle" : 0
+    },
+    "\/css\/admin.css" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 1,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/css\/admin.css",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 16
+    },
     "\/images\/icn-quote.png" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -1444,14 +1585,16 @@
       "initialSize" : 1531,
       "fileType" : 8192
     },
-    "\/css\/admin.css" : {
+    "\/js\/admin.menu.min.js" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 1,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/css\/admin.css",
-      "outputAbbreviatedPath" : "No Output Path",
-      "fileType" : 16
+      "inputAbbreviatedPath" : "\/js\/admin.menu.min.js",
+      "outputStyle" : 1,
+      "syntaxCheckerStyle" : 2,
+      "outputAbbreviatedPath" : "\/admin.menu.min.min.js",
+      "fileType" : 64
     },
     "\/lib\/influence\/css\/admin.css" : {
       "ignoreWasSetByUser" : 0,
@@ -1474,17 +1617,6 @@
       "strictImports" : 1,
       "fileType" : 1,
       "debugStyle" : 0
-    },
-    "\/js\/theme.videopress.js" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/js\/theme.videopress.js",
-      "outputStyle" : 1,
-      "syntaxCheckerStyle" : 2,
-      "outputAbbreviatedPath" : "\/theme.videopress.min.js",
-      "fileType" : 64
     },
     "\/lib\/influence\/plugin.php" : {
       "ignoreWasSetByUser" : 0,
@@ -1533,14 +1665,16 @@
       "initialSize" : 1647,
       "fileType" : 8192
     },
-    "\/template-fullwidth.php" : {
+    "\/js\/admin.template-sitemap.min.js" : {
       "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
+      "ignore" : 1,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/template-fullwidth.php",
-      "outputAbbreviatedPath" : "No Output Path",
-      "fileType" : 2048
+      "inputAbbreviatedPath" : "\/js\/admin.template-sitemap.min.js",
+      "outputStyle" : 1,
+      "syntaxCheckerStyle" : 2,
+      "outputAbbreviatedPath" : "\/admin.template-sitemap.min.min.js",
+      "fileType" : 64
     },
     "\/lib\/standard-ad-300x250\/css\/less\/admin.less" : {
       "ignoreWasSetByUser" : 0,
@@ -1586,24 +1720,6 @@
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 16
     },
-    "\/loop-video.php" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/loop-video.php",
-      "outputAbbreviatedPath" : "No Output Path",
-      "fileType" : 2048
-    },
-    "\/template-archives.php" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/template-archives.php",
-      "outputAbbreviatedPath" : "No Output Path",
-      "fileType" : 2048
-    },
     "\/lib\/standard-ad-billboard\/images\/standard-468.jpg" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -1614,6 +1730,33 @@
       "outputAbbreviatedPath" : "\/lib\/standard-ad-billboard\/images\/standard-468.jpg",
       "initialSize" : 5159,
       "fileType" : 4096
+    },
+    "\/template-archives.php" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/template-archives.php",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/template-fullwidth.php" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/template-fullwidth.php",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/loop-video.php" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/loop-video.php",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
     },
     "\/css\/less\/standard-responsive.less" : {
       "ignoreWasSetByUser" : 0,
@@ -1686,24 +1829,6 @@
       "outputAbbreviatedPath" : "\/lib\/google-custom-search\/admin.min.js",
       "fileType" : 64
     },
-    "\/lib\/google-custom-search\/lib\/Standard_Google_Custom_Search.template.php" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/lib\/google-custom-search\/lib\/Standard_Google_Custom_Search.template.php",
-      "outputAbbreviatedPath" : "No Output Path",
-      "fileType" : 2048
-    },
-    "\/pagination.php" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/pagination.php",
-      "outputAbbreviatedPath" : "No Output Path",
-      "fileType" : 2048
-    },
     "\/rtl.css" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -1728,6 +1853,24 @@
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
       "inputAbbreviatedPath" : "\/single.php",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/lib\/google-custom-search\/lib\/Standard_Google_Custom_Search.template.php" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/lib\/google-custom-search\/lib\/Standard_Google_Custom_Search.template.php",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/pagination.php" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/pagination.php",
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 2048
     },
