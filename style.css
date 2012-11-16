@@ -1781,6 +1781,10 @@ ul#sitemap-posts ul {
 
 /* ------------------------------------------------------------------------ 12. IE8 Styles */
 
+#ie8 .navbar .dropdown:hover > .submenu-show {
+	margin-left: 100px;
+}
+
 #ie8 .thumbnail,
 #ie8 .thumbnail a,
 #ie8 .thumbnail a img {
