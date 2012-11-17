@@ -3,6 +3,7 @@
 	$(function () {
 		
 		var $gravatar, sDefaultImageUrl, sUrl;
+		
 		// Grab a reference to the gravatar container and its default image
 		$gravatar = $('#comment-form-avatar').children('img');
 		sDefaultImageUrl = $gravatar.attr('src');

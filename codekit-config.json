@@ -136,8 +136,8 @@
     },
     "\/js\/lib\/md5.js" : {
       "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
+      "ignore" : 1,
+      "hidden" : 1,
       "outputPathIsSetByUser" : 0,
       "inputAbbreviatedPath" : "\/js\/lib\/md5.js",
       "outputStyle" : 1,
@@ -285,17 +285,6 @@
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 2048
     },
-    "\/lib\/standard-ad-125x125\/js\/admin.min.js" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 1,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/lib\/standard-ad-125x125\/js\/admin.min.js",
-      "outputStyle" : 1,
-      "syntaxCheckerStyle" : 2,
-      "outputAbbreviatedPath" : "\/lib\/standard-ad-125x125\/admin.min.min.js",
-      "fileType" : 64
-    },
     "\/images\/icn-quote-dark.png" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -319,6 +308,17 @@
       "strictImports" : 1,
       "fileType" : 1,
       "debugStyle" : 0
+    },
+    "\/lib\/standard-ad-125x125\/js\/admin.min.js" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 1,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/lib\/standard-ad-125x125\/js\/admin.min.js",
+      "outputStyle" : 1,
+      "syntaxCheckerStyle" : 2,
+      "outputAbbreviatedPath" : "\/lib\/standard-ad-125x125\/admin.min.min.js",
+      "fileType" : 64
     },
     "\/lib\/standard-ad-300x250\/js\/admin.min.js" : {
       "ignoreWasSetByUser" : 0,
@@ -373,16 +373,18 @@
       "initialSize" : 1115,
       "fileType" : 8192
     },
-    "\/lib\/google-custom-search\/js\/admin.min.js" : {
+    "\/lib\/standard-ad-125x125\/css\/less\/admin.less" : {
       "ignoreWasSetByUser" : 0,
-      "ignore" : 1,
+      "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/lib\/google-custom-search\/js\/admin.min.js",
+      "inputAbbreviatedPath" : "\/lib\/standard-ad-125x125\/css\/less\/admin.less",
       "outputStyle" : 1,
-      "syntaxCheckerStyle" : 2,
-      "outputAbbreviatedPath" : "\/lib\/google-custom-search\/admin.min.min.js",
-      "fileType" : 64
+      "shouldRunBless" : 1,
+      "outputAbbreviatedPath" : "\/lib\/standard-ad-125x125\/css\/admin.css",
+      "strictImports" : 1,
+      "fileType" : 1,
+      "debugStyle" : 0
     },
     "\/style.css" : {
       "ignoreWasSetByUser" : 0,
@@ -402,27 +404,16 @@
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 2048
     },
-    "\/lib\/standard-ad-125x125\/css\/less\/admin.less" : {
+    "\/lib\/google-custom-search\/js\/dev\/admin.js" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/lib\/standard-ad-125x125\/css\/less\/admin.less",
+      "inputAbbreviatedPath" : "\/lib\/google-custom-search\/js\/dev\/admin.js",
       "outputStyle" : 1,
-      "shouldRunBless" : 1,
-      "outputAbbreviatedPath" : "\/lib\/standard-ad-125x125\/css\/admin.css",
-      "strictImports" : 1,
-      "fileType" : 1,
-      "debugStyle" : 0
-    },
-    "\/loop-link.php" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/loop-link.php",
-      "outputAbbreviatedPath" : "No Output Path",
-      "fileType" : 2048
+      "syntaxCheckerStyle" : 2,
+      "outputAbbreviatedPath" : "\/lib\/google-custom-search\/js\/admin.min.js",
+      "fileType" : 64
     },
     "\/lib\/personal-image\/css\/less\/admin.less" : {
       "ignoreWasSetByUser" : 0,
@@ -437,6 +428,17 @@
       "fileType" : 1,
       "debugStyle" : 0
     },
+    "\/lib\/google-custom-search\/js\/admin.min.js" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 1,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/lib\/google-custom-search\/js\/admin.min.js",
+      "outputStyle" : 1,
+      "syntaxCheckerStyle" : 2,
+      "outputAbbreviatedPath" : "\/lib\/google-custom-search\/admin.min.min.js",
+      "fileType" : 64
+    },
     "\/image.php" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -445,26 +447,6 @@
       "inputAbbreviatedPath" : "\/image.php",
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 2048
-    },
-    "\/lib\/google-custom-search\/js\/dev\/admin.js" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/lib\/google-custom-search\/js\/dev\/admin.js",
-      "outputStyle" : 1,
-      "syntaxCheckerStyle" : 2,
-      "outputAbbreviatedPath" : "\/lib\/google-custom-search\/js\/admin.min.js",
-      "fileType" : 64
-    },
-    "\/css\/style.css" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 1,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/css\/style.css",
-      "outputAbbreviatedPath" : "No Output Path",
-      "fileType" : 16
     },
     "\/css\/admin.header.css" : {
       "ignoreWasSetByUser" : 0,
@@ -475,14 +457,14 @@
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 16
     },
-    "\/lib\/Standard_Nav_Walker.class.php" : {
+    "\/css\/style.css" : {
       "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
+      "ignore" : 1,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/lib\/Standard_Nav_Walker.class.php",
+      "inputAbbreviatedPath" : "\/css\/style.css",
       "outputAbbreviatedPath" : "No Output Path",
-      "fileType" : 2048
+      "fileType" : 16
     },
     "\/js\/lib\/bootstrap\/bootstrap.min.js" : {
       "ignoreWasSetByUser" : 0,
@@ -494,6 +476,24 @@
       "syntaxCheckerStyle" : 2,
       "outputAbbreviatedPath" : "\/js\/lib\/bootstrap.min.min.js",
       "fileType" : 64
+    },
+    "\/lib\/Standard_Nav_Walker.class.php" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/lib\/Standard_Nav_Walker.class.php",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/loop-link.php" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/loop-link.php",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
     },
     "\/lib\/standard-ad-300x250\/images\/standard-300.jpg" : {
       "ignoreWasSetByUser" : 0,
@@ -687,15 +687,6 @@
       "outputAbbreviatedPath" : "\/js\/jquery.fitvids.min.js",
       "fileType" : 64
     },
-    "\/404.php" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/404.php",
-      "outputAbbreviatedPath" : "No Output Path",
-      "fileType" : 2048
-    },
     "\/images\/social\/small\/twitter.png" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -706,6 +697,15 @@
       "outputAbbreviatedPath" : "\/images\/social\/small\/twitter.png",
       "initialSize" : 646,
       "fileType" : 8192
+    },
+    "\/404.php" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/404.php",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
     },
     "\/images\/social\/small\/foursquare.png" : {
       "ignoreWasSetByUser" : 0,
@@ -783,16 +783,16 @@
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 16
     },
-    "\/css\/img\/icn-heart.png" : {
+    "\/lib\/standard-ad-billboard\/js\/admin.min.js" : {
       "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
+      "ignore" : 1,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/css\/img\/icn-heart.png",
-      "processed" : 0,
-      "outputAbbreviatedPath" : "\/css\/img\/icn-heart.png",
-      "initialSize" : 6284,
-      "fileType" : 8192
+      "inputAbbreviatedPath" : "\/lib\/standard-ad-billboard\/js\/admin.min.js",
+      "outputStyle" : 1,
+      "syntaxCheckerStyle" : 2,
+      "outputAbbreviatedPath" : "\/lib\/standard-ad-billboard\/admin.min.min.js",
+      "fileType" : 64
     },
     "\/lib\/google-custom-search\/css\/less\/admin.less" : {
       "ignoreWasSetByUser" : 0,
@@ -825,14 +825,14 @@
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 2048
     },
-    "\/css\/theme.contrast-light.css" : {
+    "\/lib\/personal-image\/views\/admin.php" : {
       "ignoreWasSetByUser" : 0,
-      "ignore" : 1,
+      "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/css\/theme.contrast-light.css",
+      "inputAbbreviatedPath" : "\/lib\/personal-image\/views\/admin.php",
       "outputAbbreviatedPath" : "No Output Path",
-      "fileType" : 16
+      "fileType" : 2048
     },
     "\/css\/img\/icn-blog.png" : {
       "ignoreWasSetByUser" : 0,
@@ -874,25 +874,14 @@
       "initialSize" : 12799,
       "fileType" : 8192
     },
-    "\/lib\/standard-ad-billboard\/js\/admin.min.js" : {
+    "\/css\/theme.contrast-light.css" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 1,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/lib\/standard-ad-billboard\/js\/admin.min.js",
-      "outputStyle" : 1,
-      "syntaxCheckerStyle" : 2,
-      "outputAbbreviatedPath" : "\/lib\/standard-ad-billboard\/admin.min.min.js",
-      "fileType" : 64
-    },
-    "\/lib\/personal-image\/views\/admin.php" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/lib\/personal-image\/views\/admin.php",
+      "inputAbbreviatedPath" : "\/css\/theme.contrast-light.css",
       "outputAbbreviatedPath" : "No Output Path",
-      "fileType" : 2048
+      "fileType" : 16
     },
     "\/js\/admin.site-mode.min.js" : {
       "ignoreWasSetByUser" : 0,
@@ -904,6 +893,17 @@
       "syntaxCheckerStyle" : 2,
       "outputAbbreviatedPath" : "\/admin.site-mode.min.min.js",
       "fileType" : 64
+    },
+    "\/css\/img\/icn-heart.png" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/css\/img\/icn-heart.png",
+      "processed" : 0,
+      "outputAbbreviatedPath" : "\/css\/img\/icn-heart.png",
+      "initialSize" : 6284,
+      "fileType" : 8192
     },
     "\/js\/dev\/admin.publishing-options.js" : {
       "ignoreWasSetByUser" : 0,
@@ -1196,15 +1196,6 @@
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 16
     },
-    "\/lib\/seo\/css\/admin.css" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 1,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/lib\/seo\/css\/admin.css",
-      "outputAbbreviatedPath" : "No Output Path",
-      "fileType" : 16
-    },
     "\/screenshot.png" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -1215,6 +1206,15 @@
       "outputAbbreviatedPath" : "\/screenshot.png",
       "initialSize" : 1669,
       "fileType" : 8192
+    },
+    "\/lib\/seo\/css\/admin.css" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 1,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/lib\/seo\/css\/admin.css",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 16
     },
     "\/lib\/standard-ad-billboard\/css\/fake-468.jpg" : {
       "ignoreWasSetByUser" : 0,
@@ -1607,29 +1607,25 @@
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 16
     },
-    "\/lib\/standard-ad-billboard\/css\/less\/widget.less" : {
+    "\/images\/bg-quote-rtl.png" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/lib\/standard-ad-billboard\/css\/less\/widget.less",
-      "outputStyle" : 1,
-      "shouldRunBless" : 1,
-      "outputAbbreviatedPath" : "\/lib\/standard-ad-billboard\/css\/widget.css",
-      "strictImports" : 1,
-      "fileType" : 1,
-      "debugStyle" : 0
-    },
-    "\/images\/icn-quote.png" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/images\/icn-quote.png",
+      "inputAbbreviatedPath" : "\/images\/bg-quote-rtl.png",
       "processed" : 0,
-      "outputAbbreviatedPath" : "\/images\/icn-quote.png",
-      "initialSize" : 1349,
+      "outputAbbreviatedPath" : "\/images\/bg-quote-rtl.png",
+      "initialSize" : 824,
       "fileType" : 8192
+    },
+    "\/css\/admin.css" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 1,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/css\/admin.css",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 16
     },
     "\/images\/icn-sitemap.png" : {
       "ignoreWasSetByUser" : 0,
@@ -1642,24 +1638,15 @@
       "initialSize" : 1531,
       "fileType" : 8192
     },
-    "\/css\/admin.css" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 1,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/css\/admin.css",
-      "outputAbbreviatedPath" : "No Output Path",
-      "fileType" : 16
-    },
-    "\/images\/bg-quote-rtl.png" : {
+    "\/images\/icn-quote.png" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/images\/bg-quote-rtl.png",
+      "inputAbbreviatedPath" : "\/images\/icn-quote.png",
       "processed" : 0,
-      "outputAbbreviatedPath" : "\/images\/bg-quote-rtl.png",
-      "initialSize" : 824,
+      "outputAbbreviatedPath" : "\/images\/icn-quote.png",
+      "initialSize" : 1349,
       "fileType" : 8192
     },
     "\/js\/admin.menu.min.js" : {
@@ -1672,6 +1659,19 @@
       "syntaxCheckerStyle" : 2,
       "outputAbbreviatedPath" : "\/admin.menu.min.min.js",
       "fileType" : 64
+    },
+    "\/lib\/standard-ad-billboard\/css\/less\/widget.less" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/lib\/standard-ad-billboard\/css\/less\/widget.less",
+      "outputStyle" : 1,
+      "shouldRunBless" : 1,
+      "outputAbbreviatedPath" : "\/lib\/standard-ad-billboard\/css\/widget.css",
+      "strictImports" : 1,
+      "fileType" : 1,
+      "debugStyle" : 0
     },
     "\/lib\/influence\/css\/admin.css" : {
       "ignoreWasSetByUser" : 0,
@@ -1704,15 +1704,6 @@
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 2048
     },
-    "\/loop-quote.php" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/loop-quote.php",
-      "outputAbbreviatedPath" : "No Output Path",
-      "fileType" : 2048
-    },
     "\/css\/lib\/bootstrap-responsive.min.css" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -1721,6 +1712,15 @@
       "inputAbbreviatedPath" : "\/css\/lib\/bootstrap-responsive.min.css",
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 16
+    },
+    "\/loop-quote.php" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/loop-quote.php",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
     },
     "\/lib\/influence\/views\/admin.php" : {
       "ignoreWasSetByUser" : 0,
@@ -1753,14 +1753,18 @@
       "outputAbbreviatedPath" : "\/admin.template-sitemap.min.min.js",
       "fileType" : 64
     },
-    "\/template-fullwidth.php" : {
+    "\/lib\/standard-ad-300x250\/css\/less\/admin.less" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/template-fullwidth.php",
-      "outputAbbreviatedPath" : "No Output Path",
-      "fileType" : 2048
+      "inputAbbreviatedPath" : "\/lib\/standard-ad-300x250\/css\/less\/admin.less",
+      "outputStyle" : 1,
+      "shouldRunBless" : 1,
+      "outputAbbreviatedPath" : "\/lib\/standard-ad-300x250\/css\/admin.css",
+      "strictImports" : 1,
+      "fileType" : 1,
+      "debugStyle" : 0
     },
     "\/lib\/standard-ad-300x250\/views\/widget.php" : {
       "ignoreWasSetByUser" : 0,
@@ -1771,16 +1775,18 @@
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 2048
     },
-    "\/lib\/seo\/js\/dev\/admin.js" : {
+    "\/lib\/standard-ad-300x250\/css\/less\/widget.less" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/lib\/seo\/js\/dev\/admin.js",
+      "inputAbbreviatedPath" : "\/lib\/standard-ad-300x250\/css\/less\/widget.less",
       "outputStyle" : 1,
-      "syntaxCheckerStyle" : 2,
-      "outputAbbreviatedPath" : "\/lib\/seo\/js\/admin.min.js",
-      "fileType" : 64
+      "shouldRunBless" : 1,
+      "outputAbbreviatedPath" : "\/lib\/standard-ad-300x250\/css\/widget.css",
+      "strictImports" : 1,
+      "fileType" : 1,
+      "debugStyle" : 0
     },
     "\/lib\/standard-ad-billboard\/css\/admin.css" : {
       "ignoreWasSetByUser" : 0,
@@ -1799,19 +1805,6 @@
       "inputAbbreviatedPath" : "\/loop-video.php",
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 2048
-    },
-    "\/lib\/standard-ad-300x250\/css\/less\/widget.less" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/lib\/standard-ad-300x250\/css\/less\/widget.less",
-      "outputStyle" : 1,
-      "shouldRunBless" : 1,
-      "outputAbbreviatedPath" : "\/lib\/standard-ad-300x250\/css\/widget.css",
-      "strictImports" : 1,
-      "fileType" : 1,
-      "debugStyle" : 0
     },
     "\/template-archives.php" : {
       "ignoreWasSetByUser" : 0,
@@ -1833,18 +1826,25 @@
       "initialSize" : 5159,
       "fileType" : 4096
     },
-    "\/lib\/standard-ad-300x250\/css\/less\/admin.less" : {
+    "\/lib\/seo\/js\/dev\/admin.js" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/lib\/standard-ad-300x250\/css\/less\/admin.less",
+      "inputAbbreviatedPath" : "\/lib\/seo\/js\/dev\/admin.js",
       "outputStyle" : 1,
-      "shouldRunBless" : 1,
-      "outputAbbreviatedPath" : "\/lib\/standard-ad-300x250\/css\/admin.css",
-      "strictImports" : 1,
-      "fileType" : 1,
-      "debugStyle" : 0
+      "syntaxCheckerStyle" : 2,
+      "outputAbbreviatedPath" : "\/lib\/seo\/js\/admin.min.js",
+      "fileType" : 64
+    },
+    "\/template-fullwidth.php" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/template-fullwidth.php",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
     },
     "\/css\/less\/standard-responsive.less" : {
       "ignoreWasSetByUser" : 0,
@@ -1906,6 +1906,15 @@
       "initialSize" : 284,
       "fileType" : 8192
     },
+    "\/lib\/google-custom-search\/lib\/Standard_Google_Custom_Search.template.php" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/lib\/google-custom-search\/lib\/Standard_Google_Custom_Search.template.php",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
     "\/pagination.php" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -1939,15 +1948,6 @@
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
       "inputAbbreviatedPath" : "\/single.php",
-      "outputAbbreviatedPath" : "No Output Path",
-      "fileType" : 2048
-    },
-    "\/lib\/google-custom-search\/lib\/Standard_Google_Custom_Search.template.php" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/lib\/google-custom-search\/lib\/Standard_Google_Custom_Search.template.php",
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 2048
     },
