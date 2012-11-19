@@ -299,7 +299,8 @@ ul#sitemap-posts ul{margin-top:10px;margin-bottom:10px;}
 #offline-wrapper .offline-message p{font-weight:900;font-size:48px;line-height:1;}
 #offline-wrapper #offline-title{font-size:18px;}
 #offline-wrapper #offline-title small{color:#888;font-size:14px;}
-#ie8 .navbar .dropdown:hover>.submenu-show{margin-left:100px;}
+#ie8 .navbar .dropdown-menu .submenu>.dropdown-menu{display:none;}
+#ie8 .navbar .dropdown:hover>.submenu-show{display:block;margin-left:100px;}
 #ie8 .thumbnail,#ie8 .thumbnail a,#ie8 .thumbnail a img{width:auto;}
 #ie8 .post-title a{display:block;}
 #ie8 .format-image img{width:auto\9;}
