@@ -2542,7 +2542,13 @@ if( ! function_exists( 'standard_admin_header_image' ) ) {
 	   		<div id="header-top" class="float">
 			<?php   		
 	   			$presentation_options = get_option('standard_theme_presentation_options');
-				if( '' == $presentation_options['logo'] ) {
+
+				$logo = '';
+				if( isset( $presentation_options['logo'] ) ) {
+					$logo = $options['logo'];
+				} // end if
+
+				if( '' == $logo ) {
 			?>
 					<h1><a id="name"<?php echo $style; ?> onclick="return false;" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php bloginfo( 'name' ); ?></a></h1> 
 					<div id="desc"<?php echo $style; ?>><?php bloginfo( 'description' ); ?></div> 
