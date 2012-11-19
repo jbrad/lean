@@ -56,7 +56,7 @@ body{background:#efefef;}
 .navbar .dropdown-menu .active>a{background:none;color:#222;}
 .dropdown.open .dropdown-toggle{background:none;color:#888;}
 #head-wrapper{position:relative;overflow:hidden;}
-#hgroup{position:relative;padding:45px 0 20px;}
+#hgroup{position:relative;padding:20px 0 20px;}
 #header{min-height:20px;}
 #logo{float:left;}
 #header-widget{float:right;}
