@@ -2694,11 +2694,11 @@ function standard_add_theme_stylesheets() {
 	wp_deregister_style('grunion.css');
 
 	// bootstrap
-	wp_register_style( 'bootstrap', get_template_directory_uri() . '/css/lib/bootstrap.min.css' );
+	wp_register_style( 'bootstrap', get_template_directory_uri() . '/css/lib/bootstrap.css' );
 	wp_enqueue_style( 'bootstrap' ); 
 
 	// bootstrap-responsive
-	wp_register_style( 'bootstrap-responsive', get_template_directory_uri() . '/css/lib/bootstrap-responsive.min.css' );
+	wp_register_style( 'bootstrap-responsive', get_template_directory_uri() . '/css/lib/bootstrap-responsive.css' );
 	wp_enqueue_style( 'bootstrap-responsive' ); 
 
 	// if VideoPress is loaded, we need to add styles for responsive
