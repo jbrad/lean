@@ -2545,7 +2545,7 @@ if( ! function_exists( 'standard_admin_header_image' ) ) {
 
 				$logo = '';
 				if( isset( $presentation_options['logo'] ) ) {
-					$logo = $options['logo'];
+					$logo = $presentation_options['logo'];
 				} // end if
 
 				if( '' == $logo ) {
