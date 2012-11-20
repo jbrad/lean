@@ -2714,7 +2714,7 @@ function standard_add_theme_stylesheets() {
 	wp_enqueue_style( 'standard' ); 
 	
 	// theme media queries/responsive
-	wp_register_style( 'theme-responsive', get_stylesheet_directory_uri() . '/css/theme-responsive.css' );
+	wp_register_style( 'theme-responsive', get_template_directory_uri() . '/css/theme-responsive.css' );
 	wp_enqueue_style( 'theme-responsive' ); 	
 	
 	// contrast
