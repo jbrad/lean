@@ -124,9 +124,21 @@
 					
 						<div id="header-image" class="row">
 							<div class="span12">
-								<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php bloginfo( 'name' ); ?>" rel="home">
-									<img src="<?php esc_url( header_image() ); ?>" alt="<?php bloginfo( 'name' ); ?>" />
-								</a>
+							
+								<?php if( is_front_page() || is_archive() || 'video' == get_post_format() || 'image' == get_post_format() || '' == get_the_title() ) { ?>
+									<h1>
+										<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php bloginfo( 'name' ); ?>" rel="home">
+											<img src="<?php esc_url( header_image() ); ?>" alt="<?php bloginfo( 'name' ); ?>" />
+										</a>
+									</h1>
+								<?php } else { ?>
+									<p>
+										<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php bloginfo( 'name' ); ?>" rel="home">
+											<img src="<?php esc_url( header_image() ); ?>" alt="<?php bloginfo( 'name' ); ?>" />
+										</a>
+									</p>
+								<?php } // end if/else ?>
+								
 							</div><!-- /.span12 -->							
 						</div><!-- /#header-image -->
 						
