@@ -72,7 +72,7 @@
 		<?php get_template_part( 'lib/breadcrumbs/standard_breadcrumbs' ); ?>
 		
 		<?php if( has_nav_menu( 'menu_above_logo' ) ) { ?>
-			<div id="menu-above-header" class="menu-navigation navbar navbar-fixed-top">
+			<div id="menu-above-header" class="menu-navigation navbar navbar-inverse navbar-fixed-top">
 				<div class="navbar-inner ">
 					<div class="container">
 		
@@ -186,7 +186,7 @@
 			</header><!-- /#header -->
 
 			<?php if( has_nav_menu( 'menu_below_logo' ) ) { ?>
-				<div id="menu-under-header" class="menu-navigation navbar navbar-fixed-top">
+				<div id="menu-under-header" class="menu-navigation navbar navbar-inverse navbar-fixed-top">
 					<div class="navbar-inner">
 						<div class="container">
 						
