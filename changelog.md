@@ -1,5 +1,202 @@
 # Changelog
 
+## 3.2 (TBD)
+
+### Core Theme
+
+* Adds support for PHPDoc.
+* Adds support for CodeKit.
+* Adds minified CSS and JavaScripts files.
+* Fixes ol and ul margins.
+* Fixes nested navigation menu items in IE8.
+* Fixes Standard SEO keyword highlighting.
+* Fixes Jetpack Photo issues.
+* Fixes improperly escaped attributes.
+* Changes ```custom_comment``` function in functions.php to ```standard_custom_comment```.
+* Improves header markup.
+* Removes WP-PageNavi styles and places them in a [plugin](https://github.com/eightbit/plugins).
+* Removes default "Home" link from menus.
+* Updates Bootstrap to version 2.2.1.
+* Updates theme preview screenshot.
+
+### Change Set
+
+**Added**
+
+* codekit-config.json
+* css/less/admin.less
+* css/less/admin.header.less
+* css/less/admin.social-options.less
+* css/less/editor-style.less
+* css/less/editor-style-full.less
+* css/less/theme.contrast-light.less
+* css/less/theme.less
+* css/less/theme.videopress.less
+* css/less/theme-responsive.less
+* css/lib/less/bootstrap.less
+* css/lib/less/bootstrap-responsive.less
+* css/theme-responsive.css
+* css/theme.css
+* js/admin.header.min.js
+* js/admin.media-upload.min.js
+* js/admin.menu.min.js
+* js/admin.post.min.js
+* js/admin.publishing-options.min.js
+* js/admin.seo-notification.min.js
+* js/admin.site-mode.min.js
+* js/admin.social-options.min.js
+* js/admin.template-sitemap.min.js
+* js/admin.widgets.min.js
+* js/dev/admin.header.js
+* js/dev/admin.media-upload.js
+* js/dev/admin.menu.js
+* js/dev/admin.post.js
+* js/dev/admin.publishing-options.js
+* js/dev/admin.seo-notification.js
+* js/dev/admin.site-mode.js
+* js/dev/admin.social-options.js
+* js/dev/admin.template-sitemap.js
+* js/dev/admin.widgets.js
+* js/dev/theme.comments.js
+* js/dev/theme.js
+* js/dev/theme.videopress.js
+* js/lib/bootstrap/bootstrap.min.js
+* js/theme.comments.min.js
+* js/theme.min.js
+* js/theme.videopress.min.js
+* lib/activity/css/less/admin.less
+* lib/activity/css/less/widget.less
+* lib/google-custom-search/css/less/admin.less
+* lib/google-custom-search/css/less/widget.css
+* lib/google-custom-search/js/admin.min.js
+* lib/google-custom-search/js/dev/admin.js
+* lib/influence/css/less/admin.less
+* lib/influence/css/less/widget.less
+* lib/personal-image/css/less/admin.less
+* lib/personal-image/css/less/widget.less
+* lin/personal-image/js/admin.min.js
+* lib/personal-image/js/dev/admin.js
+* lib/seo/css/less/admin.less
+* lib/seo/js/admin.min.js
+* lib/seo/js/dev/admin.js
+* lib/standard-ad-125x125/css/less/admin.less
+* lib/standard-ad-125x125/css/less/widget.less
+* lib/standard-ad-125x125/js/admin.min.js
+* lib/standard-ad-125x125/js/dev/admin.js
+* lib/standard-ad-300x250/css/less/admin.less
+* lib/standard-ad-300x250/css/less/widget.less
+* lib/standard-ad-300x250/js/admin.min.js
+* lib/standard-ad-300x250/js/dev/admin.js
+* lib/standard-ad-billboard/css/less/admin.less
+* lib/standard-ad-billboard/css/less/widget.less
+* lib/standard-ad-billboard/js/admin.min.js
+* lib/standard-ad-billboard/js/dev/admin.js
+
+**Removed**
+
+* lib/activity/js/widget.js
+* lib/google-custom-search/js/admin.js
+* lib/personal-image/js/admin.js
+* lib/seo/js/admin.js
+* lib/standard-ad-125x125/js/admin.js
+* lib/standard-ad-300x250/js/admin.js
+* lib/standard-ad-billboard/js/admin.js
+* js/admin.header.js
+* js/admin.media-upload.js
+* js/admin.menu.js
+* js/admin.post.js
+* js/admin.publishing-options.js
+* js/admin.seo-notification.js
+* js/admin.site-mode.js
+* js/admin.social-options.js
+* js/admin.template-sitemap.js
+* js/admin.widgets.js
+* js/theme.comments.js
+* js/theme.js
+* js/theme.videopress.js
+
+
+**Modified**
+
+* 404.php
+* breadcrumbs.php
+* comments.php
+* css/admin.css
+* css/admin.header.css
+* css/admin.social-options.css
+* css/editor-style.css
+* css/editor-style-full.css
+* css/img/glyphicons-halflings.png
+* css/img/glyphicons-halflings-white.png
+* css/lib/bootstrap.css
+* css/lib/bootstrap-responsive.css
+* css/theme.contrast-light.css
+* css/theme.videopress.css
+* functions.php
+* footer.php
+* header.php
+* image.php
+* index.php
+* lib/activity/css/admin.css
+* lib/activity/css/widget.css
+* lib/activity/plugin.php
+* lib/activity/views/admin.php
+* lib/breadcrumbs/standard_breadcrumbs.php
+* lib/google-custom-search/css/admin.css
+* lib/google-custom-search/css/widget.css
+* lib/google-custom-search/plugin.php
+* lib/google-custom-search/views/admin.php
+* lib/google-custom-search/views/widget.php
+* lib/influence/css/admin.css
+* lib/influence/css/widget.css
+* lib/influence/plugin.php
+* lib/influence/views/admin.php
+* lib/influence/views/widget.php
+* lib/personal-image/css/admin.css
+* lib/personal-image/css/widget.css
+* lib/personal-image/plugin.php
+* lib/personal-image/views/admin.php
+* lib/personal-image/views/widget.php
+* lib/seo/css/admin.css
+* lib/seo/js/admin.js
+* lib/seo/plugin.php
+* lib/seotitles/standard_seotitles.php
+* lib/Standard_Nav_Walker.class.php
+* lib/standard-ad-125x125/css/admin.css
+* lib/standard-ad-125x125/css/widget.css
+* lib/standard-ad-125x125/plugin.php
+* lib/standard-ad-125x125/views/admin.php
+* lib/standard-ad-125x125/views/widget.php
+* lib/standard-ad-300x250/css/admin.css
+* lib/standard-ad-300x250/css/widget.css
+* lib/standard-ad-300x250/plugin.php
+* lib/standard-ad-300x250/views/admin.php
+* lib/standard-ad-300x250/views/widget.php
+* lib/standard-ad-billboard/css/admin.css
+* lib/standard-ad-billboard/css/widget.css
+* lib/standard-ad-billboard/plugin.php
+* lib/standard-ad-billboard/views/admin.php
+* lib/standard-ad-billboard/views/widget.php
+* loop.php
+* loop-image.php
+* loop-link.php
+* loop-quote.php
+* loop-status.php
+* loop-video.php
+* js/admin.header.js
+* page.php
+* page-offline-mode
+* pagination.php
+* search.php
+* screenshot.png
+* sidebar.php
+* single.php
+* social-networking.php
+* style.css
+* template-archives.php
+* template-fullwidth.php
+* template-sitemap.php
+
 ## 3.1.2 (October 19th, 2012)
 
 ### Core Theme
