@@ -424,7 +424,8 @@ body {
 	font-size: 14px;
 }
 
-#header-image img, #header-image a img {
+#header-image img, 
+#header-image a img {
 	max-width: 100%;
 	width: auto;
 	height: auto;
@@ -432,13 +433,17 @@ body {
 }
 
 /* if header image is present lets adjust a few things */ 
-
 #header-image {
+
+	a {
+		display: block;
+	} // a
 	
-		a {
-			display: block;
-		}
-}
+	p { 
+		margin: 10px 0;
+	} // p
+	
+} // #heaer-image
 
 /* ------------------------------------------------------------------------ 6. Posts */
 
