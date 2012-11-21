@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Standard 3.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-10-19 18:28-0500\n"
-"PO-Revision-Date: 2012-10-19 18:28-0500\n"
+"POT-Creation-Date: 2012-11-21 10:31-0500\n"
+"PO-Revision-Date: 2012-11-21 10:31-0500\n"
 "Last-Translator: Tom McFarlin <tom@tommcfarlin.com>\n"
 "Language-Team: 8BIT <info@8bit.io>\n"
 "Language: en_US\n"
@@ -15,221 +15,221 @@ msgstr ""
 "X-Generator: Poedit 1.5.4\n"
 "X-Poedit-SearchPath-0: ..\n"
 
-#: ../404.php:20
+#: ../404.php:21
 msgid "404"
 msgstr ""
 
-#: ../404.php:20
+#: ../404.php:21
 msgid "Whoa... you broke the Internet!"
 msgstr ""
 
-#: ../404.php:21
+#: ../404.php:22
 msgid "The specified address does not contain a page or blog post at this time"
 msgstr ""
 
-#: ../404.php:21
+#: ../404.php:22
 msgid "Click here to return home."
 msgstr ""
 
-#: ../comments.php:17
+#: ../comments.php:18
 msgid "This post is password protected. Enter the password to view comments."
 msgstr ""
 
-#: ../comments.php:26
+#: ../comments.php:27
 msgid "No responses"
 msgstr ""
 
-#: ../comments.php:26
+#: ../comments.php:27
 msgid "One response"
 msgstr ""
 
-#: ../comments.php:26
+#: ../comments.php:27
 msgid "% responses"
 msgstr ""
 
-#: ../comments.php:26
+#: ../comments.php:27
 msgid "to"
 msgstr ""
 
-#: ../comments.php:32
+#: ../comments.php:33
 msgid "Previous Comments"
 msgstr ""
 
-#: ../comments.php:35
+#: ../comments.php:36
 msgid "Next Comments"
 msgstr ""
 
-#: ../comments.php:44
+#: ../comments.php:45
 msgid "Trackbacks and Pingbacks:"
 msgstr ""
 
-#: ../comments.php:56
+#: ../comments.php:57
 msgid "No Comments"
 msgstr ""
 
-#: ../comments.php:57
+#: ../comments.php:58
 msgid "Be the first to start the conversation."
 msgstr ""
 
-#: ../footer.php:61
+#: ../footer.php:62
 #, php-format
 msgid "&copy; %1$s %2$s &mdash; %3$s &mdash; %4$s by %5$s"
 msgstr ""
 
-#: ../footer.php:63
+#: ../footer.php:64
 #, php-format
 msgid "&copy; %1$s %2$s &mdash; %3$s by %4$s"
 msgstr ""
 
-#: ../functions.php:51
+#: ../functions.php:69
 msgid "Standard Options"
 msgstr ""
 
-#: ../functions.php:52 ../functions.php:1284 ../functions.php:1752
+#: ../functions.php:70 ../functions.php:1440 ../functions.php:1934
 msgid "Standard"
 msgstr ""
 
-#: ../functions.php:62 ../functions.php:63 ../functions.php:1303
-#: ../functions.php:1761
+#: ../functions.php:80 ../functions.php:81 ../functions.php:1459
+#: ../functions.php:1943
 msgid "Global"
 msgstr ""
 
-#: ../functions.php:71 ../functions.php:72 ../functions.php:1304
-#: ../functions.php:1361 ../functions.php:1771
+#: ../functions.php:89 ../functions.php:90 ../functions.php:1460
+#: ../functions.php:1521 ../functions.php:1953
 msgid "Presentation"
 msgstr ""
 
-#: ../functions.php:80 ../functions.php:81 ../functions.php:1305
-#: ../functions.php:1781
+#: ../functions.php:98 ../functions.php:99 ../functions.php:1461
+#: ../functions.php:1963
 msgid "Social"
 msgstr ""
 
-#: ../functions.php:89 ../functions.php:90 ../functions.php:1306
-#: ../functions.php:1481 ../functions.php:1791
+#: ../functions.php:107 ../functions.php:108 ../functions.php:1462
+#: ../functions.php:1641 ../functions.php:1973
 msgid "Publishing"
 msgstr ""
 
-#: ../functions.php:141
+#: ../functions.php:166
 msgid "Layout and Design"
 msgstr ""
 
-#: ../functions.php:148 ../functions.php:1402
+#: ../functions.php:173 ../functions.php:1562
 msgid "Logo"
 msgstr ""
 
-#: ../functions.php:156
+#: ../functions.php:181
 msgid "Site Icon"
 msgstr ""
 
-#: ../functions.php:164 ../functions.php:1377
+#: ../functions.php:189 ../functions.php:1537
 msgid "Contrast"
 msgstr ""
 
-#: ../functions.php:172 ../functions.php:1425
+#: ../functions.php:197 ../functions.php:1585
 msgid "Left Sidebar"
 msgstr ""
 
-#: ../functions.php:183 ../functions.php:1426
+#: ../functions.php:208 ../functions.php:1586
 msgid "Right Sidebar"
 msgstr ""
 
-#: ../functions.php:194
+#: ../functions.php:219
 msgid "No Sidebar / Full Width"
 msgstr ""
 
-#: ../functions.php:206
+#: ../functions.php:231
 msgid "Content"
 msgstr ""
 
-#: ../functions.php:213 ../functions.php:1443
+#: ../functions.php:238 ../functions.php:1603
 msgid "Display Breadcrumbs"
 msgstr ""
 
-#: ../functions.php:221 ../functions.php:1465
+#: ../functions.php:246 ../functions.php:1625
 msgid "Display Featured Images"
 msgstr ""
 
-#: ../functions.php:246
+#: ../functions.php:280
 msgid "This section controls positioning and style elements."
 msgstr ""
 
-#: ../functions.php:253
+#: ../functions.php:290
 msgid "This section controls when content elements are displayed."
 msgstr ""
 
-#: ../functions.php:272 ../functions.php:319
+#: ../functions.php:312 ../functions.php:365
 msgid "Upload"
 msgstr ""
 
-#: ../functions.php:275 ../functions.php:322 ../functions.php:1120
-#: ../functions.php:1154 ../lib/standard-ad-125x125/views/admin.php:11
-#: ../lib/standard-ad-125x125/views/admin.php:19
+#: ../functions.php:315 ../functions.php:368 ../functions.php:1255
+#: ../functions.php:1292 ../lib/standard-ad-125x125/views/admin.php:21
+#: ../lib/standard-ad-125x125/views/admin.php:29
 msgid "Delete"
 msgstr ""
 
-#: ../functions.php:278
+#: ../functions.php:318
 msgid "Dimensions: 144px x 144px. Used for favicon and mobile devices."
 msgstr ""
 
-#: ../functions.php:278 ../functions.php:1109 ../functions.php:1143
-#: ../functions.php:1840 ../functions.php:1845 ../functions.php:1850
+#: ../functions.php:318 ../functions.php:1244 ../functions.php:1281
+#: ../functions.php:2033 ../functions.php:2038 ../functions.php:2043
 msgid "Learn more"
 msgstr ""
 
-#: ../functions.php:292 ../functions.php:1382
+#: ../functions.php:335 ../functions.php:1542
 msgid "Light"
 msgstr ""
 
-#: ../functions.php:293 ../functions.php:1383
+#: ../functions.php:336 ../functions.php:1543
 msgid "Dark"
 msgstr ""
 
-#: ../functions.php:296
+#: ../functions.php:339
 msgid ""
 "Can be used with <a href=\"themes.php?page=custom-background\">custom "
 "backgrounds</a>."
 msgstr ""
 
-#: ../functions.php:325
+#: ../functions.php:371
 msgid ""
 "Use an image in place of the <a href=\"themes.php?page=custom-header\">Site "
 "Title and Tagline</a>. <a href=\"themes.php?page=custom-header\">Custom "
 "Headers</a> are also available."
 msgstr ""
 
-#: ../functions.php:394 ../functions.php:414 ../functions.php:1086
-#: ../functions.php:1448 ../functions.php:1470 ../functions.php:1502
+#: ../functions.php:447 ../functions.php:468 ../functions.php:1218
+#: ../functions.php:1608 ../functions.php:1630 ../functions.php:1662
 msgid "Always"
 msgstr ""
 
-#: ../functions.php:395 ../functions.php:415 ../functions.php:1087
-#: ../functions.php:1449 ../functions.php:1471 ../functions.php:1503
+#: ../functions.php:448 ../functions.php:469 ../functions.php:1219
+#: ../functions.php:1609 ../functions.php:1631 ../functions.php:1663
 msgid "Never"
 msgstr ""
 
-#: ../functions.php:398
+#: ../functions.php:451
 msgid ""
 "SEO experts encourage breadcrumb use. <a href=\"http://docs.8bit.io/standard/"
 "admin-panel/presentation/\">Learn more</a>."
 msgstr ""
 
-#: ../functions.php:416 ../functions.php:1472
+#: ../functions.php:470 ../functions.php:1632
 msgid "On index only"
 msgstr ""
 
-#: ../functions.php:417 ../functions.php:1473
+#: ../functions.php:471 ../functions.php:1633
 msgid "On single posts only"
 msgstr ""
 
-#: ../functions.php:492
+#: ../functions.php:554
 msgid "Available Icons"
 msgstr ""
 
-#: ../functions.php:500 ../functions.php:526
+#: ../functions.php:562 ../functions.php:591
 msgid "Active Icons"
 msgstr ""
 
-#: ../functions.php:520
+#: ../functions.php:585
 msgid ""
 "This section controls social network icons in the site header. Drag, drop, "
 "and position desired icons from the Icon Library to the Active Icons area. "
@@ -239,826 +239,822 @@ msgid ""
 "icons\" class=\"ad_delete\">restore defaults.</a>"
 msgstr ""
 
-#: ../functions.php:529
+#: ../functions.php:594
 msgid "Click an icon to set the full URL."
 msgstr ""
 
-#: ../functions.php:532
+#: ../functions.php:597
 msgid "Icon URL:"
 msgstr ""
 
-#: ../functions.php:535
+#: ../functions.php:600
 msgid "Learn More"
 msgstr ""
 
-#: ../functions.php:538
+#: ../functions.php:603
 msgid "Done"
 msgstr ""
 
-#: ../functions.php:540
+#: ../functions.php:605
 msgid "Cancel"
 msgstr ""
 
-#: ../functions.php:543
+#: ../functions.php:608
 msgid "Standard looks best with seven icons or fewer."
 msgstr ""
 
-#: ../functions.php:549
+#: ../functions.php:614
 msgid "Icon Library"
 msgstr ""
 
-#: ../functions.php:552
+#: ../functions.php:617
 msgid "Use native social icons or upload your own."
 msgstr ""
 
-#: ../functions.php:554
+#: ../functions.php:619
 msgid "Drag social icons here to remove them from your library."
 msgstr ""
 
-#: ../functions.php:556
+#: ../functions.php:621
 msgid "Upload New Icon"
 msgstr ""
 
-#: ../functions.php:624
+#: ../functions.php:701
 msgid ""
 "You cannot delete the default set of Standard social icons. <a href="
 "\"javascript:;\" id=\"standard-hide-delete-social-icon-message\">Hide this "
 "message.</a>"
 msgstr ""
 
-#: ../functions.php:743
+#: ../functions.php:830
 msgid "Our site is currently offline."
 msgstr ""
 
-#: ../functions.php:771
+#: ../functions.php:862
 msgid "FeedBurner URL"
 msgstr ""
 
-#: ../functions.php:779
+#: ../functions.php:870
 msgid "Google Analytics"
 msgstr ""
 
-#: ../functions.php:787
+#: ../functions.php:878
 msgid "Affiliate Code"
 msgstr ""
 
-#: ../functions.php:795
+#: ../functions.php:886
 msgid "Site Mode"
 msgstr ""
 
-#: ../functions.php:803
+#: ../functions.php:894
 msgid "Offline Message"
 msgstr ""
 
-#: ../functions.php:823
+#: ../functions.php:917
 msgid "Site Configuration "
 msgstr ""
 
-#: ../functions.php:824
+#: ../functions.php:918
 msgid "This section controls site wide features."
 msgstr ""
 
-#: ../functions.php:846
+#: ../functions.php:943
 msgid "Use in place of the native RSS feed."
 msgstr ""
 
-#: ../functions.php:870
+#: ../functions.php:970
 msgid "Enter the ID only."
 msgstr ""
 
-#: ../functions.php:891
+#: ../functions.php:994
 msgid ""
 "Earn money by recommending Standard to your site visitors. <a href=\"http://"
 "docs.8bit.io/standard/affiliates\" target=\"_blank\">Learn more</a>."
 msgstr ""
 
-#: ../functions.php:910
+#: ../functions.php:1016
 msgid "Online"
 msgstr ""
 
-#: ../functions.php:911
+#: ../functions.php:1017
 msgid "Offline"
 msgstr ""
 
-#: ../functions.php:917
+#: ../functions.php:1023
 msgid ""
 "WARNING: Taking site offline will hide all content from site visitors and "
 "search engines."
 msgstr ""
 
-#: ../functions.php:1005 ../single.php:44 ../template-sitemap.php:72
+#: ../functions.php:1124 ../single.php:45 ../template-sitemap.php:73
 msgid "Posts"
 msgstr ""
 
-#: ../functions.php:1012 ../functions.php:1497
+#: ../functions.php:1131 ../functions.php:1657
 msgid "Display Author Box"
 msgstr ""
 
-#: ../functions.php:1021 ../template-sitemap.php:60
+#: ../functions.php:1140 ../template-sitemap.php:61
 msgid "Pages"
 msgstr ""
 
-#: ../functions.php:1028 ../functions.php:1102 ../functions.php:1171
+#: ../functions.php:1147 ../functions.php:1237 ../functions.php:1312
 msgid "Privacy Policy"
 msgstr ""
 
-#: ../functions.php:1036 ../functions.php:1136 ../functions.php:1213
+#: ../functions.php:1155 ../functions.php:1274 ../functions.php:1360
 msgid "Comment Policy"
 msgstr ""
 
-#: ../functions.php:1061
+#: ../functions.php:1189
 msgid ""
 "This section controls publisher-centric features available on individual "
 "posts."
 msgstr ""
 
-#: ../functions.php:1068
+#: ../functions.php:1199
 msgid "This section controls publisher-centric features available for pages."
 msgstr ""
 
-#: ../functions.php:1090
+#: ../functions.php:1222
 msgid ""
 "Display name, website, social networks, and bio from the <a href='profile."
 "php'>author's profile</a> after post content."
 msgstr ""
 
-#: ../functions.php:1106 ../functions.php:1140
+#: ../functions.php:1241 ../functions.php:1278
 msgid "Generate"
 msgstr ""
 
-#: ../functions.php:1109 ../functions.php:1143
+#: ../functions.php:1244 ../functions.php:1281
 msgid ""
 "<a href=\"http://docs.8bit.io/standard/admin-panel/publishing/\" target="
 "\"_blank\">"
 msgstr ""
 
-#: ../functions.php:1122 ../functions.php:1156
+#: ../functions.php:1257 ../functions.php:1294
 msgid "Warning, customizations will be lost. You can view or edit your policy "
 msgstr ""
 
-#: ../functions.php:1122 ../functions.php:1156
+#: ../functions.php:1257 ../functions.php:1294
 msgid "here"
 msgstr ""
 
-#: ../functions.php:1284
+#: ../functions.php:1440
 msgid "for publishers"
 msgstr ""
 
-#: ../functions.php:1287
+#: ../functions.php:1443
 msgid ""
 "Standard is a sleek, exacting product designed for uncluttered and "
 "sophisticated presentation of your content on desktop and mobile devices."
 msgstr ""
 
-#: ../functions.php:1293
+#: ../functions.php:1449
 msgid "Documentation"
 msgstr ""
 
-#: ../functions.php:1294
+#: ../functions.php:1450
 msgid "Support"
 msgstr ""
 
-#: ../functions.php:1295
+#: ../functions.php:1451
 msgid "Blog"
 msgstr ""
 
-#: ../functions.php:1420
+#: ../functions.php:1580
 msgid "Layout"
 msgstr ""
 
-#: ../functions.php:1427
+#: ../functions.php:1587
 msgid "No Sidebar / Full-Width"
 msgstr ""
 
-#: ../functions.php:1587
+#: ../functions.php:1753
 msgid "Standard Layout"
 msgstr ""
 
-#: ../functions.php:1613
+#: ../functions.php:1781
 msgid "Hide sidebar and display post at full width."
 msgstr ""
 
-#: ../functions.php:1672
+#: ../functions.php:1845
 msgid "Link URL"
 msgstr ""
 
-#: ../functions.php:1813
+#: ../functions.php:1998
 msgid "The site is currently offline. To bring it back online, click here."
 msgstr ""
 
-#: ../functions.php:1840
+#: ../functions.php:2033
 msgid ""
 "Standard has detected the activation of WordPress SEO and is now running in "
 "SEO compatibility mode. <a href=\"http://docs.8bit.io/standard/seo\" target="
 "\"_blank\">"
 msgstr ""
 
-#: ../functions.php:1845
+#: ../functions.php:2038
 msgid ""
 "Standard has detected the activation of All-In-One SEO and is now running in "
 "SEO compatibility mode.  <a href=\"http://docs.8bit.io/standard/seo\" target="
 "\"_blank\">"
 msgstr ""
 
-#: ../functions.php:1850
+#: ../functions.php:2043
 msgid ""
 "Standard has detected the activation of Platinum SEO and is now running in "
 "SEO compatibility mode.  <a href=\"http://docs.8bit.io/standard/seo\" target="
 "\"_blank\">"
 msgstr ""
 
-#: ../functions.php:1952
+#: ../functions.php:2164
 msgid "Header Menu (Upper)"
 msgstr ""
 
-#: ../functions.php:1953
+#: ../functions.php:2165
 msgid "Header Menu (Lower)"
 msgstr ""
 
-#: ../functions.php:1954
+#: ../functions.php:2166
 msgid "Footer Menu"
 msgstr ""
 
-#: ../functions.php:1971
+#: ../functions.php:2188
 msgid "Sidebar"
 msgstr ""
 
-#: ../functions.php:1973
+#: ../functions.php:2190
 msgid "The primary sidebar."
 msgstr ""
 
-#: ../functions.php:1984
+#: ../functions.php:2201
 msgid "Header"
 msgstr ""
 
-#: ../functions.php:1986
+#: ../functions.php:2203
 msgid ""
 "This area is designed for a 468x60 advertisement, but other widgets can be "
 "used here as well."
 msgstr ""
 
-#: ../functions.php:1997
+#: ../functions.php:2214
 msgid "Below Single Post"
 msgstr ""
 
-#: ../functions.php:1999
+#: ../functions.php:2216
 msgid ""
 "Shown after post content and before comments. Ideal for the 468x60 ad widget."
 msgstr ""
 
-#: ../functions.php:2010
+#: ../functions.php:2227
 msgid "Footer Left"
 msgstr ""
 
-#: ../functions.php:2012
+#: ../functions.php:2229
 msgid "Shown in the first column of the footer."
 msgstr ""
 
-#: ../functions.php:2023
+#: ../functions.php:2240
 msgid "Footer Center"
 msgstr ""
 
-#: ../functions.php:2025
+#: ../functions.php:2242
 msgid "Shown in the second column of the footer."
 msgstr ""
 
-#: ../functions.php:2036
+#: ../functions.php:2253
 msgid "Footer Right"
 msgstr ""
 
-#: ../functions.php:2038
+#: ../functions.php:2255
 msgid "Shown in the third column of the footer."
 msgstr ""
 
-#: ../functions.php:2380
+#: ../functions.php:2622
 #, php-format
 msgid "%1$s at %2$s"
 msgstr ""
 
-#: ../functions.php:2381
+#: ../functions.php:2623
 msgid "Edit"
 msgstr ""
 
-#: ../functions.php:2387
+#: ../functions.php:2629
 msgid "Your comment will appear after being approved."
 msgstr ""
 
-#: ../functions.php:2403
+#: ../functions.php:2645
 msgid "Reply"
 msgstr ""
 
-#: ../functions.php:2701
+#: ../functions.php:2963
 msgid ""
 "<span class=\"standard-user-profile\" id=\"standard-user-profile-twitter"
 "\">Twitter URL</span>"
 msgstr ""
 
-#: ../functions.php:2702
+#: ../functions.php:2964
 msgid ""
 "<span class=\"standard-user-profile\" id=\"standard-user-profile-facebook"
 "\">Facebook URL</span>"
 msgstr ""
 
-#: ../functions.php:2705
+#: ../functions.php:2967
 msgid ""
 "<span class=\"standard-user-profile\" id=\"standard-user-profile-google-plus"
 "\">Google+ URL</span>"
 msgstr ""
 
-#: ../functions.php:2949
+#: ../functions.php:3234
 msgid "Search..."
 msgstr ""
 
-#: ../functions.php:3131
+#: ../functions.php:3432
 msgid "A title is required for search engines."
 msgstr ""
 
-#: ../functions.php:3132
+#: ../functions.php:3433
 msgid "An alternate text description is required for search engines."
 msgstr ""
 
-#: ../functions.php:3206
+#: ../functions.php:3513
 msgid " is currently offline. "
 msgstr ""
 
-#: ../functions.php:3401
+#: ../functions.php:3721
 msgid "Name"
 msgstr ""
 
-#: ../functions.php:3402
+#: ../functions.php:3722
 msgid "Email"
 msgstr ""
 
-#: ../functions.php:3403 ../single.php:47
+#: ../functions.php:3723 ../single.php:48
 msgid "Website"
 msgstr ""
 
-#: ../functions.php:3411
+#: ../functions.php:3731
 #, php-format
 msgid ""
 "Text formatting is available via select <a href=\"javascript:;\">HTML</a>. %s"
 msgstr ""
 
-#: ../functions.php:3412
+#: ../functions.php:3732
 #, php-format
 msgid ""
 "Logged in as <a href=\"%1$s\">%2$s</a>. <a href=\"%3$s\" title=\"Log out of "
 "this account\">Log out?</a>"
 msgstr ""
 
-#: ../index.php:29
+#: ../index.php:30
 msgid "Archives For "
 msgstr ""
 
-#: ../index.php:66 ../search.php:45
+#: ../index.php:67 ../search.php:46
 msgid "Page or resource not found"
 msgstr ""
 
-#: ../index.php:69 ../search.php:48
+#: ../index.php:70 ../search.php:49
 msgid "No results were found."
 msgstr ""
 
-#: ../loop-image.php:22 ../loop-image.php:24 ../loop-link.php:65
-#: ../loop-quote.php:17 ../loop-quote.php:19 ../loop-status.php:21
-#: ../loop-status.php:23 ../loop-video.php:16 ../loop-video.php:18
-#: ../loop.php:54 ../loop.php:56
+#: ../loop-image.php:23 ../loop-image.php:25 ../loop-link.php:66
+#: ../loop-quote.php:18 ../loop-quote.php:20 ../loop-status.php:22
+#: ../loop-status.php:24 ../loop-video.php:17 ../loop-video.php:19
+#: ../loop.php:55 ../loop.php:57
 msgid "Continue Reading..."
 msgstr ""
 
-#: ../loop-image.php:29 ../loop-quote.php:39 ../loop-video.php:23
-#: ../loop.php:61
+#: ../loop-image.php:30 ../loop-quote.php:40 ../loop-video.php:24
+#: ../loop.php:62
 msgid "Pages:"
-msgstr ""
-
-#: ../loop-image.php:41 ../loop-link.php:74 ../loop-quote.php:52
-#: ../loop-status.php:34 ../loop-video.php:35
-msgid " Posted by "
 msgstr ""
 
 #: ../loop-image.php:42 ../loop-link.php:75 ../loop-quote.php:53
 #: ../loop-status.php:35 ../loop-video.php:36
+msgid " Posted by "
+msgstr ""
+
+#: ../loop-image.php:43 ../loop-link.php:76 ../loop-quote.php:54
+#: ../loop-status.php:36 ../loop-video.php:37
 msgid " on "
 msgstr ""
 
-#: ../loop-image.php:44 ../loop-link.php:77 ../loop-quote.php:55
-#: ../loop-status.php:37 ../loop-video.php:38
+#: ../loop-image.php:45 ../loop-link.php:78 ../loop-quote.php:56
+#: ../loop-status.php:38 ../loop-video.php:39
 #, php-format
 msgid "Posted on %1$s"
 msgstr ""
 
-#: ../loop-image.php:47 ../loop-image.php:52 ../loop-link.php:80
-#: ../loop-link.php:85 ../loop-quote.php:58 ../loop-quote.php:63
-#: ../loop-status.php:40 ../loop-status.php:45 ../loop-video.php:41
-#: ../loop-video.php:46 ../loop.php:72 ../loop.php:77
+#: ../loop-image.php:48 ../loop-image.php:53 ../loop-link.php:81
+#: ../loop-link.php:86 ../loop-quote.php:59 ../loop-quote.php:64
+#: ../loop-status.php:41 ../loop-status.php:46 ../loop-video.php:42
+#: ../loop-video.php:47 ../loop.php:73 ../loop.php:78
 msgid ", "
 msgstr ""
 
-#: ../loop-image.php:49 ../loop-link.php:82 ../loop-quote.php:60
-#: ../loop-status.php:42 ../loop-video.php:43 ../loop.php:74
+#: ../loop-image.php:50 ../loop-link.php:83 ../loop-quote.php:61
+#: ../loop-status.php:43 ../loop-video.php:44 ../loop.php:75
 #, php-format
 msgid "In %1$s"
 msgstr ""
 
-#: ../loop-image.php:54 ../loop-link.php:87 ../loop-quote.php:65
-#: ../loop-status.php:47 ../loop-video.php:48 ../loop.php:79
+#: ../loop-image.php:55 ../loop-link.php:88 ../loop-quote.php:66
+#: ../loop-status.php:48 ../loop-video.php:49 ../loop.php:80
 #, php-format
 msgid "%1$s"
 msgstr ""
 
-#: ../loop-image.php:62 ../loop-link.php:95 ../loop-quote.php:73
-#: ../loop-status.php:55 ../loop-video.php:56 ../loop.php:44 ../loop.php:87
+#: ../loop-image.php:63 ../loop-link.php:96 ../loop-quote.php:74
+#: ../loop-status.php:56 ../loop-video.php:57 ../loop.php:45 ../loop.php:88
 msgid "Leave a comment"
 msgstr ""
 
-#: ../loop-image.php:62 ../loop-link.php:95 ../loop-quote.php:73
-#: ../loop-status.php:55 ../loop-video.php:56 ../loop.php:44 ../loop.php:87
+#: ../loop-image.php:63 ../loop-link.php:96 ../loop-quote.php:74
+#: ../loop-status.php:56 ../loop-video.php:57 ../loop.php:45 ../loop.php:88
 msgid "1 Comment"
 msgstr ""
 
-#: ../loop-image.php:62 ../loop-link.php:95 ../loop-quote.php:73
-#: ../loop-status.php:55 ../loop-video.php:56 ../loop.php:44 ../loop.php:87
+#: ../loop-image.php:63 ../loop-link.php:96 ../loop-quote.php:74
+#: ../loop-status.php:56 ../loop-video.php:57 ../loop.php:45 ../loop.php:88
 msgid "% Comments"
 msgstr ""
 
-#: ../pagination.php:20
+#: ../pagination.php:21
 msgid "<i class=\"icon-chevron-left\"></i>"
 msgstr ""
 
-#: ../pagination.php:26
+#: ../pagination.php:27
 msgid "<i class=\"icon-chevron-right\"></i>"
 msgstr ""
 
-#: ../pagination.php:39
+#: ../pagination.php:40
 msgid ""
 "<span class=\"nav-previous meta-nav\"><i class=\"icon-chevron-left\"></i> "
 "Older</span>"
 msgstr ""
 
-#: ../pagination.php:45
+#: ../pagination.php:46
 msgid ""
 "<span class=\"nav-next meta-nav\">Newer <i class=\"icon-chevron-right\"></"
 "i></span>"
 msgstr ""
 
-#: ../search.php:29
+#: ../search.php:30
 msgid "Search Results For \""
 msgstr ""
 
-#: ../search.php:29
+#: ../search.php:30
 msgid "\""
 msgstr ""
 
-#: ../single.php:51 ../lib/influence/views/admin.php:31
+#: ../single.php:52 ../lib/influence/views/admin.php:41
 msgid "Twitter"
 msgstr ""
 
-#: ../single.php:55 ../lib/influence/views/admin.php:38
+#: ../single.php:56 ../lib/influence/views/admin.php:48
 msgid "Facebook"
 msgstr ""
 
-#: ../single.php:59
+#: ../single.php:60
 msgid "Google+"
 msgstr ""
 
-#: ../template-archives.php:37
+#: ../template-archives.php:38
 msgid "All Categories"
 msgstr ""
 
-#: ../template-archives.php:48
+#: ../template-archives.php:49
 msgid "You have no categories."
 msgstr ""
 
-#: ../template-archives.php:51
+#: ../template-archives.php:52
 msgid "All Posts"
 msgstr ""
 
-#: ../template-archives.php:63
+#: ../template-archives.php:64
 msgid "You have no posts."
 msgstr ""
 
-#: ../template-sitemap.php:35
+#: ../template-sitemap.php:36
 msgid "Authors"
 msgstr ""
 
-#: ../lib/activity/plugin.php:20
+#: ../lib/activity/plugin.php:25
 msgid "standard-activity-tabs"
 msgstr ""
 
-#: ../lib/activity/plugin.php:21
+#: ../lib/activity/plugin.php:26
 msgid "Display your most recent posts, comments, popular posts, and tags."
 msgstr ""
 
-#: ../lib/activity/plugin.php:23
+#: ../lib/activity/plugin.php:28
 msgid "Activity Tabs"
 msgstr ""
 
-#: ../lib/activity/plugin.php:170
+#: ../lib/activity/plugin.php:190
 msgid "Recent"
 msgstr ""
 
-#: ../lib/activity/plugin.php:174
+#: ../lib/activity/plugin.php:194
 msgid "Popular"
 msgstr ""
 
-#: ../lib/activity/plugin.php:178
+#: ../lib/activity/plugin.php:198
 msgid "Comments"
 msgstr ""
 
-#: ../lib/activity/plugin.php:182
+#: ../lib/activity/plugin.php:202
 msgid "Tags"
 msgstr ""
 
-#: ../lib/activity/plugin.php:276
+#: ../lib/activity/plugin.php:303
 msgid "You have no recent posts."
 msgstr ""
 
-#: ../lib/activity/plugin.php:340
+#: ../lib/activity/plugin.php:372
 msgid " comments since "
 msgstr ""
 
-#: ../lib/activity/plugin.php:360
+#: ../lib/activity/plugin.php:392
 msgid "You have no popular posts."
 msgstr ""
 
-#: ../lib/activity/plugin.php:431
+#: ../lib/activity/plugin.php:469
 msgid "You have no comments."
 msgstr ""
 
-#: ../lib/activity/plugin.php:467
+#: ../lib/activity/plugin.php:510
 msgid "You have no tags."
 msgstr ""
 
-#: ../lib/activity/views/admin.php:4 ../lib/activity/views/admin.php:14
-#: ../lib/activity/views/admin.php:24 ../lib/activity/views/admin.php:34
+#: ../lib/activity/views/admin.php:14 ../lib/activity/views/admin.php:24
+#: ../lib/activity/views/admin.php:34 ../lib/activity/views/admin.php:44
 msgid "Show"
 msgstr ""
 
-#: ../lib/activity/views/admin.php:10
+#: ../lib/activity/views/admin.php:20
 msgid "recent posts"
 msgstr ""
 
-#: ../lib/activity/views/admin.php:20
+#: ../lib/activity/views/admin.php:30
 msgid "most commented posts"
 msgstr ""
 
-#: ../lib/activity/views/admin.php:30
+#: ../lib/activity/views/admin.php:40
 msgid "recent comments"
 msgstr ""
 
-#: ../lib/activity/views/admin.php:40
+#: ../lib/activity/views/admin.php:50
 msgid "most used tags"
 msgstr ""
 
-#: ../lib/breadcrumbs/standard_breadcrumbs.php:49
-#: ../lib/breadcrumbs/standard_breadcrumbs.php:51
-#: ../lib/breadcrumbs/standard_breadcrumbs.php:53
+#: ../lib/breadcrumbs/standard_breadcrumbs.php:55
+#: ../lib/breadcrumbs/standard_breadcrumbs.php:57
+#: ../lib/breadcrumbs/standard_breadcrumbs.php:59
 msgid "Archives"
 msgstr ""
 
-#: ../lib/breadcrumbs/standard_breadcrumbs.php:49
-#: ../lib/breadcrumbs/standard_breadcrumbs.php:51
-#: ../lib/breadcrumbs/standard_breadcrumbs.php:53
-#: ../lib/breadcrumbs/standard_breadcrumbs.php:58
+#: ../lib/breadcrumbs/standard_breadcrumbs.php:55
+#: ../lib/breadcrumbs/standard_breadcrumbs.php:57
+#: ../lib/breadcrumbs/standard_breadcrumbs.php:59
+#: ../lib/breadcrumbs/standard_breadcrumbs.php:64
 msgid " / "
 msgstr ""
 
-#: ../lib/breadcrumbs/standard_breadcrumbs.php:58
+#: ../lib/breadcrumbs/standard_breadcrumbs.php:64
 msgid "Search"
 msgstr ""
 
-#: ../lib/breadcrumbs/standard_breadcrumbs.php:83
+#: ../lib/breadcrumbs/standard_breadcrumbs.php:93
 msgid "Home"
 msgstr ""
 
-#: ../lib/breadcrumbs/standard_breadcrumbs.php:265
+#: ../lib/breadcrumbs/standard_breadcrumbs.php:292
 msgid "[ No search query. ]"
 msgstr ""
 
-#: ../lib/google-custom-search/plugin.php:18
+#: ../lib/google-custom-search/plugin.php:23
 msgid "standard-google-custom-search"
 msgstr ""
 
-#: ../lib/google-custom-search/plugin.php:19
+#: ../lib/google-custom-search/plugin.php:24
 msgid "Easily add Google Custom Search to your Standard-powered blog."
 msgstr ""
 
-#: ../lib/google-custom-search/plugin.php:21
+#: ../lib/google-custom-search/plugin.php:26
 msgid "Google Custom Search"
 msgstr ""
 
-#: ../lib/google-custom-search/plugin.php:146
+#: ../lib/google-custom-search/plugin.php:169
 msgid "Search Results"
 msgstr ""
 
-#: ../lib/google-custom-search/plugin.php:197
+#: ../lib/google-custom-search/plugin.php:226
 msgid ""
 "Could not configure Google Custom Search widget because the required "
 "\"search-results\" permalink is already in use. Please rename <a href=\"post."
 "php?post="
 msgstr ""
 
-#: ../lib/google-custom-search/plugin.php:203
+#: ../lib/google-custom-search/plugin.php:232
 msgid ""
 "This page was generated by Standard for use with the Google Custom Search "
 "widget. <a href=\"widgets.php\">Remove the widget</a> from all sidebar to "
 "delete this page."
 msgstr ""
 
-#: ../lib/google-custom-search/views/admin.php:4
+#: ../lib/google-custom-search/views/admin.php:14
 msgid "Paste your Google Custom Search Engine ID here. "
 msgstr ""
 
-#: ../lib/google-custom-search/views/admin.php:5
+#: ../lib/google-custom-search/views/admin.php:15
 msgid ""
 "<em><a href=\"http://docs.8bit.io/standard/widgets/google-custom-search-"
 "widget/\" target=\"_blank\">Learn More</a>.</em>"
 msgstr ""
 
-#: ../lib/influence/plugin.php:17
+#: ../lib/influence/plugin.php:23
 msgid "standard-social-influence"
 msgstr ""
 
-#: ../lib/influence/plugin.php:18
+#: ../lib/influence/plugin.php:24
 msgid ""
 "Display your social influence by showcasing Twitter followers and Facebook "
 "fans."
 msgstr ""
 
-#: ../lib/influence/plugin.php:20
+#: ../lib/influence/plugin.php:26
 msgid "Social Influence"
 msgstr ""
 
-#: ../lib/influence/views/admin.php:6
+#: ../lib/influence/views/admin.php:16
 msgid "Twitter:"
 msgstr ""
 
-#: ../lib/influence/views/admin.php:7
+#: ../lib/influence/views/admin.php:17
 msgid "Username (without '@')"
 msgstr ""
 
-#: ../lib/influence/views/admin.php:11
+#: ../lib/influence/views/admin.php:21
 msgid "Facebook Fan Page:"
 msgstr ""
 
-#: ../lib/influence/views/admin.php:12
-msgid "Username only"
-msgstr ""
-
-#: ../lib/influence/views/admin.php:16
+#: ../lib/influence/views/admin.php:26
 msgid "Display"
 msgstr ""
 
-#: ../lib/influence/views/admin.php:18
+#: ../lib/influence/views/admin.php:28
 msgid "Individual count"
 msgstr ""
 
-#: ../lib/influence/views/admin.php:19
+#: ../lib/influence/views/admin.php:29
 msgid "Total influence"
 msgstr ""
 
-#: ../lib/influence/views/admin.php:20
+#: ../lib/influence/views/admin.php:30
 msgid "Both"
 msgstr ""
 
-#: ../lib/influence/views/admin.php:50
+#: ../lib/influence/views/admin.php:60
 msgid ""
 "Unfortunately, your web host does not support features that this widget "
 "requires."
 msgstr ""
 
-#: ../lib/influence/views/admin.php:51
+#: ../lib/influence/views/admin.php:61
 msgid "<a href=\"TODO\">Learn more</a> about this error."
 msgstr ""
 
-#: ../lib/personal-image/plugin.php:17
+#: ../lib/personal-image/plugin.php:23
 msgid "personal-image"
 msgstr ""
 
-#: ../lib/personal-image/plugin.php:18
+#: ../lib/personal-image/plugin.php:24
 msgid "Display a personal image and an optional description."
 msgstr ""
 
-#: ../lib/personal-image/plugin.php:20
+#: ../lib/personal-image/plugin.php:26
 msgid "Personal Image"
 msgstr ""
 
-#: ../lib/personal-image/views/admin.php:5
+#: ../lib/personal-image/views/admin.php:15
 msgid "Personal Image:"
 msgstr ""
 
-#: ../lib/personal-image/views/admin.php:11
+#: ../lib/personal-image/views/admin.php:21
 msgid "Maximum width is 300 pixels."
 msgstr ""
 
-#: ../lib/personal-image/views/admin.php:12
+#: ../lib/personal-image/views/admin.php:22
 msgid "Delete Image"
 msgstr ""
 
-#: ../lib/personal-image/views/admin.php:24
+#: ../lib/personal-image/views/admin.php:34
 msgid "Bio (Optional):"
 msgstr ""
 
-#: ../lib/personal-image/views/admin.php:26
+#: ../lib/personal-image/views/admin.php:36
 msgid "400"
 msgstr ""
 
-#: ../lib/personal-image/views/admin.php:26
+#: ../lib/personal-image/views/admin.php:36
 msgid " characters remaining"
 msgstr ""
 
-#: ../lib/seo/plugin.php:40 ../lib/seo/plugin.php:49
+#: ../lib/seo/plugin.php:46 ../lib/seo/plugin.php:55
 msgid "Standard SEO"
 msgstr ""
 
-#: ../lib/seo/plugin.php:67
+#: ../lib/seo/plugin.php:75
 msgid "Search Results Preview "
 msgstr ""
 
-#: ../lib/seo/plugin.php:70
+#: ../lib/seo/plugin.php:78
 msgid " - "
 msgstr ""
 
-#: ../lib/seo/plugin.php:116
+#: ../lib/seo/plugin.php:124
 msgid "Meta Description "
 msgstr ""
 
-#: ../lib/seo/plugin.php:116
+#: ../lib/seo/plugin.php:124
 msgid "140"
 msgstr ""
 
-#: ../lib/seo/plugin.php:116
+#: ../lib/seo/plugin.php:124
 msgid " characters remaining)"
 msgstr ""
 
-#: ../lib/seo/plugin.php:123
+#: ../lib/seo/plugin.php:131
 msgid ""
 "Writing a meta description for every post is strongly recommended for SEO. "
 "If not provided, no description will be published."
 msgstr ""
 
-#: ../lib/seotitles/standard_seotitles.php:45
+#: ../lib/seotitles/standard_seotitles.php:51
 msgid "Search Results For"
 msgstr ""
 
-#: ../lib/seotitles/standard_seotitles.php:45
+#: ../lib/seotitles/standard_seotitles.php:51
 msgid "Results"
 msgstr ""
 
-#: ../lib/seotitles/standard_seotitles.php:48
+#: ../lib/seotitles/standard_seotitles.php:54
 msgid "404 Nothing Found"
 msgstr ""
 
-#: ../lib/seotitles/standard_seotitles.php:50
+#: ../lib/seotitles/standard_seotitles.php:56
 msgid "Author Archives"
 msgstr ""
 
-#: ../lib/seotitles/standard_seotitles.php:64
 #: ../lib/seotitles/standard_seotitles.php:70
-#: ../lib/seotitles/standard_seotitles.php:73
+#: ../lib/seotitles/standard_seotitles.php:76
+#: ../lib/seotitles/standard_seotitles.php:79
 msgid "Archive"
 msgstr ""
 
-#: ../lib/seotitles/standard_seotitles.php:75
+#: ../lib/seotitles/standard_seotitles.php:81
 msgid "Tag Archive"
 msgstr ""
 
-#: ../lib/standard-ad-125x125/plugin.php:17
+#: ../lib/standard-ad-125x125/plugin.php:23
 msgid "standard-ad-125x125"
 msgstr ""
 
-#: ../lib/standard-ad-125x125/plugin.php:18
+#: ../lib/standard-ad-125x125/plugin.php:24
 msgid "Display a 125x125 advertisement."
 msgstr ""
 
-#: ../lib/standard-ad-125x125/plugin.php:20
+#: ../lib/standard-ad-125x125/plugin.php:26
 msgid "125x125 Ad"
 msgstr ""
 
-#: ../lib/standard-ad-300x250/plugin.php:17
+#: ../lib/standard-ad-300x250/plugin.php:23
 msgid "standard-ad-300x250"
 msgstr ""
 
-#: ../lib/standard-ad-300x250/plugin.php:18
+#: ../lib/standard-ad-300x250/plugin.php:24
 msgid "Display a 300x250 advertisement."
 msgstr ""
 
-#: ../lib/standard-ad-300x250/plugin.php:20
+#: ../lib/standard-ad-300x250/plugin.php:26
 msgid "300x250 Ad"
 msgstr ""
 
-#: ../lib/standard-ad-300x250/views/admin.php:13
-#: ../lib/standard-ad-billboard/views/admin.php:13
+#: ../lib/standard-ad-300x250/views/admin.php:23
+#: ../lib/standard-ad-billboard/views/admin.php:23
 msgid "Delete Advertisement"
 msgstr ""
 
-#: ../lib/standard-ad-billboard/plugin.php:17
+#: ../lib/standard-ad-billboard/plugin.php:23
 msgid "standard-ad-billboard"
 msgstr ""
 
-#: ../lib/standard-ad-billboard/plugin.php:18
+#: ../lib/standard-ad-billboard/plugin.php:24
 msgid "Display a 468x60 advertisement."
 msgstr ""
 
-#: ../lib/standard-ad-billboard/plugin.php:20
+#: ../lib/standard-ad-billboard/plugin.php:26
 msgid "468x60 Ad"
 msgstr ""
