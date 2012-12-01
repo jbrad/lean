@@ -3699,41 +3699,43 @@ function standard_google_custom_search_is_active() {
 
 } // end standard_google_custom_search_is_active
 
-/**
- * Builds and renders the custom comment form template.
- *
- * @since	3.0
- * @version	3.0
- */
-function standard_comment_form() {
-
-	// Gotta read the layout options so we apply the proper ID to our element wrapper
-	$layout_options = get_option( 'standard_theme_presentation_options' );
-	$layout = 'full_width_layout' == $layout_options['layout'] ? '-full' : '';
+if( ! function_exists( 'standard_comment_form' ) ) { 
+	/**
+	 * Builds and renders the custom comment form template.
+	 *
+	 * @since	3.0
+	 * @version	3.0
+	 */
+	function standard_comment_form() {
 	
-	// Grab the current commenter and the required options. This is so we can mark fields as required.
-	$commenter = wp_get_current_commenter();
-	$req = get_option( 'require_name_email' );
-	$aria_req = ( $req ? " aria-required='true'" : '' );
+		// Gotta read the layout options so we apply the proper ID to our element wrapper
+		$layout_options = get_option( 'standard_theme_presentation_options' );
+		$layout = 'full_width_layout' == $layout_options['layout'] ? '-full' : '';
+		
+		// Grab the current commenter and the required options. This is so we can mark fields as required.
+		$commenter = wp_get_current_commenter();
+		$req = get_option( 'require_name_email' );
+		$aria_req = ( $req ? " aria-required='true'" : '' );
+		
+		// The field elements with wrappers so we can access them via CSS and JavaScript
+		$fields =  array(
+			'author' 	=> '<div id="comment-form-elements' . $layout . '"><p class="comment-form-author">' . '<label for="author">' . __( 'Name', 'standard' ) . '</label> ' . ( $req ? '<span class="required">*</span>' : '' ) . '<input id="author" name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) . '" size="30"' . $aria_req . ' /></p>',
+			'email'  	=> '<p class="comment-form-email"><label for="email">' . __( 'Email', 'standard' ) . '</label> ' . ( $req ? '<span class="required">*</span>' : '' ) . '<input id="email" name="email" type="text" value="' . esc_attr(  $commenter['comment_author_email'] ) . '" size="30"' . $aria_req . ' /></p>',
+			'url'		=> '<p class="comment-form-url"><label for="url">' . __( 'Website', 'standard' ) . '</label>' . '<input id="url" name="url" type="text" value="' . esc_attr( $commenter['comment_author_url'] ) . '" size="30" /></p></div><!-- /#comment-form-elements --></div><!-- /#comment-form-wrapper -->',
+		);
+		
+		// Now actually render the form
+		comment_form(
+			array( 
+				'comment_notes_before'	=>	'<div id="comment-form-wrapper"><div id="comment-form-avatar">' . get_avatar( '', $size = '30' )  . '</div>',
+				'fields'				=>	apply_filters( 'comment_form_default_fields', $fields ),
+				'comment_notes_after' 	=>	'<p class="form-allowed-tags">' . sprintf( __( 'Text formatting is available via select <a href="javascript:;">HTML</a>. %s', 'standard' ), ' <code>' . allowed_tags() . '</code>' ) . '</p>',
+				'logged_in_as'			=>	'<div id="comment-form-wrapper"><p id="comment-form-avatar">' . get_avatar( get_the_author_meta( 'user_email', wp_get_current_user()->ID ), $size = '50' )  . '</p><p id="logged-in-container">' . sprintf( __( 'Logged in as <a href="%1$s">%2$s</a>. <a href="%3$s" title="Log out of this account">Log out?</a>' ), admin_url( 'profile.php' ), get_the_author_meta( 'user_nicename', wp_get_current_user()->ID ), wp_logout_url( apply_filters( 'the_permalink', get_permalink( ) ) ) ) . '</p></div><!-- /#comment-form-wrapper -->'
+			)
+		);
 	
-	// The field elements with wrappers so we can access them via CSS and JavaScript
-	$fields =  array(
-		'author' 	=> '<div id="comment-form-elements' . $layout . '"><p class="comment-form-author">' . '<label for="author">' . __( 'Name', 'standard' ) . '</label> ' . ( $req ? '<span class="required">*</span>' : '' ) . '<input id="author" name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) . '" size="30"' . $aria_req . ' /></p>',
-		'email'  	=> '<p class="comment-form-email"><label for="email">' . __( 'Email', 'standard' ) . '</label> ' . ( $req ? '<span class="required">*</span>' : '' ) . '<input id="email" name="email" type="text" value="' . esc_attr(  $commenter['comment_author_email'] ) . '" size="30"' . $aria_req . ' /></p>',
-		'url'		=> '<p class="comment-form-url"><label for="url">' . __( 'Website', 'standard' ) . '</label>' . '<input id="url" name="url" type="text" value="' . esc_attr( $commenter['comment_author_url'] ) . '" size="30" /></p></div><!-- /#comment-form-elements --></div><!-- /#comment-form-wrapper -->',
-	);
-	
-	// Now actually render the form
-	comment_form(
-		array( 
-			'comment_notes_before'	=>	'<div id="comment-form-wrapper"><div id="comment-form-avatar">' . get_avatar( '', $size = '30' )  . '</div>',
-			'fields'				=>	apply_filters( 'comment_form_default_fields', $fields ),
-			'comment_notes_after' 	=>	'<p class="form-allowed-tags">' . sprintf( __( 'Text formatting is available via select <a href="javascript:;">HTML</a>. %s', 'standard' ), ' <code>' . allowed_tags() . '</code>' ) . '</p>',
-			'logged_in_as'			=>	'<div id="comment-form-wrapper"><p id="comment-form-avatar">' . get_avatar( get_the_author_meta( 'user_email', wp_get_current_user()->ID ), $size = '50' )  . '</p><p id="logged-in-container">' . sprintf( __( 'Logged in as <a href="%1$s">%2$s</a>. <a href="%3$s" title="Log out of this account">Log out?</a>' ), admin_url( 'profile.php' ), get_the_author_meta( 'user_nicename', wp_get_current_user()->ID ), wp_logout_url( apply_filters( 'the_permalink', get_permalink( ) ) ) ) . '</p></div><!-- /#comment-form-wrapper -->'
-		)
-	);
-
-} // end standard_comment_form
+	} // end standard_comment_form
+} // end if
 
 /**
  * Truncates string at the last breakable space within the string at the
