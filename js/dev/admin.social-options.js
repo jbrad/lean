@@ -1,68 +1,117 @@
-(function($) {
-	$(function() {
-		
-		// Hide the table of options.
-		$('.social-icons-wrapper').siblings('table').hide();
-		
-		prepareIconMediaUploader($);
-
-		// Render the avaialable icons and the active icons
-		displayIcons($, 'available-social-icons', 'available-icons');
-		displayIcons($, 'active-social-icons', 'active-icons');
-		
-		// Make the lists sortable
-		makeSortable($, '#active-icons', '#available-icons');
-		
-		// Setup how to delete icons
-		makeIconsRemoveable($);
-		
-		// Setup the handler for triggering the social icon url
-		$('#set-social-icon-url').click(function(evt) {
-			saveIconUrl($, evt);
-		});
-		
-		// Save the input field if the user presses enter
-		$(document).keypress(function(evt) {
-
-			if(evt.keyCode === 13) {
-				evt.preventDefault();
-				saveIconUrl($, evt);
-			} // end if
-			
-		});
-		
-		// Cancel entering a URL
-		$('#cancel-social-icon-url').click(function(evt) {
-			
-			evt.preventDefault();
-			cancelSettingIconURL($);
-			
-		});
-		
-		checkForMaxIcons();
-		
-		// Offer the ability to reset the icons
-		$('#reset-social-icons').click(function(evt) {
-		
-			evt.preventDefault();
-			
-			var $this = $(this);
-			$.post(ajaxurl, {
+/**
+ * Checks to see if the recommended number of icons are active. If so, displays a warning message.
+ */
+function checkForMaxIcons() {
+	"use strict";
 	
-				action: 'standard_reset_social_icons',
-				nonce: $.trim($('#standard-reset-social-icons').text())
-				
-			}, function() {
+	// If the user has seven icons, we need to disable sorting.
+	if(jQuery('#active-icon-list').children().length >= 7) {		
+		jQuery('#social-icon-max').removeClass('hidden');	
+	} else {
+		jQuery('#social-icon-max').addClass('hidden');
+	} // end if
+	
+} // end checkForMaxIcons 
+
+/**
+ * Updates the input field of active icons.
+ *
+ * @params	$	A reference to the jQuery function
+ */
+function updateActiveIcons($) {
+	"use strict";
+	
+	var sActiveIcons = '';
+	$('#active-icons ul').children('li')
+		.each(function() {
+			if($(this).children().length > 0) {
 			
-				$this.siblings('form').submit();	
-				location.reload(true);
+				// Set the image's src and url
+				if($(this).children('img').attr('src').length > 0) {
+				
+					sActiveIcons += $(this).children('img').attr('src');
+					
+					if($(this).attr('data-url') !== undefined && $(this).attr('data-url') !== null) {
+						sActiveIcons += '|' + $(this).attr('data-url');
+					} // end if
+					
+					sActiveIcons += ';';
+					
+				} // end if
+				
+			} // end if
+		});
+		
+	$('#active-social-icons').val(sActiveIcons);
+
+} // end updateActiveIcons
+
+/**
+ * Updates the list of active icons and available icons. Fired when sorting has been completed.
+ */
+function updateIconValues(evt) {
+	"use strict";
+	
+	// Only cancel the icon setting URL if this function was triggered by an element
+	if(evt !== undefined && !jQuery('#active-icon-url').hasClass('hidden')) {
+		cancelSettingIconURL(jQuery);
+	} // end if
+
+	// Update the inputs to track the active icon arrangement.	
+	updateActiveIcons(jQuery);
+	
+	// Update the inputs to track the available icon arrangement.
+	updateAvailableIcons(jQuery);
+
+	// Clear the drag and drop border
+	jQuery(this).css('border', '0');
+	
+	jQuery.post(ajaxurl, {
+	
+		action: 'standard_save_social_icons',
+		nonce: jQuery('#standard-save-social-icons-nonce').text(),
+		availableSocialIcons: jQuery('#available-social-icons').val(),
+		activeSocialIcons: jQuery('#active-social-icons').val(),
+		updateSocialIcons: 'true'
+		
+	}, function(response) {
+	
+		if( parseInt(response, 10) === 0 ) {
+
+			jQuery('#active-icon-list > li').each(function() {
+				
+				var bIsNowActive = evt === undefined ? false : jQuery(evt.srcElement).parents('ul').attr('id') === 'active-icon-list';
+				setupIconClickHander(jQuery, jQuery(this), bIsNowActive);
 				
 			});
+			
+		} // end if
 		
-		});
-
 	});
-})(jQuery);
+	
+	checkForMaxIcons();
+
+} // end updateIconValues
+
+/**
+ * Resets the social media icon URL form, hides it, and unselects the active icon.
+ * 
+ * @params	$		The jQuery function
+ */
+function cancelSettingIconURL($) {
+	"use strict";
+	
+	// Empty the URL field and hide the container
+	$('#social-icon-url').siblings('input[type=text]:first').val('');
+	$('#active-icon-url').addClass('hidden');
+	
+	// Remove the active status from the selected social icon
+	$('.active-icon').removeClass('active-icon');
+	
+	updateIconValues();
+	
+} // end cancelSettingIconValues
+
 
 /**
  * Helper function that's fired when the user clicks 'Done' or hits 'Enter'
@@ -72,7 +121,8 @@
  * @params	evt	The source event of this handler
  */
 function saveIconUrl($, evt) {
-		
+	"use strict";
+	
 	evt.preventDefault();
 
 	if( $.trim($('#social-icon-url').val()).length > 0 ) {
@@ -117,7 +167,8 @@ function saveIconUrl($, evt) {
  * @params	$	A reference to the jQuery function
  */
 function prepareIconMediaUploader($) {
-
+	"use strict";
+	
 	// Setup the media uploader for this button
 	$('#upload-social-icon').click(function(evt) {
 		
@@ -151,34 +202,37 @@ function prepareIconMediaUploader($) {
  * @params		sWrapperId		A reference to the container that will contain the list of icons.
  */
 function displayIcons($, sInputId, sWrapperId) {
-
+	"use strict";
+	
+	var aIconSrc, aIconUrl, sUrl, sSrc, $listItem, $socialIcon;
+	
 	if($('#' + sInputId).length > 0) {
 
 		// Clear out the existing list
 		$('#' + sWrapperId + ' > ul').children('li').remove();
 	
 		// Rebuild the list based on the available icons
-		var aIconSrc = $('#' + sInputId).val().split(';');
+		aIconSrc = $('#' + sInputId).val().split(';');
 		$(aIconSrc).each(function() {
 		
 			if( this.length > 0) {
 	
 				// Look to see if there are URL's
-				var aIconUrl = this.split('|');
-				var sUrl = null;
-				var sSrc = null;
+				aIconUrl = this.split('|');
+				sUrl = null;
+				sSrc = null;
 				if(aIconUrl.length === 1) {
 					sSrc = aIconUrl[0];
 				} else {
-					sSrc = aIconUrl[0]
+					sSrc = aIconUrl[0];
 					sUrl = aIconUrl[1];
 				} // end if
 	
 				// Create the image
-				var $socialIcon = $('<img />').attr('src', sSrc);
+				$socialIcon = $('<img />').attr('src', sSrc);
 				
 				// Create a list item from the image
-				var $listItem = $('<li />').attr('data-url', sUrl).append($socialIcon)
+				$listItem = $('<li />').attr('data-url', sUrl).append($socialIcon);
 				
 				// If we're active icons, let's setup click handlers
 				if(sWrapperId === 'active-icons') {
@@ -199,6 +253,16 @@ function displayIcons($, sInputId, sWrapperId) {
 } // end displayIcons
 
 /**
+ * Adds a border around an element that is about to receive an icon.
+ */
+function overHandler() {
+	"use strict";
+
+	jQuery(this).css('border', '1px dashed #ccc');
+
+} // end overHandler
+
+/**
  * Enables sorting for the social icon containers.
  *
  * @params		$				A reference to the jQuery function
@@ -206,7 +270,8 @@ function displayIcons($, sInputId, sWrapperId) {
  * @params		sWrapperId		A reference to the container of the available icons
  */
 function makeSortable($, sActiveId, sAvailableId) {
-
+	"use strict";
+	
 	$(sActiveId).children('ul').sortable({
 		connectWith: sAvailableId + ' > ul',
 		update: updateIconValues,
@@ -222,80 +287,14 @@ function makeSortable($, sActiveId, sAvailableId) {
 } // end makeSortable
 
 /**
- * Adds a border around an element that is about to receive an icon.
- */
-function overHandler() {
-	jQuery(this).css('border', '1px dashed #ccc');
-} // end overHandler
-
-/**
- * Updates the list of active icons and available icons. Fired when sorting has been completed.
- */
-function updateIconValues(evt) {
-
-	// Only cancel the icon setting URL if this function was triggered by an element
-	if(evt !== undefined && !jQuery('#active-icon-url').hasClass('hidden')) {
-		cancelSettingIconURL(jQuery);
-	} // end if
-
-	// Update the inputs to track the active icon arrangement.	
-	updateActiveIcons(jQuery);
-	
-	// Update the inputs to track the available icon arrangement.
-	updateAvailableIcons(jQuery);
-
-	// Clear the drag and drop border
-	jQuery(this).css('border', '0');
-	
-	jQuery.post(ajaxurl, {
-	
-		action: 'standard_save_social_icons',
-		nonce: jQuery('#standard-save-social-icons-nonce').text(),
-		availableSocialIcons: jQuery('#available-social-icons').val(),
-		activeSocialIcons: jQuery('#active-social-icons').val(),
-		updateSocialIcons: 'true'
-		
-	}, function(response) {
-	
-		if( parseInt(response) === 0 ) {
-
-			jQuery('#active-icon-list > li').each(function() {
-				
-				var bIsNowActive = evt === undefined ? false : jQuery(evt.srcElement).parents('ul').attr('id') === 'active-icon-list';
-				setupIconClickHander(jQuery, jQuery(this), bIsNowActive);
-				
-			});
-			
-		} // end if
-		
-	});
-	
-	checkForMaxIcons();
-
-} // end updateIconValues
-
-/**
- * Checks to see if the recommended number of icons are active. If so, displays a warning message.
- */
-function checkForMaxIcons() {
-
-	// If the user has seven icons, we need to disable sorting.
-	if(jQuery('#active-icon-list').children().length >= 7) {		
-		jQuery('#social-icon-max').removeClass('hidden');	
-	} else {
-		jQuery('#social-icon-max').addClass('hidden');
-	} // end if
-	
-} // end checkForMaxIcons 
-
-/**
  * Attachs a click handler to the incoming element.
  * 
  * @params	$		The jQuery function
  * @params	$this	The element on which to attach the handler
  */
 function setupIconClickHander($, $this, bIsNowActive) {
-
+	"use strict";
+	
 	$this.click(function(evt) {
 		
 		var sRssUrl = '';
@@ -354,50 +353,18 @@ function setupIconClickHander($, $this, bIsNowActive) {
 } // end setupIconClickHander
 
 /**
- * Updates the input field of active icons.
- *
- * @params	$	A reference to the jQuery function
- */
-function updateActiveIcons($) {
-
-	var sActiveIcons = '';
-	$('#active-icons ul').children('li')
-		.each(function() {
-			if($(this).children().length > 0) {
-			
-				// Set the image's src and url
-				if($(this).children('img').attr('src').length > 0) {
-				
-					sActiveIcons += $(this).children('img').attr('src');
-					
-					if($(this).attr('data-url') !== undefined && $(this).attr('data-url') !== null) {
-						sActiveIcons += '|' + $(this).attr('data-url');
-					} // end if
-					
-					sActiveIcons += ';';
-					
-				} // end if
-				
-			} else {
-
-			} // end if
-		});
-	$('#active-social-icons').val(sActiveIcons);
-
-} // end updateActiveIcons
-
-/**
  * Updates the input field of available icons.
  *
  * @params	$	A reference to the jQuery function
  */
 function updateAvailableIcons($) {
-
+	"use strict";
+	
 	var sAvailableIcons = '';
 	$('#available-icons ul').children('li').each(function() {
 		if($(this).children('img').length > 0 && $(this).children('img').attr('src').length > 0) {
 			sAvailableIcons += $(this).children('img').attr('src') + ';';
-		} // end if 	
+		} // end if
 	});
 	$('#available-social-icons').val(sAvailableIcons);
 
@@ -409,7 +376,8 @@ function updateAvailableIcons($) {
  * @params	$	A reference to the jQuery function
  */
 function makeIconsRemoveable($) {
-
+	"use strict";
+	
 	// Drag and drop delete ala widgets
 	$('#delete-icons').droppable({
 		
@@ -418,7 +386,7 @@ function makeIconsRemoveable($) {
 		drop: function(evt, ui) {
 		
 			// Set the srcElement based on which browser (ui.draggable is for Firefox)
-			evt.srcElement = evt.srcElement ? evt.srcElement : ui.draggable.children(':first');
+			evt.srcElement = evt.srcElement || ui.draggable.children(':first');
 
 			// Don't let users delete the core set of icons
 			if(isStandardIcon($(evt.srcElement))) { 
@@ -426,7 +394,7 @@ function makeIconsRemoveable($) {
 				$.post(ajaxurl, {
 				
 					action: 'standard_delete_social_icons',
-					nonce: $.trim($('#standard-delete-social-icon-nonce').text()),
+					nonce: $.trim($('#standard-delete-social-icon-nonce').text())
 					
 				}, function(response) {
 					
@@ -496,37 +464,22 @@ function makeIconsRemoveable($) {
 } // end makeIconsRemoveable
 
 /**
- * Resets the social media icon URL form, hides it, and unselects the active icon.
- * 
- * @params	$		The jQuery function
- */
-function cancelSettingIconURL($) {
-	
-	// Empty the URL field and hide the container
-	$('#social-icon-url').siblings('input[type=text]:first').val('');
-	$('#active-icon-url').addClass('hidden');
-	
-	// Remove the active status from the selected social icon
-	$('.active-icon').removeClass('active-icon');
-	
-	updateIconValues();
-	
-} // end cancelSettingIconValues
-
-/**
  * Hides fields that are irrelevant for the media uploader.
  *
  * @params	$		A reference to the jQuery function
  * @params	poller	The polling mechanism used to look for the form fields when a user uploads an image	
  */
 function socialOptionsHideUnusedFields($, poller) {
-
+	"use strict";
+	
+	var bHasHiddenFormFields, $formFields, $submit;
+	
 	// Hide the 'From URL' tabs
 	$( '#tab-type_url', $('#TB_iframeContent')[0].contentWindow.document ).hide();
 
 	// Hide unnecessary fields
-	var bHasHiddenFormFields = false;
-	var $formFields = $('.describe tbody tr, .savebutton', $('#TB_iframeContent')[0].contentWindow.document);
+	bHasHiddenFormFields = false;
+	$formFields = $('.describe tbody tr, .savebutton', $('#TB_iframeContent')[0].contentWindow.document);
 	$formFields.each(function() {
 	
 		// Remove everything except the URL field
@@ -537,7 +490,7 @@ function socialOptionsHideUnusedFields($, poller) {
 	});
 	
 	// Change the text of the submit button		
-	var $submit = $('.savesend input[type="submit"]', $('#TB_iframeContent')[0].contentWindow.document);
+	$submit = $('.savesend input[type="submit"]', $('#TB_iframeContent')[0].contentWindow.document);
 	if($submit.length > 0 && $submit !== null) {
 	
 		/* Translators: This will need to be localized. */
@@ -561,7 +514,10 @@ function socialOptionsHideUnusedFields($, poller) {
  * @returns		True if the image belongs in the core set of Standard icons.
  */
 function isStandardIcon($img) {
+	"use strict";
+	
 	return $img.attr('src').toString().indexOf('/images/social/small/') > 0;	
+	
 } // end isStandardIcon
 
 /**
@@ -571,12 +527,13 @@ function isStandardIcon($img) {
  * @params	sHtml	The HTML of the image tag from which we're setting the favicon
  */
 function socialIconsShowMediaUploader() {
-
- 	tb_show('', 'media-upload.php?type=image&TB_iframe=true');
+	"use strict";
+	
+	tb_show('', 'media-upload.php?type=image&TB_iframe=true');
 	
 	// Save the previous handler since we're spinning up another instance
- 	window.restore_editor = window.send_to_editor;
- 	
+	window.restore_editor = window.send_to_editor;
+
 	window.send_to_editor = function(sHtml) {
 	
 		var $img = jQuery(sHtml).children('img').length === 1 ? jQuery(sHtml).children('img') : jQuery(sHtml);
@@ -593,7 +550,73 @@ function socialIconsShowMediaUploader() {
 		// Restore the previous editor handler
 		window.send_to_editor = window.restore_editor;		
 
-	} // end window.send_to_editor
-
+	}; // end window.send_to_editor
 	
 } // end ad_personal_image_show_media_uploader
+
+(function($) {
+	"use strict";
+	$(function() {
+		
+		// Hide the table of options.
+		$('.social-icons-wrapper').siblings('table').hide();
+		
+		prepareIconMediaUploader($);
+
+		// Render the avaialable icons and the active icons
+		displayIcons($, 'available-social-icons', 'available-icons');
+		displayIcons($, 'active-social-icons', 'active-icons');
+		
+		// Make the lists sortable
+		makeSortable($, '#active-icons', '#available-icons');
+		
+		// Setup how to delete icons
+		makeIconsRemoveable($);
+		
+		// Setup the handler for triggering the social icon url
+		$('#set-social-icon-url').click(function(evt) {
+			saveIconUrl($, evt);
+		});
+		
+		// Save the input field if the user presses enter
+		$(document).keypress(function(evt) {
+
+			if(evt.keyCode === 13) {
+				evt.preventDefault();
+				saveIconUrl($, evt);
+			} // end if
+			
+		});
+		
+		// Cancel entering a URL
+		$('#cancel-social-icon-url').click(function(evt) {
+			
+			evt.preventDefault();
+			cancelSettingIconURL($);
+			
+		});
+		
+		checkForMaxIcons();
+		
+		// Offer the ability to reset the icons
+		$('#reset-social-icons').click(function(evt) {
+		
+			evt.preventDefault();
+			
+			var $this = $(this);
+			$.post(ajaxurl, {
+	
+				action: 'standard_reset_social_icons',
+				nonce: $.trim($('#standard-reset-social-icons').text())
+				
+			}, function() {
+			
+				$this.siblings('form').submit();	
+				location.reload(true);
+				
+			});
+		
+		});
+
+	});
+}(jQuery));
