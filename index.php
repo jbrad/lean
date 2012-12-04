@@ -21,7 +21,7 @@
 			<?php } // end if ?>
 	
 			<div id="main" class="<?php echo 'full_width_layout' == $presentation_options['layout'] ? 'span12 fullwidth' : 'span8'; ?> clearfix" role="main">
-			
+
 				<?php get_template_part( 'breadcrumbs' ); ?>
 				
 				<?php if ( is_archive() ) { ?>                 
@@ -58,7 +58,11 @@
 						<?php get_template_part( 'loop', get_post_format() ); ?>
 					<?php } // end while ?>
 	
-					<?php get_template_part( 'pagination' ); ?>
+					<?php // If infinite scroll is on, the we won't render pagination ?>
+					<?php print_r( wp_script_is( 'the-neverending-homepage-js' ) == true ); ?>
+					<?php if( false == wp_script_is( 'the-neverending-homepage-css' ) ) { ?>
+						<?php get_template_part( 'pagination' ); ?>
+					<?php } // end if ?>
 					
 				<?php } else { ?>
 			
@@ -73,6 +77,7 @@
 					</article><!-- #post-0 -->
 					
 				<?php } // end if/else ?>
+				
 			</div><!-- /#main -->
 		
 			<?php if ( 'right_sidebar_layout' == $presentation_options['layout'] ) { ?>

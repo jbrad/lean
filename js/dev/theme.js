@@ -82,6 +82,11 @@ function moveSidebarInLeftSidebarLayout($) {
 			window.location = $(this).attr('href');
 		});
 		
+		// Hide pagination controls if infiniteScroll is on
+		if( 'object' === typeof infiniteScroll ) {
+			$('#post-nav').hide();
+		} // end if
+		
 		// Introduce responsive functionality but only if the CSS is loaded
 		if($('link[id*="bootstrap-responsive-css"]').length > 0) {
 		

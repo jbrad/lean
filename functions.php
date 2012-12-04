@@ -2296,6 +2296,19 @@ if( ! function_exists( 'standard_add_theme_features' ) ) {
 		
 		// post thumbnail support
 		add_theme_support( 'post-thumbnails' );
+		
+		// infinite scroll
+		add_theme_support( 
+			'infinite-scroll',
+			array(
+				'container'			=>	'main',
+				'type'				=>	'click',	// Because Standard supports footer widgets
+				'render'			=>	'standard_infinite_scroll',
+				'wrapper'			=>	false,
+				'posts_per_page'	=>	false,
+				'footer'			=>	false
+			)
+		);
 
 		if( standard_using_native_seo() ) {
 			standard_add_plugin( '/lib/seo/plugin.php' );
@@ -2312,6 +2325,22 @@ if( ! function_exists( 'standard_add_theme_features' ) ) {
 	} // end add_theme_features
 	add_action( 'after_setup_theme', 'standard_add_theme_features' );
 } // end if
+
+/**
+ * Provides the default loop used to add Infinite Scrolling capabilities
+ * to Standard.
+ *
+ * @since	3.2
+ * @version	3.2
+ */
+function standard_infinite_scroll() {
+	
+	while( have_posts() ) {
+		the_post();
+		get_template_part( 'loop', get_post_format() );
+	} // end while
+	
+} // end standard_infinite_scroll
 
 if( ! function_exists( 'standard_set_media_embed_size' ) ) { 
     /**
