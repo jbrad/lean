@@ -124,12 +124,7 @@ class Standard_Personal_Image extends WP_Widget {
 	 * @version	1.0
 	 */
 	public function register_admin_styles() {
-	
-		wp_enqueue_style( 'thickbox' );
-		
-		wp_register_style( 'standard-personal-image', get_template_directory_uri() . '/lib/personal-image/css/admin.css' );
-		wp_enqueue_style( 'standard-personal-image' );
-		
+		wp_enqueue_style( 'standard-personal-image', get_template_directory_uri() . '/lib/personal-image/css/admin.css', array( 'thickbox' ), STANDARD_THEME_VERSION );
 	} // end register_admin_styles
 
 	/** 
@@ -143,17 +138,9 @@ class Standard_Personal_Image extends WP_Widget {
 		$screen = get_current_screen();
 
 		if( 'widgets' == $screen->id ) {
-	
-			// media uploader
-			wp_enqueue_script('media-upload');
-			
-			// thickbox for overlay
-			wp_enqueue_script('thickbox');
-	
-			// admin
-			wp_register_script( 'standard-personal-image', get_template_directory_uri() . '/lib/personal-image/js/admin.min.js', array( 'jquery', 'media-upload','thickbox') );
-			wp_enqueue_script( 'standard-personal-image' );
 		
+			wp_enqueue_script( 'standard-personal-image', get_template_directory_uri() . '/lib/personal-image/js/admin.min.js', array( 'jquery', 'media-upload','thickbox' ), false, STANDARD_THEME_VERSION );
+			
 		} // end if
 		
 	} // end register_admin_scripts
@@ -165,10 +152,7 @@ class Standard_Personal_Image extends WP_Widget {
 	 * @version	1.0
 	 */
 	public function register_widget_styles() {
-	
-		wp_register_style( 'standard-personal-image-widget', get_template_directory_uri() . '/lib/personal-image/css/widget.css' );
-		wp_enqueue_style( 'standard-personal-image-widget' );
-	
+		wp_enqueue_style( 'standard-personal-image-widget', get_template_directory_uri() . '/lib/personal-image/css/widget.css', false, STANDARD_THEME_VERSION );
 	} // end register_widget_styles
 
 } // end class

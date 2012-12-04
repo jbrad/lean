@@ -121,10 +121,7 @@ class Standard_Influence extends WP_Widget {
 	 * @version	1.4
 	 */
 	public function register_admin_styles() {
-	
-		wp_register_style( 'standard-influence', get_template_directory_uri() . '/lib/influence/css/admin.css' );
-		wp_enqueue_style( 'standard-influence' );
-		
+		wp_enqueue_style( 'standard-influence', get_template_directory_uri() . '/lib/influence/css/admin.css', false, STANDARD_THEME_VERSION );
 	} // end register_admin_styles
 	
 	/** 
@@ -134,10 +131,7 @@ class Standard_Influence extends WP_Widget {
 	 * @version	1.4
 	 */
 	public function register_widget_styles() {
-	
-		wp_register_style( 'standard-influence', get_template_directory_uri() . '/lib/influence/css/widget.css' );
-		wp_enqueue_style( 'standard-influence' );
-	
+		wp_enqueue_style( 'standard-influence', get_template_directory_uri() . '/lib/influence/css/widget.css', false, STANDARD_THEME_VERSION );
 	} // end register_widget_styles
 
 	/*--------------------------------------------------------*

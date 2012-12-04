@@ -117,12 +117,7 @@ class Standard_Ad_468x60 extends WP_Widget {
 	 * @version	1.0
 	 */
 	public function register_admin_styles() {
-	
-		wp_enqueue_style( 'thickbox' );
-		
-		wp_register_style( 'standard-ad-468x60', get_template_directory_uri() . '/lib/standard-ad-billboard/css/admin.css' );
-		wp_enqueue_style( 'standard-ad-468x60' );
-		
+		wp_enqueue_style( 'standard-ad-468x60', get_template_directory_uri() . '/lib/standard-ad-billboard/css/admin.css', array( 'thickbox' ), false, STANDARD_THEME_VERSION );
 	} // end register_admin_styles
 
 	/** 
@@ -136,17 +131,7 @@ class Standard_Ad_468x60 extends WP_Widget {
 		$screen = get_current_screen();
 
 		if( 'widgets' == $screen->id ) {
-	
-			// media uploader
-			wp_enqueue_script('media-upload');
-			
-			// thickbox for overlay
-			wp_enqueue_script('thickbox');
-	
-			// admin
-			wp_register_script( 'standard-ad-468x60', get_template_directory_uri() . '/lib/standard-ad-billboard/js/admin.min.js', array( 'jquery', 'media-upload','thickbox') );
-			wp_enqueue_script( 'standard-ad-468x60' );
-		
+			wp_enqueue_script( 'standard-ad-468x60', get_template_directory_uri() . '/lib/standard-ad-billboard/js/admin.min.js', array( 'jquery', 'media-upload','thickbox' ), false, STANDARD_THEME_VERSION );
 		} // end if
 		
 	} // end register_admin_scripts
@@ -158,10 +143,7 @@ class Standard_Ad_468x60 extends WP_Widget {
 	 * @version	1.0
 	 */
 	public function register_widget_styles() {
-
-		wp_register_style( 'standard-ad-468x60', get_template_directory_uri() . '/lib/standard-ad-billboard/css/widget.css' );
-		wp_enqueue_style( 'standard-ad-468x60' );
-		
+		wp_enqueue_style( 'standard-ad-468x60', get_template_directory_uri() . '/lib/standard-ad-billboard/css/widget.css', false, STANDARD_THEME_VERSION );
 	} // end register_admin_styles
 
 } // end class

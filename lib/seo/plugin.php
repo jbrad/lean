@@ -191,10 +191,7 @@ class Standard_SEO {
 	 * @version	1.0
 	 */
 	public function admin_styles() {
-	
-		wp_register_style( 'standard-seo-admin', get_template_directory_uri() . '/lib/seo/css/admin.css' );
-		wp_enqueue_style( 'standard-seo-admin' );
-
+		wp_enqueue_style( 'standard-seo-admin', get_template_directory_uri() . '/lib/seo/css/admin.css', false, STANDARD_THEME_VERSION );
 	} // end admin_styles
 	
 	/**
@@ -207,11 +204,8 @@ class Standard_SEO {
 	
 		$screen = get_current_screen();
 		
-		if( 'post' == $screen->id || 'page' == $screen->id ) { 
-		
-			wp_register_script( 'standard-seo-admin', get_template_directory_uri() . '/lib/seo/js/admin.min.js' );
-			wp_enqueue_script( 'standard-seo-admin' );
-			
+		if( 'post' == $screen->id || 'page' == $screen->id ) { 	
+			wp_enqueue_script( 'standard-seo-admin', get_template_directory_uri() . '/lib/seo/js/admin.min.js', false, STANDARD_THEME_VERSION );
 		} // end if 
 
 	} // end admin_scripts

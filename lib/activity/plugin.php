@@ -133,10 +133,7 @@ class Activity_Tabs extends WP_Widget {
 	 * @version	3.0
 	 */
 	public function register_admin_styles() {
-
-		wp_register_style( 'standard-activity-tabs', get_template_directory_uri() . '/lib/activity/css/admin.css' );
-		wp_enqueue_style( 'standard-activity-tabs' );
-		
+		wp_enqueue_style( 'standard-activity-tabs', get_template_directory_uri() . '/lib/activity/css/admin.css', false, STANDARD_THEME_VERSION );
 	} // end register_admin_styles
 	
 	
@@ -147,10 +144,7 @@ class Activity_Tabs extends WP_Widget {
 	 * @version	3.0
 	 */
 	public function register_widget_styles() {
-	
-		wp_register_style( 'standard-activity-tabs', get_template_directory_uri() . '/lib/activity/css/widget.css' );
-		wp_enqueue_style( 'standard-activity-tabs' );
-	
+		wp_enqueue_style( 'standard-activity-tabs', get_template_directory_uri() . '/lib/activity/css/widget.css', false, STANDARD_THEME_VERSION );
 	} // end register_widget_styles
 
 	/*--------------------------------------------------------*
