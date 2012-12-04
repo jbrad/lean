@@ -12,6 +12,39 @@ function moveSidebarInLeftSidebarLayout($) {
 
 } // end moveSidebarInLeftSidebarLayout
 
+/**
+ * Resizes the videos on page load, when the browser is resized,
+ * and when Infinite Scroll is activated.
+ */
+function resizeVideos($) {
+	
+	// FitVid
+	$('.entry-content, .comment-text').fitVids();
+	
+	// Look to see if there are any video wrappers from FitVid
+	if(0 < $('.fluid-width-video-wrapper').length) { 
+
+		// For each video wrapper, we only want to change the styles if the video is posted alone (without text)
+		$('.fluid-width-video-wrapper').each(function() {
+			
+			// First, clear the margin on the video itself
+			$(this).css('margin', 0);
+			
+			// Next, if the video is the only content, we can remove both margin and padding
+			if(0 === $(this).parents('p').siblings().length) {
+			
+				$(this)
+					.parents('p')
+					.css({ margin: 0, padding: 0 });
+					
+			} // end if
+			
+		});
+	
+	} // end if
+	
+} // end resizeVideos
+
 /* ---------------------------------------------------------------- *
  * Post-page load functionality
  * ---------------------------------------------------------------- */
@@ -100,30 +133,8 @@ function moveSidebarInLeftSidebarLayout($) {
 			
 			} // end if
 
-			// FitVid
-			$('.entry-content, .comment-text').fitVids();
-			
-			// Look to see if there are any video wrappers from FitVid
-			if(0 < $('.fluid-width-video-wrapper').length) { 
-
-				// For each video wrapper, we only want to change the styles if the video is posted alone (without text)
-				$('.fluid-width-video-wrapper').each(function() {
-					
-					// First, clear the margin on the video itself
-					$(this).css('margin', 0);
-					
-					// Next, if the video is the only content, we can remove both margin and padding
-					if(0 === $(this).parents('p').siblings().length) {
-					
-						$(this)
-							.parents('p')
-							.css({ margin: 0, padding: 0 });
-							
-					} // end if
-					
-				});
-			
-			} // end if
+			// Resize videos properly
+			resizeVideos($);
 
 			// If there is no content below the link container, then kill the margin
 			if(0 === $('.format-link .entry-content').children('p').length) {

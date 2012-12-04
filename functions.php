@@ -2339,7 +2339,15 @@ function standard_infinite_scroll() {
 		the_post();
 		get_template_part( 'loop', get_post_format() );
 	} // end while
-	
+	?>
+	<script type="text/javascript">
+	(function($) {
+		$(function() {
+			resizeVideos($);
+		});
+	}(jQuery));
+	</script>
+	<?php
 } // end standard_infinite_scroll
 
 if( ! function_exists( 'standard_set_media_embed_size' ) ) { 
