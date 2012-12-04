@@ -3996,5 +3996,3 @@ function standard_is_using_pretty_permalinks() {
 function standard_is_current_version() {
 	return '3.2' == get_option( 'standard_theme_version' ) ? true : false;
 } // end standard_is_current_version
-
-?>

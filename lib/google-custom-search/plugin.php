@@ -237,5 +237,3 @@ class Google_Custom_Search extends WP_Widget {
 
 } // end class
 add_action( 'widgets_init', create_function( '', 'register_widget( "Google_Custom_Search" );' ) ); 
-
-?>

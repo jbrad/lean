@@ -63,5 +63,3 @@
 	
 	// Render the list
 	echo $html;
-	
-?>

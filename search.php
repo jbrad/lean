@@ -62,6 +62,6 @@
 	
 		</div><!-- /row -->
 	</div><!-- /container -->
-</div> <!-- /#wrapper -->
+</div><!-- /#wrapper -->
 
 <?php get_footer(); ?>

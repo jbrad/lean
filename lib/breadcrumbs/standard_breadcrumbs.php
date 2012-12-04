@@ -326,5 +326,3 @@ class Standard_Breadcrumbs {
 	} // end get_author_display_name
 
 } // end class
-
-?>

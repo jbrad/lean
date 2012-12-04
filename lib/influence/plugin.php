@@ -406,4 +406,3 @@ class Standard_Influence extends WP_Widget {
 
 } // end class
 add_action( 'widgets_init', create_function( '', 'register_widget( "Standard_Influence" );' ) ); 
-?>

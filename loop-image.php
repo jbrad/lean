@@ -66,4 +66,4 @@
 
 	</div><!-- /.post-meta -->
 	
-</div> <!-- /#post- -->
+</div><!-- /#post -->

@@ -218,4 +218,3 @@ class Standard_SEO {
   
 } // end class
 new Standard_SEO();
-?>

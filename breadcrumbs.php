@@ -27,4 +27,3 @@ if( function_exists( 'yoast_breadcrumb' ) ) {
 	} // end if
  
 } // end if
-?>

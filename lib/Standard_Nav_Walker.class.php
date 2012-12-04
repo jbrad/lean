@@ -136,5 +136,3 @@ class Standard_Nav_Walker extends Walker_Nav_Menu {
 	} // end end_lvl
 	
 } // end class
-
-?>

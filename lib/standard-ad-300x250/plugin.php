@@ -167,4 +167,3 @@ class Standard_Ad_300x250 extends WP_Widget {
 
 } // end class
 add_action( 'widgets_init', create_function( '', 'register_widget( "Standard_Ad_300x250" );' ) ); 
-?>

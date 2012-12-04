@@ -87,6 +87,4 @@ class Standard_SeoTitles {
 		
 	} // end get_page_title
 
-} // end classs
-
-?>
+} // end class

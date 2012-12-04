@@ -165,5 +165,4 @@ class Standard_Ad_468x60 extends WP_Widget {
 	} // end register_admin_styles
 
 } // end class
-add_action( 'widgets_init', create_function( '', 'register_widget( "Standard_Ad_468x60" );' ) ); 
-?>
+add_action( 'widgets_init', create_function( '', 'register_widget( "Standard_Ad_468x60" );' ) );

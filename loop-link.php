@@ -98,6 +98,5 @@
 			</div><!-- /meta-comment-link -->
 
 	</div><!-- /.post-meta -->
-
-
-</div> <!-- /#post- -->
+	
+</div> <!-- /#post -->
