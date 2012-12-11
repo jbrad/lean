@@ -36,7 +36,8 @@
 	                    			$author_data = standard_is_using_pretty_permalinks() ? 
 	                    				get_userdata( get_query_var( 'author' ) )  : 
 	                    				get_userdata( user_trailingslashit( get_query_var( 'author' ) ) );
-	                    			echo $author_data->display_name; 
+	                    			
+	                    			echo ( null == $author_data ) ? get_query_var( 'author_name' ) : $author_data->display_name;
 	                    		?>
 	                        	
 	                        <?php } elseif ( '' == single_tag_title( '', false ) ) { ?> 

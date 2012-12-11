@@ -316,6 +316,12 @@ class Standard_Breadcrumbs {
 		} else {
 			$author_data = get_userdata( user_trailingslashit( get_query_var( 'author' ) ) );			
 		} // end if
+		
+		// If the $author_data is null, then the user must have a cusotm permalink structure
+		if( null == $author_data ) {
+			$author_data = get_userdata( get_post( get_the_ID() )->post_author );
+			$author_data = $author_data->data;
+		} // end if
 
 		$author_link = '<a href="' . esc_html( get_author_posts_url( $author_data->ID ) ) . '">';
 			$author_link .= $author_data->display_name;
