@@ -1260,7 +1260,7 @@ function privacy_policy_template_display() {
 		$html .= '<span>' . __( 'Warning, customizations will be lost. You can view or edit your policy ', 'standard' ) . '<a id="edit-privacy-policy" href="post.php?post=' . $policy_id . '&action=edit">' . __( 'here', 'standard' ) . '</a>.</span>';
 		$html .= '<span class="hidden" id="privacy_policy_id">' . $policy_id . '</span>';
 	$html .= '</div><!-- /#has-privacy-policy-wrapper -->';
-	
+
 	echo $html;
 
 } // end privacy_policy_template_display
@@ -2070,7 +2070,7 @@ add_action( 'admin_notices', 'standard_detect_wordpress_seo' );
 function standard_register_wordpress_seo_message_script() {
 	wp_enqueue_script( 'seo-notification', get_template_directory_uri() . '/js/admin.seo-notification.min.js' );
 } // end standard_register_wordpress_seo_message_script
-add_action( 'admin_head', 'standard_register_wordpress_seo_message_script' );
+//add_action( 'admin_head', 'standard_register_wordpress_seo_message_script' );
 
 /**
  * Callback function used in the Ajax request for hiding the notification window of WordPress SEO.
@@ -2769,7 +2769,7 @@ add_action( 'wp_enqueue_scripts', 'standard_add_theme_stylesheets', 999 );
 function standard_add_theme_scripts() {
 
 	// bootstrap
-	wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/js/lib/bootstrap/bootstrap.min.js', array( 'jquery' ), STANDARD_THEME_VERSION );
+	wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/js/lib/bootstrap.min.js', array( 'jquery' ), STANDARD_THEME_VERSION );
 	
 	// fitvid		
 	wp_enqueue_script( 'fitvid', get_template_directory_uri() . '/js/lib/jquery.fitvids.js', false, STANDARD_THEME_VERSION );
@@ -2778,20 +2778,11 @@ function standard_add_theme_scripts() {
 	if ( is_singular() && get_option( 'thread_comments' ) ) { 
 	
 		wp_enqueue_script( 'comment-reply' );
-		
 		wp_enqueue_script( 'md5', get_template_directory_uri() . '/js/lib/md5.js', false, STANDARD_THEME_VERSION );
 		
-		wp_enqueue_script( 'theme-comments', get_template_directory_uri() . '/js/theme.comments.min.js', false, STANDARD_THEME_VERSION );
-		
 	} // end if
 	
-	// theme		
 	wp_enqueue_script( 'theme', get_template_directory_uri() . '/js/theme.min.js', false, STANDARD_THEME_VERSION );
-	
-	// if VideoPress is loaded, we need to add scripts for responsive
-	if( class_exists( 'VideoPress' ) ) {
-		wp_enqueue_script( 'standard-videopress', get_template_directory_uri() . '/js/theme.videopress.min.js', false, STANDARD_THEME_VERSION );
-	} // end if
 
 } // end add_theme_scripts
 add_action( 'wp_enqueue_scripts', 'standard_add_theme_scripts' );
@@ -2887,7 +2878,31 @@ function standard_add_admin_scripts() {
 	wp_enqueue_script( 'standard-admin-menu', get_template_directory_uri() . '/js/admin.menu.min.js', false, STANDARD_THEME_VERSION );
 
 } // end add_admin_scripts
-add_action( 'admin_enqueue_scripts', 'standard_add_admin_scripts' );
+// TODO: Remove this before release. add_action( 'admin_enqueue_scripts', 'standard_add_admin_scripts' );
+
+/**
+ * Adds JavaScript specifically for the administrative dashboard.
+ *
+ * @since	3.0
+ * @version	3.2
+ */
+function standard_add_admin_script() {
+
+		$dependencies = array( 
+			'jquery-ui-core',
+			'jquery-ui-widget',
+			'jquery-ui-mouse',
+			'jquery-ui-draggable',
+			'jquery-ui-droppable',
+			'jquery-ui-sortable',
+			'media-upload',
+			'thickbox' 
+		);
+		
+		wp_enqueue_script( 'admin-scripts', get_template_directory_uri() . '/js/admin.min.js', $dependencies );
+		
+} // end standard_add_admin_script
+add_action( 'admin_enqueue_scripts', 'standard_add_admin_script' );
 
 /* ----------------------------------------------------------- *
  * 7. Custom Filters
