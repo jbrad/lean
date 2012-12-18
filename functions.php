@@ -2142,11 +2142,6 @@ if( ! function_exists( 'standard_add_theme_editor_style' ) ) {
 		
 		add_editor_style( 'css/editor-style.css' );
 		
-		$options = get_option( 'standard_theme_presentation_options' );
-		if( 'full_width_layout' == $options['layout'] ) {
-			add_editor_style( 'css/editor-style-full.css' );
-		} // end if
-	
 	} // end standard_add_theme_editor_style
 	add_action( 'init', 'standard_add_theme_editor_style' );
 } // end if
