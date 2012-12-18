@@ -2733,11 +2733,6 @@ function standard_add_theme_stylesheets() {
 
 	// bootstrap-responsive
 	wp_enqueue_style( 'bootstrap-responsive', get_template_directory_uri() . '/css/lib/bootstrap-responsive.css', false, STANDARD_THEME_VERSION );
-
-	// if VideoPress is loaded, we need to add styles for responsive
-	if( class_exists( 'VideoPress' ) ) {
-		wp_enqueue_style( 'standard-videopress', get_template_directory_uri() . '/css/theme.videopress.css', false, STANDARD_THEME_VERSION );
-	} // end if
 	
 	// theme
 	wp_enqueue_style( 'standard', get_stylesheet_directory_uri() . '/style.css', false, STANDARD_THEME_VERSION );
