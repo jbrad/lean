@@ -2794,14 +2794,7 @@ function standard_add_admin_stylesheets() {
 
 	wp_enqueue_style( 'standard-admin', get_template_directory_uri() . '/css/admin.css', false, STANDARD_THEME_VERSION );
 
-	if( 'appearance_page_custom-header' == $screen->id ) {
-		wp_enqueue_style( 'standard-admin-header', get_template_directory_uri() . '/css/admin.header.css', false, STANDARD_THEME_VERSION );
-	} // end if
 	
-	// thickbox styles for the fav icon upload
-	if( 'toplevel_page_theme_options' == $screen->id || 'appearance_page_theme_options' == $screen->id ) {
-		wp_enqueue_style( 'standard-admin-social-options', get_template_directory_uri() . '/css/admin.social-options.css', array( 'thickbox' ), STANDARD_THEME_VERSION );
-	} // end if
 
 } // end add_admin_stylesheets
 add_action( 'admin_print_styles', 'standard_add_admin_stylesheets' );
