@@ -1,3 +1,4 @@
+// import the mixesn file to use the gradient and invert box-shadow
 @import "../../../../css/less/mixens.less";
 
 .tabbed-widget {
@@ -15,16 +16,16 @@
 	    
 		    li {
 				margin: 0;
-				
 				padding: 0;
 				
 		    } // li
 		    
-	    } // ul
+	    } // ul;
 	    
     } // .tab-inner
     
     .nav-tabs {
+    	width: 100%;
 	    
 	    > li {
 	    
@@ -57,7 +58,7 @@
 				color: 			#999;
 				text-align: 	center;
 			    
-				font-size: 		12px; 
+				font-size: 		80%; 
 			    
 			    &:hover {
 					margin: 0;
@@ -93,50 +94,36 @@
     	.tab-count-1 {
 	    	
 	    	> li {
-		    	
-		    	> a {
-				    width: 298px;	
-		    	} // a
-		    	
-	    	} // > li;
+		    	width: 100%;
+	    	} // > li
 	    	
-    	} // .tab-count-1
+    	} // .tab-count-1;
     	
     } // .tab-count-1
     
 	.tab-count-2 {
     	
     	> li {
+	    	width: 50%;
 	    	
-	    	> a {
-			    width: 148px;	
-	    	} // a
-	    	
-    	} // > li;
+    	} // > li
     	
 	} // .tab-count-2
 	
 	.tab-count-3 {
     	
     	> li {
-	    	
-	    	> a {
-			    width: 98px;	
-	    	} // a
-	    	
-    	} // > li;
+	    	width: 33.333333333%;
+    	} // > li
     	
 	} // .tab-count-3
 
 	.tab-count-4 {
     	
     	> li {
+	    	width: 25%;
 	    	
-	    	> a {
-			    width: 73px;	
-	    	} // a
-	    	
-    	} // > li;
+    	} // > li
     	
 	} // .tab-count-4	
 	
@@ -210,7 +197,7 @@
 				
 			} // .tabbed-widget
 			
-		} // ul
+		} // ul;
 		
 	} // .tab-content
 	
@@ -231,47 +218,3 @@
     .box_sizing(); // .latest-post-tn, .popular-post-tn, .latest-comment-tn
     
 } // .tabbed-widget
-
-/* on phones */
-@media (max-width: 480px) {
-	.tabbed-widget .tab-content ul li {
-		min-height: 50px;
-	}
-
-	.tabbed-widget .tab-count-1 > li > a {
-		width: 279px;
-	}
-	
-	.tabbed-widget .tab-count-2 > li > a {
-		width: 138px;
-	}
-	
-	.tabbed-widget .tab-count-3 > li > a {
-		width: 91px; 
-	}
-	
-	.tabbed-widget .tab-count-4 > li > a {
-		width: 68px; 
-	}	
-}
-
-/* Landscape tablets */
-@media (min-width: 768px) and (max-width: 979px) {
-	
-	.tabbed-widget .tab-count-1 > li > a {
-		width: 226px;
-	}
-	
-	.tabbed-widget .tab-count-2 > li > a {
-		width: 112px;
-	}
-
-	.tabbed-widget .tab-count-3 > li > a {
-		width: 74px;
-	}
-
-	.tabbed-widget .tab-count-4 > li > a {
-		width: 55px;
-		font-size: 10px;
-	}
-}
