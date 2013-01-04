@@ -76,7 +76,12 @@ function resizeVideos($) {
 			});
 			
 		} // end if
-		
+
+		// Bootstrap Top-Level menus
+		if(0 < $('.dropdown').children('a').attr('href').length) {
+			window.location = $('.dropdown').children('a').attr('href');
+		} // end if
+
 		// Bootstrap Multi-Level Menus
 		$('.submenu').hover(function() {
 			
@@ -98,7 +103,7 @@ function resizeVideos($) {
 			window.location = $(this).children('a').attr('href');
 			
 		});
-		
+
 		// If the Activity Widget is present, activate the first tab
 		if($('.tabbed-widget').length > 0) { 
 			
