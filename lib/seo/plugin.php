@@ -75,7 +75,7 @@ class Standard_SEO {
 		$html = '<p>' . __( 'Search Results Preview ', 'standard' ) . '</p>';
 		$html .= '<div id="search-engine-preview">';
 
-			$html .= '<p id="search-results-title"><span id="post-title"></span>' . __( ' - ', 'standard' ) . '<span id="blog-title"></span></p>';
+			$html .= '<p id="search-results-title"><span id="post-title"></span>' . ' ' . __( '-', 'standard' ) . ' ' . '<span id="blog-title"></span></p>';
 			$html .= '<p id="search-results-meta"><span id="permalink"></span></p>';
 			
 			// Look to see if the user has the Google Profile URL specified

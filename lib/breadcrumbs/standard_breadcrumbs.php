@@ -52,16 +52,16 @@ class Standard_Breadcrumbs {
 			} elseif( is_archive() ) {
 
 				if( is_author() ) {
-					$str_breadcrumb .= self::get_home_link() . __( 'Archives', 'standard' ) . __( ' / ', 'standard' ) . self::get_author_display_name(); 
+					$str_breadcrumb .= self::get_home_link() . __( 'Archives', 'standard' ) . ' ' . __( '/', 'standard' ) . ' ' . self::get_author_display_name(); 
 				} elseif( '' != get_query_var( 'year' ) || '' != get_query_var( 'monthnum' ) || '' != get_query_var( 'm' ) || '' != get_query_var( 'day' ) ) {
-					$str_breadcrumb .= self::get_home_link() . __( 'Archives', 'standard' ) . __( ' / ', 'standard' ) . self::get_date_labels(); 
+					$str_breadcrumb .= self::get_home_link() . __( 'Archives', 'standard' ) . ' ' . __( '/', 'standard' ) . ' ' . self::get_date_labels(); 
 				} else {
-					$str_breadcrumb .= self::get_home_link() . __( 'Archives', 'standard' ) . __( ' / ', 'standard' ) . self::get_category_links();
+					$str_breadcrumb .= self::get_home_link() . __( 'Archives', 'standard' ) . ' ' . __( '/', 'standard' ) . ' ' . self::get_category_links();
 				} // end if
 				
 			} else if( is_search() ) {
 			
-				$str_breadcrumb .= self::get_home_link() . __( 'Search', 'standard' ) . __( ' / ', 'standard' ) . self::get_search_query();
+				$str_breadcrumb .= self::get_home_link() . __( 'Search', 'standard' ) . ' ' . __( '/', 'standard' ) . ' ' . self::get_search_query();
 				
 			} // end if/else
 			

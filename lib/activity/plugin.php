@@ -363,7 +363,7 @@ class Activity_Tabs extends WP_Widget {
 							// Get the number of comments for this post
 							$comment_count = wp_count_comments( get_the_ID() );
 							$comment_count = $comment_count->approved;
-							$comment_str = $comment_count . __( ' comments since ', 'standard' );
+							$comment_str = $comment_count . ' ' . __( 'comments since', 'standard' ) . ' ';
 							
 							$html .= $comment_str . get_the_time( get_option( 'date_format' ) );
 							
