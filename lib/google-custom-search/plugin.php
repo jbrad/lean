@@ -145,7 +145,7 @@ class Google_Custom_Search extends WP_Widget {
 	 */
 	private function create_search_results_template() {
 
-		if( 0 == count( get_page_by_path( 'search-results' ) ) ) { 
+		if( null == $this->get_page_by_name( 'search-results' ) ) { 
 
 			// Get the current user
 			$current_user = wp_get_current_user();
@@ -208,8 +208,8 @@ class Google_Custom_Search extends WP_Widget {
 	 */
 	public function existing_search_results_template() {
 		
-		$page_id = get_page_by_path( 'search-results' )->ID;
-		
+		$page_id = $this->get_page_by_name( 'search-results' );
+
 		if( 'widgets' == get_current_screen()->id ) {
 		
 			if( 1 != get_post_meta( $page_id, 'standard_google_custom_search', true ) ) {
@@ -225,6 +225,38 @@ class Google_Custom_Search extends WP_Widget {
 		} // end if		
 		
 	} // end existing_search_results_template
+	
+	/**
+	 * Retrieves the response from the specified URL using one of PHP's outbound request facilities.
+	 *
+	 * @param	$url	The URL of the feed to retrieve.
+	 * @return	The response from the URL; null if empty.
+	 * @since	3.0
+	 * @version	1.4
+	 */
+	private function get_page_by_name( $name ) {
+		
+		$page_id = null;
+		
+		$args = array(
+			'post_name'			=>	$name,
+			'post_status'		=>	'publish',
+			'posts_per_page'	=>	1
+		);
+		$query = new WP_Query( $args );
+
+		if( $query->have_posts() ) {
+		
+			$page = $query->the_post();
+			$page_id = get_the_ID();
+			
+			wp_reset_postdata();
+			
+		} // end if
+		
+		return $page_id;
+		
+	} // end get_page_by_name
 
 } // end class
 add_action( 'widgets_init', create_function( '', 'register_widget( "Google_Custom_Search" );' ) ); 
