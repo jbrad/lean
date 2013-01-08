@@ -2360,14 +2360,14 @@ if( ! function_exists( 'standard_set_media_embed_size' ) ) {
 		$options = get_option( 'standard_theme_presentation_options' );
 		if( 'full_width_layout' == $options['layout'] ) {
 		
-			if ( isset( $content_width ) ) {
+			if ( ! isset( $content_width ) ) {
 				$content_width = 900;
 			} // end if 
 		
 		} else {
 		
-			if ( isset( $content_width ) ) {
-				$content_width = 580;
+			if ( ! isset( $content_width ) ) {
+				$content_width = 610;
 			} // end if
 		
 		} // end if/else
