@@ -20,7 +20,7 @@
 		<?php $presentation_options = get_option( 'standard_theme_presentation_options'); ?>
 		<?php if( '' != $presentation_options['fav_icon'] ) { ?>
 			<link rel="shortcut icon" href="<?php echo $presentation_options['fav_icon']; ?>" />
-			<link rel="apple-touch-icon-precomposed" sizes="114x114" href="<?php echo $presentation_options['fav_icon']; ?>" />
+			<link rel="apple-touch-icon-precomposed" sizes="144x144" href="<?php echo $presentation_options['fav_icon']; ?>" />
 		<?php } // end if ?>
 		<?php global $post; ?>
 		<?php if( standard_using_native_seo() && ( ( is_single() || is_page() ) && ( 0 != strlen( trim( ( $google_plus = get_user_meta( $post->post_author, 'google_plus', true ) ) ) ) ) ) ) { ?>
