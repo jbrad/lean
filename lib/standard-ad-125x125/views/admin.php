@@ -12,7 +12,7 @@
 
 	<div class="ads">
 	
-		<div class="row">
+		<div class="row ad-125x125-row">
 			<span class="left 125x125-1">
 				<img src="<?php echo '' == $ad1_src ? '' : $ad1_src; ?>" alt="" width="90" height="90" class="125x125-1-preview" />
 				<input type="hidden" id="<?php echo $this->get_field_id( 'ad1_src' ); ?>" name="<?php echo $this->get_field_name( 'ad1_src' ); ?>" class="125x125-1-src" value="<?php echo '' == $ad1_src ? '' : $ad1_src; ?>" />
