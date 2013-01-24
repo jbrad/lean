@@ -829,7 +829,6 @@ function get_standard_theme_default_global_options() {
 		'site_mode'					=>	'online',
 		'feedburner_url'			=>	'',
 		'google_analytics'			=>	'',
-		'affiliate_code'			=>	'',
 		'offline_display_message'	=>	__( 'Our site is currently offline.', 'standard' )
 	);
 	
@@ -872,14 +871,6 @@ function standard_setup_theme_global_options() {
 		'google_analytics',
 		__( 'Google Analytics', 'standard' ),
 		'google_analytics_display',
-		'standard_theme_global_options',
-		'global'
-	);
-	
-	add_settings_field(
-		'affiliate_code',
-		__( 'Affiliate Code', 'standard' ),
-		'affiliate_code_display',
 		'standard_theme_global_options',
 		'global'
 	);
@@ -981,8 +972,9 @@ function google_analytics_display() {
 /**
  * Renders the option element for the Affiliate Code.
  *
- * @since	3.0
- * @version	3.2
+ * @since		3.0
+ * @version		3.2
+ * @deprecated 	3.2
  */
 function affiliate_code_display() {
 
@@ -1069,9 +1061,12 @@ function standard_theme_global_options_validate( $input ) {
 			$output[$key] = strip_tags( stripslashes( $input[$key] ) );
 		} // end if	
 		
+		/*
+		 * @deprecated 	3.2
 		if( 'affiliate_code' == $key ) {
 			$output[$key] = esc_url ( strip_tags( stripslashes( $input[$key] ) ) );
 		} // end if
+		*/
 	
 	} // end foreach
 

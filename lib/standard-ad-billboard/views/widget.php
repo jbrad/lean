@@ -10,11 +10,7 @@
 ?>
 <?php 
 	$global_options = get_option( 'standard_theme_global_options' );
-	
 	$default_url = 'http://standardtheme.com';
-	if( isset( $global_options['affiliate_code'] ) && '' != $global_options['affiliate_code'] ) {
-		$default_url = $global_options['affiliate_code'];
-	} // end if
 ?>
 
 <?php echo $args['before_widget']; ?>
