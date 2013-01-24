@@ -174,7 +174,7 @@ class Google_Custom_Search extends WP_Widget {
 
 		} else {
 		
-			add_action( 'admin_notices', array( &$this, 'existing_search_results_template' ) );
+			//$this->existing_search_results_template();
 		
 		} // end if
 		
