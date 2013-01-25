@@ -3382,7 +3382,6 @@ function standard_save_post( ) {
 
 } // end standard_save_post
 add_action( 'save_post', 'standard_save_post' );
-
 /**
  * Updates the Standard Sitemap Flag if the post being deleted is the actual sitemap.
  *
@@ -3405,14 +3404,16 @@ add_action( 'before_delete_post', 'standard_delete_post' );
  * Also marks the alternate tag as required. Will populate it with the title
  * if it is left empty.
  *
+ * This function is specifically used in WordPress 3.4.
+ *
  * @param	array $form_fields	The array of form fields in the uploader
  * @param	object $post		The post object
  * @return	array The updated array of form fields
  * @since	3.1
  * @version	3.1
  */
-function standard_attachment_fields_to_edit( $form_fields, $post ) {
-
+function standard_attachment_fields_to_edit_wp34( $form_fields, $post ) {
+	
 	// Mark the alt field as required
 	$form_fields['image_alt']['required'] = true;
 	
@@ -3434,11 +3435,11 @@ function standard_attachment_fields_to_edit( $form_fields, $post ) {
 		$form_fields['post_title']['value'] = $filename;
 		
 	} // end if
-	
+
 	return $form_fields;
 		
 } // end standard_attachment_fields_to_edit
-add_action( 'attachment_fields_to_edit', 'standard_attachment_fields_to_edit', 11, 2 );
+if( '3.5' > get_bloginfo( 'version' ) ) add_action( 'attachment_fields_to_edit', 'standard_attachment_fields_to_edit_wp34', 11, 2 );
 
 /**
  * If the user has set a FeedBurner URL in the Global Options, then we'll
