@@ -50,19 +50,45 @@
 										<?php } // end if/else ?>
 										
 										<h2><?php _e( 'All Posts', 'standard'); ?></h2>
-										<?php $posts = get_posts( 'orderby=post_date&order=desc&numberposts=-1' ); ?>
-										<?php if( count( $posts) > 0 ) { ?>
+										
+										<?php $args = array(
+											'post_type'			=>	array( 'post' ),
+											'orderby'			=>	'date',
+											'order'				=>	'desc',
+											'fields'			=>	'ids',
+											'post_status'		=>	array( 'publish' ),
+											'posts_per_page'	=>	-1
+										);
+										$post_query = new WP_Query( $args );
+										
+										if( $post_query->found_posts ) {
+											$count = $post_query->found_posts; ?>
 											<p>
-												<ul>
-													<?php foreach( $posts as $post ) { ?>
-														<?php $title = '' == get_the_title( $post->ID ) ? get_the_time( get_option( 'date_format' ), $post->ID ) : get_the_title( $post->ID ); ?>
-														<li><span class="the_date"><?php echo get_the_time( get_option( 'date_format' ), $post->ID ); ?></span>&nbsp;&mdash;&nbsp;<span class="the_title"><a href="<?php echo get_permalink( $post->ID ); ?>"><?php echo $title; ?></a></span></li>
-													<?php } // end foreach ?>
-												</ul>
+											<?php
+												while( --$count ) { 
+													$cur_post = get_post( $count ); ?>
+													<ul>
+													<?php if( null != $cur_post ) { ?>
+														<li>
+															<span class="the_date">
+																<?php echo get_the_time( get_option( 'date_format' ), $cur_post->ID ); ?>
+															</span>
+															&nbsp;&mdash;&nbsp;
+															<span class="the_title">
+																<a href="<?php echo get_permalink( $cur_post->ID ); ?>">
+																	<?php echo get_the_title( $cur_post->ID ); ?>
+																</a>
+															</span>
+														</li>
+													<?php } // end if ?>
+													</ul>
+												<?php } // end while
+												wp_reset_postdata();
+											?>
 											</p>
 										<?php } else { ?>
-											<p><?php _e( 'You have no posts.', 'standard'); ?></p>
-										<?php } // end if/else ?>
+											<p><?php _e( 'You have no posts.', 'standard' ); ?></p>
+										<?php } // end if ?>
 										
 									</div><!-- /.entry-content -->
 								</div><!-- /.entry-content -->
