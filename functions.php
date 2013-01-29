@@ -36,6 +36,7 @@ define( 'STANDARD_THEME_VERSION', '3.2' );
  
 // Imports the Standard_Nav_Walker for the custom menu functionality.
 include_once( get_template_directory() . '/lib/Standard_Nav_Walker.class.php' );
+
  
 /* ----------------------------------------------------------- *
  * 1. Localization
@@ -2063,9 +2064,9 @@ add_action( 'admin_notices', 'standard_detect_wordpress_seo' );
  * @version	3.2
  */
 function standard_register_wordpress_seo_message_script() {
-	wp_enqueue_script( 'seo-notification', get_template_directory_uri() . '/js/admin.seo-notification.min.js' );
+	//wp_enqueue_script( 'seo-notification', get_template_directory_uri() . '/js/admin.seo-notification.min.js' );
 } // end standard_register_wordpress_seo_message_script
-//add_action( 'admin_head', 'standard_register_wordpress_seo_message_script' );
+add_action( 'admin_head', 'standard_register_wordpress_seo_message_script' );
 
 /**
  * Callback function used in the Ajax request for hiding the notification window of WordPress SEO.
@@ -2799,26 +2800,6 @@ function standard_add_admin_scripts() {
 
 	$screen = get_current_screen();
 	
-	// admin header script	
-	if( 'appearance_page_custom-header' == $screen->id ) {
-		wp_enqueue_script( 'standard-admin-header', get_template_directory_uri() . '/js/admin.header.min.js', false, STANDARD_THEME_VERSION );
-	} // end if
-
-	// standard-specific styles
-	if( ( 'toplevel_page_theme_options' || 'appearance_page_theme_options' ) == $screen->id ) {
-		wp_enqueue_script( 'standard-site-mode', get_template_directory_uri() . '/js/admin.site-mode.min.js', false, STANDARD_THEME_VERSION );
-	} // end if
-
-	// sitemap management script. 
-	if( 'post'  == $screen->id || 'edit-page' == $screen->id || 'page' == $screen->id ) {
-		wp_enqueue_script( 'standard-admin-sitemap', get_template_directory_uri() . '/js/admin.template-sitemap.min.js?using_sitemap=' . get_option( 'standard_using_sitemap' ), false, STANDARD_THEME_VERSION );
-	} // end if
-	
-	// widgets
-	if( 'widgets' == $screen->id ) {
-		wp_enqueue_script( 'standard-admin-widgets', get_template_directory_uri() . '/js/admin.widgets.min.js', false, STANDARD_THEME_VERSION );
-	} // end if
-	
 	// favicon and post/page upload script
 	if( 'toplevel_page_theme_options' == $screen->id || 'appearance_page_theme_options' == $screen->id ) {
 		
@@ -2839,24 +2820,10 @@ function standard_add_admin_scripts() {
 		// standard's media-upload script. only upload this on the admin pages
 		wp_enqueue_script( 'standard-media-upload', get_template_directory_uri() . '/js/admin.media-upload.min.js', array( 'jquery', 'jquery-ui-core', 'media-upload','thickbox' ), false, STANDARD_THEME_VERSION );
 		
-		// standard's policy generation script
-		wp_enqueue_script( 'standard-publishing-options', get_template_directory_uri() . '/js/admin.publishing-options.min.js', false, STANDARD_THEME_VERSION );
-		
-		// social options
-		wp_enqueue_script( 'standard-admin-social-options', get_template_directory_uri() . '/js/admin.social-options.min.js', false, STANDARD_THEME_VERSION );
-		
-	} // end if
-
-	// standard's post-title notification	
-	if( 'post' == $screen->id || 'page' == $screen->id ) {
-		wp_enqueue_script( 'standard-post-editor', get_template_directory_uri() . '/js/admin.post.min.js', false, STANDARD_THEME_VERSION );
 	} // end if
 	
-	// standard's admin menu controller
-	wp_enqueue_script( 'standard-admin-menu', get_template_directory_uri() . '/js/admin.menu.min.js', false, STANDARD_THEME_VERSION );
-
 } // end add_admin_scripts
-// TODO: Remove this before release. add_action( 'admin_enqueue_scripts', 'standard_add_admin_scripts' );
+add_action( 'admin_enqueue_scripts', 'standard_add_admin_scripts' );
 
 /**
  * Adds JavaScript specifically for the administrative dashboard.
@@ -2877,7 +2844,7 @@ function standard_add_admin_script() {
 			'thickbox' 
 		);
 		
-		wp_enqueue_script( 'admin-scripts', get_template_directory_uri() . '/js/admin.min.js', $dependencies );
+		wp_enqueue_script( 'standard-admin', get_template_directory_uri() . '/js/admin.min.js?using_sitemap=' . get_option( 'standard_using_sitemap' ), $dependencies, STANDARD_THEME_VERSION );
 		
 } // end standard_add_admin_script
 add_action( 'admin_enqueue_scripts', 'standard_add_admin_script' );

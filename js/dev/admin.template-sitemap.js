@@ -11,7 +11,8 @@ function sitemapPageID($) {
 	iSiteMapID = -1;
 	
 	$('script').each(function() {
-		if($(this).attr('src') && $(this).attr('src').indexOf('admin.template-sitemap.js') > 0) {
+
+		if($(this).attr('src') && $(this).attr('src').indexOf('admin.min.js') > 0) {
 			
 			aQueryVars = $(this).attr('src').split('?');
 			for(i = 0; i < aQueryVars.length; i++) {
@@ -27,7 +28,7 @@ function sitemapPageID($) {
 
 		} // end if
 	});
-	
+
 	return iSiteMapID;
 
 } // end findSitemapPageID
@@ -77,10 +78,10 @@ function togglePostBodyContent($) {
 			});
 
 		} // end if
-		
+	
 		// For 'Post Editor'
 		if($('select[name="page_template"]').length > 0 && $('#page_template').length > 0 && sitemapPageID($) > -1) {
-		
+
 			// Disable the sitemap option there's already a sitemap
 			$('#page_template').children('option')
 				.each(function() {
