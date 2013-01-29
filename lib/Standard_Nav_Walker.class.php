@@ -40,6 +40,8 @@ class Standard_Nav_Walker extends Walker_Nav_Menu {
 	function start_el( &$output, $item, $depth, $args ) {
 		
 		$css_classes = implode( ' ', $item->classes );
+		
+		// If the target is specified, then let's add it to the anchor
 		$target = isset( $item->target ) && '' != $item->target ? ' target="_blank" ' : '';
 		
 		// If a title was specified, let's add it to the anchor
@@ -52,7 +54,7 @@ class Standard_Nav_Walker extends Walker_Nav_Menu {
 			if( $item->menu_item_parent == 0 ) {
 
 				$menu_item = get_permalink() == $item->url ? '<li class="dropdown ' . $css_classes . '">' : '<li class="dropdown ' . $css_classes . '">';
-					$menu_item .= '<a href="' . $item->url . '" class="dropdown-toggle" data-toggle="dropdown"' . ' ' . $title . '>';
+					$menu_item .= '<a href="' . $item->url . '" class="dropdown-toggle" data-toggle="dropdown"' . ' ' . $title . ' ' . $target . '>';
 					
 			} else { 
 
