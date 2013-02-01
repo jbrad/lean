@@ -2057,18 +2057,6 @@ function standard_detect_wordpress_seo() {
 add_action( 'admin_notices', 'standard_detect_wordpress_seo' );
 
 /**
- * Registers and enqueues the JavaScript responsible for saving the option for hiding the 
- * WordPress SEO notification.
- *
- * @since	3.0
- * @version	3.2
- */
-function standard_register_wordpress_seo_message_script() {
-	//wp_enqueue_script( 'seo-notification', get_template_directory_uri() . '/js/admin.seo-notification.min.js' );
-} // end standard_register_wordpress_seo_message_script
-add_action( 'admin_head', 'standard_register_wordpress_seo_message_script' );
-
-/**
  * Callback function used in the Ajax request for hiding the notification window of WordPress SEO.
  *
  * @since	3.0
@@ -3406,7 +3394,9 @@ function standard_attachment_fields_to_edit_wp34( $form_fields, $post ) {
 	return $form_fields;
 		
 } // end standard_attachment_fields_to_edit
-if( '3.5' > get_bloginfo( 'version' ) ) add_action( 'attachment_fields_to_edit', 'standard_attachment_fields_to_edit_wp34', 11, 2 );
+if( '3.5.1' > get_bloginfo( 'version' ) || '3.5' > get_bloginfo( 'version' ) ) {
+	add_action( 'attachment_fields_to_edit', 'standard_attachment_fields_to_edit_wp34', 11, 2 );
+} // end if
 
 /**
  * If the user has set a FeedBurner URL in the Global Options, then we'll
