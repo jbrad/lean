@@ -2775,8 +2775,9 @@ add_action( 'admin_print_styles', 'standard_add_admin_stylesheets' );
 /**
  * Adds JavaScript specifically for the administrative dashboard.
  *
- * @since	3.0
- * @version	3.2
+ * @since		s3.0
+ * @version		3.2
+ * @deprecated 	3.2
  */
 function standard_add_admin_scripts() {
 
@@ -2805,7 +2806,7 @@ function standard_add_admin_scripts() {
 	} // end if
 	
 } // end add_admin_scripts
-add_action( 'admin_enqueue_scripts', 'standard_add_admin_scripts' );
+// TODO is this needed? add_action( 'admin_enqueue_scripts', 'standard_add_admin_scripts' );
 
 /**
  * Adds JavaScript specifically for the administrative dashboard.
@@ -2815,19 +2816,27 @@ add_action( 'admin_enqueue_scripts', 'standard_add_admin_scripts' );
  */
 function standard_add_admin_script() {
 
-		$dependencies = array( 
-			'jquery-ui-core',
-			'jquery-ui-widget',
-			'jquery-ui-mouse',
-			'jquery-ui-draggable',
-			'jquery-ui-droppable',
-			'jquery-ui-sortable',
-			'media-upload',
-			'thickbox' 
-		);
+	$dependencies = array( 
+		'jquery-ui-core',
+		'jquery-ui-widget',
+		'jquery-ui-mouse',
+		'jquery-ui-draggable',
+		'jquery-ui-droppable',
+		'jquery-ui-sortable',
+		'media-upload',
+		'thickbox' 
+	);
+	
+	// If the user is running 3.5 or greater, then remove the Media Upload and Thickbox scripts
+	if( 3.5 >= get_bloginfo( 'version' ) ) {
 		
-		wp_enqueue_script( 'standard-admin', get_template_directory_uri() . '/js/admin.min.js?using_sitemap=' . get_option( 'standard_using_sitemap' ), $dependencies, STANDARD_THEME_VERSION );
+		unset( $dependencies[6] );
+		unset( $dependencies[7] );
 		
+	} // end if
+	
+	wp_enqueue_script( 'standard-admin', get_template_directory_uri() . '/js/admin.min.js?using_sitemap=' . get_option( 'standard_using_sitemap' ), $dependencies, STANDARD_THEME_VERSION );
+	
 } // end standard_add_admin_script
 add_action( 'admin_enqueue_scripts', 'standard_add_admin_script' );
 
