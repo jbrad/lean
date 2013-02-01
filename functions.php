@@ -2768,13 +2768,7 @@ add_action( 'wp_enqueue_scripts', 'standard_add_theme_scripts' );
  * @version	3.2
  */
 function standard_add_admin_stylesheets() {
-
-	$screen = get_current_screen();
-
 	wp_enqueue_style( 'standard-admin', get_template_directory_uri() . '/css/admin.css', false, STANDARD_THEME_VERSION );
-
-	
-
 } // end add_admin_stylesheets
 add_action( 'admin_print_styles', 'standard_add_admin_stylesheets' );
 
