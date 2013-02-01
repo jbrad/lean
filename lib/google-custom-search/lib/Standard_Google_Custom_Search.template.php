@@ -9,5 +9,4 @@
  * @since 3.1
  */
 ?>
-
-<gcse:searchresults-only></gcse:searchresults-only> 
+<gcse:searchresults-only></gcse:searchresults-only>
