@@ -11,13 +11,13 @@
 		// When the focus blurs from the field, update the gravatar
 		$('#email').blur(function() {
 			
-			if($(this).val() === '') {
+			if( '' === $(this).val() ) {
 			
 				$gravatar.attr('src', sDefaultImageUrl);
 				
 			} else {
 
-				sUrl = 'http://www.gravatar.com/avatar/' + md5($(this).val()) + '?d=' + sDefaultImageUrl;		
+				sUrl = 'http://www.gravatar.com/avatar/' + md5( $(this).val() ) + '?d=' + sDefaultImageUrl;		
 				$gravatar.attr('src', sUrl);
 			
 			} // end if/else
@@ -25,14 +25,12 @@
 		});
 		
 		// Toggles acceptable HTML tags
-		if($('.form-allowed-tags').length > 0) {
+		if($('#allowed-tags-trigger').length > 0) {
 
-			$('.form-allowed-tags').children('a')
-				.click(function(evt) {
-					evt.preventDefault();
-					$(this).siblings('code')
-						.fadeToggle('fast');
-				});
+			$('#allowed-tags-trigger').click(function(evt) {
+				evt.preventDefault();
+				$('#allowed-tags').fadeToggle('fast');
+			});
 				
 		} // end if
 		
