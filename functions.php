@@ -319,7 +319,7 @@ function fav_icon_display() {
 		$html .= '<input type="button" class="button" id="delete_fav_icon" value="' . __( 'Delete', 'standard' ) . '"/>';
 	} // end if
 	
-	$html .= '&nbsp;<span class="description">' . __( 'Dimensions: 144px x 144px. Used for favicon and mobile devices.', 'standard' ) . '<a href="http://docs.8bit.io/standard/admin-panel/presentation/" target="_blank">' . __( 'Learn more', 'standard' ) . '</a></span>';
+	$html .= '&nbsp;<span class="description">' . __( 'Dimensions: 144px x 144px. Used for favicon and mobile devices.', 'standard' ) . '&nbsp;<a href="http://docs.8bit.io/standard/admin-panel/presentation/" target="_blank">' . __( 'Learn more.', 'standard' ) . '</a></span>';
 	
 	echo $html;
 	
