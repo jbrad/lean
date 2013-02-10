@@ -4,7 +4,7 @@
  *
  * @package		Standard
  * @subpackage	468x60 Advertisement
- * @version 	1.0
+ * @version 	1.1
  * @since		3.0
  */
 ?>
@@ -19,6 +19,7 @@
 			<img src="<?php echo get_template_directory_uri() . '/lib/standard-ad-billboard/images/standard-468.jpg' ?>" alt="Standard" />
 		</a>
 	<?php } else { ?>
+		<?php $ad_url = 0 == strlen( $ad_url ) ? $default_url : $ad_url; ?>
 		<a href="<?php echo $ad_url; ?>" target="_blank">
 			<img src="<?php echo $ad_src; ?> " alt="" />
 		</a>
