@@ -2329,36 +2329,29 @@ function standard_infinite_scroll() {
 	<?php
 } // end standard_infinite_scroll
 
-if( ! function_exists( 'standard_set_media_embed_size' ) ) { 
-    /**
-     * Sets the media embed width to 580 or 900 (based on the layout) which is optimized 
-     * for the theme's post size.
-     *
-     * This function can be overridden by child themes.
-     *
-     * @since	3.0
-     * @version	3.2
-     */
-	function standard_set_media_embed_size() {
-	
-		$options = get_option( 'standard_theme_presentation_options' );
-		if( 'full_width_layout' == $options['layout'] ) {
-		
-			if ( ! isset( $content_width ) ) {
-				$content_width = 900;
-			} // end if 
-		
-		} else {
-		
-			if ( ! isset( $content_width ) ) {
-				$content_width = 610;
-			} // end if
-		
-		} // end if/else
-	
-	} // end set_media_embed_size
-	add_action( 'init', 'standard_set_media_embed_size' );
-} // end if
+/**
+ * Sets the media embed width to 580 or 900 (based on the layout) which is optimized 
+ * for the theme's post size.
+ *
+ * This has to be done outside of a function for it to perform correctly for JetPack
+ *
+ * @since	3.0
+ * @version	3.2
+ */
+$options = get_option( 'standard_theme_presentation_options' );
+if( 'full_width_layout' == $options['layout'] ) {
+
+	if ( ! isset( $content_width ) ) {
+		$content_width = 900;
+	} // end if 
+
+} else {
+
+	if ( ! isset( $content_width ) ) {
+		$content_width = 610;
+	} // end if
+
+} // end if/else
 
 if( ! function_exists( 'standard_set_theme_colors' ) ) { 
     /**
