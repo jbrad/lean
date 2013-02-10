@@ -8,6 +8,7 @@
  * @since		3.0
  */
 ?>
+
 <?php 
 	$global_options = get_option( 'standard_theme_global_options' );
 	$default_url = 'http://standardtheme.com';
