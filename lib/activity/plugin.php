@@ -317,7 +317,13 @@ class Activity_Tabs extends WP_Widget {
 	 */
 	private function get_popular_posts( $popular_count ) {
 	
-		$popular_posts = new WP_Query( 'orderby=comment_count&order=DESC&posts_per_page=' . $popular_count );
+		$args = array(
+			'orderby'				=>	'comment_count',
+			'order'					=>	'desc',
+			'posts_per_page'		=>	$popular_count,
+			'ignore_sticky_posts'	=> 	1
+		);
+		$popular_posts = new WP_Query( $args );
 
 		$html = '<div id="popular" class="tab-pane">';
 		$html .= '<ul class="popular-posts">';
