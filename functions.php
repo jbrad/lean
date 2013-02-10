@@ -2792,18 +2792,18 @@ function standard_add_admin_scripts() {
 		wp_enqueue_script( 'jquery-ui-sortable' );
 		
 		// media uploader
-		wp_enqueue_script( 'media-upload' );
+		wp_enqueue_script( 'media-upload.' );
 		
 		// thickbox for overlay
 		wp_enqueue_script( 'thickbox' );
 		
-		// standard's media-upload script. only upload this on the admin pages
-		wp_enqueue_script( 'standard-media-upload', get_template_directory_uri() . '/js/admin.media-upload.min.js', array( 'jquery', 'jquery-ui-core', 'media-upload','thickbox' ), false, STANDARD_THEME_VERSION );
+		wp_enqueue_script( 'standard-admin', get_template_directory_uri() . '/js/admin.min.js', false, STANDARD_THEME_VERSION );
+		wp_enqueue_script( 'standard-admin-media-upload', get_template_directory_uri() . '/js/dev/admin.media-upload.js', false, STANDARD_THEME_VERSION );
 		
 	} // end if
 	
 } // end add_admin_scripts
-// TODO is this needed? add_action( 'admin_enqueue_scripts', 'standard_add_admin_scripts' );
+add_action( 'admin_enqueue_scripts', 'standard_add_admin_scripts' );
 
 /**
  * Adds JavaScript specifically for the administrative dashboard.
