@@ -2531,8 +2531,12 @@ if( ! function_exists( 'standard_admin_header_style' ) ) {
 				font-size: 14px;
 				line-height: 23px;
 				padding: 0 0 3em;
-				color: #7A7A7A;
-			}
+				<?php if( '000000' == get_header_textcolor() ) { ?>
+					color: #7A7A7A !important;
+				<?php } else { ?>
+					color: #<?php get_header_textcolor(); ?>
+				<?php } // end if/else ?>
+			 }
 			
 		</style>
 	<?php
