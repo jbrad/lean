@@ -2753,7 +2753,7 @@ function standard_add_theme_scripts() {
 		
 	} // end if
 	
-	wp_enqueue_script( 'theme', get_template_directory_uri() . '/js/theme.min.js', false, STANDARD_THEME_VERSION );
+	wp_enqueue_script( 'theme-main', get_template_directory_uri() . '/js/theme.main.min.js', false, STANDARD_THEME_VERSION );
 
 } // end add_theme_scripts
 add_action( 'wp_enqueue_scripts', 'standard_add_theme_scripts' );

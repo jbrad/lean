@@ -1,3 +1,6 @@
+/*global infiniteScroll */
+/*global md5 */
+
 /**
  * In mobile view with the left-sidebar layout, repositions the sidebar below the content.
  */
@@ -17,6 +20,7 @@ function moveSidebarInLeftSidebarLayout($) {
  * and when Infinite Scroll is activated.
  */
 function resizeVideos($) {
+	"use strict";
 	
 	// FitVid
 	$('.entry-content, .comment-text').fitVids();
@@ -52,7 +56,7 @@ function resizeVideos($) {
 (function($) {
 	"use strict";
 	$(function() {
-		
+
 		var iHeaderHeight, iWidgetHeight, iMargin;
 		
 		// Properly position the header widget, but only do so after the window is loaded
@@ -77,33 +81,6 @@ function resizeVideos($) {
 			
 		} // end if
 
-		// Bootstrap Top-Level menus
-		if(0 < $('.dropdown').children('a').attr('href').length) {
-			window.location = $('.dropdown').children('a').attr('href');
-		} // end if
-
-		// Bootstrap Multi-Level Menus
-		$('.submenu').hover(function() {
-			
-			// Display the submenu on hover
-			$(this).children('ul')
-				.removeClass('submenu-hide')
-				.addClass('submenu-show');
-				
-		}, function() {
-		
-			// Hide the submenu when not on hover
-			$(this).children('ul')
-				.removeClass('.submenu-show')
-				.addClass('submenu-hide');
-			
-		}).click(function() {
-		
-			// If the submenu item is clicked, navigate to its anchor
-			window.location = $(this).children('a').attr('href');
-			
-		});
-
 		// If the Activity Widget is present, activate the first tab
 		if($('.tabbed-widget').length > 0) { 
 			
@@ -114,11 +91,6 @@ function resizeVideos($) {
 				.addClass('active');
 			
 		} // end if
-		
-		// Navigate to the menu item's anchor
-		$('.dropdown a').click(function() {
-			window.location = $(this).attr('href');
-		});
 		
 		// Hide pagination controls if infiniteScroll is on
 		if( 'object' === typeof infiniteScroll ) {
@@ -150,6 +122,18 @@ function resizeVideos($) {
 			} // end if
 
 		} // end if
+		
+		$('.menu-item > a').click(function(evt) {
+			
+			evt.preventDefault();
+			
+			if( '_blank' === $(this).attr('target') ) {
+				window.open( $(this).attr('href') );
+			} else {
+				window.location = $(this).attr('href');
+			} // end if/else
+			
+		});
 		
 	});
 }(jQuery));
