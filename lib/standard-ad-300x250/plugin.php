@@ -29,8 +29,8 @@ class Standard_Ad_300x250 extends WP_Widget {
 		global $pagenow;
 		if( 'themes.php' != $pagenow ) {
 		
-			add_action( 'admin_print_styles', array( &$this, 'register_admin_styles' ) );
-			add_action( 'admin_enqueue_scripts', array( &$this, 'register_admin_scripts' ) );
+			add_action( 'admin_print_styles', array( $this, 'register_admin_styles' ) );
+			add_action( 'admin_enqueue_scripts', array( $this, 'register_admin_scripts' ) );
 			
 		} // end if
 		
@@ -118,7 +118,7 @@ class Standard_Ad_300x250 extends WP_Widget {
 	 * @version	1.0
 	 */
 	public function register_admin_styles() {
-		wp_enqueue_style( 'standard-ad-300x250', get_template_directory_uri() . '/lib/standard-ad-300x250/css/admin.css', array( 'thickbox' ), false, STANDARD_THEME_VERSION );
+		wp_enqueue_style( 'standard-ad-300x250', get_template_directory_uri() . '/lib/standard-ad-300x250/css/admin.css', STANDARD_THEME_VERSION );
 	} // end register_admin_styles
 
 	/** 
