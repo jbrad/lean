@@ -11,7 +11,7 @@ standard_presentationPreviewUrl = null;
  */
 function standard_upload_hide_unused_fields($, poller) {
 	"use strict";
-
+	
 	var bHasHiddenFields, $formFields, $submit; 
 	
 	// Hide the 'From URL' tabs
@@ -170,7 +170,7 @@ window.send_to_editor = function(sHtml) {
 			
 			// Show the media uploader
 			tb_show('', 'media-upload.php?type=image&TB_iframe=true');
-
+			
 			$('#TB_iframeContent').load(function() {
 	
 				// if the user is uploading a new logo, we need to poll until we see the form fields
