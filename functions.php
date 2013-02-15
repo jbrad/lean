@@ -2824,14 +2824,6 @@ function standard_add_admin_script() {
 		'thickbox' 
 	);
 	
-	// If the user is running 3.5 or greater, then remove the Media Upload and Thickbox scripts
-	if( 3.5 >= get_bloginfo( 'version' ) ) {
-		
-		unset( $dependencies[6] );
-		unset( $dependencies[7] );
-		
-	} // end if
-	
 	wp_enqueue_script( 'standard-admin', get_template_directory_uri() . '/js/admin.min.js?using_sitemap=' . get_option( 'standard_using_sitemap' ), $dependencies, STANDARD_THEME_VERSION );
 	
 } // end standard_add_admin_script
@@ -3890,7 +3882,7 @@ function standard_has_header_text() {
  * @version	3.1
  */
 function standard_is_gplusto_url( $url ) {
-	return strpos( $url, 'gplus.to' );
+	return false != stristr( $url, 'gplus.to' );
 } // end standard_is_gplusto_url
 
 /**
@@ -3904,6 +3896,11 @@ function standard_is_gplusto_url( $url ) {
 function standard_get_google_plus_from_gplus( $url ) {
 
 	$gplus_url = $url;
+	
+	// Check to see if http:// is there
+	if( false == stristr( $url, 'http://' ) ) {
+		$url = 'http://' . $url;
+	} // end if
 	
 	// Get the headers from the gplus.to, URL
 	$headers = @get_headers( $url );

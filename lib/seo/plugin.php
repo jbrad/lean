@@ -91,9 +91,9 @@ class Standard_SEO {
 					// Read the URL into an array
 					$google_plus_id = explode( '/',  trailingslashit( $google_plus_url ) );
 					
-					// Note the third index of this array should alwas be at 3 after user_trailingslashit
-					$google_plus_id = $google_plus_id[3];
-				
+					// Note the third index of this array should always be at 3 after user_trailingslashit
+					$google_plus_id = isset( $google_plus_id[3] ) ? $google_plus_id[3] : $google_plus_id[1];
+					
 				// The user isn't using gplus.to, so the index of the ID is different
 				} else {
 
