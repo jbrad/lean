@@ -8,48 +8,16 @@
  * @since		3.0
  */
 ?>
-<?php 
-	$global_options = get_option( 'standard_theme_global_options' ); 
-	$default_url = 'http://standardtheme.com/';
-?>
+<?php $global_options = get_option( 'standard_theme_global_options' ); $default_url = ''; ?>
 
 <?php echo isset( $args['before_widget'] ) ? $args['before_widget'] : ''; ?>
 	<div class="standard-ad-row">
 		<ul class="thumbnails">
 			<li class="span2">
-				<?php if( '' == $ad1_url && '' == $ad1_src ) { ?>
-					<?php $ad1_url = 0 == strlen( $ad1_url ) ? $default_url : $ad1_url; ?>
-					<a class="thumbnail" href="<?php echo $ad1_url; ?>" target="_blank">
-						<img src="<?php echo get_template_directory_uri() . '/lib/standard-ad-125x125/images/standard-125-1.jpg' ?>" alt="<?php __( 'Standard', 'standard' ); ?>" />
-					</a>
-				<?php } elseif( '' != $ad1_url && '' != $ad1_src ) { ?>
-					<a class="thumbnail" href="<?php echo $ad1_url ?>" target="_blank">
-						<img src="<?php echo $ad1_src ?>" alt="<?php __( 'Standard', 'standard' ); ?>" />
-					</a>
-				<?php } elseif ( '' != $ad1_src ) { ?>
-					<?php $ad1_url = 0 == strlen( $ad1_url ) ? $default_url : $ad1_url; ?>
-					<a class="thumbnail" href="<?php echo $ad1_url ?>" target="_blank">
-						<img src="<?php echo $ad1_src ?>" alt="<?php __( 'Standard', 'standard' ); ?>" />
-					</a>					
-				<?php } // end if/else ?>
+				<?php echo $this->display_ad( $ad1_src, $ad1_url, 1 ); ?>
 			</li><!-- /.left -->
-			
 			<li class="span2">
-				<?php if( '' == $ad2_url && '' == $ad2_src ) { ?>
-					<?php $ad2_url = 0 == strlen( $ad2_url ) ? $default_url : $ad2_url; ?>
-					<a class="thumbnail" href="<?php echo $ad2_url; ?>" target="_blank">
-						<img src="<?php echo get_template_directory_uri() . '/lib/standard-ad-125x125/images/standard-125-2.jpg' ?>" alt="<?php __( 'Standard', 'standard' ); ?>" />
-					</a>
-				<?php } elseif( '' != $ad2_url && '' != $ad2_src ) { ?>
-					<a class="thumbnail" href="<?php echo $ad2_url ?>" target="_blank">
-						<img src="<?php echo $ad2_src ?>" alt="<?php __( 'Standard', 'standard' ); ?>" />
-					</a>
-				<?php } elseif ( '' != $ad2_src ) { ?>
-					<?php $ad2_url = 0 == strlen( $ad2_url ) ? $default_url : $ad2_url; ?>
-					<a class="thumbnail" href="<?php echo $ad2_url ?>" target="_blank">
-						<img src="<?php echo $ad2_src ?>" alt="<?php __( 'Standard', 'standard' ); ?>" />
-					</a>					
-				<?php } // end if/else ?>
+				<?php echo $this->display_ad( $ad2_src, $ad2_url, 2 ); ?>
 			</li><!-- /.right -->
 		</ul><!-- /.thumbnails -->
 		

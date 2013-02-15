@@ -163,6 +163,42 @@ class Standard_Ad_125x125 extends WP_Widget {
 	public function register_widget_styles() {
 		wp_enqueue_style( 'standard-ad-125x125-widget', get_template_directory_uri() . '/lib/standard-ad-125x125/css/widget.css', false, STANDARD_THEME_VERSION );
 	} // end register_widget_styles
+	
+	/**
+	 * Renders the advertisement for the specified advertisement.
+	 *
+	 * @param	string	$ad_src	The source of the image file
+	 * @param	string	$ad_url	The URL of the advertisement
+	 * @param	int		$number	The ID of the advertisement
+	 * @return	string	$html	The markup for the 
+	 * @since 	3.2
+	 * @version 1.0
+	 */
+	private function display_ad( $ad_src, $ad_url, $number ) {
+		
+		$html = '';
+		
+		// Use the default ad if it's not specified
+		if( 0 == strlen( trim( $ad_src ) ) ) {
+			$ad_src = '<img src="' . get_template_directory_uri() . '/lib/standard-ad-125x125/images/standard-125-' . $number . '.jpg' . '" alt="" />';
+		} else {
+			$ad_src = '<img src="' . $ad_src . '" alt="" />';
+		} // end if
+		
+		// Check to see if the URL is empty
+		if( 0 != strlen( trim( $ad_url ) ) ) {
+		
+			$html = '<a href="' . $ad_url . '">';
+				$html .= $ad_src;
+			$html .= '</a>';
+			
+		} else {
+			$html .= $ad_src;
+		} // end if
+		
+		return $html;
+		
+	} // end display_ad
 
 } // end class
 add_action( 'widgets_init', create_function( '', 'register_widget( "Standard_Ad_125x125" );' ) ); 
