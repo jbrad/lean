@@ -1,13 +1,13 @@
 (function ($) {
 	"use strict";
-    $(function () {
-       
+    $(window).load(function () {
+
 	    if( 0 !== $('#_wpnonce-custom-header-upload').length ) { 
        
 	        // Unconditionally hide the ability to check to include text with the image
 	        $('.form-table:last tr:first').hide();
 	       
-	        /* If the header image is displayed, then we hide the next. Users can
+	        /* If the header image is displayed, then we hide the text. Users can
 	         * only have an image or text, but not both.
 	         */
 	        if($('#header-bottom').length > 0) {
@@ -36,7 +36,17 @@
 	        
 	        } else {
 	        
-	            $('#header-top').show();        
+	            $('#header-top').show();
+	            
+	            // Update the description color with what's in the color picker
+		        $('.iris-picker').mouseup(function() { 
+			        $('#desc').css( 'color', $('#text-color').val() ); 
+		        });
+		        
+        		// If the 'Default' button is clicked, then we need to update the color
+    		    $('input[type="button"].wp-picker-default').click(function(evt) {
+			        $('#desc').attr( 'style', 'color: #7a7a7a' );
+		        });
 	            
 	        } // end if
         
