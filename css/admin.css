@@ -28,6 +28,7 @@
 #social-icons-available{margin-right:24px;}
 #social-icons-available ul li{float:left;min-width:16px;min-height:16px;height:48px;width:auto;}
 #standard-theme-background{max-width:100%;}
+input:-moz-placeholder{color:#777;}
 #standard_theme_left_sidebar_layout,#standard_theme_right_sidebar_layout,#standard_theme_full_width_layout{vertical-align:top;margin:15px 5px 0 0;}
 img.social_option{vertical-align:top;margin:4px 0 0 4px;}
 .standard-widget-top,#post_level_seo .hndle,#post_level_layout .hndle{color:#d5d5d5 !important;border:1px solid #585858 !important;text-shadow:0 1px 0 #111 !important;box-shadow:none !important;background-color:#393939 !important;background-image:-webkit-gradient(linear, left top, left bottom, from(#393939), to(#242424)) !important;background-image:-webkit-linear-gradient(top, #393939, #242424) !important;background-image:-moz-linear-gradient(top, #393939, #242424) !important;background-image:-o-linear-gradient(top, #393939, #242424) !important;background-image:-ms-linear-gradient(top, #393939, #242424) !important;filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0, StartColorStr='#393939', EndColorStr='#242424') !important;}
