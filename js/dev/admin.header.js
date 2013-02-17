@@ -39,8 +39,13 @@
 	            $('#header-top').show();
 	            
 	            // Update the description color with what's in the color picker
+	            
 		        $('.iris-picker').mouseup(function() { 
-			        $('#desc').css( 'color', $('#text-color').val() ); 
+		        	console.log( 'calling' );
+			        $('#desc')
+			        	.removeAttr( 'style' )
+			        	.attr( 'style', 'color: ' + $('#text-color').val() + ' !important' ); 
+			        	
 		        });
 		        
         		// If the 'Default' button is clicked, then we need to update the color
