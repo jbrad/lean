@@ -1,6 +1,6 @@
 <?php 
 /**
- * The template for drendeirng the social networking icons.
+ * The template for rendering the social networking icons.
  *
  * @package Standard
  * @since 	3.0
