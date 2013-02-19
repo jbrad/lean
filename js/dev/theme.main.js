@@ -123,6 +123,23 @@ function resizeVideos($) {
 
 		} // end if
 		
+		// Bootstrap Multi-Level Menus
+		$('.submenu').hover(function() {
+	
+			// Display the submenu on hover
+			$(this).children('ul')
+	        	.removeClass('submenu-hide')
+	        	.addClass('submenu-show');
+	
+	    }, function() {
+		
+		    // Hide the submenu when not on hover
+		    $(this).children('ul')	
+				.removeClass('.submenu-show')
+				.addClass('submenu-hide');
+			
+		});
+		
 		// Detect whether or not cmd or ctrl are being clicked so we can properly open tabs in new windows
 		bCmdDown = false;
 		$(document).on( 'keydown', function(evt) {
