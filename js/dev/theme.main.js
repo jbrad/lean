@@ -57,7 +57,7 @@ function resizeVideos($) {
 	"use strict";
 	$(function() {
 
-		var iHeaderHeight, iWidgetHeight, iMargin;
+		var iHeaderHeight, iWidgetHeight, iMargin, bCmdDown;
 		
 		// Properly position the header widget, but only do so after the window is loaded
 		if( 1 === $('.header-widget').length && 1 === $('#logo').length ) {
@@ -123,11 +123,19 @@ function resizeVideos($) {
 
 		} // end if
 		
+		// Detect whether or not cmd or ctrl are being clicked so we can properly open tabs in new windows
+		bCmdDown = false;
+		$(document).on( 'keydown', function(evt) {
+			bCmdDown = ( 91 == evt.keyCode || 93 == evt.keyCode || 62 == evt.keyCode ) ? true : false;
+		}).on( 'keyup', function(evt) {
+			bCmdDown = false;
+		});
+		
 		$('.menu-item > a').click(function(evt) {
 			
 			evt.preventDefault();
 			
-			if( '_blank' === $(this).attr('target') ) {
+			if( '_blank' === $(this).attr('target') || bCmdDown ) {
 				window.open( $(this).attr('href') );
 			} else {
 				window.location = $(this).attr('href');
