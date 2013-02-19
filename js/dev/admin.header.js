@@ -41,7 +41,7 @@
 	            // Update the description color with what's in the color picker
 	            
 		        $('.iris-picker').mouseup(function() { 
-		        	console.log( 'calling' );
+
 			        $('#desc')
 			        	.removeAttr( 'style' )
 			        	.attr( 'style', 'color: ' + $('#text-color').val() + ' !important' ); 
