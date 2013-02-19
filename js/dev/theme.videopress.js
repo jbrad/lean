@@ -7,25 +7,36 @@ function sizeVideo() {
 	// Clear the current video player's style
 	jQuery('.video-player').attr('style', '');
 
-	// First, set the width and height of the Video Press container
-	jQuery('.videopress-placeholder').css({
-		width:	jQuery('.entry-content').width(),
-		height:	'auto'
-	});
+	// Update the poster size
+	jQuery('.videopress-poster')
+		.css('width', jQuery('.video-player').parent().width())
+
+	// Update the actual video
+	jQuery('.video-player').children()
+		.css('width', jQuery('.video-player').parent().width())
+		.css('margin-bottom', '0');
+
+	// If the site is full-width, fix the float issue on the thumbnail
+	if( jQuery('.fullwidth').length > 0 ) {
 	
-	// Second, we'll handle the actual image
-	jQuery('.videopress-poster').css({
-		width:	'100%',
-		height:	'100%'
-	});
+		jQuery('.videopress-poster')
+			.height('100%');
+			
+		jQuery('.videopress-placeholder')
+			.children('div:last')
+			.children('img')
+			.css('margin-top', '-40px');		
+			
+	} // end if
 	
-	// Next, handle the actual video player
-	jQuery('.video-player')
-		.children()
-		.css({
-			width:	jQuery('.video-player').parent().width()
-		})
-		.attr('height', jQuery('.entry-content').height());
+	if( 0 < jQuery('.videopress-placeholder').length ) {
+	
+		jQuery('.videopress-placeholder').css('margin-bottom', '23px');
+		jQuery('.video-player')
+			.last()
+			.css('margin-bottom', '23px');
+		
+	} // end if
 		
 	jQuery('object')
 		.attr('height', jQuery('.entry-content').height() + 'px')
