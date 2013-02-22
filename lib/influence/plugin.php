@@ -3,10 +3,7 @@
  * Influence is a widget for showing an aggregate of your Twitter followers and
  * Facebook fans.
  *
- * @package		Standard
- * @subpackage	Influence Widget
- * @version		1.4
- * @since		3.0
+ * @version	1.5
  */
 class Standard_Influence extends WP_Widget {
 
@@ -14,9 +11,6 @@ class Standard_Influence extends WP_Widget {
 	 * Constructor
 	 *--------------------------------------------------------*/
 	 
-	/**
-	 * Initializes the widget's classname, description, and JavaScripts.
-	 */  
 	public function __construct() {
 
 		$widget_opts = array(
@@ -25,9 +19,10 @@ class Standard_Influence extends WP_Widget {
 		);	
 		$this->WP_Widget( 'standard-influence-widget', __( 'Social Influence', 'standard' ), $widget_opts );
 				
-		add_action( 'admin_print_styles', array( &$this, 'register_admin_styles' ) );
+		add_action( 'admin_print_styles', array( $this, 'register_admin_styles' ) );
+		add_action( 'admin_enqueue_scripts', array( $this, 'register_admin_scripts' ) );
 		
-		add_action( 'wp_enqueue_scripts', array( &$this, 'register_widget_styles' ) );
+		add_action( 'wp_enqueue_scripts', array( $this, 'register_widget_styles' ) );
 		
 	} // end constructor
 
@@ -38,10 +33,8 @@ class Standard_Influence extends WP_Widget {
 	/**
 	 * Outputs the content of the widget.
 	 *
-	 * @param	$args		The array of form elements
-	 * @param	$instance	The current instance of the wdiget
-	 * @since	3.0
-	 * @version	1.4
+	 * @args			The array of form elements
+	 * @instance
 	 */
 	public function widget( $args, $instance ) {
 	
@@ -59,10 +52,8 @@ class Standard_Influence extends WP_Widget {
 	/**
 	 * Processes the widget's options to be saved.
 	 *
-	 * @param	$new_instance	The previous instance of values before the update.
-	 * @param	$old_instance	The new instance of values to be generated via the update.
-	 * @since	3.0
-	 * @version	1.4
+	 * @new_instance	The previous instance of values before the update.
+	 * @old_instance	The new instance of values to be generated via the update.
 	 */
 	public function update( $new_instance, $old_instance ) {
 
@@ -86,9 +77,7 @@ class Standard_Influence extends WP_Widget {
 	/**
 	 * Generates the administration form for the widget.
 	 *
-	 * @param	$instance	The array of keys and values for the widget.
- 	 * @since	3.0
-	 * @version	1.4
+	 * @instance	The array of keys and values for the widget.
 	 */
 	public function form( $instance ) {
 
@@ -116,22 +105,32 @@ class Standard_Influence extends WP_Widget {
 
 	/** 
 	 * Registers and Enqueues the stylesheets for the Media Uploader and this widget.
-	 *
-	 * @since	3.0
-	 * @version	1.4
 	 */
 	public function register_admin_styles() {
-		wp_enqueue_style( 'standard-influence', get_template_directory_uri() . '/lib/influence/css/admin.css', false, STANDARD_THEME_VERSION );
+	
+		wp_register_style( 'standard-influence', get_template_directory_uri() . '/lib/influence/css/admin.css' );
+		wp_enqueue_style( 'standard-influence' );
+		
 	} // end register_admin_styles
+
+	/** 
+	 * Registers and Enqueues the JavaScript sources for the Media Uploader and this widget.
+	 */
+	public function register_admin_scripts() {
+
+		wp_register_script( 'standard-influence', get_template_directory_uri() . '/lib/influence/js/admin.js' );
+		wp_enqueue_script( 'standard-influence' );
+		
+	} // end register_admin_scripts
 	
 	/** 
 	 * Registers and Enqueues the stylesheets for this widget.
-	 *
-	 * @since	3.0
-	 * @version	1.4
 	 */
 	public function register_widget_styles() {
-		wp_enqueue_style( 'standard-influence', get_template_directory_uri() . '/lib/influence/css/widget.css', false, STANDARD_THEME_VERSION );
+	
+		wp_register_style( 'standard-influence', get_template_directory_uri() . '/lib/influence/css/widget.css' );
+		wp_enqueue_style( 'standard-influence' );
+	
 	} // end register_widget_styles
 
 	/*--------------------------------------------------------*
@@ -152,9 +151,8 @@ class Standard_Influence extends WP_Widget {
 	 * -3: Problem decoding the JSON returned from Twitter
 	 *
 	 * @params	$username	The username of the Twitter account from which to pull followers
+	 *
 	 * @returns	The total number of followers for the given Twitter account.
-	 * @since	3.0
-	 * @version	1.4
 	 */
 	private function twitter_follower_count( $username, $debug = false ) {
 	
@@ -165,37 +163,37 @@ class Standard_Influence extends WP_Widget {
 		$transient_key = 'influence_twitter_' . $username;
 
 		// Check to see if the value exists in the cache and it isn't 0
-		if( true == get_transient( $transient_key ) && 0 < get_transient( $transient_key ) ) {
+		if( ! true == get_transient( $transient_key ) && 0 < get_transient( $transient_key ) ) {
 			
 			$follower_count = get_transient( $transient_key );
-		
+
 		// If the value doesn't exist as a transient, let's read the value from Twitter	 
 		} else {
- 
+
 			// Attempt to read the XML from Twitter
-			$response = $this->get_feed_response('http://twitter.com/users/' . $username . '.xml' );
+			$response = $this->get_feed_response( 'https://twitter.com/users/' . $username . '.json' );
 			try {
-				$xml = new SimpleXmlElement( $response, LIBXML_NOCDATA );
+				$json = json_decode( $response );
 			} catch ( Exception $ex ) {
-				$xml = null;
+				$json = null;
 			} // end try/catch
 			
 			// If the XML response isn't valid, store the error
-			if( null == $xml ) {
+			if( null == $json ) {
 			
 				$follower_count = -2;
 				
 			} else {
 				
 				// If it's null, store the error.
-				if( null == (string)$xml->followers_count ) {
+				if( null == (string)$json->followers_count ) {
 					
 					$follower_count = -3;
 				
 				// Otherwise, we're good to go
 				} else {
 
-					$follower_count = (string)$xml->followers_count;
+					$follower_count = (string)$json->followers_count;
 					
 				} // end if/else
 				
@@ -227,9 +225,8 @@ class Standard_Influence extends WP_Widget {
 	 * -3: Problem decoding the JSON returned from Facebook
 	 *
 	 * @params	$username	The username of the Facebook page from which to pull likes
+	 *
 	 * @returns	The total number of likes for the given Facebook page.
-	 * @since	3.0
-	 * @version	1.4
 	 */
 	private function facebook_like_count( $username, $debug = false ) {
 	
@@ -285,9 +282,8 @@ class Standard_Influence extends WP_Widget {
 	 *
 	 * @params	$twitter	The Twitter username from which to pull followers
 	 * @params	$facebook	The ID of the Facebook page from which to pull likes
+	 *
 	 * @returns	The total influence as calculated by all three services.
-	 * @since	3.0
-	 * @version	1.4
 	 */
 	private function get_total_influence_count( $twitter, $facebook, $debug = false ) {
 	
@@ -310,8 +306,6 @@ class Standard_Influence extends WP_Widget {
 	 *
 	 * @params	$key		The ID of the option to remove
 	 * @params	$instance	Which instance of the widget to remove
-	 * @since	3.0
-	 * @version	1.4
 	 */
 	private function delete_values( $key, $instance ) {
 		
@@ -328,10 +322,8 @@ class Standard_Influence extends WP_Widget {
 	/**
 	 * Retrieves the response from the specified URL using one of PHP's outbound request facilities.
 	 *
-	 * @param	$url	The URL of the feed to retrieve.
-	 * @return	The response from the URL; null if empty.
-	 * @since	3.0
-	 * @version	1.4
+	 * @params	$url	The URL of the feed to retrieve.
+	 * @returns			The response from the URL; null if empty.
 	 */
 	private function get_feed_response( $url ) {
 		
@@ -351,19 +343,19 @@ class Standard_Influence extends WP_Widget {
 	/**
 	 * Retrieves the response from the specified URL using PHP's cURL module.
 	 *
-	 * @param	$url	The URL of the feed to retrieve.
-	 * @return	The response from the URL.
-	 * @since	3.0
-	 * @version	1.4
+	 * @params	$url	The URL of the feed to retrieve.
+	 * @returns			The response from the URL.
 	 */
 	private function curl( $url ) {
-		
+
 		$curl = curl_init( $url );
 
 		curl_setopt( $curl, CURLOPT_RETURNTRANSFER, true );
-		curl_setopt( $curl, CURLOPT_HEADER, 0 );
-		curl_setopt( $curl, CURLOPT_USERAGENT, '' );
-		curl_setopt( $curl, CURLOPT_TIMEOUT, 10 );
+		curl_setopt( $curl, CURLOPT_HEADER, false );
+		curl_setopt( $curl, CURLOPT_USERAGENT,  '' );
+		
+		// Increasing the TIMEOUT in hopes that it works better for some hosting environments
+		curl_setopt( $curl, CURLOPT_TIMEOUT, 1000 );
 		
 		$response = curl_exec( $curl );
 		if( 0 !== curl_errno( $curl ) || 200 !== curl_getinfo( $curl, CURLINFO_HTTP_CODE ) ) {
@@ -378,10 +370,8 @@ class Standard_Influence extends WP_Widget {
 	/**
 	 * Retrieves the response from the specified URL using PHP's file_get_contents method.
 	 *
-	 * @param	$url	The URL of the feed to retrieve.
-	 * @return	The response from the URL.
-	 * @since	3.0
-	 * @version	1.4
+	 * @params	$url	The URL of the feed to retrieve.
+	 * @returns			The response from the URL.
 	 */
 	private function file_get_contents( $url ) {
 		return file_get_contents( $url );
@@ -390,9 +380,7 @@ class Standard_Influence extends WP_Widget {
 	/**
 	 * Determines if the current hosting platform supports curl or file_get_contents for making outbound requests.
 	 *
-	 * @return	True if the server supports outbound requests; false, otherwise.
-	 * @since	3.0
-	 * @version	1.4
+	 * @returns		True if the server supports outbound requests; false, otherwise.
 	 */
 	private function supports_outbound_requests() {
 		return function_exists( 'curl_init' ) || function_exists( 'file_get_contents' );
