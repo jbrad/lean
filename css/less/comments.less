@@ -27,7 +27,6 @@
 
 /* Comments */
 
-
 #comments {
 	margin-bottom: 20px;
 }
@@ -44,7 +43,6 @@
 }
 
 #comments > ol > li, #comments > ul.children > li {
-	display: table;
 	width: 100%;
 	border-collapse: collapse;
 }
@@ -65,14 +63,14 @@
 }
 
 #comments .comment-container .avatar-holder {
-	display: table-cell;
 	width: 10%;
-	vertical-align: top;
-}
-
-#comments .comment-container .avatar-holder img.avatar {
-	padding: 2px;
-	border: 1px solid #eee;
+	float: left;
+	
+		img.avatar {
+			padding: 2px;
+			border: 1px solid #eee;
+		}
+	
 }
 
 #comments .comment-container .comment-head {
@@ -80,10 +78,9 @@
 }
 
 #comments .comment-container .comment-entry {
-	display: table-cell;
-	padding-left: 15px;
-	width: 85%;
-	vertical-align: top;
+	margin-left: 2%;
+	width: 88%;
+	float: left;
 }
 
 #comments .comment-container .comment-entry .comment-text {
@@ -131,10 +128,15 @@
 
 #respond {
 	padding: 20px;
+	position: inherit;
+	
+		h3#reply-title {
+			font-size: 18px;
+		}
 }
 
 .comment-container #respond {
-	padding: 20px 0;
+	padding: 20px 0 0;
 	-webkit-box-shadow: none;
 	-moz-box-shadow: none;
 	box-shadow: none;

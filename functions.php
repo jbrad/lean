@@ -2608,8 +2608,11 @@ if( ! function_exists( 'standard_custom_comment' ) ) {
      */
 	function standard_custom_comment( $comment, $args, $depth ) {
 		$GLOBALS['comment'] = $comment; ?>
+		
 		<li <?php comment_class( 'clearfix' ); ?> id="li-comment-<?php comment_ID(); ?>">
-			<div class="comment-container">
+		
+			<div class="comment-container clearfix">
+				
 				<?php if ( "comment" == get_comment_type() ) { ?>
 					<div class="avatar-holder">
 						<?php 
@@ -2650,7 +2653,7 @@ if( ! function_exists( 'standard_custom_comment' ) ) {
 						<?php comment_text(); ?>
 					</div><!-- /.comment-text -->
 					
-					<div class="reply">
+					<div class="reply clearfix">
 						<?php 
 							comment_reply_link( 
 								array_merge( 
