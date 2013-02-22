@@ -158,13 +158,14 @@ class Standard_Ad_468x60 extends WP_Widget {
 	private function display_ad( $ad_src, $ad_url ) {
 		
 		$html = '';
-		$is_default_ad = false;
-		
+
 		// Use the default ad if it's not specified
 		if( 0 == strlen( trim( $ad_src ) ) ) {
 		
-			$is_default_ad = true;
-			$ad_url = 'http://standardtheme.com';
+			if( 0 == strlen( trim( $ad_url ) ) ) {
+				$ad_url = 'http://standardtheme.com';
+			} // end if
+		
 			$ad_src = '<img src="' . get_template_directory_uri() . '/lib/standard-ad-billboard/images/standard-468.jpg" alt="" />';
 			
 		} else {
@@ -172,7 +173,7 @@ class Standard_Ad_468x60 extends WP_Widget {
 		} // end if
 		
 		// Check to see if the URL is empty
-		if( $is_default_ad ) {
+		if( 0 != strlen( trim( $ad_url ) ) ) {
 		
 			$html = '<a href="' . $ad_url . '">';
 				$html .= $ad_src;
