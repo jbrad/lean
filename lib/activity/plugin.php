@@ -7,7 +7,7 @@
  *
  * @package		Standard
  * @subpackage	Activity Tabs Widget
- * @version 	1.0
+ * @version 	1.1
  * @since		3.0
  */
 class Activity_Tabs extends WP_Widget {
@@ -339,7 +339,7 @@ class Activity_Tabs extends WP_Widget {
 					if( '' != get_the_post_thumbnail() ) {
 					
 						$html .= '<a class="latest-post-tn fademe" href="' . get_permalink() . '" rel="nofollow">';
-							$html .= get_the_post_thumbnail( get_the_ID(), array( 50, 50 ) );
+							$html .= get_the_post_thumbnail( get_the_ID(), 'thumbnail' );
 						$html .= '</a>';
 					
 					} // end if/else
