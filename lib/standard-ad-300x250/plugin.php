@@ -162,7 +162,13 @@ class Standard_Ad_300x250 extends WP_Widget {
 		
 		// Use the default ad if it's not specified
 		if( 0 == strlen( trim( $ad_src ) ) ) {
+		
+			if( 0 == strlen( trim( $ad_url ) ) ) {
+				$ad_url = 'http://standardtheme.com';
+			} // end if
+		
 			$ad_src = '<img src="' . get_template_directory_uri() . '/lib/standard-ad-300x250/images/standard-300.jpg" alt="" />';
+			
 		} else {
 			$ad_src = '<img src="' . $ad_src . '" alt="" />';
 		} // end if
