@@ -5,7 +5,7 @@
  *
  * @package		Standard
  * @subpackage	468x60 Advertisement Widget
- * @version		1.0
+ * @version		1.1
  * @since		3.0
  */
 class Standard_Ad_468x60 extends WP_Widget {

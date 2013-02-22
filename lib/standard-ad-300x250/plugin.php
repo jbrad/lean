@@ -5,7 +5,7 @@
  *
  * @package		Standard
  * @subpackage	300x250 Advertisement
- * @version		1.1
+ * @version		1.2
  * @since		3.0
  */
 class Standard_Ad_300x250 extends WP_Widget {

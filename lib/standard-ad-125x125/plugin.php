@@ -5,7 +5,7 @@
  *
  * @package		Standard
  * @subpackage	125x125 Advertisement Widget
- * @version		1.1
+ * @version		1.2
  * @since		3.0
  */
 class Standard_Ad_125x125 extends WP_Widget {
