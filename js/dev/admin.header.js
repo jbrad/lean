@@ -39,12 +39,17 @@
 	            $('#header-top').show();
 	            
 	            // Update the description color with what's in the color picker
-	            
-		        $('.iris-picker').mouseup(function() { 
+		        $('.iris-picker, .iris-palette').mousedown(function(evt) { 
+
+			        // If this is the iris palette, we have to trigger a double-click
+			        if( $(this).hasClass('iris-palette') ) {
+				        $(this).trigger('click');
+			        } // end if
 
 			        $('#desc')
 			        	.removeAttr( 'style' )
 			        	.attr( 'style', 'color: ' + $('#text-color').val() + ' !important' ); 
+
 			        	
 		        });
 		        
