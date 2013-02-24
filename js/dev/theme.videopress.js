@@ -7,9 +7,15 @@ function sizeVideo() {
 	// Clear the current video player's style
 	jQuery('.video-player').attr('style', '');
 
+	// Update the placeholder's width so that it's 100% of the parent
+	jQuery('.videopress-placeholder')
+		.width('100%')
+		.children(':first')
+		.width('100%');
+
 	// Update the poster size
 	jQuery('.videopress-poster')
-		.css('width', jQuery('.video-player').parent().width())
+		.css('width', jQuery('.video-player').parent().width());
 
 	// Update the actual video
 	jQuery('.video-player').children()
