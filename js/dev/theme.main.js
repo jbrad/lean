@@ -143,7 +143,7 @@ function resizeVideos($) {
 		// Detect whether or not cmd or ctrl are being clicked so we can properly open tabs in new windows
 		bCmdDown = false;
 		$(document).on( 'keydown', function(evt) {
-			bCmdDown = ( 91 == evt.keyCode || 93 == evt.keyCode || 62 == evt.keyCode ) ? true : false;
+			bCmdDown = ( 91 === evt.keyCode || 93 === evt.keyCode || 62 === evt.keyCode ) ? true : false;
 		}).on( 'keyup', function(evt) {
 			bCmdDown = false;
 		});
