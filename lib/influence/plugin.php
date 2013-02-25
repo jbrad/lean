@@ -343,7 +343,7 @@ class Standard_Influence extends WP_Widget {
 		curl_setopt( $curl, CURLOPT_USERAGENT,  '' );
 		
 		// Increasing the TIMEOUT in hopes that it works better for some hosting environments
-		curl_setopt( $curl, CURLOPT_TIMEOUT, 1000 );
+		curl_setopt( $curl, CURLOPT_TIMEOUT, 10000 );
 		
 		$response = curl_exec( $curl );
 		if( 0 !== curl_errno( $curl ) || 200 !== curl_getinfo( $curl, CURLINFO_HTTP_CODE ) ) {
