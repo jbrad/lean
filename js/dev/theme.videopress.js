@@ -37,7 +37,13 @@ function sizeVideo() {
 	
 	if( 0 < jQuery('.videopress-placeholder').length ) {
 	
-		jQuery('.videopress-placeholder').css('margin-bottom', '23px');
+		jQuery('.videopress-placeholder')
+			.css('margin-bottom', '0');
+			
+		jQuery('.videopress-placeholder')
+			.children('div:last')
+			.css('margin-top', '-40px');
+			
 		jQuery('.video-player')
 			.last()
 			.css('margin-bottom', '23px');
