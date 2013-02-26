@@ -28,11 +28,6 @@ function sizeVideo() {
 		jQuery('.videopress-poster')
 			.height('100%');
 			
-		jQuery('.videopress-placeholder')
-			.children('div:last')
-			.children('img')
-			.css('margin-top', '-40px');		
-			
 	} // end if
 	
 	if( 0 < jQuery('.videopress-placeholder').length ) {
@@ -42,6 +37,7 @@ function sizeVideo() {
 			
 		jQuery('.videopress-placeholder')
 			.children('div:last')
+			.children('img')
 			.css('margin-top', '-40px');
 			
 		jQuery('.video-player')
