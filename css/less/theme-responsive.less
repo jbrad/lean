@@ -102,8 +102,7 @@
 			li:nth-child(2n+2) {
 				float: right !important;
 			}
-			
-			
+					
 	}//mobile-2
 
 }
@@ -168,11 +167,39 @@
 					
 						a {
 							padding: 10px 15px;
-						}
-					
+							
+							 .caret {
+								 display: none;
+							 }							
+						}					
 				}//li
 			}//nav-mneu
 	}//navbar
+	
+	.nav-collapse .dropdown-menu {
+		display: block;
+		background: #282828;
+		
+		
+		//if it's on the current page
+		li.active a {
+			color: #fff;
+			
+			&:hover {
+				color: #fff;
+			}
+		}//li.active
+		
+		> li a {
+			 box-shadow: none;
+			 border: none;
+			 
+			 &:hover {
+				 color: #fff;
+			 }
+			 
+		 }// li a
+	}// dropdown-menu
 	
 /*
 	.navbar .dropdown-menu .active > a {
