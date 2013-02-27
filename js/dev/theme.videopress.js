@@ -38,11 +38,11 @@ function sizeVideo() {
 		jQuery('.videopress-placeholder')
 			.children('div:last')
 			.children('img')
-			.css('margin-top', '-40px');
+			.css('margin-top', '-80px');
 			
 		jQuery('.video-player')
 			.last()
-			.css('margin-bottom', '23px');
+			.css('margin-bottom', '0');
 		
 	} // end if
 		
