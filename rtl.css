@@ -371,6 +371,14 @@ table#wp-calendar tfoot td#next {
 	float:right;
 }
 
+#ie8 .tiled-gallery-item a {
+	float: right;
+}
+		
+#ie8 .tiled-gallery-item a img {
+	width: auto;
+} // img
+
 /* Smartphones */
 @media (max-width: 768px) {
 
