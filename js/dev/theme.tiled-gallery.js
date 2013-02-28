@@ -1,5 +1,6 @@
 function sizeGallery( $ ) {
-
+	"use strict";
+	
 	// If the browser is IE and tiled galleries exist
 	if( $.browser.msie && 0 < $('.tiled-gallery-item').length ) {
 	
@@ -33,8 +34,15 @@ function sizeGallery( $ ) {
 	});
 
 	// Next, wait for the window to load, then apply CSS to the tiled galleries for IE8
-	$(window).load(function() {
-		sizeGallery($);
-	});
+	$(window)
+		.load(function() {
+			sizeGallery($);
+		})
+		.scroll(function() { 
+			sizeGallery( $ ); 
+		})
+		.resize(function() { 
+			sizeGallery( $ ); 
+		});
 	
 }(jQuery));
