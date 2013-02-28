@@ -19,8 +19,8 @@ function sitemapPageID($) {
 
 				aKeyVal = aQueryVars[i].split('&');
 				aKeyVal = aKeyVal[0].split('=');
-				
-				if(aKeyVal[1] !== undefined && aKeyVal[1].length > 0) {
+
+				if(aKeyVal[1] !== undefined && aKeyVal[1].length > 0 && "using_sitemap" === aKeyVal[0]) {
 					iSiteMapID = parseInt(aKeyVal[1], 10);
 				} // end if
 				
