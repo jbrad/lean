@@ -163,7 +163,7 @@ class Google_Custom_Search extends WP_Widget {
 					'post_title'		=>	__( 'Search Results', 'standard' ),
 					'post_status'		=>	'publish',
 					'post_type'			=>	'page',
-					'post_content'		=>	get_template( get_template_directory_uri() . '/lib/google-custom-search/lib/Standard_Google_Custom_Search.template.php' )
+					'post_content'		=>	file_get_contents( get_template_directory_uri() . '/lib/google-custom-search/lib/Standard_Google_Custom_Search.template.php' )
 				)
 			);
 			
