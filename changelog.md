@@ -9,7 +9,6 @@
 * Adds support for Google Analytics speed tracking.
 * Adds CodeKit enhancements.
 * Adds support for WordPress 3.5.
-* Adds Google Custom Search enhancements.
 * Adds cache-busting versioning to JavaScript and CSS files.
 * Fixes VideoPress issues.
 * Fixes navigation menu items not opening in new windows when specified.
@@ -39,6 +38,11 @@
 
 * Fixes features images not sizing correctly.
 * Fixes sticky post issues in popular tab.
+
+### Google Custom Search Widget
+
+* Adds enhancements to improve stability.
+* Updates to latest version of the Google Custom Search markup and API.
 
 ### Archive Template
 
