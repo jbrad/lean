@@ -1,6 +1,242 @@
 # Changelog
 
-## 3.2 (TBD)
+## 3.2 (February 28st, 2013)
+
+### Core Theme
+
+* Adds support for Jetpack's Tiled Galleries.
+* Adds support for Jetpack's Infinite Scroll.
+* Adds support for Google Analytics speed tracking.
+* Adds CodeKit enhancements.
+* Adds support for WordPress 3.5.
+* Adds Google Custom Search enhancements.
+* Adds cache-busting versioning to JavaScript and CSS files.
+* Fixes VideoPress issues.
+* Fixes navigation menu items not opening in new windows when specified.
+* Fixes image alignment spacing.
+* Fixes mobile footer widgets going clear to screen edge.
+* Fixes mobile social icon alignment.
+* Fixes tagline color inconsistencies in header preview.
+* Fixes Google+ user profile issues when using WordPress SEO plugin.
+* Fixes all known translation / localization issues.
+* Fixes spacing issues in link post format.
+* Fixes social icons typo.
+* Fixes logo description typo.
+* Fixes site icon description typo.
+* Fixes comment policy template typo.
+* Fixes media uploader placeholder text in Firefox.
+* Fixes post metabox tables issues.
+* Fixes author breadcrumb issues.
+* Fixes iOS icon size.
+* Fixes top-level menu items not being clickable.
+* Optimizes images.
+* Removes affiliate code functionality.
+* Removes all end-of-file closing PHP tags.
+* Updates to Bootstrap 2.3.0.
+* Updates `standard_comment_form` to be an overridable function.
+
+### Activity Tabs Widget
+
+* Fixes features images not sizing correctly.
+* Fixes sticky post issues in popular tab.
+
+### Archive Template
+
+* Fixes archive page template performance issues.
+
+### Change Set
+
+**Added**
+
+* css/less/author-box.less
+* css/less/comments.less
+* css/less/footer.less
+* css/less/header.less
+* css/less/ie-styles.less
+* css/less/misc.less
+* css/less/mixins.less
+* css/less/navigation.less
+* css/less/pages.less
+* css/less/posts.less
+* css/less/structure.less
+* css/less/style.less
+* css/less/typography.less
+* css/less/variables.less
+* css/less/widgets-responsive.less
+* css/less/widget.less
+* css/lib/less/bootstrap-responsive.less
+* css/lib/less/bootstrap.less
+* images/social/small/dribbble.png
+* images/social/small/github/png
+* js/admin.min.js
+* js/admin.post.min.js
+* js/dev/admin.js
+* js/dev/theme.main.js
+* js/dev/theme.tiled-gallery.js
+* js/lib/bootstrap.min.js
+* js/theme.comments.min.js
+* js/theme.main.min.js
+* js/theme.tiled-gallery.min.js
+
+**Removed**
+
+* css/admin.header.css
+* css/admin.social-options.css
+* css/editor-style-full.css
+* css/less/editor-style-full.less
+* css/less/theme.less
+* css/theme.videopress.css
+* js/admin.header.min.js
+* js/admin.menu.min.js
+* js/admin.post.min.js
+* js/admin.publishing-options.min.js
+* js/admin.seo-notifications.min.js
+* js/admin.site-mode.min.js
+* js/admin.social-options.min.js
+* js/admin.template-sitemap.min.js
+* js/admin.widgets.min.js
+* js/lib/bootstrap/bootstrap.min.js
+* js/theme.comments.min.js 
+* js/theme.videopress.min.js
+
+**Modified**
+
+* 404.php
+* breadcrumbs.php
+* codekit-config.json
+* css/admin.css
+* css/img/glyphicons-halflings.png
+* css/img/icn-blog.png
+* css/img/icn-heart.png
+* css/img/icn-standard.png
+* css/img/icn-wrench.png
+* css/img/icn-standard-logo.png
+* css/less/admin.less
+* css/less/admin.social-options.less
+* css/less/theme.contrast-light.less
+* css/less/theme.videopress.less
+* css/less/theme-responsive.less
+* css/lib/bootstrap-responsive.css
+* css/lib/bootstrap.css
+* css/theme.contrast-light.css
+* css/theme.css
+* css/theme-responsive.css
+* functions.php
+* header.php
+* images/bg-quote-dark.png
+* images/bg-quote-rtl.png
+* images/bg-quote.png
+* images/icn-author-sprites-white.png
+* images/icn-author-sprites.png
+* images/icn-link-dark.png
+* images/icn-link.png
+* images/icn-permalink.png
+* images/icn-quote-dark-rtl.png
+* images/icn-quote-dark.png
+* images/icn-quote.png
+* images/icn-sitemap.png
+* images/icn-standard-small.png
+* images/icn-tags.png
+* images/lightning.png
+* images/social/small/email.png
+* images/social/small/facebook.png
+* images/social/small/foursquare.png
+* images/social/small/google_plus.png
+* images/social/small/pinterest.png
+* images/social/small/rss.png
+* images/social/small/soundcloud.png
+* images/social/small/twitter.png
+* images/social/small/vimeo.png
+* images/social/small/youtube.png
+* images/sticky.png
+* index.php
+* js/admin.media-upload.min.js
+* js/dev/admin.header.js
+* js/dev/admin.media-upload.js
+* js/dev/admin.social-options.js
+* js/dev/admin.template-sitemap.js
+* js/dev/theme.comments.js
+* js/dev/theme.js
+* js/dev/theme.main.js
+* js/lib/bootstrap/bootstrap.js
+* js/theme.min.js
+* lang/standard.mo
+* lang/standard.po
+* lib/activity/css/less/admin.less
+* lib/activity/css/less/widget.less
+* lib/activity/css/widget.css
+* lib/activity/plugin.php
+* lib/breadcrumbs/standard_breadcrumbs.php
+* lib/google-custom-search/css/less/admin.less
+* lib/google-custom-search/css/less/widget.less
+* lib/google-custom-search/css/widget.css
+* lib/google-custom-search/js/dev/admin.js
+* lib/google-custom-search/lib/Standard_Google_Custom_Search.template.php
+* lib/google-custom-search/plugin.php
+* lib/influence/css/admin.css
+* lib/influence/css/fake-personal.jpg
+* lib/influence/css/less/admin.less
+* lib/influence/css/less/widget.less
+* lib/influence/css/widget.css
+* lib/influence/plugin.php
+* lib/personal-image/css/admin.css
+* lib/personal-image/css/less/admin.less
+* lib/personal-image/css/less/widget.less
+* lib/personal-image/js/admin.min.js
+* lib/personal-image/js/dev/admin.js
+* lib/personal-image/plugin.php
+* lib/personal-image/views/admin.php
+* lib/seo/css/admin.css
+* lib/seo/css/less/admin.less
+* lib/seo/plugin.php
+* lib/seotitles/standard_seotitles.php
+* lib/Standard_Comment_Policy.template.html
+* lib/Standard_Nav_Walker.class.php
+* lib/standard-ad-125x125/css/admin.css
+* lib/standard-ad-125x125/css/fake-125.jpg
+* lib/standard-ad-125x125/css/less/admin.less
+* lib/standard-ad-125x125/css/less/widget.less
+* lib/standard-ad-125x125/css/widget.css
+* lib/standard-ad-125x125/images/standard-125-1.jpg
+* lib/standard-ad-125x125/images/standard-125-2.jpg
+* lib/standard-ad-125x125/js/admin.min.js
+* lib/standard-ad-125x125/js/dev/admin.js
+* lib/standard-ad-125x125/plugin.php
+* lib/standard-ad-125x125/views/admin.php
+* lib/standard-ad-125x125/views/widget.php
+* lib/standard-ad-300x250/css/admin.css
+* lib/standard-ad-300x250/css/less/admin.less
+* lib/standard-ad-300x250/css/less/widget.less
+* lib/standard-ad-300x250/fake-300.jpg
+* lib/standard-ad-300x250/js/admin.min.js
+* lib/standard-ad-300x250/js/dev/admin.js
+* lib/standard-ad-300x250/plugin.php
+* lib/standard-ad-300x250/standard-300.jpg
+* lib/standard-ad-300x250/views/widget.php
+* lib/standard-ad-billboard/css/admin.css
+* lib/standard-ad-billboard/css/less/admin.less
+* lib/standard-ad-billboard/css/less/widget.less
+* lib/standard-ad-billboard/fake-468.jpg
+* lib/standard-ad-billboard/js/admin.min.js
+* lib/standard-ad-billboard/js/dev/admin.js
+* lib/standard-ad-billboard/plugin.php
+* lib/standard-ad-billboard/standard-468.jpg
+* lib/standard-ad-billboard/views/widget.php
+* loop-image.php
+* loop-link.php
+* loop-quote.php
+* loop-status.php
+* loop-video.php
+* loop.php
+* rtl.css
+* screenshot.png
+* search.php 
+* single.php
+* social-networking.php
+* style.css
+* template-archives.php
+
+## 3.2 Beta (November 21st, 2012)
 
 ### Core Theme
 
@@ -115,7 +351,6 @@
 * js/theme.js
 * js/theme.videopress.js
 
-
 **Modified**
 
 * 404.php
@@ -196,6 +431,19 @@
 * template-archives.php
 * template-fullwidth.php
 * template-sitemap.php
+
+## 3.1.3 (February 22nd, 2013)
+
+### Social Influence Widget
+
+* Updates widget to use Twitter's new API.
+
+### Change Set
+
+**Modified**
+
+* lib/influence/plugin.php
+* style.css
 
 ## 3.1.2 (October 19th, 2012)
 
