@@ -1,5 +1,29 @@
 # Changelog
 
+## 3.2.1 (February 28st, 2013)
+
+### Google Custom Search Widget
+
+* Fixes search results coming back empty.
+
+### Sitemap Template
+
+* Fixes page template not being selectable.
+
+### Change Set
+
+**Modified**
+
+* css/less/style.less
+* functions.php
+* js/admin.min.js
+* js/dev/admin.template-sitemap.js
+* lang/standard.mo
+* lang/standard.po
+* lib/google-custom-search/plugin.php
+* style.css
+
+
 ## 3.2 (February 28st, 2013)
 
 ### Core Theme
