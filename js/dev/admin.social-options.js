@@ -558,65 +558,69 @@ function socialIconsShowMediaUploader() {
 	"use strict";
 	$(function() {
 		
-		// Hide the table of options.
-		$('.social-icons-wrapper').siblings('table').hide();
+		if( 0 < $('#available-icon-list').length ) {
 		
-		prepareIconMediaUploader($);
-
-		// Render the avaialable icons and the active icons
-		displayIcons($, 'available-social-icons', 'available-icons');
-		displayIcons($, 'active-social-icons', 'active-icons');
-		
-		// Make the lists sortable
-		makeSortable($, '#active-icons', '#available-icons');
-		
-		// Setup how to delete icons
-		makeIconsRemoveable($);
-		
-		// Setup the handler for triggering the social icon url
-		$('#set-social-icon-url').click(function(evt) {
-			saveIconUrl($, evt);
-		});
-		
-		// Save the input field if the user presses enter
-		$(document).keypress(function(evt) {
-
-			if(evt.keyCode === 13) {
-				evt.preventDefault();
-				saveIconUrl($, evt);
-			} // end if
+			// Hide the table of options.
+			$('.social-icons-wrapper').siblings('table').hide();
 			
-		});
-		
-		// Cancel entering a URL
-		$('#cancel-social-icon-url').click(function(evt) {
-			
-			evt.preventDefault();
-			cancelSettingIconURL($);
-			
-		});
-		
-		checkForMaxIcons();
-		
-		// Offer the ability to reset the icons
-		$('#reset-social-icons').click(function(evt) {
-		
-			evt.preventDefault();
-			
-			var $this = $(this);
-			$.post(ajaxurl, {
+			prepareIconMediaUploader($);
 	
-				action: 'standard_reset_social_icons',
-				nonce: $.trim($('#standard-reset-social-icons').text())
-				
-			}, function() {
+			// Render the avaialable icons and the active icons
+			displayIcons($, 'available-social-icons', 'available-icons');
+			displayIcons($, 'active-social-icons', 'active-icons');
 			
-				$this.siblings('form').submit();	
-				location.reload(true);
+			// Make the lists sortable
+			makeSortable($, '#active-icons', '#available-icons');
+			
+			// Setup how to delete icons
+			makeIconsRemoveable($);
+			
+			// Setup the handler for triggering the social icon url
+			$('#set-social-icon-url').click(function(evt) {
+				saveIconUrl($, evt);
+			});
+			
+			// Save the input field if the user presses enter
+			$(document).keypress(function(evt) {
+	
+				if(evt.keyCode === 13) {
+					evt.preventDefault();
+					saveIconUrl($, evt);
+				} // end if
 				
 			});
+			
+			// Cancel entering a URL
+			$('#cancel-social-icon-url').click(function(evt) {
+				
+				evt.preventDefault();
+				cancelSettingIconURL($);
+				
+			});
+			
+			checkForMaxIcons();
+			
+			// Offer the ability to reset the icons
+			$('#reset-social-icons').click(function(evt) {
+			
+				evt.preventDefault();
+				
+				var $this = $(this);
+				$.post(ajaxurl, {
 		
-		});
+					action: 'standard_reset_social_icons',
+					nonce: $.trim($('#standard-reset-social-icons').text())
+					
+				}, function() {
+				
+					$this.siblings('form').submit();	
+					location.reload(true);
+					
+				});
+			
+			});
+			
+		} // end if
 
 	});
 }(jQuery));
