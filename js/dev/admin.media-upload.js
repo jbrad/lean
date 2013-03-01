@@ -112,12 +112,13 @@ window.send_to_editor = function(sHtml) {
 	} // end if
 			
 	// Hide the thickbox
-	//tb_remove();
+	tb_remove();
 
-} // end window.send_to_editor
+}; // end window.send_to_editor
 
 (function ($) {
 	"use strict";
+	
 	$(function() {
 	
 		/* --- Site Icon --- */

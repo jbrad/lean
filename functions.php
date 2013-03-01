@@ -2738,7 +2738,7 @@ add_action( 'wp_enqueue_scripts', 'standard_add_theme_stylesheets', 999 );
  * Imports all theme scripts and dependencies required for managing the behavior of the theme.
  *
  * @since	3.0
- * @version	3.2
+ * @version	3.3
  */
 function standard_add_theme_scripts() {
 
@@ -2826,8 +2826,13 @@ function standard_add_admin_script() {
 		'media-upload',
 		'thickbox' 
 	);
-	
+
 	wp_enqueue_script( 'standard-admin', get_template_directory_uri() . '/js/admin.min.js?using_sitemap=' . get_option( 'standard_using_sitemap' ), $dependencies, STANDARD_THEME_VERSION );
+
+	$screen = get_current_screen();
+	if( 'post' != $screen->id && 'page' != $screen->id ) {
+		wp_enqueue_script( 'standard-admin-media', get_template_directory_uri() . '/js/admin.media-upload.min.js', $dependencies, STANDARD_THEME_VERSION );	
+	} // end if
 	
 } // end standard_add_admin_script
 add_action( 'admin_enqueue_scripts', 'standard_add_admin_script' );
