@@ -1,5 +1,24 @@
 # Changelog
 
+## 3.2.3 (March 1st, 2013)
+
+### Core Theme
+
+* Fixes issues with not being able to hit 'Enter' in the 'Text' editor of the post editor
+
+### Change Set
+
+**Modified**
+
+* css/less/style.less
+* functions.php
+* js/admin.min.js
+* js/dev/admin.js
+* js/dev/admin.social-options.js
+* lib/seo/js/dev/admin.js
+* style.css
+
+
 ## 3.2.2 (March 1st, 2013)
 
 ### Core Theme
