@@ -163,7 +163,7 @@ class Google_Custom_Search extends WP_Widget {
 					'post_title'		=>	__( 'Search Results', 'standard' ),
 					'post_status'		=>	'publish',
 					'post_type'			=>	'page',
-					'post_content'		=>	$this->get_template_content( get_template_directory_uri() . '/lib/google-custom-search/lib/Standard_Google_Custom_Search.template.php' )
+					'post_content'		=>	file_get_contents( get_template_directory_uri() . '/lib/google-custom-search/lib/Standard_Google_Custom_Search.template.php' )
 				)
 			);
 			
@@ -256,15 +256,7 @@ class Google_Custom_Search extends WP_Widget {
 		return 0 < strpos( $_SERVER['REQUEST_URI'], $page_file_name );
 	} // end is_widgets_page
 	
-	/**
-	 * Retrieves the content of the template file from the incoming URL.
-	 *
-	 * @param	string	$url		The URL of the template
-	 * @returns	content	$template	The content of the template
-	 * @since	3.0
-	 * @version	3.2
-	 */
-	private function get_template_content( $url ) {
+	private function get_template( $path ) {
 		
 		$template = null;
 		
@@ -278,73 +270,6 @@ class Google_Custom_Search extends WP_Widget {
 		return $template;
 		
 	} // end get_template
-	
-	/**
-	 * Retrieves the response from the specified URL using one of PHP's outbound request facilities.
-	 *
-	 * @params	$url	The URL of the feed to retrieve.
-	 * @returns			The response from the URL; null if empty.
-	 */
-	private function get_feed_response( $url ) {
-		
-		$response = null;
-		
-		// First, check to see if curl is enabled. If so, we'll use it.
-		if( function_exists( 'curl_init' ) ) {
-			$response = $this->curl( $url );
-		} elseif( function_exists( 'file_get_contents' ) ) {
-			$response = $this->file_get_contents( $url );
-		} // end if
-		
-		return $response;
-		
-	} // end get_feed_response
-	
-	/**
-	 * Retrieves the response from the specified URL using PHP's cURL module.
-	 *
-	 * @params	$url	The URL of the feed to retrieve.
-	 * @returns			The response from the URL.
-	 */
-	private function curl( $url ) {
-
-		$curl = curl_init( $url );
-
-		curl_setopt( $curl, CURLOPT_RETURNTRANSFER, true );
-		curl_setopt( $curl, CURLOPT_HEADER, false );
-		curl_setopt( $curl, CURLOPT_USERAGENT,  '' );
-		
-		// Increasing the TIMEOUT in hopes that it works better for some hosting environments
-		curl_setopt( $curl, CURLOPT_TIMEOUT, 10000 );
-		
-		$response = curl_exec( $curl );
-		if( 0 !== curl_errno( $curl ) || 200 !== curl_getinfo( $curl, CURLINFO_HTTP_CODE ) ) {
-			$response = null;
-		} // end if
-		curl_close( $curl );
-		
-		return $response;
-		
-	} // end curl
-	
-	/**
-	 * Retrieves the response from the specified URL using PHP's file_get_contents method.
-	 *
-	 * @params	$url	The URL of the feed to retrieve.
-	 * @returns			The response from the URL.
-	 */
-	private function file_get_contents( $url ) {
-		return file_get_contents( $url );
-	} // end file_get_contents
-	
-	/**
-	 * Determines if the current hosting platform supports curl or file_get_contents for making outbound requests.
-	 *
-	 * @returns		True if the server supports outbound requests; false, otherwise.
-	 */
-	private function supports_outbound_requests() {
-		return function_exists( 'curl_init' ) || function_exists( 'file_get_contents' );
-	} // end supports_outbound_requests
 
 } // end class
 add_action( 'widgets_init', create_function( '', 'register_widget( "Google_Custom_Search" );' ) ); 
