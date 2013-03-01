@@ -80,7 +80,7 @@ window.send_to_editor = function(sHtml) {
 	// Set the container ID for the preview image that's being uploaded
 	sPreviewId = '#' + standard_presentationPreviewImage;
 	sPreviewUrlId = '#' + standard_presentationPreviewUrl;
-	
+
 	// Grab the URL of the image and set it into the field's ID.
 	// The raw class accepts a string of HTML, the other just the attribute
 	if(jQuery('.media-upload-field-raw').length > 0) {
@@ -112,9 +112,9 @@ window.send_to_editor = function(sHtml) {
 	} // end if
 			
 	// Hide the thickbox
-	tb_remove();
+	//tb_remove();
 
-}; // end window.send_to_editor
+} // end window.send_to_editor
 
 (function ($) {
 	"use strict";
