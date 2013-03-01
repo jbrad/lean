@@ -1,5 +1,22 @@
 # Changelog
 
+## 3.2.2 (March 1st, 2013)
+
+### Core Theme
+
+* Fixes issues with uploading / inserting images into posts and ads.
+
+### Change Set
+
+**Modified**
+
+* css/less/stlye.less
+* functions.php
+* js/admin.min.js
+* js/dev/admin.js
+* js/dev/admin.media-upload.js
+* style.css
+
 ## 3.2.1 (February 28st, 2013)
 
 ### Google Custom Search Widget
@@ -22,7 +39,6 @@
 * lang/standard.po
 * lib/google-custom-search/plugin.php
 * style.css
-
 
 ## 3.2 (February 28st, 2013)
 
