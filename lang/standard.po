@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Standard 3.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-02-28 15:12-0500\n"
-"PO-Revision-Date: 2013-02-28 15:12-0500\n"
+"POT-Creation-Date: 2013-03-04 10:15-0500\n"
+"PO-Revision-Date: 2013-03-04 10:15-0500\n"
 "Last-Translator: Tom McFarlin <tom@tommcfarlin.com>\n"
 "Language-Team: 8BIT <info@8bit.io>\n"
 "Language: en_US\n"
@@ -543,60 +543,60 @@ msgstr ""
 msgid "Reply"
 msgstr ""
 
-#: ../functions.php:2901
+#: ../functions.php:2906
 msgid ""
 "<span class=\"standard-user-profile\" id=\"standard-user-profile-twitter"
 "\">Twitter URL</span>"
 msgstr ""
 
-#: ../functions.php:2902
+#: ../functions.php:2907
 msgid ""
 "<span class=\"standard-user-profile\" id=\"standard-user-profile-facebook"
 "\">Facebook URL</span>"
 msgstr ""
 
-#: ../functions.php:2905
+#: ../functions.php:2910
 msgid ""
 "<span class=\"standard-user-profile\" id=\"standard-user-profile-google-plus"
 "\">Google+ URL</span>"
 msgstr ""
 
-#: ../functions.php:3172
+#: ../functions.php:3177
 msgid "Search..."
 msgstr ""
 
-#: ../functions.php:3371
+#: ../functions.php:3376
 msgid "A title is required for search engines."
 msgstr ""
 
-#: ../functions.php:3372
+#: ../functions.php:3377
 msgid "An alternate text description is required for search engines."
 msgstr ""
 
-#: ../functions.php:3454
+#: ../functions.php:3459
 msgid "is currently offline."
 msgstr ""
 
-#: ../functions.php:3663
+#: ../functions.php:3668
 msgid "Name"
 msgstr ""
 
-#: ../functions.php:3664
+#: ../functions.php:3669
 msgid "Email"
 msgstr ""
 
-#: ../functions.php:3665 ../single.php:52
+#: ../functions.php:3670 ../single.php:52
 msgid "Website"
 msgstr ""
 
-#: ../functions.php:3673
+#: ../functions.php:3678
 #, php-format
 msgid ""
 "Text formatting is available via select <a id=\"allowed-tags-trigger\" href="
 "\"javascript:;\">HTML</a>. %s"
 msgstr ""
 
-#: ../functions.php:3674
+#: ../functions.php:3679
 #, php-format
 msgid ""
 "Logged in as <a href=\"%1$s\">%2$s</a>. <a href=\"%3$s\" title=\"Log out of "
@@ -729,7 +729,7 @@ msgstr ""
 msgid "All Posts"
 msgstr ""
 
-#: ../template-archives.php:90
+#: ../template-archives.php:86
 msgid "You have no posts."
 msgstr ""
 
