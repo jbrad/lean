@@ -1,10 +1,27 @@
 # Changelog
 
+## 3.2.4 (March 4th, 2013)
+
+### Archives Template
+
+* Fixes issues with `All Posts` list appearing out of order, containing duplicates, and including pages.
+
+### Change Set
+
+**Modified**
+
+* css/less/style.less
+* functions.php
+* lang/standard.mo
+* lang/standard.po
+* style.css
+* template-archives.php
+
 ## 3.2.3 (March 1st, 2013)
 
 ### Core Theme
 
-* Fixes issues with not being able to hit 'Enter' in the 'Text' editor of the post editor
+* Fixes issues with not being able to hit `Enter` in the `Text` tab of the post editor.
 
 ### Change Set
 
@@ -17,7 +34,6 @@
 * js/dev/admin.social-options.js
 * lib/seo/js/dev/admin.js
 * style.css
-
 
 ## 3.2.2 (March 1st, 2013)
 
