@@ -2836,49 +2836,6 @@ function standard_add_admin_script() {
 } // end standard_add_admin_script
 add_action( 'admin_enqueue_scripts', 'standard_add_admin_script' );
 
-add_action( 'init', 'register_cpt_acme' );
-
-function register_cpt_acme() {
-
-    $labels = array( 
-        'name' => _x( 'Acmes', 'acme' ),
-        'singular_name' => _x( 'Acme', 'acme' ),
-        'add_new' => _x( 'Add New', 'acme' ),
-        'add_new_item' => _x( 'Add New Acme', 'acme' ),
-        'edit_item' => _x( 'Edit Acme', 'acme' ),
-        'new_item' => _x( 'New Acme', 'acme' ),
-        'view_item' => _x( 'View Acme', 'acme' ),
-        'search_items' => _x( 'Search Acmes', 'acme' ),
-        'not_found' => _x( 'No acmes found', 'acme' ),
-        'not_found_in_trash' => _x( 'No acmes found in Trash', 'acme' ),
-        'parent_item_colon' => _x( 'Parent Acme:', 'acme' ),
-        'menu_name' => _x( 'Acmes', 'acme' ),
-    );
-
-    $args = array( 
-        'labels' => $labels,
-        'hierarchical' => false,
-        
-        'supports' => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'trackbacks', 'custom-fields', 'comments', 'revisions', 'page-attributes' ),
-        'taxonomies' => array( 'category', 'post_tag', 'page-category' ),
-        'public' => true,
-        'show_ui' => true,
-        'show_in_menu' => true,
-        
-        
-        'show_in_nav_menus' => true,
-        'publicly_queryable' => true,
-        'exclude_from_search' => false,
-        'has_archive' => true,
-        'query_var' => true,
-        'can_export' => true,
-        'rewrite' => true,
-        'capability_type' => 'post'
-    );
-
-    register_post_type( 'acme', $args );
-}
-
 /* ----------------------------------------------------------- *
  * 7. Custom Filters
  * ----------------------------------------------------------- */
