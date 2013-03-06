@@ -22,7 +22,8 @@ class Standard_SEO {
 	function __construct() {
 	
 		add_action( 'admin_print_styles', array( &$this, 'admin_styles' ) );
-		add_action( 'admin_enqueue_scripts', array( &$this, 'admin_scripts' ) );
+		// This is now all part of admin.js so this can be removed. TODO.
+		//add_action( 'admin_enqueue_scripts', array( &$this, 'admin_scripts' ) );
 		
 	    add_action( 'add_meta_boxes', array( &$this, 'seo_meta_boxes' ) );
 	    add_action( 'save_post', array( &$this, 'save_postdata' ) );
