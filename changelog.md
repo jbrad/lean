@@ -1,5 +1,25 @@
 # Changelog
 
+## 3.2.5 (March 6th, 2013)
+
+### Archives Template
+
+* Fixes special characters in post / page title breaking editor functionality.
+* Fixes post-level Standard SEO unresponsive browser issues.
+* Fixes media uploads for custom post types.
+
+### Change Set
+
+**Modified**
+
+* css/less/style.css
+* functions.php
+* js/admin.min.js
+* lib/seo/js/admin.min.js
+* lib/seo/js/dev/admin.js
+* lib/seo/plugin.php
+* style.css
+
 ## 3.2.4 (March 4th, 2013)
 
 ### Archives Template
