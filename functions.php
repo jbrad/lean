@@ -32,7 +32,7 @@
  */
  
 // Define a Standard version. This is used for cache-busting stylesheets, JavaScript, and for serializing the version in the database
-define( 'STANDARD_THEME_VERSION', '3.2.4' );
+define( 'STANDARD_THEME_VERSION', '3.2.5' );
  
 // Imports the Standard_Nav_Walker for the custom menu functionality.
 include_once( get_template_directory() . '/lib/Standard_Nav_Walker.class.php' );
@@ -2721,18 +2721,17 @@ function standard_add_theme_stylesheets() {
 	// theme
 	wp_enqueue_style( 'standard', get_stylesheet_directory_uri() . '/style.css', false, STANDARD_THEME_VERSION );
 	
-	// theme media queries/responsive
-	wp_enqueue_style( 'theme-responsive', get_template_directory_uri() . '/css/theme-responsive.css', false, STANDARD_THEME_VERSION );
-	
 	// contrast
 	$options = get_option( 'standard_theme_presentation_options' );
 	if( 'dark' == $options['contrast'] ) {
-		wp_enqueue_style( 'standard-contrast', get_template_directory_uri() . '/css/theme.contrast-light.css', false, STANDARD_THEME_VERSION );
+		wp_enqueue_style( 'standard-contrast', get_template_directory_uri() . '/css/theme.contrast-light.css', array( 'standard' ), STANDARD_THEME_VERSION );
  	} // end if
+
+	// theme media queries/responsive
+	wp_enqueue_style( 'theme-responsive', get_template_directory_uri() . '/css/theme-responsive.css', array( 'standard' ), STANDARD_THEME_VERSION );
 
 } // end add_theme_stylesheets
 add_action( 'wp_enqueue_scripts', 'standard_add_theme_stylesheets', 999 );
-
 
 /**
  * Imports all theme scripts and dependencies required for managing the behavior of the theme.
@@ -2830,12 +2829,55 @@ function standard_add_admin_script() {
 	wp_enqueue_script( 'standard-admin', get_template_directory_uri() . '/js/admin.min.js?using_sitemap=' . get_option( 'standard_using_sitemap' ), $dependencies, STANDARD_THEME_VERSION );
 
 	$screen = get_current_screen();
-	if( 'post' != $screen->id && 'page' != $screen->id ) {
+	if( 'post' != $screen->base && 'page' != $screen->base ) {
 		wp_enqueue_script( 'standard-admin-media', get_template_directory_uri() . '/js/admin.media-upload.min.js', $dependencies, STANDARD_THEME_VERSION );	
 	} // end if
 	
 } // end standard_add_admin_script
 add_action( 'admin_enqueue_scripts', 'standard_add_admin_script' );
+
+add_action( 'init', 'register_cpt_acme' );
+
+function register_cpt_acme() {
+
+    $labels = array( 
+        'name' => _x( 'Acmes', 'acme' ),
+        'singular_name' => _x( 'Acme', 'acme' ),
+        'add_new' => _x( 'Add New', 'acme' ),
+        'add_new_item' => _x( 'Add New Acme', 'acme' ),
+        'edit_item' => _x( 'Edit Acme', 'acme' ),
+        'new_item' => _x( 'New Acme', 'acme' ),
+        'view_item' => _x( 'View Acme', 'acme' ),
+        'search_items' => _x( 'Search Acmes', 'acme' ),
+        'not_found' => _x( 'No acmes found', 'acme' ),
+        'not_found_in_trash' => _x( 'No acmes found in Trash', 'acme' ),
+        'parent_item_colon' => _x( 'Parent Acme:', 'acme' ),
+        'menu_name' => _x( 'Acmes', 'acme' ),
+    );
+
+    $args = array( 
+        'labels' => $labels,
+        'hierarchical' => false,
+        
+        'supports' => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'trackbacks', 'custom-fields', 'comments', 'revisions', 'page-attributes' ),
+        'taxonomies' => array( 'category', 'post_tag', 'page-category' ),
+        'public' => true,
+        'show_ui' => true,
+        'show_in_menu' => true,
+        
+        
+        'show_in_nav_menus' => true,
+        'publicly_queryable' => true,
+        'exclude_from_search' => false,
+        'has_archive' => true,
+        'query_var' => true,
+        'can_export' => true,
+        'rewrite' => true,
+        'capability_type' => 'post'
+    );
+
+    register_post_type( 'acme', $args );
+}
 
 /* ----------------------------------------------------------- *
  * 7. Custom Filters
