@@ -31,7 +31,6 @@ class Standard_Ad_468x60 extends WP_Widget {
 		
 			add_action( 'admin_print_styles', array( $this, 'register_admin_styles' ) );
 			add_action( 'admin_enqueue_scripts', array( $this, 'register_admin_scripts' ) );
-			add_action( 'wp_enqueue_scripts', array( $this, 'register_widget_styles' ) );
 			
 		} // end if
 		
@@ -135,16 +134,6 @@ class Standard_Ad_468x60 extends WP_Widget {
 		} // end if
 		
 	} // end register_admin_scripts
-
-	/** 
-	 * Registers and Enqueues the stylesheets for this widget.
-	 *
-	 * @since	3.0
-	 * @version	1.0
-	 */
-	public function register_widget_styles() {
-		wp_enqueue_style( 'standard-ad-468x60', get_template_directory_uri() . '/lib/standard-ad-billboard/css/widget.css', false, STANDARD_THEME_VERSION );
-	} // end register_admin_styles
 
 	/**
 	 * Renders the advertisement for the specified advertisement.

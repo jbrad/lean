@@ -28,7 +28,6 @@ class Activity_Tabs extends WP_Widget {
 		$this->WP_Widget( 'standard-activity-tabs', __( 'Activity Tabs', 'standard' ), $widget_opts );
 		
 		add_action( 'admin_enqueue_scripts', array( &$this, 'register_admin_styles' ) );
-		add_action( 'wp_enqueue_scripts', array( &$this, 'register_widget_styles' ) );
 		
 	} // end constructor
 
@@ -135,17 +134,6 @@ class Activity_Tabs extends WP_Widget {
 	public function register_admin_styles() {
 		wp_enqueue_style( 'standard-activity-tabs', get_template_directory_uri() . '/lib/activity/css/admin.css', false, STANDARD_THEME_VERSION );
 	} // end register_admin_styles
-	
-	
-	/** 
-	 * Registers and Enqueues the stylesheets for this widget.
-	 *
-	 * @since	3.0
-	 * @version	3.0
-	 */
-	public function register_widget_styles() {
-		wp_enqueue_style( 'standard-activity-tabs', get_template_directory_uri() . '/lib/activity/css/widget.css', false, STANDARD_THEME_VERSION );
-	} // end register_widget_styles
 
 	/*--------------------------------------------------------*
 	 * Private Functions

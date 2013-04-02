@@ -20,7 +20,6 @@ class Standard_Influence extends WP_Widget {
 		$this->WP_Widget( 'standard-influence-widget', __( 'Social Influence', 'standard' ), $widget_opts );
 				
 		add_action( 'admin_print_styles', array( $this, 'register_admin_styles' ) );
-		add_action( 'wp_enqueue_scripts', array( $this, 'register_widget_styles' ) );
 		
 	} // end constructor
 
@@ -105,21 +104,8 @@ class Standard_Influence extends WP_Widget {
 	 * Registers and Enqueues the stylesheets for the Media Uploader and this widget.
 	 */
 	public function register_admin_styles() {
-	
-		wp_register_style( 'standard-influence', get_template_directory_uri() . '/lib/influence/css/admin.css' );
-		wp_enqueue_style( 'standard-influence' );
-		
+		wp_enqueue_style( 'standard-influence', get_template_directory_uri() . '/lib/influence/css/admin.css' );
 	} // end register_admin_styles
-
-	/** 
-	 * Registers and Enqueues the stylesheets for this widget.
-	 */
-	public function register_widget_styles() {
-	
-		wp_register_style( 'standard-influence', get_template_directory_uri() . '/lib/influence/css/widget.css' );
-		wp_enqueue_style( 'standard-influence' );
-	
-	} // end register_widget_styles
 
 	/*--------------------------------------------------------*
 	 * Private Functions

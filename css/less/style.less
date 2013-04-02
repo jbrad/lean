@@ -17,22 +17,13 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 	 2. Typography
 	 3. Structure
 	 4. Navigation
-		   -Header Menu
-		   -nav social-icons
-		   -Footer Menu
 	 5. Header
 	 6. Posts
-			-post formats
-			-author box
-			- comments and pings
 	 7. Page templates
-			-sitemap
-			- offline page template
-			- Search page
-			- 404 page
 	 8. Footer
 	 9. Widgets
-	10. IE8 Styles
+	10. Plugins
+	11. IE8 Styles
 */
 
 
@@ -83,11 +74,20 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 @import "footer.less";
 
-/* ------------------------------------------------------------------------ 10. Widgets */
+/* ------------------------------------------------------------------------ 9. Widgets */
 
 @import "widgets.less";
 
+/* ------------------------------------------------------------------------ 10. Plugins */
 
-/* ------------------------------------------------------------------------ 12. ie Styles */
+@import "../../lib/activity/css/less/widget.less";
+@import "../../lib/google-custom-search/css/less/widget.less";
+@import "../../lib/influence/css/less/widget.less";
+@import "../../lib/personal-image/css/less/widget.less";
+@import "../../lib/standard-ad-125x125/css/less/widget.less";
+@import "../../lib/standard-ad-300x250/css/less/widget.less";
+@import "../../lib/standard-ad-billboard/css/less/widget.less";
+
+/* ------------------------------------------------------------------------ 11. ie Styles */
 
 @import "ie-styles.less";

@@ -34,8 +34,6 @@ class Standard_Ad_300x250 extends WP_Widget {
 			
 		} // end if
 		
-		add_action( 'wp_enqueue_scripts', array( &$this, 'register_widget_styles' ) );
-		
 	} // end constructor
 
 	/*--------------------------------------------------------*
@@ -136,16 +134,6 @@ class Standard_Ad_300x250 extends WP_Widget {
 		} // end if
 		
 	} // end register_admin_scripts
-	
-	/** 
-	 * Registers and Enqueues the stylesheets for this widget.
-	 *
-	 * @since	3.0
-	 * @version	1.0
-	 */
-	public function register_widget_styles() {
-		wp_enqueue_style( 'standard-ad-300x250-widget', get_template_directory_uri() . '/lib/standard-ad-300x250/css/widget.css', false, STANDARD_THEME_VERSION );
-	} // end register_widget_styles
 
 	/**
 	 * Renders the advertisement for the specified advertisement.

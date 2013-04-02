@@ -27,16 +27,17 @@ class Google_Custom_Search extends WP_Widget {
 		
 		add_action( 'admin_print_styles', array( $this, 'load_admin_stylesheets') );
 		add_action( 'admin_enqueue_scripts', array( $this, 'load_admin_scripts') );
-		add_action( 'wp_enqueue_scripts', array( $this, 'load_stylesheets' ) );
 		
 		// If this widget isn't active and our search results page exists, let's delete it
-		// If the widget is now active, then create the search results template; otherwise, delete what exists
-		//print_r( is_active_widget( false, false, $this->id_base, true ) );
-		//die();
 		if( is_active_widget( false, false, $this->id_base, true ) ) {
+		
 			$this->create_search_results_template();
+			
+		// If the widget is now active, then create the search results template; otherwise, delete what exists
 		} else {
+		
 			$this->delete_search_results_template();
+			
 		} // end if
 		
 	} // end constructor
@@ -108,16 +109,6 @@ class Google_Custom_Search extends WP_Widget {
 	/*--------------------------------------------------------*
 	 * Helper Functions
 	 *--------------------------------------------------------*/
-	
-	/**
-	 * Loads the administrative stylesheets for the dashboard.
-	 *
-	 * @since	3.0
-	 * @version	3.0
-	 */
-	function load_admin_stylesheets() {
-		wp_enqueue_style( 'gcse-admin', get_template_directory_uri() . '/lib/google-custom-search/css/admin.css', false, STANDARD_THEME_VERSION );
-	} // end load_stylesheets
 	
 	/**
 	 * Loads the administrative JavaScripts for the dashboard.

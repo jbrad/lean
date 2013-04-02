@@ -34,8 +34,6 @@ class Standard_Personal_Image extends WP_Widget {
 			
 		} // end if
 		
-		add_action( 'wp_enqueue_scripts', array( &$this, 'register_widget_styles' ) );
-		
 	} // end constructor
 
 	/*--------------------------------------------------------*
@@ -144,16 +142,6 @@ class Standard_Personal_Image extends WP_Widget {
 		} // end if
 		
 	} // end register_admin_scripts
-	
-	/** 
-	 * Registers and Enqueues the stylesheets for this widget.
-	 *
-	 * @since	3.0
-	 * @version	1.0
-	 */
-	public function register_widget_styles() {
-		wp_enqueue_style( 'standard-personal-image-widget', get_template_directory_uri() . '/lib/personal-image/css/widget.css', false, STANDARD_THEME_VERSION );
-	} // end register_widget_styles
 
 } // end class
 add_action( 'widgets_init', create_function( '', 'register_widget( "Standard_Personal_Image" );' ) ); 
