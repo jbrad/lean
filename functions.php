@@ -2615,15 +2615,7 @@ if( ! function_exists( 'standard_custom_comment' ) ) {
 				
 				<?php if ( "comment" == get_comment_type() ) { ?>
 					<div class="avatar-holder">
-						<?php 
-						$default = null;
-						if( get_comment_author_email() == get_the_author_meta( 'user_email' ) ) {
-							$default = get_the_author_meta( 'user_email' );
-						} else {
-							$default = get_comment_author_email();
-						} // end if/else
-						echo get_avatar( $default, '50' );
-						?>
+						<?php echo get_avatar( $default, '50' ); ?>
 					</div><!-- /.avatar-holder -->
 				<?php } // end if ?>	
 				
