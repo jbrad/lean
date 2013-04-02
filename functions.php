@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Standard 3.2.4
+ * Standard 3.3
  * Standard is a sleek, exacting product designed for uncluttered and sophisticated presentation of your content on desktop and mobile devices.
  *
  * This file enables core features of Standard including sidebars, menus, post thumbnails, post formats, header, backgrounds, and more.
@@ -32,7 +32,7 @@
  */
  
 // Define a Standard version. This is used for cache-busting stylesheets, JavaScript, and for serializing the version in the database
-define( 'STANDARD_THEME_VERSION', '3.2.5' );
+define( 'STANDARD_THEME_VERSION', '3.3' );
  
 // Imports the Standard_Nav_Walker for the custom menu functionality.
 include_once( get_template_directory() . '/lib/Standard_Nav_Walker.class.php' );
@@ -46,10 +46,10 @@ include_once( get_template_directory() . '/lib/Standard_Nav_Walker.class.php' );
  * Defines the path to the localization files.
  *
  * @since	3.0
- * @version	3.2
+ * @version	3.3
  */
 function standard_set_theme_localization() {
-	load_theme_textdomain( 'standard', get_template_directory() . '/lang' );
+	load_theme_textdomain( 'standard', get_stylesheet_directory() . '/lang' );
 } // set_theme_localization
 add_action( 'after_setup_theme', 'standard_set_theme_localization' );
 
