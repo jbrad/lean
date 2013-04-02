@@ -49,7 +49,6 @@ class Standard_Nav_Walker extends Walker_Nav_Menu {
 		
 		// If the XFN was specified, add it to the anchor
 		$xfn = '' == $item->xfn ? '' : 'rel="' . $item->xfn . '"';
-		print_r( $xfn );
 		
 		// If the current menu item has children, we need to set the proper class names on the list items
 		// and the anchors. Parent menu items can't have blank targets.
