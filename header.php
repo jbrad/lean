@@ -159,13 +159,21 @@
 								<?php } else if( standard_has_header_text() ) { ?>
 									
 									<?php // If the user is on the front page, archive page, or one of the post formats without titles, we render h1's. ?>
-									<?php if( is_front_page() || is_archive() || 'video' == get_post_format() || 'image' == get_post_format() || '' == get_the_title() ) { ?>
-									
+									<?php if( is_home() || is_archive() || 'video' == get_post_format() || 'image' == get_post_format() || '' == get_the_title() ) { ?>
+
                                         <h1 id="site-title">
                                             <a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php bloginfo( 'name' ); ?>" rel="home">
                                                 <?php bloginfo( 'name' ); ?>
                                             </a>
                                         </h1><!-- /#site-title -->
+                                        
+                                    <?php } else if ( is_front_page() ) { ?>
+
+                                        <h2 id="site-title">
+                                            <a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php bloginfo( 'name' ); ?>" rel="home">
+                                                <?php bloginfo( 'name' ); ?>
+                                            </a>
+                                        </h2><!-- /#site-title -->
 										
 									<?php } else { ?>
 									
