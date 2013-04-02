@@ -971,29 +971,6 @@ function google_analytics_display() {
 } // end google_analytics_display
 
 /**
- * Renders the option element for the Affiliate Code.
- *
- * @since		3.0
- * @version		3.2
- * @deprecated 	3.2
- */
-function affiliate_code_display() {
-
-	$option = get_option( 'standard_theme_global_options' );
-	
-	$affiliate_code = '';
-	if( true == isset ( $option['affiliate_code'] ) ) {
-		$affiliate_code = $option['affiliate_code'];
-	} // end if
-	
-	$html = '<input type="text" id="affiliate_code" name="standard_theme_global_options[affiliate_code]" value="' . esc_attr( $affiliate_code ) . '" />';
-	$html .= '&nbsp;<span class="description">' . __( 'Earn money by recommending Standard to your site visitors. <a href="http://docs.8bit.io/standard/affiliates" target="_blank">Learn more</a>.', 'standard' ) . '</span>';
-	
-	echo $html;
-
-} // end affiliate_code_display
-
-/**
  * Renders the option element for activating Offline Mode.
  *
  * @since	3.0
@@ -1061,13 +1038,6 @@ function standard_theme_global_options_validate( $input ) {
 		if( isset ( $input[$key] ) ) {
 			$output[$key] = strip_tags( stripslashes( $input[$key] ) );
 		} // end if	
-		
-		/*
-		 * @deprecated 	3.2
-		if( 'affiliate_code' == $key ) {
-			$output[$key] = esc_url ( strip_tags( stripslashes( $input[$key] ) ) );
-		} // end if
-		*/
 	
 	} // end foreach
 
