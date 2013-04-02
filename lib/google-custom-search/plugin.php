@@ -154,7 +154,7 @@ class Google_Custom_Search extends WP_Widget {
 					'post_title'		=>	__( 'Search Results', 'standard' ),
 					'post_status'		=>	'publish',
 					'post_type'			=>	'page',
-					'post_content'		=>	file_get_contents( get_template_directory_uri() . '/lib/google-custom-search/lib/Standard_Google_Custom_Search.template.php' )
+					'post_content'		=>	wp_remote_get( get_template_directory_uri() . '/lib/google-custom-search/lib/Standard_Google_Custom_Search.template.php' )
 				)
 			);
 			
@@ -246,21 +246,6 @@ class Google_Custom_Search extends WP_Widget {
 	private function is_page( $page_file_name ) {
 		return 0 < strpos( $_SERVER['REQUEST_URI'], $page_file_name );
 	} // end is_widgets_page
-	
-	private function get_template( $path ) {
-		
-		$template = null;
-		
-		// First, check to see if curl is enabled. If so, we'll use it.
-		if( function_exists( 'curl_init' ) ) {
-			$template = $this->curl( $url );
-		} elseif( function_exists( 'file_get_contents' ) ) {
-			$template = $this->file_get_contents( $url );
-		} // end if
-		
-		return $template;
-		
-	} // end get_template
 
 } // end class
 add_action( 'widgets_init', create_function( '', 'register_widget( "Google_Custom_Search" );' ) ); 
