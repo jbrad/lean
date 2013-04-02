@@ -47,6 +47,10 @@ class Standard_Nav_Walker extends Walker_Nav_Menu {
 		// If a title was specified, let's add it to the anchor
 		$title = '' == $item->attr_title ? 'title="' . $item->title . '"' : 'title="' . $item->attr_title . '"';
 		
+		// If the XFN was specified, add it to the anchor
+		$xfn = '' == $item->xfn ? '' : 'rel="' . $item->xfn . '"';
+		print_r( $xfn );
+		
 		// If the current menu item has children, we need to set the proper class names on the list items
 		// and the anchors. Parent menu items can't have blank targets.
 		if( $args->has_children ) {
@@ -54,12 +58,12 @@ class Standard_Nav_Walker extends Walker_Nav_Menu {
 			if( $item->menu_item_parent == 0 ) {
 
 				$menu_item = get_permalink() == $item->url ? '<li class="dropdown ' . $css_classes . '">' : '<li class="dropdown ' . $css_classes . '">';
-					$menu_item .= '<a href="' . $item->url . '" class="dropdown-toggle" data-toggle="dropdown"' . ' ' . $title . ' ' . $target . '>';
+					$menu_item .= '<a href="' . $item->url . '" class="dropdown-toggle" data-toggle="dropdown"' . ' ' . $title . ' ' . $xfn . ' ' . $target . '>';
 					
 			} else { 
 
 				$menu_item = '<li class="dropdown submenu ' . $css_classes . '">';
-					$menu_item .= '<a href="' . $item->url . '" class="dropdown-toggle" data-toggle="dropdown"' . $target . ' ' . $title . '>';
+					$menu_item .= '<a href="' . $item->url . '" class="dropdown-toggle" data-toggle="dropdown"' . ' ' . $title . ' ' . $xfn . ' ' . $target . '>';
 					
 			} // end if/else
 		
@@ -67,7 +71,7 @@ class Standard_Nav_Walker extends Walker_Nav_Menu {
 		} else {
 
 			$menu_item = get_permalink() == $item->url ? '<li class="active ' . $css_classes . '">' : '<li class="' . $css_classes . '">';
-				$menu_item .= '<a href="' . $item->url . '"' . $target . ' ' . $title . '>';
+				$menu_item .= '<a href="' . $item->url . '"' . ' ' . $title . ' ' . $xfn . ' ' . $target . '>';
 					
 		} // end if
 		
