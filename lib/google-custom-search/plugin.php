@@ -109,6 +109,16 @@ class Google_Custom_Search extends WP_Widget {
 	/*--------------------------------------------------------*
 	 * Helper Functions
 	 *--------------------------------------------------------*/
+
+	/**
+	 * Loads the administrative stylesheets for the dashboard.
+	 *
+	 * @since	3.0
+	 * @version	3.0
+	 */
+	function load_admin_stylesheets() {
+		wp_enqueue_style( 'gcse-widget', get_template_directory_uri() . '/lib/google-custom-search/css/admin.css', false, STANDARD_THEME_VERSION );
+	} // end load_stylesheets
 	
 	/**
 	 * Loads the administrative JavaScripts for the dashboard.
