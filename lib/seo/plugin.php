@@ -97,12 +97,12 @@ class Standard_SEO {
 					
 				// The user isn't using gplus.to, so the index of the ID is different
 				} else {
-
+					
 					// Read the URL into an array
 					$google_plus_id = explode( '/',  trailingslashit( $google_plus_url ) );
-					
+
 					// Note the third index of this array should alwas be at 5 after user_trailingslashit
-					$google_plus_id = $google_plus_id[5];
+					$google_plus_id = $google_plus_id[3];					
 				
 				} // end if/else
 								
