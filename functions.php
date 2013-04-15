@@ -3855,6 +3855,18 @@ function standard_is_gplusto_url( $url ) {
 } // end standard_is_gplusto_url
 
 /**
+ * Determines if the incoming URL is a Google+ vanity URL.
+ *
+ * @param	string $url	The URL to evaluate
+ * @return	boolean 	Whether or not the URL is a Google Plus Vanity URL
+ * @since	3.3
+ * @version	3.3
+ */
+function standard_is_google_plus_vanity_url( $url ) {
+	return false != stristr( $url, '/+' );
+} // end standard_is_google_plus_vanity_url
+
+/**
  * Retrieves the user's Google+ ID from their gplus.to address.
  *
  * @param	string $url	The URL to evaluate
