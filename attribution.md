@@ -1,3 +1,12 @@
+# Standard
+
+* Copyright 2010 - 2013 8BIT, LLC
+
+> Licensed under the GPLv3. Please see `license.md` included with this
+> software for a full copy of the license.
+
+[GPLv3](http://www.gnu.org/licenses/gpl.txt)
+
 # Changelog
 
 ## Twitter Bootstrap 2.0.2
