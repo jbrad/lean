@@ -86,6 +86,43 @@
 											<p><?php _e( 'You have no posts.', 'standard' ); ?></p>
 										<?php } // end if ?>
 										
+										<h2><?php _e( 'All Pages', 'standard'); ?></h2>
+										
+										<?php $args = array(
+											'post_type'			=>	'page',
+											'orderby'			=>	'date',
+											'order'				=>	'desc',
+											'post_status'		=>	'publish',
+											'posts_per_page'	=>	500
+										);
+										$post_query = new WP_Query( $args );
+										
+										if( $post_query->have_posts() ) { ?>
+											<p>
+											<?php
+												while( $post_query->have_posts() ) { 
+													$post_query->the_post(); ?>
+													<ul>
+														<li>
+															<span class="the_date">
+																<?php echo get_the_time( get_option( 'date_format' ), get_the_ID() ); ?>
+															</span>
+															&nbsp;&mdash;&nbsp;
+															<span class="the_title">
+																<a href="<?php echo get_permalink(); ?>">
+																	<?php echo get_the_title(); ?>
+																</a>
+															</span>
+														</li>
+													</ul>
+												<?php } // end while
+												wp_reset_postdata();
+											?>
+											</p>
+										<?php } else { ?>
+											<p><?php _e( 'You have no pages.', 'standard' ); ?></p>
+										<?php } // end if ?>
+										
 									</div><!-- /.entry-content -->
 								</div><!-- /.entry-content -->
 							</div> <!-- /#post- -->
