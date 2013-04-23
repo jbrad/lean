@@ -9,61 +9,145 @@
 // Widget Areas
 // -----------------------------------------
 
-#sidebar .widget {
-	margin-bottom: 30px;
-}
+#sidebar {
+	
+	.widget {
+		margin-bottom:	30px;
+	} // .widget
+	
+} // #sidebar
 
-.widget_categories ul.children {
-    padding-left: 5px;
-    border-left: 1px solid #E0E0E0;
-}
+.widget_categories { 
 
-#footer-widgets .widget {
-	margin-bottom: 30px;
-}
+	ul.children {
+	
+    	padding-left:	5px;
+    	border-left: 	1px solid #E0E0E0;
+    	
+    } // ul.children
+    
+} // .widget_categories
+
+#footer-widgets {
+
+	.widget {
+		margin-bottom:	30px;
+	} // .widget
+	
+} // #footer-widgets
 
 // Main Widget Styling
 // -----------------------------------------
 
-.widget label {
-	float: none;
-	width: auto;
-}
+.widget {
+	
+	label {
+	
+		float:	none;
+		width:	auto;
+		
+	} // label
+	
+} // .widget
 
-.widget h4.widget-title {
-	margin-bottom: 10px;
-	padding-bottom: 10px;
-	border-bottom: 1px solid #e0e0e0;
-	font-size: 18px;
-	line-height: 24px;
-}
+.widget {
 
-.widget h4.widget-title a {
-	color: #444;
-	text-decoration: none;
-}
+	h4.widget-title {
+	
+		margin-bottom: 	10px;
+		padding-bottom: 10px;
+		border-bottom: 	1px solid #e0e0e0;
+		font-size: 		18px;
+		line-height: 	24px;
+		
+	} // h4.widget-title
+	
+} // .widget
 
-#footer-widgets .widget h4.widget-title {
-	border-bottom: 1px solid #999;
-}
+.widget {
 
-.widget ul {
-	margin: 0;
-	padding: 0;
-}
+	h4.widget-title {
+	
+		a {
+		
+			color: 			 #444;
+			text-decoration: none;
+			
+		} // a
+		
+	} // h4.widget-title
+	
+} // .widget
 
-.widget ul li {
-	padding: 5px 0;
-	list-style: none;
-}
+#footer-widgets {
 
-.widget ul li a {
-	color: #777;	
-}
+	.widget {
+	
+		h4.widget-title {
+			border-bottom: 	1px solid #999;
+		} // h4.widget-title
+		
+	} // .widget
+	
+} // #footer-widgets
 
-.widget ul li a:hover {
-	color: #999;
-}
+.widget {
+	
+	ul {
+	
+		margin:		0;
+		padding: 	0;
+		
+	} // ul
+	
+} // .widget
+
+.widget {
+
+	ul {
+	
+		li {
+		
+			padding: 	5px 0;
+			list-style: none;
+		
+		} // li
+		
+	} // ul
+	
+} // .widget
+
+.widget {
+
+	ul {
+	
+		li {
+		
+			a {
+				color:	#777;
+			} // a
+			
+		} // li
+		
+	} // ul
+	
+} // .widget
+
+.widget {
+
+	ul {
+	
+		li {
+			
+			a:hover {
+				color: #999;
+			} // a:hover
+			
+		} // li
+		
+	} // ul
+	
+} // .widget
 
 // Post advertising Widgets
 // -----------------------------------------
@@ -282,51 +366,73 @@ table#wp-calendar th, table#wp-calendar td {
 // Jetpack contact form 
 // -----------------------------------------
 
-.contact-form > div {
-	margin-bottom: 15px;
-}
+.contact-form {
 
-.contact-form .clear-form { 
-	clear: both; 
-}
-.contact-form input[type='text'] { 
- 	margin-bottom: 13px;
-}
-.contact-form select { 
-	margin-bottom: 13px; 
-}
-.contact-form textarea { 
-	float: none; 
-	margin-bottom: 13px; 
-	width: 97%; 
-	height: 200px;
-}
-.contact-form input[type='radio'], .contact-form input[type='checkbox'] {
-	margin-bottom: 13px; 
-}
-.contact-form label { 
-	display: block; 
-	float: none;
-	margin-bottom: 3px; 
-	font-weight: bold; 
-}
-.contact-form label.checkbox, .contact-form label.radio { 
-	display: inline-block; 
-	float: none; 
-	margin-bottom: 3px; 
-	font-weight: bold; 
-}
-.contact-form label span { 
-	margin-left: 4px; 
-	color: #aaa; 
-	font-weight: normal; 
-}
+	label {
+	
+		display: 		block; 
+		float: 			none;
+		margin-bottom: 	3px; 
+		font-weight: 	bold; 
+	
+		span { 
+		
+			margin-left:	4px; 
+			color: 			#aaa; 
+			font-weight: 	normal;
+			
+		} // span
+		
+	} // label
+	
+	textarea { 
+		
+		float: 			none; 
+		margin-bottom: 	13px; 
+		width: 			97%; 
+		height: 		200px;
+		
+	} // textarea
+	
+	input[type='text'] { 
+	 	margin-bottom:	13px;
+	} // type='text'
+	
+	input[type='radio'],
+	input[type='checkbox'] {
+		margin-bottom: 13px; 
+	} // radio, checkbox
+	
+	select { 
+		margin-bottom: 13px; 
+	} // select
 
+	label.checkbox, 
+	label.radio {
+	
+		display:		inline-block; 
+		float: 			none; 
+		margin-bottom: 	3px; 
+		font-weight: 	bold; 
+		
+	} // label.checkbox, label.radio
+	
+	.clear-form { 
+		clear: both; 
+	} // .clear-form
+	
+	> div {
+		margin-bottom: 15px;
+	} // > div	
+	
+} // .contact-form
 
 /// WordPress.com Widget
 // -----------------------------------------
 
 #flickr_badge_wrapper {
-	border: none;
+
+	border: 	none;
 	background: none;
-}
+	
+} // #flickr_badge_wrapper
