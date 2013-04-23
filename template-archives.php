@@ -51,12 +51,25 @@
 										
 										<h2><?php _e( 'All Posts', 'standard'); ?></h2>
 										
+										<?php
+											/* Budget web hosts make it difficult to pull back a lot of posts.
+											 * To combat this, we're going to introduce pagination into the
+											 * 'All Posts' section.
+											 */
+											 $display_count = 2;
+											 $page = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1;
+											 $offset = ( $page - 1 ) * $display_count;	 
+										?>
+										
 										<?php $args = array(
 											'post_type'			=>	'post',
 											'orderby'			=>	'date',
 											'order'				=>	'desc',
 											'post_status'		=>	'publish',
-											'posts_per_page'	=>	500
+											'posts_per_page'	=>	500,
+											'number'     		=>  $display_count,
+											'page'       		=>  $page,
+											'offset'     		=>  $offset
 										);
 										$post_query = new WP_Query( $args );
 										
@@ -78,9 +91,19 @@
 															</span>
 														</li>
 													</ul>
-												<?php } // end while
-												wp_reset_postdata();
-											?>
+												<?php } // end while ?>
+												
+												<ul class="pager">
+													<li class="previous">
+														<?php previous_posts_link( '<< Previous Posts', $post_query->max_num_pages ); ?>
+													</li>
+													<li class="next">
+														<?php next_posts_link( 'Next Posts >>', $post_query->max_num_pages ); ?>
+													</li>
+												</ul><!-- /.pager -->
+												
+												<?php wp_reset_postdata(); ?>
+											
 											</p>
 										<?php } else { ?>
 											<p><?php _e( 'You have no posts.', 'standard' ); ?></p>
