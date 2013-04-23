@@ -21,12 +21,10 @@ class Standard_SEO {
 	 */ 
 	function __construct() {
 	
-		add_action( 'admin_print_styles', array( &$this, 'admin_styles' ) );
-		// This is now all part of admin.js so this can be removed. TODO.
-		//add_action( 'admin_enqueue_scripts', array( &$this, 'admin_scripts' ) );
+		add_action( 'admin_print_styles', array( $this, 'admin_styles' ) );
 		
-	    add_action( 'add_meta_boxes', array( &$this, 'seo_meta_boxes' ) );
-	    add_action( 'save_post', array( &$this, 'save_postdata' ) );
+	    add_action( 'add_meta_boxes', array( $this, 'seo_meta_boxes' ) );
+	    add_action( 'save_post', array( $this, 'save_postdata' ) );
 	    
 	} // end constructor
 	
@@ -194,22 +192,6 @@ class Standard_SEO {
 	public function admin_styles() {
 		wp_enqueue_style( 'standard-seo-admin', get_template_directory_uri() . '/lib/seo/css/admin.css', false, STANDARD_THEME_VERSION );
 	} // end admin_styles
-	
-	/**
-	 * Registers and enqueues JavaScript sources for the administration panel.
-	 *
-	 * @since	3.0
-	 * @version	1.0
-	 */
-	public function admin_scripts() {
-	
-		$screen = get_current_screen();
-		
-		if( 'post' == $screen->id || 'page' == $screen->id ) { 	
-			wp_enqueue_script( 'standard-seo-admin', get_template_directory_uri() . '/lib/seo/js/admin.min.js', false, STANDARD_THEME_VERSION );
-		} // end if 
-
-	} // end admin_scripts
   
 } // end class
 new Standard_SEO();
