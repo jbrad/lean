@@ -1473,238 +1473,232 @@ function standard_theme_options_display() {
 
 /**
  * Implements the Theme Customizer for installations that are on WordPress 3.4 or greater.
- * This function will become part of Standard Core in 3.4 as its dependent function,
- * that is standard_is_on_wp34, is depcrecated in 3.2 and will be removed in 3.4.
  * 
  * @param	$wp_customize	The WordPress Theme Customizer
  * @since	3.0
  * @version	3.2
- */
-if( standard_is_on_wp34() ) {
-	
-	function standard_customize_register( $wp_customize ) {
+ */	
+function standard_customize_register( $wp_customize ) {
 
-		// Presentation Options
-		$wp_customize->add_section( 'standard_theme_presentation_options', 
-			array(
-				'title'          => __( 'Presentation', 'standard' ),
-				'priority'       => 150
-			) 
-		);
+	// Presentation Options
+	$wp_customize->add_section( 'standard_theme_presentation_options', 
+		array(
+			'title'          => __( 'Presentation', 'standard' ),
+			'priority'       => 150
+		) 
+	);
+
+	// Contrast
+	$wp_customize->add_setting( 'standard_theme_presentation_options[contrast]', 
+		array(
+			'default'        => '',
+			'type'           => 'option',
+			'capability'     => 'edit_theme_options'
+		) 
+	);
+
+	$wp_customize->add_control( 'standard_theme_presentation_options[contrast]', 
+		array(
+			'label'      => __( 'Contrast', 'standard' ),
+			'section'    => 'standard_theme_presentation_options',
+			'settings'   => 'standard_theme_presentation_options[contrast]',
+			'type'       => 'select',
+			'choices'    => array(
+				'light' => __( 'Light', 'standard' ),
+				'dark'  => __( 'Dark', 'standard' )
+			),
+		) 
+	);
 	
-		// Contrast
-		$wp_customize->add_setting( 'standard_theme_presentation_options[contrast]', 
-			array(
-				'default'        => '',
-				'type'           => 'option',
-				'capability'     => 'edit_theme_options'
-			) 
-		);
+	// Logo
+	$wp_customize->add_setting( 'standard_theme_presentation_options[logo]', 
+		array(
+			'default'        => '',
+			'type'           => 'option',
+			'capability'     => 'edit_theme_options'
+		) 
+	);
 	
-		$wp_customize->add_control( 'standard_theme_presentation_options[contrast]', 
+	$wp_customize->add_control( 
+		new WP_Customize_Image_Control( 
+			$wp_customize, 
+			'standard_theme_presentation_options[logo]',
 			array(
-				'label'      => __( 'Contrast', 'standard' ),
-				'section'    => 'standard_theme_presentation_options',
-				'settings'   => 'standard_theme_presentation_options[contrast]',
-				'type'       => 'select',
-				'choices'    => array(
-					'light' => __( 'Light', 'standard' ),
-					'dark'  => __( 'Dark', 'standard' )
-				),
-			) 
-		);
-		
-		// Logo
-		$wp_customize->add_setting( 'standard_theme_presentation_options[logo]', 
-			array(
-				'default'        => '',
-				'type'           => 'option',
-				'capability'     => 'edit_theme_options'
-			) 
-		);
-		
-		$wp_customize->add_control( 
-			new WP_Customize_Image_Control( 
-				$wp_customize, 
-				'standard_theme_presentation_options[logo]',
-				array(
-					'label'		=>	__( 'Logo', 'standard' ),
-					'section'	=>	'standard_theme_presentation_options',
-					'settings'  => 'standard_theme_presentation_options[logo]'
-				)
+				'label'		=>	__( 'Logo', 'standard' ),
+				'section'	=>	'standard_theme_presentation_options',
+				'settings'  => 'standard_theme_presentation_options[logo]'
 			)
-		);
-		
-		// Layout
-		$wp_customize->add_setting( 'standard_theme_presentation_options[layout]', 
-			array(
-				'default'        => 'right_sidebar_layout',
-				'type'           => 'option',
-				'capability'     => 'edit_theme_options'
-			) 
-		);
+		)
+	);
 	
-		$wp_customize->add_control( 'standard_theme_presentation_options[layout]', 
-			array(
-				'label'      => __( 'Layout', 'themename' ),
-				'section'    => 'standard_theme_presentation_options',
-				'settings'   => 'standard_theme_presentation_options[layout]',
-				'type'       => 'select',
-				'choices'    => array(
-					'left_sidebar_layout' 	=> __( 'Left Sidebar', 'standard' ),
-					'right_sidebar_layout' 	=> __( 'Right Sidebar', 'standard' ),
-					'full_width_layout'		=> __( 'No Sidebar / Full-Width', 'standard' )
-				),
-			) 
-		);
-		
-		// Breadcrumbs
-		$wp_customize->add_setting( 'standard_theme_presentation_options[display_breadcrumbs]', 
-			array(
-				'default'        => 'always',
-				'type'           => 'option',
-				'capability'     => 'edit_theme_options'
-			) 
-		);
+	// Layout
+	$wp_customize->add_setting( 'standard_theme_presentation_options[layout]', 
+		array(
+			'default'        => 'right_sidebar_layout',
+			'type'           => 'option',
+			'capability'     => 'edit_theme_options'
+		) 
+	);
+
+	$wp_customize->add_control( 'standard_theme_presentation_options[layout]', 
+		array(
+			'label'      => __( 'Layout', 'themename' ),
+			'section'    => 'standard_theme_presentation_options',
+			'settings'   => 'standard_theme_presentation_options[layout]',
+			'type'       => 'select',
+			'choices'    => array(
+				'left_sidebar_layout' 	=> __( 'Left Sidebar', 'standard' ),
+				'right_sidebar_layout' 	=> __( 'Right Sidebar', 'standard' ),
+				'full_width_layout'		=> __( 'No Sidebar / Full-Width', 'standard' )
+			),
+		) 
+	);
 	
-		$wp_customize->add_control( 'standard_theme_presentation_options[display_breadcrumbs]', 
-			array(
-				'label'      => __( 'Display Breadcrumbs', 'standard' ),
-				'section'    => 'standard_theme_presentation_options',
-				'settings'   => 'standard_theme_presentation_options[display_breadcrumbs]',
-				'type'       => 'select',
-				'choices'    => array(
-					'always' 		=>	__( 'Always', 'standard' ),
-					'never' 		=>  __( 'Never', 'standard' )
-				)
-			) 
-		);
-		
-		// Featured Images
-		$wp_customize->add_setting( 'standard_theme_presentation_options[display_featured_images]', 
-			array(
-				'default'        => 'always',
-				'type'           => 'option',
-				'capability'     => 'edit_theme_options'
-			) 
-		);
+	// Breadcrumbs
+	$wp_customize->add_setting( 'standard_theme_presentation_options[display_breadcrumbs]', 
+		array(
+			'default'        => 'always',
+			'type'           => 'option',
+			'capability'     => 'edit_theme_options'
+		) 
+	);
+
+	$wp_customize->add_control( 'standard_theme_presentation_options[display_breadcrumbs]', 
+		array(
+			'label'      => __( 'Display Breadcrumbs', 'standard' ),
+			'section'    => 'standard_theme_presentation_options',
+			'settings'   => 'standard_theme_presentation_options[display_breadcrumbs]',
+			'type'       => 'select',
+			'choices'    => array(
+				'always' 		=>	__( 'Always', 'standard' ),
+				'never' 		=>  __( 'Never', 'standard' )
+			)
+		) 
+	);
 	
-		$wp_customize->add_control( 'standard_theme_presentation_options[display_featured_images]', 
-			array(
-				'label'      => __( 'Display Featured Images', 'themename' ),
-				'section'    => 'standard_theme_presentation_options',
-				'settings'   => 'standard_theme_presentation_options[display_featured_images]',
-				'type'       => 'select',
-				'choices'    => array(
-					'always' 		=>	__( 'Always', 'standard' ),
-					'never' 		=>  __( 'Never', 'standard' ),
-					'index'			=>	__( 'On index only', 'standard' ),
-					'single-post'	=>	__( 'On single posts only', 'standard' )
-				),
-			) 
-		);
-		
-		// Publishing Options
-		$wp_customize->add_section( 'standard_theme_publishing_options', 
-			array(
-				'title'          => __( 'Publishing', 'standard' ),
-				'priority'       => 151
-			) 
-		);
+	// Featured Images
+	$wp_customize->add_setting( 'standard_theme_presentation_options[display_featured_images]', 
+		array(
+			'default'        => 'always',
+			'type'           => 'option',
+			'capability'     => 'edit_theme_options'
+		) 
+	);
+
+	$wp_customize->add_control( 'standard_theme_presentation_options[display_featured_images]', 
+		array(
+			'label'      => __( 'Display Featured Images', 'themename' ),
+			'section'    => 'standard_theme_presentation_options',
+			'settings'   => 'standard_theme_presentation_options[display_featured_images]',
+			'type'       => 'select',
+			'choices'    => array(
+				'always' 		=>	__( 'Always', 'standard' ),
+				'never' 		=>  __( 'Never', 'standard' ),
+				'index'			=>	__( 'On index only', 'standard' ),
+				'single-post'	=>	__( 'On single posts only', 'standard' )
+			),
+		) 
+	);
 	
-		// Author Box
-		$wp_customize->add_setting( 'standard_theme_publishing_options[display_author_box]', 
-			array(
-				'default'        => 'always',
-				'type'           => 'option',
-				'capability'     => 'edit_theme_options'
-			) 
-		);
+	// Publishing Options
+	$wp_customize->add_section( 'standard_theme_publishing_options', 
+		array(
+			'title'          => __( 'Publishing', 'standard' ),
+			'priority'       => 151
+		) 
+	);
+
+	// Author Box
+	$wp_customize->add_setting( 'standard_theme_publishing_options[display_author_box]', 
+		array(
+			'default'        => 'always',
+			'type'           => 'option',
+			'capability'     => 'edit_theme_options'
+		) 
+	);
+
+	$wp_customize->add_control( 'standard_theme_publishing_options[display_author_box]', 
+		array(
+			'label'      => __( 'Display Author Box', 'standard' ),
+			'section'    => 'standard_theme_publishing_options',
+			'settings'   => 'standard_theme_publishing_options[display_author_box]',
+			'type'       => 'select',
+			'choices'    => array(
+				'always' 		=>	__( 'Always', 'standard' ),
+				'never' 		=>  __( 'Never', 'standard' )
+			)
+		) 
+	);
 	
-		$wp_customize->add_control( 'standard_theme_publishing_options[display_author_box]', 
-			array(
-				'label'      => __( 'Display Author Box', 'standard' ),
-				'section'    => 'standard_theme_publishing_options',
-				'settings'   => 'standard_theme_publishing_options[display_author_box]',
-				'type'       => 'select',
-				'choices'    => array(
-					'always' 		=>	__( 'Always', 'standard' ),
-					'never' 		=>  __( 'Never', 'standard' )
-				)
-			) 
-		);
-		
-		// Basic WordPress functionality (header display, backgrounds, etc)
-		if ( $wp_customize->is_preview() && ! is_admin() ) {
-			add_action( 'wp_footer', 'standard_customize_preview', 21);
+	// Basic WordPress functionality (header display, backgrounds, etc)
+	if ( $wp_customize->is_preview() && ! is_admin() ) {
+		add_action( 'wp_footer', 'standard_customize_preview', 21);
+	} // end if
+	$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
+	$wp_customize->get_setting( 'background_attachment' )->transport = 'postMessage';
+	
+} // end standard_customize_register
+add_action( 'customize_register', 'standard_customize_register' );
+
+	/**
+ * Renders the JavaScript responsible for hooking into the Theme Customizer to tweak
+ * the built-in theme settings.
+ *
+ * @since	3.0
+ * @version	3.2
+ */
+function standard_customize_preview() { ?>
+	<script type="text/javascript">
+	(function( $ ) {
+	
+		// We need to the hide the header widget area when previewing the theme *unless* there are only Standard widgets
+		// present. If Standard widgets are present, it means they've customized it already; otherwise, we're 
+		// coming from another theme.
+		if( $('#header-widget').children().length !== $('#header-widget').children('div[id*=standard]').length ) {
+			$('#header-widget').hide();
 		} // end if
-		$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
-		$wp_customize->get_setting( 'background_attachment' )->transport = 'postMessage';
-		
-	} // end standard_customize_register
-	add_action( 'customize_register', 'standard_customize_register' );
-	
- 	/**
-	 * Renders the JavaScript responsible for hooking into the Theme Customizer to tweak
-	 * the built-in theme settings.
-	 *
-	 * @since	3.0
-	 * @version	3.2
-	 */
-	function standard_customize_preview() { ?>
-		<script type="text/javascript">
-		(function( $ ) {
-		
-			// We need to the hide the header widget area when previewing the theme *unless* there are only Standard widgets
-			// present. If Standard widgets are present, it means they've customized it already; otherwise, we're 
-			// coming from another theme.
-			if( $('#header-widget').children().length !== $('#header-widget').children('div[id*=standard]').length ) {
-				$('#header-widget').hide();
-			} // end if
 
-			// Mark the background as fixed, move it to scroll otherwise.
-			$('body').css('background-attachment', 'fixed');
-			wp.customize('background_attachment', function(value) {
-				value.bind(function(to) {
-					if( 'scroll' === to ) {
-						$('body').css('background-attachment', '');
-					} else if( 'fixed' === to ) {
-						$('body').css('background-attachment', 'fixed');
-					} // end if
-				});
+		// Mark the background as fixed, move it to scroll otherwise.
+		$('body').css('background-attachment', 'fixed');
+		wp.customize('background_attachment', function(value) {
+			value.bind(function(to) {
+				if( 'scroll' === to ) {
+					$('body').css('background-attachment', '');
+				} else if( 'fixed' === to ) {
+					$('body').css('background-attachment', 'fixed');
+				} // end if
 			});
+		});
 
-			wp.customize('header_textcolor', function(value) {
-				value.bind(function(to) {
-					
-					// We only care about this if there's no logo
-					if($('#header-logo').length === 0) {
-					
-						// If 'to' is blank or empty then we're toggling the display
-						if( 'blank' === to ) {
-		
-							$('#site-title').hide();
-							$('#site-description').hide();
-							
-						} else {
+		wp.customize('header_textcolor', function(value) {
+			value.bind(function(to) {
+				
+				// We only care about this if there's no logo
+				if($('#header-logo').length === 0) {
+				
+					// If 'to' is blank or empty then we're toggling the display
+					if( 'blank' === to ) {
+	
+						$('#site-title').hide();
+						$('#site-description').hide();
 						
-							$('#site-title').show();
-							$('#site-description').show();
-							
-							$('#site-title a, #site-title, #site-description').css('color', to.toString());
-							
-						} // end if/else
+					} else {
 					
-					} // end if
-					
-				});			
-			})
-		})( jQuery );
-		</script>
-	<?php  } // end standard_customize_preview
-
-} // end if
-
+						$('#site-title').show();
+						$('#site-description').show();
+						
+						$('#site-title a, #site-title, #site-description').css('color', to.toString());
+						
+					} // end if/else
+				
+				} // end if
+				
+			});			
+		})
+	})( jQuery );
+	</script>
+<?php  } // end standard_customize_preview
+	
 /**
  * Defines a custom meta box for displaying the post full-width layout. Only renders
  * if the blog isn't using the full-width layout.
@@ -2076,11 +2070,7 @@ if( ! function_exists( 'standard_page_menu' ) ) {
  */
 if( ! function_exists( 'standard_add_theme_background' ) ) { 
 	function standard_add_theme_background() {
-		if( standard_is_on_wp34() ) {
-			add_theme_support( 'custom-background' );
-		} else {
-			add_custom_background();
-		} // end if/else
+		add_custom_background();
 	} // end standard_add_theme_background
 	add_action( 'init', 'standard_add_theme_background' );
 } // end if
@@ -2387,51 +2377,20 @@ function standard_get_search_form() {
  * 4. Custom Header
  * ----------------------------------------------------------- */
  
-if( standard_is_on_wp34() ) {
-
-	add_theme_support( 
-		'custom-header',
-		array(
-			'header-text'				=>	true,
-			'default-text-color'		=> 	'000',
-			'width'						=>	940,
-			'flex-width'				=>	true,
-			'height'					=>	250,
-			'flex-height'				=> 	true,
-			'wp-head-callback'			=>  'standard_header_style',
-			'admin-head-callback'		=>	'standard_admin_header_style',
-			'admin-preview-callback'	=>	'standard_admin_header_image'
-		)
-	);
-
-} else {
-
-	// The default header text color 
-	if ( ! defined( 'HEADER_TEXTCOLOR' ) ) {
-		define( 'HEADER_TEXTCOLOR', '000' ); 
-	} // end if
-	
-	// Remove support for header text
-	if ( ! defined( 'NO_HEADER_TEXT' ) ) {
-		define( 'NO_HEADER_TEXT', false );
-	} // end if
-	
-	// Height and width of your custom header.
-	if ( ! defined( 'HEADER_IMAGE_WIDTH' ) ) {
-		define( 'HEADER_IMAGE_WIDTH', 940 ); 
-	} // end if
-	
-	if ( ! defined( 'HEADER_IMAGE_HEIGHT' ) ) {
-		define( 'HEADER_IMAGE_HEIGHT', 250 );
-	} // end if
-	
-	// Random header on by default
-	add_theme_support( 'custom-header');
-	
-	// Add Custom header in admin
-	add_custom_image_header( 'standard_header_style', 'standard_admin_header_style', 'standard_admin_header_image' );
-
-} // end if/else
+add_theme_support( 
+	'custom-header',
+	array(
+		'header-text'				=>	true,
+		'default-text-color'		=> 	'000',
+		'width'						=>	940,
+		'flex-width'				=>	true,
+		'height'					=>	250,
+		'flex-height'				=> 	true,
+		'wp-head-callback'			=>  'standard_header_style',
+		'admin-head-callback'		=>	'standard_admin_header_style',
+		'admin-preview-callback'	=>	'standard_admin_header_image'
+	)
+);
 
 if( ! function_exists( 'standard_header_style' ) ) {
     /**
@@ -3777,18 +3736,6 @@ function standard_add_plugin( $str_path ) {
 		include_once( get_template_directory() . $str_path );
 	} // end if	
 } // end standard_add_plugin
-
-
-/**
- * Determines whether or not Standard is on WordPress 3.4.
- *
- * @return	boolean If Standard is running on WordPress 3.4 or greater.
- * @since	3.0
- * @version	3.0
- */
-function standard_is_on_wp34() {
-	return function_exists( 'get_custom_header' );
-} // end standard_is_on_wp34
 
 /**
  * Returns the URL to the RSS feed based on what option the user
