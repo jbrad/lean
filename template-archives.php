@@ -62,14 +62,15 @@
 										?>
 										
 										<?php $args = array(
-											'post_type'			=>	'post',
-											'orderby'			=>	'date',
-											'order'				=>	'desc',
-											'post_status'		=>	'publish',
-											'posts_per_page'	=>	500,
-											'number'     		=>  $display_count,
-											'page'       		=>  $page,
-											'offset'     		=>  $offset
+											'post_type'				=>	'post',
+											'orderby'				=>	'date',
+											'order'					=>	'desc',
+											'post_status'			=>	'publish',
+											'ignore_sticky_posts'	=>	true,
+											'posts_per_page'		=>	500,
+											'number'     			=>  $display_count,
+											'page'       			=>  $page,
+											'offset'     			=>  $offset
 										);
 										$post_query = new WP_Query( $args );
 										
