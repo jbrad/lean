@@ -41,10 +41,20 @@
 			
 			// if the image has a URL, setup the anchor...
 			if( '' != $url ) {
-				$html .= '<a href="' . esc_url( str_replace( 'https://', 'http://', $url ) ) . '" class="fademe" target="_blank">';
+			
+				// Check for SSL
+				$html .= is_ssl() ?
+						'<a href="' . esc_url( str_replace( 'https://', 'http://', $url ) ) . '" class="fademe" target="_blank">' :
+						'<a href="' . esc_url( str_replace( 'http://', 'https://', $url ) ) . '" class="fademe" target="_blank">';	
+						
 			} // end if
 			
-				// display the image
+				// Check for SSL
+				$icon = is_ssl() ?
+							esc_url( str_replace( 'http://', 'https://', $icon ) ) :
+							esc_url( str_replace( 'https://', 'http://', $icon ) );
+			
+				// Finally, display the image
 				$html .= '<img src="' . esc_url( $icon ) . '" alt="" />';
 			
 			// ...and if the image has a URL, close the anchor
