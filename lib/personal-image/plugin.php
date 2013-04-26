@@ -30,6 +30,9 @@ class Standard_Personal_Image extends WP_Widget {
 		if( 'themes.php' != $pagenow ) {
 			
 			add_action( 'admin_print_styles', array( $this, 'register_admin_styles' ) );
+			
+			// Note that this can't be removed yet because it's being conditionally added to certain pages
+			// TODO in 3.4, let's clean this up
 			add_action( 'admin_enqueue_scripts', array( $this, 'register_admin_scripts' ) );
 			
 		} // end if
