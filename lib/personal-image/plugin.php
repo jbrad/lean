@@ -29,8 +29,8 @@ class Standard_Personal_Image extends WP_Widget {
 		global $pagenow;
 		if( 'themes.php' != $pagenow ) {
 			
-			add_action( 'admin_print_styles', array( &$this, 'register_admin_styles' ) );
-			add_action( 'admin_enqueue_scripts', array( &$this, 'register_admin_scripts' ) );
+			add_action( 'admin_print_styles', array( $this, 'register_admin_styles' ) );
+			add_action( 'admin_enqueue_scripts', array( $this, 'register_admin_scripts' ) );
 			
 		} // end if
 		
