@@ -7,6 +7,7 @@
 	
 		if( 0 < $googlePlus.length ) {
 			
+			/* Translators: This will need to be localized. */
 			sMessage = "We do not support Google+ vanity URLs.";
 			
 			spanMessage = 
