@@ -2695,42 +2695,6 @@ add_action( 'admin_print_styles', 'standard_add_admin_stylesheets' );
 /**
  * Adds JavaScript specifically for the administrative dashboard.
  *
- * @since		s3.0
- * @version		3.2
- * @deprecated 	3.2
- */
-function standard_add_admin_scripts() {
-
-	$screen = get_current_screen();
-	
-	// favicon and post/page upload script
-	if( 'toplevel_page_theme_options' == $screen->id || 'appearance_page_theme_options' == $screen->id ) {
-		
-		// jquery ui
-		wp_enqueue_script( 'jquery-ui-core' );
-		wp_enqueue_script( 'jquery-ui-widget' );
-		wp_enqueue_script( 'jquery-ui-mouse' );
-		wp_enqueue_script( 'jquery-ui-draggable' );
-		wp_enqueue_script( 'jquery-ui-droppable' );
-		wp_enqueue_script( 'jquery-ui-sortable' );
-		
-		// media uploader
-		wp_enqueue_script( 'media-upload' );
-		
-		// thickbox for overlay
-		wp_enqueue_script( 'thickbox' );
-		
-		// standard's media-upload script. only upload this on the admin pages
-		wp_enqueue_script( 'standard-media-upload', get_template_directory_uri() . '/js/admin.media-upload.min.js', array( 'jquery', 'jquery-ui-core', 'media-upload','thickbox' ), false, STANDARD_THEME_VERSION );
-		
-	} // end if
-	
-} // end add_admin_scripts
-// TODO is this needed? add_action( 'admin_enqueue_scripts', 'standard_add_admin_scripts' );
-
-/**
- * Adds JavaScript specifically for the administrative dashboard.
- *
  * @since	3.0
  * @version	3.2
  */
@@ -3107,10 +3071,10 @@ if( ! function_exists( 'standard_search_form' ) ) {
 /**
  * Formats the link post format properly for the RSS feed.
  *
- * @param	string $content	The post content
- * @return	string The properly content formatted for RSS
- * @version 3.0
- * @since	3.0
+ * @param		string $content	The post content
+ * @return		string The properly content formatted for RSS
+ * @version 	3.0
+ * @since		3.0
  */
 if( ! function_exists( 'standard_post_format_rss' ) ) {
 	function standard_post_format_rss( $content ) {
@@ -3123,7 +3087,8 @@ if( ! function_exists( 'standard_post_format_rss' ) ) {
 			$post_content = $post->post_content;
 			$post_title = $post->post_title;
 			
-			// If there's no link meta data, then we'll handle this the 3.0 way. TODO mark this as deprecated.
+			// If there's no link meta data, then we'll handle this the 3.0 way.
+			// @deprecated since we're actually full on incoporating this functionality
 			if( '' == get_post_meta( get_the_ID(), 'standard_link_url_field', true ) ) {
 			
 				// Read the attribute of the anchor from the post format
