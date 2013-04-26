@@ -1463,7 +1463,6 @@ function standard_theme_options_display() {
 				
 			?>
 		</form>
-		<input type="hidden" id="standard-is-ssl" value="<?php echo 1 == is_ssl() ? 'true' : 'false'; ?>" />
 	</div><!-- /.wrap -->
 <?php
 } // end standard_theme_options_display
