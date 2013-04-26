@@ -204,7 +204,8 @@ function prepareIconMediaUploader($) {
 function displayIcons($, sInputId, sWrapperId) {
 	"use strict";
 	
-	var aIconSrc, aIconUrl, sUrl, sSrc, $listItem, $socialIcon;
+	var aIconSrc, aIconUrl, sUrl, sSrc, $listItem, $socialIcon, $isSsl;
+	$isSsl = $('#standard-is-ssl');
 	
 	if($('#' + sInputId).length > 0) {
 
@@ -228,7 +229,12 @@ function displayIcons($, sInputId, sWrapperId) {
 					sUrl = aIconUrl[1];
 				} // end if
 	
-				// Create the image
+				// First, check to see if we're using secure images
+				if( 'true' === $isSsl.val() ) {
+					sSrc = sSrc.replace( 'http://', 'https://' );
+				} // end if
+				
+				// Next, display the image
 				$socialIcon = $('<img />').attr('src', sSrc);
 				
 				// Create a list item from the image
