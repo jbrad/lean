@@ -3,7 +3,7 @@
  * The template for displaying breadcrumbs. Supports both Standard and Yoast Breadcrumbs.
  *
  * @package Standard
- * @version	3.0
+ * @version	3.1
  * @since 	3.0
  */
 ?>
@@ -15,6 +15,7 @@ if( function_exists( 'yoast_breadcrumb' ) ) {
 } else {
 
 	$presentation_options = get_option( 'standard_theme_presentation_options ' );
+	
 	$display_breadcrumbs = '';
 	if( isset( $presentation_options['display_breadcrumbs'] ) ) {
 		$display_breadcrumbs = $presentation_options['display_breadcrumbs'];
