@@ -6,7 +6,7 @@
  * 
  * @package Standard
  * @since 	3.0
- * @version	3.0
+ * @version	3.1
  */
 ?>
 <?php get_header(); ?>
@@ -19,8 +19,8 @@
 				<?php get_template_part( 'breadcrumbs' ); ?>
 			
 				<?php if ( have_posts() ) { ?>
-					<?php while ( have_posts() ) {
-						 the_post(); ?>
+					<?php while ( have_posts() ) { ?>
+						<?php the_post(); ?>
 						<div id="post-<?php the_ID(); ?> format-standard" <?php post_class( 'post' ); ?>>
 							<div class="post-header clearfix">
 								<h1 class="post-title entry-title"><?php the_title(); ?></h1>	
