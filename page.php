@@ -38,7 +38,7 @@
 										<?php the_content(); ?>
 									</div><!-- /.entry-content -->
 								</div><!-- /.entry-content -->
-							</div> <!-- /#post- -->
+							</div> <!-- /#post --->
 						<?php } // end while ?>
 					<?php } // end if ?>
 					<?php comments_template( '', true ); ?>

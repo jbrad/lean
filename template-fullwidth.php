@@ -28,7 +28,7 @@
 							<div id="content-<?php the_ID(); ?>" class="entry-content">
 								<?php the_content(); ?>
 							</div><!-- /.entry-content -->
-						</div> <!-- /#post- -->
+						</div> <!-- /#post --->
 					<?php } // end while ?>
 				<?php } // end if ?>
 				<?php comments_template( '', true ); ?>
