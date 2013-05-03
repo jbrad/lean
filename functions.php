@@ -1813,89 +1813,97 @@ function standard_save_post_layout_data( $post_id ) {
 } // end standard_save_post_layout_data
 add_action( 'save_post', 'standard_save_post_layout_data' );
 
-/**
- * Adds the post meta box for the URL to be included in the Link Post Format.
- *
- * @since	3.1
- * @version	3.2
- */
-function standard_add_url_field_to_link_post_format() {
-	
-	add_meta_box(
-		'link_format_url',
-		__( 'Link URL', 'standard' ),
-		'standard_link_url_field_display',
-		'post',
-		'side',
-		'high'
-	);
-	
-} // end hudson_add_url_to_link_post_type
-add_action( 'add_meta_boxes', 'standard_add_url_field_to_link_post_format' );
+// If Standard is running less than 3.6, then add the Link Post Format Meta Box
+if( 3.6 > standard_is_wp36() ) {
 
-/**
- * Renders the input field for the URL in the Link Post Format related to the
- * meta box defined in the standard_add_url_field_to_link_post_format() function.
- * 
- * @param	$post	The post on which this meta box is attached.
- * @since	3.1
- * @version	3.2
- */
-function standard_link_url_field_display( $post ) {
-	
-	wp_nonce_field( plugin_basename( __FILE__ ), 'standard_link_url_field_nonce' );
-
-	echo '<input type="text" id="standard_link_url_field" name="standard_link_url_field" value="' . get_post_meta( $post->ID, 'standard_link_url_field', true ) . '" />';
-	
-} // end standard_link_url_field_display
-
-/**
- * Saves the specified URL for the post specified by the incoming post ID. This is
- * related to the standard_link_url_field_display() function.
- *
- * @param	$post_id	The ID of the post that we're serializing
- * @since	3.1
- * @version	3.2
- */
-function standard_save_link_url_data( $post_id ) {
-	
-	if( isset( $_POST['standard_link_url_field_nonce'] ) && isset( $_POST['post_type'] ) ) {
-	
-		// Don't save if the user hasn't submitted the changes
-		if( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
-			return;
-		} // end if
+	/**
+	 * Adds the post meta box for the URL to be included in the Link Post Format.
+	 *
+	 * @since		3.1
+	 * @version		3.2
+	 * @deprecated	3.5.1
+	 */
+	function standard_add_url_field_to_link_post_format() {
 		
-		// Verify that the input is coming from the proper form
-		if( ! wp_verify_nonce( $_POST['standard_link_url_field_nonce'], plugin_basename( __FILE__ ) ) ) {
-			return;
-		} // end if
+		add_meta_box(
+			'link_format_url',
+			__( 'Link URL', 'standard' ),
+			'standard_link_url_field_display',
+			'post',
+			'side',
+			'high'
+		);
 		
-		// Make sure the user has permissions to post
-		if( 'post' == $_POST['post_type']) {
-			if( ! current_user_can( 'edit_post', $post_id ) ) {
+	} // end hudson_add_url_to_link_post_type
+	add_action( 'add_meta_boxes', 'standard_add_url_field_to_link_post_format' );
+
+	/**
+	 * Renders the input field for the URL in the Link Post Format related to the
+	 * meta box defined in the standard_add_url_field_to_link_post_format() function.
+	 * 
+	 * @param	$post	The post on which this meta box is attached.
+	 * @since			3.1
+	 * @version			3.2
+	 * @deprecated		3.5.1
+	 */
+	function standard_link_url_field_display( $post ) {
+		
+		wp_nonce_field( plugin_basename( __FILE__ ), 'standard_link_url_field_nonce' );
+	
+		echo '<input type="text" id="standard_link_url_field" name="standard_link_url_field" value="' . get_post_meta( $post->ID, 'standard_link_url_field', true ) . '" />';
+		
+	} // end standard_link_url_field_display
+	
+	/**
+	 * Saves the specified URL for the post specified by the incoming post ID. This is
+	 * related to the standard_link_url_field_display() function.
+	 *
+	 * @param	$post_id	The ID of the post that we're serializing
+	 * @since				3.1
+	 * @version				3.2
+	 * @deprecated			3.5.1
+	 */
+	function standard_save_link_url_data( $post_id ) {
+		
+		if( isset( $_POST['standard_link_url_field_nonce'] ) && isset( $_POST['post_type'] ) ) {
+		
+			// Don't save if the user hasn't submitted the changes
+			if( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
 				return;
 			} // end if
-		} // end if/else
-	
-		// Read the Link's URL
-		$link_url = '';
-		if( isset( $_POST['standard_link_url_field'] ) ) {
-			$link_url = esc_url( $_POST['standard_link_url_field'] );
-		} // end if
+			
+			// Verify that the input is coming from the proper form
+			if( ! wp_verify_nonce( $_POST['standard_link_url_field_nonce'], plugin_basename( __FILE__ ) ) ) {
+				return;
+			} // end if
+			
+			// Make sure the user has permissions to post
+			if( 'post' == $_POST['post_type']) {
+				if( ! current_user_can( 'edit_post', $post_id ) ) {
+					return;
+				} // end if
+			} // end if/else
 		
-		// If the value exists, delete it first. I don't want to write extra rows into the table.
-		if ( 0 == count( get_post_meta( $post_id, 'standard_link_url_field' ) ) ) {
-			delete_post_meta( $post_id, 'standard_link_url_field' );
+			// Read the Link's URL
+			$link_url = '';
+			if( isset( $_POST['standard_link_url_field'] ) ) {
+				$link_url = esc_url( $_POST['standard_link_url_field'] );
+			} // end if
+			
+			// If the value exists, delete it first. I don't want to write extra rows into the table.
+			if ( 0 == count( get_post_meta( $post_id, 'standard_link_url_field' ) ) ) {
+				delete_post_meta( $post_id, 'standard_link_url_field' );
+			} // end if
+	
+			// Update it for this post.
+			update_post_meta( $post_id, 'standard_link_url_field', $link_url );
+	
 		} // end if
+	
+	} // end standard_save_post_layout_data
+	add_action( 'save_post', 'standard_save_link_url_data' );
 
-		// Update it for this post.
-		update_post_meta( $post_id, 'standard_link_url_field', $link_url );
-
-	} // end if
-
-} // end standard_save_post_layout_data
-add_action( 'save_post', 'standard_save_link_url_data' );
+} // end if
 
 /**
  * Adds the 'Standard' menu to the admin bar on the non-admin pages.
@@ -2935,7 +2943,7 @@ function standard_apply_image_alt_in_editor( $html, $id, $alt, $title ) {
 } // end standard_apply_image_alt_in_editor
 add_filter( 'get_image_tag', 'standard_apply_image_alt_in_editor', 10, 4 );
 
-if( ! function_exists( 'standard_process_link_post_format_content' ) ) {
+if( ! function_exists( 'standard_process_link_post_format_content' ) && 3.6 > standard_is_wp36() ) {
 
 	/**
 	 * Removes any paragraph tags that are wrapping anchors.
@@ -2944,6 +2952,7 @@ if( ! function_exists( 'standard_process_link_post_format_content' ) ) {
 	 * @return     string The anchor without paragraph tags.
 	 * @version    3.0
 	 * @since	   3.0
+	 * @deprecated 3.3	
 	 */
 	function standard_process_link_post_format_content( $content ) {
 	
@@ -2958,7 +2967,7 @@ if( ! function_exists( 'standard_process_link_post_format_content' ) ) {
 	add_filter( 'the_content', 'standard_process_link_post_format_content' );
 } // end if
 
-if( ! function_exists( 'standard_process_link_post_format_title' ) ) {
+if( ! function_exists( 'standard_process_link_post_format_title' ) && 3.6 > standard_is_wp36() ) {
 
 	/**
 	 * Removes any paragraph tags that are wrapping images, anchors around images,
@@ -2969,6 +2978,7 @@ if( ! function_exists( 'standard_process_link_post_format_title' ) ) {
 	 * @return		string The title based on the status of the post and the link
 	 * @version 	3.0
 	 * @since		3.0
+	 * @deprecated  3.3	
 	 */
 	function standard_process_link_post_format_title( $title, $id ) {
 		
@@ -3093,8 +3103,9 @@ if( ! function_exists( 'standard_search_form' ) ) {
  * @return		string The properly content formatted for RSS
  * @version 	3.0
  * @since		3.0
+ * @deprecated 	3.3	
  */
-if( ! function_exists( 'standard_post_format_rss' ) ) {
+if( ! function_exists( 'standard_post_format_rss' ) && 3.6 > standard_is_wp36() ) {
 	function standard_post_format_rss( $content ) {
 	
 		// If it's a link post format, make sure the link and title are properly rendered
@@ -3264,11 +3275,12 @@ add_action( 'before_delete_post', 'standard_delete_post' );
  *
  * This function is specifically used in WordPress 3.4.
  *
- * @param	array $form_fields	The array of form fields in the uploader
- * @param	object $post		The post object
- * @return	array The updated array of form fields
- * @since	3.1
- * @version	3.1
+ * @param		array 	$form_fields	The array of form fields in the uploader
+ * @param		object 	$post			The post object
+ * @return		array 					The updated array of form fields
+ * @since		3.1
+ * @version		3.1
+ * @deprecated 	3.3
  */
 function standard_attachment_fields_to_edit_wp34( $form_fields, $post ) {
 	
@@ -3850,3 +3862,15 @@ function standard_is_using_pretty_permalinks() {
 function standard_is_current_version() {
 	return STANDARD_THEME_VERSION == get_option( 'standard_theme_version' ) ? true : false;
 } // end standard_is_current_version
+
+/**
+ * Determines whether or not Standard is being run on WordPress 3.6
+ *
+ * @return	float	The current version of WordPress.
+ */
+function standard_is_wp36() {
+	
+	global $wp_version;
+	return floatval( $wp_version );
+	
+} // end standard_is_wp36
