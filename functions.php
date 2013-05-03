@@ -37,7 +37,6 @@ define( 'STANDARD_THEME_VERSION', '3.3' );
 // Imports the Standard_Nav_Walker for the custom menu functionality.
 include_once( get_template_directory() . '/lib/Standard_Nav_Walker.class.php' );
 
-
 /* ----------------------------------------------------------- *
  * Contents
  *
