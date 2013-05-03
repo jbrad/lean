@@ -2246,18 +2246,37 @@ if( ! function_exists( 'standard_add_theme_features' ) ) {
 	
 		// Feedlinks
 		add_theme_support( 'automatic-feed-links' );
-	
-		// enable select post formats
-		add_theme_support( 
-			'post-formats',
-			array(
-				'status',
-				'image',
-				'link',
-				'quote',
-				'video'
-			)
-		);
+		
+		// WordPress 3.6 Post Format Support
+		if( 3.6 >= standard_is_wp36() ) {
+
+			add_theme_support( 
+				'post-formats',
+				array(
+					'status',
+					'image',
+					'link',
+					'quote',
+					'video'
+				)
+			);
+
+		
+		} else {
+		
+			add_theme_support( 
+				'post-formats',
+				array(
+					'status',
+					'image',
+					'link',
+					'quote',
+					'video',
+					'audio'
+				)
+			);
+		
+		} // end if
 		
 		// post thumbnail support
 		add_theme_support( 'post-thumbnails' );
