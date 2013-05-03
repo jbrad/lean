@@ -5,7 +5,7 @@
  * 
  * @package Standard
  * @since 	3.0
- * @version	3.0
+ * @version	3.1
  */
 ?>
 
@@ -60,7 +60,6 @@
 					<?php } // end while ?>
 	
 					<?php // If infinite scroll is on, the we won't render pagination ?>
-					<?php print_r( wp_script_is( 'the-neverending-homepage-js' ) == true ); ?>
 					<?php if( false == wp_script_is( 'the-neverending-homepage-css' ) ) { ?>
 						<?php get_template_part( 'pagination' ); ?>
 					<?php } // end if ?>
