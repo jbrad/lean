@@ -27,7 +27,7 @@
  *
  * @package	Standard
  * @since	3.0
- * @version	3.2
+ * @version	3.3
  *
  */
  
@@ -37,7 +37,26 @@ define( 'STANDARD_THEME_VERSION', '3.3' );
 // Imports the Standard_Nav_Walker for the custom menu functionality.
 include_once( get_template_directory() . '/lib/Standard_Nav_Walker.class.php' );
 
- 
+
+/* ----------------------------------------------------------- *
+ * Contents
+ *
+ * 1.	Localization
+ * 2.	Theme Settings
+ * 		- Menu Page
+ *		- Layout Options
+ *		- Social Options
+ *		- Global Options
+ *		- Publishing Options
+ *		- Options Page
+ * 3.	Features
+ * 4.	Custom Header
+ * 5.	Comments Template
+ * 6.	Stylesheet and JavaScript Sources
+ * 7.	Custom Filters
+ * 8.	Helper Functions
+ * ----------------------------------------------------------- */
+
 /* ----------------------------------------------------------- *
  * 1. Localization
  * ----------------------------------------------------------- */
@@ -1640,7 +1659,7 @@ function standard_customize_register( $wp_customize ) {
 } // end standard_customize_register
 add_action( 'customize_register', 'standard_customize_register' );
 
-	/**
+/**
  * Renders the JavaScript responsible for hooking into the Theme Customizer to tweak
  * the built-in theme settings.
  *
