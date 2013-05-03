@@ -4,7 +4,7 @@
  * on the layout that the user has selected in the Dashboard.
  *
  * @package Standard
- * @since 3.0
+ * @since 	3.0
  * @version	3.0
  */
 ?>
