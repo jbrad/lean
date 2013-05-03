@@ -4,10 +4,9 @@
  * 
  * @package Standard
  * @since 	3.0
- * @version	3.0
+ * @version	3.1
  */
 ?>
-<?php /* Video Loop */ ?>
 
 <div id="post-<?php the_ID(); ?>" <?php post_class( 'post format-video clearfix' ); ?>>
 
@@ -59,5 +58,4 @@
 			</div><!-- /meta-comment-link -->
 
 	</div><!-- /.post-meta -->
-
-</div> <!-- /#post- -->
+</div> <!-- /#post --->
