@@ -29,31 +29,43 @@
 
 				<?php if( is_single() && '' !== get_the_title() ) { ?>
 					<h1 class="post-title entry-title">
-						<a href="<?php echo $href; ?>" title="<?php echo strlen( trim( $title ) ) > 0 ? $title : $post_title; ?>" target="<?php echo $target; ?>" rel="bookmark">
-							<?php if( strlen( trim( $post_title ) ) > 0 ) { ?>
+						<?php if( 3.6 >= standard_is_wp36() ) { ?>
+							<a href="<?php echo standard_get_link_url(); ?>" title="<?php echo $post_title; ?>" target="_blank" rel="bookmark">
 								<?php echo $post_title; ?>
-							<?php } elseif( strlen( trim( $title ) ) > 0 ) { ?>
-								<?php echo $title; ?>
-							<?php } elseif( '' != $meta_href ) { ?>
-								<?php the_content(); ?>
-							<?php } else { ?>
-								<?php echo $content; ?>
-							<?php } // end if ?>
-						</a>
+							</a>
+						<?php } else { ?>
+							<a href="<?php echo $href; ?>" title="<?php echo strlen( trim( $title ) ) > 0 ? $title : $post_title; ?>" target="<?php echo $target; ?>" rel="bookmark">
+								<?php if( strlen( trim( $post_title ) ) > 0 ) { ?>
+									<?php echo $post_title; ?>
+								<?php } elseif( strlen( trim( $title ) ) > 0 ) { ?>
+									<?php echo $title; ?>
+								<?php } elseif( '' != $meta_href ) { ?>
+									<?php the_content(); ?>
+								<?php } else { ?>
+									<?php echo $content; ?>
+								<?php } // end if ?>
+							</a>
+						<?php } // end if/else ?>
 					</h1>
 				<?php } else { ?>
 					<h2 class="post-title entry-title">
-						<a href="<?php echo $href; ?>" title="<?php echo strlen( trim( $title ) ) > 0 ? $title : $post_title; ?>" target="<?php echo $target; ?>" rel="bookmark">
-							<?php if( strlen( trim( $post_title ) ) > 0 ) { ?>
+						<?php if( 3.6 >= standard_is_wp36() ) { ?>
+							<a href="<?php echo standard_get_link_url(); ?>" title="<?php echo $post_title; ?>" target="_blank" rel="bookmark">
 								<?php echo $post_title; ?>
-							<?php } elseif( strlen( trim( $title ) ) > 0 ) { ?>
-								<?php echo $post_title; ?>
-							<?php } elseif( '' != $meta_href ) { ?>
-								<?php the_content(); ?>
-							<?php } else { ?>
-								<?php echo $content; ?>
-							<?php } // end if ?>
-						</a>
+							</a>
+						<?php } else { ?>
+							<a href="<?php echo $href; ?>" title="<?php echo strlen( trim( $title ) ) > 0 ? $title : $post_title; ?>" target="<?php echo $target; ?>" rel="bookmark">
+								<?php if( strlen( trim( $post_title ) ) > 0 ) { ?>
+									<?php echo $post_title; ?>
+								<?php } elseif( strlen( trim( $title ) ) > 0 ) { ?>
+									<?php echo $title; ?>
+								<?php } elseif( '' != $meta_href ) { ?>
+									<?php the_content(); ?>
+								<?php } else { ?>
+									<?php echo $content; ?>
+								<?php } // end if ?>
+							</a>
+						<?php } // end if/else ?>
 					</h2>
 				<?php } // end if ?>
 				

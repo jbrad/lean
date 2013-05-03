@@ -3124,7 +3124,8 @@ if( ! function_exists( 'standard_search_form' ) ) {
  * @since		3.0
  * @deprecated 	3.3	
  */
-if( ! function_exists( 'standard_post_format_rss' ) && 3.6 > standard_is_wp36() ) {
+if( ! function_exists( 'standard_post_format_rss' ) && 3.6 < standard_is_wp36() ) {
+
 	function standard_post_format_rss( $content ) {
 	
 		// If it's a link post format, make sure the link and title are properly rendered
@@ -3176,6 +3177,30 @@ if( ! function_exists( 'standard_post_format_rss' ) && 3.6 > standard_is_wp36() 
 			
 	} // end standard_post_format_rss
 	add_filter( 'the_content_feed', 'standard_post_format_rss' );
+} // end if
+
+/**
+ * Formats the link post format properly for viewing in the template
+ *
+ * @param		string $content	The post content
+ * @return		string The properly content formatted for RSS
+ * @version 	3.3
+ * @since		3.3
+ */
+if( standard_is_wp36() ) {
+	
+	/**
+	 * Returns the URL from the link post format.
+	 *
+	 * Falls back to the post permalink if no URL is found in the post.
+	 *
+	 * @since Twenty Thirteen 1.0
+	 * @return string URL
+	 */
+	function standard_get_link_url() {
+		return ( get_the_post_format_url() ) ? get_the_post_format_url() : apply_filters( 'the_permalink', get_permalink() );
+	} // standard_get_link_url
+	
 } // end if
 
 if( standard_using_native_seo() ) {
