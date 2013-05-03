@@ -33,9 +33,15 @@
 	            
 	            // Since the form is disabled, we need to hide the 'Select a Color' anchor
 	            $('.form-table:last a').hide();
+	            
+	            // Hide the 'Header Text' element
+	            $('.form-table.disabled')
+	            	.hide()
+	            	.prev()
+	            	.hide();
 	        
 	        } else {
-	        
+	        	
 	            $('#header-top').show();
 	            
 	            // Update the description color with what's in the color picker
