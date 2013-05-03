@@ -4,22 +4,21 @@
  * 
  * @package Standard
  * @since 	3.0
- * @version	3.0
+ * @version	3.1
  */
 ?>
-<?php /* Main Loop */ ?>
 
 <div id="post-<?php the_ID(); ?>" <?php post_class( 'post format-quote clearfix' ); ?>>
 		
 	<div class="post-header clearfix">
-			<div class="entry-content clearfix">
-				<?php if( ( is_category() || is_archive() || is_home() ) && has_excerpt() ) { ?>
-					<?php the_excerpt( ); ?>
-					<a href="<?php echo get_permalink(); ?>"><?php _e( 'Continue Reading...', 'standard' ); ?></a>
-				<?php } else { ?>
-					<?php the_content( __( 'Continue Reading...', 'standard' ) ); ?>
-				<?php } // end if/else ?>
-			</div><!-- /.entry-content -->
+		<div class="entry-content clearfix">
+			<?php if( ( is_category() || is_archive() || is_home() ) && has_excerpt() ) { ?>
+				<?php the_excerpt( ); ?>
+				<a href="<?php echo get_permalink(); ?>"><?php _e( 'Continue Reading...', 'standard' ); ?></a>
+			<?php } else { ?>
+				<?php the_content( __( 'Continue Reading...', 'standard' ) ); ?>
+			<?php } // end if/else ?>
+		</div><!-- /.entry-content -->
 	</div> <!-- /.post-header -->
 
 	<div id="content-<?php the_ID(); ?>" class="entry-content clearfix">	
@@ -76,5 +75,4 @@
 			</div><!-- /meta-comment-link -->
 
 	</div><!-- /.post-meta -->
-
 </div><!-- /#post -->
