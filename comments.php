@@ -3,13 +3,13 @@
  * The template for displaying comments, pings, and trackbacks on posts, pages, and attachments.
  * 
  * @package Standard
- * @since 	3.0
+ * @since 	3.1
  * @version	3.0
  */
 ?>
 <?php 
 	if ( ! empty( $_SERVER['SCRIPT_FILENAME'] ) && 'comments.php' == basename( $_SERVER['SCRIPT_FILENAME'] ) ) {
-		die ( 'This file cannot be loaded directly.' );
+		die ( __( 'This file cannot be loaded directly.', 'standard' ) );
 	} // end if
 ?>
 
