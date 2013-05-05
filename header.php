@@ -175,14 +175,6 @@
                                                 <?php bloginfo( 'name' ); ?>
                                             </a>
                                         </h1><!-- /#site-title -->
-                                        
-                                    <?php } else if ( is_front_page() ) { ?>
-
-                                        <h2 id="site-title">
-                                            <a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php bloginfo( 'name' ); ?>" rel="home">
-                                                <?php bloginfo( 'name' ); ?>
-                                            </a>
-                                        </h2><!-- /#site-title -->
 										
 									<?php } else { ?>
 									
