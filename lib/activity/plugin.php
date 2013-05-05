@@ -421,7 +421,7 @@ class Activity_Tabs extends WP_Widget {
 					$html .= '<li class="clearfix">';
 	
 						$html .= '<a class="latest-comment-tn fademe" href="' . get_permalink( $comment->comment_post_ID ) . '" rel="nofollow">';
-							$html .= get_avatar($comment->comment_author_email, '50');
+							$html .= get_avatar( $comment->comment_author_email, '50' );
 						$html .= '</a>';
 												
 						// Link the comment to the post

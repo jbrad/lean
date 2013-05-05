@@ -2589,7 +2589,7 @@ if( ! function_exists( 'standard_custom_comment' ) ) {
 				
 				<?php if ( "comment" == get_comment_type() ) { ?>
 					<div class="avatar-holder">
-						<?php echo get_avatar( $default, '50' ); ?>
+						<?php echo get_avatar( get_comment_author_email(), '50' ); ?>
 					</div><!-- /.avatar-holder -->
 				<?php } // end if ?>	
 				
