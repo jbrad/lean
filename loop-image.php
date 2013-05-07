@@ -21,7 +21,16 @@
 			<?php the_excerpt( ); ?>
 			<a href="<?php echo get_permalink(); ?>"><?php _e( 'Continue Reading...', 'standard' ); ?></a>
 		<?php } else { ?>
-			<?php the_content( __( 'Continue Reading...', 'standard' ) ); ?>
+			<?php if( 3.6 >= standard_is_wp36() ) { ?>
+				<div class="image-post-format-36">
+					<?php the_post_format_image(); ?>
+				</div><!-- /.image-post-format-36 -->
+				<p>
+					<?php echo get_the_content( __( '<p>Continue Reading...</p>', 'standard' ) ); ?>
+				</p>
+			<?php } else { ?>
+				<?php //the_content( __( 'Continue Reading...', 'standard' ) ); ?>
+			<?php } // end if/else ?>
 		<?php } // end if/else ?>
 		<?php 
 			wp_link_pages( 
