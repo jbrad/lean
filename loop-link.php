@@ -67,24 +67,17 @@
 							</a>
 						<?php } // end if/else ?>
 					</h2>
-				<?php } // end if ?>
-				
+				<?php } // end if ?>	
 			</div><!-- /.entry-content -->
-	</div> <!-- /.post-header -->
-		
-	<?php if( '' != get_post_meta( get_the_ID(), 'standard_link_url_field', true ) ) { ?>
-		<div class="entry-content clearfix link-description">
-			<?php the_content( __( 'Continue Reading...', 'standard' ) ); ?>
-		</div><!-- /entry-content -->
-	<?php } // end if ?>
+	</div><!-- /.post-header -->
 			
 	<div class="post-meta clearfix">
 
 			<div class="meta-date-cat-tags pull-left">
 			
 				<?php if( is_multi_author() ) { ?>
-					<span class="the-author">&nbsp;<?php _e( 'Posted by', 'standard' ); ?>&nbsp;<a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>" title="<?php echo get_the_author_meta( 'display_name' ); ?>"><?php echo the_author_meta( 'display_name' ); ?></a></span>
-					<span class="the-time updated">&nbsp;<?php _e( 'on', 'standard' ) . ' '; echo get_the_time( get_option( 'date_format' ) ); ?></span>
+					<span class="the-author">&nbsp;<?php _e( 'Posted by', 'standard' ); ?> <a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>" title="<?php echo get_the_author_meta( 'display_name' ); ?>"><?php echo the_author_meta( 'display_name' ); ?></a></span>
+					<span class="the-time updated"><?php _e( 'on', 'standard' ); ?>&nbsp;<?php echo get_the_time( get_option( 'date_format' ) ); ?></span>
 				<?php } else { ?>
 					<?php printf( '<span class="the-time updated">' . __( 'Posted on %1$s', 'standard' ) . '</span>', get_the_time( get_option( 'date_format' ) ) ); ?>
 				<?php } // end if ?>
@@ -99,7 +92,7 @@
 					<?php printf( '<span class="the-tags">' . __( '%1$s', 'standard' ) . '</span>', $tag_list ); ?>
 				<?php } // end if ?>
 				
-			</div><!-- /meta-date-cat-tags -->
+			</div><!-- /.meta-date-cat-tags -->
 			
 			<div class="meta-comment-link pull-right">
 				<a class="pull-right post-link" href="<?php the_permalink(); ?>" title="<?php esc_attr_e( 'permalink', 'standard' ); ?>">&nbsp;<img src="<?php echo esc_url( get_template_directory_uri() . '/images/icn-permalink.png' ); ?>" alt="<?php esc_attr_e( 'permalink', 'standard' ); ?>" /></a>
