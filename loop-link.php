@@ -11,65 +11,65 @@
 <div id="post-<?php the_ID(); ?>" <?php post_class( 'post format-link clearfix' ); ?>>
 
 	<div class="post-header clearfix">
-			<div id="content-<?php the_ID(); ?>"  class="entry-content clearfix">	
 			
-				<?php
+	
+		<?php
 
-					// Read the attribute of the anchor from the post format
-					$title = standard_get_link_post_format_attribute( 'title' );
-					$href = standard_get_link_post_format_attribute( 'href' );
-					$target = strlen( standard_get_link_post_format_attribute( 'target' ) ) > 0 ? standard_get_link_post_format_attribute( 'target' ) : '_blank';
-					
-					// And attempt to read the link from the post meta
-					$href = ( '' == get_post_meta( get_the_ID(), 'standard_link_url_field', true ) ) ? $href : get_post_meta( get_the_ID(), 'standard_link_url_field', true );
-					$post_title = strip_tags( stripslashes( get_the_title() ) );
-					$content = strip_tags( get_the_content() );
-					
-				?>
-
-				<?php if( is_single() && '' !== get_the_title() ) { ?>
-					<h1 class="post-title entry-title">
-						<?php if( 3.6 >= standard_is_wp36() ) { ?>
-							<a href="<?php echo standard_get_link_url(); ?>" title="<?php echo $post_title; ?>" target="_blank" rel="bookmark">
-								<?php echo $post_title; ?>
-							</a>
-						<?php } else { ?>
-							<a href="<?php echo $href; ?>" title="<?php echo strlen( trim( $title ) ) > 0 ? $title : $post_title; ?>" target="<?php echo $target; ?>" rel="bookmark">
-								<?php if( strlen( trim( $post_title ) ) > 0 ) { ?>
-									<?php echo $post_title; ?>
-								<?php } elseif( strlen( trim( $title ) ) > 0 ) { ?>
-									<?php echo $title; ?>
-								<?php } elseif( '' != $meta_href ) { ?>
-									<?php the_content(); ?>
-								<?php } else { ?>
-									<?php echo $content; ?>
-								<?php } // end if ?>
-							</a>
-						<?php } // end if/else ?>
-					</h1>
+			// Read the attribute of the anchor from the post format
+			$title = standard_get_link_post_format_attribute( 'title' );
+			$href = standard_get_link_post_format_attribute( 'href' );
+			$target = strlen( standard_get_link_post_format_attribute( 'target' ) ) > 0 ? standard_get_link_post_format_attribute( 'target' ) : '_blank';
+			
+			// And attempt to read the link from the post meta
+			$href = ( '' == get_post_meta( get_the_ID(), 'standard_link_url_field', true ) ) ? $href : get_post_meta( get_the_ID(), 'standard_link_url_field', true );
+			$post_title = strip_tags( stripslashes( get_the_title() ) );
+			$content = strip_tags( get_the_content() );
+			
+		?>
+		
+		<?php if( is_single() && '' !== get_the_title() ) { ?>
+			<h1 class="post-title entry-title">
+				<?php if( 3.6 >= standard_is_wp36() ) { ?>
+					<a href="<?php echo standard_get_link_url(); ?>" title="<?php echo $post_title; ?>" target="_blank" rel="bookmark">
+						<?php echo $post_title; ?>
+					</a>
 				<?php } else { ?>
-					<h2 class="post-title entry-title">
-						<?php if( 3.6 >= standard_is_wp36() ) { ?>
-							<a href="<?php echo standard_get_link_url(); ?>" title="<?php echo $post_title; ?>" target="_blank" rel="bookmark">
-								<?php echo $post_title; ?>
-							</a>
+					<a href="<?php echo $href; ?>" title="<?php echo strlen( trim( $title ) ) > 0 ? $title : $post_title; ?>" target="<?php echo $target; ?>" rel="bookmark">
+						<?php if( strlen( trim( $post_title ) ) > 0 ) { ?>
+							<?php echo $post_title; ?>
+						<?php } elseif( strlen( trim( $title ) ) > 0 ) { ?>
+							<?php echo $title; ?>
+						<?php } elseif( '' != $meta_href ) { ?>
+							<?php the_content(); ?>
 						<?php } else { ?>
-							<a href="<?php echo $href; ?>" title="<?php echo strlen( trim( $title ) ) > 0 ? $title : $post_title; ?>" target="<?php echo $target; ?>" rel="bookmark">
-								<?php if( strlen( trim( $post_title ) ) > 0 ) { ?>
-									<?php echo $post_title; ?>
-								<?php } elseif( strlen( trim( $title ) ) > 0 ) { ?>
-									<?php echo $title; ?>
-								<?php } elseif( '' != $meta_href ) { ?>
-									<?php the_content(); ?>
-								<?php } else { ?>
-									<?php echo $content; ?>
-								<?php } // end if ?>
-							</a>
-						<?php } // end if/else ?>
-					</h2>
-				<?php } // end if ?>	
-			</div><!-- /.entry-content -->
+							<?php echo $content; ?>
+						<?php } // end if ?>
+					</a>
+				<?php } // end if/else ?>
+			</h1>
+		<?php } else { ?>
+			<h2 class="post-title entry-title">
+				<a href="<?php echo $href; ?>" title="<?php echo strlen( trim( $title ) ) > 0 ? $title : $post_title; ?>" target="<?php echo $target; ?>" rel="bookmark">
+					<?php if( strlen( trim( $post_title ) ) > 0 ) { ?>
+						<?php echo $post_title; ?>
+					<?php } elseif( strlen( trim( $title ) ) > 0 ) { ?>
+						<?php echo $title; ?>
+					<?php } elseif( '' != $meta_href ) { ?>
+						<?php the_content(); ?>
+					<?php } else { ?>
+						<?php echo $content; ?>
+					<?php } // end if ?>
+				</a>
+			</h2>
+		<?php } // end if ?>	
+			
 	</div><!-- /.post-header -->
+	
+	<div id="content-<?php the_ID(); ?>"  class="entry-content clearfix">	
+		<p>
+			<?php echo $content; ?>
+		</p>
+	</div><!-- /.entry-content -->
 			
 	<div class="post-meta clearfix">
 
