@@ -29,7 +29,7 @@
 					<?php echo get_the_content( __( '<p>Continue Reading...</p>', 'standard' ) ); ?>
 				</p>
 			<?php } else { ?>
-				<?php //the_content( __( 'Continue Reading...', 'standard' ) ); ?>
+				<?php the_content( __( 'Continue Reading...', 'standard' ) ); ?>
 			<?php } // end if/else ?>
 		<?php } // end if/else ?>
 		<?php 
