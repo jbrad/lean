@@ -15,7 +15,7 @@
 			<?php the_excerpt( ); ?>
 			<a href="<?php echo get_permalink(); ?>"><?php _e( 'Continue Reading...', 'standard' ); ?></a>
 		<?php } else { ?>
-			<?php if( 3.6 >= standard_is_wp36() ) { ?>
+			<?php if( function_exists( 'the_post_format_video' ) ) { ?>
 				<?php the_post_format_video(); ?>
 				<p>
 					<?php echo get_the_content( __( '<p>Continue Reading...</p>', 'standard' ) ); ?>

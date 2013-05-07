@@ -29,7 +29,7 @@
 		
 		<?php if( is_single() && '' !== get_the_title() ) { ?>
 			<h1 class="post-title entry-title">
-				<?php if( 3.6 >= standard_is_wp36() ) { ?>
+				<?php if( function_exists( 'get_the_post_format_url' ) ) { ?>
 					<a href="<?php echo standard_get_link_url(); ?>" title="<?php echo $post_title; ?>" target="_blank" rel="bookmark">
 						<?php echo $post_title; ?>
 					</a>

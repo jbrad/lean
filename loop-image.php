@@ -21,7 +21,7 @@
 			<?php the_excerpt( ); ?>
 			<a href="<?php echo get_permalink(); ?>"><?php _e( 'Continue Reading...', 'standard' ); ?></a>
 		<?php } else { ?>
-			<?php if( 3.6 >= standard_is_wp36() ) { ?>
+			<?php if( function_exists( 'the_post_format_image' ) ) { ?>
 				<div class="image-post-format-36">
 					<?php the_post_format_image(); ?>
 				</div><!-- /.image-post-format-36 -->
