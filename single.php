@@ -59,7 +59,7 @@ if( 1 == get_post_meta( get_the_ID(), 'standard_seo_post_level_layout', true ) )
 									<a class="author-link icn-facebook" href="<?php echo trailingslashit( get_user_meta( get_the_author_meta( 'ID' ), 'facebook', true ) ); ?>" title="<?php _e( 'Facebook', 'standard'); ?>" target="_blank"><?php _e( 'Facebook', 'standard'); ?></a>
 								<?php } // end if ?>
 								
-								<?php 
+								<?php 	
 									// Get the Google+ ID based on if we're using Standard's SEO or WordPress SEO
 									$google_plus = 
 									standard_using_native_seo() ? 
@@ -68,8 +68,8 @@ if( 1 == get_post_meta( get_the_ID(), 'standard_seo_post_level_layout', true ) )
 									trailingslashit( get_user_meta( get_the_author_meta( 'ID' ), 'googleplus', true ) ); 
 								?>
 								
-								<?php if( strlen( trim( $google_plus ) ) > 0 ) { ?>
-									<a class="author-link icn-gplus" href="<?php echo $google_plus; ?>" title="<?php _e( 'Google+', 'standard'); ?>" target="_blank"><?php _e( 'Google+', 'standard'); ?></a>
+								<?php if( 1 < strlen( trim( $google_plus ) ) ) { ?>
+									<a class="author-link icn-gplus" rel="author" href="<?php echo $google_plus; ?>" title="<?php _e( 'Google+', 'standard'); ?>" target="_blank"><?php _e( 'Google+', 'standard'); ?></a>
 								<?php } // end if ?>
 								</p>
 								<?php if( strlen( trim( the_author_meta( 'description' ) ) > 0 ) ) { ?>
