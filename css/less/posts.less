@@ -536,5 +536,43 @@ a.post-permalink:hover {
 }
 
 /* Post Format Aside */
-
-
+.format-aside {
+	border-radius: 0;
+	
+	.aside-date {
+		position: absolute;
+		left: -40px;
+		top: 20px;
+		background: #101010;
+		width: 50px;
+		height: 50px;
+		text-align: center;
+		border-radius: 50%;
+		padding: 15px;
+		color: #fff;
+		
+		span {
+			display: block;
+			text-align: center;
+			text-transform: uppercase;
+			padding-top: 5px;
+			
+			&.the-time {
+				font-size: 140%;
+				padding-top: 0;
+			}
+		}
+	}
+	
+	
+	.entry-content {
+		padding: 40px 20px 20px 60px;
+	}
+	
+	.post-meta {
+		border-top: none;
+		padding: 0 20px 20px;
+		text-align: center;
+	}
+	
+}
