@@ -419,40 +419,45 @@ a.post-permalink:hover {
 
 /* Post Format Quote */
 
-.post.format-quote blockquote {
-	font-size: 20px;
-	border-left: 0;
-}
+.format-quote {
 
-.post.format-quote .post-header {
-	margin-bottom: 5px;
-	padding-bottom: 30px;
-	border-bottom: 0;
-	background-color: #c0dadf;
-	background-image: url(./images/bg-quote.png);
-	background-position: left bottom;
-	background-repeat: no-repeat;
-}
+	blockquote {
+		font-size: 20px;
+		border-left: 0;
+	}
 
-.post.format-quote .post-header .entry-content {
-	padding-bottom: 0;
-	padding-left: 80px;
-	min-height: 60px;
-	background-image: url(./images/icn-quote-dark.png);
-	background-repeat: no-repeat;
-	
-}
 
-.post.format-quote .post-header .entry-content p {
-	text-shadow: 0 1px 0 rgba(255,255,255,0.3);
-	font-style: italic;
-	font-size: 24px;
-	font-family: Georgia, times, serif;
-	line-height: 130%;
-}
+	.post-header {
+		margin-bottom: 5px;
+		padding-bottom: 30px;
+		border-bottom: 0;
+		background-color: #c0dadf;
+		background-image: url(./images/bg-quote.png);
+		background-position: left bottom;
+		background-repeat: no-repeat;
+	}
 
-.post.format-quote .the-comment-link {
-	float: right;
+	.post-header .entry-content {
+		padding-bottom: 0;
+		padding-left: 30px;
+		min-height: 60px;
+		background-image: url(./images/icn-quote-dark.png);
+		background-repeat: no-repeat;
+		
+	}
+
+	.post-header .entry-content p {
+		text-shadow: 0 1px 0 rgba(255,255,255,0.3);
+		font-style: italic;
+		font-size: 24px;
+		font-family: Georgia, times, serif;
+		line-height: 130%;
+	}
+
+	.the-comment-link {
+		float: right;
+	}
+
 }
 
 /* Post format Link */
