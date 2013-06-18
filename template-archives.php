@@ -34,12 +34,48 @@
 							<div id="content-<?php the_ID(); ?>" class="entry-content clearfix">
 								<div class="content">
 									<?php the_content(); ?>
+																		
+									<h2><?php _e( 'All Pages', 'standard'); ?></h2>
+									
+									<?php 
+										$args = array(
+											'post_type'			=>	'page',
+											'orderby'			=>	'date',
+											'order'				=>	'desc',
+											'post_status'		=>	'publish',
+											'posts_per_page'	=>	500
+										);
+										$post_query = new WP_Query( $args );
+									
+										if( $post_query->have_posts() ) { ?>
+											<p>
+											<?php
+												while( $post_query->have_posts() ) { 
+													$post_query->the_post(); ?>
+													<ul class="archive-list-pages clearfix">
+														<li>
+															<span class="archive-title">
+																<a href="<?php echo get_permalink(); ?>">
+																	<?php echo get_the_title(); ?>
+																</a>
+															</span>
+														</li>
+													</ul>
+												<?php } // end while
+												wp_reset_postdata();
+											?>
+											</p>
+										<?php } else { ?>
+											<p><?php _e( 'You have no pages.', 'standard' ); ?></p>
+									<?php } // end if ?>
+									
+									<hr />
 									
 									<h2><?php _e( 'All Categories', 'standard'); ?></h2>
 									<?php $categories = get_categories( 'hide_empty=1' ); ?>
 									<?php if( count( $categories) > 0 ) { ?>
 										<p>
-											<ul>
+											<ul class="archive-list-categories clearfix">
 												<?php foreach( $categories as $category ) { ?>
 													<li><a href="<?php echo get_category_link( $category->cat_ID ); ?>"><?php echo $category->cat_name; ?></a></li>
 												<?php } // end foreach ?>
@@ -48,6 +84,8 @@
 									<?php } else { ?>
 										<p><?php _e( 'You have no categories.', 'standard'); ?></p>
 									<?php } // end if/else ?>
+									
+									<hr />
 									
 									<h2><?php _e( 'All Posts', 'standard'); ?></h2>
 									
@@ -78,27 +116,28 @@
 										<p>
 										<?php while( $post_query->have_posts() ) { ?>
 											<?php $post_query->the_post(); ?>
-												<ul>
-													<li>
-														<span class="the_date">
-															<?php echo get_the_time( get_option( 'date_format' ), get_the_ID() ); ?>
-														</span>
-														&nbsp;&mdash;&nbsp;
-														<span class="the_title">
+												<ul class="archive-list-posts">
+													<li>														
+														<span class="archive-title">
 															<a href="<?php echo get_permalink(); ?>">
 																<?php echo get_the_title(); ?>
 															</a>
 														</span>
+														&nbsp;&mdash;&nbsp;
+														<span class="archive-date">
+															<?php echo get_the_time( get_option( 'date_format' ), get_the_ID() ); ?>
+														</span>
+
 													</li>
 												</ul>
 											<?php } // end while ?>
 											
 											<ul class="pager">
 												<li class="previous">
-													<?php previous_posts_link( '<< Previous Posts', $post_query->max_num_pages ); ?>
+													<?php previous_posts_link( '&larr; Previous Posts', $post_query->max_num_pages ); ?>
 												</li>
 												<li class="next">
-													<?php next_posts_link( 'Next Posts >>', $post_query->max_num_pages ); ?>
+													<?php next_posts_link( 'Next Posts &rarr;', $post_query->max_num_pages ); ?>
 												</li>
 											</ul><!-- /.pager -->
 											
@@ -109,43 +148,6 @@
 										<p><?php _e( 'You have no posts.', 'standard' ); ?></p>
 									<?php } // end if ?>
 									
-									<h2><?php _e( 'All Pages', 'standard'); ?></h2>
-									
-									<?php 
-										$args = array(
-											'post_type'			=>	'page',
-											'orderby'			=>	'date',
-											'order'				=>	'desc',
-											'post_status'		=>	'publish',
-											'posts_per_page'	=>	500
-										);
-										$post_query = new WP_Query( $args );
-									
-										if( $post_query->have_posts() ) { ?>
-											<p>
-											<?php
-												while( $post_query->have_posts() ) { 
-													$post_query->the_post(); ?>
-													<ul>
-														<li>
-															<span class="the_date">
-																<?php echo get_the_time( get_option( 'date_format' ), get_the_ID() ); ?>
-															</span>
-															&nbsp;&mdash;&nbsp;
-															<span class="the_title">
-																<a href="<?php echo get_permalink(); ?>">
-																	<?php echo get_the_title(); ?>
-																</a>
-															</span>
-														</li>
-													</ul>
-												<?php } // end while
-												wp_reset_postdata();
-											?>
-											</p>
-										<?php } else { ?>
-											<p><?php _e( 'You have no pages.', 'standard' ); ?></p>
-									<?php } // end if ?>
 									
 								</div><!-- /.entry-content -->
 							</div><!-- /.entry-content -->
