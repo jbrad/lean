@@ -2257,7 +2257,8 @@ if( ! function_exists( 'standard_add_theme_features' ) ) {
 					'image',
 					'link',
 					'quote',
-					'video'
+					'video',
+					'aside'
 				)
 			);
 
@@ -2272,7 +2273,7 @@ if( ! function_exists( 'standard_add_theme_features' ) ) {
 					'link',
 					'quote',
 					'video',
-					'audio'
+					'aside'
 				)
 			);
 
