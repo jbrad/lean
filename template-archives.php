@@ -53,7 +53,7 @@
 											'order'					=>	'desc',
 											'post_status'			=>	'publish',
 											'ignore_sticky_posts'	=>	true,
-											'posts_per_page'		=>	5,
+											'posts_per_page'		=>	500,
 											'number'     			=>  $display_count,
 											'page'       			=>  $page,
 											'offset'     			=>  $offset
