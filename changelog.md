@@ -2,7 +2,133 @@
 
 ## 3.3 (TBD)
 
-* TODO For Michael :)
+### Core Theme
+
+* Adds support for localization / translation files to be pulled from child theme instead of parent theme.
+* Adds support for menu link relationship (XFN).
+* Adds CodeKit enhancements for widgets and plugins.
+* Adds support for advanced Google Analytics (see [Standard Advanced Google Analytics](https://github.com/eightbit/standard-plugins/tree/master/standard-advanced-google-analytics) plugin).
+* Adds support for aside post format.
+* Fixes H1 and H2 tags for static pages.
+* Fixes quote post format styles.
+* Fixes special characters in post titles breaking post editor functionality.
+* Fixes missed localization / translation instances.
+* Fixes header preview in admin.
+* Fixes displaying SEO titles to follow WordPress best practices.
+* Fixes SEO titles preview inconsistency.
+* Removes legacy affiliate code.
+* Removes gap below image post formats when there is no text.
+* Removes border from images with a caption.
+* Updates gravatar display code.
+* Updates Twitter embeds to be fully responsive.
+* Updates licensing and attribution.
+* Updates Standard to require WordPress 3.4 or higher.
+* Updates all admin scripts to load in a single file.
+* Updates markup for readability, whitespace, and best practices.
+* Updates color styles.
+* Updates heading styles.
+* Updates editor styles.
+* Updates Google+ profile requirements.
+
+### Archives Template
+
+* Adds "All Pages" to archives.
+* Adds pagination for large archives.
+* Removes "sticky" posts from showing up at the top of the archives and now falls in place chronologically.
+
+### Google Custom Search Widget
+
+* Fixes typo.
+* Updates request to get search results.
+
+### Change Set
+
+**Added**
+
+* css/widgets-responsive.css
+* js/admin/profiles.min.js
+* js/dev/admin.profiles.js
+* license.md
+* loop-aside.php
+
+**Removed**
+
+* css/less/widgets-responsive.less
+* js/admin.post.min.js
+* js/dev/theme.js
+* lib/activity/css/widget.css
+* lib/google-custom-search/css/widget.css
+* lib/influence/css/widget.css
+* lib/personal-image/css/widget.css
+* lib/standard-ad-125x125/css/widget.css
+* lib/standard-ad-300x250/css/widget.css
+* lib/standard-ad-billboard/css/widget.css
+
+**Modified**
+
+* 404.php
+* attribution.md
+* breadcrumbs.php
+* codekit-config.json
+* comments.php
+* css/editor-style.css
+* css/less/editor-style.less
+* css/less/header.less
+* css/less/pages.less
+* css/less/posts.less
+* css/less/style.less
+* css/less/theme-responsive.less
+* css/less/typography.less
+* css/less/variables.less
+* css/less/wigets.less
+* css/theme-responsive.css
+* footer.php
+* functions.php
+* header.php
+* index.php
+* js/admin.media-upload.min.js
+* js/admin.min.js
+* js/dev/admin.js
+* js/dev/admin.header.js
+* lib/activity/plugin.php
+* lib/google-custom-search/plugin.php
+* lib/google-custom-search/views/admin.php
+* lib/influence/plugin.php
+* lib/personal-image/plugin.php
+* lib/seo/js/dev/admin.js
+* lib/seo/plugin.php
+* lib/standard-ad-125x125/plugin.php
+* lib/standard-ad-300x250/plugin.php
+* lib/standard-ad-billboard/plugin.php
+* lib/Standard_Nav_Walker.php
+* loop.php
+* loop-image.php
+* loop-link.php
+* loop-quote.php
+* loop-status.php
+* loop-video.php
+* page.php
+* page-offline-mode.php
+* sidebar.php
+* single.php
+* social-networking.php
+* style.css
+* template-archives.php
+* template-fullwidth.php
+* template-sitemap.php
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## 3.2.5 (March 6th, 2013)
 
