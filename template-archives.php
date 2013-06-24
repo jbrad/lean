@@ -80,7 +80,7 @@
 												</ul>
 											<?php } // end while ?>
 
-											<ul class="pager">
+											<ul id="archives-post-pager" class="pager">
 												<li class="previous">
 													<?php previous_posts_link( '&larr; Previous Posts', $post_query->max_num_pages ); ?>
 												</li>
