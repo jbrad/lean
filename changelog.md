@@ -1,6 +1,6 @@
 # Changelog
 
-## 3.3 (TBD)
+## 3.3 (June 25th, 2013)
 
 ### Core Theme
 
@@ -33,8 +33,12 @@
 ### Archives Template
 
 * Adds "All Pages" to archives.
-* Adds pagination for large archives.
+* Adds pagination for large archives to increase performance.
 * Removes "sticky" posts from showing up at the top of the archives and now falls in place chronologically.
+
+### Activity Tabs Widget
+
+* Fixes styling issues.
 
 ### Google Custom Search Widget
 
@@ -90,6 +94,8 @@
 * js/admin.min.js
 * js/dev/admin.js
 * js/dev/admin.header.js
+* lib/activity/css/less/widget.less
+* lib/activity/css/widget.css
 * lib/activity/plugin.php
 * lib/google-custom-search/plugin.php
 * lib/google-custom-search/views/admin.php
