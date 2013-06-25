@@ -53,7 +53,7 @@
 											'order'					=>	'desc',
 											'post_status'			=>	'publish',
 											'ignore_sticky_posts'	=>	true,
-											'posts_per_page'		=>	500,
+											'posts_per_page'		=>	5,
 											'number'     			=>  $display_count,
 											'page'       			=>  $page,
 											'offset'     			=>  $offset
@@ -82,10 +82,10 @@
 
 											<ul id="archives-post-pager" class="pager">
 												<li class="previous">
-													<?php previous_posts_link( '&larr; Previous Posts', $post_query->max_num_pages ); ?>
+													<?php previous_posts_link( '<i class="icon-chevron-left"></i> Previous Posts', $post_query->max_num_pages ); ?>
 												</li>
 												<li class="next">
-													<?php next_posts_link( 'Next Posts &rarr;', $post_query->max_num_pages ); ?>
+													<?php next_posts_link( 'Next Posts <i class="icon-chevron-right"></i>', $post_query->max_num_pages ); ?>
 												</li>
 											</ul><!-- /.pager -->
 
