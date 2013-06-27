@@ -94,6 +94,8 @@
 * js/admin.min.js
 * js/dev/admin.js
 * js/dev/admin.header.js
+* lang/standard.mo
+* lang/standard.po
 * lib/activity/css/less/widget.less
 * lib/activity/css/widget.css
 * lib/activity/plugin.php
