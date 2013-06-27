@@ -105,7 +105,7 @@
 								</ul>
 	
 							</div><!-- /.entry-content -->
-						</div> <!-- /#post --->
+						</div> <!-- /#post -->
 					<?php } // end while ?>
 				<?php } // end if ?>
 			</div><!-- /#main -->
