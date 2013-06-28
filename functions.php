@@ -3125,7 +3125,7 @@ if( ! function_exists( 'standard_search_form' ) ) {
  * @since		3.0
  * @deprecated 	3.3
  */
-if( ! function_exists( 'standard_post_format_rss' ) && 3.6 < standard_is_wp36() ) {
+if( ! function_exists( 'standard_post_format_rss' ) /*&& 3.6 < standard_is_wp36()*/ ) {
 
 	function standard_post_format_rss( $content ) {
 
