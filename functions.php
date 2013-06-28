@@ -1814,7 +1814,7 @@ function standard_save_post_layout_data( $post_id ) {
 add_action( 'save_post', 'standard_save_post_layout_data' );
 
 // If Standard is running less than 3.6, then add the Link Post Format Meta Box
-if( 3.6 > standard_is_wp36() ) {
+//if( 3.6 > standard_is_wp36() ) {
 
 	/**
 	 * Adds the post meta box for the URL to be included in the Link Post Format.
@@ -1903,7 +1903,7 @@ if( 3.6 > standard_is_wp36() ) {
 	} // end standard_save_post_layout_data
 	add_action( 'save_post', 'standard_save_link_url_data' );
 
-} // end if
+//} // end if
 
 /**
  * Adds the 'Standard' menu to the admin bar on the non-admin pages.
@@ -2963,7 +2963,7 @@ function standard_apply_image_alt_in_editor( $html, $id, $alt, $title ) {
 } // end standard_apply_image_alt_in_editor
 add_filter( 'get_image_tag', 'standard_apply_image_alt_in_editor', 10, 4 );
 
-if( ! function_exists( 'standard_process_link_post_format_content' ) && 3.6 > standard_is_wp36() ) {
+if( ! function_exists( 'standard_process_link_post_format_content' ) /*&& 3.6 > standard_is_wp36()*/ ) {
 
 	/**
 	 * Removes any paragraph tags that are wrapping anchors.
@@ -2987,7 +2987,7 @@ if( ! function_exists( 'standard_process_link_post_format_content' ) && 3.6 > st
 	add_filter( 'the_content', 'standard_process_link_post_format_content' );
 } // end if
 
-if( ! function_exists( 'standard_process_link_post_format_title' ) && 3.6 > standard_is_wp36() ) {
+if( ! function_exists( 'standard_process_link_post_format_title' ) /*&& 3.6 > standard_is_wp36()*/ ) {
 
 	/**
 	 * Removes any paragraph tags that are wrapping images, anchors around images,
@@ -3195,7 +3195,7 @@ if( standard_is_wp36() ) {
 	 *
 	 * Falls back to the post permalink if no URL is found in the post.
 	 *
-	 * @since Twenty Thirteen 1.0
+	 * @since  3.3
 	 * @return string URL
 	 */
 	function standard_get_link_url() {
