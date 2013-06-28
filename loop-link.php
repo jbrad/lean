@@ -66,9 +66,11 @@
 	</div><!-- /.post-header -->
 
 	<div id="content-<?php the_ID(); ?>"  class="entry-content clearfix">
-		<p>
-			<?php the_content(); ?>
-		</p>
+		<?php if ( 0 < strlen( trim( get_the_content() ) ) ) { ?>
+			<p>
+				<?php the_content(); ?>
+			</p>
+		<?php } // end if ?>
 	</div><!-- /.entry-content -->
 
 	<div class="post-meta clearfix">
