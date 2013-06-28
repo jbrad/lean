@@ -1,5 +1,27 @@
 # Changelog
 
+## 3.3.1 (June 28th, 2013)
+
+### Core Theme
+
+* Fixes invalid comments.
+* Fixes image post format images not displaying in RSS.
+* Fixes link post format stripping formatting.
+
+### Change Set
+
+**Modified**
+
+* css/less/posts.less
+* functions.php
+* loop-link.php
+* loop-video.php
+* page.php
+* style.css
+* template-archives.php
+* template-fullwidth.php
+* template-sitemap.php
+
 ## 3.3 (June 25th, 2013)
 
 ### Core Theme
