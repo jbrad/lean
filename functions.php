@@ -32,7 +32,7 @@
  */
 
 // Define a Standard version. This is used for cache-busting stylesheets, JavaScript, and for serializing the version in the database
-define( 'STANDARD_THEME_VERSION', '3.3' );
+define( 'STANDARD_THEME_VERSION', '3.3.2' );
 
 // Imports the Standard_Nav_Walker for the custom menu functionality.
 include_once( get_template_directory() . '/lib/Standard_Nav_Walker.class.php' );
