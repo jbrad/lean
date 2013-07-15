@@ -1,5 +1,22 @@
 # Changelog
 
+## 3.3.2 (July 15th, 2013)
+
+### Core Theme
+
+* Fixes post meta description SEO highlighting.
+
+### Change Set
+
+**Modified**
+
+* css/less/style.less
+* functions.php
+* js/admin.min.js
+* lib/seo/js/admin.min.js
+* lib/seo/js/dev/admin.js
+* style.css
+
 ## 3.3.1 (June 28th, 2013)
 
 ### Core Theme
