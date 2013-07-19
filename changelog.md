@@ -1,5 +1,22 @@
 # Changelog
 
+## 3.3.3 (July 19th, 2013)
+
+### Core Theme
+
+* Fixes special characters in post title causing Standard SEO to hang the browser.
+
+### Change Set
+
+**Modified**
+
+* codekit-config.json
+* css/less/style.less
+* functions.php
+* js/admin.min.js
+* lib/seo/js/dev/admin.js
+* style.css
+
 ## 3.3.2 (July 15th, 2013)
 
 ### Core Theme
