@@ -31,8 +31,11 @@
  *
  */
 
-// Define a Standard version. This is used for cache-busting stylesheets, JavaScript, and for serializing the version in the database
-define( 'STANDARD_THEME_VERSION', '3.3.3' );
+// Define a Standard version. This is used for cache-busting stylesheets, JavaScript, and for serializing the version in the database.
+// First checks to see if the constant is defined in case a child theme has overridden the constants.
+if ( ! defined( 'STANDARD_THEME_VERSION' ) ) {
+	define( 'STANDARD_THEME_VERSION', '3.4.0' );
+} // end if
 
 // Imports the Standard_Nav_Walker for the custom menu functionality.
 include_once( get_template_directory() . '/lib/Standard_Nav_Walker.class.php' );
