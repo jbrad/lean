@@ -1,10 +1,10 @@
 <?php
 /**
  * The template for displaying standard post formats.
- *
+ * 
  * @package Standard
- * @since 	3.0.0
- * @version	3.2.0
+ * @since 	3.0
+ * @version	3.1
  */
 ?>
 
@@ -16,29 +16,27 @@
 	</div><!--/aside-date -->
 
 	<div id="content-<?php the_ID(); ?>" class="entry-content clearfix">
-
+	
 		<p class="aside-post-title"><?php the_title(); ?></p>
-
+	
 		<?php if( ( is_category() || is_archive() || is_home() ) && has_excerpt() ) { ?>
 			<?php the_excerpt( ); ?>
-			<a href="<?php echo get_permalink(); ?>" class="more-link">
-				<?php _e( 'Continue Reading...', 'standard' ); ?>
-			</a>
+			<a href="<?php echo get_permalink(); ?>"><?php _e( 'Continue Reading...', 'standard' ); ?></a>
 		<?php } else { ?>
 			<?php the_content( __( 'Continue Reading...', 'standard' ) ); ?>
 		<?php } // end if/else ?>
-		<?php
-			wp_link_pages(
-				array(
-					'before' 	=> '<div class="page-link"><span>' . __( 'Pages:', 'standard' ) . '</span>',
-					'after' 	=> '</div>'
-				)
-			);
+		<?php 
+			wp_link_pages( 
+				array( 
+					'before' 	=> '<div class="page-link"><span>' . __( 'Pages:', 'standard' ) . '</span>', 
+					'after' 	=> '</div>' 
+				) 
+			); 
 		?>
 	</div><!-- /.entry-content -->
-
+	
 	<div class="post-meta clearfix">
-
+		
 		<div class="meta-comment-link pull-right">
 			<a class="pull-right post-link" href="<?php the_permalink(); ?>" title="<?php esc_attr_e( 'permalink', 'standard' ); ?>">&nbsp;<img src="<?php echo esc_url( get_template_directory_uri() . '/images/icn-permalink.png' ); ?>" alt="<?php esc_attr_e( 'permalink', 'standard' ); ?>" /></a>
 			<?php if ( '' != get_post_format() ) { ?>
