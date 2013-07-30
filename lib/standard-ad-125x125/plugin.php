@@ -13,33 +13,30 @@ class Standard_Ad_125x125 extends WP_Widget {
 	/*--------------------------------------------------------*
 	 * Constructor
 	 *--------------------------------------------------------*/
-	 
+
 	/**
 	 * Initializes the widget's classname, description, and JavaScripts.
-	 */    
+	 */
 	public function __construct() {
 
 		$widget_opts = array(
-			'classname' 	=> __( 'standard-ad-125x125', 'standard' ), 
+			'classname' 	=> __( 'standard-ad-125x125', 'standard' ),
 			'description' 	=> __( 'Display a 125x125 advertisement.', 'standard' ),
-		);	
+		);
 		$this->WP_Widget( 'standard-ad-125x125', __( '125x125 Ad', 'standard' ), $widget_opts );
-		
+
 		// We don't want to load these on the Appearance Options because we're overiding window.send_to_editor there, too.
 		global $pagenow;
 		if( 'themes.php' != $pagenow ) {
-		
 			add_action( 'admin_print_styles', array( $this, 'register_admin_styles' ) );
-			add_action( 'admin_enqueue_scripts', array( $this, 'register_admin_scripts' ) );
-			
 		} // end if
-		
+
 	} // end constructor
 
 	/*--------------------------------------------------------*
 	 * API Functions
 	 *--------------------------------------------------------*/
-	 
+
 	/**
 	 * Outputs the content of the widget.
 	 *
@@ -49,9 +46,9 @@ class Standard_Ad_125x125 extends WP_Widget {
 	 * @version	1.0
 	 */
 	public function widget( $args, $instance ) {
-	
+
 		extract( $args, EXTR_SKIP );
-		
+
 		// advertisement 1
 		$ad1_src = empty( $instance['ad1_src']) ? '' : apply_filters( 'ad1_src', $instance['ad1_src'] );
 		$ad1_url = empty( $instance['ad1_url']) ? '' : apply_filters( 'ad1_url', $instance['ad1_url'] );
@@ -59,12 +56,12 @@ class Standard_Ad_125x125 extends WP_Widget {
 		// advertisement 2
 		$ad2_src = empty( $instance['ad2_src']) ? '' : apply_filters( 'ad2_src', $instance['ad2_src'] );
 		$ad2_url = empty( $instance['ad2_url']) ? '' : apply_filters( 'ad2_url', $instance['ad2_url'] );
-		
+
 		// Display the widget
 		include( plugin_dir_path( __FILE__ ) .  'views/widget.php' );
-		
+
 	} // end widget
-	
+
 	/**
 	 * Processes the widget's options to be saved.
 	 *
@@ -75,7 +72,7 @@ class Standard_Ad_125x125 extends WP_Widget {
 	 * @version	1.4
 	 */
 	public function update( $new_instance, $old_instance ) {
-		
+
 		$instance = $old_instance;
 
 		// advertisement 1
@@ -85,11 +82,11 @@ class Standard_Ad_125x125 extends WP_Widget {
 		// advertisement 2
 		$instance['ad2_src'] = strip_tags( stripslashes( $new_instance['ad2_src'] ) );
 		$instance['ad2_url'] = strip_tags( stripslashes( $new_instance['ad2_url'] ) );
-		
+
 		return $instance;
-		
+
 	} // end widget
-	
+
 	/**
 	 * Generates the administration form for the widget.
 	 *
@@ -108,7 +105,7 @@ class Standard_Ad_125x125 extends WP_Widget {
 				'ad2_url'	=>	''
 			)
 		);
-    
+
     	// advertising 1
 		$ad1_src = esc_url( $instance['ad1_src'] );
 		$ad1_url = esc_url( $instance['ad1_url'] );
@@ -116,17 +113,17 @@ class Standard_Ad_125x125 extends WP_Widget {
     	// advertising 2
 		$ad2_src = esc_url( $instance['ad2_src'] );
 		$ad2_url = esc_url( $instance['ad2_url'] );
-    
+
 		// Display the admin form
 		include( plugin_dir_path( __FILE__ ) .  'views/admin.php' );
-		
+
 	} // end form
 
 	/*--------------------------------------------------------*
 	 * Helper Functions
 	 *--------------------------------------------------------*/
 
-	/** 
+	/**
 	 * Registers and Enqueues the stylesheets for the Media Uploader and this widget.
 	 *
 	 * @since	3.0
@@ -136,45 +133,29 @@ class Standard_Ad_125x125 extends WP_Widget {
 		wp_enqueue_style( 'standard-ad-125x125', get_template_directory_uri() . '/lib/standard-ad-125x125/css/admin.css', array( 'thickbox' ), STANDARD_THEME_VERSION );
 	} // end register_admin_styles
 
-	/** 
-	 * Registers and Enqueues the admin dashboard JavaScript for this widget.
-	 *
-	 * @since	3.0
-	 * @version	1.0
-	 */
-	public function register_admin_scripts() {
-	
-		$screen = get_current_screen();
-
-		if( 'widgets' == $screen->id ) {
-			wp_enqueue_script( 'standard-ad-125x125', get_template_directory_uri() . '/lib/standard-ad-125x125/js/admin.min.js', array( 'jquery', 'media-upload','thickbox' ), false, STANDARD_THEME_VERSION );
-		} // end if 
-		
-	} // end register_admin_scripts
-	
 	/**
 	 * Renders the advertisement for the specified advertisement.
 	 *
 	 * @param	string	$ad_src	The source of the image file
 	 * @param	string	$ad_url	The URL of the advertisement
 	 * @param	int		$number	The ID of the advertisement
-	 * @return	string	$html	The markup for the 
+	 * @return	string	$html	The markup for the
 	 * @since 	3.2
 	 * @version 1.0
 	 */
 	private function display_ad( $ad_src, $ad_url, $number ) {
-		
+
 		$html = '';
-		
+
 		// Use the default ad if it's not specified
 		if( 0 == strlen( trim( $ad_src ) ) ) {
-		
+
 			if( 0 == strlen( trim( $ad_url ) ) ) {
 				$ad_url = 'http://standardtheme.com';
 			} // end if
-		
-			$ad_src = '<img src="' . get_template_directory_uri() . '/lib/standard-ad-125x125/images/standard-125-' . $number . '.jpg' . '" alt="" />';	
-			
+
+			$ad_src = '<img src="' . get_template_directory_uri() . '/lib/standard-ad-125x125/images/standard-125-' . $number . '.jpg' . '" alt="" />';
+
 		} else {
 			$ad_src = '<img src="' . $ad_src . '" alt="" />';
 		} // end if
@@ -185,14 +166,14 @@ class Standard_Ad_125x125 extends WP_Widget {
 			$html = '<a href="' . $ad_url . '">';
 				$html .= $ad_src;
 			$html .= '</a>';
-			
+
 		} else {
 			$html .= $ad_src;
 		} // end if
-		
+
 		return $html;
-		
+
 	} // end display_ad
 
 } // end class
-add_action( 'widgets_init', create_function( '', 'register_widget( "Standard_Ad_125x125" );' ) ); 
+add_action( 'widgets_init', create_function( '', 'register_widget( "Standard_Ad_125x125" );' ) );
