@@ -32,7 +32,7 @@
  */
 
 // Define a Standard version. This is used for cache-busting stylesheets, JavaScript, and for serializing the version in the database
-define( 'STANDARD_THEME_VERSION', '3.3.4' );
+define( 'STANDARD_THEME_VERSION', '3.4.0' );
 
 /* ----------------------------------------------------------- *
  * Dependencies
