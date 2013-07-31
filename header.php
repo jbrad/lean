@@ -13,28 +13,9 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width">
-
 		<link rel="profile" href="http://gmpg.org/xfn/11" />
 		<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 		<title><?php wp_title( '' ); ?></title>
-		<?php $presentation_options = get_option( 'standard_theme_presentation_options'); ?>
-		<?php if( '' != $presentation_options['fav_icon'] ) { ?>
-			<link rel="shortcut icon" href="<?php echo $presentation_options['fav_icon']; ?>" />
-			<link rel="apple-touch-icon-precomposed" sizes="144x144" href="<?php echo $presentation_options['fav_icon']; ?>" />
-		<?php } // end if ?>
-		<?php if( standard_google_custom_search_is_active() ) { ?>
-			<?php $gcse = get_option( 'widget_standard-google-custom-search' ); ?>
-			<?php $gcse = array_shift( array_values ( $gcse ) ); ?>
-			<script type="text/javascript">
-			  (function() {
-			    var cx = '<?php echo trim( $gcse['gcse_content'] ); ?>';
-			    var gcse = document.createElement('script'); gcse.type = 'text/javascript'; gcse.async = true;
-			    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
-			        '//www.google.com/cse/cse.js?cx=' + cx;
-			    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gcse, s);
-			  })();
-			</script>
-		<?php } // end if ?>
 		<?php wp_head(); ?>
 	</head>
 	<body <?php body_class(); ?>>
