@@ -27,5 +27,5 @@ function standard_google_custom_search() {
 	} // end if
 
 } // end standard_google_custom_search
-add_action( 'wp_head', 'standard_google_custom_search' );
+add_action( 'wp_footer', 'standard_google_custom_search' );
 ?>

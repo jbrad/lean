@@ -42,6 +42,7 @@ include_once( get_template_directory() . '/inc/standard-native-seo.php' );
 include_once( get_template_directory() . '/inc/header.favicon.php' );
 include_once( get_template_directory() . '/inc/header.google-analytics.php' );
 include_once( get_template_directory() . '/inc/header.google-plus.php' );
+include_once( get_template_directory() . '/inc/footer.google-custom-search.php' );
 include_once( get_template_directory() . '/lib/Standard_Nav_Walker.class.php' );
 
 /* ----------------------------------------------------------- *
