@@ -23,13 +23,13 @@ function standard_theme_google_analytics() {
 				_gaq.push(['_trackPageview']);
 				_gaq.push(['_trackPageLoadTime']);
 
-				if( 0 != strlen( $global_options[ 'google_analytics_domain'] ) ) {
+				<?php if( isset( $global_options[ 'google_analytics_domain'] ) && 0 != strlen( $global_options[ 'google_analytics_domain'] ) ) { ?>
 					_gaq.push(['_setDomainName', '<?php echo $global_options[ 'google_analytics_domain' ] ?>']);
-				} // end if/else
+				<?php } // end if/else ?>
 
-				if( 1 == $global_options[ 'google_analytics_linker'] ) {
+				<?php if( isset( $global_options[ 'google_analytics_linker'] ) && 1 == $global_options[ 'google_analytics_linker'] ) { ?>
 					_gaq.push(['_setAllowLinker', true]);
-				} // end if/else
+				<?php } // end if/else ?>
 
 				(function() {
 					var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
