@@ -38,7 +38,9 @@ define( 'STANDARD_THEME_VERSION', '3.3.4' );
  * Dependencies
  * ----------------------------------------------------------- */
 
+include_once( get_template_directory() . '/inc/standard-native-seo.php' );
 include_once( get_template_directory() . '/inc/header.google-analytics.php' );
+include_once( get_template_directory() . '/inc/header.google-plus.php' );
 include_once( get_template_directory() . '/lib/Standard_Nav_Walker.class.php' );
 
 /* ----------------------------------------------------------- *
@@ -3680,17 +3682,6 @@ function standard_truncate_text( $string, $character_limit = 50, $truncation_ind
 } // end standard_truncate_text
 
 /**
- * Helper function for determining if any other SEO plugins are installed.
- *
- * @return	boolean True if 'WordPress SEO', 'All In One SEO', or 'Platinum SEO' are installed.
- * @since	3.0
- * @version	3.0
- */
-function standard_using_native_seo() {
-	return ! ( defined( 'WPSEO_URL' ) || class_exists( 'All_in_One_SEO_Pack' ) || class_exists( 'Platinum_SEO_Pack' ) );
-} // end standard_using_native_seo
-
-/**
  * If Standard is set to online mode, this function loads and redirects all traffic to the
  * page template defined for offline mode.
  *
@@ -3832,60 +3823,6 @@ function standard_has_logo() {
 function standard_has_header_text() {
 	return ! ( 'blank' == get_theme_mod( 'header_textcolor', HEADER_TEXTCOLOR ) || '' == get_theme_mod( 'header_textcolor', HEADER_TEXTCOLOR ) );
 } // end standard_has_header_text
-
-/**
- * Determines if the incoming URL is a gplus.to URL or a vanilla Google+ URL.
- *
- * @param	string $url	The URL to evaluate
- * @return	boolean Whether or not the URL is a gplus.to URL
- * @since	3.1
- * @version	3.1
- */
-function standard_is_gplusto_url( $url ) {
-	return false != stristr( $url, 'gplus.to' );
-} // end standard_is_gplusto_url
-
-/**
- * Determines if the incoming URL is a Google+ vanity URL.
- *
- * @param	string $url	The URL to evaluate
- * @return	boolean 	Whether or not the URL is a Google Plus Vanity URL
- * @since	3.3
- * @version	3.3
- */
-function standard_is_google_plus_vanity_url( $url ) {
-	return false != stristr( $url, '/+' );
-} // end standard_is_google_plus_vanity_url
-
-/**
- * Retrieves the user's Google+ ID from their gplus.to address.
- *
- * @param	string $url	The URL to evaluate
- * @return	string The full Google+ URL from the incoming URL.
- * @since	3.1
- * @version	3.1
- */
-function standard_get_google_plus_from_gplus( $url ) {
-
-	$gplus_url = $url;
-
-	// Check to see if http:// is there
-	if( false == stristr( $url, 'http://' ) ) {
-		$url = 'http://' . $url;
-	} // end if
-
-	// Get the headers from the gplus.to, URL
-	$headers = @get_headers( $url );
-	$url_parts = explode( '/', $headers[5] );
-
-	// If the 5th index exists, the Google+ ID will be here
-	if( isset( $url_parts[5] ) ) {
-		$gplus_url = 'https://plus.google.com/' . $url_parts[5];
-	} // end if
-
-	return user_trailingslashit( $gplus_url );
-
-} // standard_get_google_plus_from_gplus
 
 /**
  * Determines whether or not the user is using pretty permalinks.
