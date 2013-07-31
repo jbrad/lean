@@ -2266,7 +2266,8 @@ if( ! function_exists( 'standard_add_theme_features' ) ) {
 					'link',
 					'quote',
 					'video',
-					'aside'
+					'aside',
+					'audio'
 				)
 			);
 
@@ -3859,6 +3860,6 @@ function standard_is_current_version() {
 function standard_is_wp36() {
 
 	global $wp_version;
-	return floatval( $wp_version );
+	return 0 == strpos( $wp_version, '3.6' );
 
 } // end standard_is_wp36
