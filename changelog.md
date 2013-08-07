@@ -1,5 +1,22 @@
 # Changelog
 
+## 3.3.4 (July 29th, 2013)
+
+### Core Theme
+
+* Fixes issues in Standard SEO with post titles containing international accents and symbols.
+* Fixes issues in Standard SEO no bolding keywords when keywords are used multiple times.
+
+### Change Set
+
+**Modified**
+
+* css/less/style.less
+* functions.php
+* js/admin.min.js
+* lib/seo/js/dev/admin.js
+* style.css
+
 ## 3.3.3 (July 19th, 2013)
 
 ### Core Theme
