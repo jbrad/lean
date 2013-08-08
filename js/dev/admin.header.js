@@ -14,6 +14,8 @@
 	        
 	            $('#header-top').hide();
 	            
+	            alert();
+	            
 	            // Add a 'disabled' class and disable the elements in the second form
 	            $('.form-table:last').addClass('disabled');
 	            $('.form-table:last input').attr('disabled', 'disabled');
