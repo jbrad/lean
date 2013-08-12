@@ -1,0 +1,20 @@
+{
+  "name": "standard",
+  "dependencies": {
+    "bootstrap": "2.3.x",
+    "fitvids": "*",
+    "js-md5": "*"
+  },
+  "exportsOverride": { 
+    "bootstrap": {
+      "../css/lib/less": ["less/*.less"],
+      "../js/lib": ["js/*.js"]
+    },
+    "fitvids": {
+	  "../js/lib": ["jquery.fitvids.js"]
+    },
+    "js-md5": {
+	  "../js/lib": ["js/md5.js"]
+    }
+  }
+}
