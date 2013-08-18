@@ -1,5 +1,6 @@
 {
   "name": "standard",
+  "version": "3.3.5",
   "dependencies": {
     "bootstrap": "2.3.x",
     "fitvids": "*",
