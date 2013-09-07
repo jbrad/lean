@@ -141,7 +141,6 @@ input[type="submit"]:hover {
 }
 
 .post-meta .the-tags {
-	background: url(images/icn-tags.png) no-repeat 100% 0;
 	padding-right: 20px;
 	padding-left: 0;
 }
@@ -189,14 +188,12 @@ blockquote {
 /* Post format Quote */
 
 .post.format-quote .post-header {
-	background-image: url(images/bg-quote-rtl.png);
 	background-position: right bottom;
 }
 
 .post.format-quote .post-header .entry-content {
 	padding-right: 80px;
 	padding-left: 0;
-	background-image: url(images/icn-quote-dark-rtl.png);
 	background-position: right top;
 }
 
@@ -377,7 +374,7 @@ table#wp-calendar tfoot td#next {
 		
 #ie8 .tiled-gallery-item a img {
 	width: auto;
-} // img
+}
 
 /* Smartphones */
 @media (max-width: 768px) {
