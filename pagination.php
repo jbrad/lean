@@ -18,13 +18,13 @@
 
 			<?php if( '' != get_previous_post() ) { ?>
 				<li class="previous">
-					<?php previous_post_link( '<span class="previous-page">%link</span>', __( '<i class="icon-chevron-left"></i>', 'standard' ) . '&nbsp;' . standard_truncate_text( get_previous_post()->post_title, $trunc_limit ) ); ?>
+					<?php previous_post_link( '<span class="previous-page">%link</span>', __( '<span class="glyphicon glyphicon-chevron-left"></span>', 'standard' ) . '&nbsp;' . standard_truncate_text( get_previous_post()->post_title, $trunc_limit ) ); ?>
 				</li>
 			<?php } // end if ?>
 
 			<?php if( '' != get_next_post() ) { ?>
 				<li class="next">
-				<?php next_post_link( '<span class="no-previous-page-link next-page">%link</span>', '&nbsp;' . standard_truncate_text( get_next_post()->post_title, $trunc_limit ) . __( '<i class="icon-chevron-right"></i>', 'standard' ) ); ?>
+				<?php next_post_link( '<span class="no-previous-page-link next-page">%link</span>', '&nbsp;' . standard_truncate_text( get_next_post()->post_title, $trunc_limit ) . __( '<span class="glyphicon glyphicon-chevron-right"></span>', 'standard' ) ); ?>
 				</li>
 			<?php } // end if ?>
 		</ul>
@@ -37,13 +37,13 @@
 
 			<?php if( get_next_posts_link() ) { ?>
 				<li class="previous">
-					<?php next_posts_link( __( '<span class="nav-previous meta-nav"><i class="icon-chevron-left"></i> Older</span>', 'standard' ) ); ?>
+					<?php next_posts_link( __( '<span class="nav-previous meta-nav"><span class="glyphicon glyphicon-chevron-left"></span> Older</span>', 'standard' ) ); ?>
 				</li>
 			<?php } // end if ?>
 
 			<?php if( get_previous_posts_link() ) { ?>
 				<li class="next">
-					<?php previous_posts_link( __( '<span class="nav-next meta-nav">Newer <i class="icon-chevron-right"></i></span>', 'standard' ) ); ?>
+					<?php previous_posts_link( __( '<span class="nav-next meta-nav">Newer <span class="glyphicon glyphicon-chevron-right"></span>', 'standard' ) ); ?>
 				</li>
 			<?php } // end if ?>
 

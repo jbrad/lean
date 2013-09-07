@@ -14,7 +14,7 @@
 <div id="wrapper">
 	<div class="container">
 		<div class="row">
-			<div id="main" class="span12 clearfix" role="main">
+			<div id="main" class="col-md-12 clearfix" role="main">
 				
 				<?php get_template_part( 'breadcrumbs' ); ?>
 			

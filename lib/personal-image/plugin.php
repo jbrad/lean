@@ -121,7 +121,7 @@ class Standard_Personal_Image extends WP_Widget {
 	 * @version	1.0
 	 */
 	public function register_admin_styles() {
-		wp_enqueue_style( 'standard-personal-image', get_template_directory_uri() . '/lib/personal-image/css/admin.css', array( 'thickbox' ), STANDARD_THEME_VERSION );
+		wp_enqueue_style( 'standard-personal-image', get_template_directory_uri() . '/lib/personal-image/css/admin.css', array( 'thickbox' ), LEAN_THEME_VERSION );
 	} // end register_admin_styles
 
 } // end class

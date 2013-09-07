@@ -16,11 +16,11 @@
 	<div class="container">
 		<div class="row">
 
-			<?php if ( 'left_sidebar_layout' == $presentation_options['layout'] ) { ?>
-				<?php get_sidebar(); ?>
-			<?php } // end if ?>
+            <?php if ( 'left_sidebar_layout' == $presentation_options['layout'] ) { ?>
+                <?php get_sidebar(); ?>
+            <?php } // end if ?>
 
-			<div id="main" class="<?php echo 'full_width_layout' == $presentation_options['layout'] ? 'span12 fullwidth' : 'span8'; ?> clearfix" role="main">
+            <div id="main" class="<?php echo 'full_width_layout' == $presentation_options['layout'] ? 'col-md-12' : 'col-md-8'; ?> clearfix" role="main">
 
 				<?php get_template_part( 'breadcrumbs' ); ?>
 
@@ -82,10 +82,10 @@
 
 											<ul id="archives-post-pager" class="pager">
 												<li class="previous">
-													<?php previous_posts_link( '<i class="icon-chevron-left"></i> Previous Posts', $post_query->max_num_pages ); ?>
+													<?php previous_posts_link( '<span class="glyphicon glyphicon-cheveron-left"></span> Previous Posts', $post_query->max_num_pages ); ?>
 												</li>
 												<li class="next">
-													<?php next_posts_link( 'Next Posts <i class="icon-chevron-right"></i>', $post_query->max_num_pages ); ?>
+													<?php next_posts_link( 'Next Posts <span class="glyphicon glyphicon-cheveron-right"></span>', $post_query->max_num_pages ); ?>
 												</li>
 											</ul><!-- /.pager -->
 
@@ -156,9 +156,9 @@
 				<?php } // end if ?>
 			</div><!-- /#main -->
 
-			<?php if ( 'right_sidebar_layout' == $presentation_options['layout'] ) {  ?>
-				<?php get_sidebar(); ?>
-			<?php } // end if ?>
+            <?php if ( 'right_sidebar_layout' == $presentation_options['layout'] ) { ?>
+                <?php get_sidebar(); ?>
+            <?php } // end if ?>
 
 		</div><!--/ row -->
 	</div><!--/container -->

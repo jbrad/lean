@@ -16,15 +16,15 @@
 						<div class="container">
 							<div class="row">
 								
-								<div id="left-footer-widgets" class="span4 clearfix">
+								<div id="left-footer-widgets" class="col-md-4 clearfix">
 									<?php dynamic_sidebar( 'sidebar-3' ); ?>
 								</div><!-- /#left-footer-widget -->
 									
-								<div id="center-footer-widgets" class="span4 clearfix">
+								<div id="center-footer-widgets" class="col-md-4 clearfix">
 									<?php dynamic_sidebar( 'sidebar-4' ); ?>
 								</div><!-- /#center-footer-widget -->
 									
-								<div id="right-footer-widgets" class="span4 clearfix">
+								<div id="right-footer-widgets" class="col-md-4 clearfix">
 									<?php dynamic_sidebar( 'sidebar-5' ); ?>
 								</div><!-- /#right-footer-widget -->
 								
@@ -37,7 +37,7 @@
 			<div id="sub-floor" class="clearfix">
 				<div class="container">
 					<div class="row-fluid">
-						<div class="span12">
+						<div class="col-md-12">
 							<div id="footer-links">
 								<?php  
 									if( has_nav_menu( 'footer_menu' ) && ( ! standard_is_offline() || is_user_logged_in() ) ) {
@@ -45,7 +45,7 @@
 											array(
 												'theme_location'  	=> 'footer_menu',
 												'container_class' 	=> 'menu-footer-nav-container navbar',
-												'items_wrap'      	=> '<ul id="%1$s" class="nav %2$s">%3$s</ul>',
+												'items_wrap'      	=> '<ul id="%1$s" class="nav navbar-nav %2$s">%3$s</ul>',
 												'fallback_cb'		=> false,
 												'depth'          	=> 1
 											)

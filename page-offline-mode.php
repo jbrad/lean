@@ -12,7 +12,7 @@
 	
 		<?php $options = get_option( 'standard_theme_global_options' ); ?>
 			<div class="row" role="main">
-				<div class="span12">
+				<div class="col-md-12">
 					<div id="offline-wrapper">
 						<div id="offline-container">
 					

@@ -1,8 +1,8 @@
 <?php
 
 /**
- * Standard 3.3
- * Standard is a sleek, exacting product designed for uncluttered and sophisticated presentation of your content on desktop and mobile devices.
+ * Lean 1.0
+ * Lean is a sleek, exacting product designed for uncluttered and sophisticated presentation of your content on desktop and mobile devices.
  *
  * This file enables core features of Standard including sidebars, menus, post thumbnails, post formats, header, backgrounds, and more.
  * Some functions are able to be overridden using child themes. These functions will be wrapped in a function_exists() conditional.
@@ -25,14 +25,14 @@
  *	7. Custom Filters
  *	8. Helper Functions
  *
- * @package	Standard
- * @since	3.0
- * @version	3.3
+ * @package	Lean
+ * @since	1.0
+ * @version	1.0
  *
  */
 
 // Define a Standard version. This is used for cache-busting stylesheets, JavaScript, and for serializing the version in the database
-define( 'STANDARD_THEME_VERSION', '3.4.0' );
+define( 'LEAN_THEME_VERSION', '1.0.0' );
 
 /* ----------------------------------------------------------- *
  * Dependencies
@@ -2688,23 +2688,14 @@ function standard_add_theme_stylesheets() {
 	// remove jetpack contact form styles
 	wp_deregister_style('grunion.css');
 
-	// bootstrap
-	wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/css/lib/bootstrap.css', false, STANDARD_THEME_VERSION );
-
-	// bootstrap-responsive
-	wp_enqueue_style( 'bootstrap-responsive', get_template_directory_uri() . '/css/lib/bootstrap-responsive.css', false, STANDARD_THEME_VERSION );
-
 	// theme
-	wp_enqueue_style( 'standard', get_stylesheet_directory_uri() . '/style.css', false, STANDARD_THEME_VERSION );
+	wp_enqueue_style( 'standard', get_stylesheet_directory_uri() . '/style.css', false, LEAN_THEME_VERSION );
 
 	// contrast
 	$options = get_option( 'standard_theme_presentation_options' );
 	if( 'dark' == $options['contrast'] ) {
-		wp_enqueue_style( 'standard-contrast', get_template_directory_uri() . '/css/theme.contrast-light.css', array( 'standard' ), STANDARD_THEME_VERSION );
+		wp_enqueue_style( 'standard-contrast', get_template_directory_uri() . '/css/theme.contrast-light.css', array( 'standard' ), LEAN_THEME_VERSION );
  	} // end if
-
-	// theme media queries/responsive
-	wp_enqueue_style( 'theme-responsive', get_template_directory_uri() . '/css/theme-responsive.css', array( 'standard' ), STANDARD_THEME_VERSION );
 
 } // end add_theme_stylesheets
 add_action( 'wp_enqueue_scripts', 'standard_add_theme_stylesheets', 999 );
@@ -2718,20 +2709,20 @@ add_action( 'wp_enqueue_scripts', 'standard_add_theme_stylesheets', 999 );
 function standard_add_theme_scripts() {
 
 	// bootstrap
-	wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/js/lib/bootstrap.min.js', array( 'jquery' ), STANDARD_THEME_VERSION );
+	wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/js/lib/bootstrap.min.js', array( 'jquery' ), LEAN_THEME_VERSION );
 
 	// fitvid
-	wp_enqueue_script( 'fitvid', get_template_directory_uri() . '/js/lib/jquery.fitvids.js', false, STANDARD_THEME_VERSION );
+	wp_enqueue_script( 'fitvid', get_template_directory_uri() . '/js/lib/jquery.fitvids.js', false, LEAN_THEME_VERSION );
 
 	// comment-reply
 	if ( is_singular() && get_option( 'thread_comments' ) ) {
 
 		wp_enqueue_script( 'comment-reply' );
-		wp_enqueue_script( 'md5', get_template_directory_uri() . '/js/lib/md5.js', false, STANDARD_THEME_VERSION );
+		wp_enqueue_script( 'md5', get_template_directory_uri() . '/js/lib/md5.js', false, LEAN_THEME_VERSION );
 
 	} // end if
 
-	wp_enqueue_script( 'theme-main', get_template_directory_uri() . '/js/theme.main.min.js', false, STANDARD_THEME_VERSION );
+	wp_enqueue_script( 'theme-main', get_template_directory_uri() . '/js/theme.main.min.js', false, LEAN_THEME_VERSION );
 
 } // end add_theme_scripts
 add_action( 'wp_enqueue_scripts', 'standard_add_theme_scripts' );
@@ -2743,7 +2734,7 @@ add_action( 'wp_enqueue_scripts', 'standard_add_theme_scripts' );
  * @version	3.2
  */
 function standard_add_admin_stylesheets() {
-	wp_enqueue_style( 'standard-admin', get_template_directory_uri() . '/css/admin.css', false, STANDARD_THEME_VERSION );
+	wp_enqueue_style( 'standard-admin', get_template_directory_uri() . '/css/admin.css', false, LEAN_THEME_VERSION );
 } // end add_admin_stylesheets
 add_action( 'admin_print_styles', 'standard_add_admin_stylesheets' );
 
@@ -2766,11 +2757,11 @@ function standard_add_admin_script() {
 		'thickbox'
 	);
 
-	wp_enqueue_script( 'standard-admin', get_template_directory_uri() . '/js/admin.min.js?using_sitemap=' . get_option( 'standard_using_sitemap' ), $dependencies, STANDARD_THEME_VERSION );
+	wp_enqueue_script( 'standard-admin', get_template_directory_uri() . '/js/admin.min.js?using_sitemap=' . get_option( 'standard_using_sitemap' ), $dependencies, LEAN_THEME_VERSION );
 
 	$screen = get_current_screen();
 	if( 'post' != $screen->base && 'page' != $screen->base ) {
-		wp_enqueue_script( 'standard-admin-media', get_template_directory_uri() . '/js/admin.media-upload.min.js', $dependencies, STANDARD_THEME_VERSION );
+		wp_enqueue_script( 'standard-admin-media', get_template_directory_uri() . '/js/admin.media-upload.min.js', $dependencies, LEAN_THEME_VERSION );
 	} // end if
 
 } // end standard_add_admin_script
@@ -2812,9 +2803,9 @@ function standard_activate_theme() {
 		} else {
 
 			// Set the default gravatar only if this is the first install
-			if( STANDARD_THEME_VERSION != get_option( 'standard_theme_version' ) ) {
+			if( LEAN_THEME_VERSION != get_option( 'lean_theme_version' ) ) {
 
-				update_option( 'standard_theme_version', STANDARD_THEME_VERSION );
+				update_option( 'lean_theme_version', LEAN_THEME_VERSION );
 				update_option( 'avatar_default', 'retro' );
 
 			} // end if
@@ -3849,7 +3840,7 @@ function standard_is_using_pretty_permalinks() {
  * @version	3.2
  */
 function standard_is_current_version() {
-	return STANDARD_THEME_VERSION == get_option( 'standard_theme_version' ) ? true : false;
+	return LEAN_THEME_VERSION == get_option( 'lean_theme_version' ) ? true : false;
 } // end standard_is_current_version
 
 /**

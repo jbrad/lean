@@ -150,7 +150,7 @@ module.exports = function(grunt) {
 	  theme: {
 	    options: {
 	      paths: ["css/less"],
-	      yuicompress: false
+	      yuicompress: true
 	    },
 	    files: {
 	      "style.css": "css/less/style.less",

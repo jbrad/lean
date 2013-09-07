@@ -15,7 +15,7 @@ $social_options = $social_options['active-social-icons'];
 $social_icons_urls = explode( ';', $social_options );
 
 // Begin to build up the list looking for the anchors for each image, too
-$html = '<ul class="nav social-icons clearfix">';
+$html = '<ul class="nav navbar-nav navbar-right nav-pills clearfix">';
 foreach( $social_icons_urls as $icon_url ) {
 
 	$icon_url_array = explode( '|' , $icon_url );

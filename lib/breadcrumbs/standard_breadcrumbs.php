@@ -91,7 +91,6 @@ class Standard_Breadcrumbs {
 		
 		$home_link .= '<li class="home-breadcrumb">';
 			$home_link .= '<a href="' . home_url() . '" itemprop="url"><span itemprop="title">' . __( 'Home', 'standard' ) . '</span></a>';
-			$home_link .= '<span class="divider">/</span>';
 		$home_link .= '</li>';
 		
 		return $home_link;
@@ -146,9 +145,6 @@ class Standard_Breadcrumbs {
 		// Create the category link
 		$category_link = '<li>';
 			$category_link .= '<a href="' . $category_url . '" itemprop="url"><span itemprop="title">' . $category_name . '</span></a>';
-			if( strlen( trim( $page_id ) ) > 0 && strlen( trim( $category_name ) ) > 0) {
-				$category_link .= '<span class="divider">/</span>';
-			} // end if
 		$category_link .= '</li>';
 		
 		
@@ -233,8 +229,7 @@ class Standard_Breadcrumbs {
 			} else {
 			
 				$page_link .= '<a href="' . get_permalink( $page_id ) . '" itemprop="url"><span itemprop="title">' . get_the_title( $page_id ) . '</span></a>';
-				$page_link .= '<span class="divider">/</span>';
-				
+
 			} // end if/else	
 			
 		$page_link .= '</li>';
