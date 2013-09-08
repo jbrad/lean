@@ -1,6 +1,6 @@
-# Standard
+# Lean
 
-* Copyright 2010 - 2013 8BIT, LLC
+* Copyright 2013 Jason Bradley
 
 > Licensed under the GPLv3. Please see `license.md` included with this
 > software for a full copy of the license.
@@ -39,4 +39,12 @@ Many hours of research and development went into the crafting of our policies. T
 * [Aza Rask](http://www.azarask.in/blog/post/privacy-icons/)
 * [John Saddington, original gangsta](http://tentblogger.com)
 * [Michael Hyatt, author of Platform](http://michaelhyatt.com)
+
+## Font Awesome
+
+*[Font Awesome](http://fontawesome.io) by Dave Gandy
+*Font License - License: [SIL OFL 1.1](http://scripts.sil.org/OFL)
+*Code License - License: [MIT License](http://opensource.org/licenses/mit-license.html)
+*Documentation License - License: [CC BY 3.0](http://creativecommons.org/licenses/by/3.0/)
+*Brand Icons - All brand icons are trademarks of their respective owners. The use of these trademarks does not indicate endorsement of the trademark holder by Font Awesome, nor vice versa.
 
