@@ -2,9 +2,9 @@
 /**
  * The template for displaying 404 pages.
  *
- * @package Standard
- * @version	3.2
- * @since 	3.0
+ * @package Lean
+ * @version	1.0
+ * @since 	1.0
  */
 ?>
 <?php get_header(); ?>

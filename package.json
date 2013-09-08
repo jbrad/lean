@@ -1,12 +1,12 @@
 {
-  "name": "standard",
-  "version": "3.3.4",
-  "description": "Standard is a sleek, exacting product designed for uncluttered and sophisticated presentation of your content on desktop and mobile devices.",
-  "author": "8BIT <http://8bit.io>",
-  "homepage": "http://8bit.io/standard",
+  "name": "lean",
+  "version": "1.0.0",
+  "description": "Lean is a sleek, exacting product designed for uncluttered and sophisticated presentation of your content on desktop and mobile devices.",
+  "author": "Jason Bradley <http://jasonbradley.me>",
+  "homepage": "http://jasonbradley.me/lean",
   "repository": {
     "type": "git",
-    "url": "http://github.com/eightbit/standard.git"
+    "url": "http://github.com/jbrad/lean.git"
   },
   "engine": "node >= 0.4.1",
   "private": "true",

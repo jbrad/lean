@@ -2,9 +2,9 @@
 /**
  * The template for rendering images and attached images.
  *
- * @package Standard
- * @since 	3.0
- * @version	3.0
+ * @package Lean
+ * @version	1.0
+ * @since 	1.0
  */
 ?>
 <?php get_header(); ?>

@@ -2,9 +2,9 @@
 /**
  * The template for displaying breadcrumbs. Supports both Standard and Yoast Breadcrumbs.
  *
- * @package Standard
- * @version	3.1
- * @since 	3.0
+ * @package Lean
+ * @version	1.0
+ * @since 	1.0
  */
 ?>
 <?php 

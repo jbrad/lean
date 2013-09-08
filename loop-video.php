@@ -1,10 +1,10 @@
 <?php
 /**
  * The template for displaying video post formats.
- * 
- * @package Standard
- * @since 	3.0
- * @version	3.0
+ *
+ * @package Lean
+ * @version	1.0
+ * @since 	1.0
  */
 ?>
 <?php /* Video Loop */ ?>

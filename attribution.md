@@ -1,6 +1,7 @@
 # Lean
 
 * Copyright 2013 Jason Bradley
+* Forked from Standard by 8BIT
 
 > Licensed under the GPLv3. Please see `license.md` included with this
 > software for a full copy of the license.

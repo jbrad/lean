@@ -2,9 +2,9 @@
 /**
  * The template for rendering the footer.
  *
- * @package Standard
- * @since 	3.1
- * @version	3.0
+ * @package Lean
+ * @version	1.0
+ * @since 	1.0
  */
 ?>
 

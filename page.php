@@ -2,9 +2,9 @@
 /**
  * The template for displaying single pages.
  *
- * @package Standard
- * @since 	3.0
- * @version	3.1
+ * @package Lean
+ * @version	1.0
+ * @since 	1.0
  */
 ?>
 <?php get_header(); ?>

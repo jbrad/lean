@@ -2,10 +2,10 @@
 /**
  * The template for starting The Loop and rendering general content features such as the breadcrumbs, pagination, and sidebars. Uses
  * get_template_part to render the appropriate template based on the current post's format.
- * 
- * @package Standard
- * @since 	3.0
- * @version	3.1
+ *
+ * @package Lean
+ * @version	1.0
+ * @since 	1.0
  */
 ?>
 

@@ -3,10 +3,10 @@
  * Template Name: Full-Width Template 
  *
  * The template for rendering pages without sidebars.
- * 
- * @package Standard
- * @since 	3.0
- * @version	3.1
+ *
+ * @package Lean
+ * @version	1.0
+ * @since 	1.0
  */
 ?>
 <?php get_header(); ?>

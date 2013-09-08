@@ -2,9 +2,9 @@
 /**
  * The template for rendering the social networking icons.
  *
- * @package Standard
- * @since 	3.0
- * @version	3.1
+ * @package Lean
+ * @version	1.0
+ * @since 	1.0
  */
  
 // Read the active social icon stirng

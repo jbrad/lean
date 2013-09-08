@@ -2,9 +2,9 @@
 /**
  * The template for displaying audio post formats.
  *
- * @package Standard
- * @since 	3.4.0
- * @version	1.0.0
+ * @package Lean
+ * @version	1.0
+ * @since 	1.0
  */
 ?>
 

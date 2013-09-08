@@ -1,10 +1,10 @@
 <?php
 /**
  * The template for displaying comments, pings, and trackbacks on posts, pages, and attachments.
- * 
- * @package Standard
- * @since 	3.1
- * @version	3.0
+ *
+ * @package Lean
+ * @version	1.0
+ * @since 	1.0
  */
 ?>
 <?php 

@@ -2,9 +2,9 @@
 /**
  * The template for providing pagination throughout the theme.
  *
- * @package Standard
- * @since 	3.0
- * @version	3.0
+ * @package Lean
+ * @version	1.0
+ * @since 	1.0
  */
 ?>
 <?php global $wp_query; ?>

@@ -2,10 +2,10 @@
 /**
  * The template for displaying search results. It's based on index.php. If the user has the Google Custom Search Widget enabled, then Standard
  * will display that template rather than the default search results page.
- * 
- * @package Standard
- * @since 	3.0
- * @version	3.0
+ *
+ * @package Lean
+ * @version	1.0
+ * @since 	1.0
  */
 ?>
 <?php get_header(); ?>

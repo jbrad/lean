@@ -4,9 +4,9 @@ module.exports = function(grunt) {
         pkg: grunt.file.readJSON('package.json'),
 
         compress: {
-            standard: {
+            lean: {
                 options: {
-                    archive: '../standard-licenses/standard/standard.zip'
+                    archive: '../lean-licenses/lean/lean.zip'
                 },
                 files: [
                     {src: [
@@ -26,14 +26,14 @@ module.exports = function(grunt) {
                         '!**/css/lib/less/**',
                         '!lib/**/js/dev/*'
                     ],
-                        dest: 'standard',
+                        dest: 'lean',
                         filter: 'isFile'
                     }
                 ]
             },
             designer: {
                 options: {
-                    archive: '../standard-licenses/designer/standard.zip'
+                    archive: '../lean-licenses/designer/lean.zip'
                 },
                 files: [
                     {src: [
@@ -46,21 +46,21 @@ module.exports = function(grunt) {
                         '!**js/lib/js-md5/**',
                         '!**/node_modules/**'
                     ],
-                        dest: 'standard',
+                        dest: 'lean',
                         filter: 'isFile'
                     }
                 ]
             },
             developer: {
                 options: {
-                    archive: '../standard-licenses/developer/standard.zip'
+                    archive: '../lean-licenses/developer/lean.zip'
                 },
                 files: [
                     {src: [
                         '**',
                         '!**/node_modules/**'
                     ],
-                        dest: 'standard',
+                        dest: 'lean',
                     }
                 ]
             },
