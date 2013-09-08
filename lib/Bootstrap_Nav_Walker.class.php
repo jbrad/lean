@@ -3,12 +3,12 @@
  * Creates an HTML list of nav menu items that introduces multi-levels into Bootstrap 2.0 menus.
  *
  * @package		Standard
- * @subpackage	Standard_Nav_Walker
+ * @subpackage	Bootstrap_Nav_Walker
  * @version		1.0
  * @since 		3.0
  * @uses 		Walker
  */
-class Standard_Nav_Walker extends Walker_Nav_Menu {
+class Bootstrap_Nav_Walker extends Walker_Nav_Menu {
 
 	/**
 	 * Each time an element is the child of the prior element, this is called.
