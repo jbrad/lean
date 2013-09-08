@@ -23,7 +23,7 @@
             <link rel="apple-touch-icon-precomposed" sizes="144x144" href="<?php echo $presentation_options['fav_icon']; ?>" />
         <?php } // end if ?>
         <?php global $post; ?>
-        <?php if( standard_using_native_seo() && ( ( is_single() || is_page() ) && ( 0 != strlen( trim( ( $google_plus = get_user_meta( $post->post_author, 'google_plus', true ) ) ) ) ) ) ) { ?>
+        <?php if( using_native_seo() && ( ( is_single() || is_page() ) && ( 0 != strlen( trim( ( $google_plus = get_user_meta( $post->post_author, 'google_plus', true ) ) ) ) ) ) ) { ?>
             <?php if( false != standard_is_gplusto_url( $google_plus ) ) { ?>
                 <?php $google_plus = standard_get_google_plus_from_gplus( $google_plus ); ?>
             <?php } // end if ?>

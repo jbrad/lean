@@ -38,7 +38,7 @@ define( 'LEAN_THEME_VERSION', '1.0.0' );
  * Dependencies
  * ----------------------------------------------------------- */
 
-include_once( get_template_directory() . '/inc/standard-native-seo.php' );
+include_once( get_template_directory() . '/inc/native-seo.php' );
 include_once( get_template_directory() . '/inc/header.favicon.php' );
 include_once( get_template_directory() . '/inc/header.google-analytics.php' );
 include_once( get_template_directory() . '/inc/header.google-plus.php' );
@@ -2047,7 +2047,7 @@ function standard_detect_wordpress_seo() {
 	} // end if
 
 	// Set the option to false if the plugin is deactivated
-	if( 'true' == get_option( 'standard_theme_seo_notification_options') && standard_using_native_seo() ) {
+	if( 'true' == get_option( 'standard_theme_seo_notification_options') && using_native_seo() ) {
 		update_option( 'standard_theme_seo_notification_options', 'false' );
 	} // end if
 
@@ -2304,7 +2304,7 @@ if( ! function_exists( 'standard_add_theme_features' ) ) {
 			)
 		);
 
-		if( standard_using_native_seo() ) {
+		if( using_native_seo() ) {
 			standard_add_plugin( '/lib/seo/plugin.php' );
 		} // end if
 
@@ -2836,7 +2836,7 @@ function standard_add_user_profile_fields( $user_contactmethods ) {
 	$user_contactmethods['twitter'] = __( '<span class="standard-user-profile" id="standard-user-profile-twitter">Twitter URL</span>', 'standard' );
 	$user_contactmethods['facebook'] = __( '<span class="standard-user-profile" id="standard-user-profile-facebook">Facebook URL</span>', 'standard' );
 
-	if( standard_using_native_seo() ) {
+	if( using_native_seo() ) {
 		$user_contactmethods['google_plus'] = __( '<span class="standard-user-profile" id="standard-user-profile-google-plus">Google+ URL</span>', 'standard' );
 	} // end if
 
@@ -2854,7 +2854,7 @@ add_filter( 'user_contactmethods', 'standard_add_user_profile_fields' );
 function standard_meta_description() {
 
 	// If we're using Standard's native SEO, let's do the following...
-	if( standard_using_native_seo() ) {
+	if( using_native_seo() ) {
 
 		// If we're on the homepage, we're going to use the site's description
 		if( is_home() ) {
@@ -3204,7 +3204,7 @@ if( standard_is_wp36() ) {
 
 } // end if
 
-if( standard_using_native_seo() ) {
+if( using_native_seo() ) {
     /**
      * Calls the Standard SEO Titles plugin during the wp_title action to render
      * SEO-friendly page titles.

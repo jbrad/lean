@@ -64,7 +64,7 @@ function standard_google_plus() {
 	global $post;
 
 	$html = '';
-	if( standard_using_native_seo() && ( ( is_single() || is_page() ) && ( 0 != strlen( trim( ( $google_plus = get_user_meta( $post->post_author, 'google_plus', true ) ) ) ) ) ) ) {
+	if( using_native_seo() && ( ( is_single() || is_page() ) && ( 0 != strlen( trim( ( $google_plus = get_user_meta( $post->post_author, 'google_plus', true ) ) ) ) ) ) ) {
 
 		if( false != standard_is_gplusto_url( $google_plus ) ) {
 			$google_plus = standard_get_google_plus_from_gplus( $google_plus );

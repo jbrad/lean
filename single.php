@@ -62,7 +62,7 @@ if( 1 == get_post_meta( get_the_ID(), 'standard_seo_post_level_layout', true ) )
                                     <?php
                                     // Get the Google+ ID based on if we're using Standard's SEO or WordPress SEO
                                     $google_plus =
-                                        standard_using_native_seo() ?
+                                        using_native_seo() ?
                                             trailingslashit( get_user_meta( get_the_author_meta( 'ID' ), 'google_plus', true ) )
                                             :
                                             trailingslashit( get_user_meta( get_the_author_meta( 'ID' ), 'googleplus', true ) );
