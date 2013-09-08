@@ -33,7 +33,7 @@
 			
 				<?php if( is_multi_author() ) { ?>
 					<span class="the-author">&nbsp;<?php _e( 'Posted by', 'standard' ); ?>&nbsp;<a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>" title="<?php echo get_the_author_meta( 'display_name' ); ?>"><?php echo the_author_meta( 'display_name' ); ?></a></span>
-					<span class="the-time updated">&nbsp;<?php _e( 'on', 'standard' ) . ' '; echo get_the_time( get_option( 'date_format' ) ); ?></span>
+					<span class="the-time updated">&nbsp;<?php _e( 'on ', 'standard' ) . ' '; echo get_the_time( get_option( 'date_format' ) ); ?></span>
 				<?php } else { ?>
 					<?php printf( '<span class="the-time updated">' . __( 'Posted on %1$s', 'standard' ) . '</span>', get_the_time( get_option( 'date_format' ) ) ); ?>
 				<?php } // end if ?>
