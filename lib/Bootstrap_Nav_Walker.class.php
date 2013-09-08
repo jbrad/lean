@@ -2,10 +2,10 @@
 /**
  * Creates an HTML list of nav menu items that introduces multi-levels into Bootstrap 2.0 menus.
  *
- * @package		Standard
+ * @package		Lean
  * @subpackage	Bootstrap_Nav_Walker
  * @version		1.0
- * @since 		3.0
+ * @since 		1.0
  * @uses 		Walker
  */
 class Bootstrap_Nav_Walker extends Walker_Nav_Menu {
@@ -17,7 +17,7 @@ class Bootstrap_Nav_Walker extends Walker_Nav_Menu {
 	 * @param	int      $depth	    The level of depth at which the menu is being called.
 	 * @param	array    $args	    The arguments passed to be added to the menu item
 	 * @version	1.0
-	 * @since	3.0
+	 * @since	1.0
 	 */
 	function start_lvl( &$output, $depth, $args ) {
 		if($depth >= 1) {
@@ -35,7 +35,7 @@ class Bootstrap_Nav_Walker extends Walker_Nav_Menu {
 	 * @param	int      $depth	     The level of depth at which this item is being written.
 	 * @param	array    $args	     The arguments passed to be added to the menu item
 	 * @version	1.0
-	 * @since	3.0
+	 * @since	1.0
 	 */
 	function start_el( &$output, $item, $depth, $args ) {
 		
@@ -100,7 +100,7 @@ class Bootstrap_Nav_Walker extends Walker_Nav_Menu {
 	 * @param	string   $output			The current rendering of this element.
 	 * @link 	http://wordpress.stackexchange.com/a/16821/1014 
 	 * @version	1.0
-	 * @since	3.0
+	 * @since	1.0
 	 */
 	function display_element( $element, &$children_elements, $max_depth, $depth = 0, $args, &$output ) {
 	
@@ -121,7 +121,7 @@ class Bootstrap_Nav_Walker extends Walker_Nav_Menu {
 	 * @param	int      $depth	     The level of depth at which this item is being written.
 	 * @param	array    $args	     The arguments passed to be added to the menu item
 	 * @version	1.0
-	 * @since	3.0
+	 * @since	1.0
 	 */
 	function end_el( &$output, $item, $depth, $args ) {
 		$output .= apply_filters( 'nav_walker_end_el', '</li>', $item, $depth, $args );
@@ -134,7 +134,7 @@ class Bootstrap_Nav_Walker extends Walker_Nav_Menu {
 	 * @param	int      $depth	    The level of depth at which this item is being written.
 	 * @param	array    $args	    The arguments passed to be added to the menu item
 	 * @version	1.0
-	 * @since	3.0
+	 * @since	1.0
 	 */
 	function end_lvl( &$output, $depth, $args ) {
 		$output .= apply_filters( 'nav_walker_end_lvl', '</ul>', $depth, $args );
