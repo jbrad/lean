@@ -6,17 +6,17 @@
  * @version	1.0
  */
 
-if( ! function_exists( 'standard_custom_comment' ) ) {
+if( ! function_exists( 'lean_custom_comment' ) ) {
     /**
      * Generates the comment container for each post (and page if enabled).
      *
      * @param	array $comment    The current comment being displayed.
      * @param	array $args       Array containing arguments for displaying the comment.
      * @param	int   $depth      The depth of where this comment falls in the tree.
-     * @since	3.0
-     * @version	3.2
+     * @since	1.0
+     * @version	1.0
      */
-    function standard_custom_comment( $comment, $args, $depth ) {
+    function lean_custom_comment( $comment, $args, $depth ) {
         $GLOBALS['comment'] = $comment; ?>
 
         <li <?php comment_class( 'clearfix' ); ?> id="li-comment-<?php comment_ID(); ?>">
@@ -40,14 +40,14 @@ if( ! function_exists( 'standard_custom_comment' ) ) {
                             <?php } // end if/else ?>
 						</span>
                     <?php if ( get_comment_type() == "comment" ) { ?>
-                        <span class="date"><a href="<?php echo get_comment_link(); ?>" title="<?php esc_attr_e( 'Permalink', 'standard'); ?>"><?php printf( __( '%1$s at %2$s', '_s' ), get_comment_date( get_option( 'date_format' ) ), get_comment_time( get_option( 'time_format' ) ) ); ?></a></span>
-                        <span class="edit"><?php edit_comment_link( __( 'Edit', 'standard' ), '', '' ); ?></span>
+                        <span class="date"><a href="<?php echo get_comment_link(); ?>" title="<?php esc_attr_e( 'Permalink', 'lean'); ?>"><?php printf( __( '%1$s at %2$s', '_s' ), get_comment_date( get_option( 'date_format' ) ), get_comment_time( get_option( 'time_format' ) ) ); ?></a></span>
+                        <span class="edit"><?php edit_comment_link( __( 'Edit', 'lean' ), '', '' ); ?></span>
                     <?php } // end if ?>
                 </div><!-- /.comment-head -->
 
                 <?php if ( '0' == $comment->comment_approved ) { ?>
                     <span class='unapproved label warning'>
-							<?php _e( 'Your comment will appear after being approved.', 'standard' ); ?>
+							<?php _e( 'Your comment will appear after being approved.', 'lean' ); ?>
 						</span>
                 <?php } // end if ?>
 
@@ -63,7 +63,7 @@ if( ! function_exists( 'standard_custom_comment' ) ) {
                             array(
                                 'depth' 		=> $depth,
                                 'max_depth' 	=> $args['max_depth'],
-                                'reply_text' 	=> __( 'Reply', 'standard')
+                                'reply_text' 	=> __( 'Reply', 'lean')
                             )
                         )
                     );
@@ -72,7 +72,7 @@ if( ! function_exists( 'standard_custom_comment' ) ) {
 
             </div><!-- /.comment-entry -->
         </div><!-- /comment-container -->
-    <?php } // end standard_custom_comment
+    <?php } // end lean_custom_comment
 } // end if
 
 /**
@@ -81,8 +81,8 @@ if( ! function_exists( 'standard_custom_comment' ) ) {
  * @param	array $comment    The current comment being displayed.
  * @param	array $args       Array containing arguments for displaying the comment.
  * @param	int   $depth      The depth of where this comment falls in the tree.
- * @since	3.0
- * @version	3.2
+ * @since	1.0
+ * @version	1.0
  */
 function list_pings( $comment, $args, $depth ) {
     $GLOBALS['comment'] = $comment; ?>
