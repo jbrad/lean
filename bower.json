@@ -2,20 +2,37 @@
   "name": "standard",
   "version": "3.3.5",
   "dependencies": {
-    "bootstrap": "2.3.x",
     "fitvids": "*",
-    "js-md5": "*"
+    "js-md5": "*",
+    "font-awesome": "~3.2.1",
+    "twitter": "~3.0.0"
   },
-  "exportsOverride": { 
-    "bootstrap": {
-      "../css/lib/less": ["less/*.less"],
-      "../js/lib": ["js/*.js"]
+  "exportsOverride": {
+    "twitter": {
+      "../css/lib": [
+        "less/*.less"
+      ],
+      "../js/lib": [
+        "js/*.js"
+      ]
+    },
+    "font-awesome": {
+      "../css/lib": [
+        "less/*.less"
+      ],
+      "../font/": [
+        "font/*.*"
+      ]
     },
     "fitvids": {
-	  "../js/lib": ["jquery.fitvids.js"]
+      "../js/lib": [
+        "jquery.fitvids.js"
+      ]
     },
     "js-md5": {
-	  "../js/lib": ["js/md5.js"]
+      "../js/lib": [
+        "js/md5.js"
+      ]
     }
   }
 }
