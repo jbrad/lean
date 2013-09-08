@@ -519,13 +519,13 @@ function standard_save_post( ) {
     if( isset( $_POST['page_template'] ) && isset( $_POST['page_template'] ) ) {
 
         // if we're saving the page that's using the sitemap but the template is no longer used, delete the option
-        if( get_option( 'standard_using_sitemap' ) == $_POST['post_ID'] && strpos( $_POST['page_template'], 'template-sitemap.php' ) == false ) {
-            delete_option( 'standard_using_sitemap' );
+        if( get_option( 'lean_using_sitemap' ) == $_POST['post_ID'] && strpos( $_POST['page_template'], 'template-sitemap.php' ) == false ) {
+            delete_option( 'lean_using_sitemap' );
         } // end if
 
         // if we're not using the sitemap, but this post has it set, update the option with this post's id
-        if( ( '' == get_option( 'standard_using_sitemap' ) || false == get_option( 'standard_using_sitemap' ) ) && strpos( $_POST['page_template'], 'template-sitemap.php' ) > -1 ) {
-            update_option( 'standard_using_sitemap', $_POST['post_ID'] );
+        if( ( '' == get_option( 'lean_using_sitemap' ) || false == get_option( 'lean_using_sitemap' ) ) && strpos( $_POST['page_template'], 'template-sitemap.php' ) > -1 ) {
+            update_option( 'lean_using_sitemap', $_POST['post_ID'] );
         } // end if
 
     } // end if
@@ -542,8 +542,8 @@ add_action( 'save_post', 'standard_save_post' );
 function standard_delete_post( $id ) {
 
     // if the page being deleted has the sitemap template, we need to delete the option
-    if( get_option( 'standard_using_sitemap') == $id ) {
-        delete_option( 'standard_using_sitemap' );
+    if( get_option( 'lean_using_sitemap') == $id ) {
+        delete_option( 'lean_using_sitemap' );
     } // end if
 
 } // end standard_delet_post
