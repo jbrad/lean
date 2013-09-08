@@ -30,7 +30,7 @@
 
 				<?php if( is_single() && '' !== get_the_title() ) { ?>
 					<h1 class="post-title entry-title">
-                        <span class="glyphicon glyphicon-link"></span> <a href="<?php echo $href; ?>" title="<?php echo strlen( trim( $title ) ) > 0 ? $title : $post_title; ?>" target="<?php echo $target; ?>" rel="bookmark">
+                        <span class="icon-link"></span> <a href="<?php echo $href; ?>" title="<?php echo strlen( trim( $title ) ) > 0 ? $title : $post_title; ?>" target="<?php echo $target; ?>" rel="bookmark">
 							<?php if( strlen( trim( $post_title ) ) > 0 ) { ?>
 								<?php echo $post_title; ?>
 							<?php } elseif( strlen( trim( $title ) ) > 0 ) { ?>
@@ -44,7 +44,7 @@
 					</h1>
 				<?php } else { ?>
 					<h2 class="post-title entry-title">
-                        <span class="glyphicon glyphicon-link"></span> <a href="<?php echo $href; ?>" title="<?php echo strlen( trim( $title ) ) > 0 ? $title : $post_title; ?>" target="<?php echo $target; ?>" rel="bookmark">
+                        <span class="icon-link"></span> <a href="<?php echo $href; ?>" title="<?php echo strlen( trim( $title ) ) > 0 ? $title : $post_title; ?>" target="<?php echo $target; ?>" rel="bookmark">
 							<?php if( strlen( trim( $post_title ) ) > 0 ) { ?>
 								<?php echo $post_title; ?>
 							<?php } elseif( strlen( trim( $title ) ) > 0 ) { ?>
@@ -85,13 +85,13 @@
 				
 				<?php $tag_list = get_the_tag_list( '', __( ', ', 'standard' ) ); ?>
 				<?php if( $tag_list ) { ?>
-					<?php printf( '<span class="glyphicon glyphicon-tags"></span> ' . __( '%1$s', 'standard' ) . '</span>', $tag_list ); ?>
+					<?php printf( '<span class="icon-tags"></span> ' . __( '%1$s', 'standard' ) . '</span>', $tag_list ); ?>
 				<?php } // end if ?>
 				
 			</div><!-- /meta-date-cat-tags -->
 			
 			<div class="meta-comment-link pull-right">
-				<a class="pull-right post-link" href="<?php the_permalink(); ?>" title="<?php esc_attr_e( 'permalink', 'standard' ); ?>">&nbsp;<span class="glyphicon glyphicon-link"></span></a>
+				<a class="pull-right post-link" href="<?php the_permalink(); ?>" title="<?php esc_attr_e( 'permalink', 'standard' ); ?>">&nbsp;<span class="icon-link"></span></a>
 				<?php if ( '' != get_post_format() ) { ?>
 					<span class="the-comment-link"><?php comments_popup_link( __( 'Leave a comment', 'standard' ), __( '1 Comment', 'standard' ), __( '% Comments', 'standard' ), '', ''); ?></span>
 				<?php } // end if ?>

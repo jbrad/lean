@@ -3106,7 +3106,7 @@ if( ! function_exists( 'standard_search_form' ) ) {
 
 		// Render the form
 		$form = '<form role="search" method="get" id="searchform" action="' . esc_url( home_url( '/' ) ) . '">';
-			$form .= '<input placeholder="' . __( 'Search...', 'standard' ) . '" type="text" value="' . $query . '" name="s" id="s" />';
+			$form .= '<input placeholder="' . __( 'Search...', 'standard' ) . '" type="text" value="' . $query . '" name="s" id="s" class="form-control"/>';
 		$form .= '</form>';
 
 		return $form;

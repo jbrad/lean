@@ -27,13 +27,13 @@
 // Scaffolding
 // -------------------------
 
-@body-bg:               #f2f2f2;
+@body-bg:               #fff;
 @text-color:            @gray-dark;
 
 // Links
 // -------------------------
 
-@link-color:            #4d8b97;
+@link-color:            @brand-primary;
 @link-hover-color:      darken(@link-color, 15%);
 
 // Typography
@@ -58,7 +58,7 @@
 // Iconography
 // -------------------------
 
-@icon-font-path:          "fonts/";
+@icon-font-path:          "../fonts/";
 @icon-font-name:          "glyphicons-halflings-regular";
 
 
@@ -241,7 +241,7 @@
 @navbar-default-color:             #777;
 @navbar-default-bg:                #f8f8f8;
 @navbar-default-border:            darken(@navbar-default-bg, 6.5%);
-@navbar-border-radius:             0;
+@navbar-border-radius:             @border-radius-base;
 @navbar-padding-horizontal:        floor(@grid-gutter-width / 2);
 @navbar-padding-vertical:          ((@navbar-height - @line-height-computed) / 2);
 
@@ -303,7 +303,7 @@
 // -------------------------
 
 @nav-link-padding:                          10px 15px;
-@nav-link-hover-bg:                         transparent;
+@nav-link-hover-bg:                         @gray-lighter;
 
 @nav-disabled-link-color:                   @gray-light;
 @nav-disabled-link-hover-color:             @gray-light;

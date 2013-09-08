@@ -82,10 +82,10 @@
 
 											<ul id="archives-post-pager" class="pager">
 												<li class="previous">
-													<?php previous_posts_link( '<span class="glyphicon glyphicon-cheveron-left"></span> Previous Posts', $post_query->max_num_pages ); ?>
+													<?php previous_posts_link( '<span class="icon-cheveron-left"></span> Previous Posts', $post_query->max_num_pages ); ?>
 												</li>
 												<li class="next">
-													<?php next_posts_link( 'Next Posts <span class="glyphicon glyphicon-cheveron-right"></span>', $post_query->max_num_pages ); ?>
+													<?php next_posts_link( 'Next Posts <span class="icon-cheveron-right"></span>', $post_query->max_num_pages ); ?>
 												</li>
 											</ul><!-- /.pager -->
 
