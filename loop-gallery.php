@@ -52,7 +52,7 @@
                     $indicators .= '</ol>';
                     $slides .= '</div><a class="carousel-control left" href="#gallery-';
                     $slides .= get_the_ID();
-                    $slides .= ' data-slide="prev"><span class="icon-prev"></span></a>
+                    $slides .= '" data-slide="prev"><span class="icon-prev"></span></a>
     <a class="carousel-control right" href="#gallery-';
                     $slides .= get_the_ID();
                     $slides .= '" data-slide="next"><span class="icon-next"></span></a></div>';
