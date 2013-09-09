@@ -16,18 +16,15 @@
                     <?php
 
                     $gallery = get_post_gallery_images( $post );
+                    $gallery_link = 'gallery-' . get_the_ID();
 
                     $indicators = '<ol class="carousel-indicators">';
                     $slides = '<div class="carousel-inner">';
-                    $html = '<div id="gallery-';
-                    $html .= get_the_ID();
-                    $html .= '" class="carousel slide">';
+                    $html = '<div id="' . $gallery_link . '" class="carousel slide">';
                     $index = 0;
 
                     foreach( $gallery as $image ) {
-                        $indicators .= '<li data-target="#gallery-';
-                        $indicators .= get_the_ID();
-                        $indicators .= '" data-slide-to="';
+                        $indicators .= '<li data-target="#' . $gallery_link . '" data-slide-to="';
                         $indicators .= strval($index);
                         $indicators .= '" class="';
 
@@ -50,12 +47,8 @@
                     }
 
                     $indicators .= '</ol>';
-                    $slides .= '</div><a class="carousel-control left" href="#gallery-';
-                    $slides .= get_the_ID();
-                    $slides .= '" data-slide="prev"><span class="icon-prev"></span></a>
-    <a class="carousel-control right" href="#gallery-';
-                    $slides .= get_the_ID();
-                    $slides .= '" data-slide="next"><span class="icon-next"></span></a></div>';
+                    $slides .= '</div><a class="carousel-control left" href="#' . $gallery_link . '" data-slide="prev"><span class="icon-prev"></span></a>';
+                    $slides .= '<a class="carousel-control right" href="#' . $gallery_link . '" data-slide="next"><span class="icon-next"></span></a></div>';
                     $html .= $indicators;
                     $html .= $slides;
 
