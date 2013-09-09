@@ -776,6 +776,7 @@ if( ! function_exists( 'standard_add_theme_features' ) ) {
                     'quote',
                     'video',
                     'aside',
+                    'gallery',
                     'audio'
                 )
             );

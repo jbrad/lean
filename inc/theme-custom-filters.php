@@ -1090,3 +1090,16 @@ function standard_is_wp36() {
     return 0 == strpos( $wp_version, '3.6' );
 
 } // end standard_is_wp36
+
+/**
+ * Removes shortcodes from gallery posts
+ *
+ */
+
+function remove_shortcode_from_gallery_post_format($content) {
+    if( 'gallery' == get_post_format( get_the_ID() ) ) {
+        $content = strip_shortcodes( $content );
+    }
+    return $content;
+}
+add_filter('the_content', 'remove_shortcode_from_gallery_post_format');
