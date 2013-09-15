@@ -255,12 +255,9 @@ module.exports = function(grunt) {
                 },
                 files: [
                     {
-                        // Set to true to enable the following options…
                         expand: true,
-                        // cwd is 'current working directory'
                         cwd: 'images/',
                         src: ['*.png'],
-                        // Could also match cwd line above. i.e. project-directory/img/
                         dest: 'images/',
                         ext: '.png'
                     }
@@ -272,13 +269,108 @@ module.exports = function(grunt) {
                 },
                 files: [
                     {
-                        // Set to true to enable the following options…
                         expand: true,
-                        // cwd is 'current working directory'
                         cwd: 'images/social/small',
                         src: ['*.png'],
-                        // Could also match cwd. i.e. project-directory/img/
                         dest: 'images/social/small',
+                        ext: '.png'
+                    }
+                ]
+            },
+            screenshot: {
+                options: {
+                    progressive: true
+                },
+                files: [
+                    {
+                        expand: true,
+                        cwd: '.',
+                        src: ['screenshot.png'],
+                        dest: '.',
+                        ext: '.png'
+                    }
+                ]
+            },
+            css: {
+                options: {
+                    progressive: true
+                },
+                files: [
+                    {
+                        expand: true,
+                        cwd: 'css/img',
+                        src: ['*.png'],
+                        dest: 'css/img',
+                        ext: '.png'
+                    }
+                ]
+            },
+            ad_125: {
+                options: {
+                    progressive: true
+                },
+                files: [
+                    {
+                        expand: true,
+                        cwd: 'lib/lean-ad-125x125/images',
+                        src: ['*.jpg'],
+                        dest: 'lib/lean-ad-125x125/images',
+                        ext: '.jpg'
+                    }
+                ]
+            },
+            ad_300: {
+                options: {
+                    progressive: true
+                },
+                files: [
+                    {
+                        expand: true,
+                        cwd: 'lib/lean-ad-300x250/images',
+                        src: ['*.jpg'],
+                        dest: 'lib/lean-ad-300x250/images',
+                        ext: '.jpg'
+                    }
+                ]
+            },
+            billboard: {
+                options: {
+                    progressive: true
+                },
+                files: [
+                    {
+                        expand: true,
+                        cwd: 'lib/lean-ad-billboard/images',
+                        src: ['*.jpg'],
+                        dest: 'lib/lean-ad-billboard/images',
+                        ext: '.jpg'
+                    }
+                ]
+            },
+            personal_image: {
+                options: {
+                    progressive: true
+                },
+                files: [
+                    {
+                        expand: true,
+                        cwd: 'lib/personal-image/css',
+                        src: ['*.jpg'],
+                        dest: 'lib/personal-image/css',
+                        ext: '.jpg'
+                    }
+                ]
+            },
+            influence: {
+                options: {
+                    progressive: true
+                },
+                files: [
+                    {
+                        expand: true,
+                        cwd: 'lib/influence/css',
+                        src: ['*.png'],
+                        dest: 'lib/influence/css',
                         ext: '.png'
                     }
                 ]
