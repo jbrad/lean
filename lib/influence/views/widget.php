@@ -2,7 +2,7 @@
 /**
  * Renders the the Influence Widget.
  *
- * @package		Standard
+ * @package		Lean
  * @subpackage	Influence Widget
  * @version 	1.4
  * @since		3.0
