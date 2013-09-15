@@ -91,7 +91,7 @@ module.exports = function(grunt) {
                     'lib/personal-image/js/admin.min.js': ['lib/personal-image/js/dev/admin.js'],
                     'lib/seo/js/admin.min.js': ['lib/seo/js/dev/admin.js'],
                     'lib/standard-ad-125x125/js/admin.min.js': ['lib/lean-ad-125x125/js/dev/admin.js'],
-                    'lib/standard-ad-300x250/js/admin.min.js': ['lib/standard-ad-300x250/js/dev/admin.js'],
+                    'lib/standard-ad-300x250/js/admin.min.js': ['lib/lean-ad-300x250/js/dev/admin.js'],
                     'lib/standard-ad-billboard/js/admin.min.js': ['lib/standard-ad-billboard/js/dev/admin.js']
                 }
             },
@@ -177,8 +177,8 @@ module.exports = function(grunt) {
                     "lib/seo/css/admin.css": 'lib/seo/css/less/admin.less',
                     "lib/standard-ad-125x125/css/admin.css": 'lib/lean-ad-125x125/css/less/admin.less',
                     "lib/standard-ad-125x125/css/widget.css": 'lib/lean-ad-125x125/css/less/widget.less',
-                    "lib/standard-ad-300x250/css/admin.css": 'lib/standard-ad-300x250/css/less/admin.less',
-                    "lib/standard-ad-300x250/css/widget.css": 'lib/standard-ad-300x250/css/less/widget.less',
+                    "lib/standard-ad-300x250/css/admin.css": 'lib/lean-ad-300x250/css/less/admin.less',
+                    "lib/standard-ad-300x250/css/widget.css": 'lib/lean-ad-300x250/css/less/widget.less',
                     "lib/standard-ad-billboard/css/admin.css": 'lib/standard-ad-billboard/css/less/admin.less',
                     "lib/standard-ad-billboard/css/widget.css": 'lib/standard-ad-billboard/css/less/widget.less'
                 }
@@ -217,8 +217,8 @@ module.exports = function(grunt) {
                     "lib/seo/css/admin.css": 'lib/seo/css/less/admin.less',
                     "lib/standard-ad-125x125/css/admin.css": 'lib/lean-ad-125x125/css/less/admin.less',
                     "lib/standard-ad-125x125/css/widget.css": 'lib/lean-ad-125x125/css/less/widget.less',
-                    "lib/standard-ad-300x250/css/admin.css": 'lib/standard-ad-300x250/css/less/admin.less',
-                    "lib/standard-ad-300x250/css/widget.css": 'lib/standard-ad-300x250/css/less/widget.less',
+                    "lib/standard-ad-300x250/css/admin.css": 'lib/lean-ad-300x250/css/less/admin.less',
+                    "lib/standard-ad-300x250/css/widget.css": 'lib/lean-ad-300x250/css/less/widget.less',
                     "lib/standard-ad-billboard/css/admin.css": 'lib/standard-ad-billboard/css/less/admin.less',
                     "lib/standard-ad-billboard/css/widget.css": 'lib/standard-ad-billboard/css/less/widget.less',
 

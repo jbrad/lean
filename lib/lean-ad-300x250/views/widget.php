@@ -2,7 +2,7 @@
 /**
  * Renders the the 300x250 widget
  *
- * @package		Standard
+ * @package		lean
  * @subpackage	300x250 Advertisement
  * @version 	1.1
  * @since		3.0
