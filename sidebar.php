@@ -26,7 +26,7 @@
             )
         );
 
-        $ads_125 = new Standard_Ad_125x125();
+        $ads_125 = new Lean_Ad_125x125();
         $ads_125->widget(
             array(),
             array()
