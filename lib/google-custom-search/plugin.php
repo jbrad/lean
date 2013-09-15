@@ -162,12 +162,12 @@ class Google_Custom_Search extends WP_Widget {
 			);
 
 			// If the value exists, delete it first. I don't want to write extra rows into the table.
-			if ( 0 == count( get_post_meta( $page_id, 'standard_google_custom_search' ) ) ) {
-				delete_post_meta( $page_id, 'standard_google_custom_search' );
+			if ( 0 == count( get_post_meta( $page_id, 'lean_google_custom_search' ) ) ) {
+				delete_post_meta( $page_id, 'lean_google_custom_search' );
 			} // end if
 
 			// Mark that this post was created by Standard
-			update_post_meta( $page_id, 'standard_google_custom_search', true );
+			update_post_meta( $page_id, 'lean_google_custom_search', true );
 
 		} else {
 
@@ -185,7 +185,7 @@ class Google_Custom_Search extends WP_Widget {
 	 */
 	public function delete_search_results_template() {
 
-		$query = new WP_Query('post_type=page&meta_key=standard_google_custom_search');
+		$query = new WP_Query('post_type=page&meta_key=lean_google_custom_search');
 		if( $query->have_posts() ) {
 
 			$query->the_post();
@@ -212,7 +212,7 @@ class Google_Custom_Search extends WP_Widget {
 		if( $this->is_page( 'widgets.php' ) ) {
 
 			// ... and a search results page already exists, then we need to throw up an error.
-			if( 1 != get_post_meta( $page_id, 'standard_google_custom_search', true ) ) {
+			if( 1 != get_post_meta( $page_id, 'lean_google_custom_search', true ) ) {
 
 				echo '<div id="standard-gcse-template-exists-notification" class="updated"><p>' . __( 'Could not configure Google Custom Search widget because the required "search-results" permalink is already in use. Please rename <a href="post.php?post=' . $page_id . '&action=edit">the existing page\'s permalink</a>, or <a href="post.php?post=' . $page_id . '&action=edit">delete the page</a>, and try again.', 'standard') . '</p></div>';
 

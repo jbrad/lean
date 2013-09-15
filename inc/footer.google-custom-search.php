@@ -6,7 +6,7 @@
  * @version   1.0.0
  * @since     3.4.0
  */
-function standard_google_custom_search() {
+function lean_google_custom_search() {
 
 	if( lean_google_custom_search_is_active() ) {
 
@@ -26,6 +26,6 @@ function standard_google_custom_search() {
 	<?php
 	} // end if
 
-} // end standard_google_custom_search
-add_action( 'wp_footer', 'standard_google_custom_search' );
+} // end lean_google_custom_search
+add_action( 'wp_footer', 'lean_google_custom_search' );
 ?>
