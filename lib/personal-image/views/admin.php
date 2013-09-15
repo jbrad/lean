@@ -18,7 +18,7 @@
 	    	<img src="<?php echo $image_src; ?>" alt="" class="preview_image" />
 	    </div><!-- /.preview_image_container -->
     	
-    	<span class="description"><?php _e( 'Maximum width is 300 pixels.', 'lean' ); ?></span>
+    	<span class="description"><?php _e( 'Maximum width is 360 pixels.', 'lean' ); ?></span>
     	<a href="javascript:;" class="img_delete <?php echo '' == $image_src ? 'hidden' : '' ?>"><?php _e( 'Delete Image', 'lean' ); ?></a>
     	
 		<!-- Hidden fields used to track the default headshot, uploaded images, and links -->
