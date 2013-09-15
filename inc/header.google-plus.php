@@ -19,9 +19,9 @@ function lean_is_gplusto_url( $url ) {
  * @since	3.3
  * @version	3.3
  */
-function standard_is_google_plus_vanity_url( $url ) {
+function lean_is_google_plus_vanity_url( $url ) {
 	return false != stristr( $url, '/+' );
-} // end standard_is_google_plus_vanity_url
+} // end lean_is_google_plus_vanity_url
 
 /**
  * Retrieves the user's Google+ ID from their gplus.to address.
@@ -59,7 +59,7 @@ function lean_get_google_plus_from_gplus( $url ) {
  * @version 1.0.0
  * @since   3.4.0
  */
-function standard_google_plus() {
+function lean_google_plus() {
 
 	global $post;
 
@@ -76,5 +76,5 @@ function standard_google_plus() {
 
 	echo $html;
 
-} // end standard_google_plus
-add_action( 'wp_head', 'standard_google_plus' );
+} // end lean_google_plus
+add_action( 'wp_head', 'lean_google_plus' );
