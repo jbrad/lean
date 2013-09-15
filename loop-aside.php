@@ -1,6 +1,6 @@
 <?php
 /**
- * The template for displaying standard post formats.
+ * The template for displaying aside post formats.
  *
  * @package Lean
  * @version	1.0
@@ -21,14 +21,14 @@
 
         <?php if( ( is_category() || is_archive() || is_home() ) && has_excerpt() ) { ?>
             <?php the_excerpt( ); ?>
-            <a href="<?php echo get_permalink(); ?>"><?php _e( 'Continue Reading...', 'standard' ); ?></a>
+            <a href="<?php echo get_permalink(); ?>"><?php _e( 'Continue Reading...', 'lean' ); ?></a>
         <?php } else { ?>
-            <?php the_content( __( 'Continue Reading...', 'standard' ) ); ?>
+            <?php the_content( __( 'Continue Reading...', 'lean' ) ); ?>
         <?php } // end if/else ?>
         <?php
         wp_link_pages(
             array(
-                'before' 	=> '<div class="page-link"><span>' . __( 'Pages:', 'standard' ) . '</span>',
+                'before' 	=> '<div class="page-link"><span>' . __( 'Pages:', 'lean' ) . '</span>',
                 'after' 	=> '</div>'
             )
         );
@@ -38,9 +38,9 @@
     <div class="post-meta clearfix">
 
         <div class="meta-comment-link pull-right">
-            <a class="pull-right post-link" href="<?php the_permalink(); ?>" title="<?php esc_attr_e( 'permalink', 'standard' ); ?>">&nbsp;<span class="icon-link"></span></a>
+            <a class="pull-right post-link" href="<?php the_permalink(); ?>" title="<?php esc_attr_e( 'permalink', 'lean' ); ?>">&nbsp;<span class="icon-link"></span></a>
             <?php if ( '' != get_post_format() ) { ?>
-                <span class="the-comment-link"><?php comments_popup_link( __( 'Leave a comment', 'standard' ), __( '1 Comment', 'standard' ), __( '% Comments', 'standard' ), '', ''); ?></span>
+                <span class="the-comment-link"><?php comments_popup_link( __( 'Leave a comment', 'lean' ), __( '1 Comment', 'lean' ), __( '% Comments', 'lean' ), '', ''); ?></span>
             <?php } // end if ?>
         </div><!-- /meta-comment-link -->
 
