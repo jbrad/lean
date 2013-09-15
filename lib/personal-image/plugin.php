@@ -1,14 +1,14 @@
 <?php
 /**
  * A widget for displaying a personal image and an optional description for displaying in the sidebar
- * of Standard.
+ * of lean.
  *
- * @package		Standard
+ * @package		lean
  * @subpackage	Personal Image Widget
  * @version		1.0
  * @since		3.0
  */
-class Standard_Personal_Image extends WP_Widget {
+class Lean_Personal_Image extends WP_Widget {
 
 	/*--------------------------------------------------------*
 	 * Constructor
@@ -20,12 +20,12 @@ class Standard_Personal_Image extends WP_Widget {
 	public function __construct() {
 
 		$widget_opts = array(
-			'classname' 	=> __( 'personal-image', 'standard' ),
-			'description' 	=> __( 'Display a personal image and an optional description.', 'standard' )
+			'classname' 	=> __( 'personal-image', 'lean' ),
+			'description' 	=> __( 'Display a personal image and an optional description.', 'lean' )
 		);
-		$this->WP_Widget( 'standard-personal-image', __( 'Personal Image', 'standard' ), $widget_opts );
+		$this->WP_Widget( 'lean-personal-image', __( 'Personal Image', 'lean' ), $widget_opts );
 
-		// We don't want to load these on the Appearance Options because we're overiding window.send_to_editor there, too.
+		// We don't want to load these on the Appearance Options because we're overriding window.send_to_editor there, too.
 		global $pagenow;
 		if( 'themes.php' != $pagenow ) {
 
@@ -121,8 +121,8 @@ class Standard_Personal_Image extends WP_Widget {
 	 * @version	1.0
 	 */
 	public function register_admin_styles() {
-		wp_enqueue_style( 'standard-personal-image', get_template_directory_uri() . '/lib/personal-image/css/admin.css', array( 'thickbox' ), LEAN_THEME_VERSION );
+		wp_enqueue_style( 'lean-personal-image', get_template_directory_uri() . '/lib/personal-image/css/admin.css', array( 'thickbox' ), LEAN_THEME_VERSION );
 	} // end register_admin_styles
 
 } // end class
-add_action( 'widgets_init', create_function( '', 'register_widget( "Standard_Personal_Image" );' ) );
+add_action( 'widgets_init', create_function( '', 'register_widget( "Lean_Personal_Image" );' ) );
