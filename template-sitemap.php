@@ -33,7 +33,7 @@
 							</div><!-- /.post-header -->						
 							<div id="content-<?php the_ID(); ?>" class="entry-content clearfix">
 								<div id="sitemap-authors">
-									<h2 id="authors"><?php _e( 'Authors', 'standard' ); ?></h2>
+									<h2 id="authors"><?php _e( 'Authors', 'lean' ); ?></h2>
 			
 									<ul id="sitemap-authors" class="inline-grid four-up">
 										<?php
@@ -58,7 +58,7 @@
 									</ul>
 								</div><!-- /#sitemap-authors -->
 								
-								<h2 id="pages"><?php _e( 'Pages', 'standard' ); ?></h2>
+								<h2 id="pages"><?php _e( 'Pages', 'lean' ); ?></h2>
 								<ul id="sitemap-pages">
 									<?php
 										wp_list_pages(
@@ -70,7 +70,7 @@
 									?>
 								</ul>
 								
-								<h2 id="posts"><?php _e( 'Posts', 'standard' ); ?></h2>
+								<h2 id="posts"><?php _e( 'Posts', 'lean' ); ?></h2>
 								<ul id="sitemap-posts">
 									<?php
 										$category_list = '';
