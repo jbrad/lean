@@ -16,7 +16,7 @@
 		<?php if ( '' != get_the_post_thumbnail() ) { ?>
 			<?php if( $presentation_options['display_featured_images'] == 'always' || ( $presentation_options['display_featured_images'] == 'single-post' && is_single() ) || ( $presentation_options['display_featured_images'] == 'index' && is_home() ) ) { ?>
 				<div class="thumbnail alignleft">
-					<a class="thumbnail-link fademe" href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( '%s', 'standard' ), the_title_attribute( 'echo=0' ) ); ?>">
+					<a class="thumbnail-link fademe" href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( '%s', 'lean' ), the_title_attribute( 'echo=0' ) ); ?>">
 						<?php the_post_thumbnail( 'thumbnail' );	?>
 					</a>
 				</div> <!-- /.thumbnail -->
@@ -28,7 +28,7 @@
 					<h1 class="post-title entry-title"><?php the_title(); ?></h1>
 				<?php } else { ?>
 					<h2 class="post-title entry-title">
-						<a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php printf( esc_attr__( '%s', 'standard' ), the_title_attribute( 'echo=0' ) ); ?>"><?php the_title(); ?></a>
+						<a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php printf( esc_attr__( '%s', 'lean' ), the_title_attribute( 'echo=0' ) ); ?>"><?php the_title(); ?></a>
 					</h2>
 				<?php } // end if ?>
 			<?php } // end if ?>
@@ -37,12 +37,12 @@
 					<span class="the-author"><a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>" title="<?php echo get_the_author_meta( 'display_name' ); ?>"><?php echo the_author_meta( 'display_name' ); ?></a>&nbsp;&mdash;&nbsp;</span>
 				<?php } // end if ?>
 				<?php if( strlen( trim( get_the_title() ) ) == 0 ) { ?>
-					<a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php printf( esc_attr__( '%s', 'standard' ), the_title_attribute( 'echo=0' ) ); ?>"><span class="the-time updated"><?php the_time( get_option( 'date_format' ) ); ?></span></a>
+					<a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php printf( esc_attr__( '%s', 'lean' ), the_title_attribute( 'echo=0' ) ); ?>"><span class="the-time updated"><?php the_time( get_option( 'date_format' ) ); ?></span></a>
 				<?php } else { ?>
 					<span class="the-time updated"><?php the_time( get_option( 'date_format' ) ); ?></span>
 				<?php } // end if/else ?>
 				<?php if( comments_open() ) { ?>
-					<span class="the-comment-link">&mdash;&nbsp;<?php comments_popup_link( __( 'Leave a comment', 'standard' ), __( '1 Comment', 'standard' ), __( '% Comments', 'standard' ), '', '' ); ?></span>
+					<span class="the-comment-link">&mdash;&nbsp;<?php comments_popup_link( __( 'Leave a comment', 'lean' ), __( '1 Comment', 'lean' ), __( '% Comments', 'lean' ), '', '' ); ?></span>
 				<?php } // end if ?>
 			</div><!-- /.post-header-meta -->
 		</div><!-- /.title-wrap -->
@@ -52,14 +52,14 @@
 	<div id="content-<?php the_ID(); ?>" class="entry-content clearfix">
 		<?php if( ( is_category() || is_archive() || is_home() ) && has_excerpt() ) { ?>
 			<?php the_excerpt( ); ?>
-			<a href="<?php echo get_permalink(); ?>"><?php _e( 'Continue Reading...', 'standard' ); ?></a>
+			<a href="<?php echo get_permalink(); ?>"><?php _e( 'Continue Reading...', 'lean' ); ?></a>
 		<?php } else { ?>
-			<?php the_content( __( 'Continue Reading...', 'standard' ) ); ?>
+			<?php the_content( __( 'Continue Reading...', 'lean' ) ); ?>
 		<?php } // end if/else ?>
 		<?php 
 			wp_link_pages( 
 				array( 
-					'before' 	=> '<div class="page-link"><span>' . __( 'Pages:', 'standard' ) . '</span>', 
+					'before' 	=> '<div class="page-link"><span>' . __( 'Pages:', 'lean' ) . '</span>',
 					'after' 	=> '</div>' 
 				) 
 			); 
@@ -70,22 +70,22 @@
 
 			<div class="meta-date-cat-tags pull-left">
 			
-				<?php $category_list = get_the_category_list( __( ', ', 'standard' ) ); ?>
+				<?php $category_list = get_the_category_list( __( ', ', 'lean' ) ); ?>
 				<?php if( $category_list ) { ?>
-					<?php printf( '<span class="the-category">' . __( 'In %1$s', 'standard' ) . '</span>', $category_list ); ?>
+					<?php printf( '<span class="the-category">' . __( 'In %1$s', 'lean' ) . '</span>', $category_list ); ?>
 				<?php } // end if ?>
 				
-				<?php $tag_list = get_the_tag_list( '', __( ', ', 'standard' ) ); ?>
+				<?php $tag_list = get_the_tag_list( '', __( ', ', 'lean' ) ); ?>
 				<?php if( $tag_list ) { ?>
-					<?php printf( '<span class="icon-tags"></span> ' . __( '%1$s', 'standard' ) . '</span>', $tag_list ); ?>
+					<?php printf( '<span class="icon-tags"></span> ' . __( '%1$s', 'lean' ) . '</span>', $tag_list ); ?>
 				<?php } // end if ?>
 				
 			</div><!-- /meta-date-cat-tags -->
 
 			<div class="meta-comment-link pull-right">
-				<a class="pull-right post-link" href="<?php the_permalink(); ?>" title="<?php esc_attr_e( 'permalink', 'standard' ); ?>">&nbsp;<span class="icon-link"></span></a>
+				<a class="pull-right post-link" href="<?php the_permalink(); ?>" title="<?php esc_attr_e( 'permalink', 'lean' ); ?>">&nbsp;<span class="icon-link"></span></a>
 				<?php if ( '' != get_post_format() ) { ?>
-					<span class="the-comment-link"><?php comments_popup_link( __( 'Leave a comment', 'standard' ), __( '1 Comment', 'standard' ), __( '% Comments', 'standard' ), '', ''); ?></span>
+					<span class="the-comment-link"><?php comments_popup_link( __( 'Leave a comment', 'lean' ), __( '1 Comment', 'lean' ), __( '% Comments', 'lean' ), '', ''); ?></span>
 				<?php } // end if ?>
 			</div><!-- /meta-comment-link -->
 
