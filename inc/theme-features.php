@@ -136,7 +136,7 @@ function standard_customize_register( $wp_customize ) {
     );
 
     // Publishing Options
-    $wp_customize->add_section( 'standard_theme_publishing_options',
+    $wp_customize->add_section( 'lean_theme_publishing_options',
         array(
             'title'          => __( 'Publishing', 'standard' ),
             'priority'       => 151
@@ -144,7 +144,7 @@ function standard_customize_register( $wp_customize ) {
     );
 
     // Author Box
-    $wp_customize->add_setting( 'standard_theme_publishing_options[display_author_box]',
+    $wp_customize->add_setting( 'lean_theme_publishing_options[display_author_box]',
         array(
             'default'        => 'always',
             'type'           => 'option',
@@ -152,11 +152,11 @@ function standard_customize_register( $wp_customize ) {
         )
     );
 
-    $wp_customize->add_control( 'standard_theme_publishing_options[display_author_box]',
+    $wp_customize->add_control( 'lean_theme_publishing_options[display_author_box]',
         array(
             'label'      => __( 'Display Author Box', 'standard' ),
-            'section'    => 'standard_theme_publishing_options',
-            'settings'   => 'standard_theme_publishing_options[display_author_box]',
+            'section'    => 'lean_theme_publishing_options',
+            'settings'   => 'lean_theme_publishing_options[display_author_box]',
             'type'       => 'select',
             'choices'    => array(
                 'always' 		=>	__( 'Always', 'standard' ),
@@ -271,11 +271,11 @@ function standard_post_level_layout_display( $post ) {
 
     wp_nonce_field( plugin_basename( __FILE__ ), 'standard_post_level_layout_nonce' );
 
-    $html = '<input type="checkbox" id="standard_seo_post_level_layout" name="standard_seo_post_level_layout" value="1"' . checked( get_post_meta( $post->ID, 'standard_seo_post_level_layout', true ), 1, false ) . ' />';
+    $html = '<input type="checkbox" id="lean_seo_post_level_layout" name="lean_seo_post_level_layout" value="1"' . checked( get_post_meta( $post->ID, 'lean_seo_post_level_layout', true ), 1, false ) . ' />';
 
     $html .= '&nbsp;';
 
-    $html .= '<label for="standard_seo_post_level_layout">';
+    $html .= '<label for="lean_seo_post_level_layout">';
     $html .= __( 'Hide sidebar and display post at full width.', 'standard' );
     $html .= '</label>';
 
@@ -313,17 +313,17 @@ function standard_save_post_layout_data( $post_id ) {
 
         // Read the meta description
         $post_level_layout = '';
-        if( isset( $_POST['standard_seo_post_level_layout'] ) ) {
-            $post_level_layout = $_POST['standard_seo_post_level_layout'];
+        if( isset( $_POST['lean_seo_post_level_layout'] ) ) {
+            $post_level_layout = $_POST['lean_seo_post_level_layout'];
         } // end if
 
         // If the value exists, delete it first. I don't want to write extra rows into the table.
-        if ( 0 == count( get_post_meta( $post_id, 'standard_seo_post_level_layout' ) ) ) {
-            delete_post_meta( $post_id, 'standard_seo_post_level_layout' );
+        if ( 0 == count( get_post_meta( $post_id, 'lean_seo_post_level_layout' ) ) ) {
+            delete_post_meta( $post_id, 'lean_seo_post_level_layout' );
         } // end if
 
         // Update it for this post.
-        update_post_meta( $post_id, 'standard_seo_post_level_layout', $post_level_layout );
+        update_post_meta( $post_id, 'lean_seo_post_level_layout', $post_level_layout );
 
     } // end if
 
@@ -475,10 +475,10 @@ function standard_add_admin_bar_option() {
         // Publishing Options
         $wp_admin_bar->add_node(
             array(
-                'id'		=>	'standard_theme_publishing_options',
+                'id'		=>	'lean_theme_publishing_options',
                 'title'		=>	__( 'Publishing', 'standard' ),
                 'parent'	=>	'standard_options',
-                'href'		=>	site_url() . '/wp-admin/admin.php?page=theme_options&tab=standard_theme_publishing_options'
+                'href'		=>	site_url() . '/wp-admin/admin.php?page=theme_options&tab=lean_theme_publishing_options'
             )
         );
 

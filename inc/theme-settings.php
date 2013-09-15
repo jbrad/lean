@@ -70,7 +70,7 @@ function standard_theme_menu() {
         __( 'Publishing', 'standard' ),
         __( 'Publishing', 'standard' ),
         'administrator',
-        'theme_options&tab=standard_theme_publishing_options',
+        'theme_options&tab=lean_theme_publishing_options',
         'standard_theme_options_display'
     );
 
@@ -1034,16 +1034,16 @@ function get_standard_theme_default_publishing_options() {
 function standard_setup_theme_publishing_options() {
 
     // If the theme options don't exist, create them.
-    if( false == get_option( 'standard_theme_publishing_options' ) ) {
-        add_option( 'standard_theme_publishing_options', apply_filters( 'standard_theme_publishing_options', get_standard_theme_default_publishing_options() ) );
+    if( false == get_option( 'lean_theme_publishing_options' ) ) {
+        add_option( 'lean_theme_publishing_options', apply_filters( 'lean_theme_publishing_options', get_standard_theme_default_publishing_options() ) );
     } // end if
 
     // Publishing options (composed of Post and Pages)
     add_settings_section(
         'publishing',
         '',
-        'standard_theme_publishing_options_display',
-        'standard_theme_publishing_options'
+        'lean_theme_publishing_options_display',
+        'lean_theme_publishing_options'
     );
 
     // Post options
@@ -1051,14 +1051,14 @@ function standard_setup_theme_publishing_options() {
         'post',
         __( 'Posts', 'standard' ),
         'standard_theme_post_options_display',
-        'standard_theme_publishing_options'
+        'lean_theme_publishing_options'
     );
 
     add_settings_field(
         'display_author_box',
         __( 'Display Author Box', 'standard' ),
         'display_author_box_display',
-        'standard_theme_publishing_options',
+        'lean_theme_publishing_options',
         'post'
     );
 
@@ -1067,14 +1067,14 @@ function standard_setup_theme_publishing_options() {
         'page',
         __( 'Pages', 'standard' ),
         'standard_theme_page_options_display',
-        'standard_theme_publishing_options'
+        'lean_theme_publishing_options'
     );
 
     add_settings_field(
         'privacy_policy_template',
         __( 'Privacy Policy', 'standard' ),
         'privacy_policy_template_display',
-        'standard_theme_publishing_options',
+        'lean_theme_publishing_options',
         'page'
     );
 
@@ -1082,14 +1082,14 @@ function standard_setup_theme_publishing_options() {
         'comment_policy_template',
         __( 'Comment Policy', 'standard' ),
         'comment_policy_template_display',
-        'standard_theme_publishing_options',
+        'lean_theme_publishing_options',
         'page'
     );
 
     register_setting(
-        'standard_theme_publishing_options',
-        'standard_theme_publishing_options',
-        'standard_theme_publishing_options_validate'
+        'lean_theme_publishing_options',
+        'lean_theme_publishing_options',
+        'lean_theme_publishing_options_validate'
     );
 
 } // end standard_setup_theme_publishing_options
@@ -1105,7 +1105,7 @@ add_action( 'admin_init', 'standard_setup_theme_publishing_options' );
  * @since	3.0
  * @version	3.2
  */
-function standard_theme_publishing_options_display() {}
+function lean_theme_publishing_options_display() {}
 
 /**
  * Renders the description for the Post Options settings on the Publishing page.
@@ -1135,14 +1135,14 @@ function standard_theme_page_options_display() {
  */
 function display_author_box_display() {
 
-    $options = get_option( 'standard_theme_publishing_options' );
+    $options = get_option( 'lean_theme_publishing_options' );
 
     $display_author_box = '';
     if( isset( $options['display_author_box'] ) ) {
         $display_author_box = $options['display_author_box'];
     } // end if
 
-    $html = '<select id="display_author_box" name="standard_theme_publishing_options[display_author_box]">';
+    $html = '<select id="display_author_box" name="lean_theme_publishing_options[display_author_box]">';
     $html .= '<option value="always"' . selected( $options['display_author_box'], 'always', false ) . '>' . __( 'Always', 'standard' ) . '</option>';
     $html .= '<option value="never"' . selected( $options['display_author_box'], 'never', false ) . '>' . __( 'Never', 'standard' )  . '</option>';
     $html .= '</select>';
@@ -1333,7 +1333,7 @@ add_action( 'wp_ajax_standard_delete_comment_policy_page', 'standard_delete_comm
  * @since 	3.0
  * @version	3.2
  */
-function standard_theme_publishing_options_validate( $input ) {
+function lean_theme_publishing_options_validate( $input ) {
 
     $output = array();
 
@@ -1345,9 +1345,9 @@ function standard_theme_publishing_options_validate( $input ) {
 
     } // end foreach
 
-    return apply_filters( 'standard_theme_publishing_options_validate', $output, $input, get_standard_theme_default_publishing_options() );
+    return apply_filters( 'lean_theme_publishing_options_validate', $output, $input, get_standard_theme_default_publishing_options() );
 
-} // end standard_theme_publishing_options_validate
+} // end lean_theme_publishing_options_validate
 
 /* ----------------------------- *
  * 	Options Page
@@ -1387,7 +1387,7 @@ function standard_theme_options_display() {
             <a class="nav-tab <?php echo $active_tab == 'lean_theme_global_options' ? 'nav-tab-active' : ''; ?>" href="?page=theme_options&amp;tab=lean_theme_global_options"><?php _e( 'Global', 'standard' ); ?></a>
             <a class="nav-tab <?php echo $active_tab == 'lean_theme_presentation_options' ? 'nav-tab-active' : ''; ?>" href="?page=theme_options&amp;tab=lean_theme_presentation_options"><?php _e( 'Presentation', 'standard' ); ?></a>
             <a class="nav-tab <?php echo $active_tab == 'lean_theme_social_options' ? 'nav-tab-active' : ''; ?>" href="?page=theme_options&amp;tab=lean_theme_social_options"><?php _e( 'Social', 'standard' ); ?></a>
-            <a class="nav-tab <?php echo $active_tab == 'standard_theme_publishing_options' ? 'nav-tab-active' : ''; ?>" href="?page=theme_options&amp;tab=standard_theme_publishing_options"><?php _e( 'Publishing', 'standard' ); ?></a>
+            <a class="nav-tab <?php echo $active_tab == 'lean_theme_publishing_options' ? 'nav-tab-active' : ''; ?>" href="?page=theme_options&amp;tab=lean_theme_publishing_options"><?php _e( 'Publishing', 'standard' ); ?></a>
         </h2>
 
         <div id="message-container"><?php settings_errors(); ?></div>
@@ -1412,8 +1412,8 @@ function standard_theme_options_display() {
 
             } else {
 
-                do_settings_sections( 'standard_theme_publishing_options' );
-                settings_fields( 'standard_theme_publishing_options' );
+                do_settings_sections( 'lean_theme_publishing_options' );
+                settings_fields( 'lean_theme_publishing_options' );
 
             } // end if/else
 
