@@ -8,7 +8,7 @@
 
 
 /**
- * This function is fired if the current version of Standard is not the latest version. If it's not, then the user will be prompted to reset their settings.
+ * This function is fired if the current version of Lean is not the latest version. If it's not, then the user will be prompted to reset their settings.
  * Once reset, all options will be reset to their default values.
  *
  * TODO review this function for 3.2
@@ -18,7 +18,7 @@
  */
 function lean_activate_theme() {
 
-    // If we're not using the most recent version of Standard...
+    // If we're not using the most recent version of Lean...
     if( ! lean_is_current_version() ) {
 
         // .. and the user has opted to reset the otpions
@@ -29,7 +29,7 @@ function lean_activate_theme() {
             delete_option( 'lean_theme_social_options' );
             delete_option( 'lean_theme_layout_options' );
 
-            // Set defaults for Standard
+            // Set defaults for Lean
             get_lean_theme_default_global_options();
             get_lean_theme_default_presentation_options();
             get_lean_theme_default_social_options();
@@ -89,7 +89,7 @@ add_filter( 'user_contactmethods', 'lean_add_user_profile_fields' );
  */
 function lean_meta_description() {
 
-    // If we're using Standard's native SEO, let's do the following...
+    // If we're using Lean's native SEO, let's do the following...
     if( using_native_seo() ) {
 
         // If we're on the homepage, we're going to use the site's description
@@ -442,7 +442,7 @@ if( lean_is_wp36() ) {
 
 if( using_native_seo() ) {
     /**
-     * Calls the Standard SEO Titles plugin during the wp_title action to render
+     * Calls the Lean SEO Titles plugin during the wp_title action to render
      * SEO-friendly page titles.
      *
      * @version 3.0
@@ -568,7 +568,7 @@ function lean_attachment_fields_to_edit_wp34( $form_fields, $post ) {
     // Mark the alt field as required
     $form_fields['image_alt']['required'] = true;
 
-    // Provide a Standard description for title and alt
+    // Provide a Lean description for title and alt
     $form_fields['post_title']['helps'] =	__( 'A title is required for search engines.', 'lean' );
     $form_fields['image_alt']['helps'] = __( 'An alternate text description is required for search engines.', 'lean' );
 
@@ -646,7 +646,7 @@ add_action( 'template_redirect', 'lean_redirect_rss_feeds' );
 if( lean_is_offline() ) {
 
     /**
-     * If Standard is in offline mode, then we'll stop all RSS feeds from publishing content.
+     * If Lean is in offline mode, then we'll stop all RSS feeds from publishing content.
      *
      * @version 3.0
      * @since	3.0
@@ -664,7 +664,7 @@ if( lean_is_offline() ) {
 } // end if
 
 /**
- * Custom action that is used to initialize the Standard menu separator.
+ * Custom action that is used to initialize the Lean menu separator.
  *
  * @param	int $position	Where you want the separator to appear.
  * @version 3.0
@@ -1069,9 +1069,9 @@ function lean_is_using_pretty_permalinks() {
 } // end lean_is_using_pretty_premalinks
 
 /**
- * Determines if the current version of Standard is the most current version.
+ * Determines if the current version of Lean is the most current version.
  *
- * @return	boolean True if the current version of Standard is 3.1; false, otherwise.
+ * @return	boolean True if the current version of Lean is 3.1; false, otherwise.
  * @since 	3.1
  * @version	3.2
  */
@@ -1080,7 +1080,7 @@ function lean_is_current_version() {
 } // end lean_is_current_version
 
 /**
- * Determines whether or not Standard is being run on WordPress 3.6
+ * Determines whether or not Lean is being run on WordPress 3.6
  *
  * @return	float	The current version of WordPress.
  */
