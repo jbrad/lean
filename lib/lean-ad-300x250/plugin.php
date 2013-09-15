@@ -136,7 +136,7 @@ class Lean_Ad_300x250 extends WP_Widget {
 				$ad_url = 'http://leantheme.co';
 			} // end if
 
-			$ad_src = '<img src="' . get_template_directory_uri() . '/lib/lean-ad-300x250/images/lean-300.jpg" alt="" />';
+			$ad_src = '<img src="' . get_template_directory_uri() . '/lib/lean-ad-300x250/images/lean-360.jpg" alt="" />';
 
 		} else {
 			$ad_src = '<img src="' . $ad_src . '" alt="" />';

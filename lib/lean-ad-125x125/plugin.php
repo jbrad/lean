@@ -173,7 +173,7 @@ class Lean_Ad_125x125 extends WP_Widget {
 				$ad_url = 'http://leantheme.co';
 			} // end if
 		
-			$ad_src = '<img src="' . get_template_directory_uri() . '/lib/lean-ad-125x125/images/lean-125-' . $number . '.jpg' . '" alt="" />';
+			$ad_src = '<img src="' . get_template_directory_uri() . '/lib/lean-ad-125x125/images/lean-170-' . $number . '.jpg' . '" alt="" />';
 			
 		} else {
 			$ad_src = '<img src="' . $ad_src . '" alt="" />';
