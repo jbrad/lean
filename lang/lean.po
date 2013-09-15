@@ -1029,7 +1029,7 @@ msgid "Tag Archive"
 msgstr ""
 
 #: ../lib/standard-ad-125x125/plugin.php:23
-msgid "standard-ad-125x125"
+msgid "lean-ad-125x125"
 msgstr ""
 
 #: ../lib/standard-ad-125x125/plugin.php:24

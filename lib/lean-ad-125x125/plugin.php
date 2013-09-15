@@ -1,14 +1,14 @@
 <?php
 /**
  * 125x125 is a widget for displaying a single 125x125 ad in any widgetized
- * area in Standard.
+ * area in lean.
  *
- * @package		Standard
+ * @package		lean
  * @subpackage	125x125 Advertisement Widget
  * @version		1.2
  * @since		3.0
  */
-class Standard_Ad_125x125 extends WP_Widget {
+class Lean_Ad_125x125 extends WP_Widget {
 
 	/*--------------------------------------------------------*
 	 * Constructor
@@ -20,10 +20,10 @@ class Standard_Ad_125x125 extends WP_Widget {
 	public function __construct() {
 
 		$widget_opts = array(
-			'classname' 	=> __( 'standard-ad-125x125', 'standard' ),
-			'description' 	=> __( 'Display a 125x125 advertisement.', 'standard' ),
+			'classname' 	=> __( 'lean-ad-125x125', 'lean' ),
+			'description' 	=> __( 'Display a 125x125 advertisement.', 'lean' ),
 		);	
-		$this->WP_Widget( 'standard-ad-125x125', __( '125x125 Ad', 'standard' ), $widget_opts );
+		$this->WP_Widget( 'lean-ad-125x125', __( '125x125 Ad', 'lean' ), $widget_opts );
 		
 		// We don't want to load these on the Appearance Options because we're overiding window.send_to_editor there, too.
 		global $pagenow;
@@ -133,7 +133,7 @@ class Standard_Ad_125x125 extends WP_Widget {
 	 * @version	1.0
 	 */
 	public function register_admin_styles() {
-		wp_enqueue_style( 'standard-ad-125x125', get_template_directory_uri() . '/lib/standard-ad-125x125/css/admin.css', array( 'thickbox' ), LEAN_THEME_VERSION );
+		wp_enqueue_style( 'lean-ad-125x125', get_template_directory_uri() . '/lib/lean-ad-125x125/css/admin.css', array( 'thickbox' ), LEAN_THEME_VERSION );
 	} // end register_admin_styles
 
 	/** 
@@ -147,7 +147,7 @@ class Standard_Ad_125x125 extends WP_Widget {
 		$screen = get_current_screen();
 
 		if( 'widgets' == $screen->id ) {
-			wp_enqueue_script( 'standard-ad-125x125', get_template_directory_uri() . '/lib/standard-ad-125x125/js/admin.min.js', array( 'jquery', 'media-upload','thickbox' ), false, LEAN_THEME_VERSION );
+			wp_enqueue_script( 'lean-ad-125x125', get_template_directory_uri() . '/lib/lean-ad-125x125/js/admin.min.js', array( 'jquery', 'media-upload','thickbox' ), false, LEAN_THEME_VERSION );
 		} // end if 
 		
 	} // end register_admin_scripts
@@ -170,10 +170,10 @@ class Standard_Ad_125x125 extends WP_Widget {
 		if( 0 == strlen( trim( $ad_src ) ) ) {
 		
 			if( 0 == strlen( trim( $ad_url ) ) ) {
-				$ad_url = 'http://standardtheme.com';
+				$ad_url = 'http://leantheme.co';
 			} // end if
 		
-			$ad_src = '<img src="' . get_template_directory_uri() . '/lib/standard-ad-125x125/images/standard-125-' . $number . '.jpg' . '" alt="" />';
+			$ad_src = '<img src="' . get_template_directory_uri() . '/lib/lean-ad-125x125/images/lean-125-' . $number . '.jpg' . '" alt="" />';
 			
 		} else {
 			$ad_src = '<img src="' . $ad_src . '" alt="" />';
@@ -195,4 +195,4 @@ class Standard_Ad_125x125 extends WP_Widget {
 	} // end display_ad
 
 } // end class
-add_action( 'widgets_init', create_function( '', 'register_widget( "Standard_Ad_125x125" );' ) ); 
+add_action( 'widgets_init', create_function( '', 'register_widget( "lean_Ad_125x125" );' ) );

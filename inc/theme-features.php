@@ -822,7 +822,7 @@ if( ! function_exists('lean_add_theme_features') ) {
         lean_add_plugin( '/lib/activity/plugin.php' );
         lean_add_plugin( '/lib/google-custom-search/plugin.php' );
         lean_add_plugin( '/lib/standard-ad-300x250/plugin.php' );
-        lean_add_plugin( '/lib/standard-ad-125x125/plugin.php' );
+        lean_add_plugin( '/lib/lean-ad-125x125/plugin.php' );
         lean_add_plugin( '/lib/standard-ad-billboard/plugin.php' );
         lean_add_plugin( '/lib/personal-image/plugin.php' );
         lean_add_plugin( '/lib/influence/plugin.php' );

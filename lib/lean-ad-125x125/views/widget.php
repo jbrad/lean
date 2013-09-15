@@ -2,7 +2,7 @@
 /**
  * Renders the the 125x125 widget
  *
- * @package		Standard
+ * @package		Lean
  * @subpackage	125x125 Advertisement
  * @version 	1.1
  * @since		3.0
@@ -11,7 +11,7 @@
 <?php $global_options = get_option( 'lean_theme_global_options' ); $default_url = ''; ?>
 
 <?php echo isset( $args['before_widget'] ) ? $args['before_widget'] : ''; ?>
-    <div class="standard-ad-row">
+    <div class="lean-ad-row">
         <ul class="thumbnails mobile-2 row">
             <li class="col-md-6">
                 <div class="thumbnail">
@@ -24,5 +24,5 @@
                 </div><!-- /.thumbnail -->
             </li><!-- /.right -->
         </ul><!-- /.thumbnails -->
-    </div><!-- /.standard-ad-row -->
+    </div><!-- /.lean-ad-row -->
 <?php echo isset( $args['after_widget'] ) ? $args['after_widget'] : ''; ?>
