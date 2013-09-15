@@ -87,7 +87,7 @@ add_action( 'admin_menu', 'standard_theme_menu' );
  * @since	3.0
  * @version	3.2
  */
-function get_standard_theme_default_presentation_options() {
+function get_lean_theme_default_presentation_options() {
 
     $defaults = array(
         'fav_icon'					=>	'',
@@ -97,9 +97,9 @@ function get_standard_theme_default_presentation_options() {
         'display_featured_images' 	=> 	'always'
     );
 
-    return apply_filters ( 'standard_theme_default_presentation_options', $defaults );
+    return apply_filters ( 'lean_theme_default_presentation_options', $defaults );
 
-} // end standard_theme_default_presentation_options
+} // end lean_theme_default_presentation_options
 
 /**
  * Defines the Presentation Options. Specifically, the sections and the settings. Will also
@@ -112,7 +112,7 @@ function standard_setup_theme_presentation_options() {
 
     // If the layout options don't exist, create them.
     if( false == get_option( 'lean_theme_presentation_options' ) ) {
-        add_option( 'lean_theme_presentation_options', apply_filters( 'standard_theme_default_presentation_options', get_standard_theme_default_presentation_options() ) );
+        add_option( 'lean_theme_presentation_options', apply_filters( 'lean_theme_default_presentation_options', get_lean_theme_default_presentation_options() ) );
     } // end if
 
     // Presentation options (composed of layout and content)
@@ -127,7 +127,7 @@ function standard_setup_theme_presentation_options() {
     add_settings_section(
         'layout',
         __( 'Layout and Design', 'standard' ),
-        'standard_theme_layout_options_display',
+        'lean_theme_layout_options_display',
         'lean_theme_presentation_options'
     );
 
@@ -239,7 +239,7 @@ function lean_theme_presentation_options_display() {} // end lean_theme_presenta
  * @since	3.0
  * @version	3.2
  */
-function standard_theme_layout_options_display() {
+function lean_theme_layout_options_display() {
     echo '<p>' . __( 'This section controls positioning and style elements.', 'standard' ) . '</p>';
 } // end standard_theme_layout_display
 
@@ -461,7 +461,7 @@ function lean_theme_presentation_options_validate( $input ) {
 
     } // end foreach
 
-    return apply_filters( 'lean_theme_presentation_options_validate', $output, $input, get_standard_theme_default_presentation_options() );
+    return apply_filters( 'lean_theme_presentation_options_validate', $output, $input, get_lean_theme_default_presentation_options() );
 
 } // end lean_theme_presentation_options_validate
 
@@ -475,7 +475,7 @@ function lean_theme_presentation_options_validate( $input ) {
  * @since	3.0
  * @version	3.2
  */
-function get_standard_theme_default_social_options() {
+function get_lean_theme_default_social_options() {
 
     $defaults = array(
         'active-social-icons'		=> '',
@@ -484,7 +484,7 @@ function get_standard_theme_default_social_options() {
 
     return apply_filters ( 'lean_theme_social_options', $defaults );
 
-} // end get_standard_theme_default_social_options
+} // end get_lean_theme_default_social_options
 
 /**
  * Defines the Social Options. Specifically, the sections and the settings. Will also
@@ -497,11 +497,11 @@ function standard_setup_theme_social_options() {
 
     // If the theme options don't exist, create them.
     if( false == get_option( 'lean_theme_social_options' ) ) {
-        add_option( 'lean_theme_social_options', apply_filters( 'standard_theme_default_social_options', get_standard_theme_default_social_options() ) );
+        add_option( 'lean_theme_social_options', apply_filters( 'standard_theme_default_social_options', get_lean_theme_default_social_options() ) );
     } // end if
 
     // Look to see if any new icons have been added to the library since the last version of the theme
-    get_standard_theme_default_social_options();
+    get_lean_theme_default_social_options();
 
     /* ------------------ Social Networks ------------------ */
 
@@ -713,7 +713,7 @@ function standard_active_icons_display() {
  */
 function lean_theme_social_options_validate( $input ) {
 
-    $output = $defaults = get_standard_theme_default_social_options();
+    $output = $defaults = get_lean_theme_default_social_options();
 
     foreach( $input as $key => $val ) {
 
@@ -738,7 +738,7 @@ function lean_theme_social_options_validate( $input ) {
  * @since 	3.1
  * @version	3.1
  */
-function standard_find_new_social_icons() {
+function lean_find_new_social_icons() {
 
     // Be sure to look for any additional social icons
     $social_options = get_option( 'lean_theme_social_options' );
@@ -771,7 +771,7 @@ function standard_find_new_social_icons() {
 
     } // end if
 
-} // end standard_find_new_social_icons
+} // end lean_find_new_social_icons
 
 /* ----------------------------- *
  * 	Global Options
@@ -783,7 +783,7 @@ function standard_find_new_social_icons() {
  * @since	3.0
  * @version	3.2
  */
-function get_standard_theme_default_global_options() {
+function get_lean_theme_default_global_options() {
 
     $defaults = array(
         'site_mode'					=>	'online',
@@ -792,9 +792,9 @@ function get_standard_theme_default_global_options() {
         'offline_display_message'	=>	__( 'Our site is currently offline.', 'standard' )
     );
 
-    return apply_filters ( 'standard_theme_default_global_options', $defaults );
+    return apply_filters ( 'lean_theme_default_global_options', $defaults );
 
-} // end get_standard_theme_default_global_options
+} // end get_lean_theme_default_global_options
 
 /**
  * Defines the Global Options. Specifically, the sections and the settings. Will also
@@ -807,7 +807,7 @@ function standard_setup_theme_global_options() {
 
     // If the theme options don't exist, create them.
     if( false == get_option( 'lean_theme_global_options' ) ) {
-        add_option( 'lean_theme_global_options', apply_filters( 'standard_theme_default_global_options', get_standard_theme_default_global_options() ) );
+        add_option( 'lean_theme_global_options', apply_filters( 'lean_theme_default_global_options', get_lean_theme_default_global_options() ) );
     } // end if
 
     /* ------------------ Page Options ------------------ */
@@ -1000,7 +1000,7 @@ function lean_theme_global_options_validate( $input ) {
 
     } // end foreach
 
-    return apply_filters( 'lean_theme_global_options_validate', $output, $input, get_standard_theme_default_global_options() );
+    return apply_filters( 'lean_theme_global_options_validate', $output, $input, get_lean_theme_default_global_options() );
 
 } // end lean_theme_global_options_validate
 
@@ -1014,7 +1014,7 @@ function lean_theme_global_options_validate( $input ) {
  * @since	3.0
  * @version	3.2
  */
-function get_standard_theme_default_publishing_options() {
+function get_lean_theme_default_publishing_options() {
 
     $defaults = array(
         'display_author_box'			=>	'always'
@@ -1022,7 +1022,7 @@ function get_standard_theme_default_publishing_options() {
 
     return apply_filters ( 'standard_theme_default_publishing_options', $defaults );
 
-} // end get_standard_theme_default_publishing_options
+} // end get_lean_theme_default_publishing_options
 
 /**
  * Defines the Publishing Options. Specifically, the sections and the settings. Will also
@@ -1035,7 +1035,7 @@ function standard_setup_theme_publishing_options() {
 
     // If the theme options don't exist, create them.
     if( false == get_option( 'lean_theme_publishing_options' ) ) {
-        add_option( 'lean_theme_publishing_options', apply_filters( 'lean_theme_publishing_options', get_standard_theme_default_publishing_options() ) );
+        add_option( 'lean_theme_publishing_options', apply_filters( 'lean_theme_publishing_options', get_lean_theme_default_publishing_options() ) );
     } // end if
 
     // Publishing options (composed of Post and Pages)
@@ -1237,7 +1237,7 @@ function standard_generate_privacy_policy_page( ) {
 
     if( wp_verify_nonce( $_REQUEST['nonce'], 'standard_generate_privacy_policy_nonce' ) && isset( $_POST['generatePrivacyPolicy'] ) ) {
 
-        $page_id = standard_create_page( 'privacy-policy', __( 'Privacy Policy', 'standard' ) );
+        $page_id = lean_create_page( 'privacy-policy', __( 'Privacy Policy', 'standard' ) );
         if( $page_id > 0 ) {
             die( (string)$page_id );
         } else {
@@ -1262,7 +1262,7 @@ function standard_delete_privacy_policy_page( ) {
     // We'll be using the same nonce for generating the policy.
     if( wp_verify_nonce( $_REQUEST['nonce'], 'standard_generate_privacy_policy_nonce' ) && isset( $_POST['deletePrivacyPolicy'] ) && isset( $_POST['page_id'] ) ) {
 
-        if( standard_delete_page( $_POST['page_id'] ) ) {
+        if( lean_delete_page( $_POST['page_id'] ) ) {
             die( '0' );
         } else {
             die( '1' );
@@ -1285,7 +1285,7 @@ function standard_generate_comment_policy_page( ) {
 
     if( wp_verify_nonce( $_REQUEST['nonce'], 'standard_generate_comment_policy_nonce' ) && isset( $_POST['generateCommentPolicy'] ) ) {
 
-        $page_id = standard_create_page( 'comment-policy', __( 'Comment Policy', 'standard' ) );
+        $page_id = lean_create_page( 'comment-policy', __( 'Comment Policy', 'standard' ) );
         if( $page_id > 0 ) {
             die( (string)$page_id );
         } else {
@@ -1310,7 +1310,7 @@ function standard_delete_comment_policy_page( ) {
     // We'll be using the same nonce for generating the policy.
     if( wp_verify_nonce( $_REQUEST['nonce'], 'standard_generate_comment_policy_nonce' ) && isset( $_POST['deleteCommentPolicy'] ) && isset( $_POST['page_id'] ) ) {
 
-        if( standard_delete_page( $_POST['page_id'] ) ) {
+        if( lean_delete_page( $_POST['page_id'] ) ) {
             die( '0' );
         } else {
             die( '1' );
@@ -1345,7 +1345,7 @@ function lean_theme_publishing_options_validate( $input ) {
 
     } // end foreach
 
-    return apply_filters( 'lean_theme_publishing_options_validate', $output, $input, get_standard_theme_default_publishing_options() );
+    return apply_filters( 'lean_theme_publishing_options_validate', $output, $input, get_lean_theme_default_publishing_options() );
 
 } // end lean_theme_publishing_options_validate
 

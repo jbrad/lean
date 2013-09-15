@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Standard SEO Titles will generate search engine optimized titles for each page
+ * Lean SEO Titles will generate search engine optimized titles for each page
  * of your WordPress Blog.
  *
  * Home Page | Blog Name | Blog Description
@@ -15,12 +15,12 @@
  * Day Archive | Blog Name | Archive | Month Day, Year
  * Tag | Blog Name | Tag Archive | Tag
  *
- * @package		Standard
+ * @package		Lean
  * @subpackage	SEO Titles
  * @version		1.0
  * @since		3.0
  */
-class Standard_SeoTitles {
+class Lean_SeoTitles {
 
 	/*--------------------------------------------------------*
 	 * Public Functions
@@ -48,12 +48,12 @@ class Standard_SeoTitles {
 			$key = trim( esc_html( $query, 1 ) );
 			$count = $search->post_count;
 			
-			$title = __( 'Search Results For' , 'standard' ) . ' ' . $key . ' | ' . $count . ' ' . __( 'Results', 'standard' ) . ' | ' . get_bloginfo( 'name' );
+			$title = __( 'Search Results For' , 'lean' ) . ' ' . $key . ' | ' . $count . ' ' . __( 'Results', 'lean' ) . ' | ' . get_bloginfo( 'name' );
 			
 		} elseif( is_404() ) {
-			$title = get_bloginfo( 'name' ) . ' | ' . __( '404 Nothing Found', 'standard' ); 
+			$title = get_bloginfo( 'name' ) . ' | ' . __( '404 Nothing Found', 'lean' );
 		} elseif( is_author() ) {
-			$title = get_bloginfo( 'name' ) . ' | ' . __( 'Author Archives', 'standard' ); 
+			$title = get_bloginfo( 'name' ) . ' | ' . __( 'Author Archives', 'lean' );
 		} elseif( is_single() ) {
 		
 			if( strlen( trim( get_the_title( $page_id ) ) ) == 0 ) {
@@ -67,18 +67,18 @@ class Standard_SeoTitles {
 		} elseif( is_category() ) {
 			$title = single_cat_title( '', false ) . ' | ' . get_bloginfo( 'name' );
 		} elseif( is_year() ) {
-			$title = get_bloginfo( 'name' ) . ' | ' . __( 'Archive', 'standard' ) . ' | ' . get_the_time( 'Y' );
+			$title = get_bloginfo( 'name' ) . ' | ' . __( 'Archive', 'lean' ) . ' | ' . get_the_time( 'Y' );
 		} elseif( is_month() ) {
 		
 			// This particular format is not localized. The 'date_format' uses month and year and we only need month and year.
 			// The archives widget built into WordPress follows the format that we're providing see.
 			// Lines 938 - 939 of general-template.php in WordPress core.
-			$title = get_bloginfo( 'name' ) . ' | ' . __( 'Archive', 'standard' ) . ' | ' . get_the_time( 'F Y' );
+			$title = get_bloginfo( 'name' ) . ' | ' . __( 'Archive', 'lean' ) . ' | ' . get_the_time( 'F Y' );
 			
 		} elseif( is_day() ) {
-			$title = get_bloginfo( 'name' ) . ' | ' . __( 'Archive', 'standard' ) . ' | ' . get_the_time( get_option( 'date_format' ) );
+			$title = get_bloginfo( 'name' ) . ' | ' . __( 'Archive', 'lean' ) . ' | ' . get_the_time( get_option( 'date_format' ) );
 		} elseif( is_tag() ) {
-			$title = get_bloginfo( 'name' ) . ' | ' . __( 'Tag Archive', 'standard' ) . ' | ' . single_tag_title( '', false );
+			$title = get_bloginfo( 'name' ) . ' | ' . __( 'Tag Archive', 'lean' ) . ' | ' . single_tag_title( '', false );
 		} elseif( is_feed() ) {
 			$title = ' | ' . get_bloginfo( 'description' );
 		} // end if/else

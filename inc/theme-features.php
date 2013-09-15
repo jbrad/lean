@@ -331,7 +331,7 @@ function standard_save_post_layout_data( $post_id ) {
 add_action( 'save_post', 'standard_save_post_layout_data' );
 
 // If Standard is running less than 3.6, then add the Link Post Format Meta Box
-//if( 3.6 > standard_is_wp36() ) {
+//if( 3.6 > lean_is_wp36() ) {
 
 /**
  * Adds the post meta box for the URL to be included in the Link Post Format.
@@ -765,7 +765,7 @@ if( ! function_exists( 'standard_add_theme_features' ) ) {
         add_theme_support( 'automatic-feed-links' );
 
         // WordPress 3.6 Post Format Support
-        if( 3.6 >= standard_is_wp36() ) {
+        if( 3.6 >= lean_is_wp36() ) {
 
             add_theme_support(
                 'post-formats',
@@ -816,16 +816,16 @@ if( ! function_exists( 'standard_add_theme_features' ) ) {
         );
 
         if( using_native_seo() ) {
-            standard_add_plugin( '/lib/seo/plugin.php' );
+            lean_add_plugin( '/lib/seo/plugin.php' );
         } // end if
 
-        standard_add_plugin( '/lib/activity/plugin.php' );
-        standard_add_plugin( '/lib/google-custom-search/plugin.php' );
-        standard_add_plugin( '/lib/standard-ad-300x250/plugin.php' );
-        standard_add_plugin( '/lib/standard-ad-125x125/plugin.php' );
-        standard_add_plugin( '/lib/standard-ad-billboard/plugin.php' );
-        standard_add_plugin( '/lib/personal-image/plugin.php' );
-        standard_add_plugin( '/lib/influence/plugin.php' );
+        lean_add_plugin( '/lib/activity/plugin.php' );
+        lean_add_plugin( '/lib/google-custom-search/plugin.php' );
+        lean_add_plugin( '/lib/standard-ad-300x250/plugin.php' );
+        lean_add_plugin( '/lib/standard-ad-125x125/plugin.php' );
+        lean_add_plugin( '/lib/standard-ad-billboard/plugin.php' );
+        lean_add_plugin( '/lib/personal-image/plugin.php' );
+        lean_add_plugin( '/lib/influence/plugin.php' );
 
     } // end add_theme_features
     add_action( 'after_setup_theme', 'standard_add_theme_features' );

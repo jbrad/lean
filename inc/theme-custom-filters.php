@@ -16,24 +16,24 @@
  * @since	3.0
  * @version	3.2
  */
-function standard_activate_theme() {
+function lean_activate_theme() {
 
     // If we're not using the most recent version of Standard...
-    if( ! standard_is_current_version() ) {
+    if( ! lean_is_current_version() ) {
 
         // .. and the user has opted to reset the otpions
-        if( array_key_exists( 'standard_theme_reset_options', $_GET ) && 'true' == $_GET['standard_theme_reset_options'] ) {
+        if( array_key_exists( 'lean_theme_reset_options', $_GET ) && 'true' == $_GET['lean_theme_reset_options'] ) {
 
             // Remove the Preview settings. TODO remove this in 3.2.
-            delete_option( 'standard_theme_general_options' );
+            delete_option( 'lean_theme_general_options' );
             delete_option( 'lean_theme_social_options' );
-            delete_option( 'standard_theme_layout_options' );
+            delete_option( 'lean_theme_layout_options' );
 
             // Set defaults for Standard
-            get_standard_theme_default_global_options();
-            get_standard_theme_default_presentation_options();
-            get_standard_theme_default_social_options();
-            get_standard_theme_default_publishing_options();
+            get_lean_theme_default_global_options();
+            get_lean_theme_default_presentation_options();
+            get_lean_theme_default_social_options();
+            get_lean_theme_default_publishing_options();
 
             // Otherwise, we have some other things to do...
         } else {
@@ -51,10 +51,10 @@ function standard_activate_theme() {
     } // end if/else
 
     // Reset the icons
-    standard_find_new_social_icons();
+    lean_find_new_social_icons();
 
-} // end standard_activate_theme
-add_action( 'admin_notices', 'standard_activate_theme' );
+} // end lean_activate_theme
+add_action( 'admin_notices', 'lean_activate_theme' );
 
 // rel="generator" is an invalid HTML5 attribute
 remove_action( 'wp_head', 'wp_generator' );
@@ -67,19 +67,19 @@ remove_action( 'wp_head', 'wp_generator' );
  * @since	3.0
  * @version	3.2
  */
-function standard_add_user_profile_fields( $user_contactmethods ) {
+function lean_add_user_profile_fields( $user_contactmethods ) {
 
-    $user_contactmethods['twitter'] = __( '<span class="standard-user-profile" id="standard-user-profile-twitter">Twitter URL</span>', 'standard' );
-    $user_contactmethods['facebook'] = __( '<span class="standard-user-profile" id="standard-user-profile-facebook">Facebook URL</span>', 'standard' );
+    $user_contactmethods['twitter'] = __( '<span class="lean-user-profile" id="lean-user-profile-twitter">Twitter URL</span>', 'lean' );
+    $user_contactmethods['facebook'] = __( '<span class="lean-user-profile" id="lean-user-profile-facebook">Facebook URL</span>', 'lean' );
 
     if( using_native_seo() ) {
-        $user_contactmethods['google_plus'] = __( '<span class="standard-user-profile" id="standard-user-profile-google-plus">Google+ URL</span>', 'standard' );
+        $user_contactmethods['google_plus'] = __( '<span class="lean-user-profile" id="lean-user-profile-google-plus">Google+ URL</span>', 'lean' );
     } // end if
 
     return $user_contactmethods;
 
-} // end standard_add_user_profile_fields
-add_filter( 'user_contactmethods', 'standard_add_user_profile_fields' );
+} // end lean_add_user_profile_fields
+add_filter( 'user_contactmethods', 'lean_add_user_profile_fields' );
 
 /**
  * If running in native SEO mode and if the current page has a meta description, renders the description to the browser.
@@ -87,7 +87,7 @@ add_filter( 'user_contactmethods', 'standard_add_user_profile_fields' );
  * @version 3.0
  * @since	3.0
  */
-function standard_meta_description() {
+function lean_meta_description() {
 
     // If we're using Standard's native SEO, let's do the following...
     if( using_native_seo() ) {
@@ -98,8 +98,8 @@ function standard_meta_description() {
         } // end if
 
         // For single pages, we're setting the meta description to what the user has provided (or nothing, if it's empty
-        if ( ( is_single() || is_page() ) && '' != get_post_meta( get_the_ID(), 'standard_seo_post_meta_description', true ) ) {
-            echo '<meta name="description" content="' . get_post_meta( get_the_ID(), 'standard_seo_post_meta_description', true ) . '" />';
+        if ( ( is_single() || is_page() ) && '' != get_post_meta( get_the_ID(), 'lean_seo_post_meta_description', true ) ) {
+            echo '<meta name="description" content="' . get_post_meta( get_the_ID(), 'lean_seo_post_meta_description', true ) . '" />';
         } // end if/else
 
         // And if we're on the categories or any other archives, we'll be using the description if it has been provided
@@ -109,8 +109,8 @@ function standard_meta_description() {
 
     } // end if
 
-} // end standard_meta_description
-add_action( 'wp_head', 'standard_meta_description' );
+} // end lean_meta_description
+add_action( 'wp_head', 'lean_meta_description' );
 
 /**
  * Removes the "category" relationship attribute from category anchors.
@@ -121,7 +121,7 @@ add_action( 'wp_head', 'standard_meta_description' );
  * @version 3.0
  * @since	3.0
  */
-function standard_remove_category_anchor_rel( $str ) {
+function lean_remove_category_anchor_rel( $str ) {
 
     if( strpos( $str, 'rel="category"' ) ) {
         $str = trim( str_replace( 'rel="category"', "", $str ) );
@@ -131,8 +131,8 @@ function standard_remove_category_anchor_rel( $str ) {
 
     return $str;
 
-} // end standard_remove_category_anchor_rel
-add_filter( 'the_category', 'standard_remove_category_anchor_rel' );
+} // end lean_remove_category_anchor_rel
+add_filter( 'the_category', 'lean_remove_category_anchor_rel' );
 
 /**
  * Removes the "attachment" relationship attribute from anchors.
@@ -143,10 +143,10 @@ add_filter( 'the_category', 'standard_remove_category_anchor_rel' );
  * @version 3.0
  * @since	3.0
  */
-function standard_remove_anchor_attachment_rel( $str ) {
+function lean_remove_anchor_attachment_rel( $str ) {
     return preg_replace( '/(rel="attachment)[a-zA-Z0-9\s\-]*\"/', trim( '' ), trim( $str ) );
-} // end standard_remove_anchor_attachment_rel
-add_filter( 'the_content', 'standard_remove_anchor_attachment_rel' );
+} // end lean_remove_anchor_attachment_rel
+add_filter( 'the_content', 'lean_remove_anchor_attachment_rel' );
 
 /**
  * Adds a "previous" relationship attribute to the 'Next' pagination option.
@@ -156,11 +156,11 @@ add_filter( 'the_content', 'standard_remove_anchor_attachment_rel' );
  * @version 3.0
  * @since	3.0
  */
-function standard_add_rel_to_next_pagination( $attrs ) {
+function lean_add_rel_to_next_pagination( $attrs ) {
     $attrs .= 'rel="previous"';
     return $attrs;
 } // end add_rel_to_pagination
-add_filter( 'next_posts_link_attributes', 'standard_add_rel_to_next_pagination' );
+add_filter( 'next_posts_link_attributes', 'lean_add_rel_to_next_pagination' );
 
 /**
  * Adds a "next" relationship attribute to the 'Previous' pagination option.
@@ -170,11 +170,11 @@ add_filter( 'next_posts_link_attributes', 'standard_add_rel_to_next_pagination' 
  * @version 3.0
  * @since	3.0
  */
-function standard_add_rel_to_previous_pagination( $attrs ) {
+function lean_add_rel_to_previous_pagination( $attrs ) {
     $attrs .= 'rel="next"';
     return $attrs;
 } // end add_rel_to_pagination
-add_filter( 'previous_posts_link_attributes', 'standard_add_rel_to_previous_pagination' );
+add_filter( 'previous_posts_link_attributes', 'lean_add_rel_to_previous_pagination' );
 
 /**
  * Provides a default alt tag for the image based on the title, if no
@@ -188,7 +188,7 @@ add_filter( 'previous_posts_link_attributes', 'standard_add_rel_to_previous_pagi
  * @version 3.0
  * @since	3.0
  */
-function standard_apply_image_alt_in_editor( $html, $id, $alt, $title ) {
+function lean_apply_image_alt_in_editor( $html, $id, $alt, $title ) {
 
     if( strlen( $alt ) == 0 ) {
         $html = str_replace( 'alt=""', 'alt="' . $title . '"', $html );
@@ -196,10 +196,10 @@ function standard_apply_image_alt_in_editor( $html, $id, $alt, $title ) {
 
     return $html;
 
-} // end standard_apply_image_alt_in_editor
-add_filter( 'get_image_tag', 'standard_apply_image_alt_in_editor', 10, 4 );
+} // end lean_apply_image_alt_in_editor
+add_filter( 'get_image_tag', 'lean_apply_image_alt_in_editor', 10, 4 );
 
-if( ! function_exists( 'standard_process_link_post_format_content' ) /*&& 3.6 > standard_is_wp36()*/ ) {
+if( ! function_exists('lean_process_link_post_format_content') ) {
 
     /**
      * Removes any paragraph tags that are wrapping anchors.
@@ -210,7 +210,7 @@ if( ! function_exists( 'standard_process_link_post_format_content' ) /*&& 3.6 > 
      * @since	   3.0
      * @deprecated 3.3
      */
-    function standard_process_link_post_format_content( $content ) {
+    function lean_process_link_post_format_content( $content ) {
 
         // If this is an link post type, remove the paragraph wrapper from it
         if( 'link' == get_post_format( get_the_ID() ) ) {
@@ -219,11 +219,11 @@ if( ! function_exists( 'standard_process_link_post_format_content' ) /*&& 3.6 > 
 
         return $content;
 
-    } // standard_process_link_post_format_content
-    add_filter( 'the_content', 'standard_process_link_post_format_content' );
+    } // lean_process_link_post_format_content
+    add_filter( 'the_content', 'lean_process_link_post_format_content' );
 } // end if
 
-if( ! function_exists( 'standard_process_link_post_format_title' ) /*&& 3.6 > standard_is_wp36()*/ ) {
+if( ! function_exists('lean_process_link_post_format_title') /*&& 3.6 > lean_is_wp36()*/ ) {
 
     /**
      * Removes any paragraph tags that are wrapping images, anchors around images,
@@ -236,7 +236,7 @@ if( ! function_exists( 'standard_process_link_post_format_title' ) /*&& 3.6 > st
      * @since		3.0
      * @deprecated  3.3
      */
-    function standard_process_link_post_format_title( $title, $id ) {
+    function lean_process_link_post_format_title( $title, $id ) {
 
         if( 'link' == get_post_format( $id ) ) {
 
@@ -261,12 +261,12 @@ if( ! function_exists( 'standard_process_link_post_format_title' ) /*&& 3.6 > st
 
         return $title;
 
-    } // end standard_process_link_post_format_title
-    add_filter( 'the_title', 'standard_process_link_post_format_title', 10, 2 );
+    } // end lean_process_link_post_format_title
+    add_filter( 'the_title', 'lean_process_link_post_format_title', 10, 2 );
 
 } // end if
 
-if( ! function_exists( 'standard_remove_paragraph_on_media' ) ) {
+if( ! function_exists('lean_remove_paragraph_on_media') ) {
 
     /**
      * Removes any paragraph tags that are wrapping images, anchors around images,
@@ -277,7 +277,7 @@ if( ! function_exists( 'standard_remove_paragraph_on_media' ) ) {
      * @version 3.0
      * @since	3.0
      */
-    function standard_remove_paragraph_on_media( $content ) {
+    function lean_remove_paragraph_on_media( $content ) {
 
         // If this is an image post type, remove the paragraph wrapper from it.
         if( 'image' == get_post_format( get_the_ID() ) ) {
@@ -296,12 +296,12 @@ if( ! function_exists( 'standard_remove_paragraph_on_media' ) ) {
 
         return $content;
 
-    } // end standard_remove_paragraph_on_media
-    add_filter( 'the_content', 'standard_remove_paragraph_on_media' );
+    } // end lean_remove_paragraph_on_media
+    add_filter( 'the_content', 'lean_remove_paragraph_on_media' );
 
 } // end if
 
-if( ! function_exists( 'standard_wrap_embeds' ) ) {
+if( ! function_exists('lean_wrap_embeds') ) {
 
     /**
      * Wraps the video post format with a container in order to improve styling.
@@ -313,7 +313,7 @@ if( ! function_exists( 'standard_wrap_embeds' ) ) {
      * @version 3.0
      * @since	3.0
      */
-    function standard_wrap_embeds( $html, $url, $args ) {
+    function lean_wrap_embeds( $html, $url, $args ) {
 
         if( 'video' == get_post_format( get_the_ID() ) ) {
             $html = '<div class="video-container">' . $html . '</div>';
@@ -321,12 +321,12 @@ if( ! function_exists( 'standard_wrap_embeds' ) ) {
 
         return $html;
 
-    } // end standard_wrap_embebds
-    add_filter( 'embed_oembed_html', 'standard_wrap_embeds', 10, 3 ) ;
+    } // end lean_wrap_embebds
+    add_filter( 'embed_oembed_html', 'lean_wrap_embeds', 10, 3 ) ;
 
 } // end if
 
-if( ! function_exists( 'standard_search_form' ) ) {
+if( ! function_exists('lean_search_form') ) {
 
     /**
      * Renders a simplified version of the search form.
@@ -335,20 +335,20 @@ if( ! function_exists( 'standard_search_form' ) ) {
      * @version 3.0
      * @since	3.0
      */
-    function standard_search_form() {
+    function lean_search_form() {
 
         // Get the default text for the search form
         $query = strlen( get_search_query() ) == 0 ? '' : get_search_query();
 
         // Render the form
         $form = '<form role="search" method="get" id="searchform" action="' . esc_url( home_url( '/' ) ) . '">';
-        $form .= '<input placeholder="' . __( 'Search...', 'standard' ) . '" type="text" value="' . $query . '" name="s" id="s" class="form-control"/>';
+        $form .= '<input placeholder="' . __( 'Search...', 'lean' ) . '" type="text" value="' . $query . '" name="s" id="s" class="form-control"/>';
         $form .= '</form>';
 
         return $form;
 
-    } // end standard_search_form
-    add_filter( 'get_search_form', 'standard_search_form' );
+    } // end lean_search_form
+    add_filter( 'get_search_form', 'lean_search_form' );
 
 } // end if
 
@@ -361,9 +361,9 @@ if( ! function_exists( 'standard_search_form' ) ) {
  * @since		3.0
  * @deprecated 	3.3
  */
-if( ! function_exists( 'standard_post_format_rss' ) /*&& 3.6 < standard_is_wp36()*/ ) {
+if( ! function_exists('lean_post_format_rss') /*&& 3.6 < lean_is_wp36()*/ ) {
 
-    function standard_post_format_rss( $content ) {
+    function lean_post_format_rss( $content ) {
 
         // If it's a link post format, make sure the link and title are properly rendered
         if( 'link' == get_post_format( get_the_ID() ) ) {
@@ -412,8 +412,8 @@ if( ! function_exists( 'standard_post_format_rss' ) /*&& 3.6 < standard_is_wp36(
 
         return $content;
 
-    } // end standard_post_format_rss
-    add_filter( 'the_content_feed', 'standard_post_format_rss' );
+    } // end lean_post_format_rss
+    add_filter( 'the_content_feed', 'lean_post_format_rss' );
 } // end if
 
 /**
@@ -424,7 +424,7 @@ if( ! function_exists( 'standard_post_format_rss' ) /*&& 3.6 < standard_is_wp36(
  * @version 	3.3
  * @since		3.3
  */
-if( standard_is_wp36() ) {
+if( lean_is_wp36() ) {
 
     /**
      * Returns the URL from the link post format.
@@ -434,9 +434,9 @@ if( standard_is_wp36() ) {
      * @since  3.3
      * @return string URL
      */
-    function standard_get_link_url() {
+    function lean_get_link_url() {
         return ( get_the_post_format_url() ) ? get_the_post_format_url() : apply_filters( 'the_permalink', get_permalink() );
-    } // standard_get_link_url
+    } // lean_get_link_url
 
 } // end if
 
@@ -448,16 +448,16 @@ if( using_native_seo() ) {
      * @version 3.0
      * @since	3.0
      */
-    function standard_seo_titles() {
+    function lean_seo_titles() {
 
-        include_once( get_template_directory() . '/lib/seotitles/standard_seotitles.php' );
-        return Standard_SeoTitles::get_page_title( get_the_ID() );
+        include_once( get_template_directory() . '/lib/seotitles/lean_seotitles.php' );
+        return Lean_SeoTitles::get_page_title( get_the_ID() );
 
-    } // end standard_seo_tiltes
-    add_filter( 'wp_title', 'standard_seo_titles' );
+    } // end lean_seo_tiltes
+    add_filter( 'wp_title', 'lean_seo_titles' );
 } // end if
 
-if( ! function_exists( 'standard_modify_widget_titles' ) ) {
+if( ! function_exists('lean_modify_widget_titles') ) {
     /**
      * Place all widget titles in h4 tags rather than h3 tags to improve SEO. Also adds the
      * 'widget-title' class to the heading elements.
@@ -467,18 +467,18 @@ if( ! function_exists( 'standard_modify_widget_titles' ) ) {
      * @version 3.0
      * @since	3.0
      */
-    function standard_modify_widget_titles( $params ) {
+    function lean_modify_widget_titles( $params ) {
 
         $params[0]['before_title'] = '<h4 class="' . $params[0]['widget_name'] . ' widget-title">' ;
         $params[0]['after_title'] = '</h4>';
 
         return $params;
 
-    } // end standard_modify_widget_titles
-    add_filter( 'dynamic_sidebar_params', 'standard_modify_widget_titles' );
+    } // end lean_modify_widget_titles
+    add_filter( 'dynamic_sidebar_params', 'lean_modify_widget_titles' );
 } // end if
 
-if( ! function_exists( 'standard_add_title_to_single_post_pagination' ) ) {
+if( ! function_exists('lean_add_title_to_single_post_pagination') ) {
     /**
      * Adds the title attribute to the 'Next and 'Previous' post pagination anchors.
      *
@@ -487,7 +487,7 @@ if( ! function_exists( 'standard_add_title_to_single_post_pagination' ) ) {
      * @version 3.0
      * @since	3.0
      */
-    function standard_add_title_to_single_post_pagination( $link ) {
+    function lean_add_title_to_single_post_pagination( $link ) {
 
         if( strpos( $link, 'rel="prev"' ) > 0 ) {
 
@@ -503,9 +503,9 @@ if( ! function_exists( 'standard_add_title_to_single_post_pagination' ) ) {
 
         return $link;
 
-    } // end standard_add_title_to_single_post_pagination
-    add_filter( 'next_post_link', 'standard_add_title_to_single_post_pagination' );
-    add_filter( 'previous_post_link', 'standard_add_title_to_single_post_pagination' );
+    } // end lean_add_title_to_single_post_pagination
+    add_filter( 'next_post_link', 'lean_add_title_to_single_post_pagination' );
+    add_filter( 'previous_post_link', 'lean_add_title_to_single_post_pagination' );
 } // end if
 
 /**
@@ -514,7 +514,7 @@ if( ! function_exists( 'standard_add_title_to_single_post_pagination' ) ) {
  * @version 3.0
  * @since	3.0
  */
-function standard_save_post( ) {
+function lean_save_post( ) {
 
     if( isset( $_POST['page_template'] ) && isset( $_POST['page_template'] ) ) {
 
@@ -530,24 +530,24 @@ function standard_save_post( ) {
 
     } // end if
 
-} // end standard_save_post
-add_action( 'save_post', 'standard_save_post' );
+} // end lean_save_post
+add_action( 'save_post', 'lean_save_post' );
 /**
- * Updates the Standard Sitemap Flag if the post being deleted is the actual sitemap.
+ * Updates the Lean Sitemap Flag if the post being deleted is the actual sitemap.
  *
  * @param	string $id		The ID of the post being deleted.
  * @version 3.0
  * @since	3.0
  */
-function standard_delete_post( $id ) {
+function lean_delete_post( $id ) {
 
     // if the page being deleted has the sitemap template, we need to delete the option
     if( get_option( 'lean_using_sitemap') == $id ) {
         delete_option( 'lean_using_sitemap' );
     } // end if
 
-} // end standard_delet_post
-add_action( 'before_delete_post', 'standard_delete_post' );
+} // end lean_delet_post
+add_action( 'before_delete_post', 'lean_delete_post' );
 
 /**
  * Introduces custom messaging to the Image Uploader on the 'post' and 'page' screens.
@@ -563,14 +563,14 @@ add_action( 'before_delete_post', 'standard_delete_post' );
  * @version		3.1
  * @deprecated 	3.3
  */
-function standard_attachment_fields_to_edit_wp34( $form_fields, $post ) {
+function lean_attachment_fields_to_edit_wp34( $form_fields, $post ) {
 
     // Mark the alt field as required
     $form_fields['image_alt']['required'] = true;
 
     // Provide a Standard description for title and alt
-    $form_fields['post_title']['helps'] =	__( 'A title is required for search engines.', 'standard' );
-    $form_fields['image_alt']['helps'] = __( 'An alternate text description is required for search engines.', 'standard' );
+    $form_fields['post_title']['helps'] =	__( 'A title is required for search engines.', 'lean' );
+    $form_fields['image_alt']['helps'] = __( 'An alternate text description is required for search engines.', 'lean' );
 
     // If the image alt is empty, then we'll provide it by cleaning up the image's file name
     if( empty( $form_fields['image_alt']['value'] ) ) {
@@ -589,9 +589,9 @@ function standard_attachment_fields_to_edit_wp34( $form_fields, $post ) {
 
     return $form_fields;
 
-} // end standard_attachment_fields_to_edit
+} // end lean_attachment_fields_to_edit
 if( '3.5.1' > get_bloginfo( 'version' ) || '3.5' > get_bloginfo( 'version' ) ) {
-    add_action( 'attachment_fields_to_edit', 'standard_attachment_fields_to_edit_wp34', 11, 2 );
+    add_action( 'attachment_fields_to_edit', 'lean_attachment_fields_to_edit_wp34', 11, 2 );
 } // end if
 
 /**
@@ -601,7 +601,7 @@ if( '3.5.1' > get_bloginfo( 'version' ) || '3.5' > get_bloginfo( 'version' ) ) {
  * @since	3.0
  * @version	3.0
  */
-function standard_redirect_rss_feeds() {
+function lean_redirect_rss_feeds() {
 
     global $feed;
 
@@ -640,8 +640,8 @@ function standard_redirect_rss_feeds() {
 
     } // end if
 
-} // end standard_redirect_rss_feeds
-add_action( 'template_redirect', 'standard_redirect_rss_feeds' );
+} // end lean_redirect_rss_feeds
+add_action( 'template_redirect', 'lean_redirect_rss_feeds' );
 
 if( lean_is_offline() ) {
 
@@ -651,15 +651,15 @@ if( lean_is_offline() ) {
      * @version 3.0
      * @since	3.0
      */
-    function standard_disable_feed() {
-        wp_die( get_bloginfo( 'name' ) . ' ' . __( 'is currently offline.', 'standard' ) . ' ' );
-    } // end standard_disable_feeds
+    function lean_disable_feed() {
+        wp_die( get_bloginfo( 'name' ) . ' ' . __( 'is currently offline.', 'lean' ) . ' ' );
+    } // end lean_disable_feeds
 
-    add_action( 'do_feed', 'standard_disable_feed', 1 );
-    add_action( 'do_feed_rdf', 'standard_disable_feed', 1 );
-    add_action( 'do_feed_rss', 'standard_disable_feed', 1 );
-    add_action( 'do_feed_rss2', 'standard_disable_feed', 1 );
-    add_action( 'do_feed_atom', 'standard_disable_feed', 1 );
+    add_action( 'do_feed', 'lean_disable_feed', 1 );
+    add_action( 'do_feed_rdf', 'lean_disable_feed', 1 );
+    add_action( 'do_feed_rss', 'lean_disable_feed', 1 );
+    add_action( 'do_feed_rss2', 'lean_disable_feed', 1 );
+    add_action( 'do_feed_atom', 'lean_disable_feed', 1 );
 
 } // end if
 
@@ -670,7 +670,7 @@ if( lean_is_offline() ) {
  * @version 3.0
  * @since	3.0
  */
-function standard_add_admin_menu_separator( $position ) {
+function lean_add_admin_menu_separator( $position ) {
 
     global $menu;
 
@@ -682,8 +682,8 @@ function standard_add_admin_menu_separator( $position ) {
         4	=>	'wp-menu-separator'
     );
 
-} // end standard_add_admin_separator
-add_action( 'init_standard_menu', 'standard_add_admin_menu_separator' );
+} // end lean_add_admin_separator
+add_action( 'init_lean_menu', 'lean_add_admin_menu_separator' );
 
 /**
  * Defines the function used to set the position of the custom separator.
@@ -691,13 +691,13 @@ add_action( 'init_standard_menu', 'standard_add_admin_menu_separator' );
  * @version 3.0
  * @since	3.0
  */
-function standard_set_admin_menu_separator() {
+function lean_set_admin_menu_separator() {
 
     // Eventually, we should make the 57 value more flexible
-    do_action( 'init_standard_menu', 57 );
+    do_action( 'init_lean_menu', 57 );
 
-} // end standard_set_admin_menu_separator
-add_action( 'init', 'standard_set_admin_menu_separator' );
+} // end lean_set_admin_menu_separator
+add_action( 'init', 'lean_set_admin_menu_separator' );
 
 /* ----------------------------------------------------------- *
  * 8. Helper Functions
@@ -930,7 +930,7 @@ function lean_is_offline() {
 
     return 'offline' == $site_mode;
 
-} // end standard_site_mode
+} // end lean_site_mode
 
 /**
  * Helper function for programmatically creating a page.
@@ -942,16 +942,16 @@ function lean_is_offline() {
  * @since	3.0
  * @version	3.0
  */
-function standard_create_page( $slug, $title, $template = '' ) {
+function lean_create_page( $slug, $title, $template = '' ) {
 
     $current_user = wp_get_current_user();
 
     // Grab the content for the page being created
     $page_content = '';
     if( 'privacy-policy' == $slug ) {
-        $page_content = file_get_contents( get_template_directory_uri() . '/lib/Standard_Privacy_Policy.template.html' );
+        $page_content = file_get_contents( get_template_directory_uri() . '/lib/Privacy_Policy.template.html' );
     } elseif( 'comment-policy' == $slug ) {
-        $page_content = file_get_contents( get_template_directory_uri() . '/lib/Standard_Comment_Policy.template.html' );
+        $page_content = file_get_contents( get_template_directory_uri() . '/lib/Comment_Policy.template.html' );
     } // end if/else
 
     // Create the page
@@ -975,7 +975,7 @@ function standard_create_page( $slug, $title, $template = '' ) {
 
     return $page_id;
 
-} // end standard_create_page
+} // end lean_create_page
 
 /**
  * Helper function for programmatically deleting a page.
@@ -985,9 +985,9 @@ function standard_create_page( $slug, $title, $template = '' ) {
  * @since	3.0
  * @version	3.0
  */
-function standard_delete_page( $id ) {
+function lean_delete_page( $id ) {
     return null != wp_delete_post( $id, true );
-} // end standard_delete_page
+} // end lean_delete_page
 
 /**
  * If not already active, includes the plugin by using the specified path.
@@ -996,11 +996,11 @@ function standard_delete_page( $id ) {
  * @since	3.0
  * @version	3.0
  */
-function standard_add_plugin( $str_path ) {
+function lean_add_plugin( $str_path ) {
     if( ! in_array( get_template_directory() . $str_path, apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {
         include_once( get_template_directory() . $str_path );
     } // end if
-} // end standard_add_plugin
+} // end lean_add_plugin
 
 /**
  * Returns the URL to the RSS feed based on what option the user
@@ -1075,21 +1075,21 @@ function lean_is_using_pretty_permalinks() {
  * @since 	3.1
  * @version	3.2
  */
-function standard_is_current_version() {
+function lean_is_current_version() {
     return LEAN_THEME_VERSION == get_option( 'lean_theme_version' ) ? true : false;
-} // end standard_is_current_version
+} // end lean_is_current_version
 
 /**
  * Determines whether or not Standard is being run on WordPress 3.6
  *
  * @return	float	The current version of WordPress.
  */
-function standard_is_wp36() {
+function lean_is_wp36() {
 
     global $wp_version;
     return 0 == strpos( $wp_version, '3.6' );
 
-} // end standard_is_wp36
+} // end lean_is_wp36
 
 /**
  * Removes shortcodes from gallery posts
