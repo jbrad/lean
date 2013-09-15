@@ -2,7 +2,7 @@
 /**
  * Renders the the 468x60 widget
  *
- * @package		Standard
+ * @package		lean
  * @subpackage	468x60 Advertisement
  * @version 	1.2
  * @since		3.0

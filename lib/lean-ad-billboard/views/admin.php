@@ -2,13 +2,13 @@
 /**
  * Renders the administration dashboard for the 468x60 widget.
  *
- * @package		Standard
+ * @package		lean
  * @subpackage	468x60 Advertisement
  * @version 	1.0
  * @since		3.0
  */
 ?>
-<div class="standard-ad-468x60-wrapper span7">
+<div class="lean-ad-468x60-wrapper span7">
 
 	<div class="preview_image_container">
 		<img src="<?php echo '' == $ad_src ? '' : $ad_src; ?>" alt="" class="preview_image" />
@@ -20,6 +20,6 @@
 	<input type="hidden" class="widget-parent-id" value="" />
 	<!-- /Hidden fields -->
 
-	<a href="javascript:;" class="ad_delete <?php echo ('' == $ad_url && '' == $ad_src) ? 'hidden' : '' ?>"><?php _e( 'Delete Advertisement', 'standard' ); ?></a>
+	<a href="javascript:;" class="ad_delete <?php echo ('' == $ad_url && '' == $ad_src) ? 'hidden' : '' ?>"><?php _e( 'Delete Advertisement', 'lean' ); ?></a>
 	
-</div><!-- /.standard-ad-468x60-wrapper -->
+</div><!-- /.lean-ad-468x60-wrapper -->

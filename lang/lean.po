@@ -1058,7 +1058,7 @@ msgid "Delete Advertisement"
 msgstr ""
 
 #: ../lib/standard-ad-billboard/plugin.php:23
-msgid "standard-ad-billboard"
+msgid "lean-ad-billboard"
 msgstr ""
 
 #: ../lib/standard-ad-billboard/plugin.php:24
