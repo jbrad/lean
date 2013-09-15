@@ -2,8 +2,8 @@
 
 ### Documentation
 
-* [Initial release](http://docs.8bit.io/)
+* [Initial release](http://docs.leantheme.co)
 
 ### Theme
 
-* [Initial Release](http://standardtheme.com)
+* [Initial Release](http://leantheme.co)

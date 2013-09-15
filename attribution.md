@@ -1,7 +1,7 @@
 # Lean
 
 * Copyright 2013 Jason Bradley
-* Forked from Standard by 8BIT
+* Forked from Standard
 
 > Licensed under the GPLv3. Please see `license.md` included with this
 > software for a full copy of the license.
@@ -32,7 +32,7 @@
 * Credit to [Thierry Koblentz](http://www.alistapart.com/articles/creating-intrinsic-ratios-for-video/)
 * Released under the [WTFPL license](http://sam.zoy.org/wtfpl/)
 
-## Standard Privacy Policy & Standard Comment Policy
+## Privacy Policy & Comment Policy
 
 Many hours of research and development went into the crafting of our policies. There are a few noteworthy sources whose contributions and personal example were of significant inspiration in this process. Thank you!
 

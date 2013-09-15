@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Standard 3.0\n"
+"Project-Id-Version: Lean 3.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-06-25 11:23-0500\n"
 "PO-Revision-Date: 2013-06-25 11:23-0500\n"
@@ -86,11 +86,11 @@ msgid "&copy; %1$s %2$s &mdash; %3$s by %4$s"
 msgstr ""
 
 #: ../functions.php:91
-msgid "Standard Options"
+msgid "Lean Options"
 msgstr ""
 
 #: ../functions.php:92 ../functions.php:1427 ../functions.php:1923
-msgid "Standard"
+msgid "Lean"
 msgstr ""
 
 #: ../functions.php:102 ../functions.php:103 ../functions.php:1446
@@ -166,8 +166,8 @@ msgid "Upload"
 msgstr ""
 
 #: ../functions.php:337 ../functions.php:390 ../functions.php:1242
-#: ../functions.php:1279 ../lib/standard-ad-125x125/views/admin.php:21
-#: ../lib/standard-ad-125x125/views/admin.php:29
+#: ../functions.php:1279 ../lib/lean-ad-125x125/views/admin.php:21
+#: ../lib/lean-ad-125x125/views/admin.php:29
 msgid "Delete"
 msgstr ""
 
@@ -213,8 +213,7 @@ msgstr ""
 
 #: ../functions.php:473
 msgid ""
-"SEO experts encourage breadcrumb use. <a href=\"http://docs.8bit.io/standard/"
-"admin-panel/presentation/\">Learn more</a>."
+"SEO experts encourage breadcrumb use."
 msgstr ""
 
 #: ../functions.php:492 ../functions.php:1615
@@ -264,7 +263,7 @@ msgid "Cancel"
 msgstr ""
 
 #: ../functions.php:630
-msgid "Standard looks best with seven icons or fewer."
+msgid "Lean looks best with seven icons or fewer."
 msgstr ""
 
 #: ../functions.php:636
@@ -285,8 +284,8 @@ msgstr ""
 
 #: ../functions.php:723
 msgid ""
-"You cannot delete the default set of Standard social icons. <a href="
-"\"javascript:;\" id=\"standard-hide-delete-social-icon-message\">Hide this "
+"You cannot delete the default set of Lean social icons. <a href="
+"\"javascript:;\" id=\"lean-hide-delete-social-icon-message\">Hide this "
 "message.</a>"
 msgstr ""
 
@@ -382,7 +381,7 @@ msgstr ""
 
 #: ../functions.php:1231 ../functions.php:1268
 msgid ""
-"<a href=\"http://docs.8bit.io/standard/admin-panel/publishing/\" target="
+"<a href=\"http://docs.leantheme.co/lean/admin-panel/publishing/\" target="
 "\"_blank\">"
 msgstr ""
 
@@ -400,7 +399,7 @@ msgstr ""
 
 #: ../functions.php:1430
 msgid ""
-"Standard is a sleek, exacting product designed for uncluttered and "
+"Lean is a sleek, exacting product designed for uncluttered and "
 "sophisticated presentation of your content on desktop and mobile devices."
 msgstr ""
 
@@ -425,7 +424,7 @@ msgid "No Sidebar / Full-Width"
 msgstr ""
 
 #: ../functions.php:1734
-msgid "Standard Layout"
+msgid "Lean Layout"
 msgstr ""
 
 #: ../functions.php:1762
@@ -442,22 +441,22 @@ msgstr ""
 
 #: ../functions.php:2022
 msgid ""
-"Standard has detected the activation of WordPress SEO and is now running in "
-"SEO compatibility mode. <a href=\"http://docs.8bit.io/standard/seo\" target="
+"Lean has detected the activation of WordPress SEO and is now running in "
+"SEO compatibility mode. <a href=\"http://docs.leantheme.co/lean/seo\" target="
 "\"_blank\">"
 msgstr ""
 
 #: ../functions.php:2027
 msgid ""
-"Standard has detected the activation of All-In-One SEO and is now running in "
-"SEO compatibility mode.  <a href=\"http://docs.8bit.io/standard/seo\" target="
+"Lean has detected the activation of All-In-One SEO and is now running in "
+"SEO compatibility mode.  <a href=\"http://docs.leantheme.co/lean/seo\" target="
 "\"_blank\">"
 msgstr ""
 
 #: ../functions.php:2032
 msgid ""
-"Standard has detected the activation of Platinum SEO and is now running in "
-"SEO compatibility mode.  <a href=\"http://docs.8bit.io/standard/seo\" target="
+"Lean has detected the activation of Platinum SEO and is now running in "
+"SEO compatibility mode.  <a href=\"http://docs.leantheme.co/lean/seo\" target="
 "\"_blank\">"
 msgstr ""
 
@@ -543,19 +542,19 @@ msgstr ""
 
 #: ../functions.php:2836
 msgid ""
-"<span class=\"standard-user-profile\" id=\"standard-user-profile-twitter"
+"<span class=\"lean-user-profile\" id=\"lean-user-profile-twitter"
 "\">Twitter URL</span>"
 msgstr ""
 
 #: ../functions.php:2837
 msgid ""
-"<span class=\"standard-user-profile\" id=\"standard-user-profile-facebook"
+"<span class=\"lean-user-profile\" id=\"lean-user-profile-facebook"
 "\">Facebook URL</span>"
 msgstr ""
 
 #: ../functions.php:2840
 msgid ""
-"<span class=\"standard-user-profile\" id=\"standard-user-profile-google-plus"
+"<span class=\"lean-user-profile\" id=\"lean-user-profile-google-plus"
 "\">Google+ URL</span>"
 msgstr ""
 
@@ -751,7 +750,7 @@ msgid "Authors"
 msgstr ""
 
 #: ../lib/activity/plugin.php:25
-msgid "standard-activity-tabs"
+msgid "lean-activity-tabs"
 msgstr ""
 
 #: ../lib/activity/plugin.php:26
@@ -845,11 +844,11 @@ msgid "[ No search query. ]"
 msgstr ""
 
 #: ../lib/google-custom-search/plugin.php:23
-msgid "standard-google-custom-search"
+msgid "lean-google-custom-search"
 msgstr ""
 
 #: ../lib/google-custom-search/plugin.php:24
-msgid "Easily add Google Custom Search to your Standard-powered blog."
+msgid "Easily add Google Custom Search to your Lean-powered blog."
 msgstr ""
 
 #: ../lib/google-custom-search/plugin.php:26
@@ -869,7 +868,7 @@ msgstr ""
 
 #: ../lib/google-custom-search/plugin.php:233
 msgid ""
-"This page was generated by Standard for use with the Google Custom Search "
+"This page was generated by Lean for use with the Google Custom Search "
 "widget. <a href=\"widgets.php\">Remove the widget</a> from all sidebars to "
 "delete this page."
 msgstr ""
@@ -880,12 +879,12 @@ msgstr ""
 
 #: ../lib/google-custom-search/views/admin.php:15
 msgid ""
-"<em><a href=\"http://docs.8bit.io/standard/widgets/google-custom-search-"
+"<em><a href=\"http://docs.leantheme.co/lean/widgets/google-custom-search-"
 "widget/\" target=\"_blank\">Learn More</a>.</em>"
 msgstr ""
 
 #: ../lib/influence/plugin.php:17
-msgid "standard-social-influence"
+msgid "lean-social-influence"
 msgstr ""
 
 #: ../lib/influence/plugin.php:18
@@ -973,7 +972,7 @@ msgid "characters remaining"
 msgstr ""
 
 #: ../lib/seo/plugin.php:45 ../lib/seo/plugin.php:54
-msgid "Standard SEO"
+msgid "Lean SEO"
 msgstr ""
 
 #: ../lib/seo/plugin.php:74
@@ -1002,69 +1001,69 @@ msgid ""
 "If not provided, no description will be published."
 msgstr ""
 
-#: ../lib/seotitles/standard_seotitles.php:51
+#: ../lib/seotitles/lean_seotitles.php:51
 msgid "Search Results For"
 msgstr ""
 
-#: ../lib/seotitles/standard_seotitles.php:51
+#: ../lib/seotitles/lean_seotitles.php:51
 msgid "Results"
 msgstr ""
 
-#: ../lib/seotitles/standard_seotitles.php:54
+#: ../lib/seotitles/lean_seotitles.php:54
 msgid "404 Nothing Found"
 msgstr ""
 
-#: ../lib/seotitles/standard_seotitles.php:56
+#: ../lib/seotitles/lean_seotitles.php:56
 msgid "Author Archives"
 msgstr ""
 
-#: ../lib/seotitles/standard_seotitles.php:70
-#: ../lib/seotitles/standard_seotitles.php:76
-#: ../lib/seotitles/standard_seotitles.php:79
+#: ../lib/seotitles/lean_seotitles.php:70
+#: ../lib/seotitles/lean_seotitles.php:76
+#: ../lib/seotitles/lean_seotitles.php:79
 msgid "Archive"
 msgstr ""
 
-#: ../lib/seotitles/standard_seotitles.php:81
+#: ../lib/seotitles/lean_seotitles.php:81
 msgid "Tag Archive"
 msgstr ""
 
-#: ../lib/standard-ad-125x125/plugin.php:23
+#: ../lib/lean-ad-125x125/plugin.php:23
 msgid "lean-ad-125x125"
 msgstr ""
 
-#: ../lib/standard-ad-125x125/plugin.php:24
+#: ../lib/lean-ad-125x125/plugin.php:24
 msgid "Display a 125x125 advertisement."
 msgstr ""
 
-#: ../lib/standard-ad-125x125/plugin.php:26
+#: ../lib/lean-ad-125x125/plugin.php:26
 msgid "125x125 Ad"
 msgstr ""
 
-#: ../lib/standard-ad-300x250/plugin.php:23
+#: ../lib/lean-ad-300x250/plugin.php:23
 msgid "lean-ad-300x250"
 msgstr ""
 
-#: ../lib/standard-ad-300x250/plugin.php:24
+#: ../lib/lean-ad-300x250/plugin.php:24
 msgid "Display a 300x250 advertisement."
 msgstr ""
 
-#: ../lib/standard-ad-300x250/plugin.php:26
+#: ../lib/lean-ad-300x250/plugin.php:26
 msgid "300x250 Ad"
 msgstr ""
 
-#: ../lib/standard-ad-300x250/views/admin.php:23
-#: ../lib/standard-ad-billboard/views/admin.php:23
+#: ../lib/lean-ad-300x250/views/admin.php:23
+#: ../lib/lean-ad-billboard/views/admin.php:23
 msgid "Delete Advertisement"
 msgstr ""
 
-#: ../lib/standard-ad-billboard/plugin.php:23
+#: ../lib/lean-ad-billboard/plugin.php:23
 msgid "lean-ad-billboard"
 msgstr ""
 
-#: ../lib/standard-ad-billboard/plugin.php:24
+#: ../lib/lean-ad-billboard/plugin.php:24
 msgid "Display a 468x60 advertisement."
 msgstr ""
 
-#: ../lib/standard-ad-billboard/plugin.php:26
+#: ../lib/lean-ad-billboard/plugin.php:26
 msgid "468x60 Ad"
 msgstr ""
