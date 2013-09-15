@@ -43,7 +43,7 @@ function standard_theme_menu() {
         __( 'Global', 'standard' ),
         __( 'Global', 'standard' ),
         'administrator',
-        'theme_options&tab=standard_theme_global_options',
+        'theme_options&tab=lean_theme_global_options',
         'standard_theme_options_display'
     );
 
@@ -806,8 +806,8 @@ function get_standard_theme_default_global_options() {
 function standard_setup_theme_global_options() {
 
     // If the theme options don't exist, create them.
-    if( false == get_option( 'standard_theme_global_options' ) ) {
-        add_option( 'standard_theme_global_options', apply_filters( 'standard_theme_default_global_options', get_standard_theme_default_global_options() ) );
+    if( false == get_option( 'lean_theme_global_options' ) ) {
+        add_option( 'lean_theme_global_options', apply_filters( 'standard_theme_default_global_options', get_standard_theme_default_global_options() ) );
     } // end if
 
     /* ------------------ Page Options ------------------ */
@@ -815,15 +815,15 @@ function standard_setup_theme_global_options() {
     add_settings_section(
         'global',
         '',
-        'standard_theme_global_options_display',
-        'standard_theme_global_options'
+        'lean_theme_global_options_display',
+        'lean_theme_global_options'
     );
 
     add_settings_field(
         'feedburner_url',
         __( 'FeedBurner URL', 'standard' ),
         'feedburner_url_display',
-        'standard_theme_global_options',
+        'lean_theme_global_options',
         'global'
     );
 
@@ -831,7 +831,7 @@ function standard_setup_theme_global_options() {
         'google_analytics',
         __( 'Google Analytics', 'standard' ),
         'google_analytics_display',
-        'standard_theme_global_options',
+        'lean_theme_global_options',
         'global'
     );
 
@@ -839,7 +839,7 @@ function standard_setup_theme_global_options() {
         'site_mode',
         __( 'Site Mode', 'standard' ),
         'site_mode_display',
-        'standard_theme_global_options',
+        'lean_theme_global_options',
         'global'
     );
 
@@ -847,14 +847,14 @@ function standard_setup_theme_global_options() {
         'offline_message',
         __( 'Offline Message', 'standard' ),
         'offline_message_display',
-        'standard_theme_global_options',
+        'lean_theme_global_options',
         'global'
     );
 
     register_setting(
-        'standard_theme_global_options',
-        'standard_theme_global_options',
-        'standard_theme_global_options_validate'
+        'lean_theme_global_options',
+        'lean_theme_global_options',
+        'lean_theme_global_options_validate'
     );
 
 } // end standard_setup_theme_global_options
@@ -866,14 +866,14 @@ add_action( 'admin_init', 'standard_setup_theme_global_options' );
  * @since	3.0
  * @version	3.2
  */
-function standard_theme_global_options_display() {
+function lean_theme_global_options_display() {
 
     $html = '<h3>' . __( 'Site Configuration ', 'standard' ) . '</h3>';
     $html .= '<p>' . __( 'This section controls site wide features.', 'standard' ) . '</p>';
 
     echo $html;
 
-} // end standard_theme_global_options_display
+} // end lean_theme_global_options_display
 
 /**
  * Renders the option element for FeedBurner.
@@ -883,7 +883,7 @@ function standard_theme_global_options_display() {
  */
 function feedburner_url_display() {
 
-    $option = get_option( 'standard_theme_global_options' );
+    $option = get_option( 'lean_theme_global_options' );
 
     // Only render this option for administrators
     if( current_user_can( 'manage_options' ) ) {
@@ -893,7 +893,7 @@ function feedburner_url_display() {
             $feedburner_url = $option['feedburner_url'];
         } // end if
 
-        $html = '<input type="text" id="feedburner_url" name="standard_theme_global_options[feedburner_url]" placeholder="http://feeds.feedburner.com/example" value="' . esc_attr( $feedburner_url ) . '" />';
+        $html = '<input type="text" id="feedburner_url" name="lean_theme_global_options[feedburner_url]" placeholder="http://feeds.feedburner.com/example" value="' . esc_attr( $feedburner_url ) . '" />';
         $html .= '&nbsp;<span class="description">' . __( 'Use in place of the native RSS feed.', 'standard' ) . '</span>';
 
         echo $html;
@@ -910,7 +910,7 @@ function feedburner_url_display() {
  */
 function google_analytics_display() {
 
-    $option = get_option( 'standard_theme_global_options' );
+    $option = get_option( 'lean_theme_global_options' );
 
     // Only render this option for administrators
     if( current_user_can( 'manage_options' ) ) {
@@ -920,7 +920,7 @@ function google_analytics_display() {
             $analytics_id = $option['google_analytics'];
         } // end if
 
-        $html = '<input type="text" id="google_analytics" name="standard_theme_global_options[google_analytics]" placeholder="UA-000000" value="' . esc_attr( $analytics_id ) . '" />';
+        $html = '<input type="text" id="google_analytics" name="lean_theme_global_options[google_analytics]" placeholder="UA-000000" value="' . esc_attr( $analytics_id ) . '" />';
         $html .= '&nbsp;<span class="description">' . __( 'Enter the ID only.', 'standard' ) . '</span>';
 
         echo $html;
@@ -937,14 +937,14 @@ function google_analytics_display() {
  */
 function site_mode_display( ) {
 
-    $options = get_option( 'standard_theme_global_options' );
+    $options = get_option( 'lean_theme_global_options' );
 
     $site_mode = '';
     if( isset( $options['site_mode'] ) ) {
         $site_mode = $options['site_mode'];
     } // end if
 
-    $html = '<select id="site_mode" name="standard_theme_global_options[site_mode]">';
+    $html = '<select id="site_mode" name="lean_theme_global_options[site_mode]">';
     $html .= '<option value="online"' . selected( $site_mode, 'online', false ) . '>' . __( 'Online', 'standard' ) .'</option>';
     $html .= '<option value="offline"' . selected( $site_mode, 'offline', false ) . '>' . __( 'Offline', 'standard' ) .'</option>';
     $html .= '</select>';
@@ -967,14 +967,14 @@ function site_mode_display( ) {
  */
 function offline_message_display() {
 
-    $options = get_option( 'standard_theme_global_options' );
+    $options = get_option( 'lean_theme_global_options' );
 
     $offline_message = '';
     if( isset( $options['offline_message'] ) ) {
         $offline_message = $options['offline_message'];
     } // end if
 
-    echo '<input type="text" id="offline_message" name="standard_theme_global_options[offline_message]" value="' . esc_attr( $offline_message ) . '" maxlength="140" />';
+    echo '<input type="text" id="offline_message" name="lean_theme_global_options[offline_message]" value="' . esc_attr( $offline_message ) . '" maxlength="140" />';
 
 } // end offline_message_display
 
@@ -988,7 +988,7 @@ function offline_message_display() {
  * @since 	3.0
  * @version	3.2
  */
-function standard_theme_global_options_validate( $input ) {
+function lean_theme_global_options_validate( $input ) {
 
     $output = array();
 
@@ -1000,9 +1000,9 @@ function standard_theme_global_options_validate( $input ) {
 
     } // end foreach
 
-    return apply_filters( 'standard_theme_global_options_validate', $output, $input, get_standard_theme_default_global_options() );
+    return apply_filters( 'lean_theme_global_options_validate', $output, $input, get_standard_theme_default_global_options() );
 
-} // end standard_theme_global_options_validate
+} // end lean_theme_global_options_validate
 
 /* ----------------------------- *
  * 	Publishing Options
@@ -1382,9 +1382,9 @@ function standard_theme_options_display() {
 
         <div class="clear"></div>
 
-        <?php $active_tab = isset( $_GET['tab'] ) ? $_GET['tab'] : 'standard_theme_global_options'; ?>
+        <?php $active_tab = isset( $_GET['tab'] ) ? $_GET['tab'] : 'lean_theme_global_options'; ?>
         <h2 class="nav-tab-wrapper">
-            <a class="nav-tab <?php echo $active_tab == 'standard_theme_global_options' ? 'nav-tab-active' : ''; ?>" href="?page=theme_options&amp;tab=standard_theme_global_options"><?php _e( 'Global', 'standard' ); ?></a>
+            <a class="nav-tab <?php echo $active_tab == 'lean_theme_global_options' ? 'nav-tab-active' : ''; ?>" href="?page=theme_options&amp;tab=lean_theme_global_options"><?php _e( 'Global', 'standard' ); ?></a>
             <a class="nav-tab <?php echo $active_tab == 'standard_theme_presentation_options' ? 'nav-tab-active' : ''; ?>" href="?page=theme_options&amp;tab=standard_theme_presentation_options"><?php _e( 'Presentation', 'standard' ); ?></a>
             <a class="nav-tab <?php echo $active_tab == 'standard_theme_social_options' ? 'nav-tab-active' : ''; ?>" href="?page=theme_options&amp;tab=standard_theme_social_options"><?php _e( 'Social', 'standard' ); ?></a>
             <a class="nav-tab <?php echo $active_tab == 'standard_theme_publishing_options' ? 'nav-tab-active' : ''; ?>" href="?page=theme_options&amp;tab=standard_theme_publishing_options"><?php _e( 'Publishing', 'standard' ); ?></a>
@@ -1395,10 +1395,10 @@ function standard_theme_options_display() {
         <form method="post" action="options.php">
             <?php
 
-            if( 'standard_theme_global_options' == $active_tab ) {
+            if( 'lean_theme_global_options' == $active_tab ) {
 
-                settings_fields( 'standard_theme_global_options' );
-                do_settings_sections( 'standard_theme_global_options' );
+                settings_fields( 'lean_theme_global_options' );
+                do_settings_sections( 'lean_theme_global_options' );
 
             } else if( 'standard_theme_presentation_options' == $active_tab ) {
 

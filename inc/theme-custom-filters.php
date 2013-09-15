@@ -606,7 +606,7 @@ function standard_redirect_rss_feeds() {
     global $feed;
 
     // If we're not on a feed or we're requesting feedburner then stop the redirect
-    if( ! is_feed() || preg_match( '/feedburner/i', $_SERVER['HTTP_USER_AGENT'] ) || standard_is_offline() ) {
+    if( ! is_feed() || preg_match( '/feedburner/i', $_SERVER['HTTP_USER_AGENT'] ) || lean_is_offline() ) {
         return;
     } // end if
 
@@ -643,7 +643,7 @@ function standard_redirect_rss_feeds() {
 } // end standard_redirect_rss_feeds
 add_action( 'template_redirect', 'standard_redirect_rss_feeds' );
 
-if( standard_is_offline() ) {
+if( lean_is_offline() ) {
 
     /**
      * If Standard is in offline mode, then we'll stop all RSS feeds from publishing content.
@@ -912,16 +912,16 @@ function standard_truncate_text( $string, $character_limit = 50, $truncation_ind
 } // end standard_truncate_text
 
 /**
- * If Standard is set to online mode, this function loads and redirects all traffic to the
+ * If Lean is set to online mode, this function loads and redirects all traffic to the
  * page template defined for offline mode.
  *
  * @return	boolean Whether or not the site is set into offline mode.
  * @since	3.0
  * @version	3.0
  */
-function standard_is_offline() {
+function lean_is_offline() {
 
-    $global_options = get_option( 'standard_theme_global_options' );
+    $global_options = get_option( 'lean_theme_global_options' );
 
     $site_mode = '';
     if( isset( $global_options['site_mode'] ) && '' != $global_options['site_mode'] ) {
@@ -1012,7 +1012,7 @@ function standard_add_plugin( $str_path ) {
  */
 function standard_get_rss_feed_url() {
 
-    $global_options = get_option( 'standard_theme_global_options' );
+    $global_options = get_option( 'lean_theme_global_options' );
 
     $url = (string)get_feed_link( 'rss2' );
     if( isset( $global_options['feedburner_url'] ) && '' != $global_options['feedburner_url'] ) {

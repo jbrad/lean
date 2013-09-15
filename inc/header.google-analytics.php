@@ -8,7 +8,7 @@
  */
 function standard_theme_google_analytics() {
 
-	$global_options = get_option( 'standard_theme_global_options' );
+	$global_options = get_option( 'lean_theme_global_options' );
 	if( '' != $global_options['google_analytics'] ) {
 
 		if( is_user_logged_in() ) { ?>

@@ -29,7 +29,7 @@
             <?php } // end if ?>
             <link rel="author" href="<?php echo trailingslashit( $google_plus ); ?>"/>
         <?php } // end if ?>
-        <?php $global_options = get_option( 'standard_theme_global_options' ); ?>
+        <?php $global_options = get_option( 'lean_theme_global_options' ); ?>
         <?php if( '' != $global_options['google_analytics'] ) { ?>
             <?php if( is_user_logged_in() ) { ?>
                 <!-- Google Analytics is restricted only to users who are not logged in. -->
@@ -73,7 +73,7 @@
     </head>
 <body <?php body_class(); ?>>
 
-<?php if( standard_is_offline() && ! current_user_can( 'manage_options' ) ) { ?>
+<?php if( lean_is_offline() && ! current_user_can( 'manage_options' ) ) { ?>
     <?php get_template_part( 'page', 'offline-mode' ); ?>
     <?php exit; ?>
 <?php } // end if ?>

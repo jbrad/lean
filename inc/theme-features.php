@@ -445,10 +445,10 @@ function standard_add_admin_bar_option() {
         // Global
         $wp_admin_bar->add_node(
             array(
-                'id'		=>	'standard_theme_global_options',
+                'id'		=>	'lean_theme_global_options',
                 'title'		=>	__( 'Global', 'standard' ),
                 'parent'	=>	'standard_options',
-                'href'		=>	site_url() . '/wp-admin/admin.php?page=theme_options&tab=standard_theme_global_options'
+                'href'		=>	site_url() . '/wp-admin/admin.php?page=theme_options&tab=lean_theme_global_options'
             )
         );
 
@@ -496,7 +496,7 @@ add_action( 'admin_bar_menu', 'standard_add_admin_bar_option', 40 );
 function standard_add_site_mode_admin_bar_note() {
 
     // Remind the user if they are in offline mode
-    if( standard_is_offline() ) {
+    if( lean_is_offline() ) {
         global $wp_admin_bar;
         $wp_admin_bar->add_node(
             array(
@@ -771,6 +771,7 @@ if( ! function_exists( 'standard_add_theme_features' ) ) {
                 'post-formats',
                 array(
                     'status',
+                    'chat',
                     'image',
                     'link',
                     'quote',
