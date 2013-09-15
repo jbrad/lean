@@ -5,7 +5,7 @@
  *
  * It depends on Twitter Booterstrap.
  *
- * @package		Standard
+ * @package		Lean
  * @subpackage	Activity Tabs Widget
  * @version 	1.1
  * @since		3.0
@@ -22,10 +22,10 @@ class Activity_Tabs extends WP_Widget {
 	public function __construct() {
 
 		$widget_opts = array(
-			'classname' 	=> __( 'standard-activity-tabs', 'standard' ), 
-			'description' 	=> __( 'Display your most recent posts, comments, popular posts, and tags.', 'standard' ),
+			'classname' 	=> __( 'lean-activity-tabs', 'lean' ),
+			'description' 	=> __( 'Display your most recent posts, comments, popular posts, and tags.', 'lean' ),
 		);	
-		$this->WP_Widget( 'standard-activity-tabs', __( 'Activity Tabs', 'standard' ), $widget_opts );
+		$this->WP_Widget( 'lean-activity-tabs', __( 'Activity Tabs', 'lean' ), $widget_opts );
 		
 		add_action( 'admin_enqueue_scripts', array( &$this, 'register_admin_styles' ) );
 		
@@ -132,7 +132,7 @@ class Activity_Tabs extends WP_Widget {
 	 * @version	3.0
 	 */
 	public function register_admin_styles() {
-		wp_enqueue_style( 'standard-activity-tabs', get_template_directory_uri() . '/lib/activity/css/admin.css', false, LEAN_THEME_VERSION );
+		wp_enqueue_style( 'lean-activity-tabs', get_template_directory_uri() . '/lib/activity/css/admin.css', false, LEAN_THEME_VERSION );
 	} // end register_admin_styles
 
 	/*--------------------------------------------------------*
@@ -169,19 +169,19 @@ class Activity_Tabs extends WP_Widget {
 				$html .= '<ul class="nav nav-tabs tab-count-' . $tab_count . '">';
 				
 					if( $post_count > 0 ) {
-						$html .= '<li><a href="#recent" data-toggle="tab">' . __( 'Recent', 'standard' ) . '</a></li>';
+						$html .= '<li><a href="#recent" data-toggle="tab">' . __( 'Recent', 'lean' ) . '</a></li>';
 					} // end if
 					
 					if( $popular_count > 0 ) {
-						$html .= '<li><a href="#popular" data-toggle="tab">' . __( 'Popular', 'standard' ) . '</a></li>';
+						$html .= '<li><a href="#popular" data-toggle="tab">' . __( 'Popular', 'lean' ) . '</a></li>';
 					} // end if
 					
 					if( $comment_count > 0 ) {
-						$html .= '<li><a href="#pop-comments" data-toggle="tab">' . __( 'Comments', 'standard' ) . '</a></li>';
+						$html .= '<li><a href="#pop-comments" data-toggle="tab">' . __( 'Comments', 'lean' ) . '</a></li>';
 					} // end if
 					
 					if( $tag_count > 0 ) {
-						$html .= '<li><a href="#tags" data-toggle="tab">' . __( 'Tags', 'standard' ) . '</a></li>';
+						$html .= '<li><a href="#tags" data-toggle="tab">' . __( 'Tags', 'lean' ) . '</a></li>';
 					} // end if
 					
 				$html .= '</ul>';
@@ -282,7 +282,7 @@ class Activity_Tabs extends WP_Widget {
 			} else {
 			
 				$html .= '<li>';
-					$html .= '<p class="no-posts">' . __( "You have no recent posts.", 'standard' ) . '</p>';
+					$html .= '<p class="no-posts">' . __( "You have no recent posts.", 'lean' ) . '</p>';
 				$html .= '</li>';
 			
 			} // end if/else
@@ -357,7 +357,7 @@ class Activity_Tabs extends WP_Widget {
 							// Get the number of comments for this post
 							$comment_count = wp_count_comments( get_the_ID() );
 							$comment_count = $comment_count->approved;
-							$comment_str = $comment_count . ' ' . __( 'comments since', 'standard' ) . ' ';
+							$comment_str = $comment_count . ' ' . __( 'comments since', 'lean' ) . ' ';
 							
 							$html .= $comment_str . get_the_time( get_option( 'date_format' ) );
 							
@@ -377,7 +377,7 @@ class Activity_Tabs extends WP_Widget {
 		} else {
 		
 			$html .= '<li>';
-				$html .= '<p class="no-posts">' . __( "You have no popular posts.", 'standard' ) . '</p>';
+				$html .= '<p class="no-posts">' . __( "You have no popular posts.", 'lean' ) . '</p>';
 			$html .= '</li>';
 			
 		} // end if/else
@@ -454,7 +454,7 @@ class Activity_Tabs extends WP_Widget {
 			} else {
 			
 				$html .= '<li>';
-					$html .= '<p class="no-comments">' . __( 'You have no comments.', 'standard' ) . '</p>';
+					$html .= '<p class="no-comments">' . __( 'You have no comments.', 'lean' ) . '</p>';
 				$html .= '</li>';
 				
 			} // end if
@@ -495,7 +495,7 @@ class Activity_Tabs extends WP_Widget {
 						$html .= $tag;
 					} // end foreach
 				} else {
-						$html .= '<p class="no-tags">' . __( 'You have no tags.', 'standard' ) . '</p>';
+						$html .= '<p class="no-tags">' . __( 'You have no tags.', 'lean' ) . '</p>';
 				} // end if
 			$html .= '</div>';
 		$html .= '</div>';
