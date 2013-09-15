@@ -587,7 +587,7 @@ function lean_theme_social_options_display() {
     $html .= '</div><!-- /.social-icons-available -->';
 
     $html .= '<span id="standard-save-social-icons-nonce" class="hidden">' . wp_create_nonce( 'standard_save_social_icons_nonce' ) . '</span>';
-    $html .= '<span id="standard-wordpress-rss-url" class="hidden">' . esc_url( standard_get_rss_feed_url() ) . '</span>';
+    $html .= '<span id="standard-wordpress-rss-url" class="hidden">' . esc_url( lean_get_rss_feed_url() ) . '</span>';
     $html .= '<span id="standard-reset-social-icons" class="hidden">' . wp_create_nonce( 'standard_reset_social_icons_nonce' ) . '</span>';
 
     $html .= '</div><!-- /.social-icons-wrapper -->';

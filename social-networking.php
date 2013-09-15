@@ -36,7 +36,7 @@ foreach( $social_icons_urls as $icon_url ) {
 	
 		$html .= '<li>';
 		if( strpos( $icon, 'rss.png' ) > 0 ) {
-			$url = standard_get_rss_feed_url();
+			$url = lean_get_rss_feed_url();
 		} // end if/else
 		
 		// if the image has a URL, setup the anchor...

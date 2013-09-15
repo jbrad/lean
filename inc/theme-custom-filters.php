@@ -611,7 +611,7 @@ function standard_redirect_rss_feeds() {
     } // end if
 
     // Otherwise, get the RSS feed from the user's settings
-    $rss_feed_url = standard_get_rss_feed_url();
+    $rss_feed_url = lean_get_rss_feed_url();
 
     // If they have setup feedburner, let's redirect them
     if( strpos( $rss_feed_url, 'feedburner' ) > 0 && '' != $rss_feed_url ) {
@@ -1010,7 +1010,7 @@ function standard_add_plugin( $str_path ) {
  * @since	3.0
  * @version	3.0
  */
-function standard_get_rss_feed_url() {
+function lean_get_rss_feed_url() {
 
     $global_options = get_option( 'lean_theme_global_options' );
 
@@ -1021,7 +1021,7 @@ function standard_get_rss_feed_url() {
 
     return $url;
 
-} // end standard_get_rss_feed_url
+} // end lean_get_rss_feed_url
 
 /**
  * Determines if the user has uploaded a logo or not.
