@@ -1,6 +1,6 @@
 <?php
 /**
- * The template for displaying breadcrumbs. Supports both Standard and Yoast Breadcrumbs.
+ * The template for displaying breadcrumbs. Supports both Lean and Yoast Breadcrumbs.
  *
  * @package Lean
  * @version	1.0
