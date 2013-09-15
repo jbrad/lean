@@ -710,9 +710,9 @@ add_action( 'init', 'standard_set_admin_menu_separator' );
  * @since	3.0
  * @version	3.0
  */
-function standard_is_date_archive() {
+function lean_is_date_archive() {
     return '' != get_query_var( 'year' ) || '' != get_query_var( 'monthnum' ) || '' != get_query_var( 'day' ) || '' != get_query_var( 'm' );
-} // end standard_is_date_archive
+} // end lean_is_date_archive
 
 /**
  * Generates a label for the current archive based on whether or not the user is viewing year, month, or day. Uses the
@@ -722,7 +722,7 @@ function standard_is_date_archive() {
  * @since	3.0
  * @version	3.0
  */
-function standard_get_date_archive_label() {
+function lean_get_date_archive_label() {
 
     $archive_label = '';
 
@@ -762,7 +762,7 @@ function standard_get_date_archive_label() {
 
     return $archive_label;
 
-} // end standard_get_date_archive_label
+} // end lean_get_date_archive_label
 
 /**
  * Returns the requested attribute from the link in the content based on the incoming

@@ -27,9 +27,9 @@
 				<?php if ( is_archive() ) { ?>                 
 	                <div id="archive-page-title"> 
 	                    <h3> 
-	                        <?php _e( 'Archives For ', 'standard' ); ?>
-	                        <?php if( standard_is_date_archive() ) { ?>
-	                        	<?php echo standard_get_date_archive_label(); ?>
+	                        <?php _e( 'Archives For ', 'lean' ); ?>
+	                        <?php if( lean_is_date_archive() ) { ?>
+	                        	<?php echo lean_get_date_archive_label(); ?>
 	                    	<?php } elseif ( is_author() ) { ?>
 	                    	
 	                    		<?php 
@@ -68,10 +68,10 @@
 			
 					<article id="post-0" class="post no-results not-found">
 						<header class="entry-header">
-							<h1 class="entry-title"><?php _e( 'Page or resource not found', 'standard' ); ?></h1>
+							<h1 class="entry-title"><?php _e( 'Page or resource not found', 'lean' ); ?></h1>
 						</header><!-- .entry-header -->
 						<div class="entry-content">
-							<p><?php _e( 'No results were found.', 'standard' ); ?></p>
+							<p><?php _e( 'No results were found.', 'lean' ); ?></p>
 							<?php get_search_form(); ?>
 						</div><!-- .entry-content -->
 					</article><!-- #post-0 -->
