@@ -345,7 +345,7 @@ function standard_add_url_field_to_link_post_format() {
     add_meta_box(
         'link_format_url',
         __( 'Link URL', 'standard' ),
-        'standard_link_url_field_display',
+        'lean_link_url_field_display',
         'post',
         'side',
         'high'
@@ -363,17 +363,17 @@ add_action( 'add_meta_boxes', 'standard_add_url_field_to_link_post_format' );
  * @version			3.2
  * @deprecated		3.5.1
  */
-function standard_link_url_field_display( $post ) {
+function lean_link_url_field_display( $post ) {
 
-    wp_nonce_field( plugin_basename( __FILE__ ), 'standard_link_url_field_nonce' );
+    wp_nonce_field( plugin_basename( __FILE__ ), 'lean_link_url_field_nonce' );
 
-    echo '<input type="text" id="standard_link_url_field" name="standard_link_url_field" value="' . get_post_meta( $post->ID, 'standard_link_url_field', true ) . '" />';
+    echo '<input type="text" id="lean_link_url_field" name="lean_link_url_field" value="' . get_post_meta( $post->ID, 'lean_link_url_field', true ) . '" />';
 
-} // end standard_link_url_field_display
+} // end lean_link_url_field_display
 
 /**
  * Saves the specified URL for the post specified by the incoming post ID. This is
- * related to the standard_link_url_field_display() function.
+ * related to the lean_link_url_field_display() function.
  *
  * @param	$post_id	The ID of the post that we're serializing
  * @since				3.1
@@ -382,7 +382,7 @@ function standard_link_url_field_display( $post ) {
  */
 function standard_save_link_url_data( $post_id ) {
 
-    if( isset( $_POST['standard_link_url_field_nonce'] ) && isset( $_POST['post_type'] ) ) {
+    if( isset( $_POST['lean_link_url_field_nonce'] ) && isset( $_POST['post_type'] ) ) {
 
         // Don't save if the user hasn't submitted the changes
         if( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
@@ -390,7 +390,7 @@ function standard_save_link_url_data( $post_id ) {
         } // end if
 
         // Verify that the input is coming from the proper form
-        if( ! wp_verify_nonce( $_POST['standard_link_url_field_nonce'], plugin_basename( __FILE__ ) ) ) {
+        if( ! wp_verify_nonce( $_POST['lean_link_url_field_nonce'], plugin_basename( __FILE__ ) ) ) {
             return;
         } // end if
 
@@ -403,17 +403,17 @@ function standard_save_link_url_data( $post_id ) {
 
         // Read the Link's URL
         $link_url = '';
-        if( isset( $_POST['standard_link_url_field'] ) ) {
-            $link_url = esc_url( $_POST['standard_link_url_field'] );
+        if( isset( $_POST['lean_link_url_field'] ) ) {
+            $link_url = esc_url( $_POST['lean_link_url_field'] );
         } // end if
 
         // If the value exists, delete it first. I don't want to write extra rows into the table.
-        if ( 0 == count( get_post_meta( $post_id, 'standard_link_url_field' ) ) ) {
-            delete_post_meta( $post_id, 'standard_link_url_field' );
+        if ( 0 == count( get_post_meta( $post_id, 'lean_link_url_field' ) ) ) {
+            delete_post_meta( $post_id, 'lean_link_url_field' );
         } // end if
 
         // Update it for this post.
-        update_post_meta( $post_id, 'standard_link_url_field', $link_url );
+        update_post_meta( $post_id, 'lean_link_url_field', $link_url );
 
     } // end if
 

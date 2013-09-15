@@ -243,9 +243,9 @@ if( ! function_exists( 'standard_process_link_post_format_title' ) /*&& 3.6 > st
             // If the title has been provided, we won't do anything; otherwise, we use the content.
             if( strlen( $title ) == 0 ) {
 
-                $title = standard_get_link_post_format_attribute( 'title' );
-                $href = standard_get_link_post_format_attribute( 'href' );
-                $target = standard_get_link_post_format_attribute( 'target' );
+                $title = lean_get_link_post_format_attribute( 'title' );
+                $href = lean_get_link_post_format_attribute( 'href' );
+                $target = lean_get_link_post_format_attribute( 'target' );
 
                 global $post;
                 $content = strip_tags( $post->post_content );
@@ -375,12 +375,12 @@ if( ! function_exists( 'standard_post_format_rss' ) /*&& 3.6 < standard_is_wp36(
 
             // If there's no link meta data, then we'll handle this the 3.0 way.
             // @deprecated since we're actually full on incoporating this functionality
-            if( '' == get_post_meta( get_the_ID(), 'standard_link_url_field', true ) ) {
+            if( '' == get_post_meta( get_the_ID(), 'lean_link_url_field', true ) ) {
 
                 // Read the attribute of the anchor from the post format
-                $title = standard_get_link_post_format_attribute( 'title' );
-                $href = standard_get_link_post_format_attribute( 'href' );
-                $target = standard_get_link_post_format_attribute( 'target' );
+                $title = lean_get_link_post_format_attribute( 'title' );
+                $href = lean_get_link_post_format_attribute( 'href' );
+                $target = lean_get_link_post_format_attribute( 'target' );
 
                 // Build up the link
                 $content = '<a href="' . $href . '" title="' . $title . '" target="' . $target . '">';
@@ -773,7 +773,7 @@ function lean_get_date_archive_label() {
  * @since	3.0
  * @version	3.0
  */
-function standard_get_link_post_format_attribute( $attr ) {
+function lean_get_link_post_format_attribute( $attr ) {
 
     // Get the post data. We aren't using helpers because this function
     // is called too early in the page lifecycle to call get_the_content
@@ -809,7 +809,7 @@ function standard_get_link_post_format_attribute( $attr ) {
 
     return $result;
 
-} // end standard_get_link_post_format_attribute
+} // end lean_get_link_post_format_attribute
 
 /**
  * Looks at the active widgets to determine whether or not the Google Custom Search widget is active.
