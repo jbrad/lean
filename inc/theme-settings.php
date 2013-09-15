@@ -26,56 +26,56 @@
  * @since	3.0
  * @version	3.2
  */
-function standard_theme_menu() {
+function lean_theme_menu() {
 
     add_menu_page(
-        __( 'Standard Options', 'standard' ),
-        __( 'Standard', 'standard' ),
+        __( 'Lean Options', 'lean' ),
+        __( 'Lean', 'lean' ),
         'administrator',
         'theme_options',
-        'standard_theme_options_display',
-        get_template_directory_uri() . '/images/icn-standard-small.png',
+        'lean_theme_options_display',
+        get_template_directory_uri() . '/images/icn-lean-small.png',
         59
     );
 
     add_submenu_page(
         'theme_options',
-        __( 'Global', 'standard' ),
-        __( 'Global', 'standard' ),
+        __( 'Global', 'lean' ),
+        __( 'Global', 'lean' ),
         'administrator',
         'theme_options&tab=lean_theme_global_options',
-        'standard_theme_options_display'
+        'lean_theme_options_display'
     );
 
     add_submenu_page(
         'theme_options',
-        __( 'Presentation', 'standard' ),
-        __( 'Presentation', 'standard' ),
+        __( 'Presentation', 'lean' ),
+        __( 'Presentation', 'lean' ),
         'administrator',
         'theme_options&tab=lean_theme_presentation_options',
-        'standard_theme_options_display'
+        'lean_theme_options_display'
     );
 
     add_submenu_page(
         'theme_options',
-        __( 'Social', 'standard' ),
-        __( 'Social', 'standard' ),
+        __( 'Social', 'lean' ),
+        __( 'Social', 'lean' ),
         'administrator',
         'theme_options&tab=lean_theme_social_options',
-        'standard_theme_options_display'
+        'lean_theme_options_display'
     );
 
     add_submenu_page(
         'theme_options',
-        __( 'Publishing', 'standard' ),
-        __( 'Publishing', 'standard' ),
+        __( 'Publishing', 'lean' ),
+        __( 'Publishing', 'lean' ),
         'administrator',
         'theme_options&tab=lean_theme_publishing_options',
-        'standard_theme_options_display'
+        'lean_theme_options_display'
     );
 
-} // end standard_theme_menu
-add_action( 'admin_menu', 'standard_theme_menu' );
+} // end lean_theme_menu
+add_action( 'admin_menu', 'lean_theme_menu' );
 
 /* ----------------------------- *
  * Layout Options
@@ -108,7 +108,7 @@ function get_lean_theme_default_presentation_options() {
  * @since	3.0
  * @version	3.2
  */
-function standard_setup_theme_presentation_options() {
+function lean_setup_theme_presentation_options() {
 
     // If the layout options don't exist, create them.
     if( false == get_option( 'lean_theme_presentation_options' ) ) {
@@ -126,14 +126,14 @@ function standard_setup_theme_presentation_options() {
     // Layout
     add_settings_section(
         'layout',
-        __( 'Layout and Design', 'standard' ),
+        __( 'Layout and Design', 'lean' ),
         'lean_theme_layout_options_display',
         'lean_theme_presentation_options'
     );
 
     add_settings_field(
         'logo',
-        __( 'Logo', 'standard' ),
+        __( 'Logo', 'lean' ),
         'logo_display',
         'lean_theme_presentation_options',
         'layout'
@@ -141,7 +141,7 @@ function standard_setup_theme_presentation_options() {
 
     add_settings_field(
         'fav_icon',
-        __( 'Site Icon', 'standard' ),
+        __( 'Site Icon', 'lean' ),
         'fav_icon_display',
         'lean_theme_presentation_options',
         'layout'
@@ -149,7 +149,7 @@ function standard_setup_theme_presentation_options() {
 
     add_settings_field(
         'contrast',
-        __( 'Contrast', 'standard' ),
+        __( 'Contrast', 'lean' ),
         'contrast_display',
         'lean_theme_presentation_options',
         'layout'
@@ -157,7 +157,7 @@ function standard_setup_theme_presentation_options() {
 
     add_settings_field(
         'left_sidebar_layout',
-        __( 'Left Sidebar', 'standard' ),
+        __( 'Left Sidebar', 'lean' ),
         'left_sidebar_presentation_display',
         'lean_theme_presentation_options',
         'layout',
@@ -168,7 +168,7 @@ function standard_setup_theme_presentation_options() {
 
     add_settings_field(
         'right_sidebar_layout',
-        __( 'Right Sidebar', 'standard' ),
+        __( 'Right Sidebar', 'lean' ),
         'right_sidebar_presentation_display',
         'lean_theme_presentation_options',
         'layout',
@@ -179,7 +179,7 @@ function standard_setup_theme_presentation_options() {
 
     add_settings_field(
         'full_width_layout',
-        __( 'No Sidebar / Full Width', 'standard' ),
+        __( 'No Sidebar / Full Width', 'lean' ),
         'full_width_presentation_display',
         'lean_theme_presentation_options',
         'layout',
@@ -191,14 +191,14 @@ function standard_setup_theme_presentation_options() {
     // Content
     add_settings_section(
         'content',
-        __( 'Content', 'standard' ),
-        'standard_theme_content_options_display',
+        __( 'Content', 'lean' ),
+        'lean_theme_content_options_display',
         'lean_theme_presentation_options'
     );
 
     add_settings_field(
         'display_breadcrumbs',
-        __( 'Display Breadcrumbs', 'standard' ),
+        __( 'Display Breadcrumbs', 'lean' ),
         'display_breadcrumbs_display',
         'lean_theme_presentation_options',
         'content'
@@ -206,7 +206,7 @@ function standard_setup_theme_presentation_options() {
 
     add_settings_field(
         'display_featured_images',
-        __( 'Display Featured Images', 'standard' ),
+        __( 'Display Featured Images', 'lean' ),
         'display_featured_images_display',
         'lean_theme_presentation_options',
         'content'
@@ -218,8 +218,8 @@ function standard_setup_theme_presentation_options() {
         'lean_theme_presentation_options_validate'
     );
 
-} // end standard_setup_theme_presentation_options
-add_action( 'admin_init', 'standard_setup_theme_presentation_options' );
+} // end lean_setup_theme_presentation_options
+add_action( 'admin_init', 'lean_setup_theme_presentation_options' );
 
 /**
  * Placeholder function for the Presentation Options display function. The section contains
@@ -240,8 +240,8 @@ function lean_theme_presentation_options_display() {} // end lean_theme_presenta
  * @version	3.2
  */
 function lean_theme_layout_options_display() {
-    echo '<p>' . __( 'This section controls positioning and style elements.', 'standard' ) . '</p>';
-} // end standard_theme_layout_display
+    echo '<p>' . __( 'This section controls positioning and style elements.', 'lean' ) . '</p>';
+} // end lean_theme_layout_display
 
 /**
  * Renders the description for the Content options.
@@ -249,9 +249,9 @@ function lean_theme_layout_options_display() {
  * @since	3.0
  * @version	3.2
  */
-function standard_theme_content_options_display() {
-    echo '<p>' . __( 'This section controls when content elements are displayed.', 'standard' ) . '</p>';
-} // end standard_theme_content_display
+function lean_theme_content_options_display() {
+    echo '<p>' . __( 'This section controls when content elements are displayed.', 'lean' ) . '</p>';
+} // end lean_theme_content_display
 
 /**
  * Renders the option element for the Site Icon.
@@ -272,13 +272,13 @@ function fav_icon_display() {
     $html .= '<img src="' . $fav_icon . '" id="fav_icon_preview" alt="" />';
     $html .= '</div>';
     $html .= '<input type="hidden" id="fav_icon" name="lean_theme_presentation_options[fav_icon]" value="' . esc_attr( $fav_icon ) . '" class="media-upload-field" />';
-    $html .= '<input type="button" class="button" id="upload_fav_icon" value="' . __( 'Upload', 'standard' ) . '"/>';
+    $html .= '<input type="button" class="button" id="upload_fav_icon" value="' . __( 'Upload', 'lean' ) . '"/>';
 
     if( '' != trim( $fav_icon ) ) {
-        $html .= '<input type="button" class="button" id="delete_fav_icon" value="' . __( 'Delete', 'standard' ) . '"/>';
+        $html .= '<input type="button" class="button" id="delete_fav_icon" value="' . __( 'Delete', 'lean' ) . '"/>';
     } // end if
 
-    $html .= '&nbsp;<span class="description">' . __( 'Dimensions: 144px x 144px. Used for favicon and mobile devices.', 'standard' ) . '&nbsp;<a href="http://docs.8bit.io/standard/admin-panel/presentation/" target="_blank">' . __( 'Learn more', 'standard' ) . '</a>.</span>';
+    $html .= '&nbsp;<span class="description">' . __( 'Dimensions: 144px x 144px. Used for favicon and mobile devices.', 'lean' ) . '&nbsp;<a href="http://docs.8bit.io/lean/admin-panel/presentation/" target="_blank">' . __( 'Learn more', 'lean' ) . '</a>.</span>';
 
     echo $html;
 
@@ -295,11 +295,11 @@ function contrast_display() {
     $options = get_option( 'lean_theme_presentation_options' );
 
     $html = '<select id="contrast" name="lean_theme_presentation_options[contrast]">';
-    $html .= '<option value="light"' . selected( $options['contrast'], 'light', false ) . '>' . __( 'Light', 'standard' ) . '</option>';
-    $html .= '<option value="dark"' . selected( $options['contrast'], 'dark', false ) . '>' . __( 'Dark', 'standard' )  . '</option>';
+    $html .= '<option value="light"' . selected( $options['contrast'], 'light', false ) . '>' . __( 'Light', 'lean' ) . '</option>';
+    $html .= '<option value="dark"' . selected( $options['contrast'], 'dark', false ) . '>' . __( 'Dark', 'lean' )  . '</option>';
     $html .= '</select>';
     $html .= '&nbsp;';
-    $html .= '<span class="description">' . __( 'Can be used with <a href="themes.php?page=custom-background">custom backgrounds</a>.', 'standard' ) . '</span>';
+    $html .= '<span class="description">' . __( 'Can be used with <a href="themes.php?page=custom-background">custom backgrounds</a>.', 'lean' ) . '</span>';
 
     echo $html;
 
@@ -325,13 +325,13 @@ function logo_display() {
     $html .= '</div><!-- #logo_preview_container -->';
 
     $html .= '<input type="hidden" id="logo" name="lean_theme_presentation_options[logo]" value="' . esc_attr( $logo ) . '" class="media-upload-field" />';
-    $html .= '<input type="button" class="button" id="upload_logo" value="' . __( 'Upload', 'standard' ) . '"/>';
+    $html .= '<input type="button" class="button" id="upload_logo" value="' . __( 'Upload', 'lean' ) . '"/>';
 
     if( '' != trim( $logo ) ) {
-        $html .= '<input type="button" class="button" id="delete_logo" value="' . __( 'Delete', 'standard' ) . '"/>';
+        $html .= '<input type="button" class="button" id="delete_logo" value="' . __( 'Delete', 'lean' ) . '"/>';
     } // end if
 
-    $html .= '&nbsp;<span class="description">' . __( 'Use an image in place of the <a href="options-general.php">Site Title and Tagline</a>. <a href="themes.php?page=custom-header">Custom Headers</a> are also available.', 'standard' ) . '</span>';
+    $html .= '&nbsp;<span class="description">' . __( 'Use an image in place of the <a href="options-general.php">Site Title and Tagline</a>. <a href="themes.php?page=custom-header">Custom Headers</a> are also available.', 'lean' ) . '</span>';
 
     echo $html;
 
@@ -348,7 +348,7 @@ function left_sidebar_presentation_display( $args ) {
 
     $options = get_option( 'lean_theme_presentation_options' );
 
-    $html = '<input type="radio" id="standard_theme_left_sidebar_layout" name="lean_theme_presentation_options[layout]" value="left_sidebar_layout"' . checked( 'left_sidebar_layout', $options['layout'], false ) . ' />';
+    $html = '<input type="radio" id="lean_theme_left_sidebar_layout" name="lean_theme_presentation_options[layout]" value="left_sidebar_layout"' . checked( 'left_sidebar_layout', $options['layout'], false ) . ' />';
     $html .= '<img src="' . esc_url( $args['option_image_path'] ) . '" alt="" />';
 
     echo $html;
@@ -366,7 +366,7 @@ function right_sidebar_presentation_display( $args ) {
 
     $options = get_option( 'lean_theme_presentation_options' );
 
-    $html = '<input type="radio" id="standard_theme_right_sidebar_layout"  name="lean_theme_presentation_options[layout]" value="right_sidebar_layout"' . checked( 'right_sidebar_layout', $options['layout'], false ) . ' />';
+    $html = '<input type="radio" id="lean_theme_right_sidebar_layout"  name="lean_theme_presentation_options[layout]" value="right_sidebar_layout"' . checked( 'right_sidebar_layout', $options['layout'], false ) . ' />';
     $html .= '<img src="' . esc_url ( $args['option_image_path'] ) . '" alt="" />';
 
     echo $html;
@@ -384,7 +384,7 @@ function full_width_presentation_display( $args ) {
 
     $options = get_option( 'lean_theme_presentation_options' );
 
-    $html = '<input type="radio" id="standard_theme_full_width_layout"  name="lean_theme_presentation_options[layout]" value="full_width_layout"' . checked( 'full_width_layout', $options['layout'], false ) . ' />';
+    $html = '<input type="radio" id="lean_theme_full_width_layout"  name="lean_theme_presentation_options[layout]" value="full_width_layout"' . checked( 'full_width_layout', $options['layout'], false ) . ' />';
     $html .= '<img src="' . esc_url ( $args['option_image_path'] ) . '" alt="" />';
 
     echo $html;
@@ -407,11 +407,11 @@ function display_breadcrumbs_display() {
     } // end if
 
     $html = '<select id="display_breadcrumbs" name="lean_theme_presentation_options[display_breadcrumbs]">';
-    $html .= '<option value="always"'. selected( $options['display_breadcrumbs'], 'always', false ) . '>' . __( 'Always', 'standard' ) . '</option>';
-    $html .= '<option value="never"'. selected( $options['display_breadcrumbs'], 'never', false ) . '>' . __( 'Never', 'standard' ) . '</option>';
+    $html .= '<option value="always"'. selected( $options['display_breadcrumbs'], 'always', false ) . '>' . __( 'Always', 'lean' ) . '</option>';
+    $html .= '<option value="never"'. selected( $options['display_breadcrumbs'], 'never', false ) . '>' . __( 'Never', 'lean' ) . '</option>';
     $html .= '</select>';
 
-    $html .= '&nbsp;<span class="description">' . __( 'SEO experts encourage breadcrumb use. <a href="http://docs.8bit.io/standard/admin-panel/presentation/">Learn more</a>.', 'standard' ) . '</span>';
+    $html .= '&nbsp;<span class="description">' . __( 'SEO experts encourage breadcrumb use. <a href="http://docs.8bit.io/lean/admin-panel/presentation/">Learn more</a>.', 'lean' ) . '</span>';
 
     echo $html;
 
@@ -428,10 +428,10 @@ function display_featured_images_display() {
     $options = get_option( 'lean_theme_presentation_options' );
 
     $html = '<select id="display_featured_image" name="lean_theme_presentation_options[display_featured_images]">';
-    $html .= '<option value="always"'. selected( $options['display_featured_images'], 'always', false ) . '>' . __( 'Always', 'standard' ) . '</option>';
-    $html .= '<option value="never"'. selected( $options['display_featured_images'], 'never', false ) . '>' . __( 'Never', 'standard' ) . '</option>';
-    $html .= '<option value="index"'. selected( $options['display_featured_images'], 'index', false ) . '>' . __( 'On index only', 'standard' ) . '</option>';
-    $html .= '<option value="single-post"'. selected( $options['display_featured_images'], 'single-post', false ) . '>' . __( 'On single posts only', 'standard' ) . '</option>';
+    $html .= '<option value="always"'. selected( $options['display_featured_images'], 'always', false ) . '>' . __( 'Always', 'lean' ) . '</option>';
+    $html .= '<option value="never"'. selected( $options['display_featured_images'], 'never', false ) . '>' . __( 'Never', 'lean' ) . '</option>';
+    $html .= '<option value="index"'. selected( $options['display_featured_images'], 'index', false ) . '>' . __( 'On index only', 'lean' ) . '</option>';
+    $html .= '<option value="single-post"'. selected( $options['display_featured_images'], 'single-post', false ) . '>' . __( 'On single posts only', 'lean' ) . '</option>';
     $html .= '</select>';
 
     echo $html;
@@ -493,11 +493,11 @@ function get_lean_theme_default_social_options() {
  * @since	3.0
  * @version	3.2
  */
-function standard_setup_theme_social_options() {
+function lean_setup_theme_social_options() {
 
     // If the theme options don't exist, create them.
     if( false == get_option( 'lean_theme_social_options' ) ) {
-        add_option( 'lean_theme_social_options', apply_filters( 'standard_theme_default_social_options', get_lean_theme_default_social_options() ) );
+        add_option( 'lean_theme_social_options', apply_filters( 'lean_theme_default_social_options', get_lean_theme_default_social_options() ) );
     } // end if
 
     // Look to see if any new icons have been added to the library since the last version of the theme
@@ -514,16 +514,16 @@ function standard_setup_theme_social_options() {
 
     add_settings_field(
         'available_social_icons',
-        __( 'Available Icons', 'standard' ),
-        'standard_available_icons_display',
+        __( 'Available Icons', 'lean' ),
+        'lean_available_icons_display',
         'lean_theme_social_options',
         'social'
     );
 
     add_settings_field(
         'active_social_icons',
-        __( 'Active Icons', 'standard' ),
-        'standard_active_icons_display',
+        __( 'Active Icons', 'lean' ),
+        'lean_active_icons_display',
         'lean_theme_social_options',
         'social'
     );
@@ -534,8 +534,8 @@ function standard_setup_theme_social_options() {
         'lean_theme_social_options_validate'
     );
 
-} // end standard_setup_theme_social_options
-add_action( 'admin_init', 'standard_setup_theme_social_options' );
+} // end lean_setup_theme_social_options
+add_action( 'admin_init', 'lean_setup_theme_social_options' );
 
 /**
  * Renders the description for the Social Options page.
@@ -545,50 +545,50 @@ add_action( 'admin_init', 'standard_setup_theme_social_options' );
  */
 function lean_theme_social_options_display() {
 
-    _e( 'This section controls social network icons in the site header. Drag, drop, and position desired icons from the Icon Library to the Active Icons area. This section controls social network icons in the site header. Drag, drop, and position desired icons from the Icon Library to the Active Icons area. You can also delete all icons and <a href="javascript:;" id="reset-social-icons" class="ad_delete">restore defaults.</a>', 'standard' );
+    _e( 'This section controls social network icons in the site header. Drag, drop, and position desired icons from the Icon Library to the Active Icons area. This section controls social network icons in the site header. Drag, drop, and position desired icons from the Icon Library to the Active Icons area. You can also delete all icons and <a href="javascript:;" id="reset-social-icons" class="ad_delete">restore defaults.</a>', 'lean' );
 
     $html = '<div class="social-icons-wrapper">';
 
     $html .= '<div id="social-icons-active" class="left">';
     $html .= '<div class="sidebar-name">';
-    $html .= '<h3>' . __( 'Active Icons', 'standard' ) . '</h3>';
+    $html .= '<h3>' . __( 'Active Icons', 'lean' ) . '</h3>';
     $html .= '</div><!-- /.sidebar-name -->';
     $html .= '<div id="active-icons">';
-    $html .= '<p class="description">' . __( 'Click an icon to set the full URL.', 'standard' ) . '</p>';
+    $html .= '<p class="description">' . __( 'Click an icon to set the full URL.', 'lean' ) . '</p>';
     $html .= '<ul id="active-icon-list"></ul>';
     $html .= '<div id="active-icon-url" class="hidden">';
-    $html .= '<label>' . __( 'Icon URL:', 'standard' ) . '</label>';
+    $html .= '<label>' . __( 'Icon URL:', 'lean' ) . '</label>';
     $html .= '<input type="text" id="social-icon-url" value="" class="icon-url" data-via="" data-url="" />';
     $html .= '&nbsp;<span class="description" id="social-rss-icon-controls">';
-    $html .= '<a href="http://docs.8bit.io/standard/social" target="_blank">' . __( 'Learn More', 'standard' ) . '</a>';
+    $html .= '<a href="http://docs.8bit.io/lean/social" target="_blank">' . __( 'Learn More', 'lean' ) . '</a>';
     $html .= '</span><!-- /#social-rss-icon-controls -->';
     $html .= '<span id="social-icon-controls">';
-    $html .= '<input type="button" class="button" id="set-social-icon-url" value="' . __( 'Done', 'standard' ). '" />';
+    $html .= '<input type="button" class="button" id="set-social-icon-url" value="' . __( 'Done', 'lean' ). '" />';
     $html .= '&nbsp;';
-    $html .= '<a href="javascript:;" id="cancel-social-icon-url">' . __( 'Cancel', 'standard' ) . '</a>';
+    $html .= '<a href="javascript:;" id="cancel-social-icon-url">' . __( 'Cancel', 'lean' ) . '</a>';
     $html .= '</span><!-- /#social-icon-controls -->';
     $html .= '</div><!-- /#active-icon-url -->';
-    $html .= '<div id="social-icon-max" class="hidden alert alert-info"><i class="icon icon-warning"></i> ' . __( 'Standard looks best with seven icons or fewer.', 'standard' ) . '</div>';
+    $html .= '<div id="social-icon-max" class="hidden alert alert-info"><i class="icon icon-warning"></i> ' . __( 'Lean looks best with seven icons or fewer.', 'lean' ) . '</div>';
     $html .= '</div><!-- /#active-icons -->';
     $html .= '</div><!-- /#social-icons-active -->';
 
     $html .= '<div id="social-icons-available" class="right">';
     $html .= '<div class="sidebar-name">';
-    $html .= '<h3>' . __( 'Icon Library', 'standard' ) . '</h3>';
+    $html .= '<h3>' . __( 'Icon Library', 'lean' ) . '</h3>';
     $html .= '</div><!-- /.sidebar-name -->';
     $html .= '<div id="available-icons">';
-    $html .= '<p class="description">' . __( 'Use native social icons or upload your own.', 'standard' ) . '</p>';
+    $html .= '<p class="description">' . __( 'Use native social icons or upload your own.', 'lean' ) . '</p>';
     $html .= '<ul id="available-icon-list"></ul>';
-    $html .= '<div id="delete-icons" class="description"><i class="icon icon-trash"></i><br>' . __( 'Drag social icons here to remove them from your library.', 'standard' ) . '</div>';
+    $html .= '<div id="delete-icons" class="description"><i class="icon icon-trash"></i><br>' . __( 'Drag social icons here to remove them from your library.', 'lean' ) . '</div>';
     $html .= '<div id="social-icons-operations">';
-    $html .= '<input type="button" class="button" id="upload-social-icon" value="' . __( 'Upload New Icon', 'standard') . '" />';
+    $html .= '<input type="button" class="button" id="upload-social-icon" value="' . __( 'Upload New Icon', 'lean') . '" />';
     $html .= '</div><!-- /#social-icons-operations -->';
     $html .= '</div><!-- /#available-icons -->';
     $html .= '</div><!-- /.social-icons-available -->';
 
-    $html .= '<span id="standard-save-social-icons-nonce" class="hidden">' . wp_create_nonce( 'standard_save_social_icons_nonce' ) . '</span>';
-    $html .= '<span id="standard-wordpress-rss-url" class="hidden">' . esc_url( lean_get_rss_feed_url() ) . '</span>';
-    $html .= '<span id="standard-reset-social-icons" class="hidden">' . wp_create_nonce( 'standard_reset_social_icons_nonce' ) . '</span>';
+    $html .= '<span id="lean-save-social-icons-nonce" class="hidden">' . wp_create_nonce( 'lean_save_social_icons_nonce' ) . '</span>';
+    $html .= '<span id="lean-wordpress-rss-url" class="hidden">' . esc_url( lean_get_rss_feed_url() ) . '</span>';
+    $html .= '<span id="lean-reset-social-icons" class="hidden">' . wp_create_nonce( 'lean_reset_social_icons_nonce' ) . '</span>';
 
     $html .= '</div><!-- /.social-icons-wrapper -->';
 
@@ -602,9 +602,9 @@ function lean_theme_social_options_display() {
  * @since 	3.0
  * @version	3.2
  */
-function standard_save_social_icons( ) {
+function lean_save_social_icons( ) {
 
-    if( wp_verify_nonce( $_REQUEST['nonce'], 'standard_save_social_icons_nonce' ) && isset( $_POST['updateSocialIcons'] ) ) {
+    if( wp_verify_nonce( $_REQUEST['nonce'], 'lean_save_social_icons_nonce' ) && isset( $_POST['updateSocialIcons'] ) ) {
 
         // Manually create the input array of options
         $input = array(
@@ -622,8 +622,8 @@ function standard_save_social_icons( ) {
         die( '-1' );
     } // end if/else
 
-} // end standard_save_social_icons
-add_action( 'wp_ajax_standard_save_social_icons', 'standard_save_social_icons' );
+} // end lean_save_social_icons
+add_action( 'wp_ajax_lean_save_social_icons', 'lean_save_social_icons' );
 
 /**
  * Callback function used in the Ajax request for resetting the Social Icons.
@@ -631,12 +631,12 @@ add_action( 'wp_ajax_standard_save_social_icons', 'standard_save_social_icons' )
  * @since 	3.0
  * @version	3.2
  */
-function standard_reset_social_icons( ) {
-    if( wp_verify_nonce( $_REQUEST['nonce'], 'standard_reset_social_icons_nonce' ) ) {
+function lean_reset_social_icons( ) {
+    if( wp_verify_nonce( $_REQUEST['nonce'], 'lean_reset_social_icons_nonce' ) ) {
         die( delete_option( 'lean_theme_social_options' ) );
     } // end if/else
-} // end standard_save_social_icons
-add_action( 'wp_ajax_standard_reset_social_icons', 'standard_reset_social_icons' );
+} // end lean_save_social_icons
+add_action( 'wp_ajax_lean_reset_social_icons', 'lean_reset_social_icons' );
 
 /**
  * Displays the message for users attempting to delete the core set of social icons.
@@ -644,12 +644,12 @@ add_action( 'wp_ajax_standard_reset_social_icons', 'standard_reset_social_icons'
  * @since 	3.0
  * @version	3.2
  */
-function standard_delete_social_icons() {
-    if( wp_verify_nonce( $_REQUEST['nonce'], 'standard-delete-social-icon-nonce' ) ) {
-        die( standard_display_delete_social_icon_message() );
+function lean_delete_social_icons() {
+    if( wp_verify_nonce( $_REQUEST['nonce'], 'lean-delete-social-icon-nonce' ) ) {
+        die( lean_display_delete_social_icon_message() );
     } // end if
-} // end standard_delete_social_icons
-add_action( 'wp_ajax_standard_delete_social_icons', 'standard_delete_social_icons' );
+} // end lean_delete_social_icons
+add_action( 'wp_ajax_lean_delete_social_icons', 'lean_delete_social_icons' );
 
 /**
  * Generates a message to be displayed when the user attempts to delete a social icon.
@@ -657,17 +657,17 @@ add_action( 'wp_ajax_standard_delete_social_icons', 'standard_delete_social_icon
  * @since 	3.0
  * @version	3.2
  */
-function standard_display_delete_social_icon_message() {
+function lean_display_delete_social_icon_message() {
 
-    $html = '<div id="standard-delete-social-icons" class="updated">';
+    $html = '<div id="lean-delete-social-icons" class="updated">';
     $html .= '<p>';
-    $html .= __( 'You cannot delete the default set of Standard social icons. <a href="javascript:;" id="standard-hide-delete-social-icon-message">Hide this message.</a>', 'standard' );
+    $html .= __( 'You cannot delete the default set of Lean social icons. <a href="javascript:;" id="lean-hide-delete-social-icon-message">Hide this message.</a>', 'lean' );
     $html .= '</p>';
-    $html .= '</div><!-- /#standard-delete-social-icons -->';
+    $html .= '</div><!-- /#lean-delete-social-icons -->';
 
     echo $html;
 
-} // end standard_display_delete_social_icon_message
+} // end lean_display_delete_social_icon_message
 
 /**
  * Renders the available social icon input. This field is hidden and is manipulated by the functionality for powering
@@ -676,16 +676,16 @@ function standard_display_delete_social_icon_message() {
  * @since 	3.0
  * @version	3.2
  */
-function standard_available_icons_display() {
+function lean_available_icons_display() {
 
     $options = get_option( 'lean_theme_social_options' );
 
     $html = '<input type="text" id="available-social-icons" name="lean_theme_social_options[available-social-icons]" value="' . $options['available-social-icons'] . '" />';
-    $html .= '<span id="standard-delete-social-icon-nonce" class="">' . wp_create_nonce( 'standard-delete-social-icon-nonce' ) . '</span>';
+    $html .= '<span id="lean-delete-social-icon-nonce" class="">' . wp_create_nonce( 'lean-delete-social-icon-nonce' ) . '</span>';
 
     echo $html;
 
-} // end standard_available_icons_display
+} // end lean_available_icons_display
 
 /**
  * Renders the active social icon input. This field is hidden and is manipulated by the functionality for powering
@@ -694,12 +694,12 @@ function standard_available_icons_display() {
  * @since 	3.0
  * @version	3.2
  */
-function standard_active_icons_display() {
+function lean_active_icons_display() {
 
     $options = get_option( 'lean_theme_social_options' );
     echo '<input type="text" id="active-social-icons" name="lean_theme_social_options[active-social-icons]" value="' . $options['active-social-icons'] . '" />';
 
-} // end standard_active_icons_display
+} // end lean_active_icons_display
 
 /**
  * Sanitization callback for the Social Options. Since each of the options are text inputs,
@@ -725,10 +725,10 @@ function lean_theme_social_options_validate( $input ) {
 
     return apply_filters( 'lean_theme_social_options_validate', $output, $input, $defaults );
 
-} // end standard_theme_options_validate
+} // end lean_theme_options_validate
 
 /**
- * When upgrading to newer versions of Standard, this function looks for any new icons that may exist in the social icons directory.
+ * When upgrading to newer versions of Lean, this function looks for any new icons that may exist in the social icons directory.
  *
  * If so, it will add them to the available icons. It excludes icons that are already active.
  *
@@ -789,7 +789,7 @@ function get_lean_theme_default_global_options() {
         'site_mode'					=>	'online',
         'feedburner_url'			=>	'',
         'google_analytics'			=>	'',
-        'offline_display_message'	=>	__( 'Our site is currently offline.', 'standard' )
+        'offline_display_message'	=>	__( 'Our site is currently offline.', 'lean' )
     );
 
     return apply_filters ( 'lean_theme_default_global_options', $defaults );
@@ -803,7 +803,7 @@ function get_lean_theme_default_global_options() {
  * @since	3.0
  * @version	3.2
  */
-function standard_setup_theme_global_options() {
+function lean_setup_theme_global_options() {
 
     // If the theme options don't exist, create them.
     if( false == get_option( 'lean_theme_global_options' ) ) {
@@ -821,7 +821,7 @@ function standard_setup_theme_global_options() {
 
     add_settings_field(
         'feedburner_url',
-        __( 'FeedBurner URL', 'standard' ),
+        __( 'FeedBurner URL', 'lean' ),
         'feedburner_url_display',
         'lean_theme_global_options',
         'global'
@@ -829,7 +829,7 @@ function standard_setup_theme_global_options() {
 
     add_settings_field(
         'google_analytics',
-        __( 'Google Analytics', 'standard' ),
+        __( 'Google Analytics', 'lean' ),
         'google_analytics_display',
         'lean_theme_global_options',
         'global'
@@ -837,7 +837,7 @@ function standard_setup_theme_global_options() {
 
     add_settings_field(
         'site_mode',
-        __( 'Site Mode', 'standard' ),
+        __( 'Site Mode', 'lean' ),
         'site_mode_display',
         'lean_theme_global_options',
         'global'
@@ -845,7 +845,7 @@ function standard_setup_theme_global_options() {
 
     add_settings_field(
         'offline_message',
-        __( 'Offline Message', 'standard' ),
+        __( 'Offline Message', 'lean' ),
         'offline_message_display',
         'lean_theme_global_options',
         'global'
@@ -857,8 +857,8 @@ function standard_setup_theme_global_options() {
         'lean_theme_global_options_validate'
     );
 
-} // end standard_setup_theme_global_options
-add_action( 'admin_init', 'standard_setup_theme_global_options' );
+} // end lean_setup_theme_global_options
+add_action( 'admin_init', 'lean_setup_theme_global_options' );
 
 /**
  * Renders the description for the Global Options page.
@@ -868,8 +868,8 @@ add_action( 'admin_init', 'standard_setup_theme_global_options' );
  */
 function lean_theme_global_options_display() {
 
-    $html = '<h3>' . __( 'Site Configuration ', 'standard' ) . '</h3>';
-    $html .= '<p>' . __( 'This section controls site wide features.', 'standard' ) . '</p>';
+    $html = '<h3>' . __( 'Site Configuration ', 'lean' ) . '</h3>';
+    $html .= '<p>' . __( 'This section controls site wide features.', 'lean' ) . '</p>';
 
     echo $html;
 
@@ -894,7 +894,7 @@ function feedburner_url_display() {
         } // end if
 
         $html = '<input type="text" id="feedburner_url" name="lean_theme_global_options[feedburner_url]" placeholder="http://feeds.feedburner.com/example" value="' . esc_attr( $feedburner_url ) . '" />';
-        $html .= '&nbsp;<span class="description">' . __( 'Use in place of the native RSS feed.', 'standard' ) . '</span>';
+        $html .= '&nbsp;<span class="description">' . __( 'Use in place of the native RSS feed.', 'lean' ) . '</span>';
 
         echo $html;
 
@@ -921,7 +921,7 @@ function google_analytics_display() {
         } // end if
 
         $html = '<input type="text" id="google_analytics" name="lean_theme_global_options[google_analytics]" placeholder="UA-000000" value="' . esc_attr( $analytics_id ) . '" />';
-        $html .= '&nbsp;<span class="description">' . __( 'Enter the ID only.', 'standard' ) . '</span>';
+        $html .= '&nbsp;<span class="description">' . __( 'Enter the ID only.', 'lean' ) . '</span>';
 
         echo $html;
 
@@ -945,14 +945,14 @@ function site_mode_display( ) {
     } // end if
 
     $html = '<select id="site_mode" name="lean_theme_global_options[site_mode]">';
-    $html .= '<option value="online"' . selected( $site_mode, 'online', false ) . '>' . __( 'Online', 'standard' ) .'</option>';
-    $html .= '<option value="offline"' . selected( $site_mode, 'offline', false ) . '>' . __( 'Offline', 'standard' ) .'</option>';
+    $html .= '<option value="online"' . selected( $site_mode, 'online', false ) . '>' . __( 'Online', 'lean' ) .'</option>';
+    $html .= '<option value="offline"' . selected( $site_mode, 'offline', false ) . '>' . __( 'Offline', 'lean' ) .'</option>';
     $html .= '</select>';
 
     $html .= '&nbsp;';
 
     $html .= '<span class="description">';
-    $html .= __( 'WARNING: Taking site offline will hide all content from site visitors and search engines.', 'standard' );
+    $html .= __( 'WARNING: Taking site offline will hide all content from site visitors and search engines.', 'lean' );
     $html .= '</span>';
 
     echo $html;
@@ -1020,7 +1020,7 @@ function get_lean_theme_default_publishing_options() {
         'display_author_box'			=>	'always'
     );
 
-    return apply_filters ( 'standard_theme_default_publishing_options', $defaults );
+    return apply_filters ( 'lean_theme_default_publishing_options', $defaults );
 
 } // end get_lean_theme_default_publishing_options
 
@@ -1031,7 +1031,7 @@ function get_lean_theme_default_publishing_options() {
  * @since	3.0
  * @version	3.2
  */
-function standard_setup_theme_publishing_options() {
+function lean_setup_theme_publishing_options() {
 
     // If the theme options don't exist, create them.
     if( false == get_option( 'lean_theme_publishing_options' ) ) {
@@ -1049,14 +1049,14 @@ function standard_setup_theme_publishing_options() {
     // Post options
     add_settings_section(
         'post',
-        __( 'Posts', 'standard' ),
-        'standard_theme_post_options_display',
+        __( 'Posts', 'lean' ),
+        'lean_theme_post_options_display',
         'lean_theme_publishing_options'
     );
 
     add_settings_field(
         'display_author_box',
-        __( 'Display Author Box', 'standard' ),
+        __( 'Display Author Box', 'lean' ),
         'display_author_box_display',
         'lean_theme_publishing_options',
         'post'
@@ -1065,14 +1065,14 @@ function standard_setup_theme_publishing_options() {
     // Page options
     add_settings_section(
         'page',
-        __( 'Pages', 'standard' ),
-        'standard_theme_page_options_display',
+        __( 'Pages', 'lean' ),
+        'lean_theme_page_options_display',
         'lean_theme_publishing_options'
     );
 
     add_settings_field(
         'privacy_policy_template',
-        __( 'Privacy Policy', 'standard' ),
+        __( 'Privacy Policy', 'lean' ),
         'privacy_policy_template_display',
         'lean_theme_publishing_options',
         'page'
@@ -1080,7 +1080,7 @@ function standard_setup_theme_publishing_options() {
 
     add_settings_field(
         'comment_policy_template',
-        __( 'Comment Policy', 'standard' ),
+        __( 'Comment Policy', 'lean' ),
         'comment_policy_template_display',
         'lean_theme_publishing_options',
         'page'
@@ -1092,8 +1092,8 @@ function standard_setup_theme_publishing_options() {
         'lean_theme_publishing_options_validate'
     );
 
-} // end standard_setup_theme_publishing_options
-add_action( 'admin_init', 'standard_setup_theme_publishing_options' );
+} // end lean_setup_theme_publishing_options
+add_action( 'admin_init', 'lean_setup_theme_publishing_options' );
 
 /**
  * Placeholder function for the Publishing Options display function. The section contains
@@ -1113,9 +1113,9 @@ function lean_theme_publishing_options_display() {}
  * @since	3.0
  * @version	3.2
  */
-function standard_theme_post_options_display() {
-    echo '<p>' . __( 'This section controls publisher-centric features available on individual posts.', 'standard' ) . '</p>';
-} // end standard_theme_post_options_display
+function lean_theme_post_options_display() {
+    echo '<p>' . __( 'This section controls publisher-centric features available on individual posts.', 'lean' ) . '</p>';
+} // end lean_theme_post_options_display
 
 /**
  * Renders the description for the Page Options settings on the Publishing page.
@@ -1123,9 +1123,9 @@ function standard_theme_post_options_display() {
  * @since	3.0
  * @version	3.2
  */
-function standard_theme_page_options_display() {
-    echo '<p>' . __( 'This section controls publisher-centric features available for pages.', 'standard' ) . '</p>';
-} // end standard_theme_page_options_display
+function lean_theme_page_options_display() {
+    echo '<p>' . __( 'This section controls publisher-centric features available for pages.', 'lean' ) . '</p>';
+} // end lean_theme_page_options_display
 
 /**
  * Renders the option element for the Author Box.
@@ -1143,11 +1143,11 @@ function display_author_box_display() {
     } // end if
 
     $html = '<select id="display_author_box" name="lean_theme_publishing_options[display_author_box]">';
-    $html .= '<option value="always"' . selected( $options['display_author_box'], 'always', false ) . '>' . __( 'Always', 'standard' ) . '</option>';
-    $html .= '<option value="never"' . selected( $options['display_author_box'], 'never', false ) . '>' . __( 'Never', 'standard' )  . '</option>';
+    $html .= '<option value="always"' . selected( $options['display_author_box'], 'always', false ) . '>' . __( 'Always', 'lean' ) . '</option>';
+    $html .= '<option value="never"' . selected( $options['display_author_box'], 'never', false ) . '>' . __( 'Never', 'lean' )  . '</option>';
     $html .= '</select>';
 
-    $html .= '&nbsp;<span class="description">' . __( "Display name, website, social networks, and bio from the <a href='profile.php'>author's profile</a> after post content.", 'standard' ) . '</span>';
+    $html .= '&nbsp;<span class="description">' . __( "Display name, website, social networks, and bio from the <a href='profile.php'>author's profile</a> after post content.", 'lean' ) . '</span>';
 
     echo $html;
 
@@ -1162,14 +1162,14 @@ function display_author_box_display() {
 function privacy_policy_template_display() {
 
     // First, detect if the privacy policy page exists
-    $privacy_policy = get_page_by_title( __( 'Privacy Policy', 'standard' ) );
+    $privacy_policy = get_page_by_title( __( 'Privacy Policy', 'lean' ) );
 
     // Options to display if the page doesn't already exist
     $html = '<div id="generate-privacy-policy-wrapper"' . ( '' == $privacy_policy ? ' ' : ' class="hidden" ' )  . '>';
-    $html .= '<input type="submit" class="button-secondary" id="generate_privacy_policy" name="generate_privacy_policy" value="' . __( 'Generate', 'standard' ) . '" />';
-    $html .= '<span id="standard-privacy-policy-nonce" class="hidden">' . wp_create_nonce( 'standard_generate_privacy_policy_nonce' ) . '</span>';
+    $html .= '<input type="submit" class="button-secondary" id="generate_privacy_policy" name="generate_privacy_policy" value="' . __( 'Generate', 'lean' ) . '" />';
+    $html .= '<span id="lean-privacy-policy-nonce" class="hidden">' . wp_create_nonce( 'lean_generate_privacy_policy_nonce' ) . '</span>';
     $html .= '&nbsp;';
-    $html .= '<span class="description">' . __( '<a href="http://docs.8bit.io/standard/admin-panel/publishing/" target="_blank">' . __( 'Learn more', 'standard' ) . '</a>.', 'standard' ) . '</span>';
+    $html .= '<span class="description">' . __( '<a href="http://docs.8bit.io/lean/admin-panel/publishing/" target="_blank">' . __( 'Learn more', 'lean' ) . '</a>.', 'lean' ) . '</span>';
     $html .= '</div><!-- /#generate-private-policy-wrapper -->';
 
     // Options to display if the page already exists
@@ -1180,9 +1180,9 @@ function privacy_policy_template_display() {
         $policy_id = $privacy_policy->ID;
     } // end if
 
-    $html .= '<input type="submit" class="button-secondary" id="delete_privacy_policy" name="delete_privacy_policy" value="' . __( 'Delete', 'standard' ) . '" />';
+    $html .= '<input type="submit" class="button-secondary" id="delete_privacy_policy" name="delete_privacy_policy" value="' . __( 'Delete', 'lean' ) . '" />';
     $html .= '&nbsp;';
-    $html .= '<span>' . __( 'Warning, customizations will be lost. You can view or edit your policy ', 'standard' ) . '<a id="edit-privacy-policy" href="post.php?post=' . $policy_id . '&action=edit">' . __( 'here', 'standard' ) . '</a>.</span>';
+    $html .= '<span>' . __( 'Warning, customizations will be lost. You can view or edit your policy ', 'lean' ) . '<a id="edit-privacy-policy" href="post.php?post=' . $policy_id . '&action=edit">' . __( 'here', 'lean' ) . '</a>.</span>';
     $html .= '<span class="hidden" id="privacy_policy_id">' . $policy_id . '</span>';
     $html .= '</div><!-- /#has-privacy-policy-wrapper -->';
 
@@ -1199,14 +1199,14 @@ function privacy_policy_template_display() {
 function comment_policy_template_display() {
 
     // First, detect if the privacy policy page exists
-    $comment_policy = get_page_by_title( __( 'Comment Policy', 'standard' ) );
+    $comment_policy = get_page_by_title( __( 'Comment Policy', 'lean' ) );
 
     // Options to display if the page doesn't already exist
     $html = '<div id="generate-comment-policy-wrapper"' . ( '' == $comment_policy ? ' ' : ' class="hidden" ' )  . '>';
-    $html .= '<input type="submit" class="button-secondary" id="generate_comment_policy" name="generate_comment_policy" value="' . __( 'Generate', 'standard' ) . '" />';
-    $html .= '<span id="standard-comment-policy-nonce" class="hidden">' . wp_create_nonce( 'standard_generate_comment_policy_nonce' ) . '</span>';
+    $html .= '<input type="submit" class="button-secondary" id="generate_comment_policy" name="generate_comment_policy" value="' . __( 'Generate', 'lean' ) . '" />';
+    $html .= '<span id="lean-comment-policy-nonce" class="hidden">' . wp_create_nonce( 'lean_generate_comment_policy_nonce' ) . '</span>';
     $html .= '&nbsp;';
-    $html .= '<span class="description">' . __( '<a href="http://docs.8bit.io/standard/admin-panel/publishing/" target="_blank">' . __( 'Learn more', 'standard' ) . '</a>.', 'standard' ) . '</span>';
+    $html .= '<span class="description">' . __( '<a href="http://docs.8bit.io/lean/admin-panel/publishing/" target="_blank">' . __( 'Learn more', 'lean' ) . '</a>.', 'lean' ) . '</span>';
     $html .= '</div><!-- /#generate-comment-policy-wrapper -->';
 
     // Options to display if the page already exists
@@ -1217,9 +1217,9 @@ function comment_policy_template_display() {
         $policy_id = $comment_policy->ID;
     } // end if
 
-    $html .= '<input type="submit" class="button-secondary" id="delete_comment_policy" name="delete_comment_policy" value="' . __( 'Delete', 'standard' ) . '" />';
+    $html .= '<input type="submit" class="button-secondary" id="delete_comment_policy" name="delete_comment_policy" value="' . __( 'Delete', 'lean' ) . '" />';
     $html .= '&nbsp;';
-    $html .= '<span>' . __( 'Warning, customizations will be lost. You can view or edit your policy ', 'standard' ) . '<a id="edit-comment-policy" href="post.php?post=' . $policy_id . '&action=edit">' . __( 'here', 'standard' ) . '</a>.</span>';
+    $html .= '<span>' . __( 'Warning, customizations will be lost. You can view or edit your policy ', 'lean' ) . '<a id="edit-comment-policy" href="post.php?post=' . $policy_id . '&action=edit">' . __( 'here', 'lean' ) . '</a>.</span>';
     $html .= '<span class="hidden" id="comment_policy_id">' . $policy_id . '</span>';
     $html .= '</div><!-- /#has-comment-policy-wrapper -->';
 
@@ -1233,11 +1233,11 @@ function comment_policy_template_display() {
  * @since	3.0
  * @version	3.2
  */
-function standard_generate_privacy_policy_page( ) {
+function lean_generate_privacy_policy_page( ) {
 
-    if( wp_verify_nonce( $_REQUEST['nonce'], 'standard_generate_privacy_policy_nonce' ) && isset( $_POST['generatePrivacyPolicy'] ) ) {
+    if( wp_verify_nonce( $_REQUEST['nonce'], 'lean_generate_privacy_policy_nonce' ) && isset( $_POST['generatePrivacyPolicy'] ) ) {
 
-        $page_id = lean_create_page( 'privacy-policy', __( 'Privacy Policy', 'standard' ) );
+        $page_id = lean_create_page( 'privacy-policy', __( 'Privacy Policy', 'lean' ) );
         if( $page_id > 0 ) {
             die( (string)$page_id );
         } else {
@@ -1248,8 +1248,8 @@ function standard_generate_privacy_policy_page( ) {
         die( '-1' );
     } // end if/else
 
-} // end standard_generate_privacy_policy_page
-add_action( 'wp_ajax_standard_generate_privacy_policy_page', 'standard_generate_privacy_policy_page' );
+} // end lean_generate_privacy_policy_page
+add_action( 'wp_ajax_lean_generate_privacy_policy_page', 'lean_generate_privacy_policy_page' );
 
 /**
  * Callback function used in the Ajax request for deleting the Privacy Policy.
@@ -1257,10 +1257,10 @@ add_action( 'wp_ajax_standard_generate_privacy_policy_page', 'standard_generate_
  * @since	3.0
  * @version	3.2
  */
-function standard_delete_privacy_policy_page( ) {
+function lean_delete_privacy_policy_page( ) {
 
     // We'll be using the same nonce for generating the policy.
-    if( wp_verify_nonce( $_REQUEST['nonce'], 'standard_generate_privacy_policy_nonce' ) && isset( $_POST['deletePrivacyPolicy'] ) && isset( $_POST['page_id'] ) ) {
+    if( wp_verify_nonce( $_REQUEST['nonce'], 'lean_generate_privacy_policy_nonce' ) && isset( $_POST['deletePrivacyPolicy'] ) && isset( $_POST['page_id'] ) ) {
 
         if( lean_delete_page( $_POST['page_id'] ) ) {
             die( '0' );
@@ -1272,8 +1272,8 @@ function standard_delete_privacy_policy_page( ) {
         die( '-1' );
     } // end if/else
 
-} // end standard_delete_privacy_policy_page
-add_action( 'wp_ajax_standard_delete_privacy_policy_page', 'standard_delete_privacy_policy_page' );
+} // end lean_delete_privacy_policy_page
+add_action( 'wp_ajax_lean_delete_privacy_policy_page', 'lean_delete_privacy_policy_page' );
 
 /**
  * Callback function used in the Ajax request for generating the Comment Policy.
@@ -1281,11 +1281,11 @@ add_action( 'wp_ajax_standard_delete_privacy_policy_page', 'standard_delete_priv
  * @since	3.0
  * @version	3.2
  */
-function standard_generate_comment_policy_page( ) {
+function lean_generate_comment_policy_page( ) {
 
-    if( wp_verify_nonce( $_REQUEST['nonce'], 'standard_generate_comment_policy_nonce' ) && isset( $_POST['generateCommentPolicy'] ) ) {
+    if( wp_verify_nonce( $_REQUEST['nonce'], 'lean_generate_comment_policy_nonce' ) && isset( $_POST['generateCommentPolicy'] ) ) {
 
-        $page_id = lean_create_page( 'comment-policy', __( 'Comment Policy', 'standard' ) );
+        $page_id = lean_create_page( 'comment-policy', __( 'Comment Policy', 'lean' ) );
         if( $page_id > 0 ) {
             die( (string)$page_id );
         } else {
@@ -1296,8 +1296,8 @@ function standard_generate_comment_policy_page( ) {
         die( '-1' );
     } // end if/else
 
-} // end standard_generate_comment_policy_page
-add_action( 'wp_ajax_standard_generate_comment_policy_page', 'standard_generate_comment_policy_page' );
+} // end lean_generate_comment_policy_page
+add_action( 'wp_ajax_lean_generate_comment_policy_page', 'lean_generate_comment_policy_page' );
 
 /**
  * Callback function used in the Ajax request for deleting the Privacy Policy.
@@ -1305,10 +1305,10 @@ add_action( 'wp_ajax_standard_generate_comment_policy_page', 'standard_generate_
  * @since	3.0
  * @version	3.2
  */
-function standard_delete_comment_policy_page( ) {
+function lean_delete_comment_policy_page( ) {
 
     // We'll be using the same nonce for generating the policy.
-    if( wp_verify_nonce( $_REQUEST['nonce'], 'standard_generate_comment_policy_nonce' ) && isset( $_POST['deleteCommentPolicy'] ) && isset( $_POST['page_id'] ) ) {
+    if( wp_verify_nonce( $_REQUEST['nonce'], 'lean_generate_comment_policy_nonce' ) && isset( $_POST['deleteCommentPolicy'] ) && isset( $_POST['page_id'] ) ) {
 
         if( lean_delete_page( $_POST['page_id'] ) ) {
             die( '0' );
@@ -1320,8 +1320,8 @@ function standard_delete_comment_policy_page( ) {
         die( '-1' );
     } // end if/else
 
-} // end standard_delete_comment_policy_page
-add_action( 'wp_ajax_standard_delete_comment_policy_page', 'standard_delete_comment_policy_page' );
+} // end lean_delete_comment_policy_page
+add_action( 'wp_ajax_lean_delete_comment_policy_page', 'lean_delete_comment_policy_page' );
 
 /**
  * Sanitization callback for the Publishing Options. Since each of the options are text inputs,
@@ -1359,24 +1359,24 @@ function lean_theme_publishing_options_validate( $input ) {
  * @since	3.0
  * @version	3.2
  */
-function standard_theme_options_display() {
+function lean_theme_options_display() {
     ?>
-    <div id="standard-options" class="wrap">
-        <div id="standard-info">
+    <div id="lean-options" class="wrap">
+        <div id="lean-info">
 
             <div id="icon-themes" class="icon32"></div>
-            <h3 id="standard-title"><?php _e( 'Standard', 'standard' ); ?> <span><?php _e( 'for publishers', 'standard' ); ?></span></h3>
+            <h3 id="lean-title"><?php _e( 'Lean', 'lean' ); ?> <span><?php _e( 'for publishers', 'lean' ); ?></span></h3>
 
-            <div id="standard-desc">
-                <p><?php _e( 'Standard is a sleek, exacting product designed for uncluttered and sophisticated presentation of your content on desktop and mobile devices.', 'standard' ); ?></p>
+            <div id="lean-desc">
+                <p><?php _e( 'Lean is a sleek, exacting product designed for uncluttered and sophisticated presentation of your content on desktop and mobile devices.', 'lean' ); ?></p>
             </div>
-        </div><!--/#standard-info -->
+        </div><!--/#lean-info -->
 
-        <div id="standard-options-links">
+        <div id="lean-options-links">
             <ul>
-                <li><a class="standard-docs" href="http://docs.8bit.io/standard/" target="_blank"><?php _e( 'Documentation', 'standard' ); ?></a></li>
-                <li><a class="standard-support" href="http://support.8bit.io" target="_blank"><?php _e( 'Support', 'standard' ); ?></a></li>
-                <li><a class="standard-blog" href="http://8bit.io" target="_blank"><?php _e( 'Blog', 'standard' ); ?></a></li>
+                <li><a class="lean-docs" href="http://docs.8bit.io/lean/" target="_blank"><?php _e( 'Documentation', 'lean' ); ?></a></li>
+                <li><a class="lean-support" href="http://support.8bit.io" target="_blank"><?php _e( 'Support', 'lean' ); ?></a></li>
+                <li><a class="lean-blog" href="http://8bit.io" target="_blank"><?php _e( 'Blog', 'lean' ); ?></a></li>
             </ul>
         </div>
 
@@ -1384,10 +1384,10 @@ function standard_theme_options_display() {
 
         <?php $active_tab = isset( $_GET['tab'] ) ? $_GET['tab'] : 'lean_theme_global_options'; ?>
         <h2 class="nav-tab-wrapper">
-            <a class="nav-tab <?php echo $active_tab == 'lean_theme_global_options' ? 'nav-tab-active' : ''; ?>" href="?page=theme_options&amp;tab=lean_theme_global_options"><?php _e( 'Global', 'standard' ); ?></a>
-            <a class="nav-tab <?php echo $active_tab == 'lean_theme_presentation_options' ? 'nav-tab-active' : ''; ?>" href="?page=theme_options&amp;tab=lean_theme_presentation_options"><?php _e( 'Presentation', 'standard' ); ?></a>
-            <a class="nav-tab <?php echo $active_tab == 'lean_theme_social_options' ? 'nav-tab-active' : ''; ?>" href="?page=theme_options&amp;tab=lean_theme_social_options"><?php _e( 'Social', 'standard' ); ?></a>
-            <a class="nav-tab <?php echo $active_tab == 'lean_theme_publishing_options' ? 'nav-tab-active' : ''; ?>" href="?page=theme_options&amp;tab=lean_theme_publishing_options"><?php _e( 'Publishing', 'standard' ); ?></a>
+            <a class="nav-tab <?php echo $active_tab == 'lean_theme_global_options' ? 'nav-tab-active' : ''; ?>" href="?page=theme_options&amp;tab=lean_theme_global_options"><?php _e( 'Global', 'lean' ); ?></a>
+            <a class="nav-tab <?php echo $active_tab == 'lean_theme_presentation_options' ? 'nav-tab-active' : ''; ?>" href="?page=theme_options&amp;tab=lean_theme_presentation_options"><?php _e( 'Presentation', 'lean' ); ?></a>
+            <a class="nav-tab <?php echo $active_tab == 'lean_theme_social_options' ? 'nav-tab-active' : ''; ?>" href="?page=theme_options&amp;tab=lean_theme_social_options"><?php _e( 'Social', 'lean' ); ?></a>
+            <a class="nav-tab <?php echo $active_tab == 'lean_theme_publishing_options' ? 'nav-tab-active' : ''; ?>" href="?page=theme_options&amp;tab=lean_theme_publishing_options"><?php _e( 'Publishing', 'lean' ); ?></a>
         </h2>
 
         <div id="message-container"><?php settings_errors(); ?></div>
@@ -1424,4 +1424,4 @@ function standard_theme_options_display() {
         </form>
     </div><!-- /.wrap -->
 <?php
-} // end standard_theme_options_display
+} // end lean_theme_options_display

@@ -68,7 +68,7 @@ function updateIconValues(evt) {
 	
 	jQuery.post(ajaxurl, {
 	
-		action: 'standard_save_social_icons',
+		action: 'lean_save_social_icons',
 		nonce: jQuery('#standard-save-social-icons-nonce').text(),
 		availableSocialIcons: jQuery('#available-social-icons').val(),
 		activeSocialIcons: jQuery('#active-social-icons').val(),
@@ -393,8 +393,8 @@ function makeIconsRemoveable($) {
 			
 				$.post(ajaxurl, {
 				
-					action: 'standard_delete_social_icons',
-					nonce: $.trim($('#standard-delete-social-icon-nonce').text())
+					action: 'lean_delete_social_icons',
+					nonce: $.trim($('#lean-delete-social-icon-nonce').text())
 					
 				}, function(response) {
 					
@@ -608,7 +608,7 @@ function socialIconsShowMediaUploader() {
 				var $this = $(this);
 				$.post(ajaxurl, {
 		
-					action: 'standard_reset_social_icons',
+					action: 'lean_reset_social_icons',
 					nonce: $.trim($('#standard-reset-social-icons').text())
 					
 				}, function() {

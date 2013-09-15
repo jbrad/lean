@@ -9,7 +9,7 @@
 			
 			$.post(ajaxurl, {
 				
-					action: 'standard_generate_privacy_policy_page',
+					action: 'lean_generate_privacy_policy_page',
 					nonce: $.trim($('#standard-privacy-policy-nonce').text()),
 					generatePrivacyPolicy: 'true'
 					
@@ -40,7 +40,7 @@
 			
 			$.post(ajaxurl, {
 				
-					action: 'standard_delete_privacy_policy_page',
+					action: 'lean_delete_privacy_policy_page',
 					nonce: $.trim($('#standard-privacy-policy-nonce').text()),
 					page_id: $('#privacy_policy_id').text(),
 					deletePrivacyPolicy: 'true'
@@ -68,7 +68,7 @@
 			
 			$.post(ajaxurl, {
 				
-					action: 'standard_generate_comment_policy_page',
+					action: 'lean_generate_comment_policy_page',
 					nonce: $.trim($('#standard-comment-policy-nonce').text()),
 					generateCommentPolicy: 'true'
 					
@@ -97,7 +97,7 @@
 			
 			$.post(ajaxurl, {
 				
-					action: 'standard_delete_comment_policy_page',
+					action: 'lean_delete_comment_policy_page',
 					nonce: $.trim($('#standard-comment-policy-nonce').text()),
 					page_id: $('#comment_policy_id').text(),
 					deleteCommentPolicy: 'true'
