@@ -2,8 +2,8 @@
 	"use strict";
 	$(function () {
 	
-		// Hide the 'Standard' item under the custom menu
-		$('.wp-submenu-head:contains("Standard")')
+		// Hide the 'Lean' item under the custom menu
+		$('.wp-submenu-head:contains("Lean")')
 			.next()
 			.children(':first')
 			.hide();
@@ -40,7 +40,7 @@
 
 			// If they click the top-level menu item, we'll default to Global
 			/* Translators: This will need to be localized. */
-			if($('a.wp-menu-open').text().toLowerCase() === 'standard') {
+			if($('a.wp-menu-open').text().toLowerCase() === 'lean') {
 				$('a:contains("Global")').parent().addClass('current');
 			} // end if
 

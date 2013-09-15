@@ -1,16 +1,16 @@
 <?php
 
 /**
- * Standard SEO guides publishers in defining SEO-friendly title, permalinks, and
+ * Lean SEO guides publishers in defining SEO-friendly title, permalinks, and
  * meta descriptions by giving custom fields at the post and page level and by
  * providing a "what Google sees" preview.
  *
- * @package		Standard
+ * @package		Lean
  * @subpackage	SEO
  * @version		1.0
  * @since		3.0
  */
-class Standard_SEO {
+class Lean_SEO {
 
 	/*--------------------------------------------*
 	 * Constructor
@@ -33,7 +33,7 @@ class Standard_SEO {
 	 *---------------------------------------------*/
 
 	/**
- 	 * Adds the Standard SEO meta box to the post and page screens in the dashboard.
+ 	 * Adds the Lean SEO meta box to the post and page screens in the dashboard.
  	 *
 	 * @since	3.0
 	 * @version	1.0
@@ -42,7 +42,7 @@ class Standard_SEO {
 
 		add_meta_box(
 			'post_level_seo',
-			__( 'Standard SEO', 'standard' ),
+			__( 'Lean SEO', 'lean' ),
 			array( &$this, 'post_level_display' ),
 			'post',
 			'normal',
@@ -51,7 +51,7 @@ class Standard_SEO {
 
 		add_meta_box(
 			'post_level_seo',
-			__( 'Standard SEO', 'standard' ),
+			__( 'Lean SEO', 'lean' ),
 			array( &$this, 'post_level_display' ),
 			'page',
 			'normal',
@@ -61,7 +61,7 @@ class Standard_SEO {
 	} // end action_method_name
 
 	/**
-	 * Renders the actual Standard SEO Preview meta box and preview area to the page.
+	 * Renders the actual Lean SEO Preview meta box and preview area to the page.
 	 *
 	 * @params	object $post	The post on which the box should be rendered.
 	 * @since	3.0
@@ -69,12 +69,12 @@ class Standard_SEO {
 	 */
 	public function post_level_display( $post ) {
 
-		wp_nonce_field( plugin_basename( __FILE__ ), 'standard_seo_nonce' );
+		wp_nonce_field( plugin_basename( __FILE__ ), 'lean_seo_nonce' );
 
-		$html = '<p>' . __( 'Search Results Preview ', 'standard' ) . '</p>';
+		$html = '<p>' . __( 'Search Results Preview ', 'lean' ) . '</p>';
 		$html .= '<div id="search-engine-preview">';
 
-			$html .= '<p id="search-results-title"><span id="post-title"></span>' . ' ' . __( '|', 'standard' ) . ' ' . '<span id="blog-title"></span></p>';
+			$html .= '<p id="search-results-title"><span id="post-title"></span>' . ' ' . __( '|', 'lean' ) . ' ' . '<span id="blog-title"></span></p>';
 			$html .= '<p id="search-results-meta"><span id="permalink"></span></p>';
 
 			// Look to see if the user has the Google Profile URL specified
@@ -120,14 +120,14 @@ class Standard_SEO {
 		$html .= '<div id="meta-description-container">';
 
 			// The label for the meta description
-			$html .= '<p>' . __( 'Meta Description ', 'standard' ) . '(<span id="character-count">' . __( '140', 'standard' ) . '</span>' . ' ' . __( 'characters remaining)', 'standard' );'</p>';
+			$html .= '<p>' . __( 'Meta Description ', 'lean' ) . '(<span id="character-count">' . __( '140', 'lean' ) . '</span>' . ' ' . __( 'characters remaining)', 'lean' );'</p>';
 
 			// The input field for the meta description
 			$html .= '<textarea id="lean_seo_post_meta_description" name="lean_seo_post_meta_description" maxlength="140">' . get_post_meta( $post->ID, 'lean_seo_post_meta_description', true ) . '</textarea>';
 
 			// The description for the field
 			$html .= '<p class="description">';
-				$html .= __( 'Writing a meta description for every post is strongly recommended for SEO. If not provided, no description will be published.', 'standard' );
+				$html .= __( 'Writing a meta description for every post is strongly recommended for SEO. If not provided, no description will be published.', 'lean' );
 			$html .= '</p>';
 
 		$html .= '</div><!-- /#meta-description-container -->';
@@ -145,7 +145,7 @@ class Standard_SEO {
 	 */
 	public function save_postdata( $post_id ) {
 
-		if( isset( $_POST['standard_seo_nonce'] ) ) {
+		if( isset( $_POST['lean_seo_nonce'] ) ) {
 
 			// Don't save if the user hasn't submitted the changes
 			if( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
@@ -153,7 +153,7 @@ class Standard_SEO {
 			} // end if
 
 			// Verify that the input is coming from the proper form
-			if( ! wp_verify_nonce( $_POST['standard_seo_nonce'], plugin_basename( __FILE__ ) ) ) {
+			if( ! wp_verify_nonce( $_POST['lean_seo_nonce'], plugin_basename( __FILE__ ) ) ) {
 				return;
 			} // end if
 
@@ -190,8 +190,8 @@ class Standard_SEO {
 	 * @version	1.0
 	 */
 	public function admin_styles() {
-		wp_enqueue_style( 'standard-seo-admin', get_template_directory_uri() . '/lib/seo/css/admin.css', false, LEAN_THEME_VERSION );
+		wp_enqueue_style( 'lean-seo-admin', get_template_directory_uri() . '/lib/seo/css/admin.css', false, LEAN_THEME_VERSION );
 	} // end admin_styles
 
 } // end class
-new Standard_SEO();
+new Lean_SEO();

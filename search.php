@@ -1,6 +1,6 @@
 <?php
 /**
- * The template for displaying search results. It's based on index.php. If the user has the Google Custom Search Widget enabled, then Standard
+ * The template for displaying search results. It's based on index.php. If the user has the Google Custom Search Widget enabled, then Lean
  * will display that template rather than the default search results page.
  *
  * @package Lean

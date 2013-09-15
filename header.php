@@ -157,7 +157,7 @@ $head_class = ! empty( $header_image ) ? 'imageyup' : 'imageless';
 
                     <div id="logo">
 
-                        <?php // If a logo has been set in the Standard Presentation options, display it ?>
+                        <?php // If a logo has been set in the Lean Presentation options, display it ?>
                         <?php if( lean_has_logo() ) { ?>
 
                             <a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php bloginfo( 'name' ); ?>" rel="home">

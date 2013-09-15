@@ -69,7 +69,7 @@ function updateIconValues(evt) {
 	jQuery.post(ajaxurl, {
 	
 		action: 'lean_save_social_icons',
-		nonce: jQuery('#standard-save-social-icons-nonce').text(),
+		nonce: jQuery('#lean-save-social-icons-nonce').text(),
 		availableSocialIcons: jQuery('#available-social-icons').val(),
 		activeSocialIcons: jQuery('#active-social-icons').val(),
 		updateSocialIcons: 'true'
@@ -300,7 +300,7 @@ function setupIconClickHander($, $this, bIsNowActive) {
 		var sRssUrl = '';
 		if($(evt.srcElement).attr('src') !== '' && $(evt.srcElement).attr('src') !== undefined) {
 			if($(evt.srcElement).attr('src').toString().indexOf('rss.png') > 0) {
-				sRssUrl = $('#standard-wordpress-rss-url').text();
+				sRssUrl = $('#lean-wordpress-rss-url').text();
 			} // end if
 		} // end if
 			
@@ -389,7 +389,7 @@ function makeIconsRemoveable($) {
 			evt.srcElement = evt.srcElement || ui.draggable.children(':first');
 
 			// Don't let users delete the core set of icons
-			if(isStandardIcon($(evt.srcElement))) { 
+			if(isLeanIcon($(evt.srcElement))) {
 			
 				$.post(ajaxurl, {
 				
@@ -399,14 +399,14 @@ function makeIconsRemoveable($) {
 				}, function(response) {
 					
 					// Display the message only if a prior message doesn't exist
-					if($('#standard-delete-social-icons').length === 0) {
+					if($('#lean-delete-social-icons').length === 0) {
 						$('#message-container').append(response);
 					} // end if
 					
-					$('#standard-hide-delete-social-icon-message').click(function(evt) {
+					$('#lean-hide-delete-social-icon-message').click(function(evt) {
 					
 						evt.preventDefault();
-						$('#standard-delete-social-icons').remove();
+						$('#lean-delete-social-icons').remove();
 						
 					});
 					
@@ -507,18 +507,18 @@ function socialOptionsHideUnusedFields($, poller) {
 } // end hideUnusedFields
 
 /**
- * Determines if the specified image is part of the Standard icon library.
+ * Determines if the specified image is part of the Lean icon library.
  *
  * @params	img	The image element being evaluated
  *
- * @returns		True if the image belongs in the core set of Standard icons.
+ * @returns		True if the image belongs in the core set of Lean icons.
  */
-function isStandardIcon($img) {
+function isLeanIcon($img) {
 	"use strict";
 	
 	return $img.attr('src').toString().indexOf('/images/social/small/') > 0;	
 	
-} // end isStandardIcon
+} // end isLeanIcon
 
 /**
  * Overrides the core send_to_editor function in the media-upload script. Grabs the URL of the image after being uploaded and 
@@ -609,7 +609,7 @@ function socialIconsShowMediaUploader() {
 				$.post(ajaxurl, {
 		
 					action: 'lean_reset_social_icons',
-					nonce: $.trim($('#standard-reset-social-icons').text())
+					nonce: $.trim($('#lean-reset-social-icons').text())
 					
 				}, function() {
 				
