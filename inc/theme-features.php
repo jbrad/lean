@@ -13,12 +13,12 @@
  * @since	3.0
  * @version	3.2
  */
-function standard_customize_register( $wp_customize ) {
+function lean_customize_register( $wp_customize ) {
 
     // Presentation Options
     $wp_customize->add_section( 'lean_theme_presentation_options',
         array(
-            'title'          => __( 'Presentation', 'standard' ),
+            'title'          => __( 'Presentation', 'lean' ),
             'priority'       => 150
         )
     );
@@ -34,13 +34,13 @@ function standard_customize_register( $wp_customize ) {
 
     $wp_customize->add_control( 'lean_theme_presentation_options[contrast]',
         array(
-            'label'      => __( 'Contrast', 'standard' ),
+            'label'      => __( 'Contrast', 'lean' ),
             'section'    => 'lean_theme_presentation_options',
             'settings'   => 'lean_theme_presentation_options[contrast]',
             'type'       => 'select',
             'choices'    => array(
-                'light' => __( 'Light', 'standard' ),
-                'dark'  => __( 'Dark', 'standard' )
+                'light' => __( 'Light', 'lean' ),
+                'dark'  => __( 'Dark', 'lean' )
             ),
         )
     );
@@ -59,7 +59,7 @@ function standard_customize_register( $wp_customize ) {
             $wp_customize,
             'lean_theme_presentation_options[logo]',
             array(
-                'label'		=>	__( 'Logo', 'standard' ),
+                'label'		=>	__( 'Logo', 'lean' ),
                 'section'	=>	'lean_theme_presentation_options',
                 'settings'  => 'lean_theme_presentation_options[logo]'
             )
@@ -82,9 +82,9 @@ function standard_customize_register( $wp_customize ) {
             'settings'   => 'lean_theme_presentation_options[layout]',
             'type'       => 'select',
             'choices'    => array(
-                'left_sidebar_layout' 	=> __( 'Left Sidebar', 'standard' ),
-                'right_sidebar_layout' 	=> __( 'Right Sidebar', 'standard' ),
-                'full_width_layout'		=> __( 'No Sidebar / Full-Width', 'standard' )
+                'left_sidebar_layout' 	=> __( 'Left Sidebar', 'lean' ),
+                'right_sidebar_layout' 	=> __( 'Right Sidebar', 'lean' ),
+                'full_width_layout'		=> __( 'No Sidebar / Full-Width', 'lean' )
             ),
         )
     );
@@ -100,13 +100,13 @@ function standard_customize_register( $wp_customize ) {
 
     $wp_customize->add_control( 'lean_theme_presentation_options[display_breadcrumbs]',
         array(
-            'label'      => __( 'Display Breadcrumbs', 'standard' ),
+            'label'      => __( 'Display Breadcrumbs', 'lean' ),
             'section'    => 'lean_theme_presentation_options',
             'settings'   => 'lean_theme_presentation_options[display_breadcrumbs]',
             'type'       => 'select',
             'choices'    => array(
-                'always' 		=>	__( 'Always', 'standard' ),
-                'never' 		=>  __( 'Never', 'standard' )
+                'always' 		=>	__( 'Always', 'lean' ),
+                'never' 		=>  __( 'Never', 'lean' )
             )
         )
     );
@@ -127,10 +127,10 @@ function standard_customize_register( $wp_customize ) {
             'settings'   => 'lean_theme_presentation_options[display_featured_images]',
             'type'       => 'select',
             'choices'    => array(
-                'always' 		=>	__( 'Always', 'standard' ),
-                'never' 		=>  __( 'Never', 'standard' ),
-                'index'			=>	__( 'On index only', 'standard' ),
-                'single-post'	=>	__( 'On single posts only', 'standard' )
+                'always' 		=>	__( 'Always', 'lean' ),
+                'never' 		=>  __( 'Never', 'lean' ),
+                'index'			=>	__( 'On index only', 'lean' ),
+                'single-post'	=>	__( 'On single posts only', 'lean' )
             ),
         )
     );
@@ -138,7 +138,7 @@ function standard_customize_register( $wp_customize ) {
     // Publishing Options
     $wp_customize->add_section( 'lean_theme_publishing_options',
         array(
-            'title'          => __( 'Publishing', 'standard' ),
+            'title'          => __( 'Publishing', 'lean' ),
             'priority'       => 151
         )
     );
@@ -154,26 +154,26 @@ function standard_customize_register( $wp_customize ) {
 
     $wp_customize->add_control( 'lean_theme_publishing_options[display_author_box]',
         array(
-            'label'      => __( 'Display Author Box', 'standard' ),
+            'label'      => __( 'Display Author Box', 'lean' ),
             'section'    => 'lean_theme_publishing_options',
             'settings'   => 'lean_theme_publishing_options[display_author_box]',
             'type'       => 'select',
             'choices'    => array(
-                'always' 		=>	__( 'Always', 'standard' ),
-                'never' 		=>  __( 'Never', 'standard' )
+                'always' 		=>	__( 'Always', 'lean' ),
+                'never' 		=>  __( 'Never', 'lean' )
             )
         )
     );
 
     // Basic WordPress functionality (header display, backgrounds, etc)
     if ( $wp_customize->is_preview() && ! is_admin() ) {
-        add_action( 'wp_footer', 'standard_customize_preview', 21);
+        add_action( 'wp_footer', 'lean_customize_preview', 21);
     } // end if
     $wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
     $wp_customize->get_setting( 'background_attachment' )->transport = 'postMessage';
 
-} // end standard_customize_register
-add_action( 'customize_register', 'standard_customize_register' );
+} // end lean_customize_register
+add_action( 'customize_register', 'lean_customize_register' );
 
 /**
  * Renders the JavaScript responsible for hooking into the Theme Customizer to tweak
@@ -182,14 +182,14 @@ add_action( 'customize_register', 'standard_customize_register' );
  * @since	3.0
  * @version	3.2
  */
-function standard_customize_preview() { ?>
+function lean_customize_preview() { ?>
     <script type="text/javascript">
         (function( $ ) {
 
             // We need to the hide the header widget area when previewing the theme *unless* there are only Standard widgets
             // present. If Standard widgets are present, it means they've customized it already; otherwise, we're
             // coming from another theme.
-            if( $('#header-widget').children().length !== $('#header-widget').children('div[id*=standard]').length ) {
+            if( $('#header-widget').children().length !== $('#header-widget').children('div[id*=lean]').length ) {
                 $('#header-widget').hide();
             } // end if
 
@@ -232,7 +232,7 @@ function standard_customize_preview() { ?>
             })
         })( jQuery );
     </script>
-<?php  } // end standard_customize_preview
+<?php  } // end lean_customize_preview
 
 /**
  * Defines a custom meta box for displaying the post full-width layout. Only renders
@@ -241,15 +241,15 @@ function standard_customize_preview() { ?>
  * @since	3.0
  * @version	3.2
  */
-function standard_add_full_width_single_post() {
+function lean_add_full_width_single_post() {
 
     $options = get_option( 'lean_theme_presentation_options' );
     if( 'full_width_layout' != $options['layout'] ) {
 
         add_meta_box(
             'post_level_layout',
-            __( 'Standard Layout', 'standard' ),
-            'standard_post_level_layout_display',
+            __( 'Standard Layout', 'lean' ),
+            'lean_post_level_layout_display',
             'post',
             'side',
             'core'
@@ -257,8 +257,8 @@ function standard_add_full_width_single_post() {
 
     } // end if
 
-} // end standard_add_full_width_single_post
-add_action( 'add_meta_boxes', 'standard_add_full_width_single_post' );
+} // end lean_add_full_width_single_post
+add_action( 'add_meta_boxes', 'lean_add_full_width_single_post' );
 
 /**
  * Renders the display for the full-width post option.
@@ -267,21 +267,21 @@ add_action( 'add_meta_boxes', 'standard_add_full_width_single_post' );
  * @since	3.0
  * @version	3.2
  */
-function standard_post_level_layout_display( $post ) {
+function lean_post_level_layout_display( $post ) {
 
-    wp_nonce_field( plugin_basename( __FILE__ ), 'standard_post_level_layout_nonce' );
+    wp_nonce_field( plugin_basename( __FILE__ ), 'lean_post_level_layout_nonce' );
 
     $html = '<input type="checkbox" id="lean_seo_post_level_layout" name="lean_seo_post_level_layout" value="1"' . checked( get_post_meta( $post->ID, 'lean_seo_post_level_layout', true ), 1, false ) . ' />';
 
     $html .= '&nbsp;';
 
     $html .= '<label for="lean_seo_post_level_layout">';
-    $html .= __( 'Hide sidebar and display post at full width.', 'standard' );
+    $html .= __( 'Hide sidebar and display post at full width.', 'lean' );
     $html .= '</label>';
 
     echo $html;
 
-} // end standard_post_level_layout_display
+} // end lean_post_level_layout_display
 
 /**
  * Saves the post data for the post layout to post defined by the incoming ID.
@@ -290,9 +290,9 @@ function standard_post_level_layout_display( $post ) {
  * @since	3.0
  * @version	3.2
  */
-function standard_save_post_layout_data( $post_id ) {
+function lean_save_post_layout_data( $post_id ) {
 
-    if( isset( $_POST['standard_post_level_layout_nonce'] ) && isset( $_POST['post_type'] ) ) {
+    if( isset( $_POST['lean_post_level_layout_nonce'] ) && isset( $_POST['post_type'] ) ) {
 
         // Don't save if the user hasn't submitted the changes
         if( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
@@ -300,7 +300,7 @@ function standard_save_post_layout_data( $post_id ) {
         } // end if
 
         // Verify that the input is coming from the proper form
-        if( ! wp_verify_nonce( $_POST['standard_post_level_layout_nonce'], plugin_basename( __FILE__ ) ) ) {
+        if( ! wp_verify_nonce( $_POST['lean_post_level_layout_nonce'], plugin_basename( __FILE__ ) ) ) {
             return;
         } // end if
 
@@ -327,8 +327,8 @@ function standard_save_post_layout_data( $post_id ) {
 
     } // end if
 
-} // end standard_save_post_layout_data
-add_action( 'save_post', 'standard_save_post_layout_data' );
+} // end lean_save_post_layout_data
+add_action( 'save_post', 'lean_save_post_layout_data' );
 
 // If Standard is running less than 3.6, then add the Link Post Format Meta Box
 //if( 3.6 > lean_is_wp36() ) {
@@ -340,11 +340,11 @@ add_action( 'save_post', 'standard_save_post_layout_data' );
  * @version		3.2
  * @deprecated	3.5.1
  */
-function standard_add_url_field_to_link_post_format() {
+function lean_add_url_field_to_link_post_format() {
 
     add_meta_box(
         'link_format_url',
-        __( 'Link URL', 'standard' ),
+        __( 'Link URL', 'lean' ),
         'lean_link_url_field_display',
         'post',
         'side',
@@ -352,11 +352,11 @@ function standard_add_url_field_to_link_post_format() {
     );
 
 } // end hudson_add_url_to_link_post_type
-add_action( 'add_meta_boxes', 'standard_add_url_field_to_link_post_format' );
+add_action( 'add_meta_boxes', 'lean_add_url_field_to_link_post_format' );
 
 /**
  * Renders the input field for the URL in the Link Post Format related to the
- * meta box defined in the standard_add_url_field_to_link_post_format() function.
+ * meta box defined in the lean_add_url_field_to_link_post_format() function.
  *
  * @param	$post	The post on which this meta box is attached.
  * @since			3.1
@@ -380,7 +380,7 @@ function lean_link_url_field_display( $post ) {
  * @version				3.2
  * @deprecated			3.5.1
  */
-function standard_save_link_url_data( $post_id ) {
+function lean_save_link_url_data( $post_id ) {
 
     if( isset( $_POST['lean_link_url_field_nonce'] ) && isset( $_POST['post_type'] ) ) {
 
@@ -417,8 +417,8 @@ function standard_save_link_url_data( $post_id ) {
 
     } // end if
 
-} // end standard_save_post_layout_data
-add_action( 'save_post', 'standard_save_link_url_data' );
+} // end lean_save_post_layout_data
+add_action( 'save_post', 'lean_save_link_url_data' );
 
 //} // end if
 
@@ -428,7 +428,7 @@ add_action( 'save_post', 'standard_save_link_url_data' );
  * @since	3.0
  * @version	3.2
  */
-function standard_add_admin_bar_option() {
+function lean_add_admin_bar_option() {
 
     if( ! is_admin() ) {
 
@@ -436,8 +436,8 @@ function standard_add_admin_bar_option() {
 
         $wp_admin_bar->add_node(
             array(
-                'id'	=>	'standard_options',
-                'title'	=>	__( 'Standard', 'standard' ),
+                'id'	=>	'lean_options',
+                'title'	=>	__( 'Lean', 'lean' ),
                 'href'	=>	site_url() . '/wp-admin/admin.php?page=theme_options'
             )
         );
@@ -446,8 +446,8 @@ function standard_add_admin_bar_option() {
         $wp_admin_bar->add_node(
             array(
                 'id'		=>	'lean_theme_global_options',
-                'title'		=>	__( 'Global', 'standard' ),
-                'parent'	=>	'standard_options',
+                'title'		=>	__( 'Global', 'lean' ),
+                'parent'	=>	'lean_options',
                 'href'		=>	site_url() . '/wp-admin/admin.php?page=theme_options&tab=lean_theme_global_options'
             )
         );
@@ -456,8 +456,8 @@ function standard_add_admin_bar_option() {
         $wp_admin_bar->add_node(
             array(
                 'id'		=>	'lean_theme_presentation_options',
-                'title'		=>	__( 'Presentation', 'standard' ),
-                'parent'	=>	'standard_options',
+                'title'		=>	__( 'Presentation', 'lean' ),
+                'parent'	=>	'lean_options',
                 'href'		=>	site_url() . '/wp-admin/admin.php?page=theme_options&tab=lean_theme_presentation_options'
             )
         );
@@ -466,8 +466,8 @@ function standard_add_admin_bar_option() {
         $wp_admin_bar->add_node(
             array(
                 'id'		=>	'lean_theme_social_options',
-                'title'		=>	__( 'Social', 'standard' ),
-                'parent'	=>	'standard_options',
+                'title'		=>	__( 'Social', 'lean' ),
+                'parent'	=>	'lean_options',
                 'href'		=>	site_url() . '/wp-admin/admin.php?page=theme_options&tab=lean_theme_social_options'
             )
         );
@@ -476,16 +476,16 @@ function standard_add_admin_bar_option() {
         $wp_admin_bar->add_node(
             array(
                 'id'		=>	'lean_theme_publishing_options',
-                'title'		=>	__( 'Publishing', 'standard' ),
-                'parent'	=>	'standard_options',
+                'title'		=>	__( 'Publishing', 'lean' ),
+                'parent'	=>	'lean_options',
                 'href'		=>	site_url() . '/wp-admin/admin.php?page=theme_options&tab=lean_theme_publishing_options'
             )
         );
 
     } // end if
 
-} // end standard_add_admin_bar_option
-add_action( 'admin_bar_menu', 'standard_add_admin_bar_option', 40 );
+} // end lean_add_admin_bar_option
+add_action( 'admin_bar_menu', 'lean_add_admin_bar_option', 40 );
 
 /**
  * Adds a reminder message to the admin bar that the user has the site set in Offline Mode.
@@ -493,22 +493,22 @@ add_action( 'admin_bar_menu', 'standard_add_admin_bar_option', 40 );
  * @since	3.0
  * @version	3.2
  */
-function standard_add_site_mode_admin_bar_note() {
+function lean_add_site_mode_admin_bar_note() {
 
     // Remind the user if they are in offline mode
     if( lean_is_offline() ) {
         global $wp_admin_bar;
         $wp_admin_bar->add_node(
             array(
-                'id'	=>	'standard_theme_site_mode',
-                'title'	=>	__( 'The site is currently offline. To bring it back online, click here.', 'standard' ),
+                'id'	=>	'lean_theme_site_mode',
+                'title'	=>	__( 'The site is currently offline. To bring it back online, click here.', 'lean' ),
                 'href'	=>	site_url() . '/wp-admin/themes.php?page=theme_options'
             )
         );
     } // end if
 
-} // end standard_add_maintenance_mode_admin_bar_note
-add_action( 'admin_bar_menu' , 'standard_add_site_mode_admin_bar_note', 90 );
+} // end lean_add_maintenance_mode_admin_bar_note
+add_action( 'admin_bar_menu' , 'lean_add_site_mode_admin_bar_note', 90 );
 
 /**
  * Detects whether or not any of the major SEO plugins have been installed. If so, Standard's built-in SEO features will be disabled in favor of the active plugin.
@@ -522,31 +522,31 @@ add_action( 'admin_bar_menu' , 'standard_add_site_mode_admin_bar_note', 90 );
  * @since	3.0
  * @version	3.2
  */
-function standard_detect_wordpress_seo() {
+function lean_detect_wordpress_seo() {
 
     // If the SEO notification options don't exist, create them
-    if( false == get_option( 'standard_theme_seo_notification_options' ) ) {
-        add_option( 'standard_theme_seo_notification_options', false );
+    if( false == get_option( 'lean_theme_seo_notification_options' ) ) {
+        add_option( 'lean_theme_seo_notification_options', false );
     } // end if
 
-    if( 'true' != get_option( 'standard_theme_seo_notification_options' ) ) {
+    if( 'true' != get_option( 'lean_theme_seo_notification_options' ) ) {
 
         $html = '';
 
         // WordPress SEO
         if( defined( 'WPSEO_URL' ) ) {
 
-            $html = '<div id="standard-hide-seo-message-notification" class="error"><p>' . __( 'Standard has detected the activation of WordPress SEO and is now running in SEO compatibility mode. <a href="http://docs.8bit.io/standard/seo" target="_blank">' . __( 'Learn more', 'standard' ) . '</a> or <a id="standard-hide-seo-message" href="javascript:;">hide this message</a>.', 'standard') . '</p><span id="standard-hide-seo-message-nonce" class="hidden">' . wp_create_nonce( 'standard_hide_seo_message_nonce' ) . '</span></div>';
+            $html = '<div id="lean-hide-seo-message-notification" class="error"><p>' . __( 'Standard has detected the activation of WordPress SEO and is now running in SEO compatibility mode. <a href="http://docs.8bit.io/lean/seo" target="_blank">' . __( 'Learn more', 'lean' ) . '</a> or <a id="lean-hide-seo-message" href="javascript:;">hide this message</a>.', 'lean') . '</p><span id="lean-hide-seo-message-nonce" class="hidden">' . wp_create_nonce( 'lean_hide_seo_message_nonce' ) . '</span></div>';
 
             // All-in-One SEO
         } elseif( class_exists( 'All_in_One_SEO_Pack' ) ) {
 
-            $html = '<div id="standard-hide-seo-message-notification" class="error"><p>' . __( 'Standard has detected the activation of All-In-One SEO and is now running in SEO compatibility mode.  <a href="http://docs.8bit.io/standard/seo" target="_blank">' . __( 'Learn more', 'standard' ) . '</a> or <a id="standard-hide-seo-message" href="javascript:;">hide this message</a>.', 'standard') . '</p><span id="standard-hide-seo-message-nonce" class="hidden">' . wp_create_nonce( 'standard_hide_seo_message_nonce' ) . '</span></div>';
+            $html = '<div id="lean-hide-seo-message-notification" class="error"><p>' . __( 'Standard has detected the activation of All-In-One SEO and is now running in SEO compatibility mode.  <a href="http://docs.8bit.io/lean/seo" target="_blank">' . __( 'Learn more', 'lean' ) . '</a> or <a id="lean-hide-seo-message" href="javascript:;">hide this message</a>.', 'lean') . '</p><span id="lean-hide-seo-message-nonce" class="hidden">' . wp_create_nonce( 'lean_hide_seo_message_nonce' ) . '</span></div>';
 
             // Platinum SEO
         } elseif( class_exists( 'Platinum_SEO_Pack' ) ) {
 
-            $html =  '<div id="standard-hide-seo-message-notification" class="error"><p>' . __( 'Standard has detected the activation of Platinum SEO and is now running in SEO compatibility mode.  <a href="http://docs.8bit.io/standard/seo" target="_blank">' . __( 'Learn more', 'standard' ) . '</a> or <a id="standard-hide-seo-message" href="javascript:;">hide this message</a>.', 'standard') . '</p><span id="standard-hide-seo-message-nonce" class="hidden">' . wp_create_nonce( 'standard_hide_seo_message_nonce' ) . '</span></div>';
+            $html =  '<div id="lean-hide-seo-message-notification" class="error"><p>' . __( 'Standard has detected the activation of Platinum SEO and is now running in SEO compatibility mode.  <a href="http://docs.8bit.io/lean/seo" target="_blank">' . __( 'Learn more', 'lean' ) . '</a> or <a id="lean-hide-seo-message" href="javascript:;">hide this message</a>.', 'lean') . '</p><span id="lean-hide-seo-message-nonce" class="hidden">' . wp_create_nonce( 'lean_hide_seo_message_nonce' ) . '</span></div>';
 
         } // end if/ese
 
@@ -556,12 +556,12 @@ function standard_detect_wordpress_seo() {
     } // end if
 
     // Set the option to false if the plugin is deactivated
-    if( 'true' == get_option( 'standard_theme_seo_notification_options') && using_native_seo() ) {
-        update_option( 'standard_theme_seo_notification_options', 'false' );
+    if( 'true' == get_option( 'lean_theme_seo_notification_options') && using_native_seo() ) {
+        update_option( 'lean_theme_seo_notification_options', 'false' );
     } // end if
 
-} // end standard_detect_wordpress_seo
-add_action( 'admin_notices', 'standard_detect_wordpress_seo' );
+} // end lean_detect_wordpress_seo
+add_action( 'admin_notices', 'lean_detect_wordpress_seo' );
 
 /**
  * Callback function used in the Ajax request for hiding the notification window of WordPress SEO.
@@ -569,12 +569,12 @@ add_action( 'admin_notices', 'standard_detect_wordpress_seo' );
  * @since	3.0
  * @version	3.2
  */
-function standard_save_wordpress_seo_message_setting( ) {
+function lean_save_wordpress_seo_message_setting( ) {
 
-    if( wp_verify_nonce( $_REQUEST['nonce'], 'standard_hide_seo_message_nonce' ) && isset( $_POST['hideSeoNotification'] ) ) {
+    if( wp_verify_nonce( $_REQUEST['nonce'], 'lean_hide_seo_message_nonce' ) && isset( $_POST['hideSeoNotification'] ) ) {
 
-        delete_option( 'standard_theme_seo_notification_options' );
-        if( update_option( 'standard_theme_seo_notification_options', $_POST['hideSeoNotification'] ) ) {
+        delete_option( 'lean_theme_seo_notification_options' );
+        if( update_option( 'lean_theme_seo_notification_options', $_POST['hideSeoNotification'] ) ) {
             die( '0' );
         } else {
             die ( '1' );
@@ -583,10 +583,10 @@ function standard_save_wordpress_seo_message_setting( ) {
         die( '-1' );
     } // end if
 
-} // end standard_save_wordpress_seo_message_setting
-add_action( 'wp_ajax_standard_save_wordpress_seo_message_setting', 'standard_save_wordpress_seo_message_setting' );
+} // end lean_save_wordpress_seo_message_setting
+add_action( 'wp_ajax_lean_save_wordpress_seo_message_setting', 'lean_save_wordpress_seo_message_setting' );
 
-if( ! function_exists( 'standard_page_menu' ) ) {
+if( ! function_exists('lean_page_menu') ) {
     /**
      * Adds a custom class to the wp_page_menu when users don't set an active menu.
      *
@@ -597,10 +597,10 @@ if( ! function_exists( 'standard_page_menu' ) ) {
      * @since	3.0
      * @version	3.2
      */
-    function standard_page_menu( $ulclass ) {
+    function lean_page_menu( $ulclass ) {
         return preg_replace( '/<ul>/', '<ul class="nav nav-menu">', $ulclass, 1 );
-    } // end standard_default_menu
-    add_filter( 'wp_page_menu', 'standard_page_menu' );
+    } // end lean_default_menu
+    add_filter( 'wp_page_menu', 'lean_page_menu' );
 } // end if
 
 /**
@@ -611,29 +611,29 @@ if( ! function_exists( 'standard_page_menu' ) ) {
  * @since	3.0
  * @version	3.2
  */
-if( ! function_exists( 'standard_add_theme_background' ) ) {
-    function standard_add_theme_background() {
+if( ! function_exists('lean_add_theme_background') ) {
+    function lean_add_theme_background() {
         add_theme_support( 'custom-background' );
-    } // end standard_add_theme_background
-    add_action( 'init', 'standard_add_theme_background' );
+    } // end lean_add_theme_background
+    add_action( 'init', 'lean_add_theme_background' );
 } // end if
 
-if( ! function_exists( 'standard_add_theme_editor_style' ) ) {
+if( ! function_exists('lean_add_theme_editor_style') ) {
     /**
      * Includes the post editor stylesheet.
      *
      * @since	3.0
      * @version	3.2
      */
-    function standard_add_theme_editor_style() {
+    function lean_add_theme_editor_style() {
 
         add_editor_style( 'css/editor-style.css' );
 
-    } // end standard_add_theme_editor_style
-    add_action( 'init', 'standard_add_theme_editor_style' );
+    } // end lean_add_theme_editor_style
+    add_action( 'init', 'lean_add_theme_editor_style' );
 } // end if
 
-if( ! function_exists( 'standard_add_theme_menus' ) ) {
+if( ! function_exists('lean_add_theme_menus') ) {
     /**
      * Adds three menu areas: above the logo, below the logo, and in the footer.
      *
@@ -642,21 +642,21 @@ if( ! function_exists( 'standard_add_theme_menus' ) ) {
      * @since	3.0
      * @version	3.2
      */
-    function standard_add_theme_menus() {
+    function lean_add_theme_menus() {
 
         register_nav_menus(
             array(
-                'menu_above_logo' 	=> __( 'Header Menu (Upper)', 'standard' ),
-                'menu_below_logo' 	=> __( 'Header Menu (Lower)', 'standard' ),
-                'footer_menu' 		=> __( 'Footer Menu', 'standard' )
+                'menu_above_logo' 	=> __( 'Header Menu (Upper)', 'lean' ),
+                'menu_below_logo' 	=> __( 'Header Menu (Lower)', 'lean' ),
+                'footer_menu' 		=> __( 'Footer Menu', 'lean' )
             )
         );
 
     } // end add_theme_menu
-    add_action( 'init', 'standard_add_theme_menus' );
+    add_action( 'init', 'lean_add_theme_menus' );
 } // end if
 
-if( ! function_exists( 'standard_add_theme_sidebars' ) ) {
+if( ! function_exists('lean_add_theme_sidebars') ) {
     /**
      * Adds four widgetized areas: the sidebar, the left footer, center footer, and right footer.
      *
@@ -665,14 +665,14 @@ if( ! function_exists( 'standard_add_theme_sidebars' ) ) {
      * @since	3.0
      * @version	3.2
      */
-    function standard_add_theme_sidebars() {
+    function lean_add_theme_sidebars() {
 
         // main
         register_sidebar(
             array(
-                'name' 			=> __( 'Sidebar', 'standard' ),
+                'name' 			=> __( 'Sidebar', 'lean' ),
                 'id' 			=> 'sidebar-0',
-                'description'	=> __( 'The primary sidebar.', 'standard' ),
+                'description'	=> __( 'The primary sidebar.', 'lean' ),
                 'before_widget' => '<div id="%1$s" class="widget %2$s">',
                 'after_widget'  => '</div>',
                 'before_title'  => '<h3 class="widget-title">',
@@ -683,9 +683,9 @@ if( ! function_exists( 'standard_add_theme_sidebars' ) ) {
         // header
         register_sidebar(
             array(
-                'name' 			=> __( 'Header', 'standard' ),
+                'name' 			=> __( 'Header', 'lean' ),
                 'id' 			=> 'sidebar-1',
-                'description'	=> __( 'This area is designed for a 468x60 advertisement, but other widgets can be used here as well.', 'standard' ),
+                'description'	=> __( 'This area is designed for a 468x60 advertisement, but other widgets can be used here as well.', 'lean' ),
                 'before_widget' => '<div id="%1$s" class="header-widget widget %2$s">',
                 'after_widget'  => '</div>',
                 'before_title'  => '<h3 class="widget-title">',
@@ -696,9 +696,9 @@ if( ! function_exists( 'standard_add_theme_sidebars' ) ) {
         // post advertisements
         register_sidebar(
             array(
-                'name'			=>	__( 'Below Single Post', 'standard'),
+                'name'			=>	__( 'Below Single Post', 'lean'),
                 'id'			=>	'sidebar-2',
-                'description'	=>	__( 'Shown after post content and before comments. Ideal for the 468x60 ad widget.', 'standard' ),
+                'description'	=>	__( 'Shown after post content and before comments. Ideal for the 468x60 ad widget.', 'lean' ),
                 'before_widget' => '<div id="%1$s" class="widget %2$s">',
                 'after_widget'  => '</div>',
                 'before_title'  => '<h3 class="widget-title">',
@@ -709,9 +709,9 @@ if( ! function_exists( 'standard_add_theme_sidebars' ) ) {
         // footer left
         register_sidebar(
             array(
-                'name' 			=> __( 'Footer Left', 'standard' ),
+                'name' 			=> __( 'Footer Left', 'lean' ),
                 'id' 			=> 'sidebar-3',
-                'description'	=> __( 'Shown in the first column of the footer.', 'standard' ),
+                'description'	=> __( 'Shown in the first column of the footer.', 'lean' ),
                 'before_widget' => '<div id="%1$s" class="widget %2$s">',
                 'after_widget'  => '</div>',
                 'before_title'  => '<h3 class="widget-title">',
@@ -722,9 +722,9 @@ if( ! function_exists( 'standard_add_theme_sidebars' ) ) {
         // footer center
         register_sidebar(
             array(
-                'name' 			=> __( 'Footer Center', 'standard' ),
+                'name' 			=> __( 'Footer Center', 'lean' ),
                 'id' 			=> 'sidebar-4',
-                'description'	=> __( 'Shown in the second column of the footer.', 'standard' ),
+                'description'	=> __( 'Shown in the second column of the footer.', 'lean' ),
                 'before_widget' => '<div id="%1$s" class="widget %2$s">',
                 'after_widget'  => '</div>',
                 'before_title'  => '<h3 class="widget-title">',
@@ -735,9 +735,9 @@ if( ! function_exists( 'standard_add_theme_sidebars' ) ) {
         // footer right
         register_sidebar(
             array(
-                'name' 			=> __( 'Footer Right', 'standard' ),
+                'name' 			=> __( 'Footer Right', 'lean' ),
                 'id' 			=> 'sidebar-5',
-                'description'	=> __( 'Shown in the third column of the footer.', 'standard' ),
+                'description'	=> __( 'Shown in the third column of the footer.', 'lean' ),
                 'before_widget' => '<div id="%1$s" class="widget %2$s">',
                 'after_widget'  => '</div>',
                 'before_title'  => '<h3 class="widget-title">',
@@ -746,10 +746,10 @@ if( ! function_exists( 'standard_add_theme_sidebars' ) ) {
         );
 
     } // end add_theme_sidebars
-    add_action( 'widgets_init', 'standard_add_theme_sidebars' );
+    add_action( 'widgets_init', 'lean_add_theme_sidebars' );
 } // end if
 
-if( ! function_exists( 'standard_add_theme_features' ) ) {
+if( ! function_exists('lean_add_theme_features') ) {
     /**
      * Adds support for Post Formats, Post Thumbnails, Activity Tabs widget
      * Custom Image Sizes for post formats.
@@ -759,7 +759,7 @@ if( ! function_exists( 'standard_add_theme_features' ) ) {
      * @since	3.0
      * @version	3.2
      */
-    function standard_add_theme_features() {
+    function lean_add_theme_features() {
 
         // Feedlinks
         add_theme_support( 'automatic-feed-links' );
@@ -808,7 +808,7 @@ if( ! function_exists( 'standard_add_theme_features' ) ) {
             array(
                 'container'			=>	'main',
                 'type'				=>	'click',	// Because Standard supports footer widgets
-                'render'			=>	'standard_infinite_scroll',
+                'render'			=>	'lean_infinite_scroll',
                 'wrapper'			=>	false,
                 'posts_per_page'	=>	false,
                 'footer'			=>	false
@@ -828,7 +828,7 @@ if( ! function_exists( 'standard_add_theme_features' ) ) {
         lean_add_plugin( '/lib/influence/plugin.php' );
 
     } // end add_theme_features
-    add_action( 'after_setup_theme', 'standard_add_theme_features' );
+    add_action( 'after_setup_theme', 'lean_add_theme_features' );
 } // end if
 
 /**
@@ -838,7 +838,7 @@ if( ! function_exists( 'standard_add_theme_features' ) ) {
  * @since	3.2
  * @version	3.2
  */
-function standard_infinite_scroll() {
+function lean_infinite_scroll() {
 
     while( have_posts() ) {
         the_post();
@@ -853,7 +853,7 @@ function standard_infinite_scroll() {
         }(jQuery));
     </script>
 <?php
-} // end standard_infinite_scroll
+} // end lean_infinite_scroll
 
 /**
  * Sets the media embed width to 580 or 900 (based on the layout) which is optimized
@@ -879,7 +879,7 @@ if( 'full_width_layout' == $options['layout'] ) {
 
 } // end if/else
 
-if( ! function_exists( 'standard_set_theme_colors' ) ) {
+if( ! function_exists('lean_set_theme_colors') ) {
     /**
      * Sets the values for the default color scheme of Standard for use
      * in other plugins.
@@ -889,7 +889,7 @@ if( ! function_exists( 'standard_set_theme_colors' ) ) {
      * @since	3.0
      * @version	3.2
      */
-    function standard_set_theme_colors() {
+    function lean_set_theme_colors() {
 
         $themecolors = array(
             'bg' 		=> 'efefef',
@@ -899,8 +899,8 @@ if( ! function_exists( 'standard_set_theme_colors' ) ) {
             'url' 		=> '4D8B97',
         );
 
-    } // end standard_set_theme_colors
-    add_action( 'init', 'standard_set_theme_colors' );
+    } // end lean_set_theme_colors
+    add_action( 'init', 'lean_set_theme_colors' );
 } // end if
 
 /**

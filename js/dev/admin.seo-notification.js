@@ -10,7 +10,7 @@
 				
 				$.post(ajaxurl, {
 				
-					action: 'standard_save_wordpress_seo_message_setting',
+					action: 'lean_save_wordpress_seo_message_setting',
 					nonce: $.trim($('#standard-hide-seo-message-nonce').text()),
 					hideSeoNotification: 'true'
 					

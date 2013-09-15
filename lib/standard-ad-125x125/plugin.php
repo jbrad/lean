@@ -20,7 +20,7 @@ class Standard_Ad_125x125 extends WP_Widget {
 	public function __construct() {
 
 		$widget_opts = array(
-			'classname' 	=> __( 'standard-ad-125x125', 'standard' ), 
+			'classname' 	=> __( 'standard-ad-125x125', 'standard' ),
 			'description' 	=> __( 'Display a 125x125 advertisement.', 'standard' ),
 		);	
 		$this->WP_Widget( 'standard-ad-125x125', __( '125x125 Ad', 'standard' ), $widget_opts );
@@ -173,7 +173,7 @@ class Standard_Ad_125x125 extends WP_Widget {
 				$ad_url = 'http://standardtheme.com';
 			} // end if
 		
-			$ad_src = '<img src="' . get_template_directory_uri() . '/lib/standard-ad-125x125/images/standard-125-' . $number . '.jpg' . '" alt="" />';	
+			$ad_src = '<img src="' . get_template_directory_uri() . '/lib/standard-ad-125x125/images/standard-125-' . $number . '.jpg' . '" alt="" />';
 			
 		} else {
 			$ad_src = '<img src="' . $ad_src . '" alt="" />';
