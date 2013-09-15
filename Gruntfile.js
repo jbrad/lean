@@ -90,9 +90,9 @@ module.exports = function(grunt) {
                     'lib/google-custom-search/js/admin.min.js': ['lib/google-custom-search/js/dev/admin.js'],
                     'lib/personal-image/js/admin.min.js': ['lib/personal-image/js/dev/admin.js'],
                     'lib/seo/js/admin.min.js': ['lib/seo/js/dev/admin.js'],
-                    'lib/standard-ad-125x125/js/admin.min.js': ['lib/lean-ad-125x125/js/dev/admin.js'],
-                    'lib/standard-ad-300x250/js/admin.min.js': ['lib/lean-ad-300x250/js/dev/admin.js'],
-                    'lib/standard-ad-billboard/js/admin.min.js': ['lib/lean-ad-billboard/js/dev/admin.js']
+                    'lib/lean-ad-125x125/js/admin.min.js': ['lib/lean-ad-125x125/js/dev/admin.js'],
+                    'lib/lean-ad-300x250/js/admin.min.js': ['lib/lean-ad-300x250/js/dev/admin.js'],
+                    'lib/lean-ad-billboard/js/admin.min.js': ['lib/lean-ad-billboard/js/dev/admin.js']
                 }
             },
 
@@ -101,7 +101,7 @@ module.exports = function(grunt) {
                     preserveComments: 'some'
                 },
                 files: {
-                    'js/lib/bootstrap.min.js': ['js/lib/bootstrap/*.js']
+                    'js/lib/bootstrap.min.js': ['js/lib/twitter/*.js']
                 }
             },
 
@@ -175,22 +175,12 @@ module.exports = function(grunt) {
                     "lib/personal-image/css/admin.css": 'lib/personal-image/css/less/admin.less',
                     "lib/personal-image/css/widget.css": 'lib/personal-image/css/less/widget.less',
                     "lib/seo/css/admin.css": 'lib/seo/css/less/admin.less',
-                    "lib/standard-ad-125x125/css/admin.css": 'lib/lean-ad-125x125/css/less/admin.less',
-                    "lib/standard-ad-125x125/css/widget.css": 'lib/lean-ad-125x125/css/less/widget.less',
-                    "lib/standard-ad-300x250/css/admin.css": 'lib/lean-ad-300x250/css/less/admin.less',
-                    "lib/standard-ad-300x250/css/widget.css": 'lib/lean-ad-300x250/css/less/widget.less',
-                    "lib/standard-ad-billboard/css/admin.css": 'lib/lean-ad-billboard/css/less/admin.less',
-                    "lib/standard-ad-billboard/css/widget.css": 'lib/lean-ad-billboard/css/less/widget.less'
-                }
-            },
-            bootstrap: {
-                options: {
-                    paths: ["css/less"],
-                    yuicompress: false
-                },
-                files: {
-                    "css/lib/bootstrap.css": "css/lib/less/bootstrap/bootstrap.less",
-                    "css/lib/bootstrap-responsive.css": "css/lib/less/bootstrap/responsive.less"
+                    "lib/lean-ad-125x125/css/admin.css": 'lib/lean-ad-125x125/css/less/admin.less',
+                    "lib/lean-ad-125x125/css/widget.css": 'lib/lean-ad-125x125/css/less/widget.less',
+                    "lib/lean-ad-300x250/css/admin.css": 'lib/lean-ad-300x250/css/less/admin.less',
+                    "lib/lean-ad-300x250/css/widget.css": 'lib/lean-ad-300x250/css/less/widget.less',
+                    "lib/lean-ad-billboard/css/admin.css": 'lib/lean-ad-billboard/css/less/admin.less',
+                    "lib/lean-ad-billboard/css/widget.css": 'lib/lean-ad-billboard/css/less/widget.less'
                 }
             },
             production: {
@@ -215,16 +205,12 @@ module.exports = function(grunt) {
                     "lib/personal-image/css/admin.css": 'lib/personal-image/css/less/admin.less',
                     "lib/personal-image/css/widget.css": 'lib/personal-image/css/less/widget.less',
                     "lib/seo/css/admin.css": 'lib/seo/css/less/admin.less',
-                    "lib/standard-ad-125x125/css/admin.css": 'lib/lean-ad-125x125/css/less/admin.less',
-                    "lib/standard-ad-125x125/css/widget.css": 'lib/lean-ad-125x125/css/less/widget.less',
-                    "lib/standard-ad-300x250/css/admin.css": 'lib/lean-ad-300x250/css/less/admin.less',
-                    "lib/standard-ad-300x250/css/widget.css": 'lib/lean-ad-300x250/css/less/widget.less',
-                    "lib/standard-ad-billboard/css/admin.css": 'lib/lean-ad-billboard/css/less/admin.less',
-                    "lib/standard-ad-billboard/css/widget.css": 'lib/lean-ad-billboard/css/less/widget.less',
-
-                    //Bootstrap
-                    "css/lib/bootstrap.css": "css/lib/less/bootstrap/bootstrap.less",
-                    "css/lib/bootstrap-responsive.css": "css/lib/less/bootstrap/responsive.less"
+                    "lib/lean-ad-125x125/css/admin.css": 'lib/lean-ad-125x125/css/less/admin.less',
+                    "lib/lean-ad-125x125/css/widget.css": 'lib/lean-ad-125x125/css/less/widget.less',
+                    "lib/lean-ad-300x250/css/admin.css": 'lib/lean-ad-300x250/css/less/admin.less',
+                    "lib/lean-ad-300x250/css/widget.css": 'lib/lean-ad-300x250/css/less/widget.less',
+                    "lib/lean-ad-billboard/css/admin.css": 'lib/lean-ad-billboard/css/less/admin.less',
+                    "lib/lean-ad-billboard/css/widget.css": 'lib/lean-ad-billboard/css/less/widget.less',
                 }
             }
         },
