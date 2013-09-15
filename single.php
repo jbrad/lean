@@ -9,7 +9,7 @@
  */
 ?>
 <?php get_header(); ?>
-<?php $presentation_options = get_option( 'standard_theme_presentation_options' ); ?>
+<?php $presentation_options = get_option( 'lean_theme_presentation_options' ); ?>
 <?php
 if( 1 == get_post_meta( get_the_ID(), 'standard_seo_post_level_layout', true ) ) {
 	$content_width = 900;

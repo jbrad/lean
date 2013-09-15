@@ -14,7 +14,7 @@ if( function_exists( 'yoast_breadcrumb' ) ) {
 
 } else {
 
-	$presentation_options = get_option( 'standard_theme_presentation_options ' );
+	$presentation_options = get_option( 'lean_theme_presentation_options ' );
 	
 	$display_breadcrumbs = '';
 	if( isset( $presentation_options['display_breadcrumbs'] ) ) {

@@ -16,7 +16,7 @@
 function standard_customize_register( $wp_customize ) {
 
     // Presentation Options
-    $wp_customize->add_section( 'standard_theme_presentation_options',
+    $wp_customize->add_section( 'lean_theme_presentation_options',
         array(
             'title'          => __( 'Presentation', 'standard' ),
             'priority'       => 150
@@ -24,7 +24,7 @@ function standard_customize_register( $wp_customize ) {
     );
 
     // Contrast
-    $wp_customize->add_setting( 'standard_theme_presentation_options[contrast]',
+    $wp_customize->add_setting( 'lean_theme_presentation_options[contrast]',
         array(
             'default'        => '',
             'type'           => 'option',
@@ -32,11 +32,11 @@ function standard_customize_register( $wp_customize ) {
         )
     );
 
-    $wp_customize->add_control( 'standard_theme_presentation_options[contrast]',
+    $wp_customize->add_control( 'lean_theme_presentation_options[contrast]',
         array(
             'label'      => __( 'Contrast', 'standard' ),
-            'section'    => 'standard_theme_presentation_options',
-            'settings'   => 'standard_theme_presentation_options[contrast]',
+            'section'    => 'lean_theme_presentation_options',
+            'settings'   => 'lean_theme_presentation_options[contrast]',
             'type'       => 'select',
             'choices'    => array(
                 'light' => __( 'Light', 'standard' ),
@@ -46,7 +46,7 @@ function standard_customize_register( $wp_customize ) {
     );
 
     // Logo
-    $wp_customize->add_setting( 'standard_theme_presentation_options[logo]',
+    $wp_customize->add_setting( 'lean_theme_presentation_options[logo]',
         array(
             'default'        => '',
             'type'           => 'option',
@@ -57,17 +57,17 @@ function standard_customize_register( $wp_customize ) {
     $wp_customize->add_control(
         new WP_Customize_Image_Control(
             $wp_customize,
-            'standard_theme_presentation_options[logo]',
+            'lean_theme_presentation_options[logo]',
             array(
                 'label'		=>	__( 'Logo', 'standard' ),
-                'section'	=>	'standard_theme_presentation_options',
-                'settings'  => 'standard_theme_presentation_options[logo]'
+                'section'	=>	'lean_theme_presentation_options',
+                'settings'  => 'lean_theme_presentation_options[logo]'
             )
         )
     );
 
     // Layout
-    $wp_customize->add_setting( 'standard_theme_presentation_options[layout]',
+    $wp_customize->add_setting( 'lean_theme_presentation_options[layout]',
         array(
             'default'        => 'right_sidebar_layout',
             'type'           => 'option',
@@ -75,11 +75,11 @@ function standard_customize_register( $wp_customize ) {
         )
     );
 
-    $wp_customize->add_control( 'standard_theme_presentation_options[layout]',
+    $wp_customize->add_control( 'lean_theme_presentation_options[layout]',
         array(
             'label'      => __( 'Layout', 'themename' ),
-            'section'    => 'standard_theme_presentation_options',
-            'settings'   => 'standard_theme_presentation_options[layout]',
+            'section'    => 'lean_theme_presentation_options',
+            'settings'   => 'lean_theme_presentation_options[layout]',
             'type'       => 'select',
             'choices'    => array(
                 'left_sidebar_layout' 	=> __( 'Left Sidebar', 'standard' ),
@@ -90,7 +90,7 @@ function standard_customize_register( $wp_customize ) {
     );
 
     // Breadcrumbs
-    $wp_customize->add_setting( 'standard_theme_presentation_options[display_breadcrumbs]',
+    $wp_customize->add_setting( 'lean_theme_presentation_options[display_breadcrumbs]',
         array(
             'default'        => 'always',
             'type'           => 'option',
@@ -98,11 +98,11 @@ function standard_customize_register( $wp_customize ) {
         )
     );
 
-    $wp_customize->add_control( 'standard_theme_presentation_options[display_breadcrumbs]',
+    $wp_customize->add_control( 'lean_theme_presentation_options[display_breadcrumbs]',
         array(
             'label'      => __( 'Display Breadcrumbs', 'standard' ),
-            'section'    => 'standard_theme_presentation_options',
-            'settings'   => 'standard_theme_presentation_options[display_breadcrumbs]',
+            'section'    => 'lean_theme_presentation_options',
+            'settings'   => 'lean_theme_presentation_options[display_breadcrumbs]',
             'type'       => 'select',
             'choices'    => array(
                 'always' 		=>	__( 'Always', 'standard' ),
@@ -112,7 +112,7 @@ function standard_customize_register( $wp_customize ) {
     );
 
     // Featured Images
-    $wp_customize->add_setting( 'standard_theme_presentation_options[display_featured_images]',
+    $wp_customize->add_setting( 'lean_theme_presentation_options[display_featured_images]',
         array(
             'default'        => 'always',
             'type'           => 'option',
@@ -120,11 +120,11 @@ function standard_customize_register( $wp_customize ) {
         )
     );
 
-    $wp_customize->add_control( 'standard_theme_presentation_options[display_featured_images]',
+    $wp_customize->add_control( 'lean_theme_presentation_options[display_featured_images]',
         array(
             'label'      => __( 'Display Featured Images', 'themename' ),
-            'section'    => 'standard_theme_presentation_options',
-            'settings'   => 'standard_theme_presentation_options[display_featured_images]',
+            'section'    => 'lean_theme_presentation_options',
+            'settings'   => 'lean_theme_presentation_options[display_featured_images]',
             'type'       => 'select',
             'choices'    => array(
                 'always' 		=>	__( 'Always', 'standard' ),
@@ -243,7 +243,7 @@ function standard_customize_preview() { ?>
  */
 function standard_add_full_width_single_post() {
 
-    $options = get_option( 'standard_theme_presentation_options' );
+    $options = get_option( 'lean_theme_presentation_options' );
     if( 'full_width_layout' != $options['layout'] ) {
 
         add_meta_box(
@@ -455,10 +455,10 @@ function standard_add_admin_bar_option() {
         // Layout Options
         $wp_admin_bar->add_node(
             array(
-                'id'		=>	'standard_theme_presentation_options',
+                'id'		=>	'lean_theme_presentation_options',
                 'title'		=>	__( 'Presentation', 'standard' ),
                 'parent'	=>	'standard_options',
-                'href'		=>	site_url() . '/wp-admin/admin.php?page=theme_options&tab=standard_theme_presentation_options'
+                'href'		=>	site_url() . '/wp-admin/admin.php?page=theme_options&tab=lean_theme_presentation_options'
             )
         );
 
@@ -864,7 +864,7 @@ function standard_infinite_scroll() {
  * @since	3.0
  * @version	3.2
  */
-$options = get_option( 'standard_theme_presentation_options' );
+$options = get_option( 'lean_theme_presentation_options' );
 if( 'full_width_layout' == $options['layout'] ) {
 
     if ( ! isset( $content_width ) ) {

@@ -21,7 +21,7 @@ function lean_add_theme_stylesheets() {
     wp_enqueue_style( 'lean', get_stylesheet_directory_uri() . '/style.css', false, LEAN_THEME_VERSION );
 
     // contrast
-    $options = get_option( 'standard_theme_presentation_options' );
+    $options = get_option( 'lean_theme_presentation_options' );
     if( 'dark' == $options['contrast'] ) {
         wp_enqueue_style( 'lean-contrast', get_template_directory_uri() . '/css/theme.contrast-light.css', array( 'lean' ), LEAN_THEME_VERSION );
     } // end if
