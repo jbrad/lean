@@ -33,7 +33,7 @@
 	                    	<?php } elseif ( is_author() ) { ?>
 	                    	
 	                    		<?php 
-	                    			$author_data = standard_is_using_pretty_permalinks() ? 
+	                    			$author_data = lean_is_using_pretty_permalinks() ?
 	                    				get_userdata( get_query_var( 'author' ) )  : 
 	                    				get_userdata( user_trailingslashit( get_query_var( 'author' ) ) );
 	                    			

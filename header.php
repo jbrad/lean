@@ -78,7 +78,7 @@
     <?php exit; ?>
 <?php } // end if ?>
 
-<?php get_template_part( 'lib/breadcrumbs/standard_breadcrumbs' ); ?>
+<?php get_template_part( 'lib/breadcrumbs/lean_breadcrumbs' ); ?>
 
 <?php if( has_nav_menu( 'menu_above_logo' ) ) { ?>
     <nav class="menu-navigation navbar-inverse navbar navbar-default" role="navigation">

@@ -23,7 +23,7 @@ if( function_exists( 'yoast_breadcrumb' ) ) {
 	
 	if( 'always' == $display_breadcrumbs ) {
 		if( '' !== get_the_ID() ) {
-			echo Standard_Breadcrumbs::get_breadcrumb_trail( get_the_ID() );
+			echo Lean_Breadcrumbs::get_breadcrumb_trail( get_the_ID() );
 		} // end if
 	} // end if
  

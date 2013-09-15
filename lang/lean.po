@@ -819,28 +819,28 @@ msgstr ""
 msgid "most used tags"
 msgstr ""
 
-#: ../lib/breadcrumbs/standard_breadcrumbs.php:55
-#: ../lib/breadcrumbs/standard_breadcrumbs.php:57
-#: ../lib/breadcrumbs/standard_breadcrumbs.php:59
+#: ../lib/breadcrumbs/lean_breadcrumbs.php:55
+#: ../lib/breadcrumbs/lean_breadcrumbs.php:57
+#: ../lib/breadcrumbs/lean_breadcrumbs.php:59
 msgid "Archives"
 msgstr ""
 
-#: ../lib/breadcrumbs/standard_breadcrumbs.php:55
-#: ../lib/breadcrumbs/standard_breadcrumbs.php:57
-#: ../lib/breadcrumbs/standard_breadcrumbs.php:59
-#: ../lib/breadcrumbs/standard_breadcrumbs.php:64
+#: ../lib/breadcrumbs/lean_breadcrumbs.php:55
+#: ../lib/breadcrumbs/lean_breadcrumbs.php:57
+#: ../lib/breadcrumbs/lean_breadcrumbs.php:59
+#: ../lib/breadcrumbs/lean_breadcrumbs.php:64
 msgid "/"
 msgstr ""
 
-#: ../lib/breadcrumbs/standard_breadcrumbs.php:64
+#: ../lib/breadcrumbs/lean_breadcrumbs.php:64
 msgid "Search"
 msgstr ""
 
-#: ../lib/breadcrumbs/standard_breadcrumbs.php:93
+#: ../lib/breadcrumbs/lean_breadcrumbs.php:93
 msgid "Home"
 msgstr ""
 
-#: ../lib/breadcrumbs/standard_breadcrumbs.php:292
+#: ../lib/breadcrumbs/lean_breadcrumbs.php:292
 msgid "[ No search query. ]"
 msgstr ""
 

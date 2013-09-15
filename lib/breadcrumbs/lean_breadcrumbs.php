@@ -1,19 +1,19 @@
 <?php
 
 /**
- * Standard Breadcrumbs is a class that is responsible for creating SEO-friendly
+ * Lean Breadcrumbs is a class that is responsible for creating SEO-friendly
  * breadcrumbs for blog posts.
  *
  * The class will generate the breadcrumbs in the format of:
  * 	Home / Category / Page Title
  * with links to each page throughout the hierarchy.
  *
- * @package		Standard
+ * @package		Lean
  * @subpackage	Breadcrumbs
  * @version 	1.0
  * @since		3.0
  */
-class Standard_Breadcrumbs {
+class Lean_Breadcrumbs {
 
 	/*--------------------------------------------------------*
 	 * Public Functions
@@ -52,16 +52,16 @@ class Standard_Breadcrumbs {
 			} elseif( is_archive() ) {
 
 				if( is_author() ) {
-					$str_breadcrumb .= self::get_home_link() . __( '<li>Archives</li>', 'standard' ) . self::get_author_display_name();
+					$str_breadcrumb .= self::get_home_link() . __( '<li>Archives</li>', 'lean' ) . self::get_author_display_name();
 				} elseif( '' != get_query_var( 'year' ) || '' != get_query_var( 'monthnum' ) || '' != get_query_var( 'm' ) || '' != get_query_var( 'day' ) ) {
-					$str_breadcrumb .= self::get_home_link() . __( '<li>Archives</li>', 'standard' ) . self::get_date_labels();
+					$str_breadcrumb .= self::get_home_link() . __( '<li>Archives</li>', 'lean' ) . self::get_date_labels();
 				} else {
-					$str_breadcrumb .= self::get_home_link() . __( '<li>Archives</li>', 'standard' ) . self::get_category_links();
+					$str_breadcrumb .= self::get_home_link() . __( '<li>Archives</li>', 'lean' ) . self::get_category_links();
 				} // end if
 				
 			} else if( is_search() ) {
 			
-				$str_breadcrumb .= self::get_home_link() . __( 'Search', 'standard' ) . ' ' . __( '/', 'standard' ) . ' ' . self::get_search_query();
+				$str_breadcrumb .= self::get_home_link() . __( 'Search', 'lean' ) . ' ' . __( '/', 'lean' ) . ' ' . self::get_search_query();
 				
 			} // end if/else
 			
@@ -72,7 +72,7 @@ class Standard_Breadcrumbs {
 			
 		} // end if
 		
-	} // end standard_breadcrumbs
+	} // end lean_breadcrumbs
 
 	/*--------------------------------------------------------*
 	 * Private Functions
@@ -90,7 +90,7 @@ class Standard_Breadcrumbs {
 		$home_link = '';
 		
 		$home_link .= '<li class="home-breadcrumb">';
-			$home_link .= '<a href="' . home_url() . '" itemprop="url"><span itemprop="title">' . __( 'Home', 'standard' ) . '</span></a>';
+			$home_link .= '<a href="' . home_url() . '" itemprop="url"><span itemprop="title">' . __( 'Home', 'lean' ) . '</span></a>';
 		$home_link .= '</li>';
 		
 		return $home_link;
@@ -284,7 +284,7 @@ class Standard_Breadcrumbs {
 	 */
 	private static function get_search_query() { 
 	
-		$query = __( '[ No search query. ]', 'standard' );
+		$query = __( '[ No search query. ]', 'lean' );
 		if( isset( $_GET['s'] ) ) {
 			$query = $_GET['s'];
 		} // end if/else
@@ -306,7 +306,7 @@ class Standard_Breadcrumbs {
 		
 		// If we're using permalinks, then we need to add user_trailingslashit;
 		// Otherwise, we use the old way of doing it.
-		if( standard_is_using_pretty_permalinks() ) { 		
+		if( lean_is_using_pretty_permalinks() ) {
 			$author_data = get_userdata( get_query_var( 'author' ) );
 		} else {
 			$author_data = get_userdata( user_trailingslashit( get_query_var( 'author' ) ) );			

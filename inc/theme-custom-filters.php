@@ -1061,12 +1061,12 @@ function standard_has_header_text() {
  * @since	3.1
  * @version	3.1
  */
-function standard_is_using_pretty_permalinks() {
+function lean_is_using_pretty_permalinks() {
 
     global $wp_rewrite;
     return '/%postname%/' == $wp_rewrite->permalink_structure;
 
-} // end standard_is_using_pretty_premalinks
+} // end lean_is_using_pretty_premalinks
 
 /**
  * Determines if the current version of Standard is the most current version.
