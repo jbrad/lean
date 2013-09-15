@@ -24,8 +24,8 @@
         <?php } // end if ?>
         <?php global $post; ?>
         <?php if( using_native_seo() && ( ( is_single() || is_page() ) && ( 0 != strlen( trim( ( $google_plus = get_user_meta( $post->post_author, 'google_plus', true ) ) ) ) ) ) ) { ?>
-            <?php if( false != standard_is_gplusto_url( $google_plus ) ) { ?>
-                <?php $google_plus = standard_get_google_plus_from_gplus( $google_plus ); ?>
+            <?php if( false != lean_is_gplusto_url( $google_plus ) ) { ?>
+                <?php $google_plus = lean_get_google_plus_from_gplus( $google_plus ); ?>
             <?php } // end if ?>
             <link rel="author" href="<?php echo trailingslashit( $google_plus ); ?>"/>
         <?php } // end if ?>
@@ -105,7 +105,7 @@
                     );
                     ?>
 
-                    <?php $social_options = get_option( 'standard_theme_social_options' ); ?>
+                    <?php $social_options = get_option( 'lean_theme_social_options' ); ?>
                     <?php if( isset( $social_options['active-social-icons'] ) && '' != $social_options['active-social-icons'] ) { ?>
                         <?php get_template_part( 'social-networking' ); ?>
                     <?php } // end if ?>
@@ -158,14 +158,14 @@ $head_class = ! empty( $header_image ) ? 'imageyup' : 'imageless';
                     <div id="logo">
 
                         <?php // If a logo has been set in the Standard Presentation options, display it ?>
-                        <?php if( standard_has_logo() ) { ?>
+                        <?php if( lean_has_logo() ) { ?>
 
                             <a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php bloginfo( 'name' ); ?>" rel="home">
                                 <img src="<?php echo $presentation_options['logo']; ?>" alt="<?php bloginfo( 'name' ); ?>" id="header-logo" />
                             </a>
 
                             <?php // Otherwise, we'll display the header text ?>
-                        <?php } else if( standard_has_header_text() ) { ?>
+                        <?php } else if( lean_has_header_text() ) { ?>
 
                             <?php // If the user is on the front page, archive page, or one of the post formats without titles, we render h1's. ?>
                             <?php if( is_home() || is_archive() || 'video' == get_post_format() || 'image' == get_post_format() || '' == get_the_title() ) { ?>

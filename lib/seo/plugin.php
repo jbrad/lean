@@ -83,9 +83,9 @@ class Standard_SEO {
 
 				// Determine if the user is using a gplus.to address
 				$google_plus_url = user_trailingslashit( get_user_meta( $current_user->ID, 'google_plus', true ) );
-				if( standard_is_gplusto_url ( $google_plus_url ) ) {
+				if( lean_is_gplusto_url ( $google_plus_url ) ) {
 
-					$google_plus_url = standard_get_google_plus_from_gplus( $google_plus_url );
+					$google_plus_url = lean_get_google_plus_from_gplus( $google_plus_url );
 
 					// Read the URL into an array
 					$google_plus_id = explode( '/',  trailingslashit( $google_plus_url ) );

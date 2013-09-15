@@ -61,7 +61,7 @@ function standard_theme_menu() {
         __( 'Social', 'standard' ),
         __( 'Social', 'standard' ),
         'administrator',
-        'theme_options&tab=standard_theme_social_options',
+        'theme_options&tab=lean_theme_social_options',
         'standard_theme_options_display'
     );
 
@@ -482,7 +482,7 @@ function get_standard_theme_default_social_options() {
         'available-social-icons' 	=> ''
     );
 
-    return apply_filters ( 'standard_theme_social_options', $defaults );
+    return apply_filters ( 'lean_theme_social_options', $defaults );
 
 } // end get_standard_theme_default_social_options
 
@@ -496,8 +496,8 @@ function get_standard_theme_default_social_options() {
 function standard_setup_theme_social_options() {
 
     // If the theme options don't exist, create them.
-    if( false == get_option( 'standard_theme_social_options' ) ) {
-        add_option( 'standard_theme_social_options', apply_filters( 'standard_theme_default_social_options', get_standard_theme_default_social_options() ) );
+    if( false == get_option( 'lean_theme_social_options' ) ) {
+        add_option( 'lean_theme_social_options', apply_filters( 'standard_theme_default_social_options', get_standard_theme_default_social_options() ) );
     } // end if
 
     // Look to see if any new icons have been added to the library since the last version of the theme
@@ -508,15 +508,15 @@ function standard_setup_theme_social_options() {
     add_settings_section(
         'social',
         '',
-        'standard_theme_social_options_display',
-        'standard_theme_social_options'
+        'lean_theme_social_options_display',
+        'lean_theme_social_options'
     );
 
     add_settings_field(
         'available_social_icons',
         __( 'Available Icons', 'standard' ),
         'standard_available_icons_display',
-        'standard_theme_social_options',
+        'lean_theme_social_options',
         'social'
     );
 
@@ -524,14 +524,14 @@ function standard_setup_theme_social_options() {
         'active_social_icons',
         __( 'Active Icons', 'standard' ),
         'standard_active_icons_display',
-        'standard_theme_social_options',
+        'lean_theme_social_options',
         'social'
     );
 
     register_setting(
-        'standard_theme_social_options',
-        'standard_theme_social_options',
-        'standard_theme_social_options_validate'
+        'lean_theme_social_options',
+        'lean_theme_social_options',
+        'lean_theme_social_options_validate'
     );
 
 } // end standard_setup_theme_social_options
@@ -543,7 +543,7 @@ add_action( 'admin_init', 'standard_setup_theme_social_options' );
  * @since	3.0
  * @version	3.2
  */
-function standard_theme_social_options_display() {
+function lean_theme_social_options_display() {
 
     _e( 'This section controls social network icons in the site header. Drag, drop, and position desired icons from the Icon Library to the Active Icons area. This section controls social network icons in the site header. Drag, drop, and position desired icons from the Icon Library to the Active Icons area. You can also delete all icons and <a href="javascript:;" id="reset-social-icons" class="ad_delete">restore defaults.</a>', 'standard' );
 
@@ -594,7 +594,7 @@ function standard_theme_social_options_display() {
 
     echo $html;
 
-} // end standard_theme_social_options_display
+} // end lean_theme_social_options_display
 
 /**
  * Callback function used in the Ajax request for generating the Social Icons.
@@ -612,7 +612,7 @@ function standard_save_social_icons( ) {
             'active-social-icons' 		=> 	$_POST['activeSocialIcons']
         );
 
-        if( update_option( 'standard_theme_social_options', standard_theme_social_options_validate( $input ) ) ) {
+        if( update_option( 'lean_theme_social_options', lean_theme_social_options_validate( $input ) ) ) {
             die( '0' );
         } else {
             die( '1' );
@@ -633,7 +633,7 @@ add_action( 'wp_ajax_standard_save_social_icons', 'standard_save_social_icons' )
  */
 function standard_reset_social_icons( ) {
     if( wp_verify_nonce( $_REQUEST['nonce'], 'standard_reset_social_icons_nonce' ) ) {
-        die( delete_option( 'standard_theme_social_options' ) );
+        die( delete_option( 'lean_theme_social_options' ) );
     } // end if/else
 } // end standard_save_social_icons
 add_action( 'wp_ajax_standard_reset_social_icons', 'standard_reset_social_icons' );
@@ -678,9 +678,9 @@ function standard_display_delete_social_icon_message() {
  */
 function standard_available_icons_display() {
 
-    $options = get_option( 'standard_theme_social_options' );
+    $options = get_option( 'lean_theme_social_options' );
 
-    $html = '<input type="text" id="available-social-icons" name="standard_theme_social_options[available-social-icons]" value="' . $options['available-social-icons'] . '" />';
+    $html = '<input type="text" id="available-social-icons" name="lean_theme_social_options[available-social-icons]" value="' . $options['available-social-icons'] . '" />';
     $html .= '<span id="standard-delete-social-icon-nonce" class="">' . wp_create_nonce( 'standard-delete-social-icon-nonce' ) . '</span>';
 
     echo $html;
@@ -696,8 +696,8 @@ function standard_available_icons_display() {
  */
 function standard_active_icons_display() {
 
-    $options = get_option( 'standard_theme_social_options' );
-    echo '<input type="text" id="active-social-icons" name="standard_theme_social_options[active-social-icons]" value="' . $options['active-social-icons'] . '" />';
+    $options = get_option( 'lean_theme_social_options' );
+    echo '<input type="text" id="active-social-icons" name="lean_theme_social_options[active-social-icons]" value="' . $options['active-social-icons'] . '" />';
 
 } // end standard_active_icons_display
 
@@ -711,7 +711,7 @@ function standard_active_icons_display() {
  * @since 	3.0
  * @version	3.2
  */
-function standard_theme_social_options_validate( $input ) {
+function lean_theme_social_options_validate( $input ) {
 
     $output = $defaults = get_standard_theme_default_social_options();
 
@@ -723,7 +723,7 @@ function standard_theme_social_options_validate( $input ) {
 
     } // end foreach
 
-    return apply_filters( 'standard_theme_social_options_validate', $output, $input, $defaults );
+    return apply_filters( 'lean_theme_social_options_validate', $output, $input, $defaults );
 
 } // end standard_theme_options_validate
 
@@ -741,7 +741,7 @@ function standard_theme_social_options_validate( $input ) {
 function standard_find_new_social_icons() {
 
     // Be sure to look for any additional social icons
-    $social_options = get_option( 'standard_theme_social_options' );
+    $social_options = get_option( 'lean_theme_social_options' );
 
     if( $handle = opendir( get_template_directory() . '/images/social/small' ) ) {
 
@@ -767,7 +767,7 @@ function standard_find_new_social_icons() {
         $social_options['available-social-icons'] = $available_icons;
 
         // Update the option
-        update_option( 'standard_theme_social_options', $social_options );
+        update_option( 'lean_theme_social_options', $social_options );
 
     } // end if
 
@@ -1386,7 +1386,7 @@ function standard_theme_options_display() {
         <h2 class="nav-tab-wrapper">
             <a class="nav-tab <?php echo $active_tab == 'lean_theme_global_options' ? 'nav-tab-active' : ''; ?>" href="?page=theme_options&amp;tab=lean_theme_global_options"><?php _e( 'Global', 'standard' ); ?></a>
             <a class="nav-tab <?php echo $active_tab == 'lean_theme_presentation_options' ? 'nav-tab-active' : ''; ?>" href="?page=theme_options&amp;tab=lean_theme_presentation_options"><?php _e( 'Presentation', 'standard' ); ?></a>
-            <a class="nav-tab <?php echo $active_tab == 'standard_theme_social_options' ? 'nav-tab-active' : ''; ?>" href="?page=theme_options&amp;tab=standard_theme_social_options"><?php _e( 'Social', 'standard' ); ?></a>
+            <a class="nav-tab <?php echo $active_tab == 'lean_theme_social_options' ? 'nav-tab-active' : ''; ?>" href="?page=theme_options&amp;tab=lean_theme_social_options"><?php _e( 'Social', 'standard' ); ?></a>
             <a class="nav-tab <?php echo $active_tab == 'standard_theme_publishing_options' ? 'nav-tab-active' : ''; ?>" href="?page=theme_options&amp;tab=standard_theme_publishing_options"><?php _e( 'Publishing', 'standard' ); ?></a>
         </h2>
 
@@ -1405,10 +1405,10 @@ function standard_theme_options_display() {
                 settings_fields( 'lean_theme_presentation_options' );
                 do_settings_sections( 'lean_theme_presentation_options' );
 
-            } else if( 'standard_theme_social_options' == $active_tab ) {
+            } else if( 'lean_theme_social_options' == $active_tab ) {
 
-                settings_fields( 'standard_theme_social_options' );
-                do_settings_sections( 'standard_theme_social_options' );
+                settings_fields( 'lean_theme_social_options' );
+                do_settings_sections( 'lean_theme_social_options' );
 
             } else {
 

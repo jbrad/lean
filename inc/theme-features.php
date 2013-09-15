@@ -465,10 +465,10 @@ function standard_add_admin_bar_option() {
         // Social Options
         $wp_admin_bar->add_node(
             array(
-                'id'		=>	'standard_theme_social_options',
+                'id'		=>	'lean_theme_social_options',
                 'title'		=>	__( 'Social', 'standard' ),
                 'parent'	=>	'standard_options',
-                'href'		=>	site_url() . '/wp-admin/admin.php?page=theme_options&tab=standard_theme_social_options'
+                'href'		=>	site_url() . '/wp-admin/admin.php?page=theme_options&tab=lean_theme_social_options'
             )
         );
 

@@ -7,9 +7,9 @@
  * @since	3.1
  * @version	3.1
  */
-function standard_is_gplusto_url( $url ) {
+function lean_is_gplusto_url( $url ) {
 	return false != stristr( $url, 'gplus.to' );
-} // end standard_is_gplusto_url
+} // end lean_is_gplusto_url
 
 /**
  * Determines if the incoming URL is a Google+ vanity URL.
@@ -31,7 +31,7 @@ function standard_is_google_plus_vanity_url( $url ) {
  * @since	3.1
  * @version	3.1
  */
-function standard_get_google_plus_from_gplus( $url ) {
+function lean_get_google_plus_from_gplus( $url ) {
 
 	$gplus_url = $url;
 
@@ -51,7 +51,7 @@ function standard_get_google_plus_from_gplus( $url ) {
 
 	return user_trailingslashit( $gplus_url );
 
-} // standard_get_google_plus_from_gplus
+} // lean_get_google_plus_from_gplus
 
 /**
  * Echos the publisher's Google Plus URL to the header of the page, if it's defined.
@@ -66,8 +66,8 @@ function standard_google_plus() {
 	$html = '';
 	if( using_native_seo() && ( ( is_single() || is_page() ) && ( 0 != strlen( trim( ( $google_plus = get_user_meta( $post->post_author, 'google_plus', true ) ) ) ) ) ) ) {
 
-		if( false != standard_is_gplusto_url( $google_plus ) ) {
-			$google_plus = standard_get_google_plus_from_gplus( $google_plus );
+		if( false != lean_is_gplusto_url( $google_plus ) ) {
+			$google_plus = lean_get_google_plus_from_gplus( $google_plus );
 		} // end if
 
 		$html = '<link rel="author" href="' . trailingslashit( $google_plus ) . '"/>';

@@ -26,7 +26,7 @@ function standard_activate_theme() {
 
             // Remove the Preview settings. TODO remove this in 3.2.
             delete_option( 'standard_theme_general_options' );
-            delete_option( 'standard_theme_social_options' );
+            delete_option( 'lean_theme_social_options' );
             delete_option( 'standard_theme_layout_options' );
 
             // Set defaults for Standard
@@ -1030,7 +1030,7 @@ function standard_get_rss_feed_url() {
  * @since	3.0
  * @version	3.0
  */
-function standard_has_logo() {
+function lean_has_logo() {
 
     $presentation_options = get_option( 'lean_theme_presentation_options' );
 
@@ -1041,7 +1041,7 @@ function standard_has_logo() {
 
     return $logo;
 
-} // end standard_has_logo
+} // end lean_has_logo
 
 /**
  * Determines whether or not the user has opted to display header text or not.
@@ -1050,9 +1050,9 @@ function standard_has_logo() {
  * @since	3.0
  * @version	3.0
  */
-function standard_has_header_text() {
+function lean_has_header_text() {
     return ! ( 'blank' == get_theme_mod( 'header_textcolor', HEADER_TEXTCOLOR ) || '' == get_theme_mod( 'header_textcolor', HEADER_TEXTCOLOR ) );
-} // end standard_has_header_text
+} // end lean_has_header_text
 
 /**
  * Determines whether or not the user is using pretty permalinks.

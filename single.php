@@ -37,7 +37,7 @@ if( 1 == get_post_meta( get_the_ID(), 'standard_seo_post_level_layout', true ) )
 			
 						<?php get_template_part( 'pagination '); ?>
 
-						<?php $social_options = get_option( 'standard_theme_social_options' ); ?>
+						<?php $social_options = get_option( 'lean_theme_social_options' ); ?>
                         <?php if( 'always' == $display_author_box ) { ?>
                             <div id="author-box" class="well clearfix">
                                 <div class="author-box-image">
