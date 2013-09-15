@@ -11,17 +11,15 @@ module.exports = function(grunt) {
                 files: [
                     {src: [
                         '**',
-                        '!css/less/*',
-                        '!lib/*/css/less/*',
+                        '!**css/lib/**',
+                        '!**css/less/**',
                         '!Gruntfile.js',
                         '!codekit-config.json',
                         '!package.json',
                         '!bower.json',
                         '!*.md',
                         '!js/dev/*',
-                        '!**js/lib/bootstrap/**',
-                        '!**js/lib/fitvids/**',
-                        '!**js/lib/js-md5/**',
+                        '!**js/lib/**',
                         '!**/node_modules/**',
                         '!**/css/lib/less/**',
                         '!lib/**/js/dev/*'
@@ -60,17 +58,46 @@ module.exports = function(grunt) {
                         '**',
                         '!**/node_modules/**'
                     ],
-                        dest: 'lean',
+                        dest: 'lean'
                     }
                 ]
+            }
+        },
+
+        concat: {
+            options: {
+                stripBanners: false
             },
+            bootstrap: {
+                src: [
+                    'js/lib/twitter/transition.js',
+                    'js/lib/twitter/alert.js',
+                    'js/lib/twitter/button.js',
+                    'js/lib/twitter/carousel.js',
+                    'js/lib/twitter/collapse.js',
+                    'js/lib/twitter/dropdown.js',
+                    'js/lib/twitter/modal.js',
+                    'js/lib/twitter/tooltip.js',
+                    'js/lib/twitter/popover.js',
+                    'js/lib/twitter/scrollspy.js',
+                    'js/lib/twitter/tab.js',
+                    'js/lib/twitter/affix.js'
+                ],
+                dest: 'js/lib/bootstrap.min.js'
+            }
         },
 
         uglify: {
             theme: {
+                options: {
+                    beautify: false,
+                    mangle: true
+                },
                 files: {
                     'js/theme.main.min.js': [
-                        'js/dev/theme.*.js'
+                        'js/dev/theme.*.js',
+                        'js/lib/fitvids/*.js',
+                        'js/lib/bootstrap.min.js'
                     ]
                 }
             },
@@ -85,6 +112,15 @@ module.exports = function(grunt) {
                 }
             },
 
+            md5: {
+                options: {
+                    preserveComments: 'some'
+                },
+                files: {
+                    'js/md5.min.js': ['js/lib/js-md5/*.js']
+                }
+            },
+
             widgets: {
                 files: {
                     'lib/google-custom-search/js/admin.min.js': ['lib/google-custom-search/js/dev/admin.js'],
@@ -93,33 +129,6 @@ module.exports = function(grunt) {
                     'lib/lean-ad-125x125/js/admin.min.js': ['lib/lean-ad-125x125/js/dev/admin.js'],
                     'lib/lean-ad-300x250/js/admin.min.js': ['lib/lean-ad-300x250/js/dev/admin.js'],
                     'lib/lean-ad-billboard/js/admin.min.js': ['lib/lean-ad-billboard/js/dev/admin.js']
-                }
-            },
-
-            boostrap: {
-                options: {
-                    preserveComments: 'some'
-                },
-                files: {
-                    'js/lib/bootstrap.min.js': ['js/lib/twitter/*.js']
-                }
-            },
-
-            fitvids: {
-                options: {
-                    preserveComments: 'some'
-                },
-                files: {
-                    'js/lib/jquery.fitvids.js': ['js/lib/fitvids/*.js']
-                }
-            },
-
-            md5: {
-                options: {
-                    preserveComments: 'some'
-                },
-                files: {
-                    'js/lib/md5.js': ['js/lib/js-md5/*.js']
                 }
             }
 
@@ -318,12 +327,13 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-contrib-compress');
+    grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-bower-task');
     grunt.loadNpmTasks('grunt-contrib-imagemin');
     grunt.loadNpmTasks('grunt-rename');
 
     grunt.registerTask('default', ['watch']);
     grunt.registerTask('setup', ['bower', 'less:theme', 'less:plugins', 'less:bootstrap', 'jshint', 'watch']);
-    grunt.registerTask('build', ['less:production', 'jshint', 'uglify', 'imagemin', 'compress']);
+    grunt.registerTask('build', ['less:production', 'jshint', 'concat', 'uglify', 'imagemin', 'compress:lean']);
 
 };

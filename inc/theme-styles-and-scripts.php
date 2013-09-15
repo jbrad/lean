@@ -37,21 +37,15 @@ add_action( 'wp_enqueue_scripts', 'lean_add_theme_stylesheets', 999 );
  */
 function lean_add_theme_scripts() {
 
-    // bootstrap
-    wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/js/lib/bootstrap.min.js', array( 'jquery' ), LEAN_THEME_VERSION );
-
-    // fitvid
-    wp_enqueue_script( 'fitvid', get_template_directory_uri() . '/js/lib/jquery.fitvids.js', false, LEAN_THEME_VERSION );
+    wp_enqueue_script( 'theme-main', get_template_directory_uri() . '/js/theme.main.min.js', array( 'jquery' ), LEAN_THEME_VERSION );
 
     // comment-reply
     if ( is_singular() && get_option( 'thread_comments' ) ) {
 
         wp_enqueue_script( 'comment-reply' );
-        wp_enqueue_script( 'md5', get_template_directory_uri() . '/js/lib/md5.js', false, LEAN_THEME_VERSION );
+        wp_enqueue_script( 'md5', get_template_directory_uri() . '/js/md5.min.js', false, LEAN_THEME_VERSION );
 
     } // end if
-
-    wp_enqueue_script( 'theme-main', get_template_directory_uri() . '/js/theme.main.min.js', false, LEAN_THEME_VERSION );
 
 } // end add_theme_scripts
 add_action( 'wp_enqueue_scripts', 'lean_add_theme_scripts' );
