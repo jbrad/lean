@@ -891,7 +891,7 @@ if( ! function_exists('lean_comment_form') ) {
  * @version	3.0
  */
 
-function standard_truncate_text( $string, $character_limit = 50, $truncation_indicator = '...' ) {
+function lean_truncate_text( $string, $character_limit = 50, $truncation_indicator = '...' ) {
 
     $truncated = null == $string ? '' : $string;
     if ( strlen( $string ) >= ( $character_limit + 1 ) ) {
@@ -909,7 +909,7 @@ function standard_truncate_text( $string, $character_limit = 50, $truncation_ind
 
     return $truncated;
 
-} // end standard_truncate_text
+} // end lean_truncate_text
 
 /**
  * If Lean is set to online mode, this function loads and redirects all traffic to the
