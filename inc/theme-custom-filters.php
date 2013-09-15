@@ -818,7 +818,7 @@ function standard_get_link_post_format_attribute( $attr ) {
  * @since	3.0
  * @version	3.2
  */
-function standard_google_custom_search_is_active() {
+function lean_google_custom_search_is_active() {
 
     $gcse_is_active = false;
 
@@ -839,7 +839,7 @@ function standard_google_custom_search_is_active() {
 
     return $gcse_is_active;
 
-} // end standard_google_custom_search_is_active
+} // end lean_google_custom_search_is_active
 
 if( ! function_exists( 'standard_comment_form' ) ) {
     /**

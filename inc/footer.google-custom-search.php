@@ -8,9 +8,9 @@
  */
 function standard_google_custom_search() {
 
-	if( standard_google_custom_search_is_active() ) {
+	if( lean_google_custom_search_is_active() ) {
 
-		$gcse = get_option( 'widget_standard-google-custom-search' );
+		$gcse = get_option( 'widget_lean-google-custom-search' );
 		$gcse = array_shift( array_values ( $gcse ) );
 
 	?>
