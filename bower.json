@@ -5,7 +5,8 @@
     "fitvids": "*",
     "js-md5": "*",
     "font-awesome": "~3.2.1",
-    "twitter": "~3.0.0"
+    "twitter": "~3.0.0",
+    "html5shiv-dist": "~3.6.2"
   },
   "exportsOverride": {
     "twitter": {
@@ -32,6 +33,11 @@
     "js-md5": {
       "../js/lib": [
         "js/md5.js"
+      ]
+    },
+    "html5shiv-dist": {
+      "../js/lib": [
+        "*.js"
       ]
     }
   }

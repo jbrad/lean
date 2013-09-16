@@ -121,6 +121,15 @@ module.exports = function(grunt) {
                 }
             },
 
+            shiv: {
+                options: {
+                    preserveComments: 'some'
+                },
+                files: {
+                    'js/html5shiv.min.js': ['js/lib/html5shiv-dist/*.js']
+                }
+            },
+
             widgets: {
                 files: {
                     'lib/google-custom-search/js/admin.min.js': ['lib/google-custom-search/js/dev/admin.js'],

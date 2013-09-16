@@ -8,7 +8,10 @@
  */
 ?>
     <!DOCTYPE html>
-    <!--[if IE 8 ]><html id="ie8" <?php language_attributes(); ?>><![endif]-->
+    <!--[if IE 8 ]>
+        <html id="ie8" <?php language_attributes(); ?>>
+        <script type="text/javascript" src="<?php echo get_template_directory_uri();?>/js/html5shiv.min.js"></script>
+    <![endif]-->
     <!--[if (gt IE 9)|!(IE)]><!--><html <?php language_attributes(); ?>><!--<![endif]-->
     <head>
         <meta charset="UTF-8">
