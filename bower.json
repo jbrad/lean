@@ -6,7 +6,8 @@
     "js-md5": "*",
     "font-awesome": "~3.2.1",
     "twitter": "~3.0.0",
-    "html5shiv-dist": "~3.6.2"
+    "html5shiv-dist": "~3.6.2",
+    "respond": "~1.3.0"
   },
   "exportsOverride": {
     "twitter": {
@@ -38,6 +39,11 @@
     "html5shiv-dist": {
       "../js/lib": [
         "*.js"
+      ]
+    },
+    "respond": {
+      "../js/lib": [
+        "*.min.js"
       ]
     }
   }

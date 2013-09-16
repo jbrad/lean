@@ -10,7 +10,11 @@
     <!DOCTYPE html>
     <!--[if IE 8 ]>
         <html id="ie8" <?php language_attributes(); ?>>
+    <![endif]-->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
         <script type="text/javascript" src="<?php echo get_template_directory_uri();?>/js/html5shiv.min.js"></script>
+        <script type="text/javascript" src="<?php echo get_template_directory_uri();?>/js/respond.min.js"></script>
     <![endif]-->
     <!--[if (gt IE 9)|!(IE)]><!--><html <?php language_attributes(); ?>><!--<![endif]-->
     <head>

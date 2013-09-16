@@ -121,6 +121,15 @@ module.exports = function(grunt) {
                 }
             },
 
+            respond: {
+                options: {
+                    preserveComments: 'some'
+                },
+                files: {
+                    'js/respond.min.js': ['js/lib/respond/*.js']
+                }
+            },
+
             shiv: {
                 options: {
                     preserveComments: 'some'
