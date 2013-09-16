@@ -8,7 +8,7 @@
  */
 ?>
 
-<div id="post-<?php the_ID(); ?>" <?php post_class( 'post format-gallery' ); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class( 'post format-gallery' ); ?>>
 
     <div id="content-<?php the_ID(); ?>" class="entry-content clearfix">
             <?php if( function_exists( 'get_post_gallery' ) ) { ?>
@@ -34,14 +34,14 @@
 
                         $indicators .= '"></li>';
 
-                        $slides .= '<div class="item';
+                        $slides .= '<figure class="item';
                         if ($index == 0) {
                             $slides .= ' active';
                         }
                         $slides .= '"><img src="';
                         $slides .= $image;
                         $slides .= '"></a>';
-                        $slides .= '</div>';
+                        $slides .= '</figure>';
 
                         $index ++;
                     }
@@ -78,9 +78,9 @@
 
             <?php if( is_multi_author() ) { ?>
                 <span class="the-author">&nbsp;<?php _e( 'Posted by', 'lean' ); ?>&nbsp;<a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>" title="<?php echo get_the_author_meta( 'display_name' ); ?>"><?php echo the_author_meta( 'display_name' ); ?></a></span>
-                <span class="the-time updated"><?php _e( 'on', 'lean' ); ?>&nbsp;<?php echo get_the_time( get_option( 'date_format' ) ); ?></span>
+                <time class="the-time updated"><?php _e( 'on', 'lean' ); ?>&nbsp;<?php echo get_the_time( get_option( 'date_format' ) ); ?></time>
             <?php } else { ?>
-                <?php printf( '<span class="the-time updated">' . __( 'Posted on %1$s', 'lean' ) . '</span>', get_the_time( get_option( 'date_format' ) ) ); ?>
+                <?php printf( '<time class="the-time updated">' . __( 'Posted on %1$s', 'lean' ) . '</time>', get_the_time( get_option( 'date_format' ) ) ); ?>
             <?php } // end if ?>
 
             <?php $category_list = get_the_category_list( __( ', ', 'lean' ) ); ?>
@@ -103,4 +103,4 @@
         </div><!-- /meta-comment-link -->
 
     </div><!-- /.post-meta -->
-</div><!-- /#post -->
+</article><!-- /#post -->

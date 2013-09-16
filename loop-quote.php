@@ -9,7 +9,7 @@
 ?>
 <?php /* Main Loop */ ?>
 
-<div id="post-<?php the_ID(); ?>" <?php post_class( 'post format-quote clearfix' ); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class( 'post format-quote clearfix' ); ?>>
 		
 	<div class="post-header clearfix">
 			<div class="entry-content row">
@@ -56,9 +56,9 @@
 			
 				<?php if( is_multi_author() ) { ?>
 					<span class="the-author">&nbsp;<?php _e( 'Posted by', 'lean' ); ?>&nbsp;<a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>" title="<?php echo get_the_author_meta( 'display_name' ); ?>"><?php echo the_author_meta( 'display_name' ); ?></a></span>
-					<span class="the-time updated">&nbsp;<?php _e( 'on ', 'lean' ) . ' '; echo get_the_time( get_option( 'date_format' ) ); ?></span>
+					<time class="the-time updated">&nbsp;<?php _e( 'on ', 'lean' ) . ' '; echo get_the_time( get_option( 'date_format' ) ); ?></time>
 				<?php } else { ?>
-					<?php printf( '<span class="the-time updated">' . __( 'Posted on %1$s', 'lean' ) . '</span>', get_the_time( get_option( 'date_format' ) ) ); ?>
+					<?php printf( '<time class="the-time updated">' . __( 'Posted on %1$s', 'lean' ) . '</time>', get_the_time( get_option( 'date_format' ) ) ); ?>
 				<?php } // end if ?>
 			
 				<?php $category_list = get_the_category_list( __( ', ', 'lean' ) ); ?>
@@ -82,4 +82,4 @@
 
 	</div><!-- /.post-meta -->
 
-</div><!-- /#post -->
+</article><!-- /#post -->

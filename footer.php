@@ -8,7 +8,7 @@
  */
 ?>
 
-		<div id="footer" class="clearfix">
+		<footer id="footer" class="clearfix">
 			
 			<?php if( ! lean_is_offline() || is_user_logged_in() ) { ?>
 				<?php if( is_active_sidebar( 'sidebar-3' ) || is_active_sidebar( 'sidebar-4' ) || is_active_sidebar( 'sidebar-5' ) ) { ?>
@@ -72,7 +72,7 @@
 					</div><!-- /row -->
 				</div><!-- /.container -->
 			</div><!-- /#sub-floor -->
-		</div><!-- /#footer -->
+		</footer><!-- /#footer -->
 		<?php wp_footer(); ?>
 	</body>
 </html>

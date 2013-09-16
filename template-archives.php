@@ -20,14 +20,14 @@
                 <?php get_sidebar(); ?>
             <?php } // end if ?>
 
-            <div id="main" class="<?php echo 'full_width_layout' == $presentation_options['layout'] ? 'col-md-12' : 'col-md-8'; ?> clearfix" role="main">
+            <section id="main" class="<?php echo 'full_width_layout' == $presentation_options['layout'] ? 'col-md-12' : 'col-md-8'; ?> clearfix" role="main">
 
 				<?php get_template_part( 'breadcrumbs' ); ?>
 
 				<?php if ( have_posts() ) { ?>
 					<?php while ( have_posts() ) { ?>
 						<?php the_post(); ?>
-						<div id="post-<?php the_ID(); ?> format-standard" <?php post_class( 'post' ); ?>>
+						<article id="post-<?php the_ID(); ?> format-standard" <?php post_class( 'post' ); ?>>
 							<div class="post-header clearfix">
 								<h1 class="post-title entry-title"><?php the_title(); ?></h1>
 							</div> <!-- /.post-header -->
@@ -151,10 +151,10 @@
 
 								</div><!-- /.entry-content -->
 							</div><!-- /.entry-content -->
-						</div> <!-- /#post -->
+						</article> <!-- /#post -->
 					<?php } // end while ?>
 				<?php } // end if ?>
-			</div><!-- /#main -->
+			</section><!-- /#main -->
 
             <?php if ( 'right_sidebar_layout' == $presentation_options['layout'] ) { ?>
                 <?php get_sidebar(); ?>

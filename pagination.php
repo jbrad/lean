@@ -11,7 +11,7 @@
 
 <?php if( is_single() && 'post' == get_post_type() ) { ?>
 
-	<div id="single-post-nav">
+	<nav id="single-post-nav">
 		<ul class="pager">
 
 			<?php $trunc_limit = 30; ?>
@@ -28,11 +28,11 @@
 				</li>
 			<?php } // end if ?>
 		</ul>
-	</div><!-- /#single-post-nav -->
+	</nav><!-- /#single-post-nav -->
 
 <?php } elseif ( $wp_query->max_num_pages > 1 && ( is_home() || is_archive() || is_search() ) ) { ?>
 
-	<div id="post-nav">
+	<nav id="post-nav">
 		<ul class="pager">
 
 			<?php if( get_next_posts_link() ) { ?>
@@ -48,6 +48,6 @@
 			<?php } // end if ?>
 
 		</ul><!-- /.pager -->
-	</div><!-- /#post-nav -->
+	</nav><!-- /#post-nav -->
 
 <?php } // end if/else ?>

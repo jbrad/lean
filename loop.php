@@ -8,18 +8,18 @@
  */
 ?>
 
-<div id="post-<?php the_ID(); ?>" <?php post_class( 'post format-standard clearfix' ); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class( 'post format-standard clearfix' ); ?>>
 
 	<div class="post-header clearfix">
 
 		<?php $presentation_options = get_option( 'lean_theme_presentation_options' ); ?>
 		<?php if ( '' != get_the_post_thumbnail() ) { ?>
 			<?php if( $presentation_options['display_featured_images'] == 'always' || ( $presentation_options['display_featured_images'] == 'single-post' && is_single() ) || ( $presentation_options['display_featured_images'] == 'index' && is_home() ) ) { ?>
-				<div class="thumbnail alignleft">
+				<figure class="thumbnail alignleft">
 					<a class="thumbnail-link fademe" href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( '%s', 'lean' ), the_title_attribute( 'echo=0' ) ); ?>">
 						<?php the_post_thumbnail( 'thumbnail' );	?>
 					</a>
-				</div> <!-- /.thumbnail -->
+				</figure> <!-- /.thumbnail -->
 			<?php } // end if ?> 
 		<?php } // end if ?> 
 		<div class="title-wrap clearfix">
@@ -27,9 +27,9 @@
 				<?php if( is_single() || is_page() ) { ?>
 					<h1 class="post-title entry-title"><?php the_title(); ?></h1>
 				<?php } else { ?>
-					<h2 class="post-title entry-title">
+					<h1 class="post-title entry-title">
 						<a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php printf( esc_attr__( '%s', 'lean' ), the_title_attribute( 'echo=0' ) ); ?>"><?php the_title(); ?></a>
-					</h2>
+					</h1>
 				<?php } // end if ?>
 			<?php } // end if ?>
 			<div class="post-header-meta">
@@ -37,9 +37,9 @@
 					<span class="the-author"><a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>" title="<?php echo get_the_author_meta( 'display_name' ); ?>"><?php echo the_author_meta( 'display_name' ); ?></a>&nbsp;&mdash;&nbsp;</span>
 				<?php } // end if ?>
 				<?php if( strlen( trim( get_the_title() ) ) == 0 ) { ?>
-					<a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php printf( esc_attr__( '%s', 'lean' ), the_title_attribute( 'echo=0' ) ); ?>"><span class="the-time updated"><?php the_time( get_option( 'date_format' ) ); ?></span></a>
+					<a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php printf( esc_attr__( '%s', 'lean' ), the_title_attribute( 'echo=0' ) ); ?>"><time class="the-time updated"><?php the_time( get_option( 'date_format' ) ); ?></time></a>
 				<?php } else { ?>
-					<span class="the-time updated"><?php the_time( get_option( 'date_format' ) ); ?></span>
+					<time class="the-time updated"><?php the_time( get_option( 'date_format' ) ); ?></time>
 				<?php } // end if/else ?>
 				<?php if( comments_open() ) { ?>
 					<span class="the-comment-link">&mdash;&nbsp;<?php comments_popup_link( __( 'Leave a comment', 'lean' ), __( '1 Comment', 'lean' ), __( '% Comments', 'lean' ), '', '' ); ?></span>
@@ -91,4 +91,4 @@
 
 	</div><!-- /.post-meta -->
 
-</div><!-- /#post -->
+</article><!-- /#post -->

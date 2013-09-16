@@ -8,12 +8,12 @@
  */
 ?>
 
-<div id="post-<?php the_ID(); ?>" <?php post_class( 'post format-image' ); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class( 'post format-image' ); ?>>
 
     <?php if ( '' != get_the_post_thumbnail() ) { ?>
-        <div class="post-format-image clearfix">
+        <figure class="post-format-image clearfix">
             <a class="thumbnail-link fademe" href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( '%s', 'lean' ), the_title_attribute( 'echo=0' ) ); ?>"><?php the_post_thumbnail( 'post-format-image' );	?></a>
-        </div> <!-- /.thumbnail -->
+        </figure> <!-- /.thumbnail -->
     <?php }  // end if ?>
 
     <div id="content-<?php the_ID(); ?>" class="entry-content clearfix">
@@ -22,9 +22,9 @@
             <a href="<?php echo get_permalink(); ?>"><?php _e( 'Continue Reading...', 'lean' ); ?></a>
         <?php } else { ?>
             <?php if( function_exists( 'the_post_format_image' ) ) { ?>
-                <div class="image-post-format-36">
+                <figure class="image-post-format-36">
                     <?php the_post_format_image(); ?>
-                </div><!-- /.image-post-format-36 -->
+                </figure><!-- /.image-post-format-36 -->
                 <p>
                     <?php echo get_the_content( __( '<p>Continue Reading...</p>', 'lean' ) ); ?>
                 </p>
@@ -48,9 +48,9 @@
 
             <?php if( is_multi_author() ) { ?>
                 <span class="the-author">&nbsp;<?php _e( 'Posted by', 'lean' ); ?>&nbsp;<a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>" title="<?php echo get_the_author_meta( 'display_name' ); ?>"><?php echo the_author_meta( 'display_name' ); ?></a></span>
-                <span class="the-time updated"><?php _e( 'on', 'lean' ); ?>&nbsp;<?php echo get_the_time( get_option( 'date_format' ) ); ?></span>
+                <time class="the-time updated"><?php _e( 'on', 'lean' ); ?>&nbsp;<?php echo get_the_time( get_option( 'date_format' ) ); ?></time>
             <?php } else { ?>
-                <?php printf( '<span class="the-time updated">' . __( 'Posted on %1$s', 'lean' ) . '</span>', get_the_time( get_option( 'date_format' ) ) ); ?>
+                <?php printf( '<time class="the-time updated">' . __( 'Posted on %1$s', 'lean' ) . '</time>', get_the_time( get_option( 'date_format' ) ) ); ?>
             <?php } // end if ?>
 
             <?php $category_list = get_the_category_list( __( ', ', 'lean' ) ); ?>
@@ -73,4 +73,4 @@
         </div><!-- /meta-comment-link -->
 
     </div><!-- /.post-meta -->
-</div><!-- /#post -->
+</article><!-- /#post -->

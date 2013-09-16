@@ -8,12 +8,12 @@
  */
 ?>
 
-<div id="post-<?php the_ID(); ?>" <?php post_class( 'post clearfix' ); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class( 'post clearfix' ); ?>>
 
-    <div class="aside-date">
+    <time class="aside-date">
         <span class="the-date"><?php the_time('M'); ?></span>
         <span class="the-time"><?php the_time('j'); ?></span>
-    </div><!--/aside-date -->
+    </time><!--/aside-date -->
 
     <div id="content-<?php the_ID(); ?>" class="entry-content clearfix">
 
@@ -45,4 +45,4 @@
         </div><!-- /meta-comment-link -->
 
     </div><!-- /.post-meta -->
-</div><!-- /#post -->
+</article><!-- /#post -->

@@ -14,14 +14,14 @@
     <div class="lean-ad-row">
         <ul class="thumbnails mobile-2 row">
             <li class="col-md-6">
-                <div class="thumbnail">
+                <figure class="thumbnail">
                     <?php echo $this->display_ad( $ad1_src, $ad1_url, 1 ); ?>
-                </div><!--/.thumbnail -->
+                </figure><!--/.thumbnail -->
             </li><!-- /.left -->
             <li class="col-md-6">
-                <div class="thumbnail">
+                <figure class="thumbnail">
                     <?php echo $this->display_ad( $ad2_src, $ad2_url, 2 ); ?>
-                </div><!-- /.thumbnail -->
+                </figure><!-- /.thumbnail -->
             </li><!-- /.right -->
         </ul><!-- /.thumbnails -->
     </div><!-- /.lean-ad-row -->

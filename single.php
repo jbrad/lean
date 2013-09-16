@@ -23,7 +23,7 @@ if( 1 == get_post_meta( get_the_ID(), 'lean_seo_post_level_layout', true ) ) {
                 <?php get_sidebar(); ?>
             <?php } // end if ?>
 
-            <div id="main" class="<?php echo 'full_width_layout' == $presentation_options['layout'] ? 'col-md-12' : 'col-md-8'; ?> clearfix" role="main">
+            <section id="main" class="<?php echo 'full_width_layout' == $presentation_options['layout'] ? 'col-md-12' : 'col-md-8'; ?> clearfix" role="main">
 				
 				<?php get_template_part( 'breadcrumbs' ); ?>
 				
@@ -40,9 +40,9 @@ if( 1 == get_post_meta( get_the_ID(), 'lean_seo_post_level_layout', true ) ) {
 						<?php $social_options = get_option( 'lean_theme_social_options' ); ?>
                         <?php if( 'always' == $display_author_box ) { ?>
                             <div id="author-box" class="well clearfix">
-                                <div class="author-box-image">
+                                <figure class="author-box-image">
                                     <?php echo get_avatar( get_the_author_meta( 'user_email', $post->post_author, '80' ) ); ?>
-                                </div><!-- /.author-box-image -->
+                                </figure><!-- /.author-box-image -->
                                 <h4 class="author-box-name"><?php the_author_meta( 'display_name' ); ?></h4>
                                 <p>
                                     <a class="author-link author-posts-url" href="<?php echo trailingslashit( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>" title="<?php echo get_the_author_meta( 'display_name' ); ?> <?php _e( 'Posts', 'lean'); ?>"><span class="icon-list-alt"></span> <?php _e( 'Posts', 'lean' ); ?></a>
@@ -93,7 +93,7 @@ if( 1 == get_post_meta( get_the_ID(), 'lean_seo_post_level_layout', true ) ) {
 				 	<?php } // end while ?>
 
 				<?php } // end if ?>
-			</div><!-- /#main -->
+			</section><!-- /#main -->
 
             <?php if ( 'right_sidebar_layout' == $presentation_options['layout'] ) { ?>
                 <?php get_sidebar(); ?>

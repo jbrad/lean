@@ -14,25 +14,25 @@
 <div id="wrapper">
 	<div class="container">
 		<div class="row">
-			<div id="main" class="col-md-12 clearfix" role="main">
+			<section id="main" class="col-md-12 clearfix" role="main">
 				
 				<?php get_template_part( 'breadcrumbs' ); ?>
 			
 				<?php if ( have_posts() ) { ?>
 					<?php while ( have_posts() ) { ?>
 						<?php the_post(); ?>
-						<div id="post-<?php the_ID(); ?> format-standard" <?php post_class( 'post' ); ?>>
+						<article id="post-<?php the_ID(); ?> format-standard" <?php post_class( 'post' ); ?>>
 							<div class="post-header clearfix">
 								<h1 class="post-title entry-title"><?php the_title(); ?></h1>	
 							</div> <!-- /.post-header -->						
 							<div id="content-<?php the_ID(); ?>" class="entry-content">
 								<?php the_content(); ?>
 							</div><!-- /.entry-content -->
-						</div> <!-- /#post -->
+						</article> <!-- /#post -->
 					<?php } // end while ?>
 				<?php } // end if ?>
 				<?php comments_template( '', true ); ?>
-			</div><!-- /#main -->
+			</section><!-- /#main -->
 			
 		</div><!--/row -->
 	</div><!-- /container -->

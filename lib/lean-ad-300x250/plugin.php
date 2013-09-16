@@ -145,9 +145,9 @@ class Lean_Ad_300x250 extends WP_Widget {
 		// Check to see if the URL is empty
 		if( 0 != strlen( trim( $ad_url ) ) ) {
 
-			$html = '<a href="' . $ad_url . '">';
+			$html = '<figure><a href="' . $ad_url . '">';
 				$html .= $ad_src;
-			$html .= '</a>';
+			$html .= '</a></figure>';
 
 		} else {
 			$html .= $ad_src;

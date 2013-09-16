@@ -12,11 +12,11 @@
 	
 		<?php $options = get_option( 'lean_theme_global_options' ); ?>
 			<div class="row" role="main">
-				<div class="col-md-12">
+				<section class="col-md-12">
 					<div id="offline-wrapper">
 						<div id="offline-container">
 					
-						<div id="offline-content">
+						<article id="offline-content">
 							<div class="offline-message">
 								<p><?php echo $options['offline_message']; ?></p> 
 							</div><!--/offline-message -->
@@ -25,9 +25,9 @@
 								<h1 id="offline-title"><?php bloginfo( 'name' ); ?> <small><?php bloginfo( 'description' ); ?></small></h1>
 							</div><!--/offline-title -->
 							
-						</div><!--/offline-content -->
+						</article><!--/offline-content -->
 					</div><!--/offline-container -->
-				</div><!--/offline-wrapper -->
+				</section><!--/offline-wrapper -->
 			</div><!--/.span12 -->
 		</div><!--/.row -->
 	

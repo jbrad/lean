@@ -19,7 +19,7 @@
                 <?php get_sidebar(); ?>
             <?php } // end if ?>
 
-            <div id="main" class="<?php echo 'full_width_layout' == $presentation_options['layout'] ? 'col-md-12' : 'col-md-8'; ?> clearfix" role="main">
+            <section id="main" class="<?php echo 'full_width_layout' == $presentation_options['layout'] ? 'col-md-12' : 'col-md-8'; ?> clearfix" role="main">
 				
 				<?php // Even if google custom search is active, we may be coming from the 4040 page so we'll run this template. ?>
 				<?php if( ! lean_google_custom_search_is_active() || '' != get_query_var( 's' ) ) { ?>
@@ -52,7 +52,7 @@
 						</article><!-- #post-0 -->
 						
 					<?php } // end if/else ?>
-				</div><!-- /#main -->
+				</section><!-- /#main -->
 			
 				<?php if ( 'right_sidebar_layout' == $presentation_options['layout'] ) { ?>
 					<?php get_sidebar(); ?>

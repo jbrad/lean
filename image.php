@@ -18,7 +18,7 @@
                 <?php get_sidebar(); ?>
             <?php } // end if ?>
 
-            <div id="main" class="<?php echo 'full_width_layout' == $presentation_options['layout'] ? 'col-md-12' : 'col-md-8'; ?> clearfix" role="main">
+            <section id="main" class="<?php echo 'full_width_layout' == $presentation_options['layout'] ? 'col-md-12' : 'col-md-8'; ?> clearfix" role="main">
 			
 				<?php get_template_part( 'breadcrumbs' ); ?>
 				
@@ -26,16 +26,16 @@
 					<?php while ( have_posts() ) { ?>
 						<?php the_post(); ?>
 						
-						<div id="post-<?php the_ID(); ?>" <?php post_class( 'post format-standard' ); ?>>
+						<article id="post-<?php the_ID(); ?>" <?php post_class( 'post format-standard' ); ?>>
 						
 							<div class="post-header clearfix">
 								<div class="title-wrap">
 									<h1 class="post-title entry-title"><?php the_title(); ?></h1>	
 									<div class="post-header-meta">
 										<?php if( strlen( trim( get_the_title() ) ) == 0 ) { ?>
-											<a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php printf( esc_attr__( 'Permalink to %s', 'lean' ), the_title_attribute( 'echo=0' ) ); ?>"><span class="the-time updated"><?php the_time( get_option( 'date_format' ) ); ?></span></a>
+											<a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php printf( esc_attr__( 'Permalink to %s', 'lean' ), the_title_attribute( 'echo=0' ) ); ?>"><time class="the-time updated"><?php the_time( get_option( 'date_format' ) ); ?></time></a>
 										<?php } else { ?>
-											<span class="the-time updated"><?php the_time( get_option( 'date_format' ) ); ?></span>
+											<time class="the-time updated"><?php the_time( get_option( 'date_format' ) ); ?></time>
 										<?php } // end if/else ?>
 									</div><!-- /.post-header-meta -->
 								</div><!-- /.title-wrap -->
@@ -55,13 +55,13 @@
 									</div>
 								</div><!-- /#image-thumbmails -->
 							</div><!-- /.entry-content -->
-						</div> <!-- /#post -->						
+						</article> <!-- /#post -->
 						<?php comments_template( '', true ); ?>
 						<?php get_template_part( 'pagination' ); ?>
 						
 					<?php } // end while ?>
 				<?php } // end if  ?>
-			</div><!-- /#main -->
+			</section><!-- /#main -->
 
             <?php if ( 'right_sidebar_layout' == $presentation_options['layout'] ) { ?>
                 <?php get_sidebar(); ?>

@@ -8,7 +8,7 @@
  * @since 	1.0
  */
 ?>
-<div id="sidebar" class="col-md-4">
+<aside id="sidebar" class="col-md-4">
     <?php if ( ! dynamic_sidebar( 'sidebar-0' ) ) { ?>
 
         <div class="widget">
@@ -34,4 +34,4 @@
         ?>
 
     <?php } // end if ?>
-</div><!-- /#sidebar -->
+</aside><!-- /#sidebar -->

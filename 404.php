@@ -13,9 +13,9 @@
 	<div class="container">
 		<div class="row">
 
-			<div id="main" class="col-md-12 clearfix" role="main">
+			<section id="main" class="col-md-12 clearfix" role="main">
 		
-					<div id="nothing-found" class="no-results not-found">
+					<article id="nothing-found" class="no-results not-found">
 						<div class="entry-content clearfix">
 
                             <span class="icon-bolt"></span>
@@ -30,9 +30,9 @@
 							<?php lean_get_search_form(); ?>
 							
 						</div><!-- .entry-content -->
-					</div><!-- #post-0 -->
+					</article><!-- #post-0 -->
 		
-			</div><!-- /#main -->
+			</section><!-- /#main -->
 		
 		</div><!-- /row -->
 	</div><!-- /container -->

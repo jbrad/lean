@@ -10,7 +10,7 @@
 ?>
 <?php if( '' != $image_src ) { ?>	
 	<?php echo $args['before_widget']; ?>
-		<div class="lean-pi-pic">
+		<figure class="lean-pi-pic">
 		
 			<?php if( 0 < strlen( trim( $image_url ) ) ) { ?>
 				<a href="<?php echo $image_url; ?>">
@@ -23,7 +23,7 @@
 			<?php if( 0 < strlen( trim( $image_url ) ) ) { ?>
 				</a>
 			<?php } // end if ?>
-		</div><!-- /.lean-pi-pic -->
+		</figure><!-- /.lean-pi-pic -->
 		
 		<?php if( '' != trim( $image_description ) ) { ?>
 			<p class="lean-pi-bio"><?php echo $image_description; ?></p>

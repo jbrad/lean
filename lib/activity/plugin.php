@@ -245,11 +245,11 @@ class Activity_Tabs extends WP_Widget {
 						
 						// Add the small featured image
 						if( has_post_thumbnail( $post->ID ) ) {
-							$html .= '<a class="latest-post-tn fademe" href="' . get_permalink( $post->ID ) . '" rel="nofollow">';
+							$html .= '<figure><a class="latest-post-tn fademe" href="' . get_permalink( $post->ID ) . '" rel="nofollow">';
 								if( 0 < strlen( get_the_post_thumbnail( $post->ID ) ) ) {
 									$html .= get_the_post_thumbnail( $post->ID, 'thumbnail' );
 								} // end if 
-							$html .= '</a>';
+							$html .= '</a></figure>';
 						} // end if
 						
 						$html .='<div class="latest-meta">';	
@@ -265,9 +265,9 @@ class Activity_Tabs extends WP_Widget {
 								$html .= '<a href="' . get_permalink( $post->ID ) . '" rel="nofollow">';
 							} // end if
 							
-							$html .= '<span class="latest-date">';
+							$html .= '<time class="latest-date">';
 								$html .= get_the_time( get_option( 'date_format' ), $post->ID );
-							$html .= '</span>';
+							$html .= '</time>';
 							
 							// Close the anchor 
 							if(strlen( get_the_title( $post->ID ) ) == 0 ) {
@@ -326,9 +326,9 @@ class Activity_Tabs extends WP_Widget {
 					// Render the thumbnail, if it's set
 					if( '' != get_the_post_thumbnail() ) {
 					
-						$html .= '<a class="latest-post-tn fademe" href="' . get_permalink() . '" rel="nofollow">';
+						$html .= '<figure><a class="latest-post-tn fademe" href="' . get_permalink() . '" rel="nofollow">';
 							$html .= get_the_post_thumbnail( get_the_ID(), 'thumbnail' );
-						$html .= '</a>';
+						$html .= '</a></figure>';
 					
 					} // end if/else
 					
@@ -347,7 +347,7 @@ class Activity_Tabs extends WP_Widget {
 						$html .= '</a>';
 						
 						// Render the meta data
-						$html .= '<span class="latest-date">';
+						$html .= '<time class="latest-date">';
 							
 							// Start the anchor for the time if the title isn't present
 							if( strlen( $title) == 0 ) {
@@ -359,14 +359,14 @@ class Activity_Tabs extends WP_Widget {
 							$comment_count = $comment_count->approved;
 							$comment_str = $comment_count . ' ' . __( 'comments since', 'lean' ) . ' ';
 							
-							$html .= $comment_str . get_the_time( get_option( 'date_format' ) );
+							$html .= $comment_str . '<time>' . get_the_time( get_option( 'date_format' ) ) . '</time>';
 							
 							// Close the anchor for the time if the title isn't present
 							if( strlen( $title ) == 0 ) {		
 								$html .= '</a>';
 							} // end if
 							
-						$html .= '</span>';
+						$html .= '</time>';
 						
 					$html .= '</div>';
 					
@@ -420,9 +420,9 @@ class Activity_Tabs extends WP_Widget {
 		
 					$html .= '<li class="clearfix">';
 	
-						$html .= '<a class="latest-comment-tn fademe" href="' . get_permalink( $comment->comment_post_ID ) . '" rel="nofollow">';
+						$html .= '<figure><a class="latest-comment-tn fademe" href="' . get_permalink( $comment->comment_post_ID ) . '" rel="nofollow">';
 							$html .= get_avatar( $comment->comment_author_email, '50' );
-						$html .= '</a>';
+						$html .= '</a></figure>';
 												
 						// Link the comment to the post
 						$html .='<div class="comment-meta">';	
