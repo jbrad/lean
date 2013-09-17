@@ -25,14 +25,6 @@
     
 } // .widget_categories
 
-#footer-widgets {
-
-	.widget {
-		margin-bottom:	30px;
-	} // .widget
-	
-} // #footer-widgets
-
 // Main Widget Styling
 // -----------------------------------------
 
@@ -44,107 +36,69 @@
 		width:	auto;
 		
 	} // label
-	
-} // .widget
 
-.widget {
+    h4.widget-title {
 
-	h4.widget-title {
-	
-		margin-bottom: 	10px;
-		padding-bottom: 10px;
-		border-bottom: 	1px solid #e0e0e0;
-		font-size: 		18px;
-		line-height: 	24px;
-		
-	} // h4.widget-title
-	
-} // .widget
+      margin-bottom: 	10px;
+      padding-bottom: 10px;
+      border-bottom: 	1px solid #e0e0e0;
+      font-size: 		18px;
+      line-height: 	24px;
 
-.widget {
+      a {
 
-	h4.widget-title {
-	
-		a {
-		
-			color: 			 #444;
-			text-decoration: none;
-			
-		} // a
-		
-	} // h4.widget-title
-	
+        color: 			 #444;
+        text-decoration: none;
+
+      } // a
+
+    } // h4.widget-title
+
+    ul {
+
+      margin:		0;
+      padding: 	0;
+
+      li {
+
+        padding: 	5px 0;
+        list-style: none;
+
+        a {
+          color:	#777;
+
+          &:hover {
+            color: #999;
+          } // a:hover
+
+        } // a
+
+      } // li
+
+    } // ul
+
 } // .widget
 
 #footer-widgets {
 
-	.widget {
-	
+    .widget {
+      margin-bottom:	30px;
+
 		h4.widget-title {
 			border-bottom: 	1px solid #999;
 		} // h4.widget-title
 		
 	} // .widget
+
+    .widget_nav_menu {
+
+      ul.sub-menu {
+        border-left-color: #999;
+      } // ul.sub-menu
+
+    } // end .wiget_nav_menu
 	
 } // #footer-widgets
-
-.widget {
-	
-	ul {
-	
-		margin:		0;
-		padding: 	0;
-		
-	} // ul
-	
-} // .widget
-
-.widget {
-
-	ul {
-	
-		li {
-		
-			padding: 	5px 0;
-			list-style: none;
-		
-		} // li
-		
-	} // ul
-	
-} // .widget
-
-.widget {
-
-	ul {
-	
-		li {
-		
-			a {
-				color:	#777;
-			} // a
-			
-		} // li
-		
-	} // ul
-	
-} // .widget
-
-.widget {
-
-	ul {
-	
-		li {
-			
-			a:hover {
-				color: #999;
-			} // a:hover
-			
-		} // li
-		
-	} // ul
-	
-} // .widget
 
 // Post advertising Widgets
 // -----------------------------------------
@@ -229,18 +183,6 @@
 	} // ul.sub-menu
 	
 } // .widget_nav_menu
-
-#footer-widgets {
-
-	.widget_nav_menu {
-	
-		ul.sub-menu {
-			border-left-color: #999;
-		} // ul.sub-menu
-		
-	} // end .wiget_nav_menu
-	
-} // #footer-widgets
 
 // RSS Widgets
 // -----------------------------------------
@@ -395,15 +337,11 @@ table#wp-calendar {
 	    width: 		100%
 	    
     } // .twitter-tweet-rendered
-    
-} // .entry-content
 
-.entry-content {
-	
-	.sharing {
-		clear: both;
-	} // .sharing
-	
+    .sharing {
+      clear: both;
+    } // .sharing
+
 } // .entry-content
 
 .widget_freshposts {
