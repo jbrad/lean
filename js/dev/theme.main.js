@@ -122,43 +122,6 @@ function resizeVideos($) {
 			} // end if
 
 		} // end if
-		
-		// Bootstrap Multi-Level Menus
-		$('.submenu').hover(function() {
-	
-			// Display the submenu on hover
-			$(this).children('ul')
-	        	.removeClass('submenu-hide')
-	        	.addClass('submenu-show');
-	
-	    }, function() {
-		
-		    // Hide the submenu when not on hover
-		    $(this).children('ul')	
-				.removeClass('.submenu-show')
-				.addClass('submenu-hide');
-			
-		});
-		
-		// Detect whether or not cmd or ctrl are being clicked so we can properly open tabs in new windows
-		bCmdDown = false;
-		$(document).on( 'keydown', function(evt) {
-			bCmdDown = ( 91 === evt.keyCode || 93 === evt.keyCode || 62 === evt.keyCode ) ? true : false;
-		}).on( 'keyup', function(evt) {
-			bCmdDown = false;
-		});
-		
-		$('.menu-item > a').click(function(evt) {
-			
-			evt.preventDefault();
-			
-			if( '_blank' === $(this).attr('target') || bCmdDown ) {
-				window.open( $(this).attr('href') );
-			} else {
-				window.location = $(this).attr('href');
-			} // end if/else
-			
-		});
-		
+
 	});
 }(jQuery));
