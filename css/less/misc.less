@@ -3,6 +3,8 @@
 // @since v1.0
 //
 
+@import "mixins.less";
+
 body * {
 	-ms-word-wrap: break-word; 
 	word-wrap: break-word;
@@ -53,7 +55,6 @@ img {
 	margin-bottom: 0.5em;
 }
 
-
 /* 
  * override Bootstrap span class that was 
  * causing issues with some post_class() tags 
@@ -62,7 +63,6 @@ img {
     float: none;
     margin-left: 0;
 }
-
 
 input[type="submit"] {
 	display: inline-block;
@@ -94,71 +94,130 @@ input[type="submit"] {
 	-ms-transition: 0.1s linear all;
 	-o-transition: 0.1s linear all;
 	transition: 0.1s linear all;
-}
 
-input[type="submit"]:hover {
-  background-position: 0 -15px;
-  color: #333;
-  text-decoration: none;
-}
+    &:hover {
+      background-position: 0 -15px;
+      color: #333;
+      text-decoration: none;
+    }
 
-input[type="submit"]:focus {
-  outline: 1px dotted #666;
-}
+    &:focus {
+      outline: 1px dotted #666;
+    }
+
+} // input[type="submit"]
 
 input[type="text"] {
 	width: 95%;
 }
 
+table {
 
-table .label {
-	display: block;
-	border-radius: 0;
-	background: #f1f1f1;
-	color: #444;
+  .label {
+    display: block;
+    border-radius: 0;
+    background: #f1f1f1;
+    color: #444;
+  }
+
+  td.label a {
+    color: #444;
+    text-shadow: none;
+  }
+
 }
 
-table td.label a {
-	color: #444;
-	text-shadow: none;
-}
 
 .fademe img,
 a img {
 	opacity: 1;	
-	-webkit-transition: opacity .25s ease-in-out;
-	-moz-transition: opacity .25s ease-in-out;
-	transition: opacity .25s ease-in-out;
+	.ease_in();
+
+    &:hover {
+      opacity: 0.5;
+    }
+
 }
 
-.fademe img:hover,
-a img:hover {
-	opacity: 0.5;
-}
-
-.form-allowed-tags code { 
+.form-allowed-tags code {
 	float: left; 
 	margin: 8px 0 12px 0;
 }
 
-
 // inline grids
 
-.inline-grid { display: block; overflow: hidden; }
-.inline-grid>li { display: block; float: left; height: auto; }
+.inline-grid {
+    display: block;
+    overflow: hidden;
 
-.inline-grid.two-up { margin-left: -4%; }
-.inline-grid.two-up>li { margin-bottom: 4%; margin-left: 4%; width: 46%;}
-.inline-grid.two-up>li:nth-child(2n+1) {clear: left;}
+    > li {
+      display: block;
+      float: left;
+      height: auto;
+    }
 
-.inline-grid.three-up { margin-left: -2%; }
-.inline-grid.three-up>li { margin-bottom: 2%; margin-left: 2%; width: 31.2%;}
-.inline-grid.three-up>li:nth-child(3n+1) {clear: left;}
+    &.two-up {
+      margin-left: -4%;
 
-.inline-grid.four-up { margin-left: -2%; }
-.inline-grid.four-up>li { margin-bottom: 2%; margin-left: 2%; width: 23%;}
-.inline-grid.four-up>li:nth-child(4n+1) {clear: left;}
+      > li {
+        margin-bottom: 4%;
+        margin-left: 4%;
+        width: 46%;
 
-.inline-grid.five-up { margin-left: -1.5%; }
-.inline-grid.five-up>li { margin-bottom: 1.5%; margin-left: 1.5%; width: 18.5%;}
-.inline-grid.five-up>li:nth-child(5n+1) {clear: left;}
+        &:nth-child(2n+1) {
+          clear: left;
+        }
+
+      } // > li
+
+    } // .two-up
+
+    &.three-up {
+      margin-left: -2%;
+
+      > li {
+        margin-bottom: 2%;
+        margin-left: 2%;
+        width: 31.2%;
+
+        &:nth-child(2n+1) {
+          clear: left;
+        }
+
+      } // > li
+
+    } // .two-up
+
+    &.four-up {
+      margin-left: -2%;
+
+      > li {
+        margin-bottom: 2%;
+        margin-left: 2%;
+        width: 23%;
+
+        &:nth-child(2n+1) {
+          clear: left;
+        }
+
+      } // > li
+
+    } // .two-up
+
+    &.five-up {
+      margin-left: -1.5%;
+
+      > li {
+        margin-bottom: 1.5%;
+        margin-left: 1.5%;
+        width: 18.5%;
+
+        &:nth-child(2n+1) {
+          clear: left;
+        }
+
+      } // > li
+
+    } // .two-up
+
+} // .inline-grid
