@@ -1,3 +1,5 @@
+@import "../../../../css/less/mixins.less";
+
 .lean-ad-468x60-wrapper {
 
 	.preview_image_container,
@@ -15,12 +17,8 @@
 	
 		opacity: 			1;
 		cursor: 			pointer;
-		-webkit-transition: opacity .25s ease-in-out;
-		-moz-transition: 	opacity .25s ease-in-out;
-		-o-transition: 		opacity .25s ease-in-out;
-		-ms-transition: 	opacity .25s ease-in-out;
-		transition: 		opacity .25s ease-in-out;
 		height: 			32px;
+        .ease_in();
 		
 		&:hover {
 			opacity: 0.6;

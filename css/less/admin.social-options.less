@@ -3,6 +3,8 @@
 // @since v1.0
 //
 
+@import "mixins.less";
+
 	.social-icons-wrapper {
 	/* notifications */ 
 	.hidden.alert {
@@ -23,11 +25,7 @@
 		-webkit-border-radius: 5px;
 		-moz-border-radius: 5px;
 		border-radius: 5px;
-		-webkit-transition: opacity .25s ease-in-out;
-		-moz-transition: opacity .25s ease-in-out;
-		-o-transition: opacity .25s ease-in-out;
-		-ms-transition: opacity .25s ease-in-out;
-		transition: opacity .25s ease-in-out;
+		.ease_in();
 	}
 	
 	.alert-info {

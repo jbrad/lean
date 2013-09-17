@@ -1,3 +1,5 @@
+@import "../../../../css/less/mixins.less";
+
 .ad-125x125-row {
 	width: 100%;
 	float: left;
@@ -33,11 +35,7 @@
 		cursor:					pointer;
 		background: 			#fff url(fake-125.jpg) center center no-repeat;
 		opacity: 				1;
-		-webkit-transition: 	opacity .25s ease-in-out;
-		-moz-transition: 		opacity .25s ease-in-out;
-		-o-transition: 			opacity .25s ease-in-out;
-		-ms-transition: 		opacity .25s ease-in-out;
-		transition: 			opacity .25s ease-in-out;
+		.ease_in();
 		
 		&:hover {
 			opacity: 0.6;
