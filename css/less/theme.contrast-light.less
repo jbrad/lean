@@ -35,16 +35,18 @@ h6 {
 	color: #e0e0e0;
 }
 
-/* posts */
+// posts
 .breadcrumb {
 	background: #222;
 	box-shadow: none;
 	border-color: #303030;
-}
 
-.breadcrumb li {
-	text-shadow: none;
-}
+    li {
+      text-shadow: none;
+    }
+
+} // .breadcrumb
+
 
 .post, 
 #comments, 
@@ -105,26 +107,30 @@ h6 {
 	border-color: #303030;
 }
 
-#comments .comment-container .comment-entry .name {
-	color: #999;
-}
+#comments {
 
-#comments .date a {
-	color: #eee;
-}
+  .comment-container .comment-entry .name {
+    color: #999;
+  }
 
-#comments .comment-container {
-	border-color: #303030;
-}
+  .date a {
+    color: #eee;
+  }
 
-#comments > ol > li > ul.children > li .comment-container {
-	border-color: #303030;
-}
+  .comment-container {
+    border-color: #303030;
+  }
 
-#comments .bypostauthor > .comment-container {
+  > ol > li > ul.children > li .comment-container {
+    border-color: #303030;
+  }
+
+  .bypostauthor > .comment-container {
     background: #2F2F2F;
     border-right: 5px solid #F9F9F9;
-}
+  }
+
+} // #comments
 
 /* sidebar */
 table#wp-calendar caption {
