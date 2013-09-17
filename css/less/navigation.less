@@ -5,6 +5,25 @@
 
 .navbar {
 
+  .navbar-nav {
+
+    > li {
+
+      &:first-child {
+        margin-left: -10px;
+      }
+
+      &:last-child {
+        margin-right: -10px;
+      }
+
+    }
+
+    &.nav-pills > li > a {
+      padding: 12px 8px;
+    }
+  }
+
   .dropdown-menu {
 
     a {
