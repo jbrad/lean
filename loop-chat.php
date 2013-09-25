@@ -13,10 +13,10 @@
 
     <div class="post-header clearfix">
         <div class="row">
-            <div class="col-md-2">
+            <div class="col-sm-2 hidden-xs">
                 <span class="icon-comments-alt"></span>
             </div><!-- /.post-avatar -->
-            <div class="entry-content col-md-10 clearfix">
+            <div class="entry-content col-md-10 col-xs-12 clearfix">
                 <?php if( ( is_category() || is_archive() || is_home() ) && has_excerpt() ) { ?>
                     <?php the_excerpt( ); ?>
                     <a href="<?php echo get_permalink(); ?>"><?php _e( 'Continue Reading...', 'lean' ); ?></a>
