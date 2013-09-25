@@ -536,17 +536,17 @@ function lean_detect_wordpress_seo() {
         // WordPress SEO
         if( defined( 'WPSEO_URL' ) ) {
 
-            $html = '<div id="lean-hide-seo-message-notification" class="error"><p>' . __( 'Lean has detected the activation of WordPress SEO and is now running in SEO compatibility mode. <a href="http://docs.8bit.io/lean/seo" target="_blank">' . __( 'Learn more', 'lean' ) . '</a> or <a id="lean-hide-seo-message" href="javascript:;">hide this message</a>.', 'lean') . '</p><span id="lean-hide-seo-message-nonce" class="hidden">' . wp_create_nonce( 'lean_hide_seo_message_nonce' ) . '</span></div>';
+            $html = '<div id="lean-hide-seo-message-notification" class="error"><p>' . __( 'Lean has detected the activation of WordPress SEO and is now running in SEO compatibility mode. <a href="http://docs.leantheme.co/seo" target="_blank">' . __( 'Learn more', 'lean' ) . '</a> or <a id="lean-hide-seo-message" href="javascript:;">hide this message</a>.', 'lean') . '</p><span id="lean-hide-seo-message-nonce" class="hidden">' . wp_create_nonce( 'lean_hide_seo_message_nonce' ) . '</span></div>';
 
             // All-in-One SEO
         } elseif( class_exists( 'All_in_One_SEO_Pack' ) ) {
 
-            $html = '<div id="lean-hide-seo-message-notification" class="error"><p>' . __( 'Lean has detected the activation of All-In-One SEO and is now running in SEO compatibility mode.  <a href="http://docs.8bit.io/lean/seo" target="_blank">' . __( 'Learn more', 'lean' ) . '</a> or <a id="lean-hide-seo-message" href="javascript:;">hide this message</a>.', 'lean') . '</p><span id="lean-hide-seo-message-nonce" class="hidden">' . wp_create_nonce( 'lean_hide_seo_message_nonce' ) . '</span></div>';
+            $html = '<div id="lean-hide-seo-message-notification" class="error"><p>' . __( 'Lean has detected the activation of All-In-One SEO and is now running in SEO compatibility mode.  <a href="http://docs.leantheme.co/seo" target="_blank">' . __( 'Learn more', 'lean' ) . '</a> or <a id="lean-hide-seo-message" href="javascript:;">hide this message</a>.', 'lean') . '</p><span id="lean-hide-seo-message-nonce" class="hidden">' . wp_create_nonce( 'lean_hide_seo_message_nonce' ) . '</span></div>';
 
             // Platinum SEO
         } elseif( class_exists( 'Platinum_SEO_Pack' ) ) {
 
-            $html =  '<div id="lean-hide-seo-message-notification" class="error"><p>' . __( 'Lean has detected the activation of Platinum SEO and is now running in SEO compatibility mode.  <a href="http://docs.8bit.io/lean/seo" target="_blank">' . __( 'Learn more', 'lean' ) . '</a> or <a id="lean-hide-seo-message" href="javascript:;">hide this message</a>.', 'lean') . '</p><span id="lean-hide-seo-message-nonce" class="hidden">' . wp_create_nonce( 'lean_hide_seo_message_nonce' ) . '</span></div>';
+            $html =  '<div id="lean-hide-seo-message-notification" class="error"><p>' . __( 'Lean has detected the activation of Platinum SEO and is now running in SEO compatibility mode.  <a href="http://docs.leantheme.co/seo" target="_blank">' . __( 'Learn more', 'lean' ) . '</a> or <a id="lean-hide-seo-message" href="javascript:;">hide this message</a>.', 'lean') . '</p><span id="lean-hide-seo-message-nonce" class="hidden">' . wp_create_nonce( 'lean_hide_seo_message_nonce' ) . '</span></div>';
 
         } // end if/ese
 

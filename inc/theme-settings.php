@@ -278,7 +278,7 @@ function fav_icon_display() {
         $html .= '<input type="button" class="button" id="delete_fav_icon" value="' . __( 'Delete', 'lean' ) . '"/>';
     } // end if
 
-    $html .= '&nbsp;<span class="description">' . __( 'Dimensions: 144px x 144px. Used for favicon and mobile devices.', 'lean' ) . '&nbsp;<a href="http://docs.8bit.io/lean/admin-panel/presentation/" target="_blank">' . __( 'Learn more', 'lean' ) . '</a>.</span>';
+    $html .= '&nbsp;<span class="description">' . __( 'Dimensions: 144px x 144px. Used for favicon and mobile devices.', 'lean' ) . '&nbsp;<a href="http://docs.leantheme.co/admin-panel/presentation/" target="_blank">' . __( 'Learn more', 'lean' ) . '</a>.</span>';
 
     echo $html;
 
@@ -411,7 +411,7 @@ function display_breadcrumbs_display() {
     $html .= '<option value="never"'. selected( $options['display_breadcrumbs'], 'never', false ) . '>' . __( 'Never', 'lean' ) . '</option>';
     $html .= '</select>';
 
-    $html .= '&nbsp;<span class="description">' . __( 'SEO experts encourage breadcrumb use. <a href="http://docs.8bit.io/lean/admin-panel/presentation/">Learn more</a>.', 'lean' ) . '</span>';
+    $html .= '&nbsp;<span class="description">' . __( 'SEO experts encourage breadcrumb use. <a href="http://docs.leantheme.co/admin-panel/presentation/">Learn more</a>.', 'lean' ) . '</span>';
 
     echo $html;
 
@@ -560,7 +560,7 @@ function lean_theme_social_options_display() {
     $html .= '<label>' . __( 'Icon URL:', 'lean' ) . '</label>';
     $html .= '<input type="text" id="social-icon-url" value="" class="icon-url" data-via="" data-url="" />';
     $html .= '&nbsp;<span class="description" id="social-rss-icon-controls">';
-    $html .= '<a href="http://docs.8bit.io/lean/social" target="_blank">' . __( 'Learn More', 'lean' ) . '</a>';
+    $html .= '<a href="http://docs.leantheme.co/social" target="_blank">' . __( 'Learn More', 'lean' ) . '</a>';
     $html .= '</span><!-- /#social-rss-icon-controls -->';
     $html .= '<span id="social-icon-controls">';
     $html .= '<input type="button" class="button" id="set-social-icon-url" value="' . __( 'Done', 'lean' ). '" />';
@@ -1169,7 +1169,7 @@ function privacy_policy_template_display() {
     $html .= '<input type="submit" class="button-secondary" id="generate_privacy_policy" name="generate_privacy_policy" value="' . __( 'Generate', 'lean' ) . '" />';
     $html .= '<span id="lean-privacy-policy-nonce" class="hidden">' . wp_create_nonce( 'lean_generate_privacy_policy_nonce' ) . '</span>';
     $html .= '&nbsp;';
-    $html .= '<span class="description">' . __( '<a href="http://docs.8bit.io/lean/admin-panel/publishing/" target="_blank">' . __( 'Learn more', 'lean' ) . '</a>.', 'lean' ) . '</span>';
+    $html .= '<span class="description">' . __( '<a href="http://docs.leantheme.co/admin-panel/publishing/" target="_blank">' . __( 'Learn more', 'lean' ) . '</a>.', 'lean' ) . '</span>';
     $html .= '</div><!-- /#generate-private-policy-wrapper -->';
 
     // Options to display if the page already exists
@@ -1206,7 +1206,7 @@ function comment_policy_template_display() {
     $html .= '<input type="submit" class="button-secondary" id="generate_comment_policy" name="generate_comment_policy" value="' . __( 'Generate', 'lean' ) . '" />';
     $html .= '<span id="lean-comment-policy-nonce" class="hidden">' . wp_create_nonce( 'lean_generate_comment_policy_nonce' ) . '</span>';
     $html .= '&nbsp;';
-    $html .= '<span class="description">' . __( '<a href="http://docs.8bit.io/lean/admin-panel/publishing/" target="_blank">' . __( 'Learn more', 'lean' ) . '</a>.', 'lean' ) . '</span>';
+    $html .= '<span class="description">' . __( '<a href="http://docs.leantheme.co/admin-panel/publishing/" target="_blank">' . __( 'Learn more', 'lean' ) . '</a>.', 'lean' ) . '</span>';
     $html .= '</div><!-- /#generate-comment-policy-wrapper -->';
 
     // Options to display if the page already exists
@@ -1374,9 +1374,9 @@ function lean_theme_options_display() {
 
         <div id="lean-options-links">
             <ul>
-                <li><a class="lean-docs" href="http://docs.8bit.io/lean/" target="_blank"><?php _e( 'Documentation', 'lean' ); ?></a></li>
-                <li><a class="lean-support" href="http://support.8bit.io" target="_blank"><?php _e( 'Support', 'lean' ); ?></a></li>
-                <li><a class="lean-blog" href="http://8bit.io" target="_blank"><?php _e( 'Blog', 'lean' ); ?></a></li>
+                <li><a class="lean-docs" href="http://docs.leantheme.co/" target="_blank"><?php _e( 'Documentation', 'lean' ); ?></a></li>
+                <li><a class="lean-support" href="http://support.leantheme.co" target="_blank"><?php _e( 'Support', 'lean' ); ?></a></li>
+                <li><a class="lean-blog" href="http://jasonbradley.me" target="_blank"><?php _e( 'Blog', 'lean' ); ?></a></li>
             </ul>
         </div>
 
