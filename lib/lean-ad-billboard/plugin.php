@@ -133,7 +133,7 @@ class Lean_Ad_468x60 extends WP_Widget {
 		if( 0 == strlen( trim( $ad_src ) ) ) {
 
 			if( 0 == strlen( trim( $ad_url ) ) ) {
-				$ad_url = 'http://leantheme.com';
+				$ad_url = 'http://leantheme.co';
 			} // end if
 
 			$ad_src = '<img src="' . get_template_directory_uri() . '/lib/lean-ad-billboard/images/lean-468.jpg" alt="" />';
