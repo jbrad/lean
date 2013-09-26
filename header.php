@@ -88,7 +88,7 @@
 <?php get_template_part( 'lib/breadcrumbs/lean_breadcrumbs' ); ?>
 
 <?php if( has_nav_menu( 'menu_above_logo' ) ) { ?>
-    <nav class="menu-navigation navbar-inverse navbar navbar-default" role="navigation">
+    <nav id="menu-above-header" class="menu-navigation navbar-inverse navbar navbar-default" role="navigation">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".menu-above">
@@ -214,7 +214,7 @@ $head_class = ! empty( $header_image ) ? 'imageyup' : 'imageless';
     </header><!-- /#header -->
 
 <?php if( has_nav_menu( 'menu_below_logo' ) ) { ?>
-    <nav class="menu-navigation navbar-inverse navbar navbar-default" role="navigation">
+    <nav id="menu-below-header" class="menu-navigation navbar-inverse navbar navbar-default" role="navigation">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".menu-below">
