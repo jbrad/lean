@@ -5,7 +5,7 @@
  *
  * @version	1.5
  */
-class Standard_Influence extends WP_Widget {
+class Social_Influence extends WP_Widget {
 
 	/*--------------------------------------------------------*
 	 * Constructor
@@ -14,10 +14,10 @@ class Standard_Influence extends WP_Widget {
 	public function __construct() {
 
 		$widget_opts = array(
-			'classname' 	=> __( 'standard-social-influence', 'standard' ),
-			'description' 	=> __( 'Display your social influence by showcasing Twitter followers and Facebook fans.', 'standard' )
+			'classname' 	=> __( 'social-social-influence', 'lean' ),
+			'description' 	=> __( 'Display your social influence by showcasing Twitter followers and Facebook fans.', 'lean' )
 		);
-		$this->WP_Widget( 'standard-influence-widget', __( 'Social Influence', 'standard' ), $widget_opts );
+		$this->WP_Widget( 'social-influence-widget', __( 'Social Influence', 'lean' ), $widget_opts );
 
 		add_action( 'admin_print_styles', array( $this, 'register_admin_styles' ) );
 
@@ -104,7 +104,7 @@ class Standard_Influence extends WP_Widget {
 	 * Registers and Enqueues the stylesheets for the Media Uploader and this widget.
 	 */
 	public function register_admin_styles() {
-		wp_enqueue_style( 'standard-influence', get_template_directory_uri() . '/lib/influence/css/admin.css' );
+		wp_enqueue_style( 'social-influence', get_template_directory_uri() . '/lib/influence/css/admin.css' );
 	} // end register_admin_styles
 
 	/*--------------------------------------------------------*
@@ -343,4 +343,4 @@ class Standard_Influence extends WP_Widget {
 	} // end supports_outbound_requests
 
 } // end class
-add_action( 'widgets_init', create_function( '', 'register_widget( "Standard_Influence" );' ) );
+add_action( 'widgets_init', create_function( '', 'register_widget( "Social_Influence" );' ) );
