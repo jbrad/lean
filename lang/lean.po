@@ -4,12 +4,12 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-06-25 11:23-0500\n"
 "PO-Revision-Date: 2013-06-25 11:23-0500\n"
-"Last-Translator: Tom McFarlin <tom@tommcfarlin.com>\n"
-"Language-Team: 8BIT <info@8bit.io>\n"
+"Last-Translator: Jason Bradley <jason.bradley@me.com>\n"
+"Language-Team: Jason Bradley <http://jasonbradley.me>\n"
 "Language: en_US\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
+"Content-Transfer-Encoding: JasonBradley\n"
 "X-Poedit-KeywordsList: __;_e\n"
 "X-Poedit-Basepath: .\n"
 "X-Generator: Poedit 1.5.5\n"
@@ -381,7 +381,7 @@ msgstr ""
 
 #: ../functions.php:1231 ../functions.php:1268
 msgid ""
-"<a href=\"http://docs.leantheme.co/lean/admin-panel/publishing/\" target="
+"<a href=\"http://docs.leantheme.co/admin-panel/publishing/\" target="
 "\"_blank\">"
 msgstr ""
 
@@ -442,21 +442,21 @@ msgstr ""
 #: ../functions.php:2022
 msgid ""
 "Lean has detected the activation of WordPress SEO and is now running in "
-"SEO compatibility mode. <a href=\"http://docs.leantheme.co/lean/seo\" target="
+"SEO compatibility mode. <a href=\"http://docs.leantheme.co/seo\" target="
 "\"_blank\">"
 msgstr ""
 
 #: ../functions.php:2027
 msgid ""
 "Lean has detected the activation of All-In-One SEO and is now running in "
-"SEO compatibility mode.  <a href=\"http://docs.leantheme.co/lean/seo\" target="
+"SEO compatibility mode.  <a href=\"http://docs.leantheme.co/seo\" target="
 "\"_blank\">"
 msgstr ""
 
 #: ../functions.php:2032
 msgid ""
 "Lean has detected the activation of Platinum SEO and is now running in "
-"SEO compatibility mode.  <a href=\"http://docs.leantheme.co/lean/seo\" target="
+"SEO compatibility mode.  <a href=\"http://docs.leantheme.co/seo\" target="
 "\"_blank\">"
 msgstr ""
 
@@ -879,7 +879,7 @@ msgstr ""
 
 #: ../lib/google-custom-search/views/admin.php:15
 msgid ""
-"<em><a href=\"http://docs.leantheme.co/lean/widgets/google-custom-search-"
+"<em><a href=\"http://docs.leantheme.co/widgets/google-custom-search-"
 "widget/\" target=\"_blank\">Learn More</a>.</em>"
 msgstr ""
 
