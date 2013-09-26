@@ -1,4 +1,4 @@
-## 1.0 (September 2013)
+## 1.0 (September, 26th 2013)
 
 ### Documentation
 
