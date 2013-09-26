@@ -4,8 +4,8 @@
  *
  * @package		Lean
  * @subpackage	Influence Widget
- * @version		1.4
- * @since		3.0
+ * @version		1.0
+ * @since		1.0
  */
 ?>
 <div class="lean-influence-wrapper">
