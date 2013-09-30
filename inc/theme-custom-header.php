@@ -14,13 +14,13 @@ add_theme_support(
         'flex-width'				=>	true,
         'height'					=>	250,
         'flex-height'				=> 	true,
-        'wp-head-callback'			=>  'lean_header_style',
-        'admin-head-callback'		=>	'lean_admin_header_style',
-        'admin-preview-callback'	=>	'lean_admin_header_style'
+        'wp-head-callback'			=>  'header_style',
+        'admin-head-callback'		=>	'admin_header_style',
+        'admin-preview-callback'	=>	'admin_header_style'
     )
 );
 
-if( ! function_exists( 'lean_header_style' ) ) {
+if( ! function_exists('header_style') ) {
     /**
      * Styles the default header as per the WordPress API.
      *
@@ -29,7 +29,7 @@ if( ! function_exists( 'lean_header_style' ) ) {
      * @since	3.0
      * @version	3.2
      */
-    function lean_header_style() {
+    function header_style() {
         if ( HEADER_TEXTCOLOR != get_header_textcolor() ) { ?>
             <style type="text/css">
                 <?php if ( 'blank' == get_header_textcolor() ) { ?>
@@ -51,7 +51,7 @@ if( ! function_exists( 'lean_header_style' ) ) {
     } // end header_style
 } // end if
 
-if( ! function_exists( 'lean_admin_header_style' ) ) {
+if( ! function_exists('admin_header_style') ) {
     /**
      * Styles the default header in the admin panel as per the WordPress API.
      *
@@ -60,7 +60,7 @@ if( ! function_exists( 'lean_admin_header_style' ) ) {
      * @since	3.0
      * @version	3.2
      */
-    function lean_admin_header_style() { ?>
+    function admin_header_style() { ?>
         <style type="text/css">
 
             .appearance_page_custom-header #headimg {
@@ -93,16 +93,16 @@ if( ! function_exists( 'lean_admin_header_style' ) ) {
     } // admin_header_style
 } // end if
 
-if( ! function_exists( 'lean_admin_header_style' ) ) {
+if( ! function_exists('admin_header_image') ) {
     /**
-     * Marksup and styles the default header in the admin panel as per the WordPress API.
+     * Markup and styles the default header in the admin panel as per the WordPress API.
      *
      * This function can be overridden by child themes.
      *
      * @since	3.0
      * @version	3.2
      */
-    function lean_admin_header_style() { ?>
+    function admin_header_image() { ?>
         <div id="headimg">
             <?php $header_image = get_header_image();
 
@@ -130,7 +130,7 @@ if( ! function_exists( 'lean_admin_header_style' ) ) {
                     ?>
                     <h1>
                         <a id="name"<?php echo $style; ?> onclick="return false;" href="<?php echo esc_url( home_url( '/' ) ); ?>">
-                            <img id="lean-theme-logo" src="<?php echo $presentation_options['logo']; ?>" alt="<?php bloginfo( 'name' ); ?>" style="display:none;" />
+                            <img id="theme-logo" src="<?php echo $presentation_options['logo']; ?>" alt="<?php bloginfo( 'name' ); ?>" style="display:none;" />
                         </a>
                     </h1>
                 <?php
@@ -141,7 +141,7 @@ if( ! function_exists( 'lean_admin_header_style' ) ) {
 
             <?php if ( ! empty( $header_image ) ) { ?>
                 <div id="header-bottom" class="float">
-                    <img id="lean-theme-background" src="<?php echo esc_url( $header_image ); ?>" alt="" />
+                    <img id="theme-background" src="<?php echo esc_url( $header_image ); ?>" alt="" />
                 </div>
             <?php } // end if ?>
 
