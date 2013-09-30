@@ -11,7 +11,7 @@
 <?php get_header(); ?>
 <?php $presentation_options = get_option( 'theme_presentation_options' ); ?>
 <?php
-if( 1 == get_post_meta( get_the_ID(), 'lean_seo_post_level_layout', true ) ) {
+if( 1 == get_post_meta( get_the_ID(), 'seo_post_level_layout', true ) ) {
 	$content_width = 900;
 } // end if
 ?>

@@ -27,7 +27,7 @@
 								</a>
 							</p>
 							
-							<?php lean_get_search_form(); ?>
+							<?php theme_get_search_form(); ?>
 							
 						</div><!-- .entry-content -->
 					</article><!-- #post-0 -->

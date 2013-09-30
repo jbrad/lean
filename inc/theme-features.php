@@ -241,15 +241,15 @@ function customize_preview() { ?>
  * @since	3.0
  * @version	3.2
  */
-function lean_add_full_width_single_post() {
+function add_full_width_single_post() {
 
     $options = get_option( 'theme_presentation_options' );
     if( 'full_width_layout' != $options['layout'] ) {
 
         add_meta_box(
             'post_level_layout',
-            __( 'Lean Layout', 'lean' ),
-            'lean_post_level_layout_display',
+            __( 'Post Layout', 'lean' ),
+            'post_level_layout_display',
             'post',
             'side',
             'core'
@@ -257,8 +257,8 @@ function lean_add_full_width_single_post() {
 
     } // end if
 
-} // end lean_add_full_width_single_post
-add_action( 'add_meta_boxes', 'lean_add_full_width_single_post' );
+} // end add_full_width_single_post
+add_action( 'add_meta_boxes', 'add_full_width_single_post' );
 
 /**
  * Renders the display for the full-width post option.
@@ -267,21 +267,21 @@ add_action( 'add_meta_boxes', 'lean_add_full_width_single_post' );
  * @since	3.0
  * @version	3.2
  */
-function lean_post_level_layout_display( $post ) {
+function post_level_layout_display( $post ) {
 
-    wp_nonce_field( plugin_basename( __FILE__ ), 'lean_post_level_layout_nonce' );
+    wp_nonce_field( plugin_basename( __FILE__ ), 'post_level_layout_nonce' );
 
-    $html = '<input type="checkbox" id="lean_seo_post_level_layout" name="lean_seo_post_level_layout" value="1"' . checked( get_post_meta( $post->ID, 'lean_seo_post_level_layout', true ), 1, false ) . ' />';
+    $html = '<input type="checkbox" id="seo_post_level_layout" name="seo_post_level_layout" value="1"' . checked( get_post_meta( $post->ID, 'seo_post_level_layout', true ), 1, false ) . ' />';
 
     $html .= '&nbsp;';
 
-    $html .= '<label for="lean_seo_post_level_layout">';
+    $html .= '<label for="seo_post_level_layout">';
     $html .= __( 'Hide sidebar and display post at full width.', 'lean' );
     $html .= '</label>';
 
     echo $html;
 
-} // end lean_post_level_layout_display
+} // end post_level_layout_display
 
 /**
  * Saves the post data for the post layout to post defined by the incoming ID.
@@ -290,9 +290,9 @@ function lean_post_level_layout_display( $post ) {
  * @since	3.0
  * @version	3.2
  */
-function lean_save_post_layout_data( $post_id ) {
+function save_post_layout_data( $post_id ) {
 
-    if( isset( $_POST['lean_post_level_layout_nonce'] ) && isset( $_POST['post_type'] ) ) {
+    if( isset( $_POST['post_level_layout_nonce'] ) && isset( $_POST['post_type'] ) ) {
 
         // Don't save if the user hasn't submitted the changes
         if( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
@@ -300,7 +300,7 @@ function lean_save_post_layout_data( $post_id ) {
         } // end if
 
         // Verify that the input is coming from the proper form
-        if( ! wp_verify_nonce( $_POST['lean_post_level_layout_nonce'], plugin_basename( __FILE__ ) ) ) {
+        if( ! wp_verify_nonce( $_POST['post_level_layout_nonce'], plugin_basename( __FILE__ ) ) ) {
             return;
         } // end if
 
@@ -313,22 +313,22 @@ function lean_save_post_layout_data( $post_id ) {
 
         // Read the meta description
         $post_level_layout = '';
-        if( isset( $_POST['lean_seo_post_level_layout'] ) ) {
-            $post_level_layout = $_POST['lean_seo_post_level_layout'];
+        if( isset( $_POST['seo_post_level_layout'] ) ) {
+            $post_level_layout = $_POST['seo_post_level_layout'];
         } // end if
 
         // If the value exists, delete it first. I don't want to write extra rows into the table.
-        if ( 0 == count( get_post_meta( $post_id, 'lean_seo_post_level_layout' ) ) ) {
-            delete_post_meta( $post_id, 'lean_seo_post_level_layout' );
+        if ( 0 == count( get_post_meta( $post_id, 'seo_post_level_layout' ) ) ) {
+            delete_post_meta( $post_id, 'seo_post_level_layout' );
         } // end if
 
         // Update it for this post.
-        update_post_meta( $post_id, 'lean_seo_post_level_layout', $post_level_layout );
+        update_post_meta( $post_id, 'seo_post_level_layout', $post_level_layout );
 
     } // end if
 
-} // end lean_save_post_layout_data
-add_action( 'save_post', 'lean_save_post_layout_data' );
+} // end save_post_layout_data
+add_action( 'save_post', 'save_post_layout_data' );
 
 // If Lean is running less than 3.6, then add the Link Post Format Meta Box
 //if( 3.6 > is_wp36() ) {
@@ -340,49 +340,49 @@ add_action( 'save_post', 'lean_save_post_layout_data' );
  * @version		3.2
  * @deprecated	3.5.1
  */
-function lean_add_url_field_to_link_post_format() {
+function add_url_field_to_link_post_format() {
 
     add_meta_box(
         'link_format_url',
         __( 'Link URL', 'lean' ),
-        'lean_link_url_field_display',
+        'link_url_field_display',
         'post',
         'side',
         'high'
     );
 
 } // end hudson_add_url_to_link_post_type
-add_action( 'add_meta_boxes', 'lean_add_url_field_to_link_post_format' );
+add_action( 'add_meta_boxes', 'add_url_field_to_link_post_format' );
 
 /**
  * Renders the input field for the URL in the Link Post Format related to the
- * meta box defined in the lean_add_url_field_to_link_post_format() function.
+ * meta box defined in the add_url_field_to_link_post_format() function.
  *
  * @param	$post	The post on which this meta box is attached.
  * @since			3.1
  * @version			3.2
  * @deprecated		3.5.1
  */
-function lean_link_url_field_display( $post ) {
+function link_url_field_display( $post ) {
 
-    wp_nonce_field( plugin_basename( __FILE__ ), 'lean_link_url_field_nonce' );
+    wp_nonce_field( plugin_basename( __FILE__ ), 'link_url_field_nonce' );
 
-    echo '<input type="text" id="lean_link_url_field" name="lean_link_url_field" value="' . get_post_meta( $post->ID, 'lean_link_url_field', true ) . '" />';
+    echo '<input type="text" id="link_url_field" name="link_url_field" value="' . get_post_meta( $post->ID, 'link_url_field', true ) . '" />';
 
-} // end lean_link_url_field_display
+} // end link_url_field_display
 
 /**
  * Saves the specified URL for the post specified by the incoming post ID. This is
- * related to the lean_link_url_field_display() function.
+ * related to the link_url_field_display() function.
  *
  * @param	$post_id	The ID of the post that we're serializing
  * @since				3.1
  * @version				3.2
  * @deprecated			3.5.1
  */
-function lean_save_link_url_data( $post_id ) {
+function save_link_url_data( $post_id ) {
 
-    if( isset( $_POST['lean_link_url_field_nonce'] ) && isset( $_POST['post_type'] ) ) {
+    if( isset( $_POST['link_url_field_nonce'] ) && isset( $_POST['post_type'] ) ) {
 
         // Don't save if the user hasn't submitted the changes
         if( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
@@ -390,7 +390,7 @@ function lean_save_link_url_data( $post_id ) {
         } // end if
 
         // Verify that the input is coming from the proper form
-        if( ! wp_verify_nonce( $_POST['lean_link_url_field_nonce'], plugin_basename( __FILE__ ) ) ) {
+        if( ! wp_verify_nonce( $_POST['link_url_field_nonce'], plugin_basename( __FILE__ ) ) ) {
             return;
         } // end if
 
@@ -403,22 +403,22 @@ function lean_save_link_url_data( $post_id ) {
 
         // Read the Link's URL
         $link_url = '';
-        if( isset( $_POST['lean_link_url_field'] ) ) {
-            $link_url = esc_url( $_POST['lean_link_url_field'] );
+        if( isset( $_POST['link_url_field'] ) ) {
+            $link_url = esc_url( $_POST['link_url_field'] );
         } // end if
 
         // If the value exists, delete it first. I don't want to write extra rows into the table.
-        if ( 0 == count( get_post_meta( $post_id, 'lean_link_url_field' ) ) ) {
-            delete_post_meta( $post_id, 'lean_link_url_field' );
+        if ( 0 == count( get_post_meta( $post_id, 'link_url_field' ) ) ) {
+            delete_post_meta( $post_id, 'link_url_field' );
         } // end if
 
         // Update it for this post.
-        update_post_meta( $post_id, 'lean_link_url_field', $link_url );
+        update_post_meta( $post_id, 'link_url_field', $link_url );
 
     } // end if
 
-} // end lean_save_post_layout_data
-add_action( 'save_post', 'lean_save_link_url_data' );
+} // end save_post_layout_data
+add_action( 'save_post', 'save_link_url_data' );
 
 //} // end if
 
@@ -428,7 +428,7 @@ add_action( 'save_post', 'lean_save_link_url_data' );
  * @since	3.0
  * @version	3.2
  */
-function lean_add_admin_bar_option() {
+function add_admin_bar_option() {
 
     if( ! is_admin() ) {
 
@@ -436,7 +436,7 @@ function lean_add_admin_bar_option() {
 
         $wp_admin_bar->add_node(
             array(
-                'id'	=>	'lean_options',
+                'id'	=>	'theme_options',
                 'title'	=>	__( 'Lean', 'lean' ),
                 'href'	=>	site_url() . '/wp-admin/admin.php?page=theme_options'
             )
@@ -447,7 +447,7 @@ function lean_add_admin_bar_option() {
             array(
                 'id'		=>	'lean_theme_global_options',
                 'title'		=>	__( 'Global', 'lean' ),
-                'parent'	=>	'lean_options',
+                'parent'	=>	'theme_options',
                 'href'		=>	site_url() . '/wp-admin/admin.php?page=theme_options&tab=lean_theme_global_options'
             )
         );
@@ -457,7 +457,7 @@ function lean_add_admin_bar_option() {
             array(
                 'id'		=>	'theme_presentation_options',
                 'title'		=>	__( 'Presentation', 'lean' ),
-                'parent'	=>	'lean_options',
+                'parent'	=>	'theme_options',
                 'href'		=>	site_url() . '/wp-admin/admin.php?page=theme_options&tab=theme_presentation_options'
             )
         );
@@ -467,7 +467,7 @@ function lean_add_admin_bar_option() {
             array(
                 'id'		=>	'lean_theme_social_options',
                 'title'		=>	__( 'Social', 'lean' ),
-                'parent'	=>	'lean_options',
+                'parent'	=>	'theme_options',
                 'href'		=>	site_url() . '/wp-admin/admin.php?page=theme_options&tab=lean_theme_social_options'
             )
         );
@@ -477,15 +477,15 @@ function lean_add_admin_bar_option() {
             array(
                 'id'		=>	'theme_publishing_options',
                 'title'		=>	__( 'Publishing', 'lean' ),
-                'parent'	=>	'lean_options',
+                'parent'	=>	'theme_options',
                 'href'		=>	site_url() . '/wp-admin/admin.php?page=theme_options&tab=theme_publishing_options'
             )
         );
 
     } // end if
 
-} // end lean_add_admin_bar_option
-add_action( 'admin_bar_menu', 'lean_add_admin_bar_option', 40 );
+} // end add_admin_bar_option
+add_action( 'admin_bar_menu', 'add_admin_bar_option', 40 );
 
 /**
  * Adds a reminder message to the admin bar that the user has the site set in Offline Mode.
@@ -493,7 +493,7 @@ add_action( 'admin_bar_menu', 'lean_add_admin_bar_option', 40 );
  * @since	3.0
  * @version	3.2
  */
-function lean_add_site_mode_admin_bar_note() {
+function add_site_mode_admin_bar_note() {
 
     // Remind the user if they are in offline mode
     if( is_offline() ) {
@@ -508,7 +508,7 @@ function lean_add_site_mode_admin_bar_note() {
     } // end if
 
 } // end lean_add_maintenance_mode_admin_bar_note
-add_action( 'admin_bar_menu' , 'lean_add_site_mode_admin_bar_note', 90 );
+add_action( 'admin_bar_menu' , 'add_site_mode_admin_bar_note', 90 );
 
 /**
  * Detects whether or not any of the major SEO plugins have been installed. If so, Lean's built-in SEO features will be disabled in favor of the active plugin.
@@ -522,31 +522,31 @@ add_action( 'admin_bar_menu' , 'lean_add_site_mode_admin_bar_note', 90 );
  * @since	3.0
  * @version	3.2
  */
-function lean_detect_wordpress_seo() {
+function detect_wordpress_seo() {
 
     // If the SEO notification options don't exist, create them
-    if( false == get_option( 'lean_theme_seo_notification_options' ) ) {
-        add_option( 'lean_theme_seo_notification_options', false );
+    if( false == get_option( 'theme_seo_notification_options' ) ) {
+        add_option( 'theme_seo_notification_options', false );
     } // end if
 
-    if( 'true' != get_option( 'lean_theme_seo_notification_options' ) ) {
+    if( 'true' != get_option( 'theme_seo_notification_options' ) ) {
 
         $html = '';
 
         // WordPress SEO
         if( defined( 'WPSEO_URL' ) ) {
 
-            $html = '<div id="lean-hide-seo-message-notification" class="error"><p>' . __( 'Lean has detected the activation of WordPress SEO and is now running in SEO compatibility mode. <a href="http://docs.leantheme.co/seo" target="_blank">' . __( 'Learn more', 'lean' ) . '</a> or <a id="lean-hide-seo-message" href="javascript:;">hide this message</a>.', 'lean') . '</p><span id="lean-hide-seo-message-nonce" class="hidden">' . wp_create_nonce( 'lean_hide_seo_message_nonce' ) . '</span></div>';
+            $html = '<div id="hide-seo-message-notification" class="error"><p>' . __( 'Lean has detected the activation of WordPress SEO and is now running in SEO compatibility mode. <a href="http://docs.leantheme.co/seo" target="_blank">' . __( 'Learn more', 'lean' ) . '</a> or <a id="lean-hide-seo-message" href="javascript:;">hide this message</a>.', 'lean') . '</p><span id="lean-hide-seo-message-nonce" class="hidden">' . wp_create_nonce( 'hide_seo_message_nonce' ) . '</span></div>';
 
             // All-in-One SEO
         } elseif( class_exists( 'All_in_One_SEO_Pack' ) ) {
 
-            $html = '<div id="lean-hide-seo-message-notification" class="error"><p>' . __( 'Lean has detected the activation of All-In-One SEO and is now running in SEO compatibility mode.  <a href="http://docs.leantheme.co/seo" target="_blank">' . __( 'Learn more', 'lean' ) . '</a> or <a id="lean-hide-seo-message" href="javascript:;">hide this message</a>.', 'lean') . '</p><span id="lean-hide-seo-message-nonce" class="hidden">' . wp_create_nonce( 'lean_hide_seo_message_nonce' ) . '</span></div>';
+            $html = '<div id="hide-seo-message-notification" class="error"><p>' . __( 'Lean has detected the activation of All-In-One SEO and is now running in SEO compatibility mode.  <a href="http://docs.leantheme.co/seo" target="_blank">' . __( 'Learn more', 'lean' ) . '</a> or <a id="lean-hide-seo-message" href="javascript:;">hide this message</a>.', 'lean') . '</p><span id="lean-hide-seo-message-nonce" class="hidden">' . wp_create_nonce( 'hide_seo_message_nonce' ) . '</span></div>';
 
             // Platinum SEO
         } elseif( class_exists( 'Platinum_SEO_Pack' ) ) {
 
-            $html =  '<div id="lean-hide-seo-message-notification" class="error"><p>' . __( 'Lean has detected the activation of Platinum SEO and is now running in SEO compatibility mode.  <a href="http://docs.leantheme.co/seo" target="_blank">' . __( 'Learn more', 'lean' ) . '</a> or <a id="lean-hide-seo-message" href="javascript:;">hide this message</a>.', 'lean') . '</p><span id="lean-hide-seo-message-nonce" class="hidden">' . wp_create_nonce( 'lean_hide_seo_message_nonce' ) . '</span></div>';
+            $html =  '<div id="hide-seo-message-notification" class="error"><p>' . __( 'Lean has detected the activation of Platinum SEO and is now running in SEO compatibility mode.  <a href="http://docs.leantheme.co/seo" target="_blank">' . __( 'Learn more', 'lean' ) . '</a> or <a id="lean-hide-seo-message" href="javascript:;">hide this message</a>.', 'lean') . '</p><span id="lean-hide-seo-message-nonce" class="hidden">' . wp_create_nonce( 'hide_seo_message_nonce' ) . '</span></div>';
 
         } // end if/ese
 
@@ -556,12 +556,12 @@ function lean_detect_wordpress_seo() {
     } // end if
 
     // Set the option to false if the plugin is deactivated
-    if( 'true' == get_option( 'lean_theme_seo_notification_options') && using_native_seo() ) {
-        update_option( 'lean_theme_seo_notification_options', 'false' );
+    if( 'true' == get_option( 'theme_seo_notification_options') && using_native_seo() ) {
+        update_option( 'theme_seo_notification_options', 'false' );
     } // end if
 
-} // end lean_detect_wordpress_seo
-add_action( 'admin_notices', 'lean_detect_wordpress_seo' );
+} // end detect_wordpress_seo
+add_action( 'admin_notices', 'detect_wordpress_seo' );
 
 /**
  * Callback function used in the Ajax request for hiding the notification window of WordPress SEO.
@@ -569,12 +569,12 @@ add_action( 'admin_notices', 'lean_detect_wordpress_seo' );
  * @since	3.0
  * @version	3.2
  */
-function lean_save_wordpress_seo_message_setting( ) {
+function save_wordpress_seo_message_setting( ) {
 
-    if( wp_verify_nonce( $_REQUEST['nonce'], 'lean_hide_seo_message_nonce' ) && isset( $_POST['hideSeoNotification'] ) ) {
+    if( wp_verify_nonce( $_REQUEST['nonce'], 'hide_seo_message_nonce' ) && isset( $_POST['hideSeoNotification'] ) ) {
 
-        delete_option( 'lean_theme_seo_notification_options' );
-        if( update_option( 'lean_theme_seo_notification_options', $_POST['hideSeoNotification'] ) ) {
+        delete_option( 'theme_seo_notification_options' );
+        if( update_option( 'theme_seo_notification_options', $_POST['hideSeoNotification'] ) ) {
             die( '0' );
         } else {
             die ( '1' );
@@ -583,10 +583,10 @@ function lean_save_wordpress_seo_message_setting( ) {
         die( '-1' );
     } // end if
 
-} // end lean_save_wordpress_seo_message_setting
-add_action( 'wp_ajax_lean_save_wordpress_seo_message_setting', 'lean_save_wordpress_seo_message_setting' );
+} // end save_wordpress_seo_message_setting
+add_action( 'wp_ajax_save_wordpress_seo_message_setting', 'save_wordpress_seo_message_setting' );
 
-if( ! function_exists('lean_page_menu') ) {
+if( ! function_exists('page_menu') ) {
     /**
      * Adds a custom class to the wp_page_menu when users don't set an active menu.
      *
@@ -597,10 +597,10 @@ if( ! function_exists('lean_page_menu') ) {
      * @since	3.0
      * @version	3.2
      */
-    function lean_page_menu( $ulclass ) {
+    function page_menu( $ulclass ) {
         return preg_replace( '/<ul>/', '<ul class="nav nav-menu">', $ulclass, 1 );
     } // end lean_default_menu
-    add_filter( 'wp_page_menu', 'lean_page_menu' );
+    add_filter( 'wp_page_menu', 'page_menu' );
 } // end if
 
 /**
@@ -611,29 +611,29 @@ if( ! function_exists('lean_page_menu') ) {
  * @since	3.0
  * @version	3.2
  */
-if( ! function_exists('lean_add_theme_background') ) {
-    function lean_add_theme_background() {
+if( ! function_exists('add_theme_background') ) {
+    function add_theme_background() {
         add_theme_support( 'custom-background' );
-    } // end lean_add_theme_background
-    add_action( 'init', 'lean_add_theme_background' );
+    } // end add_theme_background
+    add_action( 'init', 'add_theme_background' );
 } // end if
 
-if( ! function_exists('lean_add_theme_editor_style') ) {
+if( ! function_exists('add_theme_editor_style') ) {
     /**
      * Includes the post editor stylesheet.
      *
      * @since	3.0
      * @version	3.2
      */
-    function lean_add_theme_editor_style() {
+    function add_theme_editor_style() {
 
         add_editor_style( 'css/editor-style.css' );
 
-    } // end lean_add_theme_editor_style
-    add_action( 'init', 'lean_add_theme_editor_style' );
+    } // end add_theme_editor_style
+    add_action( 'init', 'add_theme_editor_style' );
 } // end if
 
-if( ! function_exists('lean_add_theme_menus') ) {
+if( ! function_exists('add_theme_menus') ) {
     /**
      * Adds three menu areas: above the logo, below the logo, and in the footer.
      *
@@ -642,7 +642,7 @@ if( ! function_exists('lean_add_theme_menus') ) {
      * @since	3.0
      * @version	3.2
      */
-    function lean_add_theme_menus() {
+    function add_theme_menus() {
 
         register_nav_menus(
             array(
@@ -653,10 +653,10 @@ if( ! function_exists('lean_add_theme_menus') ) {
         );
 
     } // end add_theme_menu
-    add_action( 'init', 'lean_add_theme_menus' );
+    add_action( 'init', 'add_theme_menus' );
 } // end if
 
-if( ! function_exists('lean_add_theme_sidebars') ) {
+if( ! function_exists('add_theme_sidebars') ) {
     /**
      * Adds four widgetized areas: the sidebar, the left footer, center footer, and right footer.
      *
@@ -665,7 +665,7 @@ if( ! function_exists('lean_add_theme_sidebars') ) {
      * @since	3.0
      * @version	3.2
      */
-    function lean_add_theme_sidebars() {
+    function add_theme_sidebars() {
 
         // main
         register_sidebar(
@@ -746,10 +746,10 @@ if( ! function_exists('lean_add_theme_sidebars') ) {
         );
 
     } // end add_theme_sidebars
-    add_action( 'widgets_init', 'lean_add_theme_sidebars' );
+    add_action( 'widgets_init', 'add_theme_sidebars' );
 } // end if
 
-if( ! function_exists('lean_add_theme_features') ) {
+if( ! function_exists('add_theme_features') ) {
     /**
      * Adds support for Post Formats, Post Thumbnails, Activity Tabs widget
      * Custom Image Sizes for post formats.
@@ -759,7 +759,7 @@ if( ! function_exists('lean_add_theme_features') ) {
      * @since	3.0
      * @version	3.2
      */
-    function lean_add_theme_features() {
+    function add_theme_features() {
 
         // Feedlinks
         add_theme_support( 'automatic-feed-links' );
@@ -808,7 +808,7 @@ if( ! function_exists('lean_add_theme_features') ) {
             array(
                 'container'			=>	'main',
                 'type'				=>	'click',	// Because Lean supports footer widgets
-                'render'			=>	'lean_infinite_scroll',
+                'render'			=>	'infinite_scroll',
                 'wrapper'			=>	false,
                 'posts_per_page'	=>	false,
                 'footer'			=>	false
@@ -828,7 +828,7 @@ if( ! function_exists('lean_add_theme_features') ) {
         add_plugin( '/lib/influence/plugin.php' );
 
     } // end add_theme_features
-    add_action( 'after_setup_theme', 'lean_add_theme_features' );
+    add_action( 'after_setup_theme', 'add_theme_features' );
 } // end if
 
 /**
@@ -838,7 +838,7 @@ if( ! function_exists('lean_add_theme_features') ) {
  * @since	3.2
  * @version	3.2
  */
-function lean_infinite_scroll() {
+function infinite_scroll() {
 
     while( have_posts() ) {
         the_post();
@@ -853,7 +853,7 @@ function lean_infinite_scroll() {
         }(jQuery));
     </script>
 <?php
-} // end lean_infinite_scroll
+} // end infinite_scroll
 
 /**
  * Sets the media embed width to 580 or 900 (based on the layout) which is optimized
@@ -879,7 +879,7 @@ if( 'full_width_layout' == $options['layout'] ) {
 
 } // end if/else
 
-if( ! function_exists('lean_set_theme_colors') ) {
+if( ! function_exists('set_theme_colors') ) {
     /**
      * Sets the values for the default color scheme of Lean for use
      * in other plugins.
@@ -889,7 +889,7 @@ if( ! function_exists('lean_set_theme_colors') ) {
      * @since	3.0
      * @version	3.2
      */
-    function lean_set_theme_colors() {
+    function set_theme_colors() {
 
         $themecolors = array(
             'bg' 		=> 'efefef',
@@ -899,8 +899,8 @@ if( ! function_exists('lean_set_theme_colors') ) {
             'url' 		=> '4D8B97',
         );
 
-    } // end lean_set_theme_colors
-    add_action( 'init', 'lean_set_theme_colors' );
+    } // end set_theme_colors
+    add_action( 'init', 'set_theme_colors' );
 } // end if
 
 /**
@@ -910,7 +910,7 @@ if( ! function_exists('lean_set_theme_colors') ) {
  * @since	3.0
  * @version	3.2
  */
-function lean_get_search_form() {
+function theme_get_search_form() {
 
     // First, detect if the Google Custom Search widget is active
     if( google_custom_search_is_active() ) {
@@ -937,4 +937,4 @@ function lean_get_search_form() {
         get_search_form();
     } // end if
 
-} // end lean_get_google_search_form
+} // end theme_get_google_search_form

@@ -375,7 +375,7 @@ if( ! function_exists('post_format_rss') /*&& 3.6 < is_wp36()*/ ) {
 
             // If there's no link meta data, then we'll handle this the 3.0 way.
             // @deprecated since we're actually full on incoporating this functionality
-            if( '' == get_post_meta( get_the_ID(), 'lean_link_url_field', true ) ) {
+            if( '' == get_post_meta( get_the_ID(), 'link_url_field', true ) ) {
 
                 // Read the attribute of the anchor from the post format
                 $title = get_post_format_attribute( 'title' );

@@ -22,7 +22,7 @@
 					$target = strlen( get_post_format_attribute( 'target' ) ) > 0 ? get_post_format_attribute( 'target' ) : '_blank';
 					
 					// And attempt to read the link from the post meta
-					$href = ( '' == get_post_meta( get_the_ID(), 'lean_link_url_field', true ) ) ? $href : get_post_meta( get_the_ID(), 'lean_link_url_field', true );
+					$href = ( '' == get_post_meta( get_the_ID(), 'link_url_field', true ) ) ? $href : get_post_meta( get_the_ID(), 'link_url_field', true );
 					$post_title = strip_tags( stripslashes( get_the_title() ) );
 					$content = strip_tags( get_the_content() );
 					
@@ -61,7 +61,7 @@
 			</div><!-- /.entry-content -->
 	</div> <!-- /.post-header -->
 		
-	<?php if( '' != get_post_meta( get_the_ID(), 'lean_link_url_field', true ) ) { ?>
+	<?php if( '' != get_post_meta( get_the_ID(), 'link_url_field', true ) ) { ?>
 		<div class="entry-content clearfix link-description">
 			<?php the_content( __( 'Continue Reading...', 'lean' ) ); ?>
 		</div><!-- /entry-content -->
