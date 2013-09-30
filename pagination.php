@@ -18,13 +18,13 @@
 
 			<?php if( '' != get_previous_post() ) { ?>
 				<li class="previous">
-					<?php previous_post_link( '<span class="previous-page">%link</span>', __( '<span class="icon-chevron-left"></span>', 'lean' ) . '&nbsp;' . lean_truncate_text( get_previous_post()->post_title, $trunc_limit ) ); ?>
+					<?php previous_post_link( '<span class="previous-page">%link</span>', __( '<span class="icon-chevron-left"></span>', 'lean' ) . '&nbsp;' . truncate_text( get_previous_post()->post_title, $trunc_limit ) ); ?>
 				</li>
 			<?php } // end if ?>
 
 			<?php if( '' != get_next_post() ) { ?>
 				<li class="next">
-				<?php next_post_link( '<span class="no-previous-page-link next-page">%link</span>', '&nbsp;' . lean_truncate_text( get_next_post()->post_title, $trunc_limit ) . __( '<span class="icon-chevron-right"></span>', 'lean' ) ); ?>
+				<?php next_post_link( '<span class="no-previous-page-link next-page">%link</span>', '&nbsp;' . truncate_text( get_next_post()->post_title, $trunc_limit ) . __( '<span class="icon-chevron-right"></span>', 'lean' ) ); ?>
 				</li>
 			<?php } // end if ?>
 		</ul>

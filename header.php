@@ -80,7 +80,7 @@
     </head>
 <body <?php body_class(); ?>>
 
-<?php if( lean_is_offline() && ! current_user_can( 'manage_options' ) ) { ?>
+<?php if( is_offline() && ! current_user_can( 'manage_options' ) ) { ?>
     <?php get_template_part( 'page', 'offline-mode' ); ?>
     <?php exit; ?>
 <?php } // end if ?>
@@ -165,14 +165,14 @@ $head_class = ! empty( $header_image ) ? 'imageyup' : 'imageless';
                     <div id="logo">
 
                         <?php // If a logo has been set in the Lean Presentation options, display it ?>
-                        <?php if( lean_has_logo() ) { ?>
+                        <?php if( has_logo() ) { ?>
 
                             <a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php bloginfo( 'name' ); ?>" rel="home">
                                 <img src="<?php echo $presentation_options['logo']; ?>" alt="<?php bloginfo( 'name' ); ?>" id="header-logo" />
                             </a>
 
                             <?php // Otherwise, we'll display the header text ?>
-                        <?php } else if( lean_has_header_text() ) { ?>
+                        <?php } else if( has_header_text() ) { ?>
 
                             <?php // If the user is on the front page, archive page, or one of the post formats without titles, we render h1's. ?>
                             <?php if( is_home() || is_archive() || 'video' == get_post_format() || 'image' == get_post_format() || '' == get_the_title() ) { ?>

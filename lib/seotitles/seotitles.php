@@ -20,7 +20,7 @@
  * @version		1.0
  * @since		3.0
  */
-class Lean_SeoTitles {
+class SeoTitles {
 
 	/*--------------------------------------------------------*
 	 * Public Functions

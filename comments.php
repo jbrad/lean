@@ -61,4 +61,4 @@
 	
 <?php } // end if ?>
 
-<?php lean_comment_form(); ?>
+<?php comment_form(); ?>

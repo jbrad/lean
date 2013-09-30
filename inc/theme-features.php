@@ -331,7 +331,7 @@ function lean_save_post_layout_data( $post_id ) {
 add_action( 'save_post', 'lean_save_post_layout_data' );
 
 // If Lean is running less than 3.6, then add the Link Post Format Meta Box
-//if( 3.6 > lean_is_wp36() ) {
+//if( 3.6 > is_wp36() ) {
 
 /**
  * Adds the post meta box for the URL to be included in the Link Post Format.
@@ -496,7 +496,7 @@ add_action( 'admin_bar_menu', 'lean_add_admin_bar_option', 40 );
 function lean_add_site_mode_admin_bar_note() {
 
     // Remind the user if they are in offline mode
-    if( lean_is_offline() ) {
+    if( is_offline() ) {
         global $wp_admin_bar;
         $wp_admin_bar->add_node(
             array(
@@ -765,7 +765,7 @@ if( ! function_exists('lean_add_theme_features') ) {
         add_theme_support( 'automatic-feed-links' );
 
         // WordPress 3.6 Post Format Support
-        if( 3.6 >= lean_is_wp36() ) {
+        if( 3.6 >= is_wp36() ) {
 
             add_theme_support(
                 'post-formats',
@@ -816,16 +816,16 @@ if( ! function_exists('lean_add_theme_features') ) {
         );
 
         if( using_native_seo() ) {
-            lean_add_plugin( '/lib/seo/plugin.php' );
+            add_plugin( '/lib/seo/plugin.php' );
         } // end if
 
-        lean_add_plugin( '/lib/activity/plugin.php' );
-        lean_add_plugin( '/lib/google-custom-search/plugin.php' );
-        lean_add_plugin( '/lib/lean-ad-300x250/plugin.php' );
-        lean_add_plugin( '/lib/lean-ad-125x125/plugin.php' );
-        lean_add_plugin( '/lib/lean-ad-billboard/plugin.php' );
-        lean_add_plugin( '/lib/personal-image/plugin.php' );
-        lean_add_plugin( '/lib/influence/plugin.php' );
+        add_plugin( '/lib/activity/plugin.php' );
+        add_plugin( '/lib/google-custom-search/plugin.php' );
+        add_plugin( '/lib/lean-ad-300x250/plugin.php' );
+        add_plugin( '/lib/lean-ad-125x125/plugin.php' );
+        add_plugin( '/lib/lean-ad-billboard/plugin.php' );
+        add_plugin( '/lib/personal-image/plugin.php' );
+        add_plugin( '/lib/influence/plugin.php' );
 
     } // end add_theme_features
     add_action( 'after_setup_theme', 'lean_add_theme_features' );

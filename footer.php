@@ -10,7 +10,7 @@
 
 		<footer id="footer" class="clearfix">
 			
-			<?php if( ! lean_is_offline() || is_user_logged_in() ) { ?>
+			<?php if( ! is_offline() || is_user_logged_in() ) { ?>
 				<?php if( is_active_sidebar( 'sidebar-3' ) || is_active_sidebar( 'sidebar-4' ) || is_active_sidebar( 'sidebar-5' ) ) { ?>
 					<div id="footer-widgets" class="clearfix">
 						<div class="container">
@@ -40,7 +40,7 @@
 						<div class="col-md-12">
 							<div id="footer-links">
 								<?php  
-									if( has_nav_menu( 'footer_menu' ) && ( ! lean_is_offline() || is_user_logged_in() ) ) {
+									if( has_nav_menu( 'footer_menu' ) && ( ! is_offline() || is_user_logged_in() ) ) {
 										wp_nav_menu( 
 											array(
 												'theme_location'  	=> 'footer_menu',

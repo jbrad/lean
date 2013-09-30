@@ -28,12 +28,12 @@
 	                <div id="archive-page-title"> 
 	                    <h3> 
 	                        <?php _e( 'Archives For ', 'lean' ); ?>
-	                        <?php if( lean_is_date_archive() ) { ?>
-	                        	<?php echo lean_get_date_archive_label(); ?>
+	                        <?php if( is_date_archive() ) { ?>
+	                        	<?php echo get_date_archive_label(); ?>
 	                    	<?php } elseif ( is_author() ) { ?>
 	                    	
 	                    		<?php 
-	                    			$author_data = lean_is_using_pretty_permalinks() ?
+	                    			$author_data = is_using_pretty_permalinks() ?
 	                    				get_userdata( get_query_var( 'author' ) )  : 
 	                    				get_userdata( user_trailingslashit( get_query_var( 'author' ) ) );
 	                    			

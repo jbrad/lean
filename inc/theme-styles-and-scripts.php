@@ -80,7 +80,7 @@ function lean_add_admin_script() {
         'thickbox'
     );
 
-    wp_enqueue_script( 'lean-admin', get_template_directory_uri() . '/js/admin.min.js?using_sitemap=' . get_option( 'lean_using_sitemap' ), $dependencies, LEAN_THEME_VERSION );
+    wp_enqueue_script( 'lean-admin', get_template_directory_uri() . '/js/admin.min.js?using_sitemap=' . get_option( 'using_sitemap' ), $dependencies, LEAN_THEME_VERSION );
 
     $screen = get_current_screen();
     if( 'post' != $screen->base && 'page' != $screen->base ) {

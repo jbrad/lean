@@ -542,19 +542,19 @@ msgstr ""
 
 #: ../functions.php:2836
 msgid ""
-"<span class=\"lean-user-profile\" id=\"lean-user-profile-twitter"
+"<span class=\"user-profile\" id=\"user-profile-twitter"
 "\">Twitter URL</span>"
 msgstr ""
 
 #: ../functions.php:2837
 msgid ""
-"<span class=\"lean-user-profile\" id=\"lean-user-profile-facebook"
+"<span class=\"user-profile\" id=\"user-profile-facebook"
 "\">Facebook URL</span>"
 msgstr ""
 
 #: ../functions.php:2840
 msgid ""
-"<span class=\"lean-user-profile\" id=\"lean-user-profile-google-plus"
+"<span class=\"user-profile\" id=\"user-profile-google-plus"
 "\">Google+ URL</span>"
 msgstr ""
 

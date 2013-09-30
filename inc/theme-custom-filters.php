@@ -16,10 +16,10 @@
  * @since	3.0
  * @version	3.2
  */
-function lean_activate_theme() {
+function activate_theme() {
 
     // If we're not using the most recent version of Lean...
-    if( ! lean_is_current_version() ) {
+    if( ! is_current_version() ) {
 
         // .. and the user has opted to reset the otpions
         if( array_key_exists( 'lean_theme_reset_options', $_GET ) && 'true' == $_GET['lean_theme_reset_options'] ) {
@@ -30,10 +30,10 @@ function lean_activate_theme() {
             delete_option( 'lean_theme_layout_options' );
 
             // Set defaults for Lean
-            get_lean_theme_default_global_options();
-            get_lean_theme_default_presentation_options();
-            get_lean_theme_default_social_options();
-            get_lean_theme_default_publishing_options();
+            get_theme_default_global_options();
+            get_theme_default_presentation_options();
+            get_theme_default_social_options();
+            get_theme_default_publishing_options();
 
             // Otherwise, we have some other things to do...
         } else {
@@ -51,10 +51,10 @@ function lean_activate_theme() {
     } // end if/else
 
     // Reset the icons
-    lean_find_new_social_icons();
+    find_new_social_icons();
 
-} // end lean_activate_theme
-add_action( 'admin_notices', 'lean_activate_theme' );
+} // end activate_theme
+add_action( 'admin_notices', 'activate_theme' );
 
 // rel="generator" is an invalid HTML5 attribute
 remove_action( 'wp_head', 'wp_generator' );
@@ -67,19 +67,19 @@ remove_action( 'wp_head', 'wp_generator' );
  * @since	3.0
  * @version	3.2
  */
-function lean_add_user_profile_fields( $user_contactmethods ) {
+function add_user_profile_fields( $user_contactmethods ) {
 
-    $user_contactmethods['twitter'] = __( '<span class="lean-user-profile" id="lean-user-profile-twitter">Twitter URL</span>', 'lean' );
-    $user_contactmethods['facebook'] = __( '<span class="lean-user-profile" id="lean-user-profile-facebook">Facebook URL</span>', 'lean' );
+    $user_contactmethods['twitter'] = __( '<span class="user-profile" id="user-profile-twitter">Twitter URL</span>', 'lean' );
+    $user_contactmethods['facebook'] = __( '<span class="user-profile" id="user-profile-facebook">Facebook URL</span>', 'lean' );
 
     if( using_native_seo() ) {
-        $user_contactmethods['google_plus'] = __( '<span class="lean-user-profile" id="lean-user-profile-google-plus">Google+ URL</span>', 'lean' );
+        $user_contactmethods['google_plus'] = __( '<span class="user-profile" id="user-profile-google-plus">Google+ URL</span>', 'lean' );
     } // end if
 
     return $user_contactmethods;
 
-} // end lean_add_user_profile_fields
-add_filter( 'user_contactmethods', 'lean_add_user_profile_fields' );
+} // end add_user_profile_fields
+add_filter( 'user_contactmethods', 'add_user_profile_fields' );
 
 /**
  * If running in native SEO mode and if the current page has a meta description, renders the description to the browser.
@@ -87,7 +87,7 @@ add_filter( 'user_contactmethods', 'lean_add_user_profile_fields' );
  * @version 3.0
  * @since	3.0
  */
-function lean_meta_description() {
+function meta_description() {
 
     // If we're using Lean's native SEO, let's do the following...
     if( using_native_seo() ) {
@@ -98,8 +98,8 @@ function lean_meta_description() {
         } // end if
 
         // For single pages, we're setting the meta description to what the user has provided (or nothing, if it's empty
-        if ( ( is_single() || is_page() ) && '' != get_post_meta( get_the_ID(), 'lean_seo_post_meta_description', true ) ) {
-            echo '<meta name="description" content="' . get_post_meta( get_the_ID(), 'lean_seo_post_meta_description', true ) . '" />';
+        if ( ( is_single() || is_page() ) && '' != get_post_meta( get_the_ID(), 'seo_post_meta_description', true ) ) {
+            echo '<meta name="description" content="' . get_post_meta( get_the_ID(), 'seo_post_meta_description', true ) . '" />';
         } // end if/else
 
         // And if we're on the categories or any other archives, we'll be using the description if it has been provided
@@ -109,8 +109,8 @@ function lean_meta_description() {
 
     } // end if
 
-} // end lean_meta_description
-add_action( 'wp_head', 'lean_meta_description' );
+} // end meta_description
+add_action( 'wp_head', 'meta_description' );
 
 /**
  * Removes the "category" relationship attribute from category anchors.
@@ -121,7 +121,7 @@ add_action( 'wp_head', 'lean_meta_description' );
  * @version 3.0
  * @since	3.0
  */
-function lean_remove_category_anchor_rel( $str ) {
+function remove_category_anchor_rel( $str ) {
 
     if( strpos( $str, 'rel="category"' ) ) {
         $str = trim( str_replace( 'rel="category"', "", $str ) );
@@ -131,8 +131,8 @@ function lean_remove_category_anchor_rel( $str ) {
 
     return $str;
 
-} // end lean_remove_category_anchor_rel
-add_filter( 'the_category', 'lean_remove_category_anchor_rel' );
+} // end remove_category_anchor_rel
+add_filter( 'the_category', 'remove_category_anchor_rel' );
 
 /**
  * Removes the "attachment" relationship attribute from anchors.
@@ -143,10 +143,10 @@ add_filter( 'the_category', 'lean_remove_category_anchor_rel' );
  * @version 3.0
  * @since	3.0
  */
-function lean_remove_anchor_attachment_rel( $str ) {
+function remove_anchor_attachment_rel( $str ) {
     return preg_replace( '/(rel="attachment)[a-zA-Z0-9\s\-]*\"/', trim( '' ), trim( $str ) );
-} // end lean_remove_anchor_attachment_rel
-add_filter( 'the_content', 'lean_remove_anchor_attachment_rel' );
+} // end remove_anchor_attachment_rel
+add_filter( 'the_content', 'remove_anchor_attachment_rel' );
 
 /**
  * Adds a "previous" relationship attribute to the 'Next' pagination option.
@@ -156,11 +156,11 @@ add_filter( 'the_content', 'lean_remove_anchor_attachment_rel' );
  * @version 3.0
  * @since	3.0
  */
-function lean_add_rel_to_next_pagination( $attrs ) {
+function add_rel_to_next_pagination( $attrs ) {
     $attrs .= 'rel="previous"';
     return $attrs;
 } // end add_rel_to_pagination
-add_filter( 'next_posts_link_attributes', 'lean_add_rel_to_next_pagination' );
+add_filter( 'next_posts_link_attributes', 'add_rel_to_next_pagination' );
 
 /**
  * Adds a "next" relationship attribute to the 'Previous' pagination option.
@@ -170,11 +170,11 @@ add_filter( 'next_posts_link_attributes', 'lean_add_rel_to_next_pagination' );
  * @version 3.0
  * @since	3.0
  */
-function lean_add_rel_to_previous_pagination( $attrs ) {
+function add_rel_to_previous_pagination( $attrs ) {
     $attrs .= 'rel="next"';
     return $attrs;
 } // end add_rel_to_pagination
-add_filter( 'previous_posts_link_attributes', 'lean_add_rel_to_previous_pagination' );
+add_filter( 'previous_posts_link_attributes', 'add_rel_to_previous_pagination' );
 
 /**
  * Provides a default alt tag for the image based on the title, if no
@@ -188,7 +188,7 @@ add_filter( 'previous_posts_link_attributes', 'lean_add_rel_to_previous_paginati
  * @version 3.0
  * @since	3.0
  */
-function lean_apply_image_alt_in_editor( $html, $id, $alt, $title ) {
+function apply_image_alt_in_editor( $html, $id, $alt, $title ) {
 
     if( strlen( $alt ) == 0 ) {
         $html = str_replace( 'alt=""', 'alt="' . $title . '"', $html );
@@ -196,10 +196,10 @@ function lean_apply_image_alt_in_editor( $html, $id, $alt, $title ) {
 
     return $html;
 
-} // end lean_apply_image_alt_in_editor
-add_filter( 'get_image_tag', 'lean_apply_image_alt_in_editor', 10, 4 );
+} // end apply_image_alt_in_editor
+add_filter( 'get_image_tag', 'apply_image_alt_in_editor', 10, 4 );
 
-if( ! function_exists('lean_process_link_post_format_content') ) {
+if( ! function_exists('process_link_post_format_content') ) {
 
     /**
      * Removes any paragraph tags that are wrapping anchors.
@@ -210,7 +210,7 @@ if( ! function_exists('lean_process_link_post_format_content') ) {
      * @since	   3.0
      * @deprecated 3.3
      */
-    function lean_process_link_post_format_content( $content ) {
+    function process_link_post_format_content( $content ) {
 
         // If this is an link post type, remove the paragraph wrapper from it
         if( 'link' == get_post_format( get_the_ID() ) ) {
@@ -219,11 +219,11 @@ if( ! function_exists('lean_process_link_post_format_content') ) {
 
         return $content;
 
-    } // lean_process_link_post_format_content
-    add_filter( 'the_content', 'lean_process_link_post_format_content' );
+    } // process_link_post_format_content
+    add_filter( 'the_content', 'process_link_post_format_content' );
 } // end if
 
-if( ! function_exists('lean_process_link_post_format_title') /*&& 3.6 > lean_is_wp36()*/ ) {
+if( ! function_exists('process_link_post_format_title') /*&& 3.6 > is_wp36()*/ ) {
 
     /**
      * Removes any paragraph tags that are wrapping images, anchors around images,
@@ -236,16 +236,16 @@ if( ! function_exists('lean_process_link_post_format_title') /*&& 3.6 > lean_is_
      * @since		3.0
      * @deprecated  3.3
      */
-    function lean_process_link_post_format_title( $title, $id ) {
+    function process_link_post_format_title( $title, $id ) {
 
         if( 'link' == get_post_format( $id ) ) {
 
             // If the title has been provided, we won't do anything; otherwise, we use the content.
             if( strlen( $title ) == 0 ) {
 
-                $title = lean_get_link_post_format_attribute( 'title' );
-                $href = lean_get_link_post_format_attribute( 'href' );
-                $target = lean_get_link_post_format_attribute( 'target' );
+                $title = get_post_format_attribute( 'title' );
+                $href = get_post_format_attribute( 'href' );
+                $target = get_post_format_attribute( 'target' );
 
                 global $post;
                 $content = strip_tags( $post->post_content );
@@ -261,12 +261,12 @@ if( ! function_exists('lean_process_link_post_format_title') /*&& 3.6 > lean_is_
 
         return $title;
 
-    } // end lean_process_link_post_format_title
-    add_filter( 'the_title', 'lean_process_link_post_format_title', 10, 2 );
+    } // end process_link_post_format_title
+    add_filter( 'the_title', 'process_link_post_format_title', 10, 2 );
 
 } // end if
 
-if( ! function_exists('lean_remove_paragraph_on_media') ) {
+if( ! function_exists('remove_paragraph_on_media') ) {
 
     /**
      * Removes any paragraph tags that are wrapping images, anchors around images,
@@ -277,7 +277,7 @@ if( ! function_exists('lean_remove_paragraph_on_media') ) {
      * @version 3.0
      * @since	3.0
      */
-    function lean_remove_paragraph_on_media( $content ) {
+    function remove_paragraph_on_media( $content ) {
 
         // If this is an image post type, remove the paragraph wrapper from it.
         if( 'image' == get_post_format( get_the_ID() ) ) {
@@ -296,12 +296,12 @@ if( ! function_exists('lean_remove_paragraph_on_media') ) {
 
         return $content;
 
-    } // end lean_remove_paragraph_on_media
-    add_filter( 'the_content', 'lean_remove_paragraph_on_media' );
+    } // end remove_paragraph_on_media
+    add_filter( 'the_content', 'remove_paragraph_on_media' );
 
 } // end if
 
-if( ! function_exists('lean_wrap_embeds') ) {
+if( ! function_exists('wrap_embeds') ) {
 
     /**
      * Wraps the video post format with a container in order to improve styling.
@@ -313,7 +313,7 @@ if( ! function_exists('lean_wrap_embeds') ) {
      * @version 3.0
      * @since	3.0
      */
-    function lean_wrap_embeds( $html, $url, $args ) {
+    function wrap_embeds( $html, $url, $args ) {
 
         if( 'video' == get_post_format( get_the_ID() ) ) {
             $html = '<div class="video-container">' . $html . '</div>';
@@ -321,12 +321,12 @@ if( ! function_exists('lean_wrap_embeds') ) {
 
         return $html;
 
-    } // end lean_wrap_embebds
-    add_filter( 'embed_oembed_html', 'lean_wrap_embeds', 10, 3 ) ;
+    } // end wrap_embebds
+    add_filter( 'embed_oembed_html', 'wrap_embeds', 10, 3 ) ;
 
 } // end if
 
-if( ! function_exists('lean_search_form') ) {
+if( ! function_exists('search_form') ) {
 
     /**
      * Renders a simplified version of the search form.
@@ -335,7 +335,7 @@ if( ! function_exists('lean_search_form') ) {
      * @version 3.0
      * @since	3.0
      */
-    function lean_search_form() {
+    function search_form() {
 
         // Get the default text for the search form
         $query = strlen( get_search_query() ) == 0 ? '' : get_search_query();
@@ -347,8 +347,8 @@ if( ! function_exists('lean_search_form') ) {
 
         return $form;
 
-    } // end lean_search_form
-    add_filter( 'get_search_form', 'lean_search_form' );
+    } // end search_form
+    add_filter( 'get_search_form', 'search_form' );
 
 } // end if
 
@@ -361,9 +361,9 @@ if( ! function_exists('lean_search_form') ) {
  * @since		3.0
  * @deprecated 	3.3
  */
-if( ! function_exists('lean_post_format_rss') /*&& 3.6 < lean_is_wp36()*/ ) {
+if( ! function_exists('post_format_rss') /*&& 3.6 < is_wp36()*/ ) {
 
-    function lean_post_format_rss( $content ) {
+    function post_format_rss( $content ) {
 
         // If it's a link post format, make sure the link and title are properly rendered
         if( 'link' == get_post_format( get_the_ID() ) ) {
@@ -378,9 +378,9 @@ if( ! function_exists('lean_post_format_rss') /*&& 3.6 < lean_is_wp36()*/ ) {
             if( '' == get_post_meta( get_the_ID(), 'lean_link_url_field', true ) ) {
 
                 // Read the attribute of the anchor from the post format
-                $title = lean_get_link_post_format_attribute( 'title' );
-                $href = lean_get_link_post_format_attribute( 'href' );
-                $target = lean_get_link_post_format_attribute( 'target' );
+                $title = get_post_format_attribute( 'title' );
+                $href = get_post_format_attribute( 'href' );
+                $target = get_post_format_attribute( 'target' );
 
                 // Build up the link
                 $content = '<a href="' . $href . '" title="' . $title . '" target="' . $target . '">';
@@ -412,8 +412,8 @@ if( ! function_exists('lean_post_format_rss') /*&& 3.6 < lean_is_wp36()*/ ) {
 
         return $content;
 
-    } // end lean_post_format_rss
-    add_filter( 'the_content_feed', 'lean_post_format_rss' );
+    } // end post_format_rss
+    add_filter( 'the_content_feed', 'post_format_rss' );
 } // end if
 
 /**
@@ -424,7 +424,7 @@ if( ! function_exists('lean_post_format_rss') /*&& 3.6 < lean_is_wp36()*/ ) {
  * @version 	3.3
  * @since		3.3
  */
-if( lean_is_wp36() ) {
+if( is_wp36() ) {
 
     /**
      * Returns the URL from the link post format.
@@ -434,9 +434,9 @@ if( lean_is_wp36() ) {
      * @since  3.3
      * @return string URL
      */
-    function lean_get_link_url() {
+    function get_link_url() {
         return ( get_the_post_format_url() ) ? get_the_post_format_url() : apply_filters( 'the_permalink', get_permalink() );
-    } // lean_get_link_url
+    } // get_link_url
 
 } // end if
 
@@ -448,16 +448,16 @@ if( using_native_seo() ) {
      * @version 3.0
      * @since	3.0
      */
-    function lean_seo_titles() {
+    function seo_titles() {
 
-        include_once( get_template_directory() . '/lib/seotitles/lean_seotitles.php' );
-        return Lean_SeoTitles::get_page_title( get_the_ID() );
+        include_once( get_template_directory() . '/lib/seotitles/seotitles.php' );
+        return SeoTitles::get_page_title( get_the_ID() );
 
-    } // end lean_seo_tiltes
-    add_filter( 'wp_title', 'lean_seo_titles' );
+    } // end seo_tiltes
+    add_filter( 'wp_title', 'seo_titles' );
 } // end if
 
-if( ! function_exists('lean_modify_widget_titles') ) {
+if( ! function_exists('modify_widget_titles') ) {
     /**
      * Place all widget titles in h4 tags rather than h3 tags to improve SEO. Also adds the
      * 'widget-title' class to the heading elements.
@@ -467,18 +467,18 @@ if( ! function_exists('lean_modify_widget_titles') ) {
      * @version 3.0
      * @since	3.0
      */
-    function lean_modify_widget_titles( $params ) {
+    function modify_widget_titles( $params ) {
 
         $params[0]['before_title'] = '<h4 class="' . $params[0]['widget_name'] . ' widget-title">' ;
         $params[0]['after_title'] = '</h4>';
 
         return $params;
 
-    } // end lean_modify_widget_titles
-    add_filter( 'dynamic_sidebar_params', 'lean_modify_widget_titles' );
+    } // end modify_widget_titles
+    add_filter( 'dynamic_sidebar_params', 'modify_widget_titles' );
 } // end if
 
-if( ! function_exists('lean_add_title_to_single_post_pagination') ) {
+if( ! function_exists('add_title_to_single_post_pagination') ) {
     /**
      * Adds the title attribute to the 'Next and 'Previous' post pagination anchors.
      *
@@ -487,7 +487,7 @@ if( ! function_exists('lean_add_title_to_single_post_pagination') ) {
      * @version 3.0
      * @since	3.0
      */
-    function lean_add_title_to_single_post_pagination( $link ) {
+    function add_title_to_single_post_pagination( $link ) {
 
         if( strpos( $link, 'rel="prev"' ) > 0 ) {
 
@@ -503,9 +503,9 @@ if( ! function_exists('lean_add_title_to_single_post_pagination') ) {
 
         return $link;
 
-    } // end lean_add_title_to_single_post_pagination
-    add_filter( 'next_post_link', 'lean_add_title_to_single_post_pagination' );
-    add_filter( 'previous_post_link', 'lean_add_title_to_single_post_pagination' );
+    } // end add_title_to_single_post_pagination
+    add_filter( 'next_post_link', 'add_title_to_single_post_pagination' );
+    add_filter( 'previous_post_link', 'add_title_to_single_post_pagination' );
 } // end if
 
 /**
@@ -514,24 +514,24 @@ if( ! function_exists('lean_add_title_to_single_post_pagination') ) {
  * @version 3.0
  * @since	3.0
  */
-function lean_save_post( ) {
+function save_post( ) {
 
     if( isset( $_POST['page_template'] ) && isset( $_POST['page_template'] ) ) {
 
         // if we're saving the page that's using the sitemap but the template is no longer used, delete the option
-        if( get_option( 'lean_using_sitemap' ) == $_POST['post_ID'] && strpos( $_POST['page_template'], 'template-sitemap.php' ) == false ) {
-            delete_option( 'lean_using_sitemap' );
+        if( get_option( 'using_sitemap' ) == $_POST['post_ID'] && strpos( $_POST['page_template'], 'template-sitemap.php' ) == false ) {
+            delete_option( 'using_sitemap' );
         } // end if
 
         // if we're not using the sitemap, but this post has it set, update the option with this post's id
-        if( ( '' == get_option( 'lean_using_sitemap' ) || false == get_option( 'lean_using_sitemap' ) ) && strpos( $_POST['page_template'], 'template-sitemap.php' ) > -1 ) {
-            update_option( 'lean_using_sitemap', $_POST['post_ID'] );
+        if( ( '' == get_option( 'using_sitemap' ) || false == get_option( 'using_sitemap' ) ) && strpos( $_POST['page_template'], 'template-sitemap.php' ) > -1 ) {
+            update_option( 'using_sitemap', $_POST['post_ID'] );
         } // end if
 
     } // end if
 
-} // end lean_save_post
-add_action( 'save_post', 'lean_save_post' );
+} // end save_post
+add_action( 'save_post', 'save_post' );
 /**
  * Updates the Lean Sitemap Flag if the post being deleted is the actual sitemap.
  *
@@ -539,15 +539,15 @@ add_action( 'save_post', 'lean_save_post' );
  * @version 3.0
  * @since	3.0
  */
-function lean_delete_post( $id ) {
+function delete_post( $id ) {
 
     // if the page being deleted has the sitemap template, we need to delete the option
-    if( get_option( 'lean_using_sitemap') == $id ) {
-        delete_option( 'lean_using_sitemap' );
+    if( get_option( 'using_sitemap') == $id ) {
+        delete_option( 'using_sitemap' );
     } // end if
 
-} // end lean_delet_post
-add_action( 'before_delete_post', 'lean_delete_post' );
+} // end delet_post
+add_action( 'before_delete_post', 'delete_post' );
 
 /**
  * Introduces custom messaging to the Image Uploader on the 'post' and 'page' screens.
@@ -563,7 +563,7 @@ add_action( 'before_delete_post', 'lean_delete_post' );
  * @version		3.1
  * @deprecated 	3.3
  */
-function lean_attachment_fields_to_edit_wp34( $form_fields, $post ) {
+function attachment_fields_to_edit_wp34( $form_fields, $post ) {
 
     // Mark the alt field as required
     $form_fields['image_alt']['required'] = true;
@@ -589,9 +589,9 @@ function lean_attachment_fields_to_edit_wp34( $form_fields, $post ) {
 
     return $form_fields;
 
-} // end lean_attachment_fields_to_edit
+} // end attachment_fields_to_edit
 if( '3.5.1' > get_bloginfo( 'version' ) || '3.5' > get_bloginfo( 'version' ) ) {
-    add_action( 'attachment_fields_to_edit', 'lean_attachment_fields_to_edit_wp34', 11, 2 );
+    add_action( 'attachment_fields_to_edit', 'attachment_fields_to_edit_wp34', 11, 2 );
 } // end if
 
 /**
@@ -601,17 +601,17 @@ if( '3.5.1' > get_bloginfo( 'version' ) || '3.5' > get_bloginfo( 'version' ) ) {
  * @since	3.0
  * @version	3.0
  */
-function lean_redirect_rss_feeds() {
+function redirect_rss_feeds() {
 
     global $feed;
 
     // If we're not on a feed or we're requesting feedburner then stop the redirect
-    if( ! is_feed() || preg_match( '/feedburner/i', $_SERVER['HTTP_USER_AGENT'] ) || lean_is_offline() ) {
+    if( ! is_feed() || preg_match( '/feedburner/i', $_SERVER['HTTP_USER_AGENT'] ) || is_offline() ) {
         return;
     } // end if
 
     // Otherwise, get the RSS feed from the user's settings
-    $rss_feed_url = lean_get_rss_feed_url();
+    $rss_feed_url = get_rss_feed_url();
 
     // If they have setup feedburner, let's redirect them
     if( strpos( $rss_feed_url, 'feedburner' ) > 0 && '' != $rss_feed_url ) {
@@ -640,37 +640,37 @@ function lean_redirect_rss_feeds() {
 
     } // end if
 
-} // end lean_redirect_rss_feeds
-add_action( 'template_redirect', 'lean_redirect_rss_feeds' );
+} // end redirect_rss_feeds
+add_action( 'template_redirect', 'redirect_rss_feeds' );
 
-if( lean_is_offline() ) {
+if( is_offline() ) {
 
     /**
-     * If Lean is in offline mode, then we'll stop all RSS feeds from publishing content.
+     * If theme is in offline mode, then we'll stop all RSS feeds from publishing content.
      *
      * @version 3.0
      * @since	3.0
      */
-    function lean_disable_feed() {
+    function disable_feed() {
         wp_die( get_bloginfo( 'name' ) . ' ' . __( 'is currently offline.', 'lean' ) . ' ' );
-    } // end lean_disable_feeds
+    } // end disable_feeds
 
-    add_action( 'do_feed', 'lean_disable_feed', 1 );
-    add_action( 'do_feed_rdf', 'lean_disable_feed', 1 );
-    add_action( 'do_feed_rss', 'lean_disable_feed', 1 );
-    add_action( 'do_feed_rss2', 'lean_disable_feed', 1 );
-    add_action( 'do_feed_atom', 'lean_disable_feed', 1 );
+    add_action( 'do_feed', 'disable_feed', 1 );
+    add_action( 'do_feed_rdf', 'disable_feed', 1 );
+    add_action( 'do_feed_rss', 'disable_feed', 1 );
+    add_action( 'do_feed_rss2', 'disable_feed', 1 );
+    add_action( 'do_feed_atom', 'disable_feed', 1 );
 
 } // end if
 
 /**
- * Custom action that is used to initialize the Lean menu separator.
+ * Custom action that is used to initialize the menu separator.
  *
  * @param	int $position	Where you want the separator to appear.
  * @version 3.0
  * @since	3.0
  */
-function lean_add_admin_menu_separator( $position ) {
+function add_admin_menu_separator( $position ) {
 
     global $menu;
 
@@ -682,8 +682,8 @@ function lean_add_admin_menu_separator( $position ) {
         4	=>	'wp-menu-separator'
     );
 
-} // end lean_add_admin_separator
-add_action( 'init_lean_menu', 'lean_add_admin_menu_separator' );
+} // end add_admin_separator
+add_action( 'init_menu', 'add_admin_menu_separator' );
 
 /**
  * Defines the function used to set the position of the custom separator.
@@ -691,13 +691,13 @@ add_action( 'init_lean_menu', 'lean_add_admin_menu_separator' );
  * @version 3.0
  * @since	3.0
  */
-function lean_set_admin_menu_separator() {
+function set_admin_menu_separator() {
 
     // Eventually, we should make the 57 value more flexible
-    do_action( 'init_lean_menu', 57 );
+    do_action( 'init_menu', 57 );
 
-} // end lean_set_admin_menu_separator
-add_action( 'init', 'lean_set_admin_menu_separator' );
+} // end set_admin_menu_separator
+add_action( 'init', 'set_admin_menu_separator' );
 
 /* ----------------------------------------------------------- *
  * 8. Helper Functions
@@ -710,9 +710,9 @@ add_action( 'init', 'lean_set_admin_menu_separator' );
  * @since	3.0
  * @version	3.0
  */
-function lean_is_date_archive() {
+function is_date_archive() {
     return '' != get_query_var( 'year' ) || '' != get_query_var( 'monthnum' ) || '' != get_query_var( 'day' ) || '' != get_query_var( 'm' );
-} // end lean_is_date_archive
+} // end is_date_archive
 
 /**
  * Generates a label for the current archive based on whether or not the user is viewing year, month, or day. Uses the
@@ -722,7 +722,7 @@ function lean_is_date_archive() {
  * @since	3.0
  * @version	3.0
  */
-function lean_get_date_archive_label() {
+function get_date_archive_label() {
 
     $archive_label = '';
 
@@ -762,7 +762,7 @@ function lean_get_date_archive_label() {
 
     return $archive_label;
 
-} // end lean_get_date_archive_label
+} // end get_date_archive_label
 
 /**
  * Returns the requested attribute from the link in the content based on the incoming
@@ -773,7 +773,7 @@ function lean_get_date_archive_label() {
  * @since	3.0
  * @version	3.0
  */
-function lean_get_link_post_format_attribute( $attr ) {
+function get_post_format_attribute( $attr ) {
 
     // Get the post data. We aren't using helpers because this function
     // is called too early in the page lifecycle to call get_the_content
@@ -809,7 +809,7 @@ function lean_get_link_post_format_attribute( $attr ) {
 
     return $result;
 
-} // end lean_get_link_post_format_attribute
+} // end get_post_format_attribute
 
 /**
  * Looks at the active widgets to determine whether or not the Google Custom Search widget is active.
@@ -841,14 +841,14 @@ function google_custom_search_is_active() {
 
 } // end google_custom_search_is_active
 
-if( ! function_exists('lean_comment_form') ) {
+if( ! function_exists('comment_form') ) {
     /**
      * Builds and renders the custom comment form template.
      *
      * @since	3.0
      * @version	3.0
      */
-    function lean_comment_form() {
+    function comment_form() {
 
         // Gotta read the layout options so we apply the proper ID to our element wrapper
         $layout_options = get_option( 'lean_theme_presentation_options' );
@@ -876,7 +876,7 @@ if( ! function_exists('lean_comment_form') ) {
             )
         );
 
-    } // end lean_comment_form
+    } // end comment_form
 } // end if
 
 /**
@@ -891,7 +891,7 @@ if( ! function_exists('lean_comment_form') ) {
  * @version	3.0
  */
 
-function lean_truncate_text( $string, $character_limit = 50, $truncation_indicator = '...' ) {
+function truncate_text( $string, $character_limit = 50, $truncation_indicator = '...' ) {
 
     $truncated = null == $string ? '' : $string;
     if ( strlen( $string ) >= ( $character_limit + 1 ) ) {
@@ -909,7 +909,7 @@ function lean_truncate_text( $string, $character_limit = 50, $truncation_indicat
 
     return $truncated;
 
-} // end lean_truncate_text
+} // end truncate_text
 
 /**
  * If Lean is set to online mode, this function loads and redirects all traffic to the
@@ -919,7 +919,7 @@ function lean_truncate_text( $string, $character_limit = 50, $truncation_indicat
  * @since	3.0
  * @version	3.0
  */
-function lean_is_offline() {
+function is_offline() {
 
     $global_options = get_option( 'lean_theme_global_options' );
 
@@ -930,7 +930,7 @@ function lean_is_offline() {
 
     return 'offline' == $site_mode;
 
-} // end lean_site_mode
+} // end site_mode
 
 /**
  * Helper function for programmatically creating a page.
@@ -942,7 +942,7 @@ function lean_is_offline() {
  * @since	3.0
  * @version	3.0
  */
-function lean_create_page( $slug, $title, $template = '' ) {
+function create_page( $slug, $title, $template = '' ) {
 
     $current_user = wp_get_current_user();
 
@@ -975,7 +975,7 @@ function lean_create_page( $slug, $title, $template = '' ) {
 
     return $page_id;
 
-} // end lean_create_page
+} // end create_page
 
 /**
  * Helper function for programmatically deleting a page.
@@ -985,9 +985,9 @@ function lean_create_page( $slug, $title, $template = '' ) {
  * @since	3.0
  * @version	3.0
  */
-function lean_delete_page( $id ) {
+function delete_page( $id ) {
     return null != wp_delete_post( $id, true );
-} // end lean_delete_page
+} // end delete_page
 
 /**
  * If not already active, includes the plugin by using the specified path.
@@ -996,11 +996,11 @@ function lean_delete_page( $id ) {
  * @since	3.0
  * @version	3.0
  */
-function lean_add_plugin( $str_path ) {
+function add_plugin( $str_path ) {
     if( ! in_array( get_template_directory() . $str_path, apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {
         include_once( get_template_directory() . $str_path );
     } // end if
-} // end lean_add_plugin
+} // end add_plugin
 
 /**
  * Returns the URL to the RSS feed based on what option the user
@@ -1010,7 +1010,7 @@ function lean_add_plugin( $str_path ) {
  * @since	3.0
  * @version	3.0
  */
-function lean_get_rss_feed_url() {
+function get_rss_feed_url() {
 
     $global_options = get_option( 'lean_theme_global_options' );
 
@@ -1021,7 +1021,7 @@ function lean_get_rss_feed_url() {
 
     return $url;
 
-} // end lean_get_rss_feed_url
+} // end get_rss_feed_url
 
 /**
  * Determines if the user has uploaded a logo or not.
@@ -1030,7 +1030,7 @@ function lean_get_rss_feed_url() {
  * @since	3.0
  * @version	3.0
  */
-function lean_has_logo() {
+function has_logo() {
 
     $presentation_options = get_option( 'lean_theme_presentation_options' );
 
@@ -1041,7 +1041,7 @@ function lean_has_logo() {
 
     return $logo;
 
-} // end lean_has_logo
+} // end has_logo
 
 /**
  * Determines whether or not the user has opted to display header text or not.
@@ -1050,9 +1050,9 @@ function lean_has_logo() {
  * @since	3.0
  * @version	3.0
  */
-function lean_has_header_text() {
+function has_header_text() {
     return ! ( 'blank' == get_theme_mod( 'header_textcolor', HEADER_TEXTCOLOR ) || '' == get_theme_mod( 'header_textcolor', HEADER_TEXTCOLOR ) );
-} // end lean_has_header_text
+} // end has_header_text
 
 /**
  * Determines whether or not the user is using pretty permalinks.
@@ -1061,12 +1061,12 @@ function lean_has_header_text() {
  * @since	3.1
  * @version	3.1
  */
-function lean_is_using_pretty_permalinks() {
+function is_using_pretty_permalinks() {
 
     global $wp_rewrite;
     return '/%postname%/' == $wp_rewrite->permalink_structure;
 
-} // end lean_is_using_pretty_premalinks
+} // end is_using_pretty_premalinks
 
 /**
  * Determines if the current version of Lean is the most current version.
@@ -1075,21 +1075,21 @@ function lean_is_using_pretty_permalinks() {
  * @since 	3.1
  * @version	3.2
  */
-function lean_is_current_version() {
+function is_current_version() {
     return LEAN_THEME_VERSION == get_option( 'lean_theme_version' ) ? true : false;
-} // end lean_is_current_version
+} // end is_current_version
 
 /**
  * Determines whether or not Lean is being run on WordPress 3.6
  *
  * @return	float	The current version of WordPress.
  */
-function lean_is_wp36() {
+function is_wp36() {
 
     global $wp_version;
     return 0 == strpos( $wp_version, '3.6' );
 
-} // end lean_is_wp36
+} // end is_wp36
 
 /**
  * Removes shortcodes from gallery posts

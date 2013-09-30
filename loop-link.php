@@ -17,9 +17,9 @@
 				<?php
 
 					// Read the attribute of the anchor from the post format
-					$title = lean_get_link_post_format_attribute( 'title' );
-					$href = lean_get_link_post_format_attribute( 'href' );
-					$target = strlen( lean_get_link_post_format_attribute( 'target' ) ) > 0 ? lean_get_link_post_format_attribute( 'target' ) : '_blank';
+					$title = get_post_format_attribute( 'title' );
+					$href = get_post_format_attribute( 'href' );
+					$target = strlen( get_post_format_attribute( 'target' ) ) > 0 ? get_post_format_attribute( 'target' ) : '_blank';
 					
 					// And attempt to read the link from the post meta
 					$href = ( '' == get_post_meta( get_the_ID(), 'lean_link_url_field', true ) ) ? $href : get_post_meta( get_the_ID(), 'lean_link_url_field', true );

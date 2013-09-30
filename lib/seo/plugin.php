@@ -111,7 +111,7 @@ class Lean_SEO {
 
 			} // end if
 
-			$html .= '<p id="search-results-meta-description"><span id="date">Date</span> - <span id="description">' . get_post_meta( $post->ID, 'lean_seo_post_meta_description', true ) . '</span></p>';
+			$html .= '<p id="search-results-meta-description"><span id="date">Date</span> - <span id="description">' . get_post_meta( $post->ID, 'seo_post_meta_description', true ) . '</span></p>';
 			$html .= '<span id="site-title" class="hidden">' . get_bloginfo( 'name' ) . '</span>';
 			$html .= '<span id="todays-date" class="hidden">' . date( get_option( 'date_format' ) ) . '</span>';
 
@@ -123,7 +123,7 @@ class Lean_SEO {
 			$html .= '<p>' . __( 'Meta Description ', 'lean' ) . '(<span id="character-count">' . __( '140', 'lean' ) . '</span>' . ' ' . __( 'characters remaining)', 'lean' );'</p>';
 
 			// The input field for the meta description
-			$html .= '<textarea id="lean_seo_post_meta_description" name="lean_seo_post_meta_description" maxlength="140">' . get_post_meta( $post->ID, 'lean_seo_post_meta_description', true ) . '</textarea>';
+			$html .= '<textarea id="seo_post_meta_description" name="seo_post_meta_description" maxlength="140">' . get_post_meta( $post->ID, 'seo_post_meta_description', true ) . '</textarea>';
 
 			// The description for the field
 			$html .= '<p class="description">';
@@ -165,15 +165,15 @@ class Lean_SEO {
 			} // end if/else
 
 			// Read the meta description
-			$meta_description = $_POST['lean_seo_post_meta_description'];
+			$meta_description = $_POST['seo_post_meta_description'];
 
 			// Delete the data if it exists. I don't want to add extra rows to the table.
-			if( 0 == count( get_post_meta( $post_id, 'lean_seo_post_meta_description' ) ) ) {
-				delete_post_meta( $post_id, 'lean_seo_post_meta_description' );
+			if( 0 == count( get_post_meta( $post_id, 'seo_post_meta_description' ) ) ) {
+				delete_post_meta( $post_id, 'seo_post_meta_description' );
 			} // end if
 
 			// Update it for this post
-			update_post_meta( $post_id, 'lean_seo_post_meta_description', $meta_description );
+			update_post_meta( $post_id, 'seo_post_meta_description', $meta_description );
 
 		} // end if
 
