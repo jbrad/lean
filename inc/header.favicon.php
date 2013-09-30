@@ -6,7 +6,7 @@
  * @version 1.0.0
  * @since   3.4.0
  */
-function lean_fav_icon() {
+function fav_icon() {
 
 	$presentation_options = get_option( 'lean_theme_presentation_options');
 
@@ -17,6 +17,6 @@ function lean_fav_icon() {
 	<?php
 	} // end if
 
-} // end lean_fav_icon
-add_action( 'wp_head', 'lean_fav_icon' );
+} // end fav_icon
+add_action( 'wp_head', 'fav_icon' );
 ?>
