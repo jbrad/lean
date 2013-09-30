@@ -20,10 +20,10 @@ class Lean_Ad_125x125 extends WP_Widget {
 	public function __construct() {
 
 		$widget_opts = array(
-			'classname' 	=> __( 'lean-ad-125x125', 'lean' ),
+			'classname' 	=> __( 'ad-125x125', 'lean' ),
 			'description' 	=> __( 'Display a 125x125 advertisement.', 'lean' ),
 		);	
-		$this->WP_Widget( 'lean-ad-125x125', __( '125x125 Ad', 'lean' ), $widget_opts );
+		$this->WP_Widget( 'ad-125x125', __( '125x125 Ad', 'lean' ), $widget_opts );
 		
 		// We don't want to load these on the Appearance Options because we're overiding window.send_to_editor there, too.
 		global $pagenow;
@@ -133,7 +133,7 @@ class Lean_Ad_125x125 extends WP_Widget {
 	 * @version	1.0
 	 */
 	public function register_admin_styles() {
-		wp_enqueue_style( 'lean-ad-125x125', get_template_directory_uri() . '/lib/lean-ad-125x125/css/admin.css', array( 'thickbox' ), LEAN_THEME_VERSION );
+		wp_enqueue_style( 'ad-125x125', get_template_directory_uri() . '/lib/ad-125x125/css/admin.css', array( 'thickbox' ), LEAN_THEME_VERSION );
 	} // end register_admin_styles
 
 	/** 
@@ -147,7 +147,7 @@ class Lean_Ad_125x125 extends WP_Widget {
 		$screen = get_current_screen();
 
 		if( 'widgets' == $screen->id ) {
-			wp_enqueue_script( 'lean-ad-125x125', get_template_directory_uri() . '/lib/lean-ad-125x125/js/admin.min.js', array( 'jquery', 'media-upload','thickbox' ), false, LEAN_THEME_VERSION );
+			wp_enqueue_script( 'ad-125x125', get_template_directory_uri() . '/lib/ad-125x125/js/admin.min.js', array( 'jquery', 'media-upload','thickbox' ), false, LEAN_THEME_VERSION );
 		} // end if 
 		
 	} // end register_admin_scripts
@@ -173,7 +173,7 @@ class Lean_Ad_125x125 extends WP_Widget {
 				$ad_url = 'http://leantheme.co';
 			} // end if
 		
-			$ad_src = '<img src="' . get_template_directory_uri() . '/lib/lean-ad-125x125/images/lean-170-' . $number . '.jpg' . '" alt="" />';
+			$ad_src = '<img src="' . get_template_directory_uri() . '/lib/ad-125x125/images/lean-170-' . $number . '.jpg' . '" alt="" />';
 			
 		} else {
 			$ad_src = '<img src="' . $ad_src . '" alt="" />';

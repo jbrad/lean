@@ -20,7 +20,7 @@ class Lean_Ad_468x60 extends WP_Widget {
 	public function __construct() {
 
 		$widget_opts = array(
-			'classname' 	=> __( 'lean-ad-billboard', 'lean' ),
+			'classname' 	=> __( 'ad-billboard', 'lean' ),
 			'description' 	=> __( 'Display a 468x60 advertisement.', 'lean' )
 		);
 		$this->WP_Widget( 'lean-ad-468x60', __( '468x60 Ad', 'lean' ), $widget_opts );
@@ -113,7 +113,7 @@ class Lean_Ad_468x60 extends WP_Widget {
 	 * @version	1.0
 	 */
 	public function register_admin_styles() {
-		wp_enqueue_style( 'lean-ad-468x60', get_template_directory_uri() . '/lib/lean-ad-billboard/css/admin.css', LEAN_THEME_VERSION );
+		wp_enqueue_style( 'lean-ad-468x60', get_template_directory_uri() . '/lib/ad-billboard/css/admin.css', LEAN_THEME_VERSION );
 	} // end register_admin_styles
 
 	/**
@@ -136,7 +136,7 @@ class Lean_Ad_468x60 extends WP_Widget {
 				$ad_url = 'http://leantheme.co';
 			} // end if
 
-			$ad_src = '<img src="' . get_template_directory_uri() . '/lib/lean-ad-billboard/images/lean-468.jpg" alt="" />';
+			$ad_src = '<img src="' . get_template_directory_uri() . '/lib/ad-billboard/images/lean-468.jpg" alt="" />';
 
 		} else {
 			$ad_src = '<img src="' . $ad_src . '" alt="" />';

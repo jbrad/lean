@@ -1028,7 +1028,7 @@ msgid "Tag Archive"
 msgstr ""
 
 #: ../lib/lean-ad-125x125/plugin.php:23
-msgid "lean-ad-125x125"
+msgid "ad-125x125"
 msgstr ""
 
 #: ../lib/lean-ad-125x125/plugin.php:24
@@ -1040,7 +1040,7 @@ msgid "125x125 Ad"
 msgstr ""
 
 #: ../lib/lean-ad-300x250/plugin.php:23
-msgid "lean-ad-300x250"
+msgid "ad-300x250"
 msgstr ""
 
 #: ../lib/lean-ad-300x250/plugin.php:24
@@ -1057,7 +1057,7 @@ msgid "Delete Advertisement"
 msgstr ""
 
 #: ../lib/lean-ad-billboard/plugin.php:23
-msgid "lean-ad-billboard"
+msgid "ad-billboard"
 msgstr ""
 
 #: ../lib/lean-ad-billboard/plugin.php:24

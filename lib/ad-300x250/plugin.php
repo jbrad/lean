@@ -20,10 +20,10 @@ class Lean_Ad_300x250 extends WP_Widget {
 	public function __construct() {
 
 		$widget_opts = array(
-			'classname' 	=> __( 'lean-ad-300x250', 'lean' ),
+			'classname' 	=> __( 'ad-300x250', 'lean' ),
 			'description' 	=> __( 'Display a 300x250 advertisement.', 'lean' )
 		);
-		$this->WP_Widget( 'lean-ad-300x250', __( '300x250 Ad', 'lean' ), $widget_opts );
+		$this->WP_Widget( 'ad-300x250', __( '300x250 Ad', 'lean' ), $widget_opts );
 
 		// We don't want to load these on the Appearance Options because we're overiding window.send_to_editor there, too.
 		global $pagenow;
@@ -113,7 +113,7 @@ class Lean_Ad_300x250 extends WP_Widget {
 	 * @version	1.0
 	 */
 	public function register_admin_styles() {
-		wp_enqueue_style( 'lean-ad-300x250', get_template_directory_uri() . '/lib/lean-ad-300x250/css/admin.css', LEAN_THEME_VERSION );
+		wp_enqueue_style( 'ad-300x250', get_template_directory_uri() . '/lib/ad-300x250/css/admin.css', LEAN_THEME_VERSION );
 	} // end register_admin_styles
 
 	/**
@@ -136,7 +136,7 @@ class Lean_Ad_300x250 extends WP_Widget {
 				$ad_url = 'http://leantheme.co';
 			} // end if
 
-			$ad_src = '<img src="' . get_template_directory_uri() . '/lib/lean-ad-300x250/images/lean-360.jpg" alt="" />';
+			$ad_src = '<img src="' . get_template_directory_uri() . '/lib/ad-300x250/images/lean-360.jpg" alt="" />';
 
 		} else {
 			$ad_src = '<img src="' . $ad_src . '" alt="" />';

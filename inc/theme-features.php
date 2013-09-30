@@ -821,9 +821,9 @@ if( ! function_exists('add_theme_features') ) {
 
         add_plugin( '/lib/activity/plugin.php' );
         add_plugin( '/lib/google-custom-search/plugin.php' );
-        add_plugin( '/lib/lean-ad-300x250/plugin.php' );
-        add_plugin( '/lib/lean-ad-125x125/plugin.php' );
-        add_plugin( '/lib/lean-ad-billboard/plugin.php' );
+        add_plugin( '/lib/ad-300x250/plugin.php' );
+        add_plugin( '/lib/ad-125x125/plugin.php' );
+        add_plugin( '/lib/ad-billboard/plugin.php' );
         add_plugin( '/lib/personal-image/plugin.php' );
         add_plugin( '/lib/influence/plugin.php' );
 
