@@ -7,9 +7,9 @@
  * @since	3.1
  * @version	3.1
  */
-function lean_is_gplusto_url( $url ) {
+function is_gplusto_url( $url ) {
 	return false != stristr( $url, 'gplus.to' );
-} // end lean_is_gplusto_url
+} // end is_gplusto_url
 
 /**
  * Determines if the incoming URL is a Google+ vanity URL.
@@ -19,9 +19,9 @@ function lean_is_gplusto_url( $url ) {
  * @since	3.3
  * @version	3.3
  */
-function lean_is_google_plus_vanity_url( $url ) {
+function is_google_plus_vanity_url( $url ) {
 	return false != stristr( $url, '/+' );
-} // end lean_is_google_plus_vanity_url
+} // end is_google_plus_vanity_url
 
 /**
  * Retrieves the user's Google+ ID from their gplus.to address.
@@ -31,7 +31,7 @@ function lean_is_google_plus_vanity_url( $url ) {
  * @since	3.1
  * @version	3.1
  */
-function lean_get_google_plus_from_gplus( $url ) {
+function get_google_plus_from_gplus( $url ) {
 
 	$gplus_url = $url;
 
@@ -51,7 +51,7 @@ function lean_get_google_plus_from_gplus( $url ) {
 
 	return user_trailingslashit( $gplus_url );
 
-} // lean_get_google_plus_from_gplus
+} // get_google_plus_from_gplus
 
 /**
  * Echos the publisher's Google Plus URL to the header of the page, if it's defined.
@@ -59,15 +59,15 @@ function lean_get_google_plus_from_gplus( $url ) {
  * @version 1.0.0
  * @since   3.4.0
  */
-function lean_google_plus() {
+function google_plus() {
 
 	global $post;
 
 	$html = '';
 	if( using_native_seo() && ( ( is_single() || is_page() ) && ( 0 != strlen( trim( ( $google_plus = get_user_meta( $post->post_author, 'google_plus', true ) ) ) ) ) ) ) {
 
-		if( false != lean_is_gplusto_url( $google_plus ) ) {
-			$google_plus = lean_get_google_plus_from_gplus( $google_plus );
+		if( false != is_gplusto_url( $google_plus ) ) {
+			$google_plus = get_google_plus_from_gplus( $google_plus );
 		} // end if
 
 		$html = '<link rel="author" href="' . trailingslashit( $google_plus ) . '"/>';
@@ -76,5 +76,5 @@ function lean_google_plus() {
 
 	echo $html;
 
-} // end lean_google_plus
-add_action( 'wp_head', 'lean_google_plus' );
+} // end google_plus
+add_action( 'wp_head', 'google_plus' );
