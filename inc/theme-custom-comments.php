@@ -6,7 +6,7 @@
  * @version	1.0
  */
 
-if( ! function_exists( 'lean_custom_comment' ) ) {
+if( ! function_exists('custom_comment') ) {
     /**
      * Generates the comment container for each post (and page if enabled).
      *
@@ -16,7 +16,7 @@ if( ! function_exists( 'lean_custom_comment' ) ) {
      * @since	1.0
      * @version	1.0
      */
-    function lean_custom_comment( $comment, $args, $depth ) {
+    function custom_comment( $comment, $args, $depth ) {
         $GLOBALS['comment'] = $comment; ?>
 
         <li <?php comment_class( 'clearfix' ); ?> id="li-comment-<?php comment_ID(); ?>">
@@ -72,7 +72,7 @@ if( ! function_exists( 'lean_custom_comment' ) ) {
 
             </div><!-- /.comment-entry -->
         </div><!-- /comment-container -->
-    <?php } // end lean_custom_comment
+    <?php } // end custom_comment
 } // end if
 
 /**
