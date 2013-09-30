@@ -913,11 +913,11 @@ if( ! function_exists('lean_set_theme_colors') ) {
 function lean_get_search_form() {
 
     // First, detect if the Google Custom Search widget is active
-    if( lean_google_custom_search_is_active() ) {
+    if( google_custom_search_is_active() ) {
 
         // Read the author's Google Search Engine ID. If they have multiple instances,
         // then we need to read the most recent instance of the widget.
-        $gcse = get_option( 'widget_lean-google-custom-search' );
+        $gcse = get_option( 'widget_google-custom-search' );
         $gcse = array_shift( array_values ( $gcse ) );
 
         // Programmatically create the widget

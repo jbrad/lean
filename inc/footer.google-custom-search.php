@@ -3,14 +3,14 @@
  * If the Google Custom Search widget is active, then render the JavaScript necessary for the widget
  * in the header of the page.
  *
- * @version   1.0.0
- * @since     3.4.0
+ * @version   1.0
+ * @since     1.0
  */
-function lean_google_custom_search() {
+function google_custom_search() {
 
-	if( lean_google_custom_search_is_active() ) {
+	if( google_custom_search_is_active() ) {
 
-		$gcse = get_option( 'widget_lean-google-custom-search' );
+		$gcse = get_option( 'widget_google-custom-search' );
 		$gcse = array_shift( array_values ( $gcse ) );
 
 	?>
@@ -26,6 +26,6 @@ function lean_google_custom_search() {
 	<?php
 	} // end if
 
-} // end lean_google_custom_search
-add_action( 'wp_footer', 'lean_google_custom_search' );
+} // end google_custom_search
+add_action( 'wp_footer', 'google_custom_search' );
 ?>

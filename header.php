@@ -63,8 +63,8 @@
                 </script>
             <?php } // end if/else ?>
         <?php } // end if ?>
-        <?php if( lean_google_custom_search_is_active() ) { ?>
-            <?php $gcse = get_option( 'widget_lean-google-custom-search' ); ?>
+        <?php if( google_custom_search_is_active() ) { ?>
+            <?php $gcse = get_option( 'widget_google-custom-search' ); ?>
             <?php $gcse = array_shift( array_values ( $gcse ) ); ?>
             <script type="text/javascript">
                 (function() {
