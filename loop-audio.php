@@ -12,7 +12,7 @@
 
 	<div class="post-header clearfix">
 
-		<?php $presentation_options = get_option( 'lean_theme_presentation_options' ); ?>
+		<?php $presentation_options = get_option( 'theme_presentation_options' ); ?>
 		<?php if ( '' != get_the_post_thumbnail() ) { ?>
 			<?php if( $presentation_options['display_featured_images'] == 'always' || ( $presentation_options['display_featured_images'] == 'single-post' && is_single() ) || ( $presentation_options['display_featured_images'] == 'index' && is_home() ) ) { ?>
 				<div class="thumbnail alignleft">

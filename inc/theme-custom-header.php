@@ -114,7 +114,7 @@ if( ! function_exists('admin_header_image') ) {
 
             <div id="header-top" class="float">
                 <?php
-                $presentation_options = get_option('lean_theme_presentation_options');
+                $presentation_options = get_option('theme_presentation_options');
 
                 $logo = '';
                 if( isset( $presentation_options['logo'] ) ) {

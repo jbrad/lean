@@ -10,7 +10,7 @@
  */
 ?>
 <?php get_header(); ?>
-<?php $presentation_options = get_option( 'lean_theme_presentation_options' ); ?>
+<?php $presentation_options = get_option( 'theme_presentation_options' ); ?>
 
 <div id="wrapper">
 	<div class="container">

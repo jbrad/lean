@@ -851,7 +851,7 @@ if( ! function_exists('comment_form') ) {
     function comment_form() {
 
         // Gotta read the layout options so we apply the proper ID to our element wrapper
-        $layout_options = get_option( 'lean_theme_presentation_options' );
+        $layout_options = get_option( 'theme_presentation_options' );
         $layout = 'full_width_layout' == $layout_options['layout'] ? '-full' : '';
 
         // Grab the current commenter and the required options. This is so we can mark fields as required.
@@ -1032,7 +1032,7 @@ function get_rss_feed_url() {
  */
 function has_logo() {
 
-    $presentation_options = get_option( 'lean_theme_presentation_options' );
+    $presentation_options = get_option( 'theme_presentation_options' );
 
     $logo = '';
     if( isset( $presentation_options['logo'] ) ) {

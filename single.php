@@ -9,7 +9,7 @@
  */
 ?>
 <?php get_header(); ?>
-<?php $presentation_options = get_option( 'lean_theme_presentation_options' ); ?>
+<?php $presentation_options = get_option( 'theme_presentation_options' ); ?>
 <?php
 if( 1 == get_post_meta( get_the_ID(), 'lean_seo_post_level_layout', true ) ) {
 	$content_width = 900;
@@ -32,7 +32,7 @@ if( 1 == get_post_meta( get_the_ID(), 'lean_seo_post_level_layout', true ) ) {
 					<?php the_post(); ?>
 					<?php get_template_part( 'loop', get_post_format() ); ?>
 
-						<?php $publishing_options = get_option( 'lean_theme_publishing_options' ); ?>
+						<?php $publishing_options = get_option( 'theme_publishing_options' ); ?>
 						<?php $display_author_box = isset( $publishing_options['display_author_box'] ) ? $publishing_options['display_author_box'] : ''; ?>
 			
 						<?php get_template_part( 'pagination '); ?>

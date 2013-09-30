@@ -8,7 +8,7 @@
  */
 function fav_icon() {
 
-	$presentation_options = get_option( 'lean_theme_presentation_options');
+	$presentation_options = get_option( 'theme_presentation_options');
 
 	if( '' != $presentation_options['fav_icon'] ) {
 	?>

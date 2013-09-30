@@ -52,7 +52,7 @@ function lean_theme_menu() {
         __( 'Presentation', 'lean' ),
         __( 'Presentation', 'lean' ),
         'administrator',
-        'theme_options&tab=lean_theme_presentation_options',
+        'theme_options&tab=theme_presentation_options',
         'lean_theme_options_display'
     );
 
@@ -70,7 +70,7 @@ function lean_theme_menu() {
         __( 'Publishing', 'lean' ),
         __( 'Publishing', 'lean' ),
         'administrator',
-        'theme_options&tab=lean_theme_publishing_options',
+        'theme_options&tab=theme_publishing_options',
         'lean_theme_options_display'
     );
 
@@ -111,16 +111,16 @@ function get_theme_default_presentation_options() {
 function lean_setup_theme_presentation_options() {
 
     // If the layout options don't exist, create them.
-    if( false == get_option( 'lean_theme_presentation_options' ) ) {
-        add_option( 'lean_theme_presentation_options', apply_filters( 'lean_theme_default_presentation_options', get_theme_default_presentation_options() ) );
+    if( false == get_option( 'theme_presentation_options' ) ) {
+        add_option( 'theme_presentation_options', apply_filters( 'lean_theme_default_presentation_options', get_theme_default_presentation_options() ) );
     } // end if
 
     // Presentation options (composed of layout and content)
     add_settings_section(
         'presentation',
         '',
-        'lean_theme_presentation_options_display',
-        'lean_theme_presentation_options'
+        'theme_presentation_options_display',
+        'theme_presentation_options'
     );
 
     // Layout
@@ -128,14 +128,14 @@ function lean_setup_theme_presentation_options() {
         'layout',
         __( 'Layout and Design', 'lean' ),
         'lean_theme_layout_options_display',
-        'lean_theme_presentation_options'
+        'theme_presentation_options'
     );
 
     add_settings_field(
         'logo',
         __( 'Logo', 'lean' ),
         'logo_display',
-        'lean_theme_presentation_options',
+        'theme_presentation_options',
         'layout'
     );
 
@@ -143,7 +143,7 @@ function lean_setup_theme_presentation_options() {
         'fav_icon',
         __( 'Site Icon', 'lean' ),
         'fav_icon_display',
-        'lean_theme_presentation_options',
+        'theme_presentation_options',
         'layout'
     );
 
@@ -151,7 +151,7 @@ function lean_setup_theme_presentation_options() {
         'contrast',
         __( 'Contrast', 'lean' ),
         'contrast_display',
-        'lean_theme_presentation_options',
+        'theme_presentation_options',
         'layout'
     );
 
@@ -159,7 +159,7 @@ function lean_setup_theme_presentation_options() {
         'left_sidebar_layout',
         __( 'Left Sidebar', 'lean' ),
         'left_sidebar_presentation_display',
-        'lean_theme_presentation_options',
+        'theme_presentation_options',
         'layout',
         array(
             'option_image_path' => get_template_directory_uri() . '/images/layout-left.gif'
@@ -170,7 +170,7 @@ function lean_setup_theme_presentation_options() {
         'right_sidebar_layout',
         __( 'Right Sidebar', 'lean' ),
         'right_sidebar_presentation_display',
-        'lean_theme_presentation_options',
+        'theme_presentation_options',
         'layout',
         array(
             'option_image_path' => get_template_directory_uri() . '/images/layout-right.gif'
@@ -181,7 +181,7 @@ function lean_setup_theme_presentation_options() {
         'full_width_layout',
         __( 'No Sidebar / Full Width', 'lean' ),
         'full_width_presentation_display',
-        'lean_theme_presentation_options',
+        'theme_presentation_options',
         'layout',
         array(
             'option_image_path' => get_template_directory_uri() . '/images/layout-full.gif'
@@ -193,14 +193,14 @@ function lean_setup_theme_presentation_options() {
         'content',
         __( 'Content', 'lean' ),
         'lean_theme_content_options_display',
-        'lean_theme_presentation_options'
+        'theme_presentation_options'
     );
 
     add_settings_field(
         'display_breadcrumbs',
         __( 'Display Breadcrumbs', 'lean' ),
         'display_breadcrumbs_display',
-        'lean_theme_presentation_options',
+        'theme_presentation_options',
         'content'
     );
 
@@ -208,14 +208,14 @@ function lean_setup_theme_presentation_options() {
         'display_featured_images',
         __( 'Display Featured Images', 'lean' ),
         'display_featured_images_display',
-        'lean_theme_presentation_options',
+        'theme_presentation_options',
         'content'
     );
 
     register_setting(
-        'lean_theme_presentation_options',
-        'lean_theme_presentation_options',
-        'lean_theme_presentation_options_validate'
+        'theme_presentation_options',
+        'theme_presentation_options',
+        'theme_presentation_options_validate'
     );
 
 } // end lean_setup_theme_presentation_options
@@ -231,7 +231,7 @@ add_action( 'admin_init', 'lean_setup_theme_presentation_options' );
  * @since	3.0
  * @version	3.2
  */
-function lean_theme_presentation_options_display() {} // end lean_theme_presentation_options_display
+function theme_presentation_options_display() {} // end theme_presentation_options_display
 
 /**
  * Renders the description for the Layout and Design options.
@@ -261,7 +261,7 @@ function lean_theme_content_options_display() {
  */
 function fav_icon_display() {
 
-    $options = get_option( 'lean_theme_presentation_options' );
+    $options = get_option( 'theme_presentation_options' );
 
     $fav_icon = '';
     if( isset( $options['fav_icon'] ) ) {
@@ -271,7 +271,7 @@ function fav_icon_display() {
     $html = '<div id="fav_icon_preview_container">';
     $html .= '<img src="' . $fav_icon . '" id="fav_icon_preview" alt="" />';
     $html .= '</div>';
-    $html .= '<input type="hidden" id="fav_icon" name="lean_theme_presentation_options[fav_icon]" value="' . esc_attr( $fav_icon ) . '" class="media-upload-field" />';
+    $html .= '<input type="hidden" id="fav_icon" name="theme_presentation_options[fav_icon]" value="' . esc_attr( $fav_icon ) . '" class="media-upload-field" />';
     $html .= '<input type="button" class="button" id="upload_fav_icon" value="' . __( 'Upload', 'lean' ) . '"/>';
 
     if( '' != trim( $fav_icon ) ) {
@@ -292,9 +292,9 @@ function fav_icon_display() {
  */
 function contrast_display() {
 
-    $options = get_option( 'lean_theme_presentation_options' );
+    $options = get_option( 'theme_presentation_options' );
 
-    $html = '<select id="contrast" name="lean_theme_presentation_options[contrast]">';
+    $html = '<select id="contrast" name="theme_presentation_options[contrast]">';
     $html .= '<option value="light"' . selected( $options['contrast'], 'light', false ) . '>' . __( 'Light', 'lean' ) . '</option>';
     $html .= '<option value="dark"' . selected( $options['contrast'], 'dark', false ) . '>' . __( 'Dark', 'lean' )  . '</option>';
     $html .= '</select>';
@@ -313,7 +313,7 @@ function contrast_display() {
  */
 function logo_display() {
 
-    $options = get_option( 'lean_theme_presentation_options' );
+    $options = get_option( 'theme_presentation_options' );
 
     $logo = '';
     if( isset( $options['logo'] ) ) {
@@ -324,7 +324,7 @@ function logo_display() {
     $html .= '<img src="' . $logo . '" id="logo_preview" alt="" />';
     $html .= '</div><!-- #logo_preview_container -->';
 
-    $html .= '<input type="hidden" id="logo" name="lean_theme_presentation_options[logo]" value="' . esc_attr( $logo ) . '" class="media-upload-field" />';
+    $html .= '<input type="hidden" id="logo" name="theme_presentation_options[logo]" value="' . esc_attr( $logo ) . '" class="media-upload-field" />';
     $html .= '<input type="button" class="button" id="upload_logo" value="' . __( 'Upload', 'lean' ) . '"/>';
 
     if( '' != trim( $logo ) ) {
@@ -346,9 +346,9 @@ function logo_display() {
  */
 function left_sidebar_presentation_display( $args ) {
 
-    $options = get_option( 'lean_theme_presentation_options' );
+    $options = get_option( 'theme_presentation_options' );
 
-    $html = '<input type="radio" id="lean_theme_left_sidebar_layout" name="lean_theme_presentation_options[layout]" value="left_sidebar_layout"' . checked( 'left_sidebar_layout', $options['layout'], false ) . ' />';
+    $html = '<input type="radio" id="lean_theme_left_sidebar_layout" name="theme_presentation_options[layout]" value="left_sidebar_layout"' . checked( 'left_sidebar_layout', $options['layout'], false ) . ' />';
     $html .= '<img src="' . esc_url( $args['option_image_path'] ) . '" alt="" />';
 
     echo $html;
@@ -364,9 +364,9 @@ function left_sidebar_presentation_display( $args ) {
  */
 function right_sidebar_presentation_display( $args ) {
 
-    $options = get_option( 'lean_theme_presentation_options' );
+    $options = get_option( 'theme_presentation_options' );
 
-    $html = '<input type="radio" id="lean_theme_right_sidebar_layout"  name="lean_theme_presentation_options[layout]" value="right_sidebar_layout"' . checked( 'right_sidebar_layout', $options['layout'], false ) . ' />';
+    $html = '<input type="radio" id="lean_theme_right_sidebar_layout"  name="theme_presentation_options[layout]" value="right_sidebar_layout"' . checked( 'right_sidebar_layout', $options['layout'], false ) . ' />';
     $html .= '<img src="' . esc_url ( $args['option_image_path'] ) . '" alt="" />';
 
     echo $html;
@@ -382,9 +382,9 @@ function right_sidebar_presentation_display( $args ) {
  */
 function full_width_presentation_display( $args ) {
 
-    $options = get_option( 'lean_theme_presentation_options' );
+    $options = get_option( 'theme_presentation_options' );
 
-    $html = '<input type="radio" id="lean_theme_full_width_layout"  name="lean_theme_presentation_options[layout]" value="full_width_layout"' . checked( 'full_width_layout', $options['layout'], false ) . ' />';
+    $html = '<input type="radio" id="lean_theme_full_width_layout"  name="theme_presentation_options[layout]" value="full_width_layout"' . checked( 'full_width_layout', $options['layout'], false ) . ' />';
     $html .= '<img src="' . esc_url ( $args['option_image_path'] ) . '" alt="" />';
 
     echo $html;
@@ -399,14 +399,14 @@ function full_width_presentation_display( $args ) {
  */
 function display_breadcrumbs_display() {
 
-    $options = get_option( 'lean_theme_presentation_options' );
+    $options = get_option( 'theme_presentation_options' );
 
     $display_breadcrumbs = '';
     if( isset( $options['display_breadcrumbs'] ) ) {
         $display_breadcrumbs = $options['display_breadcrumbs'];
     } // end if
 
-    $html = '<select id="display_breadcrumbs" name="lean_theme_presentation_options[display_breadcrumbs]">';
+    $html = '<select id="display_breadcrumbs" name="theme_presentation_options[display_breadcrumbs]">';
     $html .= '<option value="always"'. selected( $options['display_breadcrumbs'], 'always', false ) . '>' . __( 'Always', 'lean' ) . '</option>';
     $html .= '<option value="never"'. selected( $options['display_breadcrumbs'], 'never', false ) . '>' . __( 'Never', 'lean' ) . '</option>';
     $html .= '</select>';
@@ -425,9 +425,9 @@ function display_breadcrumbs_display() {
  */
 function display_featured_images_display() {
 
-    $options = get_option( 'lean_theme_presentation_options' );
+    $options = get_option( 'theme_presentation_options' );
 
-    $html = '<select id="display_featured_image" name="lean_theme_presentation_options[display_featured_images]">';
+    $html = '<select id="display_featured_image" name="theme_presentation_options[display_featured_images]">';
     $html .= '<option value="always"'. selected( $options['display_featured_images'], 'always', false ) . '>' . __( 'Always', 'lean' ) . '</option>';
     $html .= '<option value="never"'. selected( $options['display_featured_images'], 'never', false ) . '>' . __( 'Never', 'lean' ) . '</option>';
     $html .= '<option value="index"'. selected( $options['display_featured_images'], 'index', false ) . '>' . __( 'On index only', 'lean' ) . '</option>';
@@ -449,7 +449,7 @@ function display_featured_images_display() {
  * @since	3.0
  * @version	3.2
  */
-function lean_theme_presentation_options_validate( $input ) {
+function theme_presentation_options_validate( $input ) {
 
     $output = array();
 
@@ -461,9 +461,9 @@ function lean_theme_presentation_options_validate( $input ) {
 
     } // end foreach
 
-    return apply_filters( 'lean_theme_presentation_options_validate', $output, $input, get_theme_default_presentation_options() );
+    return apply_filters( 'theme_presentation_options_validate', $output, $input, get_theme_default_presentation_options() );
 
-} // end lean_theme_presentation_options_validate
+} // end theme_presentation_options_validate
 
 /* ----------------------------- *
  * 	Social Options
@@ -1034,16 +1034,16 @@ function get_theme_default_publishing_options() {
 function lean_setup_theme_publishing_options() {
 
     // If the theme options don't exist, create them.
-    if( false == get_option( 'lean_theme_publishing_options' ) ) {
-        add_option( 'lean_theme_publishing_options', apply_filters( 'lean_theme_publishing_options', get_theme_default_publishing_options() ) );
+    if( false == get_option( 'theme_publishing_options' ) ) {
+        add_option( 'theme_publishing_options', apply_filters( 'theme_publishing_options', get_theme_default_publishing_options() ) );
     } // end if
 
     // Publishing options (composed of Post and Pages)
     add_settings_section(
         'publishing',
         '',
-        'lean_theme_publishing_options_display',
-        'lean_theme_publishing_options'
+        'theme_publishing_options_display',
+        'theme_publishing_options'
     );
 
     // Post options
@@ -1051,14 +1051,14 @@ function lean_setup_theme_publishing_options() {
         'post',
         __( 'Posts', 'lean' ),
         'lean_theme_post_options_display',
-        'lean_theme_publishing_options'
+        'theme_publishing_options'
     );
 
     add_settings_field(
         'display_author_box',
         __( 'Display Author Box', 'lean' ),
         'display_author_box_display',
-        'lean_theme_publishing_options',
+        'theme_publishing_options',
         'post'
     );
 
@@ -1067,14 +1067,14 @@ function lean_setup_theme_publishing_options() {
         'page',
         __( 'Pages', 'lean' ),
         'lean_theme_page_options_display',
-        'lean_theme_publishing_options'
+        'theme_publishing_options'
     );
 
     add_settings_field(
         'privacy_policy_template',
         __( 'Privacy Policy', 'lean' ),
         'privacy_policy_template_display',
-        'lean_theme_publishing_options',
+        'theme_publishing_options',
         'page'
     );
 
@@ -1082,14 +1082,14 @@ function lean_setup_theme_publishing_options() {
         'comment_policy_template',
         __( 'Comment Policy', 'lean' ),
         'comment_policy_template_display',
-        'lean_theme_publishing_options',
+        'theme_publishing_options',
         'page'
     );
 
     register_setting(
-        'lean_theme_publishing_options',
-        'lean_theme_publishing_options',
-        'lean_theme_publishing_options_validate'
+        'theme_publishing_options',
+        'theme_publishing_options',
+        'theme_publishing_options_validate'
     );
 
 } // end lean_setup_theme_publishing_options
@@ -1105,7 +1105,7 @@ add_action( 'admin_init', 'lean_setup_theme_publishing_options' );
  * @since	3.0
  * @version	3.2
  */
-function lean_theme_publishing_options_display() {}
+function theme_publishing_options_display() {}
 
 /**
  * Renders the description for the Post Options settings on the Publishing page.
@@ -1135,14 +1135,14 @@ function lean_theme_page_options_display() {
  */
 function display_author_box_display() {
 
-    $options = get_option( 'lean_theme_publishing_options' );
+    $options = get_option( 'theme_publishing_options' );
 
     $display_author_box = '';
     if( isset( $options['display_author_box'] ) ) {
         $display_author_box = $options['display_author_box'];
     } // end if
 
-    $html = '<select id="display_author_box" name="lean_theme_publishing_options[display_author_box]">';
+    $html = '<select id="display_author_box" name="theme_publishing_options[display_author_box]">';
     $html .= '<option value="always"' . selected( $options['display_author_box'], 'always', false ) . '>' . __( 'Always', 'lean' ) . '</option>';
     $html .= '<option value="never"' . selected( $options['display_author_box'], 'never', false ) . '>' . __( 'Never', 'lean' )  . '</option>';
     $html .= '</select>';
@@ -1333,7 +1333,7 @@ add_action( 'wp_ajax_lean_delete_comment_policy_page', 'lean_delete_comment_poli
  * @since 	3.0
  * @version	3.2
  */
-function lean_theme_publishing_options_validate( $input ) {
+function theme_publishing_options_validate( $input ) {
 
     $output = array();
 
@@ -1345,9 +1345,9 @@ function lean_theme_publishing_options_validate( $input ) {
 
     } // end foreach
 
-    return apply_filters( 'lean_theme_publishing_options_validate', $output, $input, get_theme_default_publishing_options() );
+    return apply_filters( 'theme_publishing_options_validate', $output, $input, get_theme_default_publishing_options() );
 
-} // end lean_theme_publishing_options_validate
+} // end theme_publishing_options_validate
 
 /* ----------------------------- *
  * 	Options Page
@@ -1385,9 +1385,9 @@ function lean_theme_options_display() {
         <?php $active_tab = isset( $_GET['tab'] ) ? $_GET['tab'] : 'lean_theme_global_options'; ?>
         <h2 class="nav-tab-wrapper">
             <a class="nav-tab <?php echo $active_tab == 'lean_theme_global_options' ? 'nav-tab-active' : ''; ?>" href="?page=theme_options&amp;tab=lean_theme_global_options"><?php _e( 'Global', 'lean' ); ?></a>
-            <a class="nav-tab <?php echo $active_tab == 'lean_theme_presentation_options' ? 'nav-tab-active' : ''; ?>" href="?page=theme_options&amp;tab=lean_theme_presentation_options"><?php _e( 'Presentation', 'lean' ); ?></a>
+            <a class="nav-tab <?php echo $active_tab == 'theme_presentation_options' ? 'nav-tab-active' : ''; ?>" href="?page=theme_options&amp;tab=theme_presentation_options"><?php _e( 'Presentation', 'lean' ); ?></a>
             <a class="nav-tab <?php echo $active_tab == 'lean_theme_social_options' ? 'nav-tab-active' : ''; ?>" href="?page=theme_options&amp;tab=lean_theme_social_options"><?php _e( 'Social', 'lean' ); ?></a>
-            <a class="nav-tab <?php echo $active_tab == 'lean_theme_publishing_options' ? 'nav-tab-active' : ''; ?>" href="?page=theme_options&amp;tab=lean_theme_publishing_options"><?php _e( 'Publishing', 'lean' ); ?></a>
+            <a class="nav-tab <?php echo $active_tab == 'theme_publishing_options' ? 'nav-tab-active' : ''; ?>" href="?page=theme_options&amp;tab=theme_publishing_options"><?php _e( 'Publishing', 'lean' ); ?></a>
         </h2>
 
         <div id="message-container"><?php settings_errors(); ?></div>
@@ -1400,10 +1400,10 @@ function lean_theme_options_display() {
                 settings_fields( 'lean_theme_global_options' );
                 do_settings_sections( 'lean_theme_global_options' );
 
-            } else if( 'lean_theme_presentation_options' == $active_tab ) {
+            } else if( 'theme_presentation_options' == $active_tab ) {
 
-                settings_fields( 'lean_theme_presentation_options' );
-                do_settings_sections( 'lean_theme_presentation_options' );
+                settings_fields( 'theme_presentation_options' );
+                do_settings_sections( 'theme_presentation_options' );
 
             } else if( 'lean_theme_social_options' == $active_tab ) {
 
@@ -1412,8 +1412,8 @@ function lean_theme_options_display() {
 
             } else {
 
-                do_settings_sections( 'lean_theme_publishing_options' );
-                settings_fields( 'lean_theme_publishing_options' );
+                do_settings_sections( 'theme_publishing_options' );
+                settings_fields( 'theme_publishing_options' );
 
             } // end if/else
 

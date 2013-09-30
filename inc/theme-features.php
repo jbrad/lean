@@ -13,10 +13,10 @@
  * @since	3.0
  * @version	3.2
  */
-function lean_customize_register( $wp_customize ) {
+function customize_register( $wp_customize ) {
 
     // Presentation Options
-    $wp_customize->add_section( 'lean_theme_presentation_options',
+    $wp_customize->add_section( 'theme_presentation_options',
         array(
             'title'          => __( 'Presentation', 'lean' ),
             'priority'       => 150
@@ -24,7 +24,7 @@ function lean_customize_register( $wp_customize ) {
     );
 
     // Contrast
-    $wp_customize->add_setting( 'lean_theme_presentation_options[contrast]',
+    $wp_customize->add_setting( 'theme_presentation_options[contrast]',
         array(
             'default'        => '',
             'type'           => 'option',
@@ -32,11 +32,11 @@ function lean_customize_register( $wp_customize ) {
         )
     );
 
-    $wp_customize->add_control( 'lean_theme_presentation_options[contrast]',
+    $wp_customize->add_control( 'theme_presentation_options[contrast]',
         array(
             'label'      => __( 'Contrast', 'lean' ),
-            'section'    => 'lean_theme_presentation_options',
-            'settings'   => 'lean_theme_presentation_options[contrast]',
+            'section'    => 'theme_presentation_options',
+            'settings'   => 'theme_presentation_options[contrast]',
             'type'       => 'select',
             'choices'    => array(
                 'light' => __( 'Light', 'lean' ),
@@ -46,7 +46,7 @@ function lean_customize_register( $wp_customize ) {
     );
 
     // Logo
-    $wp_customize->add_setting( 'lean_theme_presentation_options[logo]',
+    $wp_customize->add_setting( 'theme_presentation_options[logo]',
         array(
             'default'        => '',
             'type'           => 'option',
@@ -57,17 +57,17 @@ function lean_customize_register( $wp_customize ) {
     $wp_customize->add_control(
         new WP_Customize_Image_Control(
             $wp_customize,
-            'lean_theme_presentation_options[logo]',
+            'theme_presentation_options[logo]',
             array(
                 'label'		=>	__( 'Logo', 'lean' ),
-                'section'	=>	'lean_theme_presentation_options',
-                'settings'  => 'lean_theme_presentation_options[logo]'
+                'section'	=>	'theme_presentation_options',
+                'settings'  => 'theme_presentation_options[logo]'
             )
         )
     );
 
     // Layout
-    $wp_customize->add_setting( 'lean_theme_presentation_options[layout]',
+    $wp_customize->add_setting( 'theme_presentation_options[layout]',
         array(
             'default'        => 'right_sidebar_layout',
             'type'           => 'option',
@@ -75,11 +75,11 @@ function lean_customize_register( $wp_customize ) {
         )
     );
 
-    $wp_customize->add_control( 'lean_theme_presentation_options[layout]',
+    $wp_customize->add_control( 'theme_presentation_options[layout]',
         array(
             'label'      => __( 'Layout', 'themename' ),
-            'section'    => 'lean_theme_presentation_options',
-            'settings'   => 'lean_theme_presentation_options[layout]',
+            'section'    => 'theme_presentation_options',
+            'settings'   => 'theme_presentation_options[layout]',
             'type'       => 'select',
             'choices'    => array(
                 'left_sidebar_layout' 	=> __( 'Left Sidebar', 'lean' ),
@@ -90,7 +90,7 @@ function lean_customize_register( $wp_customize ) {
     );
 
     // Breadcrumbs
-    $wp_customize->add_setting( 'lean_theme_presentation_options[display_breadcrumbs]',
+    $wp_customize->add_setting( 'theme_presentation_options[display_breadcrumbs]',
         array(
             'default'        => 'always',
             'type'           => 'option',
@@ -98,11 +98,11 @@ function lean_customize_register( $wp_customize ) {
         )
     );
 
-    $wp_customize->add_control( 'lean_theme_presentation_options[display_breadcrumbs]',
+    $wp_customize->add_control( 'theme_presentation_options[display_breadcrumbs]',
         array(
             'label'      => __( 'Display Breadcrumbs', 'lean' ),
-            'section'    => 'lean_theme_presentation_options',
-            'settings'   => 'lean_theme_presentation_options[display_breadcrumbs]',
+            'section'    => 'theme_presentation_options',
+            'settings'   => 'theme_presentation_options[display_breadcrumbs]',
             'type'       => 'select',
             'choices'    => array(
                 'always' 		=>	__( 'Always', 'lean' ),
@@ -112,7 +112,7 @@ function lean_customize_register( $wp_customize ) {
     );
 
     // Featured Images
-    $wp_customize->add_setting( 'lean_theme_presentation_options[display_featured_images]',
+    $wp_customize->add_setting( 'theme_presentation_options[display_featured_images]',
         array(
             'default'        => 'always',
             'type'           => 'option',
@@ -120,11 +120,11 @@ function lean_customize_register( $wp_customize ) {
         )
     );
 
-    $wp_customize->add_control( 'lean_theme_presentation_options[display_featured_images]',
+    $wp_customize->add_control( 'theme_presentation_options[display_featured_images]',
         array(
             'label'      => __( 'Display Featured Images', 'themename' ),
-            'section'    => 'lean_theme_presentation_options',
-            'settings'   => 'lean_theme_presentation_options[display_featured_images]',
+            'section'    => 'theme_presentation_options',
+            'settings'   => 'theme_presentation_options[display_featured_images]',
             'type'       => 'select',
             'choices'    => array(
                 'always' 		=>	__( 'Always', 'lean' ),
@@ -136,7 +136,7 @@ function lean_customize_register( $wp_customize ) {
     );
 
     // Publishing Options
-    $wp_customize->add_section( 'lean_theme_publishing_options',
+    $wp_customize->add_section( 'theme_publishing_options',
         array(
             'title'          => __( 'Publishing', 'lean' ),
             'priority'       => 151
@@ -144,7 +144,7 @@ function lean_customize_register( $wp_customize ) {
     );
 
     // Author Box
-    $wp_customize->add_setting( 'lean_theme_publishing_options[display_author_box]',
+    $wp_customize->add_setting( 'theme_publishing_options[display_author_box]',
         array(
             'default'        => 'always',
             'type'           => 'option',
@@ -152,11 +152,11 @@ function lean_customize_register( $wp_customize ) {
         )
     );
 
-    $wp_customize->add_control( 'lean_theme_publishing_options[display_author_box]',
+    $wp_customize->add_control( 'theme_publishing_options[display_author_box]',
         array(
             'label'      => __( 'Display Author Box', 'lean' ),
-            'section'    => 'lean_theme_publishing_options',
-            'settings'   => 'lean_theme_publishing_options[display_author_box]',
+            'section'    => 'theme_publishing_options',
+            'settings'   => 'theme_publishing_options[display_author_box]',
             'type'       => 'select',
             'choices'    => array(
                 'always' 		=>	__( 'Always', 'lean' ),
@@ -167,13 +167,13 @@ function lean_customize_register( $wp_customize ) {
 
     // Basic WordPress functionality (header display, backgrounds, etc)
     if ( $wp_customize->is_preview() && ! is_admin() ) {
-        add_action( 'wp_footer', 'lean_customize_preview', 21);
+        add_action( 'wp_footer', 'customize_preview', 21);
     } // end if
     $wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
     $wp_customize->get_setting( 'background_attachment' )->transport = 'postMessage';
 
-} // end lean_customize_register
-add_action( 'customize_register', 'lean_customize_register' );
+} // end customize_register
+add_action( 'customize_register', 'customize_register' );
 
 /**
  * Renders the JavaScript responsible for hooking into the Theme Customizer to tweak
@@ -182,7 +182,7 @@ add_action( 'customize_register', 'lean_customize_register' );
  * @since	3.0
  * @version	3.2
  */
-function lean_customize_preview() { ?>
+function customize_preview() { ?>
     <script type="text/javascript">
         (function( $ ) {
 
@@ -232,7 +232,7 @@ function lean_customize_preview() { ?>
             })
         })( jQuery );
     </script>
-<?php  } // end lean_customize_preview
+<?php  } // end customize_preview
 
 /**
  * Defines a custom meta box for displaying the post full-width layout. Only renders
@@ -243,7 +243,7 @@ function lean_customize_preview() { ?>
  */
 function lean_add_full_width_single_post() {
 
-    $options = get_option( 'lean_theme_presentation_options' );
+    $options = get_option( 'theme_presentation_options' );
     if( 'full_width_layout' != $options['layout'] ) {
 
         add_meta_box(
@@ -455,10 +455,10 @@ function lean_add_admin_bar_option() {
         // Layout Options
         $wp_admin_bar->add_node(
             array(
-                'id'		=>	'lean_theme_presentation_options',
+                'id'		=>	'theme_presentation_options',
                 'title'		=>	__( 'Presentation', 'lean' ),
                 'parent'	=>	'lean_options',
-                'href'		=>	site_url() . '/wp-admin/admin.php?page=theme_options&tab=lean_theme_presentation_options'
+                'href'		=>	site_url() . '/wp-admin/admin.php?page=theme_options&tab=theme_presentation_options'
             )
         );
 
@@ -475,10 +475,10 @@ function lean_add_admin_bar_option() {
         // Publishing Options
         $wp_admin_bar->add_node(
             array(
-                'id'		=>	'lean_theme_publishing_options',
+                'id'		=>	'theme_publishing_options',
                 'title'		=>	__( 'Publishing', 'lean' ),
                 'parent'	=>	'lean_options',
-                'href'		=>	site_url() . '/wp-admin/admin.php?page=theme_options&tab=lean_theme_publishing_options'
+                'href'		=>	site_url() . '/wp-admin/admin.php?page=theme_options&tab=theme_publishing_options'
             )
         );
 
@@ -864,7 +864,7 @@ function lean_infinite_scroll() {
  * @since	3.0
  * @version	3.2
  */
-$options = get_option( 'lean_theme_presentation_options' );
+$options = get_option( 'theme_presentation_options' );
 if( 'full_width_layout' == $options['layout'] ) {
 
     if ( ! isset( $content_width ) ) {
