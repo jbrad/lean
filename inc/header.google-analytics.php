@@ -6,7 +6,7 @@
  * @version 1.0.0
  * @since   3.4.0
  */
-function lean_theme_google_analytics() {
+function theme_google_analytics() {
 
 	$global_options = get_option( 'lean_theme_global_options' );
 	if( '' != $global_options['google_analytics'] ) {
@@ -43,6 +43,6 @@ function lean_theme_google_analytics() {
 
 	} // end if
 
-} // end lean_theme_google_analytics
-add_action( 'wp_head', 'lean_theme_google_analytics' );
+} // end theme_google_analytics
+add_action( 'wp_head', 'theme_google_analytics' );
 ?>
