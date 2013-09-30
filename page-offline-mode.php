@@ -10,7 +10,7 @@
 <?php get_header(); ?>
 	<div class="container">
 	
-		<?php $options = get_option( 'lean_theme_global_options' ); ?>
+		<?php $options = get_option( 'theme_global_options' ); ?>
 			<div class="row" role="main">
 				<section class="col-md-12">
 					<div id="offline-wrapper">

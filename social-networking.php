@@ -8,7 +8,7 @@
  */
  
 // Read the active social icon stirng
-$social_options = get_option( 'lean_theme_social_options' );
+$social_options = get_option( 'theme_social_options' );
 $social_options = $social_options['active-social-icons'];	
 
 // Read out the URLs

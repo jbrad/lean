@@ -8,7 +8,7 @@
  * @since		3.0
  */
 ?>
-<?php $global_options = get_option( 'lean_theme_global_options' ); $default_url = ''; ?>
+<?php $global_options = get_option( 'theme_global_options' ); $default_url = ''; ?>
 
 <?php echo isset( $args['before_widget'] ) ? $args['before_widget'] : ''; ?>
     <div class="lean-ad-row">

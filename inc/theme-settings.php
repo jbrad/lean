@@ -26,14 +26,14 @@
  * @since	3.0
  * @version	3.2
  */
-function lean_theme_menu() {
+function theme_menu() {
 
     add_menu_page(
         __( 'Lean Options', 'lean' ),
         __( 'Lean', 'lean' ),
         'administrator',
         'theme_options',
-        'lean_theme_options_display',
+        'theme_options_display',
         get_template_directory_uri() . '/images/icn-lean-small.png',
         59
     );
@@ -43,8 +43,8 @@ function lean_theme_menu() {
         __( 'Global', 'lean' ),
         __( 'Global', 'lean' ),
         'administrator',
-        'theme_options&tab=lean_theme_global_options',
-        'lean_theme_options_display'
+        'theme_options&tab=theme_global_options',
+        'theme_options_display'
     );
 
     add_submenu_page(
@@ -53,7 +53,7 @@ function lean_theme_menu() {
         __( 'Presentation', 'lean' ),
         'administrator',
         'theme_options&tab=theme_presentation_options',
-        'lean_theme_options_display'
+        'theme_options_display'
     );
 
     add_submenu_page(
@@ -61,8 +61,8 @@ function lean_theme_menu() {
         __( 'Social', 'lean' ),
         __( 'Social', 'lean' ),
         'administrator',
-        'theme_options&tab=lean_theme_social_options',
-        'lean_theme_options_display'
+        'theme_options&tab=theme_social_options',
+        'theme_options_display'
     );
 
     add_submenu_page(
@@ -71,11 +71,11 @@ function lean_theme_menu() {
         __( 'Publishing', 'lean' ),
         'administrator',
         'theme_options&tab=theme_publishing_options',
-        'lean_theme_options_display'
+        'theme_options_display'
     );
 
-} // end lean_theme_menu
-add_action( 'admin_menu', 'lean_theme_menu' );
+} // end theme_menu
+add_action( 'admin_menu', 'theme_menu' );
 
 /* ----------------------------- *
  * Layout Options
@@ -97,9 +97,9 @@ function get_theme_default_presentation_options() {
         'display_featured_images' 	=> 	'always'
     );
 
-    return apply_filters ( 'lean_theme_default_presentation_options', $defaults );
+    return apply_filters ( 'theme_default_presentation_options', $defaults );
 
-} // end lean_theme_default_presentation_options
+} // end theme_default_presentation_options
 
 /**
  * Defines the Presentation Options. Specifically, the sections and the settings. Will also
@@ -108,11 +108,11 @@ function get_theme_default_presentation_options() {
  * @since	3.0
  * @version	3.2
  */
-function lean_setup_theme_presentation_options() {
+function setup_theme_presentation_options() {
 
     // If the layout options don't exist, create them.
     if( false == get_option( 'theme_presentation_options' ) ) {
-        add_option( 'theme_presentation_options', apply_filters( 'lean_theme_default_presentation_options', get_theme_default_presentation_options() ) );
+        add_option( 'theme_presentation_options', apply_filters( 'theme_default_presentation_options', get_theme_default_presentation_options() ) );
     } // end if
 
     // Presentation options (composed of layout and content)
@@ -127,7 +127,7 @@ function lean_setup_theme_presentation_options() {
     add_settings_section(
         'layout',
         __( 'Layout and Design', 'lean' ),
-        'lean_theme_layout_options_display',
+        'theme_layout_options_display',
         'theme_presentation_options'
     );
 
@@ -192,7 +192,7 @@ function lean_setup_theme_presentation_options() {
     add_settings_section(
         'content',
         __( 'Content', 'lean' ),
-        'lean_theme_content_options_display',
+        'theme_content_options_display',
         'theme_presentation_options'
     );
 
@@ -218,8 +218,8 @@ function lean_setup_theme_presentation_options() {
         'theme_presentation_options_validate'
     );
 
-} // end lean_setup_theme_presentation_options
-add_action( 'admin_init', 'lean_setup_theme_presentation_options' );
+} // end setup_theme_presentation_options
+add_action( 'admin_init', 'setup_theme_presentation_options' );
 
 /**
  * Placeholder function for the Presentation Options display function. The section contains
@@ -239,9 +239,9 @@ function theme_presentation_options_display() {} // end theme_presentation_optio
  * @since	3.0
  * @version	3.2
  */
-function lean_theme_layout_options_display() {
+function theme_layout_options_display() {
     echo '<p>' . __( 'This section controls positioning and style elements.', 'lean' ) . '</p>';
-} // end lean_theme_layout_display
+} // end theme_layout_options_display
 
 /**
  * Renders the description for the Content options.
@@ -249,9 +249,9 @@ function lean_theme_layout_options_display() {
  * @since	3.0
  * @version	3.2
  */
-function lean_theme_content_options_display() {
+function theme_content_options_display() {
     echo '<p>' . __( 'This section controls when content elements are displayed.', 'lean' ) . '</p>';
-} // end lean_theme_content_display
+} // end theme_content_options_display
 
 /**
  * Renders the option element for the Site Icon.
@@ -348,7 +348,7 @@ function left_sidebar_presentation_display( $args ) {
 
     $options = get_option( 'theme_presentation_options' );
 
-    $html = '<input type="radio" id="lean_theme_left_sidebar_layout" name="theme_presentation_options[layout]" value="left_sidebar_layout"' . checked( 'left_sidebar_layout', $options['layout'], false ) . ' />';
+    $html = '<input type="radio" id="theme_left_sidebar_layout" name="theme_presentation_options[layout]" value="left_sidebar_layout"' . checked( 'left_sidebar_layout', $options['layout'], false ) . ' />';
     $html .= '<img src="' . esc_url( $args['option_image_path'] ) . '" alt="" />';
 
     echo $html;
@@ -366,7 +366,7 @@ function right_sidebar_presentation_display( $args ) {
 
     $options = get_option( 'theme_presentation_options' );
 
-    $html = '<input type="radio" id="lean_theme_right_sidebar_layout"  name="theme_presentation_options[layout]" value="right_sidebar_layout"' . checked( 'right_sidebar_layout', $options['layout'], false ) . ' />';
+    $html = '<input type="radio" id="theme_right_sidebar_layout"  name="theme_presentation_options[layout]" value="right_sidebar_layout"' . checked( 'right_sidebar_layout', $options['layout'], false ) . ' />';
     $html .= '<img src="' . esc_url ( $args['option_image_path'] ) . '" alt="" />';
 
     echo $html;
@@ -384,7 +384,7 @@ function full_width_presentation_display( $args ) {
 
     $options = get_option( 'theme_presentation_options' );
 
-    $html = '<input type="radio" id="lean_theme_full_width_layout"  name="theme_presentation_options[layout]" value="full_width_layout"' . checked( 'full_width_layout', $options['layout'], false ) . ' />';
+    $html = '<input type="radio" id="theme_full_width_layout"  name="theme_presentation_options[layout]" value="full_width_layout"' . checked( 'full_width_layout', $options['layout'], false ) . ' />';
     $html .= '<img src="' . esc_url ( $args['option_image_path'] ) . '" alt="" />';
 
     echo $html;
@@ -482,7 +482,7 @@ function get_theme_default_social_options() {
         'available-social-icons' 	=> ''
     );
 
-    return apply_filters ( 'lean_theme_social_options', $defaults );
+    return apply_filters ( 'theme_social_options', $defaults );
 
 } // end get_theme_default_social_options
 
@@ -493,11 +493,11 @@ function get_theme_default_social_options() {
  * @since	3.0
  * @version	3.2
  */
-function lean_setup_theme_social_options() {
+function setup_theme_social_options() {
 
     // If the theme options don't exist, create them.
-    if( false == get_option( 'lean_theme_social_options' ) ) {
-        add_option( 'lean_theme_social_options', apply_filters( 'lean_theme_default_social_options', get_theme_default_social_options() ) );
+    if( false == get_option( 'theme_social_options' ) ) {
+        add_option( 'theme_social_options', apply_filters( 'theme_default_social_options', get_theme_default_social_options() ) );
     } // end if
 
     // Look to see if any new icons have been added to the library since the last version of the theme
@@ -508,34 +508,34 @@ function lean_setup_theme_social_options() {
     add_settings_section(
         'social',
         '',
-        'lean_theme_social_options_display',
-        'lean_theme_social_options'
+        'theme_social_options_display',
+        'theme_social_options'
     );
 
     add_settings_field(
         'available_social_icons',
         __( 'Available Icons', 'lean' ),
-        'lean_available_icons_display',
-        'lean_theme_social_options',
+        'available_icons_display',
+        'theme_social_options',
         'social'
     );
 
     add_settings_field(
         'active_social_icons',
         __( 'Active Icons', 'lean' ),
-        'lean_active_icons_display',
-        'lean_theme_social_options',
+        'active_icons_display',
+        'theme_social_options',
         'social'
     );
 
     register_setting(
-        'lean_theme_social_options',
-        'lean_theme_social_options',
-        'lean_theme_social_options_validate'
+        'theme_social_options',
+        'theme_social_options',
+        'theme_social_options_validate'
     );
 
-} // end lean_setup_theme_social_options
-add_action( 'admin_init', 'lean_setup_theme_social_options' );
+} // end setup_theme_social_options
+add_action( 'admin_init', 'setup_theme_social_options' );
 
 /**
  * Renders the description for the Social Options page.
@@ -543,7 +543,7 @@ add_action( 'admin_init', 'lean_setup_theme_social_options' );
  * @since	3.0
  * @version	3.2
  */
-function lean_theme_social_options_display() {
+function theme_social_options_display() {
 
     _e( 'This section controls social network icons in the site header. Drag, drop, and position desired icons from the Icon Library to the Active Icons area. This section controls social network icons in the site header. Drag, drop, and position desired icons from the Icon Library to the Active Icons area. You can also delete all icons and <a href="javascript:;" id="reset-social-icons" class="ad_delete">restore defaults.</a>', 'lean' );
 
@@ -586,15 +586,15 @@ function lean_theme_social_options_display() {
     $html .= '</div><!-- /#available-icons -->';
     $html .= '</div><!-- /.social-icons-available -->';
 
-    $html .= '<span id="lean-save-social-icons-nonce" class="hidden">' . wp_create_nonce( 'lean_save_social_icons_nonce' ) . '</span>';
-    $html .= '<span id="lean-wordpress-rss-url" class="hidden">' . esc_url( get_rss_feed_url() ) . '</span>';
-    $html .= '<span id="lean-reset-social-icons" class="hidden">' . wp_create_nonce( 'lean_reset_social_icons_nonce' ) . '</span>';
+    $html .= '<span id="save-social-icons-nonce" class="hidden">' . wp_create_nonce( 'save_social_icons_nonce' ) . '</span>';
+    $html .= '<span id="wordpress-rss-url" class="hidden">' . esc_url( get_rss_feed_url() ) . '</span>';
+    $html .= '<span id="reset-social-icons" class="hidden">' . wp_create_nonce( 'reset_social_icons_nonce' ) . '</span>';
 
     $html .= '</div><!-- /.social-icons-wrapper -->';
 
     echo $html;
 
-} // end lean_theme_social_options_display
+} // end theme_social_options_display
 
 /**
  * Callback function used in the Ajax request for generating the Social Icons.
@@ -602,9 +602,9 @@ function lean_theme_social_options_display() {
  * @since 	3.0
  * @version	3.2
  */
-function lean_save_social_icons( ) {
+function save_social_icons( ) {
 
-    if( wp_verify_nonce( $_REQUEST['nonce'], 'lean_save_social_icons_nonce' ) && isset( $_POST['updateSocialIcons'] ) ) {
+    if( wp_verify_nonce( $_REQUEST['nonce'], 'save_social_icons_nonce' ) && isset( $_POST['updateSocialIcons'] ) ) {
 
         // Manually create the input array of options
         $input = array(
@@ -612,7 +612,7 @@ function lean_save_social_icons( ) {
             'active-social-icons' 		=> 	$_POST['activeSocialIcons']
         );
 
-        if( update_option( 'lean_theme_social_options', lean_theme_social_options_validate( $input ) ) ) {
+        if( update_option( 'theme_social_options', theme_social_options_validate( $input ) ) ) {
             die( '0' );
         } else {
             die( '1' );
@@ -622,8 +622,8 @@ function lean_save_social_icons( ) {
         die( '-1' );
     } // end if/else
 
-} // end lean_save_social_icons
-add_action( 'wp_ajax_lean_save_social_icons', 'lean_save_social_icons' );
+} // end save_social_icons
+add_action( 'wp_ajax_save_social_icons', 'save_social_icons' );
 
 /**
  * Callback function used in the Ajax request for resetting the Social Icons.
@@ -631,12 +631,12 @@ add_action( 'wp_ajax_lean_save_social_icons', 'lean_save_social_icons' );
  * @since 	3.0
  * @version	3.2
  */
-function lean_reset_social_icons( ) {
-    if( wp_verify_nonce( $_REQUEST['nonce'], 'lean_reset_social_icons_nonce' ) ) {
-        die( delete_option( 'lean_theme_social_options' ) );
+function reset_social_icons( ) {
+    if( wp_verify_nonce( $_REQUEST['nonce'], 'reset_social_icons_nonce' ) ) {
+        die( delete_option( 'theme_social_options' ) );
     } // end if/else
-} // end lean_save_social_icons
-add_action( 'wp_ajax_lean_reset_social_icons', 'lean_reset_social_icons' );
+} // end save_social_icons
+add_action( 'wp_ajax_reset_social_icons', 'reset_social_icons' );
 
 /**
  * Displays the message for users attempting to delete the core set of social icons.
@@ -644,12 +644,12 @@ add_action( 'wp_ajax_lean_reset_social_icons', 'lean_reset_social_icons' );
  * @since 	3.0
  * @version	3.2
  */
-function lean_delete_social_icons() {
-    if( wp_verify_nonce( $_REQUEST['nonce'], 'lean-delete-social-icon-nonce' ) ) {
-        die( lean_display_delete_social_icon_message() );
+function delete_social_icons() {
+    if( wp_verify_nonce( $_REQUEST['nonce'], 'delete-social-icon-nonce' ) ) {
+        die( display_delete_social_icon_message() );
     } // end if
-} // end lean_delete_social_icons
-add_action( 'wp_ajax_lean_delete_social_icons', 'lean_delete_social_icons' );
+} // end delete_social_icons
+add_action( 'wp_ajax_delete_social_icons', 'delete_social_icons' );
 
 /**
  * Generates a message to be displayed when the user attempts to delete a social icon.
@@ -657,17 +657,17 @@ add_action( 'wp_ajax_lean_delete_social_icons', 'lean_delete_social_icons' );
  * @since 	3.0
  * @version	3.2
  */
-function lean_display_delete_social_icon_message() {
+function display_delete_social_icon_message() {
 
-    $html = '<div id="lean-delete-social-icons" class="updated">';
+    $html = '<div id="delete-social-icons" class="updated">';
     $html .= '<p>';
-    $html .= __( 'You cannot delete the default set of Lean social icons. <a href="javascript:;" id="lean-hide-delete-social-icon-message">Hide this message.</a>', 'lean' );
+    $html .= __( 'You cannot delete the default set of Lean social icons. <a href="javascript:;" id="hide-delete-social-icon-message">Hide this message.</a>', 'lean' );
     $html .= '</p>';
-    $html .= '</div><!-- /#lean-delete-social-icons -->';
+    $html .= '</div><!-- /#delete-social-icons -->';
 
     echo $html;
 
-} // end lean_display_delete_social_icon_message
+} // end display_delete_social_icon_message
 
 /**
  * Renders the available social icon input. This field is hidden and is manipulated by the functionality for powering
@@ -676,16 +676,16 @@ function lean_display_delete_social_icon_message() {
  * @since 	3.0
  * @version	3.2
  */
-function lean_available_icons_display() {
+function available_icons_display() {
 
-    $options = get_option( 'lean_theme_social_options' );
+    $options = get_option( 'theme_social_options' );
 
-    $html = '<input type="text" id="available-social-icons" name="lean_theme_social_options[available-social-icons]" value="' . $options['available-social-icons'] . '" />';
-    $html .= '<span id="lean-delete-social-icon-nonce" class="">' . wp_create_nonce( 'lean-delete-social-icon-nonce' ) . '</span>';
+    $html = '<input type="text" id="available-social-icons" name="theme_social_options[available-social-icons]" value="' . $options['available-social-icons'] . '" />';
+    $html .= '<span id="delete-social-icon-nonce" class="">' . wp_create_nonce( 'delete-social-icon-nonce' ) . '</span>';
 
     echo $html;
 
-} // end lean_available_icons_display
+} // end available_icons_display
 
 /**
  * Renders the active social icon input. This field is hidden and is manipulated by the functionality for powering
@@ -694,12 +694,12 @@ function lean_available_icons_display() {
  * @since 	3.0
  * @version	3.2
  */
-function lean_active_icons_display() {
+function active_icons_display() {
 
-    $options = get_option( 'lean_theme_social_options' );
-    echo '<input type="text" id="active-social-icons" name="lean_theme_social_options[active-social-icons]" value="' . $options['active-social-icons'] . '" />';
+    $options = get_option( 'theme_social_options' );
+    echo '<input type="text" id="active-social-icons" name="theme_social_options[active-social-icons]" value="' . $options['active-social-icons'] . '" />';
 
-} // end lean_active_icons_display
+} // end active_icons_display
 
 /**
  * Sanitization callback for the Social Options. Since each of the options are text inputs,
@@ -711,7 +711,7 @@ function lean_active_icons_display() {
  * @since 	3.0
  * @version	3.2
  */
-function lean_theme_social_options_validate( $input ) {
+function theme_social_options_validate( $input ) {
 
     $output = $defaults = get_theme_default_social_options();
 
@@ -723,9 +723,9 @@ function lean_theme_social_options_validate( $input ) {
 
     } // end foreach
 
-    return apply_filters( 'lean_theme_social_options_validate', $output, $input, $defaults );
+    return apply_filters( 'theme_social_options_validate', $output, $input, $defaults );
 
-} // end lean_theme_options_validate
+} // end theme_options_validate
 
 /**
  * When upgrading to newer versions of Lean, this function looks for any new icons that may exist in the social icons directory.
@@ -741,7 +741,7 @@ function lean_theme_social_options_validate( $input ) {
 function find_new_social_icons() {
 
     // Be sure to look for any additional social icons
-    $social_options = get_option( 'lean_theme_social_options' );
+    $social_options = get_option( 'theme_social_options' );
 
     if( $handle = opendir( get_template_directory() . '/images/social/small' ) ) {
 
@@ -767,7 +767,7 @@ function find_new_social_icons() {
         $social_options['available-social-icons'] = $available_icons;
 
         // Update the option
-        update_option( 'lean_theme_social_options', $social_options );
+        update_option( 'theme_social_options', $social_options );
 
     } // end if
 
@@ -792,7 +792,7 @@ function get_theme_default_global_options() {
         'offline_display_message'	=>	__( 'Our site is currently offline.', 'lean' )
     );
 
-    return apply_filters ( 'lean_theme_default_global_options', $defaults );
+    return apply_filters ( 'theme_default_global_options', $defaults );
 
 } // end get_theme_default_global_options
 
@@ -803,11 +803,11 @@ function get_theme_default_global_options() {
  * @since	3.0
  * @version	3.2
  */
-function lean_setup_theme_global_options() {
+function setup_theme_global_options() {
 
     // If the theme options don't exist, create them.
-    if( false == get_option( 'lean_theme_global_options' ) ) {
-        add_option( 'lean_theme_global_options', apply_filters( 'lean_theme_default_global_options', get_theme_default_global_options() ) );
+    if( false == get_option( 'theme_global_options' ) ) {
+        add_option( 'theme_global_options', apply_filters( 'theme_default_global_options', get_theme_default_global_options() ) );
     } // end if
 
     /* ------------------ Page Options ------------------ */
@@ -815,15 +815,15 @@ function lean_setup_theme_global_options() {
     add_settings_section(
         'global',
         '',
-        'lean_theme_global_options_display',
-        'lean_theme_global_options'
+        'theme_global_options_display',
+        'theme_global_options'
     );
 
     add_settings_field(
         'feedburner_url',
         __( 'FeedBurner URL', 'lean' ),
         'feedburner_url_display',
-        'lean_theme_global_options',
+        'theme_global_options',
         'global'
     );
 
@@ -831,7 +831,7 @@ function lean_setup_theme_global_options() {
         'google_analytics',
         __( 'Google Analytics', 'lean' ),
         'google_analytics_display',
-        'lean_theme_global_options',
+        'theme_global_options',
         'global'
     );
 
@@ -839,7 +839,7 @@ function lean_setup_theme_global_options() {
         'site_mode',
         __( 'Site Mode', 'lean' ),
         'site_mode_display',
-        'lean_theme_global_options',
+        'theme_global_options',
         'global'
     );
 
@@ -847,18 +847,18 @@ function lean_setup_theme_global_options() {
         'offline_message',
         __( 'Offline Message', 'lean' ),
         'offline_message_display',
-        'lean_theme_global_options',
+        'theme_global_options',
         'global'
     );
 
     register_setting(
-        'lean_theme_global_options',
-        'lean_theme_global_options',
-        'lean_theme_global_options_validate'
+        'theme_global_options',
+        'theme_global_options',
+        'theme_global_options_validate'
     );
 
-} // end lean_setup_theme_global_options
-add_action( 'admin_init', 'lean_setup_theme_global_options' );
+} // end setup_theme_global_options
+add_action( 'admin_init', 'setup_theme_global_options' );
 
 /**
  * Renders the description for the Global Options page.
@@ -866,14 +866,14 @@ add_action( 'admin_init', 'lean_setup_theme_global_options' );
  * @since	3.0
  * @version	3.2
  */
-function lean_theme_global_options_display() {
+function theme_global_options_display() {
 
     $html = '<h3>' . __( 'Site Configuration ', 'lean' ) . '</h3>';
     $html .= '<p>' . __( 'This section controls site wide features.', 'lean' ) . '</p>';
 
     echo $html;
 
-} // end lean_theme_global_options_display
+} // end theme_global_options_display
 
 /**
  * Renders the option element for FeedBurner.
@@ -883,7 +883,7 @@ function lean_theme_global_options_display() {
  */
 function feedburner_url_display() {
 
-    $option = get_option( 'lean_theme_global_options' );
+    $option = get_option( 'theme_global_options' );
 
     // Only render this option for administrators
     if( current_user_can( 'manage_options' ) ) {
@@ -893,7 +893,7 @@ function feedburner_url_display() {
             $feedburner_url = $option['feedburner_url'];
         } // end if
 
-        $html = '<input type="text" id="feedburner_url" name="lean_theme_global_options[feedburner_url]" placeholder="http://feeds.feedburner.com/example" value="' . esc_attr( $feedburner_url ) . '" />';
+        $html = '<input type="text" id="feedburner_url" name="theme_global_options[feedburner_url]" placeholder="http://feeds.feedburner.com/example" value="' . esc_attr( $feedburner_url ) . '" />';
         $html .= '&nbsp;<span class="description">' . __( 'Use in place of the native RSS feed.', 'lean' ) . '</span>';
 
         echo $html;
@@ -910,7 +910,7 @@ function feedburner_url_display() {
  */
 function google_analytics_display() {
 
-    $option = get_option( 'lean_theme_global_options' );
+    $option = get_option( 'theme_global_options' );
 
     // Only render this option for administrators
     if( current_user_can( 'manage_options' ) ) {
@@ -920,7 +920,7 @@ function google_analytics_display() {
             $analytics_id = $option['google_analytics'];
         } // end if
 
-        $html = '<input type="text" id="google_analytics" name="lean_theme_global_options[google_analytics]" placeholder="UA-000000" value="' . esc_attr( $analytics_id ) . '" />';
+        $html = '<input type="text" id="google_analytics" name="theme_global_options[google_analytics]" placeholder="UA-000000" value="' . esc_attr( $analytics_id ) . '" />';
         $html .= '&nbsp;<span class="description">' . __( 'Enter the ID only.', 'lean' ) . '</span>';
 
         echo $html;
@@ -937,14 +937,14 @@ function google_analytics_display() {
  */
 function site_mode_display( ) {
 
-    $options = get_option( 'lean_theme_global_options' );
+    $options = get_option( 'theme_global_options' );
 
     $site_mode = '';
     if( isset( $options['site_mode'] ) ) {
         $site_mode = $options['site_mode'];
     } // end if
 
-    $html = '<select id="site_mode" name="lean_theme_global_options[site_mode]">';
+    $html = '<select id="site_mode" name="theme_global_options[site_mode]">';
     $html .= '<option value="online"' . selected( $site_mode, 'online', false ) . '>' . __( 'Online', 'lean' ) .'</option>';
     $html .= '<option value="offline"' . selected( $site_mode, 'offline', false ) . '>' . __( 'Offline', 'lean' ) .'</option>';
     $html .= '</select>';
@@ -967,14 +967,14 @@ function site_mode_display( ) {
  */
 function offline_message_display() {
 
-    $options = get_option( 'lean_theme_global_options' );
+    $options = get_option( 'theme_global_options' );
 
     $offline_message = '';
     if( isset( $options['offline_message'] ) ) {
         $offline_message = $options['offline_message'];
     } // end if
 
-    echo '<input type="text" id="offline_message" name="lean_theme_global_options[offline_message]" value="' . esc_attr( $offline_message ) . '" maxlength="140" />';
+    echo '<input type="text" id="offline_message" name="theme_global_options[offline_message]" value="' . esc_attr( $offline_message ) . '" maxlength="140" />';
 
 } // end offline_message_display
 
@@ -988,7 +988,7 @@ function offline_message_display() {
  * @since 	3.0
  * @version	3.2
  */
-function lean_theme_global_options_validate( $input ) {
+function theme_global_options_validate( $input ) {
 
     $output = array();
 
@@ -1000,9 +1000,9 @@ function lean_theme_global_options_validate( $input ) {
 
     } // end foreach
 
-    return apply_filters( 'lean_theme_global_options_validate', $output, $input, get_theme_default_global_options() );
+    return apply_filters( 'theme_global_options_validate', $output, $input, get_theme_default_global_options() );
 
-} // end lean_theme_global_options_validate
+} // end theme_global_options_validate
 
 /* ----------------------------- *
  * 	Publishing Options
@@ -1020,7 +1020,7 @@ function get_theme_default_publishing_options() {
         'display_author_box'			=>	'always'
     );
 
-    return apply_filters ( 'lean_theme_default_publishing_options', $defaults );
+    return apply_filters ( 'theme_default_publishing_options', $defaults );
 
 } // end get_theme_default_publishing_options
 
@@ -1031,7 +1031,7 @@ function get_theme_default_publishing_options() {
  * @since	3.0
  * @version	3.2
  */
-function lean_setup_theme_publishing_options() {
+function setup_theme_publishing_options() {
 
     // If the theme options don't exist, create them.
     if( false == get_option( 'theme_publishing_options' ) ) {
@@ -1050,7 +1050,7 @@ function lean_setup_theme_publishing_options() {
     add_settings_section(
         'post',
         __( 'Posts', 'lean' ),
-        'lean_theme_post_options_display',
+        'theme_post_options_display',
         'theme_publishing_options'
     );
 
@@ -1066,7 +1066,7 @@ function lean_setup_theme_publishing_options() {
     add_settings_section(
         'page',
         __( 'Pages', 'lean' ),
-        'lean_theme_page_options_display',
+        'theme_page_options_display',
         'theme_publishing_options'
     );
 
@@ -1092,8 +1092,8 @@ function lean_setup_theme_publishing_options() {
         'theme_publishing_options_validate'
     );
 
-} // end lean_setup_theme_publishing_options
-add_action( 'admin_init', 'lean_setup_theme_publishing_options' );
+} // end setup_theme_publishing_options
+add_action( 'admin_init', 'setup_theme_publishing_options' );
 
 /**
  * Placeholder function for the Publishing Options display function. The section contains
@@ -1113,9 +1113,9 @@ function theme_publishing_options_display() {}
  * @since	3.0
  * @version	3.2
  */
-function lean_theme_post_options_display() {
+function theme_post_options_display() {
     echo '<p>' . __( 'This section controls publisher-centric features available on individual posts.', 'lean' ) . '</p>';
-} // end lean_theme_post_options_display
+} // end theme_post_options_display
 
 /**
  * Renders the description for the Page Options settings on the Publishing page.
@@ -1123,9 +1123,9 @@ function lean_theme_post_options_display() {
  * @since	3.0
  * @version	3.2
  */
-function lean_theme_page_options_display() {
+function theme_page_options_display() {
     echo '<p>' . __( 'This section controls publisher-centric features available for pages.', 'lean' ) . '</p>';
-} // end lean_theme_page_options_display
+} // end theme_page_options_display
 
 /**
  * Renders the option element for the Author Box.
@@ -1167,7 +1167,7 @@ function privacy_policy_template_display() {
     // Options to display if the page doesn't already exist
     $html = '<div id="generate-privacy-policy-wrapper"' . ( '' == $privacy_policy ? ' ' : ' class="hidden" ' )  . '>';
     $html .= '<input type="submit" class="button-secondary" id="generate_privacy_policy" name="generate_privacy_policy" value="' . __( 'Generate', 'lean' ) . '" />';
-    $html .= '<span id="lean-privacy-policy-nonce" class="hidden">' . wp_create_nonce( 'lean_generate_privacy_policy_nonce' ) . '</span>';
+    $html .= '<span id="privacy-policy-nonce" class="hidden">' . wp_create_nonce( 'generate_privacy_policy_nonce' ) . '</span>';
     $html .= '&nbsp;';
     $html .= '<span class="description">' . __( '<a href="http://docs.leantheme.co/admin-panel/publishing/" target="_blank">' . __( 'Learn more', 'lean' ) . '</a>.', 'lean' ) . '</span>';
     $html .= '</div><!-- /#generate-private-policy-wrapper -->';
@@ -1204,7 +1204,7 @@ function comment_policy_template_display() {
     // Options to display if the page doesn't already exist
     $html = '<div id="generate-comment-policy-wrapper"' . ( '' == $comment_policy ? ' ' : ' class="hidden" ' )  . '>';
     $html .= '<input type="submit" class="button-secondary" id="generate_comment_policy" name="generate_comment_policy" value="' . __( 'Generate', 'lean' ) . '" />';
-    $html .= '<span id="lean-comment-policy-nonce" class="hidden">' . wp_create_nonce( 'lean_generate_comment_policy_nonce' ) . '</span>';
+    $html .= '<span id="comment-policy-nonce" class="hidden">' . wp_create_nonce( 'generate_comment_policy_nonce' ) . '</span>';
     $html .= '&nbsp;';
     $html .= '<span class="description">' . __( '<a href="http://docs.leantheme.co/admin-panel/publishing/" target="_blank">' . __( 'Learn more', 'lean' ) . '</a>.', 'lean' ) . '</span>';
     $html .= '</div><!-- /#generate-comment-policy-wrapper -->';
@@ -1233,9 +1233,9 @@ function comment_policy_template_display() {
  * @since	3.0
  * @version	3.2
  */
-function lean_generate_privacy_policy_page( ) {
+function generate_privacy_policy_page( ) {
 
-    if( wp_verify_nonce( $_REQUEST['nonce'], 'lean_generate_privacy_policy_nonce' ) && isset( $_POST['generatePrivacyPolicy'] ) ) {
+    if( wp_verify_nonce( $_REQUEST['nonce'], 'generate_privacy_policy_nonce' ) && isset( $_POST['generatePrivacyPolicy'] ) ) {
 
         $page_id = create_page( 'privacy-policy', __( 'Privacy Policy', 'lean' ) );
         if( $page_id > 0 ) {
@@ -1248,8 +1248,8 @@ function lean_generate_privacy_policy_page( ) {
         die( '-1' );
     } // end if/else
 
-} // end lean_generate_privacy_policy_page
-add_action( 'wp_ajax_lean_generate_privacy_policy_page', 'lean_generate_privacy_policy_page' );
+} // end generate_privacy_policy_page
+add_action( 'wp_ajax_generate_privacy_policy_page', 'generate_privacy_policy_page' );
 
 /**
  * Callback function used in the Ajax request for deleting the Privacy Policy.
@@ -1257,10 +1257,10 @@ add_action( 'wp_ajax_lean_generate_privacy_policy_page', 'lean_generate_privacy_
  * @since	3.0
  * @version	3.2
  */
-function lean_delete_privacy_policy_page( ) {
+function delete_privacy_policy_page( ) {
 
     // We'll be using the same nonce for generating the policy.
-    if( wp_verify_nonce( $_REQUEST['nonce'], 'lean_generate_privacy_policy_nonce' ) && isset( $_POST['deletePrivacyPolicy'] ) && isset( $_POST['page_id'] ) ) {
+    if( wp_verify_nonce( $_REQUEST['nonce'], 'generate_privacy_policy_nonce' ) && isset( $_POST['deletePrivacyPolicy'] ) && isset( $_POST['page_id'] ) ) {
 
         if( delete_page( $_POST['page_id'] ) ) {
             die( '0' );
@@ -1272,8 +1272,8 @@ function lean_delete_privacy_policy_page( ) {
         die( '-1' );
     } // end if/else
 
-} // end lean_delete_privacy_policy_page
-add_action( 'wp_ajax_lean_delete_privacy_policy_page', 'lean_delete_privacy_policy_page' );
+} // end delete_privacy_policy_page
+add_action( 'wp_ajax_delete_privacy_policy_page', 'delete_privacy_policy_page' );
 
 /**
  * Callback function used in the Ajax request for generating the Comment Policy.
@@ -1281,9 +1281,9 @@ add_action( 'wp_ajax_lean_delete_privacy_policy_page', 'lean_delete_privacy_poli
  * @since	3.0
  * @version	3.2
  */
-function lean_generate_comment_policy_page( ) {
+function generate_comment_policy_page( ) {
 
-    if( wp_verify_nonce( $_REQUEST['nonce'], 'lean_generate_comment_policy_nonce' ) && isset( $_POST['generateCommentPolicy'] ) ) {
+    if( wp_verify_nonce( $_REQUEST['nonce'], 'generate_comment_policy_nonce' ) && isset( $_POST['generateCommentPolicy'] ) ) {
 
         $page_id = create_page( 'comment-policy', __( 'Comment Policy', 'lean' ) );
         if( $page_id > 0 ) {
@@ -1296,8 +1296,8 @@ function lean_generate_comment_policy_page( ) {
         die( '-1' );
     } // end if/else
 
-} // end lean_generate_comment_policy_page
-add_action( 'wp_ajax_lean_generate_comment_policy_page', 'lean_generate_comment_policy_page' );
+} // end generate_comment_policy_page
+add_action( 'wp_ajax_generate_comment_policy_page', 'generate_comment_policy_page' );
 
 /**
  * Callback function used in the Ajax request for deleting the Privacy Policy.
@@ -1305,10 +1305,10 @@ add_action( 'wp_ajax_lean_generate_comment_policy_page', 'lean_generate_comment_
  * @since	3.0
  * @version	3.2
  */
-function lean_delete_comment_policy_page( ) {
+function delete_comment_policy_page( ) {
 
     // We'll be using the same nonce for generating the policy.
-    if( wp_verify_nonce( $_REQUEST['nonce'], 'lean_generate_comment_policy_nonce' ) && isset( $_POST['deleteCommentPolicy'] ) && isset( $_POST['page_id'] ) ) {
+    if( wp_verify_nonce( $_REQUEST['nonce'], 'generate_comment_policy_nonce' ) && isset( $_POST['deleteCommentPolicy'] ) && isset( $_POST['page_id'] ) ) {
 
         if( delete_page( $_POST['page_id'] ) ) {
             die( '0' );
@@ -1320,8 +1320,8 @@ function lean_delete_comment_policy_page( ) {
         die( '-1' );
     } // end if/else
 
-} // end lean_delete_comment_policy_page
-add_action( 'wp_ajax_lean_delete_comment_policy_page', 'lean_delete_comment_policy_page' );
+} // end delete_comment_policy_page
+add_action( 'wp_ajax_delete_comment_policy_page', 'delete_comment_policy_page' );
 
 /**
  * Sanitization callback for the Publishing Options. Since each of the options are text inputs,
@@ -1359,34 +1359,34 @@ function theme_publishing_options_validate( $input ) {
  * @since	3.0
  * @version	3.2
  */
-function lean_theme_options_display() {
+function theme_options_display() {
     ?>
-    <div id="lean-options" class="wrap">
-        <div id="lean-info">
+    <div id="theme-options" class="wrap">
+        <div id="theme-info">
 
             <div id="icon-themes" class="icon32"></div>
-            <h3 id="lean-title"><?php _e( 'Lean', 'lean' ); ?> <span><?php _e( 'for publishers', 'lean' ); ?></span></h3>
+            <h3 id="theme-title"><?php _e( 'Lean', 'lean' ); ?> <span><?php _e( 'for publishers', 'lean' ); ?></span></h3>
 
-            <div id="lean-desc">
+            <div id="theme-desc">
                 <p><?php _e( 'Lean is a sleek, exacting product designed for uncluttered and sophisticated presentation of your content on desktop and mobile devices.', 'lean' ); ?></p>
             </div>
-        </div><!--/#lean-info -->
+        </div><!--/#theme-info -->
 
-        <div id="lean-options-links">
+        <div id="theme-options-links">
             <ul>
-                <li><a class="lean-docs" href="http://docs.leantheme.co/" target="_blank"><?php _e( 'Documentation', 'lean' ); ?></a></li>
-                <li><a class="lean-support" href="http://support.leantheme.co" target="_blank"><?php _e( 'Support', 'lean' ); ?></a></li>
-                <li><a class="lean-blog" href="http://jasonbradley.me" target="_blank"><?php _e( 'Blog', 'lean' ); ?></a></li>
+                <li><a class="theme-docs" href="http://docs.leantheme.co/" target="_blank"><?php _e( 'Documentation', 'lean' ); ?></a></li>
+                <li><a class="theme-support" href="http://support.leantheme.co" target="_blank"><?php _e( 'Support', 'lean' ); ?></a></li>
+                <li><a class="theme-blog" href="http://jasonbradley.me" target="_blank"><?php _e( 'Blog', 'lean' ); ?></a></li>
             </ul>
         </div>
 
         <div class="clear"></div>
 
-        <?php $active_tab = isset( $_GET['tab'] ) ? $_GET['tab'] : 'lean_theme_global_options'; ?>
+        <?php $active_tab = isset( $_GET['tab'] ) ? $_GET['tab'] : 'theme_global_options'; ?>
         <h2 class="nav-tab-wrapper">
-            <a class="nav-tab <?php echo $active_tab == 'lean_theme_global_options' ? 'nav-tab-active' : ''; ?>" href="?page=theme_options&amp;tab=lean_theme_global_options"><?php _e( 'Global', 'lean' ); ?></a>
+            <a class="nav-tab <?php echo $active_tab == 'theme_global_options' ? 'nav-tab-active' : ''; ?>" href="?page=theme_options&amp;tab=theme_global_options"><?php _e( 'Global', 'lean' ); ?></a>
             <a class="nav-tab <?php echo $active_tab == 'theme_presentation_options' ? 'nav-tab-active' : ''; ?>" href="?page=theme_options&amp;tab=theme_presentation_options"><?php _e( 'Presentation', 'lean' ); ?></a>
-            <a class="nav-tab <?php echo $active_tab == 'lean_theme_social_options' ? 'nav-tab-active' : ''; ?>" href="?page=theme_options&amp;tab=lean_theme_social_options"><?php _e( 'Social', 'lean' ); ?></a>
+            <a class="nav-tab <?php echo $active_tab == 'theme_social_options' ? 'nav-tab-active' : ''; ?>" href="?page=theme_options&amp;tab=theme_social_options"><?php _e( 'Social', 'lean' ); ?></a>
             <a class="nav-tab <?php echo $active_tab == 'theme_publishing_options' ? 'nav-tab-active' : ''; ?>" href="?page=theme_options&amp;tab=theme_publishing_options"><?php _e( 'Publishing', 'lean' ); ?></a>
         </h2>
 
@@ -1395,20 +1395,20 @@ function lean_theme_options_display() {
         <form method="post" action="options.php">
             <?php
 
-            if( 'lean_theme_global_options' == $active_tab ) {
+            if( 'theme_global_options' == $active_tab ) {
 
-                settings_fields( 'lean_theme_global_options' );
-                do_settings_sections( 'lean_theme_global_options' );
+                settings_fields( 'theme_global_options' );
+                do_settings_sections( 'theme_global_options' );
 
             } else if( 'theme_presentation_options' == $active_tab ) {
 
                 settings_fields( 'theme_presentation_options' );
                 do_settings_sections( 'theme_presentation_options' );
 
-            } else if( 'lean_theme_social_options' == $active_tab ) {
+            } else if( 'theme_social_options' == $active_tab ) {
 
-                settings_fields( 'lean_theme_social_options' );
-                do_settings_sections( 'lean_theme_social_options' );
+                settings_fields( 'theme_social_options' );
+                do_settings_sections( 'theme_social_options' );
 
             } else {
 
@@ -1424,4 +1424,4 @@ function lean_theme_options_display() {
         </form>
     </div><!-- /.wrap -->
 <?php
-} // end lean_theme_options_display
+} // end theme_options_display

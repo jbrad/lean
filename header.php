@@ -36,7 +36,7 @@
             <?php } // end if ?>
             <link rel="author" href="<?php echo trailingslashit( $google_plus ); ?>"/>
         <?php } // end if ?>
-        <?php $global_options = get_option( 'lean_theme_global_options' ); ?>
+        <?php $global_options = get_option( 'theme_global_options' ); ?>
         <?php if( '' != $global_options['google_analytics'] ) { ?>
             <?php if( is_user_logged_in() ) { ?>
                 <!-- Google Analytics is restricted only to users who are not logged in. -->
@@ -112,7 +112,7 @@
                     );
                     ?>
 
-                    <?php $social_options = get_option( 'lean_theme_social_options' ); ?>
+                    <?php $social_options = get_option( 'theme_social_options' ); ?>
                     <?php if( isset( $social_options['active-social-icons'] ) && '' != $social_options['active-social-icons'] ) { ?>
                         <?php get_template_part( 'social-networking' ); ?>
                     <?php } // end if ?>

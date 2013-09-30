@@ -54,7 +54,7 @@
 								?>
 							</div><!-- /#footer-links -->
 										
-							<?php $global_options = get_option( 'lean_theme_global_options' ); ?>
+							<?php $global_options = get_option( 'theme_global_options' ); ?>
 							<div id="credit">
 								<?php
                                     $jasonbradley_url = 'http://jasonbradley.me';

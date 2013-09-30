@@ -285,7 +285,7 @@ msgstr ""
 #: ../functions.php:723
 msgid ""
 "You cannot delete the default set of Lean social icons. <a href="
-"\"javascript:;\" id=\"lean-hide-delete-social-icon-message\">Hide this "
+"\"javascript:;\" id=\"hide-delete-social-icon-message\">Hide this "
 "message.</a>"
 msgstr ""
 

@@ -68,8 +68,8 @@ function updateIconValues(evt) {
 	
 	jQuery.post(ajaxurl, {
 	
-		action: 'lean_save_social_icons',
-		nonce: jQuery('#lean-save-social-icons-nonce').text(),
+		action: 'save_social_icons',
+		nonce: jQuery('#save-social-icons-nonce').text(),
 		availableSocialIcons: jQuery('#available-social-icons').val(),
 		activeSocialIcons: jQuery('#active-social-icons').val(),
 		updateSocialIcons: 'true'
@@ -300,7 +300,7 @@ function setupIconClickHander($, $this, bIsNowActive) {
 		var sRssUrl = '';
 		if($(evt.srcElement).attr('src') !== '' && $(evt.srcElement).attr('src') !== undefined) {
 			if($(evt.srcElement).attr('src').toString().indexOf('rss.png') > 0) {
-				sRssUrl = $('#lean-wordpress-rss-url').text();
+				sRssUrl = $('#wordpress-rss-url').text();
 			} // end if
 		} // end if
 			
@@ -393,20 +393,20 @@ function makeIconsRemoveable($) {
 			
 				$.post(ajaxurl, {
 				
-					action: 'lean_delete_social_icons',
-					nonce: $.trim($('#lean-delete-social-icon-nonce').text())
+					action: 'delete_social_icons',
+					nonce: $.trim($('#delete-social-icon-nonce').text())
 					
 				}, function(response) {
 					
 					// Display the message only if a prior message doesn't exist
-					if($('#lean-delete-social-icons').length === 0) {
+					if($('#delete-social-icons').length === 0) {
 						$('#message-container').append(response);
 					} // end if
 					
-					$('#lean-hide-delete-social-icon-message').click(function(evt) {
+					$('#hide-delete-social-icon-message').click(function(evt) {
 					
 						evt.preventDefault();
-						$('#lean-delete-social-icons').remove();
+						$('#delete-social-icons').remove();
 						
 					});
 					
@@ -608,8 +608,8 @@ function socialIconsShowMediaUploader() {
 				var $this = $(this);
 				$.post(ajaxurl, {
 		
-					action: 'lean_reset_social_icons',
-					nonce: $.trim($('#lean-reset-social-icons').text())
+					action: 'reset_social_icons',
+					nonce: $.trim($('#reset-social-icons').text())
 					
 				}, function() {
 				

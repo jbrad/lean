@@ -26,7 +26,7 @@ function activate_theme() {
 
             // Remove the Preview settings. TODO remove this in 3.2.
             delete_option( 'lean_theme_general_options' );
-            delete_option( 'lean_theme_social_options' );
+            delete_option( 'theme_social_options' );
             delete_option( 'lean_theme_layout_options' );
 
             // Set defaults for Lean
@@ -921,7 +921,7 @@ function truncate_text( $string, $character_limit = 50, $truncation_indicator = 
  */
 function is_offline() {
 
-    $global_options = get_option( 'lean_theme_global_options' );
+    $global_options = get_option( 'theme_global_options' );
 
     $site_mode = '';
     if( isset( $global_options['site_mode'] ) && '' != $global_options['site_mode'] ) {
@@ -1012,7 +1012,7 @@ function add_plugin( $str_path ) {
  */
 function get_rss_feed_url() {
 
-    $global_options = get_option( 'lean_theme_global_options' );
+    $global_options = get_option( 'theme_global_options' );
 
     $url = (string)get_feed_link( 'rss2' );
     if( isset( $global_options['feedburner_url'] ) && '' != $global_options['feedburner_url'] ) {

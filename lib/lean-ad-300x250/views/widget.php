@@ -8,7 +8,7 @@
  * @since		3.0
  */
 ?>
-<?php $global_options = get_option( 'lean_theme_global_options' ); ?>
+<?php $global_options = get_option( 'theme_global_options' ); ?>
 
 <?php echo $args['before_widget']; ?>
 	<?php echo $this->display_ad( $ad_src, $ad_url ); ?>

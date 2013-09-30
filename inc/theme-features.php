@@ -445,10 +445,10 @@ function add_admin_bar_option() {
         // Global
         $wp_admin_bar->add_node(
             array(
-                'id'		=>	'lean_theme_global_options',
+                'id'		=>	'theme_global_options',
                 'title'		=>	__( 'Global', 'lean' ),
                 'parent'	=>	'theme_options',
-                'href'		=>	site_url() . '/wp-admin/admin.php?page=theme_options&tab=lean_theme_global_options'
+                'href'		=>	site_url() . '/wp-admin/admin.php?page=theme_options&tab=theme_global_options'
             )
         );
 
@@ -465,10 +465,10 @@ function add_admin_bar_option() {
         // Social Options
         $wp_admin_bar->add_node(
             array(
-                'id'		=>	'lean_theme_social_options',
+                'id'		=>	'theme_social_options',
                 'title'		=>	__( 'Social', 'lean' ),
                 'parent'	=>	'theme_options',
-                'href'		=>	site_url() . '/wp-admin/admin.php?page=theme_options&tab=lean_theme_social_options'
+                'href'		=>	site_url() . '/wp-admin/admin.php?page=theme_options&tab=theme_social_options'
             )
         );
 
