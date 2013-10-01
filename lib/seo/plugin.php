@@ -8,9 +8,9 @@
  * @package		Lean
  * @subpackage	SEO
  * @version		1.0
- * @since		3.0
+ * @since		1.0
  */
-class Lean_SEO {
+class SEO {
 
 	/*--------------------------------------------*
 	 * Constructor
@@ -42,7 +42,7 @@ class Lean_SEO {
 
 		add_meta_box(
 			'post_level_seo',
-			__( 'Lean SEO', 'lean' ),
+			__( 'SEO', 'lean' ),
 			array( &$this, 'post_level_display' ),
 			'post',
 			'normal',
@@ -51,7 +51,7 @@ class Lean_SEO {
 
 		add_meta_box(
 			'post_level_seo',
-			__( 'Lean SEO', 'lean' ),
+			__( 'SEO', 'lean' ),
 			array( &$this, 'post_level_display' ),
 			'page',
 			'normal',
@@ -69,7 +69,7 @@ class Lean_SEO {
 	 */
 	public function post_level_display( $post ) {
 
-		wp_nonce_field( plugin_basename( __FILE__ ), 'lean_seo_nonce' );
+		wp_nonce_field( plugin_basename( __FILE__ ), 'seo_nonce' );
 
 		$html = '<p>' . __( 'Search Results Preview ', 'lean' ) . '</p>';
 		$html .= '<div id="search-engine-preview">';
@@ -145,7 +145,7 @@ class Lean_SEO {
 	 */
 	public function save_postdata( $post_id ) {
 
-		if( isset( $_POST['lean_seo_nonce'] ) ) {
+		if( isset( $_POST['seo_nonce'] ) ) {
 
 			// Don't save if the user hasn't submitted the changes
 			if( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
@@ -153,7 +153,7 @@ class Lean_SEO {
 			} // end if
 
 			// Verify that the input is coming from the proper form
-			if( ! wp_verify_nonce( $_POST['lean_seo_nonce'], plugin_basename( __FILE__ ) ) ) {
+			if( ! wp_verify_nonce( $_POST['seo_nonce'], plugin_basename( __FILE__ ) ) ) {
 				return;
 			} // end if
 
@@ -190,8 +190,8 @@ class Lean_SEO {
 	 * @version	1.0
 	 */
 	public function admin_styles() {
-		wp_enqueue_style( 'lean-seo-admin', get_template_directory_uri() . '/lib/seo/css/admin.css', false, LEAN_THEME_VERSION );
+		wp_enqueue_style( 'seo-admin', get_template_directory_uri() . '/lib/seo/css/admin.css', false, LEAN_THEME_VERSION );
 	} // end admin_styles
 
 } // end class
-new Lean_SEO();
+new SEO();
