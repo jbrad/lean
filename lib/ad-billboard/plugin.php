@@ -8,7 +8,7 @@
  * @version		1.1
  * @since		3.0
  */
-class Lean_Ad_468x60 extends WP_Widget {
+class Ad_468x60 extends WP_Widget {
 
 	/*--------------------------------------------------------*
 	 * Constructor
@@ -23,7 +23,7 @@ class Lean_Ad_468x60 extends WP_Widget {
 			'classname' 	=> __( 'ad-billboard', 'lean' ),
 			'description' 	=> __( 'Display a 468x60 advertisement.', 'lean' )
 		);
-		$this->WP_Widget( 'lean-ad-468x60', __( '468x60 Ad', 'lean' ), $widget_opts );
+		$this->WP_Widget( 'ad-468x60', __( '468x60 Ad', 'lean' ), $widget_opts );
 
 		// We don't want to load these on the Appearance Options because we're overiding window.send_to_editor there, too.
 		global $pagenow;
@@ -113,7 +113,7 @@ class Lean_Ad_468x60 extends WP_Widget {
 	 * @version	1.0
 	 */
 	public function register_admin_styles() {
-		wp_enqueue_style( 'lean-ad-468x60', get_template_directory_uri() . '/lib/ad-billboard/css/admin.css', LEAN_THEME_VERSION );
+		wp_enqueue_style( 'ad-468x60', get_template_directory_uri() . '/lib/ad-billboard/css/admin.css', LEAN_THEME_VERSION );
 	} // end register_admin_styles
 
 	/**
@@ -136,7 +136,7 @@ class Lean_Ad_468x60 extends WP_Widget {
 				$ad_url = 'http://leantheme.co';
 			} // end if
 
-			$ad_src = '<img src="' . get_template_directory_uri() . '/lib/ad-billboard/images/lean-468.jpg" alt="" />';
+			$ad_src = '<img src="' . get_template_directory_uri() . '/lib/ad-billboard/images/ad-468.jpg" alt="" />';
 
 		} else {
 			$ad_src = '<img src="' . $ad_src . '" alt="" />';
@@ -158,4 +158,4 @@ class Lean_Ad_468x60 extends WP_Widget {
 	} // end display_ad
 
 } // end class
-add_action( 'widgets_init', create_function( '', 'register_widget( "Lean_Ad_468x60" );' ) );
+add_action( 'widgets_init', create_function( '', 'register_widget( "Ad_468x60" );' ) );

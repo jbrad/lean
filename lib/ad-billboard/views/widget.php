@@ -4,8 +4,8 @@
  *
  * @package		lean
  * @subpackage	468x60 Advertisement
- * @version 	1.2
- * @since		3.0
+ * @version 	1.0
+ * @since		1.0
  */
 ?>
 
