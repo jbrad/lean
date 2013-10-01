@@ -5,7 +5,7 @@
  * @package		lean
  * @subpackage	300x250 Advertisement
  * @version 	1.1
- * @since		3.0
+ * @since		1.0
  */
 ?>
 <?php $global_options = get_option( 'theme_global_options' ); ?>

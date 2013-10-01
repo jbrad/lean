@@ -5,10 +5,10 @@
  * @package		lean
  * @subpackage	300x250 Advertisement
  * @version 	1.0
- * @since		3.0
+ * @since		1.0
  */
 ?>
-<div class="lean-ad-300x250-wrapper">
+<div class="ad-300x250-wrapper">
 
 	<div class="preview_image_container">
 		<img src="<?php echo '' == $ad_src ? '' : $ad_src; ?>" alt="" class="preview_image" />
@@ -22,4 +22,4 @@
 
 	<a href="javascript:;" class="ad_delete ad-delete <?php echo ('' == $ad_url && '' == $ad_src) ? 'hidden' : '' ?>"><?php _e( 'Delete Advertisement', 'lean' ); ?></a>
 	
-</div><!-- /.lean-ad-300x250-wrapper -->
+</div><!-- /.ad-300x250-wrapper -->
