@@ -69,11 +69,11 @@ remove_action( 'wp_head', 'wp_generator' );
  */
 function add_user_profile_fields( $user_contactmethods ) {
 
-    $user_contactmethods['twitter'] = __( '<span class="user-profile" id="user-profile-twitter">Twitter URL</span>', 'lean' );
-    $user_contactmethods['facebook'] = __( '<span class="user-profile" id="user-profile-facebook">Facebook URL</span>', 'lean' );
+    $user_contactmethods['twitter'] = __( '<span class="user-profile" id="user-profile-twitter">Twitter URL</span>', TRANSLATION_KEY );
+    $user_contactmethods['facebook'] = __( '<span class="user-profile" id="user-profile-facebook">Facebook URL</span>', TRANSLATION_KEY );
 
     if( using_native_seo() ) {
-        $user_contactmethods['google_plus'] = __( '<span class="user-profile" id="user-profile-google-plus">Google+ URL</span>', 'lean' );
+        $user_contactmethods['google_plus'] = __( '<span class="user-profile" id="user-profile-google-plus">Google+ URL</span>', TRANSLATION_KEY );
     } // end if
 
     return $user_contactmethods;
@@ -342,7 +342,7 @@ if( ! function_exists('search_form') ) {
 
         // Render the form
         $form = '<form role="search" method="get" id="searchform" action="' . esc_url( home_url( '/' ) ) . '">';
-        $form .= '<input placeholder="' . __( 'Search...', 'lean' ) . '" type="text" value="' . $query . '" name="s" id="s" class="form-control"/>';
+        $form .= '<input placeholder="' . __( 'Search...', TRANSLATION_KEY ) . '" type="text" value="' . $query . '" name="s" id="s" class="form-control"/>';
         $form .= '</form>';
 
         return $form;
@@ -569,8 +569,8 @@ function attachment_fields_to_edit_wp34( $form_fields, $post ) {
     $form_fields['image_alt']['required'] = true;
 
     // Provide a description for title and alt
-    $form_fields['post_title']['helps'] =	__( 'A title is required for search engines.', 'lean' );
-    $form_fields['image_alt']['helps'] = __( 'An alternate text description is required for search engines.', 'lean' );
+    $form_fields['post_title']['helps'] =	__( 'A title is required for search engines.', TRANSLATION_KEY );
+    $form_fields['image_alt']['helps'] = __( 'An alternate text description is required for search engines.', TRANSLATION_KEY );
 
     // If the image alt is empty, then we'll provide it by cleaning up the image's file name
     if( empty( $form_fields['image_alt']['value'] ) ) {
@@ -652,7 +652,7 @@ if( is_offline() ) {
      * @since	3.0
      */
     function disable_feed() {
-        wp_die( get_bloginfo( 'name' ) . ' ' . __( 'is currently offline.', 'lean' ) . ' ' );
+        wp_die( get_bloginfo( 'name' ) . ' ' . __( 'is currently offline.', TRANSLATION_KEY ) . ' ' );
     } // end disable_feeds
 
     add_action( 'do_feed', 'disable_feed', 1 );
@@ -861,9 +861,9 @@ if( ! function_exists('comment_form') ) {
 
         // The field elements with wrappers so we can access them via CSS and JavaScript
         $fields =  array(
-            'author' 	=> '<div id="comment-form-elements' . $layout . '"><p class="comment-form-author">' . '<label for="author">' . __( 'Name', 'lean' ) . '</label> ' . ( $req ? '<span class="required">*</span>' : '' ) . '<input id="author" name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) . '" size="30"' . $aria_req . ' /></p>',
-            'email'  	=> '<p class="comment-form-email"><label for="email">' . __( 'Email', 'lean' ) . '</label> ' . ( $req ? '<span class="required">*</span>' : '' ) . '<input id="email" name="email" type="text" value="' . esc_attr(  $commenter['comment_author_email'] ) . '" size="30"' . $aria_req . ' /></p>',
-            'url'		=> '<p class="comment-form-url"><label for="url">' . __( 'Website', 'lean' ) . '</label>' . '<input id="url" name="url" type="text" value="' . esc_attr( $commenter['comment_author_url'] ) . '" size="30" /></p></div><!-- /#comment-form-elements --></div><!-- /#comment-form-wrapper -->',
+            'author' 	=> '<div id="comment-form-elements' . $layout . '"><p class="comment-form-author">' . '<label for="author">' . __( 'Name', TRANSLATION_KEY ) . '</label> ' . ( $req ? '<span class="required">*</span>' : '' ) . '<input id="author" name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) . '" size="30"' . $aria_req . ' /></p>',
+            'email'  	=> '<p class="comment-form-email"><label for="email">' . __( 'Email', TRANSLATION_KEY ) . '</label> ' . ( $req ? '<span class="required">*</span>' : '' ) . '<input id="email" name="email" type="text" value="' . esc_attr(  $commenter['comment_author_email'] ) . '" size="30"' . $aria_req . ' /></p>',
+            'url'		=> '<p class="comment-form-url"><label for="url">' . __( 'Website', TRANSLATION_KEY ) . '</label>' . '<input id="url" name="url" type="text" value="' . esc_attr( $commenter['comment_author_url'] ) . '" size="30" /></p></div><!-- /#comment-form-elements --></div><!-- /#comment-form-wrapper -->',
         );
 
         // Now actually render the form
@@ -871,7 +871,7 @@ if( ! function_exists('comment_form') ) {
             array(
                 'comment_notes_before'	=>	'<div id="comment-form-wrapper"><div id="comment-form-avatar">' . get_avatar( '', $size = '30' )  . '</div>',
                 'fields'				=>	apply_filters( 'comment_form_default_fields', $fields ),
-                'comment_notes_after' 	=>	'<p class="form-allowed-tags">' . sprintf( __( 'Text formatting is available via select <a id="allowed-tags-trigger" href="javascript:;">HTML</a>. %s', 'lean' ), ' <pre id="allowed-tags">' . allowed_tags() . '</pre>' ) . '</p>',
+                'comment_notes_after' 	=>	'<p class="form-allowed-tags">' . sprintf( __( 'Text formatting is available via select <a id="allowed-tags-trigger" href="javascript:;">HTML</a>. %s', TRANSLATION_KEY ), ' <pre id="allowed-tags">' . allowed_tags() . '</pre>' ) . '</p>',
                 'logged_in_as'			=>	'<div id="comment-form-wrapper"><p id="comment-form-avatar">' . get_avatar( get_the_author_meta( 'user_email', wp_get_current_user()->ID ), $size = '50' )  . '</p><p id="logged-in-container">' . sprintf( __( 'Logged in as <a href="%1$s">%2$s</a>. <a href="%3$s" title="Log out of this account">Log out?</a>' ), admin_url( 'profile.php' ), get_the_author_meta( 'user_nicename', wp_get_current_user()->ID ), wp_logout_url( apply_filters( 'the_permalink', get_permalink( ) ) ) ) . '</p></div><!-- /#comment-form-wrapper -->'
             )
         );

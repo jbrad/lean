@@ -19,10 +19,10 @@ class Ad_468x60 extends WP_Widget {
 	public function __construct() {
 
 		$widget_opts = array(
-			'classname' 	=> __( 'ad-billboard', 'lean' ),
-			'description' 	=> __( 'Display a 468x60 advertisement.', 'lean' )
+			'classname' 	=> __( 'ad-billboard', TRANSLATION_KEY ),
+			'description' 	=> __( 'Display a 468x60 advertisement.', TRANSLATION_KEY )
 		);
-		$this->WP_Widget( 'ad-468x60', __( '468x60 Ad', 'lean' ), $widget_opts );
+		$this->WP_Widget( 'ad-468x60', __( '468x60 Ad', TRANSLATION_KEY ), $widget_opts );
 
 		// We don't want to load these on the Appearance Options because we're overiding window.send_to_editor there, too.
 		global $pagenow;
@@ -132,7 +132,7 @@ class Ad_468x60 extends WP_Widget {
 		if( 0 == strlen( trim( $ad_src ) ) ) {
 
 			if( 0 == strlen( trim( $ad_url ) ) ) {
-				$ad_url = 'http://leantheme.co';
+				$ad_url = 'THEME_URL';
 			} // end if
 
 			$ad_src = '<img src="' . get_template_directory_uri() . '/lib/ad-billboard/images/ad-468.jpg" alt="" />';

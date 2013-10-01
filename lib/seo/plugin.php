@@ -42,7 +42,7 @@ class SEO {
 
 		add_meta_box(
 			'post_level_seo',
-			__( 'SEO', 'lean' ),
+			__( 'SEO', TRANSLATION_KEY ),
 			array( &$this, 'post_level_display' ),
 			'post',
 			'normal',
@@ -51,7 +51,7 @@ class SEO {
 
 		add_meta_box(
 			'post_level_seo',
-			__( 'SEO', 'lean' ),
+			__( 'SEO', TRANSLATION_KEY ),
 			array( &$this, 'post_level_display' ),
 			'page',
 			'normal',
@@ -71,10 +71,10 @@ class SEO {
 
 		wp_nonce_field( plugin_basename( __FILE__ ), 'seo_nonce' );
 
-		$html = '<p>' . __( 'Search Results Preview ', 'lean' ) . '</p>';
+		$html = '<p>' . __( 'Search Results Preview ', TRANSLATION_KEY ) . '</p>';
 		$html .= '<div id="search-engine-preview">';
 
-			$html .= '<p id="search-results-title"><span id="post-title"></span>' . ' ' . __( '|', 'lean' ) . ' ' . '<span id="blog-title"></span></p>';
+			$html .= '<p id="search-results-title"><span id="post-title"></span>' . ' ' . __( '|', TRANSLATION_KEY ) . ' ' . '<span id="blog-title"></span></p>';
 			$html .= '<p id="search-results-meta"><span id="permalink"></span></p>';
 
 			// Look to see if the user has the Google Profile URL specified
@@ -120,14 +120,14 @@ class SEO {
 		$html .= '<div id="meta-description-container">';
 
 			// The label for the meta description
-			$html .= '<p>' . __( 'Meta Description ', 'lean' ) . '(<span id="character-count">' . __( '140', 'lean' ) . '</span>' . ' ' . __( 'characters remaining)', 'lean' );'</p>';
+			$html .= '<p>' . __( 'Meta Description ', TRANSLATION_KEY ) . '(<span id="character-count">' . __( '140', TRANSLATION_KEY ) . '</span>' . ' ' . __( 'characters remaining)', TRANSLATION_KEY );'</p>';
 
 			// The input field for the meta description
 			$html .= '<textarea id="seo_post_meta_description" name="seo_post_meta_description" maxlength="140">' . get_post_meta( $post->ID, 'seo_post_meta_description', true ) . '</textarea>';
 
 			// The description for the field
 			$html .= '<p class="description">';
-				$html .= __( 'Writing a meta description for every post is strongly recommended for SEO. If not provided, no description will be published.', 'lean' );
+				$html .= __( 'Writing a meta description for every post is strongly recommended for SEO. If not provided, no description will be published.', TRANSLATION_KEY );
 			$html .= '</p>';
 
 		$html .= '</div><!-- /#meta-description-container -->';

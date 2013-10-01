@@ -85,7 +85,7 @@
                         <div id="post-formats" class="row">
                             <h3 class="col-lg-2">Post Formats</h3>
                             <div id="gallery-post-format" class="col-lg-1">
-                                <a href="http://leantheme.co/post-format-gallery/">
+                                <a href="<?php echo THEME_URL; ?>/post-format-gallery/">
                                     <h4>
                                         <span class="icon-stack">
                                           <i class="icon-sign-blank icon-stack-base"></i>
@@ -95,7 +95,7 @@
                                 </a>
                             </div> <!-- /#bootstrap -->
                             <div id="audio-post-format" class="col-lg-1">
-                                <a href="http://leantheme.co/post-format-audio/">
+                                <a href="<?php echo THEME_URL; ?>/post-format-audio/">
                                     <h4>
                                         <span class="icon-stack">
                                           <i class="icon-sign-blank icon-stack-base"></i>
@@ -105,7 +105,7 @@
                                 </a>
                             </div> <!-- /#audio-post-format -->
                             <div id="chat-post-format" class="col-lg-1">
-                                <a href="http://leantheme.co/post-format-chat/">
+                                <a href="<?php echo THEME_URL; ?>/post-format-chat/">
                                     <h4>
                                         <span class="icon-stack">
                                           <i class="icon-sign-blank icon-stack-base"></i>
@@ -115,7 +115,7 @@
                                 </a>
                             </div> <!-- /#chat-post-format -->
                             <div id="video-post-format" class="col-lg-1">
-                                <a href="http://leantheme.co/post-format-video/">
+                                <a href="<?php echo THEME_URL; ?>/post-format-video/">
                                     <h4>
                                         <span class="icon-stack">
                                           <i class="icon-sign-blank icon-stack-base"></i>
@@ -125,7 +125,7 @@
                                 </a>
                             </div> <!-- /#chat-post-format -->
                             <div id="quote-post-format" class="col-lg-1">
-                                <a href="http://leantheme.co/post-format-quote/">
+                                <a href="<?php echo THEME_URL; ?>/post-format-quote/">
                                     <h4>
                                         <span class="icon-stack">
                                           <i class="icon-sign-blank icon-stack-base"></i>
@@ -135,7 +135,7 @@
                                 </a>
                             </div> <!-- /#quote-post-format -->
                             <div id="image-post-format" class="col-lg-1">
-                                <a href="http://leantheme.co/post-format-image/">
+                                <a href="<?php echo THEME_URL; ?>/post-format-image/">
                                     <h4>
                                         <span class="icon-stack">
                                           <i class="icon-sign-blank icon-stack-base"></i>
@@ -145,7 +145,7 @@
                                 </a>
                             </div> <!-- /#image-post-format -->
                             <div id="status-post-format" class="col-lg-1">
-                                <a href="http://leantheme.co/post-format-status/">
+                                <a href="<?php echo THEME_URL; ?>/post-format-status/">
                                     <h4>
                                         <span class="icon-stack">
                                           <i class="icon-sign-blank icon-stack-base"></i>
@@ -155,7 +155,7 @@
                                 </a>
                             </div> <!-- /#image-post-format -->
                             <div id="link-post-format" class="col-lg-1">
-                                <a href="http://leantheme.co/post-format-link/">
+                                <a href="<?php echo THEME_URL; ?>/post-format-link/">
                                     <h4>
                                         <span class="icon-stack">
                                           <i class="icon-sign-blank icon-stack-base"></i>
@@ -165,7 +165,7 @@
                                 </a>
                             </div> <!-- /#link-post-format -->
                             <div id="aside-post-format" class="col-lg-1">
-                                <a href="http://leantheme.co/post-format-aside/">
+                                <a href="<?php echo THEME_URL; ?>/post-format-aside/">
                                     <h4>
                                         <span class="icon-stack">
                                           <i class="icon-sign-blank icon-stack-base"></i>

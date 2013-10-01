@@ -27,7 +27,7 @@
 					<?php get_template_part( 'breadcrumbs' ); ?>
 
 					<div id="search-page-title"> 
-	                    <h3><?php _e( 'Search Results For "', 'lean' ); echo get_query_var( 's' ); _e( '"', 'lean' ); ?></h3>
+	                    <h3><?php _e( 'Search Results For "', TRANSLATION_KEY ); echo get_query_var( 's' ); _e( '"', TRANSLATION_KEY ); ?></h3>
 	                </div> 
 				
 					<?php if ( have_posts() ) { ?>
@@ -43,10 +43,10 @@
 				
 						<article id="post-0" class="post no-results not-found">
 							<header class="entry-header">
-								<h1 class="entry-title"><?php _e( 'Page or resource not found', 'lean' ); ?></h1>
+								<h1 class="entry-title"><?php _e( 'Page or resource not found', TRANSLATION_KEY ); ?></h1>
 							</header><!-- .entry-header -->
 							<div class="entry-content">
-								<p><?php _e( 'No results were found.', 'lean' ); ?></p>
+								<p><?php _e( 'No results were found.', TRANSLATION_KEY ); ?></p>
 								<?php get_search_form(); ?>
 							</div><!-- .entry-content -->
 						</article><!-- #post-0 -->

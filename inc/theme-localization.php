@@ -13,6 +13,6 @@
  * @version	1.0
  */
 function set_theme_localization() {
-    load_theme_textdomain( 'lean', get_stylesheet_directory() . '/lang' );
+    load_theme_textdomain( TRANSLATION_KEY, get_stylesheet_directory() . '/lang' );
 } // set_theme_localization
 add_action( 'after_setup_theme', 'set_theme_localization' );

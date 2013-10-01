@@ -18,7 +18,7 @@ function customize_register( $wp_customize ) {
     // Presentation Options
     $wp_customize->add_section( 'theme_presentation_options',
         array(
-            'title'          => __( 'Presentation', 'lean' ),
+            'title'          => __( 'Presentation', TRANSLATION_KEY ),
             'priority'       => 150
         )
     );
@@ -34,13 +34,13 @@ function customize_register( $wp_customize ) {
 
     $wp_customize->add_control( 'theme_presentation_options[contrast]',
         array(
-            'label'      => __( 'Contrast', 'lean' ),
+            'label'      => __( 'Contrast', TRANSLATION_KEY ),
             'section'    => 'theme_presentation_options',
             'settings'   => 'theme_presentation_options[contrast]',
             'type'       => 'select',
             'choices'    => array(
-                'light' => __( 'Light', 'lean' ),
-                'dark'  => __( 'Dark', 'lean' )
+                'light' => __( 'Light', TRANSLATION_KEY ),
+                'dark'  => __( 'Dark', TRANSLATION_KEY )
             ),
         )
     );
@@ -59,7 +59,7 @@ function customize_register( $wp_customize ) {
             $wp_customize,
             'theme_presentation_options[logo]',
             array(
-                'label'		=>	__( 'Logo', 'lean' ),
+                'label'		=>	__( 'Logo', TRANSLATION_KEY ),
                 'section'	=>	'theme_presentation_options',
                 'settings'  => 'theme_presentation_options[logo]'
             )
@@ -82,9 +82,9 @@ function customize_register( $wp_customize ) {
             'settings'   => 'theme_presentation_options[layout]',
             'type'       => 'select',
             'choices'    => array(
-                'left_sidebar_layout' 	=> __( 'Left Sidebar', 'lean' ),
-                'right_sidebar_layout' 	=> __( 'Right Sidebar', 'lean' ),
-                'full_width_layout'		=> __( 'No Sidebar / Full-Width', 'lean' )
+                'left_sidebar_layout' 	=> __( 'Left Sidebar', TRANSLATION_KEY ),
+                'right_sidebar_layout' 	=> __( 'Right Sidebar', TRANSLATION_KEY ),
+                'full_width_layout'		=> __( 'No Sidebar / Full-Width', TRANSLATION_KEY )
             ),
         )
     );
@@ -100,13 +100,13 @@ function customize_register( $wp_customize ) {
 
     $wp_customize->add_control( 'theme_presentation_options[display_breadcrumbs]',
         array(
-            'label'      => __( 'Display Breadcrumbs', 'lean' ),
+            'label'      => __( 'Display Breadcrumbs', TRANSLATION_KEY ),
             'section'    => 'theme_presentation_options',
             'settings'   => 'theme_presentation_options[display_breadcrumbs]',
             'type'       => 'select',
             'choices'    => array(
-                'always' 		=>	__( 'Always', 'lean' ),
-                'never' 		=>  __( 'Never', 'lean' )
+                'always' 		=>	__( 'Always', TRANSLATION_KEY ),
+                'never' 		=>  __( 'Never', TRANSLATION_KEY )
             )
         )
     );
@@ -127,10 +127,10 @@ function customize_register( $wp_customize ) {
             'settings'   => 'theme_presentation_options[display_featured_images]',
             'type'       => 'select',
             'choices'    => array(
-                'always' 		=>	__( 'Always', 'lean' ),
-                'never' 		=>  __( 'Never', 'lean' ),
-                'index'			=>	__( 'On index only', 'lean' ),
-                'single-post'	=>	__( 'On single posts only', 'lean' )
+                'always' 		=>	__( 'Always', TRANSLATION_KEY ),
+                'never' 		=>  __( 'Never', TRANSLATION_KEY ),
+                'index'			=>	__( 'On index only', TRANSLATION_KEY ),
+                'single-post'	=>	__( 'On single posts only', TRANSLATION_KEY )
             ),
         )
     );
@@ -138,7 +138,7 @@ function customize_register( $wp_customize ) {
     // Publishing Options
     $wp_customize->add_section( 'theme_publishing_options',
         array(
-            'title'          => __( 'Publishing', 'lean' ),
+            'title'          => __( 'Publishing', TRANSLATION_KEY ),
             'priority'       => 151
         )
     );
@@ -154,13 +154,13 @@ function customize_register( $wp_customize ) {
 
     $wp_customize->add_control( 'theme_publishing_options[display_author_box]',
         array(
-            'label'      => __( 'Display Author Box', 'lean' ),
+            'label'      => __( 'Display Author Box', TRANSLATION_KEY ),
             'section'    => 'theme_publishing_options',
             'settings'   => 'theme_publishing_options[display_author_box]',
             'type'       => 'select',
             'choices'    => array(
-                'always' 		=>	__( 'Always', 'lean' ),
-                'never' 		=>  __( 'Never', 'lean' )
+                'always' 		=>	__( 'Always', TRANSLATION_KEY ),
+                'never' 		=>  __( 'Never', TRANSLATION_KEY )
             )
         )
     );
@@ -248,7 +248,7 @@ function add_full_width_single_post() {
 
         add_meta_box(
             'post_level_layout',
-            __( 'Post Layout', 'lean' ),
+            __( 'Post Layout', TRANSLATION_KEY ),
             'post_level_layout_display',
             'post',
             'side',
@@ -276,7 +276,7 @@ function post_level_layout_display( $post ) {
     $html .= '&nbsp;';
 
     $html .= '<label for="seo_post_level_layout">';
-    $html .= __( 'Hide sidebar and display post at full width.', 'lean' );
+    $html .= __( 'Hide sidebar and display post at full width.', TRANSLATION_KEY );
     $html .= '</label>';
 
     echo $html;
@@ -344,7 +344,7 @@ function add_url_field_to_link_post_format() {
 
     add_meta_box(
         'link_format_url',
-        __( 'Link URL', 'lean' ),
+        __( 'Link URL', TRANSLATION_KEY ),
         'link_url_field_display',
         'post',
         'side',
@@ -437,7 +437,7 @@ function add_admin_bar_option() {
         $wp_admin_bar->add_node(
             array(
                 'id'	=>	'theme_options',
-                'title'	=>	__( 'Lean', 'lean' ),
+                'title'	=>	__( 'Lean', TRANSLATION_KEY ),
                 'href'	=>	site_url() . '/wp-admin/admin.php?page=theme_options'
             )
         );
@@ -446,7 +446,7 @@ function add_admin_bar_option() {
         $wp_admin_bar->add_node(
             array(
                 'id'		=>	'theme_global_options',
-                'title'		=>	__( 'Global', 'lean' ),
+                'title'		=>	__( 'Global', TRANSLATION_KEY ),
                 'parent'	=>	'theme_options',
                 'href'		=>	site_url() . '/wp-admin/admin.php?page=theme_options&tab=theme_global_options'
             )
@@ -456,7 +456,7 @@ function add_admin_bar_option() {
         $wp_admin_bar->add_node(
             array(
                 'id'		=>	'theme_presentation_options',
-                'title'		=>	__( 'Presentation', 'lean' ),
+                'title'		=>	__( 'Presentation', TRANSLATION_KEY ),
                 'parent'	=>	'theme_options',
                 'href'		=>	site_url() . '/wp-admin/admin.php?page=theme_options&tab=theme_presentation_options'
             )
@@ -466,7 +466,7 @@ function add_admin_bar_option() {
         $wp_admin_bar->add_node(
             array(
                 'id'		=>	'theme_social_options',
-                'title'		=>	__( 'Social', 'lean' ),
+                'title'		=>	__( 'Social', TRANSLATION_KEY ),
                 'parent'	=>	'theme_options',
                 'href'		=>	site_url() . '/wp-admin/admin.php?page=theme_options&tab=theme_social_options'
             )
@@ -476,7 +476,7 @@ function add_admin_bar_option() {
         $wp_admin_bar->add_node(
             array(
                 'id'		=>	'theme_publishing_options',
-                'title'		=>	__( 'Publishing', 'lean' ),
+                'title'		=>	__( 'Publishing', TRANSLATION_KEY ),
                 'parent'	=>	'theme_options',
                 'href'		=>	site_url() . '/wp-admin/admin.php?page=theme_options&tab=theme_publishing_options'
             )
@@ -501,7 +501,7 @@ function add_site_mode_admin_bar_note() {
         $wp_admin_bar->add_node(
             array(
                 'id'	=>	'lean_theme_site_mode',
-                'title'	=>	__( 'The site is currently offline. To bring it back online, click here.', 'lean' ),
+                'title'	=>	__( 'The site is currently offline. To bring it back online, click here.', TRANSLATION_KEY ),
                 'href'	=>	site_url() . '/wp-admin/themes.php?page=theme_options'
             )
         );
@@ -536,17 +536,17 @@ function detect_wordpress_seo() {
         // WordPress SEO
         if( defined( 'WPSEO_URL' ) ) {
 
-            $html = '<div id="hide-seo-message-notification" class="error"><p>' . __( 'The activation of WordPress SEO has been detected and is now running in SEO compatibility mode. <a href="http://docs.leantheme.co/seo" target="_blank">' . __( 'Learn more', 'lean' ) . '</a> or <a id="lean-hide-seo-message" href="javascript:;">hide this message</a>.', 'lean') . '</p><span id="hide-seo-message-nonce" class="hidden">' . wp_create_nonce( 'hide_seo_message_nonce' ) . '</span></div>';
+            $html = '<div id="hide-seo-message-notification" class="error"><p>' . __( 'The activation of WordPress SEO has been detected and is now running in SEO compatibility mode. <a href="http://docs.leantheme.co/seo" target="_blank">' . __( 'Learn more', TRANSLATION_KEY ) . '</a> or <a id="lean-hide-seo-message" href="javascript:;">hide this message</a>.', TRANSLATION_KEY) . '</p><span id="hide-seo-message-nonce" class="hidden">' . wp_create_nonce( 'hide_seo_message_nonce' ) . '</span></div>';
 
             // All-in-One SEO
         } elseif( class_exists( 'All_in_One_SEO_Pack' ) ) {
 
-            $html = '<div id="hide-seo-message-notification" class="error"><p>' . __( 'The activation of All-In-One SEO has been detected and is now running in SEO compatibility mode.  <a href="http://docs.leantheme.co/seo" target="_blank">' . __( 'Learn more', 'lean' ) . '</a> or <a id="lean-hide-seo-message" href="javascript:;">hide this message</a>.', 'lean') . '</p><span id="hide-seo-message-nonce" class="hidden">' . wp_create_nonce( 'hide_seo_message_nonce' ) . '</span></div>';
+            $html = '<div id="hide-seo-message-notification" class="error"><p>' . __( 'The activation of All-In-One SEO has been detected and is now running in SEO compatibility mode.  <a href="http://docs.leantheme.co/seo" target="_blank">' . __( 'Learn more', TRANSLATION_KEY ) . '</a> or <a id="lean-hide-seo-message" href="javascript:;">hide this message</a>.', TRANSLATION_KEY) . '</p><span id="hide-seo-message-nonce" class="hidden">' . wp_create_nonce( 'hide_seo_message_nonce' ) . '</span></div>';
 
             // Platinum SEO
         } elseif( class_exists( 'Platinum_SEO_Pack' ) ) {
 
-            $html =  '<div id="hide-seo-message-notification" class="error"><p>' . __( 'The activation of Platinum SEO has been detected and is now running in SEO compatibility mode.  <a href="http://docs.leantheme.co/seo" target="_blank">' . __( 'Learn more', 'lean' ) . '</a> or <a id="lean-hide-seo-message" href="javascript:;">hide this message</a>.', 'lean') . '</p><span id="hide-seo-message-nonce" class="hidden">' . wp_create_nonce( 'hide_seo_message_nonce' ) . '</span></div>';
+            $html =  '<div id="hide-seo-message-notification" class="error"><p>' . __( 'The activation of Platinum SEO has been detected and is now running in SEO compatibility mode.  <a href="http://docs.leantheme.co/seo" target="_blank">' . __( 'Learn more', TRANSLATION_KEY ) . '</a> or <a id="lean-hide-seo-message" href="javascript:;">hide this message</a>.', TRANSLATION_KEY) . '</p><span id="hide-seo-message-nonce" class="hidden">' . wp_create_nonce( 'hide_seo_message_nonce' ) . '</span></div>';
 
         } // end if/ese
 
@@ -646,9 +646,9 @@ if( ! function_exists('add_theme_menus') ) {
 
         register_nav_menus(
             array(
-                'menu_above_logo' 	=> __( 'Header Menu (Upper)', 'lean' ),
-                'menu_below_logo' 	=> __( 'Header Menu (Lower)', 'lean' ),
-                'footer_menu' 		=> __( 'Footer Menu', 'lean' )
+                'menu_above_logo' 	=> __( 'Header Menu (Upper)', TRANSLATION_KEY ),
+                'menu_below_logo' 	=> __( 'Header Menu (Lower)', TRANSLATION_KEY ),
+                'footer_menu' 		=> __( 'Footer Menu', TRANSLATION_KEY )
             )
         );
 
@@ -670,9 +670,9 @@ if( ! function_exists('add_theme_sidebars') ) {
         // main
         register_sidebar(
             array(
-                'name' 			=> __( 'Sidebar', 'lean' ),
+                'name' 			=> __( 'Sidebar', TRANSLATION_KEY ),
                 'id' 			=> 'sidebar-0',
-                'description'	=> __( 'The primary sidebar.', 'lean' ),
+                'description'	=> __( 'The primary sidebar.', TRANSLATION_KEY ),
                 'before_widget' => '<div id="%1$s" class="widget %2$s">',
                 'after_widget'  => '</div>',
                 'before_title'  => '<h3 class="widget-title">',
@@ -683,9 +683,9 @@ if( ! function_exists('add_theme_sidebars') ) {
         // header
         register_sidebar(
             array(
-                'name' 			=> __( 'Header', 'lean' ),
+                'name' 			=> __( 'Header', TRANSLATION_KEY ),
                 'id' 			=> 'sidebar-1',
-                'description'	=> __( 'This area is designed for a 468x60 advertisement, but other widgets can be used here as well.', 'lean' ),
+                'description'	=> __( 'This area is designed for a 468x60 advertisement, but other widgets can be used here as well.', TRANSLATION_KEY ),
                 'before_widget' => '<div id="%1$s" class="header-widget widget %2$s">',
                 'after_widget'  => '</div>',
                 'before_title'  => '<h3 class="widget-title">',
@@ -696,9 +696,9 @@ if( ! function_exists('add_theme_sidebars') ) {
         // post advertisements
         register_sidebar(
             array(
-                'name'			=>	__( 'Below Single Post', 'lean'),
+                'name'			=>	__( 'Below Single Post', TRANSLATION_KEY),
                 'id'			=>	'sidebar-2',
-                'description'	=>	__( 'Shown after post content and before comments. Ideal for the 468x60 ad widget.', 'lean' ),
+                'description'	=>	__( 'Shown after post content and before comments. Ideal for the 468x60 ad widget.', TRANSLATION_KEY ),
                 'before_widget' => '<div id="%1$s" class="widget %2$s">',
                 'after_widget'  => '</div>',
                 'before_title'  => '<h3 class="widget-title">',
@@ -709,9 +709,9 @@ if( ! function_exists('add_theme_sidebars') ) {
         // footer left
         register_sidebar(
             array(
-                'name' 			=> __( 'Footer Left', 'lean' ),
+                'name' 			=> __( 'Footer Left', TRANSLATION_KEY ),
                 'id' 			=> 'sidebar-3',
-                'description'	=> __( 'Shown in the first column of the footer.', 'lean' ),
+                'description'	=> __( 'Shown in the first column of the footer.', TRANSLATION_KEY ),
                 'before_widget' => '<div id="%1$s" class="widget %2$s">',
                 'after_widget'  => '</div>',
                 'before_title'  => '<h3 class="widget-title">',
@@ -722,9 +722,9 @@ if( ! function_exists('add_theme_sidebars') ) {
         // footer center
         register_sidebar(
             array(
-                'name' 			=> __( 'Footer Center', 'lean' ),
+                'name' 			=> __( 'Footer Center', TRANSLATION_KEY ),
                 'id' 			=> 'sidebar-4',
-                'description'	=> __( 'Shown in the second column of the footer.', 'lean' ),
+                'description'	=> __( 'Shown in the second column of the footer.', TRANSLATION_KEY ),
                 'before_widget' => '<div id="%1$s" class="widget %2$s">',
                 'after_widget'  => '</div>',
                 'before_title'  => '<h3 class="widget-title">',
@@ -735,9 +735,9 @@ if( ! function_exists('add_theme_sidebars') ) {
         // footer right
         register_sidebar(
             array(
-                'name' 			=> __( 'Footer Right', 'lean' ),
+                'name' 			=> __( 'Footer Right', TRANSLATION_KEY ),
                 'id' 			=> 'sidebar-5',
-                'description'	=> __( 'Shown in the third column of the footer.', 'lean' ),
+                'description'	=> __( 'Shown in the third column of the footer.', TRANSLATION_KEY ),
                 'before_widget' => '<div id="%1$s" class="widget %2$s">',
                 'after_widget'  => '</div>',
                 'before_title'  => '<h3 class="widget-title">',

@@ -22,10 +22,10 @@ class Activity_Tabs extends WP_Widget {
 	public function __construct() {
 
 		$widget_opts = array(
-			'classname' 	=> __( 'activity-tabs', 'lean' ),
-			'description' 	=> __( 'Display your most recent posts, comments, popular posts, and tags.', 'lean' ),
+			'classname' 	=> __( 'activity-tabs', TRANSLATION_KEY ),
+			'description' 	=> __( 'Display your most recent posts, comments, popular posts, and tags.', TRANSLATION_KEY ),
 		);	
-		$this->WP_Widget( 'activity-tabs', __( 'Activity Tabs', 'lean' ), $widget_opts );
+		$this->WP_Widget( 'activity-tabs', __( 'Activity Tabs', TRANSLATION_KEY ), $widget_opts );
 		
 		add_action( 'admin_enqueue_scripts', array( &$this, 'register_admin_styles' ) );
 		
@@ -169,19 +169,19 @@ class Activity_Tabs extends WP_Widget {
 				$html .= '<ul class="nav nav-tabs tab-count-' . $tab_count . '">';
 				
 					if( $post_count > 0 ) {
-						$html .= '<li><a href="#recent" data-toggle="tab">' . __( 'Recent', 'lean' ) . '</a></li>';
+						$html .= '<li><a href="#recent" data-toggle="tab">' . __( 'Recent', TRANSLATION_KEY ) . '</a></li>';
 					} // end if
 					
 					if( $popular_count > 0 ) {
-						$html .= '<li><a href="#popular" data-toggle="tab">' . __( 'Popular', 'lean' ) . '</a></li>';
+						$html .= '<li><a href="#popular" data-toggle="tab">' . __( 'Popular', TRANSLATION_KEY ) . '</a></li>';
 					} // end if
 					
 					if( $comment_count > 0 ) {
-						$html .= '<li><a href="#pop-comments" data-toggle="tab">' . __( 'Comments', 'lean' ) . '</a></li>';
+						$html .= '<li><a href="#pop-comments" data-toggle="tab">' . __( 'Comments', TRANSLATION_KEY ) . '</a></li>';
 					} // end if
 					
 					if( $tag_count > 0 ) {
-						$html .= '<li><a href="#tags" data-toggle="tab">' . __( 'Tags', 'lean' ) . '</a></li>';
+						$html .= '<li><a href="#tags" data-toggle="tab">' . __( 'Tags', TRANSLATION_KEY ) . '</a></li>';
 					} // end if
 					
 				$html .= '</ul>';
@@ -282,7 +282,7 @@ class Activity_Tabs extends WP_Widget {
 			} else {
 			
 				$html .= '<li>';
-					$html .= '<p class="no-posts">' . __( "You have no recent posts.", 'lean' ) . '</p>';
+					$html .= '<p class="no-posts">' . __( "You have no recent posts.", TRANSLATION_KEY ) . '</p>';
 				$html .= '</li>';
 			
 			} // end if/else
@@ -357,7 +357,7 @@ class Activity_Tabs extends WP_Widget {
 							// Get the number of comments for this post
 							$comment_count = wp_count_comments( get_the_ID() );
 							$comment_count = $comment_count->approved;
-							$comment_str = $comment_count . ' ' . __( 'comments since', 'lean' ) . ' ';
+							$comment_str = $comment_count . ' ' . __( 'comments since', TRANSLATION_KEY ) . ' ';
 							
 							$html .= $comment_str . '<time>' . get_the_time( get_option( 'date_format' ) ) . '</time>';
 							
@@ -377,7 +377,7 @@ class Activity_Tabs extends WP_Widget {
 		} else {
 		
 			$html .= '<li>';
-				$html .= '<p class="no-posts">' . __( "You have no popular posts.", 'lean' ) . '</p>';
+				$html .= '<p class="no-posts">' . __( "You have no popular posts.", TRANSLATION_KEY ) . '</p>';
 			$html .= '</li>';
 			
 		} // end if/else
@@ -454,7 +454,7 @@ class Activity_Tabs extends WP_Widget {
 			} else {
 			
 				$html .= '<li>';
-					$html .= '<p class="no-comments">' . __( 'You have no comments.', 'lean' ) . '</p>';
+					$html .= '<p class="no-comments">' . __( 'You have no comments.', TRANSLATION_KEY ) . '</p>';
 				$html .= '</li>';
 				
 			} // end if
@@ -495,7 +495,7 @@ class Activity_Tabs extends WP_Widget {
 						$html .= $tag;
 					} // end foreach
 				} else {
-						$html .= '<p class="no-tags">' . __( 'You have no tags.', 'lean' ) . '</p>';
+						$html .= '<p class="no-tags">' . __( 'You have no tags.', TRANSLATION_KEY ) . '</p>';
 				} // end if
 			$html .= '</div>';
 		$html .= '</div>';

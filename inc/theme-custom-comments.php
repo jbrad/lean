@@ -40,14 +40,14 @@ if( ! function_exists('custom_comment') ) {
                             <?php } // end if/else ?>
 						</span>
                     <?php if ( get_comment_type() == "comment" ) { ?>
-                        <span class="date"><a href="<?php echo get_comment_link(); ?>" title="<?php esc_attr_e( 'Permalink', 'lean'); ?>"><?php printf( __( '%1$s at %2$s', '_s' ), get_comment_date( get_option( 'date_format' ) ), get_comment_time( get_option( 'time_format' ) ) ); ?></a></span>
-                        <span class="edit"><?php edit_comment_link( __( 'Edit', 'lean' ), '', '' ); ?></span>
+                        <span class="date"><a href="<?php echo get_comment_link(); ?>" title="<?php esc_attr_e( 'Permalink', TRANSLATION_KEY); ?>"><?php printf( __( '%1$s at %2$s', '_s' ), get_comment_date( get_option( 'date_format' ) ), get_comment_time( get_option( 'time_format' ) ) ); ?></a></span>
+                        <span class="edit"><?php edit_comment_link( __( 'Edit', TRANSLATION_KEY ), '', '' ); ?></span>
                     <?php } // end if ?>
                 </div><!-- /.comment-head -->
 
                 <?php if ( '0' == $comment->comment_approved ) { ?>
                     <span class='unapproved label warning'>
-							<?php _e( 'Your comment will appear after being approved.', 'lean' ); ?>
+							<?php _e( 'Your comment will appear after being approved.', TRANSLATION_KEY ); ?>
 						</span>
                 <?php } // end if ?>
 
@@ -63,7 +63,7 @@ if( ! function_exists('custom_comment') ) {
                             array(
                                 'depth' 		=> $depth,
                                 'max_depth' 	=> $args['max_depth'],
-                                'reply_text' 	=> __( 'Reply', 'lean')
+                                'reply_text' 	=> __( 'Reply', TRANSLATION_KEY)
                             )
                         )
                     );

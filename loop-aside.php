@@ -21,14 +21,14 @@
 
         <?php if( ( is_category() || is_archive() || is_home() ) && has_excerpt() ) { ?>
             <?php the_excerpt( ); ?>
-            <a href="<?php echo get_permalink(); ?>"><?php _e( 'Continue Reading...', 'lean' ); ?></a>
+            <a href="<?php echo get_permalink(); ?>"><?php _e( 'Continue Reading...', TRANSLATION_KEY ); ?></a>
         <?php } else { ?>
-            <?php the_content( __( 'Continue Reading...', 'lean' ) ); ?>
+            <?php the_content( __( 'Continue Reading...', TRANSLATION_KEY ) ); ?>
         <?php } // end if/else ?>
         <?php
         wp_link_pages(
             array(
-                'before' 	=> '<div class="page-link"><span>' . __( 'Pages:', 'lean' ) . '</span>',
+                'before' 	=> '<div class="page-link"><span>' . __( 'Pages:', TRANSLATION_KEY ) . '</span>',
                 'after' 	=> '</div>'
             )
         );
@@ -38,9 +38,9 @@
     <div class="post-meta clearfix">
 
         <div class="meta-comment-link pull-right">
-            <a class="pull-right post-link" href="<?php the_permalink(); ?>" title="<?php esc_attr_e( 'permalink', 'lean' ); ?>">&nbsp;<span class="icon-link"></span></a>
+            <a class="pull-right post-link" href="<?php the_permalink(); ?>" title="<?php esc_attr_e( 'permalink', TRANSLATION_KEY ); ?>">&nbsp;<span class="icon-link"></span></a>
             <?php if ( '' != get_post_format() ) { ?>
-                <span class="the-comment-link"><?php comments_popup_link( __( 'Leave a comment', 'lean' ), __( '1 Comment', 'lean' ), __( '% Comments', 'lean' ), '', ''); ?></span>
+                <span class="the-comment-link"><?php comments_popup_link( __( 'Leave a comment', TRANSLATION_KEY ), __( '1 Comment', TRANSLATION_KEY ), __( '% Comments', TRANSLATION_KEY ), '', ''); ?></span>
             <?php } // end if ?>
         </div><!-- /meta-comment-link -->
 

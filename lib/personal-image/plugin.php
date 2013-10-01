@@ -19,10 +19,10 @@ class Personal_Image extends WP_Widget {
 	public function __construct() {
 
 		$widget_opts = array(
-			'classname' 	=> __( 'personal-image', 'lean' ),
-			'description' 	=> __( 'Display a personal image and an optional description.', 'lean' )
+			'classname' 	=> __( 'personal-image', TRANSLATION_KEY ),
+			'description' 	=> __( 'Display a personal image and an optional description.', TRANSLATION_KEY )
 		);
-		$this->WP_Widget( 'personal-image', __( 'Personal Image', 'lean' ), $widget_opts );
+		$this->WP_Widget( 'personal-image', __( 'Personal Image', TRANSLATION_KEY ), $widget_opts );
 
 		// We don't want to load these on the Appearance Options because we're overriding window.send_to_editor there, too.
 		global $pagenow;

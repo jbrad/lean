@@ -35,7 +35,7 @@
 								<div class="content">
 									<?php the_content(); ?>
 
-<h2><?php _e( 'All Posts', 'lean'); ?></h2>
+<h2><?php _e( 'All Posts', TRANSLATION_KEY); ?></h2>
 
 									<?php
 
@@ -93,12 +93,12 @@
 
 										</p>
 									<?php } else { ?>
-										<p><?php _e( 'You have no posts.', 'lean' ); ?></p>
+										<p><?php _e( 'You have no posts.', TRANSLATION_KEY ); ?></p>
 									<?php } // end if ?>
 
 									<hr />
 
-									<h2><?php _e( 'All Pages', 'lean'); ?></h2>
+									<h2><?php _e( 'All Pages', TRANSLATION_KEY); ?></h2>
 
 									<?php
 										$args = array(
@@ -129,12 +129,12 @@
 											?>
 											</p>
 										<?php } else { ?>
-											<p><?php _e( 'You have no pages.', 'lean' ); ?></p>
+											<p><?php _e( 'You have no pages.', TRANSLATION_KEY ); ?></p>
 									<?php } // end if ?>
 
 									<hr />
 
-									<h2><?php _e( 'All Categories', 'lean'); ?></h2>
+									<h2><?php _e( 'All Categories', TRANSLATION_KEY); ?></h2>
 									<?php $categories = get_categories( 'hide_empty=1' ); ?>
 									<?php if( count( $categories) > 0 ) { ?>
 										<p>
@@ -145,7 +145,7 @@
 											</ul>
 										</p>
 									<?php } else { ?>
-										<p><?php _e( 'You have no categories.', 'lean'); ?></p>
+										<p><?php _e( 'You have no categories.', TRANSLATION_KEY); ?></p>
 									<?php } // end if/else ?>
 
 

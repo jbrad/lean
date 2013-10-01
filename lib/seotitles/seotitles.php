@@ -48,12 +48,12 @@ class SeoTitles {
 			$key = trim( esc_html( $query, 1 ) );
 			$count = $search->post_count;
 			
-			$title = __( 'Search Results For' , 'lean' ) . ' ' . $key . ' | ' . $count . ' ' . __( 'Results', 'lean' ) . ' | ' . get_bloginfo( 'name' );
+			$title = __( 'Search Results For' , TRANSLATION_KEY ) . ' ' . $key . ' | ' . $count . ' ' . __( 'Results', TRANSLATION_KEY ) . ' | ' . get_bloginfo( 'name' );
 			
 		} elseif( is_404() ) {
-			$title = get_bloginfo( 'name' ) . ' | ' . __( '404 Nothing Found', 'lean' );
+			$title = get_bloginfo( 'name' ) . ' | ' . __( '404 Nothing Found', TRANSLATION_KEY );
 		} elseif( is_author() ) {
-			$title = get_bloginfo( 'name' ) . ' | ' . __( 'Author Archives', 'lean' );
+			$title = get_bloginfo( 'name' ) . ' | ' . __( 'Author Archives', TRANSLATION_KEY );
 		} elseif( is_single() ) {
 		
 			if( strlen( trim( get_the_title( $page_id ) ) ) == 0 ) {
@@ -67,18 +67,18 @@ class SeoTitles {
 		} elseif( is_category() ) {
 			$title = single_cat_title( '', false ) . ' | ' . get_bloginfo( 'name' );
 		} elseif( is_year() ) {
-			$title = get_bloginfo( 'name' ) . ' | ' . __( 'Archive', 'lean' ) . ' | ' . get_the_time( 'Y' );
+			$title = get_bloginfo( 'name' ) . ' | ' . __( 'Archive', TRANSLATION_KEY ) . ' | ' . get_the_time( 'Y' );
 		} elseif( is_month() ) {
 		
 			// This particular format is not localized. The 'date_format' uses month and year and we only need month and year.
 			// The archives widget built into WordPress follows the format that we're providing see.
 			// Lines 938 - 939 of general-template.php in WordPress core.
-			$title = get_bloginfo( 'name' ) . ' | ' . __( 'Archive', 'lean' ) . ' | ' . get_the_time( 'F Y' );
+			$title = get_bloginfo( 'name' ) . ' | ' . __( 'Archive', TRANSLATION_KEY ) . ' | ' . get_the_time( 'F Y' );
 			
 		} elseif( is_day() ) {
-			$title = get_bloginfo( 'name' ) . ' | ' . __( 'Archive', 'lean' ) . ' | ' . get_the_time( get_option( 'date_format' ) );
+			$title = get_bloginfo( 'name' ) . ' | ' . __( 'Archive', TRANSLATION_KEY ) . ' | ' . get_the_time( get_option( 'date_format' ) );
 		} elseif( is_tag() ) {
-			$title = get_bloginfo( 'name' ) . ' | ' . __( 'Tag Archive', 'lean' ) . ' | ' . single_tag_title( '', false );
+			$title = get_bloginfo( 'name' ) . ' | ' . __( 'Tag Archive', TRANSLATION_KEY ) . ' | ' . single_tag_title( '', false );
 		} elseif( is_feed() ) {
 			$title = ' | ' . get_bloginfo( 'description' );
 		} // end if/else

@@ -9,13 +9,13 @@
 ?>
 <?php 
 	if ( ! empty( $_SERVER['SCRIPT_FILENAME'] ) && 'comments.php' == basename( $_SERVER['SCRIPT_FILENAME'] ) ) {
-		die ( __( 'This file cannot be loaded directly.', 'lean' ) );
+		die ( __( 'This file cannot be loaded directly.', TRANSLATION_KEY ) );
 	} // end if
 ?>
 
 <?php if ( post_password_required() ) { ?>
 	<div id="comments">
-		<h3 class="nopassword"><?php _e( 'This post is password protected. Enter the password to view comments.', 'lean' ); ?></h3>
+		<h3 class="nopassword"><?php _e( 'This post is password protected. Enter the password to view comments.', TRANSLATION_KEY ); ?></h3>
 	</div><!-- #comments -->
 	<?php return; ?>
 <?php } // end if	?>
@@ -24,16 +24,16 @@
 
 	<?php if ( ! empty( $comments_by_type['comment'] ) ) { ?>
 		<div id="comments" class="clearfix">
-			<h3><?php comments_number( __( 'No responses', 'lean' ), __( 'One response', 'lean' ), __( '% responses', 'lean' ) );?> <?php _e( 'to',  'lean' ); ?> <em><?php the_title(); ?></em></h3>
+			<h3><?php comments_number( __( 'No responses', TRANSLATION_KEY ), __( 'One response', TRANSLATION_KEY ), __( '% responses', TRANSLATION_KEY ) );?> <?php _e( 'to', TRANSLATION_KEY ); ?> <em><?php the_title(); ?></em></h3>
 			<ol class="commentlist">
 				<?php wp_list_comments( 'avatar_size=50&callback=custom_comment&type=comment' ); ?>
 			</ol>    
 			<div class="comment-navigation clearfix">
 				<div class="comment-prev-nav">
-					<?php previous_comments_link( '<i class="icon-chevron-left"></i>' . __( 'Previous Comments', 'lean' ) ); ?>
+					<?php previous_comments_link( '<i class="icon-chevron-left"></i>' . __( 'Previous Comments', TRANSLATION_KEY ) ); ?>
 				</div>
 				<div class="comment-next-nav">
-					<?php next_comments_link( __( 'Next Comments', 'lean' ) . '<i class="icon-chevron-right"></i>'); ?>
+					<?php next_comments_link( __( 'Next Comments', TRANSLATION_KEY ) . '<i class="icon-chevron-right"></i>'); ?>
 				</div>
 			</div>
 		</div><!-- /#comments -->
@@ -42,7 +42,7 @@
 	<?php if ( ! empty( $comments_by_type['pings'] ) ) { ?>
 		<div id="pings">
 			<h3>
-				<?php _e( 'Trackbacks and Pingbacks:', 'lean' ); ?>
+				<?php _e( 'Trackbacks and Pingbacks:', TRANSLATION_KEY ); ?>
 			</h3>
 			<ol class="pinglist">
 				<?php wp_list_comments( 'type=pings&callback=list_pings&per_page=-1' ); ?>
@@ -54,8 +54,8 @@
 
 	<?php if( comments_open() ) { ?>
 		<div id="no-comments" class="clearfix">
-			<p class="title"><?php _e( 'No Comments', 'lean' ); ?></p>
-			<p><?php _e( 'Be the first to start the conversation.', 'lean' ); ?></p>
+			<p class="title"><?php _e( 'No Comments', TRANSLATION_KEY ); ?></p>
+			<p><?php _e( 'Be the first to start the conversation.', TRANSLATION_KEY ); ?></p>
 		</div><!-- /#no-comments -->
 	<?php } // end if ?>
 	

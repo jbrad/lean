@@ -14,10 +14,10 @@ class Social_Influence extends WP_Widget {
 	public function __construct() {
 
 		$widget_opts = array(
-			'classname' 	=> __( 'social-social-influence', 'lean' ),
-			'description' 	=> __( 'Display your social influence by showcasing Twitter followers and Facebook fans.', 'lean' )
+			'classname' 	=> __( 'social-social-influence', TRANSLATION_KEY ),
+			'description' 	=> __( 'Display your social influence by showcasing Twitter followers and Facebook fans.', TRANSLATION_KEY )
 		);
-		$this->WP_Widget( 'social-influence-widget', __( 'Social Influence', 'lean' ), $widget_opts );
+		$this->WP_Widget( 'social-influence-widget', __( 'Social Influence', TRANSLATION_KEY ), $widget_opts );
 
 		add_action( 'admin_print_styles', array( $this, 'register_admin_styles' ) );
 

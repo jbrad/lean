@@ -20,6 +20,6 @@
 	<input type="hidden" class="widget-parent-id" value="" />
 	<!-- /Hidden fields -->
 
-	<a href="javascript:;" class="ad_delete ad-delete <?php echo ('' == $ad_url && '' == $ad_src) ? 'hidden' : '' ?>"><?php _e( 'Delete Advertisement', 'lean' ); ?></a>
+	<a href="javascript:;" class="ad_delete ad-delete <?php echo ('' == $ad_url && '' == $ad_src) ? 'hidden' : '' ?>"><?php _e( 'Delete Advertisement', TRANSLATION_KEY ); ?></a>
 	
 </div><!-- /.ad-300x250-wrapper -->

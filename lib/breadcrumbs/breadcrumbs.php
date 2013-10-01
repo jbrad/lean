@@ -52,16 +52,16 @@ class Breadcrumbs {
 			} elseif( is_archive() ) {
 
 				if( is_author() ) {
-					$str_breadcrumb .= self::get_home_link() . __( '<li>Archives</li>', 'lean' ) . self::get_author_display_name();
+					$str_breadcrumb .= self::get_home_link() . __( '<li>Archives</li>', TRANSLATION_KEY ) . self::get_author_display_name();
 				} elseif( '' != get_query_var( 'year' ) || '' != get_query_var( 'monthnum' ) || '' != get_query_var( 'm' ) || '' != get_query_var( 'day' ) ) {
-					$str_breadcrumb .= self::get_home_link() . __( '<li>Archives</li>', 'lean' ) . self::get_date_labels();
+					$str_breadcrumb .= self::get_home_link() . __( '<li>Archives</li>', TRANSLATION_KEY ) . self::get_date_labels();
 				} else {
-					$str_breadcrumb .= self::get_home_link() . __( '<li>Archives</li>', 'lean' ) . self::get_category_links();
+					$str_breadcrumb .= self::get_home_link() . __( '<li>Archives</li>', TRANSLATION_KEY ) . self::get_category_links();
 				} // end if
 				
 			} else if( is_search() ) {
 			
-				$str_breadcrumb .= self::get_home_link() . __( 'Search', 'lean' ) . ' ' . __( '/', 'lean' ) . ' ' . self::get_search_query();
+				$str_breadcrumb .= self::get_home_link() . __( 'Search', TRANSLATION_KEY ) . ' ' . __( '/', TRANSLATION_KEY ) . ' ' . self::get_search_query();
 				
 			} // end if/else
 			
@@ -90,7 +90,7 @@ class Breadcrumbs {
 		$home_link = '';
 		
 		$home_link .= '<li class="home-breadcrumb">';
-			$home_link .= '<a href="' . home_url() . '" itemprop="url"><span itemprop="title">' . __( 'Home', 'lean' ) . '</span></a>';
+			$home_link .= '<a href="' . home_url() . '" itemprop="url"><span itemprop="title">' . __( 'Home', TRANSLATION_KEY ) . '</span></a>';
 		$home_link .= '</li>';
 		
 		return $home_link;
@@ -284,7 +284,7 @@ class Breadcrumbs {
 	 */
 	private static function get_search_query() { 
 	
-		$query = __( '[ No search query. ]', 'lean' );
+		$query = __( '[ No search query. ]', TRANSLATION_KEY );
 		if( isset( $_GET['s'] ) ) {
 			$query = $_GET['s'];
 		} // end if/else

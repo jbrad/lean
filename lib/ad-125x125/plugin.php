@@ -19,10 +19,10 @@ class Ad_125x125 extends WP_Widget {
 	public function __construct() {
 
 		$widget_opts = array(
-			'classname' 	=> __( 'ad-125x125', 'lean' ),
-			'description' 	=> __( 'Display a 125x125 advertisement.', 'lean' ),
+			'classname' 	=> __( 'ad-125x125', TRANSLATION_KEY ),
+			'description' 	=> __( 'Display a 125x125 advertisement.', TRANSLATION_KEY ),
 		);	
-		$this->WP_Widget( 'ad-125x125', __( '125x125 Ad', 'lean' ), $widget_opts );
+		$this->WP_Widget( 'ad-125x125', __( '125x125 Ad', TRANSLATION_KEY ), $widget_opts );
 		
 		// We don't want to load these on the Appearance Options because we're overiding window.send_to_editor there, too.
 		global $pagenow;
@@ -169,7 +169,7 @@ class Ad_125x125 extends WP_Widget {
 		if( 0 == strlen( trim( $ad_src ) ) ) {
 		
 			if( 0 == strlen( trim( $ad_url ) ) ) {
-				$ad_url = 'http://leantheme.co';
+				$ad_url = 'THEME_URL';
 			} // end if
 		
 			$ad_src = '<img src="' . get_template_directory_uri() . '/lib/ad-125x125/images/ad-170-' . $number . '.jpg' . '" alt="" />';

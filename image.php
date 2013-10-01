@@ -33,7 +33,7 @@
 									<h1 class="post-title entry-title"><?php the_title(); ?></h1>	
 									<div class="post-header-meta">
 										<?php if( strlen( trim( get_the_title() ) ) == 0 ) { ?>
-											<a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php printf( esc_attr__( 'Permalink to %s', 'lean' ), the_title_attribute( 'echo=0' ) ); ?>"><time class="the-time updated"><?php the_time( get_option( 'date_format' ) ); ?></time></a>
+											<a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php printf( esc_attr__( 'Permalink to %s', TRANSLATION_KEY ), the_title_attribute( 'echo=0' ) ); ?>"><time class="the-time updated"><?php the_time( get_option( 'date_format' ) ); ?></time></a>
 										<?php } else { ?>
 											<time class="the-time updated"><?php the_time( get_option( 'date_format' ) ); ?></time>
 										<?php } // end if/else ?>

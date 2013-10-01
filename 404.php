@@ -19,11 +19,11 @@
 						<div class="entry-content clearfix">
 
                             <span class="icon-bolt"></span>
-							<h1 class="404-title"><span><?php _e( '404', 'lean' ); ?></span> <?php _e( 'Whoa...you broke the Internet!', 'lean' ); ?></h1>
+							<h1 class="404-title"><span><?php _e( '404', TRANSLATION_KEY ); ?></span> <?php _e( 'Whoa...you broke the Internet!', TRANSLATION_KEY ); ?></h1>
 							<p>
-								<?php _e( 'The specified address does not contain a page or blog post at this time', 'lean' ); ?>.
-								<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php esc_attr_e( 'Page Not Found', 'lean' ); ?>">
-									<?php _e( 'Click here to return home.', 'lean' ); ?>
+								<?php _e( 'The specified address does not contain a page or blog post at this time', TRANSLATION_KEY ); ?>.
+								<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php esc_attr_e( 'Page Not Found', TRANSLATION_KEY ); ?>">
+									<?php _e( 'Click here to return home.', TRANSLATION_KEY ); ?>
 								</a>
 							</p>
 							

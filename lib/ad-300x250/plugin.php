@@ -20,10 +20,10 @@ class Ad_300x250 extends WP_Widget {
 	public function __construct() {
 
 		$widget_opts = array(
-			'classname' 	=> __( 'ad-300x250', 'lean' ),
-			'description' 	=> __( 'Display a 300x250 advertisement.', 'lean' )
+			'classname' 	=> __( 'ad-300x250', TRANSLATION_KEY ),
+			'description' 	=> __( 'Display a 300x250 advertisement.', TRANSLATION_KEY )
 		);
-		$this->WP_Widget( 'ad-300x250', __( '300x250 Ad', 'lean' ), $widget_opts );
+		$this->WP_Widget( 'ad-300x250', __( '300x250 Ad', TRANSLATION_KEY ), $widget_opts );
 
 		// We don't want to load these on the Appearance Options because we're overiding window.send_to_editor there, too.
 		global $pagenow;
@@ -133,7 +133,7 @@ class Ad_300x250 extends WP_Widget {
 		if( 0 == strlen( trim( $ad_src ) ) ) {
 
 			if( 0 == strlen( trim( $ad_url ) ) ) {
-				$ad_url = 'http://leantheme.co';
+				$ad_url = 'THEME_URL';
 			} // end if
 
 			$ad_src = '<img src="' . get_template_directory_uri() . '/lib/ad-300x250/images/ad-360.jpg" alt="" />';

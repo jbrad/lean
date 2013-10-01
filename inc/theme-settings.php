@@ -29,8 +29,8 @@
 function theme_menu() {
 
     add_menu_page(
-        __( 'Lean Options', 'lean' ),
-        __( 'Lean', 'lean' ),
+        __( 'Lean Options', TRANSLATION_KEY ),
+        __( THEME_NAME, TRANSLATION_KEY ),
         'administrator',
         'theme_options',
         'theme_options_display',
@@ -40,8 +40,8 @@ function theme_menu() {
 
     add_submenu_page(
         'theme_options',
-        __( 'Global', 'lean' ),
-        __( 'Global', 'lean' ),
+        __( 'Global', TRANSLATION_KEY ),
+        __( 'Global', TRANSLATION_KEY ),
         'administrator',
         'theme_options&tab=theme_global_options',
         'theme_options_display'
@@ -49,8 +49,8 @@ function theme_menu() {
 
     add_submenu_page(
         'theme_options',
-        __( 'Presentation', 'lean' ),
-        __( 'Presentation', 'lean' ),
+        __( 'Presentation', TRANSLATION_KEY ),
+        __( 'Presentation', TRANSLATION_KEY ),
         'administrator',
         'theme_options&tab=theme_presentation_options',
         'theme_options_display'
@@ -58,8 +58,8 @@ function theme_menu() {
 
     add_submenu_page(
         'theme_options',
-        __( 'Social', 'lean' ),
-        __( 'Social', 'lean' ),
+        __( 'Social', TRANSLATION_KEY ),
+        __( 'Social', TRANSLATION_KEY ),
         'administrator',
         'theme_options&tab=theme_social_options',
         'theme_options_display'
@@ -67,8 +67,8 @@ function theme_menu() {
 
     add_submenu_page(
         'theme_options',
-        __( 'Publishing', 'lean' ),
-        __( 'Publishing', 'lean' ),
+        __( 'Publishing', TRANSLATION_KEY ),
+        __( 'Publishing', TRANSLATION_KEY ),
         'administrator',
         'theme_options&tab=theme_publishing_options',
         'theme_options_display'
@@ -126,14 +126,14 @@ function setup_theme_presentation_options() {
     // Layout
     add_settings_section(
         'layout',
-        __( 'Layout and Design', 'lean' ),
+        __( 'Layout and Design', TRANSLATION_KEY ),
         'theme_layout_options_display',
         'theme_presentation_options'
     );
 
     add_settings_field(
         'logo',
-        __( 'Logo', 'lean' ),
+        __( 'Logo', TRANSLATION_KEY ),
         'logo_display',
         'theme_presentation_options',
         'layout'
@@ -141,7 +141,7 @@ function setup_theme_presentation_options() {
 
     add_settings_field(
         'fav_icon',
-        __( 'Site Icon', 'lean' ),
+        __( 'Site Icon', TRANSLATION_KEY ),
         'fav_icon_display',
         'theme_presentation_options',
         'layout'
@@ -149,7 +149,7 @@ function setup_theme_presentation_options() {
 
     add_settings_field(
         'contrast',
-        __( 'Contrast', 'lean' ),
+        __( 'Contrast', TRANSLATION_KEY ),
         'contrast_display',
         'theme_presentation_options',
         'layout'
@@ -157,7 +157,7 @@ function setup_theme_presentation_options() {
 
     add_settings_field(
         'left_sidebar_layout',
-        __( 'Left Sidebar', 'lean' ),
+        __( 'Left Sidebar', TRANSLATION_KEY ),
         'left_sidebar_presentation_display',
         'theme_presentation_options',
         'layout',
@@ -168,7 +168,7 @@ function setup_theme_presentation_options() {
 
     add_settings_field(
         'right_sidebar_layout',
-        __( 'Right Sidebar', 'lean' ),
+        __( 'Right Sidebar', TRANSLATION_KEY ),
         'right_sidebar_presentation_display',
         'theme_presentation_options',
         'layout',
@@ -179,7 +179,7 @@ function setup_theme_presentation_options() {
 
     add_settings_field(
         'full_width_layout',
-        __( 'No Sidebar / Full Width', 'lean' ),
+        __( 'No Sidebar / Full Width', TRANSLATION_KEY ),
         'full_width_presentation_display',
         'theme_presentation_options',
         'layout',
@@ -191,14 +191,14 @@ function setup_theme_presentation_options() {
     // Content
     add_settings_section(
         'content',
-        __( 'Content', 'lean' ),
+        __( 'Content', TRANSLATION_KEY ),
         'theme_content_options_display',
         'theme_presentation_options'
     );
 
     add_settings_field(
         'display_breadcrumbs',
-        __( 'Display Breadcrumbs', 'lean' ),
+        __( 'Display Breadcrumbs', TRANSLATION_KEY ),
         'display_breadcrumbs_display',
         'theme_presentation_options',
         'content'
@@ -206,7 +206,7 @@ function setup_theme_presentation_options() {
 
     add_settings_field(
         'display_featured_images',
-        __( 'Display Featured Images', 'lean' ),
+        __( 'Display Featured Images', TRANSLATION_KEY ),
         'display_featured_images_display',
         'theme_presentation_options',
         'content'
@@ -240,7 +240,7 @@ function theme_presentation_options_display() {} // end theme_presentation_optio
  * @version	3.2
  */
 function theme_layout_options_display() {
-    echo '<p>' . __( 'This section controls positioning and style elements.', 'lean' ) . '</p>';
+    echo '<p>' . __( 'This section controls positioning and style elements.', TRANSLATION_KEY ) . '</p>';
 } // end theme_layout_options_display
 
 /**
@@ -250,7 +250,7 @@ function theme_layout_options_display() {
  * @version	3.2
  */
 function theme_content_options_display() {
-    echo '<p>' . __( 'This section controls when content elements are displayed.', 'lean' ) . '</p>';
+    echo '<p>' . __( 'This section controls when content elements are displayed.', TRANSLATION_KEY ) . '</p>';
 } // end theme_content_options_display
 
 /**
@@ -272,13 +272,13 @@ function fav_icon_display() {
     $html .= '<img src="' . $fav_icon . '" id="fav_icon_preview" alt="" />';
     $html .= '</div>';
     $html .= '<input type="hidden" id="fav_icon" name="theme_presentation_options[fav_icon]" value="' . esc_attr( $fav_icon ) . '" class="media-upload-field" />';
-    $html .= '<input type="button" class="button" id="upload_fav_icon" value="' . __( 'Upload', 'lean' ) . '"/>';
+    $html .= '<input type="button" class="button" id="upload_fav_icon" value="' . __( 'Upload', TRANSLATION_KEY ) . '"/>';
 
     if( '' != trim( $fav_icon ) ) {
-        $html .= '<input type="button" class="button" id="delete_fav_icon" value="' . __( 'Delete', 'lean' ) . '"/>';
+        $html .= '<input type="button" class="button" id="delete_fav_icon" value="' . __( 'Delete', TRANSLATION_KEY ) . '"/>';
     } // end if
 
-    $html .= '&nbsp;<span class="description">' . __( 'Dimensions: 144px x 144px. Used for favicon and mobile devices.', 'lean' ) . '&nbsp;<a href="http://docs.leantheme.co/admin-panel/presentation/" target="_blank">' . __( 'Learn more', 'lean' ) . '</a>.</span>';
+    $html .= '&nbsp;<span class="description">' . __( 'Dimensions: 144px x 144px. Used for favicon and mobile devices.', TRANSLATION_KEY ) . '&nbsp;<a href="http://docs.leantheme.co/admin-panel/presentation/" target="_blank">' . __( 'Learn more', TRANSLATION_KEY ) . '</a>.</span>';
 
     echo $html;
 
@@ -295,11 +295,11 @@ function contrast_display() {
     $options = get_option( 'theme_presentation_options' );
 
     $html = '<select id="contrast" name="theme_presentation_options[contrast]">';
-    $html .= '<option value="light"' . selected( $options['contrast'], 'light', false ) . '>' . __( 'Light', 'lean' ) . '</option>';
-    $html .= '<option value="dark"' . selected( $options['contrast'], 'dark', false ) . '>' . __( 'Dark', 'lean' )  . '</option>';
+    $html .= '<option value="light"' . selected( $options['contrast'], 'light', false ) . '>' . __( 'Light', TRANSLATION_KEY ) . '</option>';
+    $html .= '<option value="dark"' . selected( $options['contrast'], 'dark', false ) . '>' . __( 'Dark', TRANSLATION_KEY )  . '</option>';
     $html .= '</select>';
     $html .= '&nbsp;';
-    $html .= '<span class="description">' . __( 'Can be used with <a href="themes.php?page=custom-background">custom backgrounds</a>.', 'lean' ) . '</span>';
+    $html .= '<span class="description">' . __( 'Can be used with <a href="themes.php?page=custom-background">custom backgrounds</a>.', TRANSLATION_KEY ) . '</span>';
 
     echo $html;
 
@@ -325,13 +325,13 @@ function logo_display() {
     $html .= '</div><!-- #logo_preview_container -->';
 
     $html .= '<input type="hidden" id="logo" name="theme_presentation_options[logo]" value="' . esc_attr( $logo ) . '" class="media-upload-field" />';
-    $html .= '<input type="button" class="button" id="upload_logo" value="' . __( 'Upload', 'lean' ) . '"/>';
+    $html .= '<input type="button" class="button" id="upload_logo" value="' . __( 'Upload', TRANSLATION_KEY ) . '"/>';
 
     if( '' != trim( $logo ) ) {
-        $html .= '<input type="button" class="button" id="delete_logo" value="' . __( 'Delete', 'lean' ) . '"/>';
+        $html .= '<input type="button" class="button" id="delete_logo" value="' . __( 'Delete', TRANSLATION_KEY ) . '"/>';
     } // end if
 
-    $html .= '&nbsp;<span class="description">' . __( 'Use an image in place of the <a href="options-general.php">Site Title and Tagline</a>. <a href="themes.php?page=custom-header">Custom Headers</a> are also available.', 'lean' ) . '</span>';
+    $html .= '&nbsp;<span class="description">' . __( 'Use an image in place of the <a href="options-general.php">Site Title and Tagline</a>. <a href="themes.php?page=custom-header">Custom Headers</a> are also available.', TRANSLATION_KEY ) . '</span>';
 
     echo $html;
 
@@ -407,11 +407,11 @@ function display_breadcrumbs_display() {
     } // end if
 
     $html = '<select id="display_breadcrumbs" name="theme_presentation_options[display_breadcrumbs]">';
-    $html .= '<option value="always"'. selected( $options['display_breadcrumbs'], 'always', false ) . '>' . __( 'Always', 'lean' ) . '</option>';
-    $html .= '<option value="never"'. selected( $options['display_breadcrumbs'], 'never', false ) . '>' . __( 'Never', 'lean' ) . '</option>';
+    $html .= '<option value="always"'. selected( $options['display_breadcrumbs'], 'always', false ) . '>' . __( 'Always', TRANSLATION_KEY ) . '</option>';
+    $html .= '<option value="never"'. selected( $options['display_breadcrumbs'], 'never', false ) . '>' . __( 'Never', TRANSLATION_KEY ) . '</option>';
     $html .= '</select>';
 
-    $html .= '&nbsp;<span class="description">' . __( 'SEO experts encourage breadcrumb use. <a href="http://docs.leantheme.co/admin-panel/presentation/">Learn more</a>.', 'lean' ) . '</span>';
+    $html .= '&nbsp;<span class="description">' . __( 'SEO experts encourage breadcrumb use. <a href="http://docs.leantheme.co/admin-panel/presentation/">Learn more</a>.', TRANSLATION_KEY ) . '</span>';
 
     echo $html;
 
@@ -428,10 +428,10 @@ function display_featured_images_display() {
     $options = get_option( 'theme_presentation_options' );
 
     $html = '<select id="display_featured_image" name="theme_presentation_options[display_featured_images]">';
-    $html .= '<option value="always"'. selected( $options['display_featured_images'], 'always', false ) . '>' . __( 'Always', 'lean' ) . '</option>';
-    $html .= '<option value="never"'. selected( $options['display_featured_images'], 'never', false ) . '>' . __( 'Never', 'lean' ) . '</option>';
-    $html .= '<option value="index"'. selected( $options['display_featured_images'], 'index', false ) . '>' . __( 'On index only', 'lean' ) . '</option>';
-    $html .= '<option value="single-post"'. selected( $options['display_featured_images'], 'single-post', false ) . '>' . __( 'On single posts only', 'lean' ) . '</option>';
+    $html .= '<option value="always"'. selected( $options['display_featured_images'], 'always', false ) . '>' . __( 'Always', TRANSLATION_KEY ) . '</option>';
+    $html .= '<option value="never"'. selected( $options['display_featured_images'], 'never', false ) . '>' . __( 'Never', TRANSLATION_KEY ) . '</option>';
+    $html .= '<option value="index"'. selected( $options['display_featured_images'], 'index', false ) . '>' . __( 'On index only', TRANSLATION_KEY ) . '</option>';
+    $html .= '<option value="single-post"'. selected( $options['display_featured_images'], 'single-post', false ) . '>' . __( 'On single posts only', TRANSLATION_KEY ) . '</option>';
     $html .= '</select>';
 
     echo $html;
@@ -514,7 +514,7 @@ function setup_theme_social_options() {
 
     add_settings_field(
         'available_social_icons',
-        __( 'Available Icons', 'lean' ),
+        __( 'Available Icons', TRANSLATION_KEY ),
         'available_icons_display',
         'theme_social_options',
         'social'
@@ -522,7 +522,7 @@ function setup_theme_social_options() {
 
     add_settings_field(
         'active_social_icons',
-        __( 'Active Icons', 'lean' ),
+        __( 'Active Icons', TRANSLATION_KEY ),
         'active_icons_display',
         'theme_social_options',
         'social'
@@ -545,43 +545,43 @@ add_action( 'admin_init', 'setup_theme_social_options' );
  */
 function theme_social_options_display() {
 
-    _e( 'This section controls social network icons in the site header. Drag, drop, and position desired icons from the Icon Library to the Active Icons area. This section controls social network icons in the site header. Drag, drop, and position desired icons from the Icon Library to the Active Icons area. You can also delete all icons and <a href="javascript:;" id="reset-social-icons" class="ad_delete">restore defaults.</a>', 'lean' );
+    _e( 'This section controls social network icons in the site header. Drag, drop, and position desired icons from the Icon Library to the Active Icons area. This section controls social network icons in the site header. Drag, drop, and position desired icons from the Icon Library to the Active Icons area. You can also delete all icons and <a href="javascript:;" id="reset-social-icons" class="ad_delete">restore defaults.</a>', TRANSLATION_KEY );
 
     $html = '<div class="social-icons-wrapper">';
 
     $html .= '<div id="social-icons-active" class="left">';
     $html .= '<div class="sidebar-name">';
-    $html .= '<h3>' . __( 'Active Icons', 'lean' ) . '</h3>';
+    $html .= '<h3>' . __( 'Active Icons', TRANSLATION_KEY ) . '</h3>';
     $html .= '</div><!-- /.sidebar-name -->';
     $html .= '<div id="active-icons">';
-    $html .= '<p class="description">' . __( 'Click an icon to set the full URL.', 'lean' ) . '</p>';
+    $html .= '<p class="description">' . __( 'Click an icon to set the full URL.', TRANSLATION_KEY ) . '</p>';
     $html .= '<ul id="active-icon-list"></ul>';
     $html .= '<div id="active-icon-url" class="hidden">';
-    $html .= '<label>' . __( 'Icon URL:', 'lean' ) . '</label>';
+    $html .= '<label>' . __( 'Icon URL:', TRANSLATION_KEY ) . '</label>';
     $html .= '<input type="text" id="social-icon-url" value="" class="icon-url" data-via="" data-url="" />';
     $html .= '&nbsp;<span class="description" id="social-rss-icon-controls">';
-    $html .= '<a href="http://docs.leantheme.co/social" target="_blank">' . __( 'Learn More', 'lean' ) . '</a>';
+    $html .= '<a href="http://docs.leantheme.co/social" target="_blank">' . __( 'Learn More', TRANSLATION_KEY ) . '</a>';
     $html .= '</span><!-- /#social-rss-icon-controls -->';
     $html .= '<span id="social-icon-controls">';
-    $html .= '<input type="button" class="button" id="set-social-icon-url" value="' . __( 'Done', 'lean' ). '" />';
+    $html .= '<input type="button" class="button" id="set-social-icon-url" value="' . __( 'Done', TRANSLATION_KEY ). '" />';
     $html .= '&nbsp;';
-    $html .= '<a href="javascript:;" id="cancel-social-icon-url">' . __( 'Cancel', 'lean' ) . '</a>';
+    $html .= '<a href="javascript:;" id="cancel-social-icon-url">' . __( 'Cancel', TRANSLATION_KEY ) . '</a>';
     $html .= '</span><!-- /#social-icon-controls -->';
     $html .= '</div><!-- /#active-icon-url -->';
-    $html .= '<div id="social-icon-max" class="hidden alert alert-info"><i class="icon icon-warning"></i> ' . __( 'Lean looks best with seven icons or fewer.', 'lean' ) . '</div>';
+    $html .= '<div id="social-icon-max" class="hidden alert alert-info"><i class="icon icon-warning"></i> ' . __( 'Lean looks best with seven icons or fewer.', TRANSLATION_KEY ) . '</div>';
     $html .= '</div><!-- /#active-icons -->';
     $html .= '</div><!-- /#social-icons-active -->';
 
     $html .= '<div id="social-icons-available" class="right">';
     $html .= '<div class="sidebar-name">';
-    $html .= '<h3>' . __( 'Icon Library', 'lean' ) . '</h3>';
+    $html .= '<h3>' . __( 'Icon Library', TRANSLATION_KEY ) . '</h3>';
     $html .= '</div><!-- /.sidebar-name -->';
     $html .= '<div id="available-icons">';
-    $html .= '<p class="description">' . __( 'Use native social icons or upload your own.', 'lean' ) . '</p>';
+    $html .= '<p class="description">' . __( 'Use native social icons or upload your own.', TRANSLATION_KEY ) . '</p>';
     $html .= '<ul id="available-icon-list"></ul>';
-    $html .= '<div id="delete-icons" class="description"><i class="icon icon-trash"></i><br>' . __( 'Drag social icons here to remove them from your library.', 'lean' ) . '</div>';
+    $html .= '<div id="delete-icons" class="description"><i class="icon icon-trash"></i><br>' . __( 'Drag social icons here to remove them from your library.', TRANSLATION_KEY ) . '</div>';
     $html .= '<div id="social-icons-operations">';
-    $html .= '<input type="button" class="button" id="upload-social-icon" value="' . __( 'Upload New Icon', 'lean') . '" />';
+    $html .= '<input type="button" class="button" id="upload-social-icon" value="' . __( 'Upload New Icon', TRANSLATION_KEY) . '" />';
     $html .= '</div><!-- /#social-icons-operations -->';
     $html .= '</div><!-- /#available-icons -->';
     $html .= '</div><!-- /.social-icons-available -->';
@@ -661,7 +661,7 @@ function display_delete_social_icon_message() {
 
     $html = '<div id="delete-social-icons" class="updated">';
     $html .= '<p>';
-    $html .= __( 'You cannot delete the default set of Lean social icons. <a href="javascript:;" id="hide-delete-social-icon-message">Hide this message.</a>', 'lean' );
+    $html .= __( 'You cannot delete the default set of Lean social icons. <a href="javascript:;" id="hide-delete-social-icon-message">Hide this message.</a>', TRANSLATION_KEY );
     $html .= '</p>';
     $html .= '</div><!-- /#delete-social-icons -->';
 
@@ -789,7 +789,7 @@ function get_theme_default_global_options() {
         'site_mode'					=>	'online',
         'feedburner_url'			=>	'',
         'google_analytics'			=>	'',
-        'offline_display_message'	=>	__( 'Our site is currently offline.', 'lean' )
+        'offline_display_message'	=>	__( 'Our site is currently offline.', TRANSLATION_KEY )
     );
 
     return apply_filters ( 'theme_default_global_options', $defaults );
@@ -821,7 +821,7 @@ function setup_theme_global_options() {
 
     add_settings_field(
         'feedburner_url',
-        __( 'FeedBurner URL', 'lean' ),
+        __( 'FeedBurner URL', TRANSLATION_KEY ),
         'feedburner_url_display',
         'theme_global_options',
         'global'
@@ -829,7 +829,7 @@ function setup_theme_global_options() {
 
     add_settings_field(
         'google_analytics',
-        __( 'Google Analytics', 'lean' ),
+        __( 'Google Analytics', TRANSLATION_KEY ),
         'google_analytics_display',
         'theme_global_options',
         'global'
@@ -837,7 +837,7 @@ function setup_theme_global_options() {
 
     add_settings_field(
         'site_mode',
-        __( 'Site Mode', 'lean' ),
+        __( 'Site Mode', TRANSLATION_KEY ),
         'site_mode_display',
         'theme_global_options',
         'global'
@@ -845,7 +845,7 @@ function setup_theme_global_options() {
 
     add_settings_field(
         'offline_message',
-        __( 'Offline Message', 'lean' ),
+        __( 'Offline Message', TRANSLATION_KEY ),
         'offline_message_display',
         'theme_global_options',
         'global'
@@ -868,8 +868,8 @@ add_action( 'admin_init', 'setup_theme_global_options' );
  */
 function theme_global_options_display() {
 
-    $html = '<h3>' . __( 'Site Configuration ', 'lean' ) . '</h3>';
-    $html .= '<p>' . __( 'This section controls site wide features.', 'lean' ) . '</p>';
+    $html = '<h3>' . __( 'Site Configuration ', TRANSLATION_KEY ) . '</h3>';
+    $html .= '<p>' . __( 'This section controls site wide features.', TRANSLATION_KEY ) . '</p>';
 
     echo $html;
 
@@ -894,7 +894,7 @@ function feedburner_url_display() {
         } // end if
 
         $html = '<input type="text" id="feedburner_url" name="theme_global_options[feedburner_url]" placeholder="http://feeds.feedburner.com/example" value="' . esc_attr( $feedburner_url ) . '" />';
-        $html .= '&nbsp;<span class="description">' . __( 'Use in place of the native RSS feed.', 'lean' ) . '</span>';
+        $html .= '&nbsp;<span class="description">' . __( 'Use in place of the native RSS feed.', TRANSLATION_KEY ) . '</span>';
 
         echo $html;
 
@@ -921,7 +921,7 @@ function google_analytics_display() {
         } // end if
 
         $html = '<input type="text" id="google_analytics" name="theme_global_options[google_analytics]" placeholder="UA-000000" value="' . esc_attr( $analytics_id ) . '" />';
-        $html .= '&nbsp;<span class="description">' . __( 'Enter the ID only.', 'lean' ) . '</span>';
+        $html .= '&nbsp;<span class="description">' . __( 'Enter the ID only.', TRANSLATION_KEY ) . '</span>';
 
         echo $html;
 
@@ -945,14 +945,14 @@ function site_mode_display( ) {
     } // end if
 
     $html = '<select id="site_mode" name="theme_global_options[site_mode]">';
-    $html .= '<option value="online"' . selected( $site_mode, 'online', false ) . '>' . __( 'Online', 'lean' ) .'</option>';
-    $html .= '<option value="offline"' . selected( $site_mode, 'offline', false ) . '>' . __( 'Offline', 'lean' ) .'</option>';
+    $html .= '<option value="online"' . selected( $site_mode, 'online', false ) . '>' . __( 'Online', TRANSLATION_KEY ) .'</option>';
+    $html .= '<option value="offline"' . selected( $site_mode, 'offline', false ) . '>' . __( 'Offline', TRANSLATION_KEY ) .'</option>';
     $html .= '</select>';
 
     $html .= '&nbsp;';
 
     $html .= '<span class="description">';
-    $html .= __( 'WARNING: Taking site offline will hide all content from site visitors and search engines.', 'lean' );
+    $html .= __( 'WARNING: Taking site offline will hide all content from site visitors and search engines.', TRANSLATION_KEY );
     $html .= '</span>';
 
     echo $html;
@@ -1049,14 +1049,14 @@ function setup_theme_publishing_options() {
     // Post options
     add_settings_section(
         'post',
-        __( 'Posts', 'lean' ),
+        __( 'Posts', TRANSLATION_KEY ),
         'theme_post_options_display',
         'theme_publishing_options'
     );
 
     add_settings_field(
         'display_author_box',
-        __( 'Display Author Box', 'lean' ),
+        __( 'Display Author Box', TRANSLATION_KEY ),
         'display_author_box_display',
         'theme_publishing_options',
         'post'
@@ -1065,14 +1065,14 @@ function setup_theme_publishing_options() {
     // Page options
     add_settings_section(
         'page',
-        __( 'Pages', 'lean' ),
+        __( 'Pages', TRANSLATION_KEY ),
         'theme_page_options_display',
         'theme_publishing_options'
     );
 
     add_settings_field(
         'privacy_policy_template',
-        __( 'Privacy Policy', 'lean' ),
+        __( 'Privacy Policy', TRANSLATION_KEY ),
         'privacy_policy_template_display',
         'theme_publishing_options',
         'page'
@@ -1080,7 +1080,7 @@ function setup_theme_publishing_options() {
 
     add_settings_field(
         'comment_policy_template',
-        __( 'Comment Policy', 'lean' ),
+        __( 'Comment Policy', TRANSLATION_KEY ),
         'comment_policy_template_display',
         'theme_publishing_options',
         'page'
@@ -1114,7 +1114,7 @@ function theme_publishing_options_display() {}
  * @version	3.2
  */
 function theme_post_options_display() {
-    echo '<p>' . __( 'This section controls publisher-centric features available on individual posts.', 'lean' ) . '</p>';
+    echo '<p>' . __( 'This section controls publisher-centric features available on individual posts.', TRANSLATION_KEY ) . '</p>';
 } // end theme_post_options_display
 
 /**
@@ -1124,7 +1124,7 @@ function theme_post_options_display() {
  * @version	3.2
  */
 function theme_page_options_display() {
-    echo '<p>' . __( 'This section controls publisher-centric features available for pages.', 'lean' ) . '</p>';
+    echo '<p>' . __( 'This section controls publisher-centric features available for pages.', TRANSLATION_KEY ) . '</p>';
 } // end theme_page_options_display
 
 /**
@@ -1143,11 +1143,11 @@ function display_author_box_display() {
     } // end if
 
     $html = '<select id="display_author_box" name="theme_publishing_options[display_author_box]">';
-    $html .= '<option value="always"' . selected( $options['display_author_box'], 'always', false ) . '>' . __( 'Always', 'lean' ) . '</option>';
-    $html .= '<option value="never"' . selected( $options['display_author_box'], 'never', false ) . '>' . __( 'Never', 'lean' )  . '</option>';
+    $html .= '<option value="always"' . selected( $options['display_author_box'], 'always', false ) . '>' . __( 'Always', TRANSLATION_KEY ) . '</option>';
+    $html .= '<option value="never"' . selected( $options['display_author_box'], 'never', false ) . '>' . __( 'Never', TRANSLATION_KEY )  . '</option>';
     $html .= '</select>';
 
-    $html .= '&nbsp;<span class="description">' . __( "Display name, website, social networks, and bio from the <a href='profile.php'>author's profile</a> after post content.", 'lean' ) . '</span>';
+    $html .= '&nbsp;<span class="description">' . __( "Display name, website, social networks, and bio from the <a href='profile.php'>author's profile</a> after post content.", TRANSLATION_KEY ) . '</span>';
 
     echo $html;
 
@@ -1162,14 +1162,14 @@ function display_author_box_display() {
 function privacy_policy_template_display() {
 
     // First, detect if the privacy policy page exists
-    $privacy_policy = get_page_by_title( __( 'Privacy Policy', 'lean' ) );
+    $privacy_policy = get_page_by_title( __( 'Privacy Policy', TRANSLATION_KEY ) );
 
     // Options to display if the page doesn't already exist
     $html = '<div id="generate-privacy-policy-wrapper"' . ( '' == $privacy_policy ? ' ' : ' class="hidden" ' )  . '>';
-    $html .= '<input type="submit" class="button-secondary" id="generate_privacy_policy" name="generate_privacy_policy" value="' . __( 'Generate', 'lean' ) . '" />';
+    $html .= '<input type="submit" class="button-secondary" id="generate_privacy_policy" name="generate_privacy_policy" value="' . __( 'Generate', TRANSLATION_KEY ) . '" />';
     $html .= '<span id="privacy-policy-nonce" class="hidden">' . wp_create_nonce( 'generate_privacy_policy_nonce' ) . '</span>';
     $html .= '&nbsp;';
-    $html .= '<span class="description">' . __( '<a href="http://docs.leantheme.co/admin-panel/publishing/" target="_blank">' . __( 'Learn more', 'lean' ) . '</a>.', 'lean' ) . '</span>';
+    $html .= '<span class="description">' . __( '<a href="http://docs.leantheme.co/admin-panel/publishing/" target="_blank">' . __( 'Learn more', TRANSLATION_KEY ) . '</a>.', TRANSLATION_KEY ) . '</span>';
     $html .= '</div><!-- /#generate-private-policy-wrapper -->';
 
     // Options to display if the page already exists
@@ -1180,9 +1180,9 @@ function privacy_policy_template_display() {
         $policy_id = $privacy_policy->ID;
     } // end if
 
-    $html .= '<input type="submit" class="button-secondary" id="delete_privacy_policy" name="delete_privacy_policy" value="' . __( 'Delete', 'lean' ) . '" />';
+    $html .= '<input type="submit" class="button-secondary" id="delete_privacy_policy" name="delete_privacy_policy" value="' . __( 'Delete', TRANSLATION_KEY ) . '" />';
     $html .= '&nbsp;';
-    $html .= '<span>' . __( 'Warning, customizations will be lost. You can view or edit your policy ', 'lean' ) . '<a id="edit-privacy-policy" href="post.php?post=' . $policy_id . '&action=edit">' . __( 'here', 'lean' ) . '</a>.</span>';
+    $html .= '<span>' . __( 'Warning, customizations will be lost. You can view or edit your policy ', TRANSLATION_KEY ) . '<a id="edit-privacy-policy" href="post.php?post=' . $policy_id . '&action=edit">' . __( 'here', TRANSLATION_KEY ) . '</a>.</span>';
     $html .= '<span class="hidden" id="privacy_policy_id">' . $policy_id . '</span>';
     $html .= '</div><!-- /#has-privacy-policy-wrapper -->';
 
@@ -1199,14 +1199,14 @@ function privacy_policy_template_display() {
 function comment_policy_template_display() {
 
     // First, detect if the privacy policy page exists
-    $comment_policy = get_page_by_title( __( 'Comment Policy', 'lean' ) );
+    $comment_policy = get_page_by_title( __( 'Comment Policy', TRANSLATION_KEY ) );
 
     // Options to display if the page doesn't already exist
     $html = '<div id="generate-comment-policy-wrapper"' . ( '' == $comment_policy ? ' ' : ' class="hidden" ' )  . '>';
-    $html .= '<input type="submit" class="button-secondary" id="generate_comment_policy" name="generate_comment_policy" value="' . __( 'Generate', 'lean' ) . '" />';
+    $html .= '<input type="submit" class="button-secondary" id="generate_comment_policy" name="generate_comment_policy" value="' . __( 'Generate', TRANSLATION_KEY ) . '" />';
     $html .= '<span id="comment-policy-nonce" class="hidden">' . wp_create_nonce( 'generate_comment_policy_nonce' ) . '</span>';
     $html .= '&nbsp;';
-    $html .= '<span class="description">' . __( '<a href="http://docs.leantheme.co/admin-panel/publishing/" target="_blank">' . __( 'Learn more', 'lean' ) . '</a>.', 'lean' ) . '</span>';
+    $html .= '<span class="description">' . __( '<a href="http://docs.leantheme.co/admin-panel/publishing/" target="_blank">' . __( 'Learn more', TRANSLATION_KEY ) . '</a>.', TRANSLATION_KEY ) . '</span>';
     $html .= '</div><!-- /#generate-comment-policy-wrapper -->';
 
     // Options to display if the page already exists
@@ -1217,9 +1217,9 @@ function comment_policy_template_display() {
         $policy_id = $comment_policy->ID;
     } // end if
 
-    $html .= '<input type="submit" class="button-secondary" id="delete_comment_policy" name="delete_comment_policy" value="' . __( 'Delete', 'lean' ) . '" />';
+    $html .= '<input type="submit" class="button-secondary" id="delete_comment_policy" name="delete_comment_policy" value="' . __( 'Delete', TRANSLATION_KEY ) . '" />';
     $html .= '&nbsp;';
-    $html .= '<span>' . __( 'Warning, customizations will be lost. You can view or edit your policy ', 'lean' ) . '<a id="edit-comment-policy" href="post.php?post=' . $policy_id . '&action=edit">' . __( 'here', 'lean' ) . '</a>.</span>';
+    $html .= '<span>' . __( 'Warning, customizations will be lost. You can view or edit your policy ', TRANSLATION_KEY ) . '<a id="edit-comment-policy" href="post.php?post=' . $policy_id . '&action=edit">' . __( 'here', TRANSLATION_KEY ) . '</a>.</span>';
     $html .= '<span class="hidden" id="comment_policy_id">' . $policy_id . '</span>';
     $html .= '</div><!-- /#has-comment-policy-wrapper -->';
 
@@ -1237,7 +1237,7 @@ function generate_privacy_policy_page( ) {
 
     if( wp_verify_nonce( $_REQUEST['nonce'], 'generate_privacy_policy_nonce' ) && isset( $_POST['generatePrivacyPolicy'] ) ) {
 
-        $page_id = create_page( 'privacy-policy', __( 'Privacy Policy', 'lean' ) );
+        $page_id = create_page( 'privacy-policy', __( 'Privacy Policy', TRANSLATION_KEY ) );
         if( $page_id > 0 ) {
             die( (string)$page_id );
         } else {
@@ -1285,7 +1285,7 @@ function generate_comment_policy_page( ) {
 
     if( wp_verify_nonce( $_REQUEST['nonce'], 'generate_comment_policy_nonce' ) && isset( $_POST['generateCommentPolicy'] ) ) {
 
-        $page_id = create_page( 'comment-policy', __( 'Comment Policy', 'lean' ) );
+        $page_id = create_page( 'comment-policy', __( 'Comment Policy', TRANSLATION_KEY ) );
         if( $page_id > 0 ) {
             die( (string)$page_id );
         } else {
@@ -1365,18 +1365,18 @@ function theme_options_display() {
         <div id="theme-info">
 
             <div id="icon-themes" class="icon32"></div>
-            <h3 id="theme-title"><?php _e( 'Lean', 'lean' ); ?> <span><?php _e( 'for publishers', 'lean' ); ?></span></h3>
+            <h3 id="theme-title"><?php _e( THEME_NAME, TRANSLATION_KEY ); ?> <span><?php _e( 'for publishers', TRANSLATION_KEY ); ?></span></h3>
 
             <div id="theme-desc">
-                <p><?php _e( 'Lean is a sleek, exacting product designed for uncluttered and sophisticated presentation of your content on desktop and mobile devices.', 'lean' ); ?></p>
+                <p><?php _e( 'Lean is a sleek, exacting product designed for uncluttered and sophisticated presentation of your content on desktop and mobile devices.', TRANSLATION_KEY ); ?></p>
             </div>
         </div><!--/#theme-info -->
 
         <div id="theme-options-links">
             <ul>
-                <li><a class="theme-docs" href="http://docs.leantheme.co/" target="_blank"><?php _e( 'Documentation', 'lean' ); ?></a></li>
-                <li><a class="theme-support" href="http://support.leantheme.co" target="_blank"><?php _e( 'Support', 'lean' ); ?></a></li>
-                <li><a class="theme-blog" href="http://jasonbradley.me" target="_blank"><?php _e( 'Blog', 'lean' ); ?></a></li>
+                <li><a class="theme-docs" href="http://docs.leantheme.co/" target="_blank"><?php _e( 'Documentation', TRANSLATION_KEY ); ?></a></li>
+                <li><a class="theme-support" href="http://support.leantheme.co" target="_blank"><?php _e( 'Support', TRANSLATION_KEY ); ?></a></li>
+                <li><a class="theme-blog" href="http://jasonbradley.me" target="_blank"><?php _e( 'Blog', TRANSLATION_KEY ); ?></a></li>
             </ul>
         </div>
 
@@ -1384,10 +1384,10 @@ function theme_options_display() {
 
         <?php $active_tab = isset( $_GET['tab'] ) ? $_GET['tab'] : 'theme_global_options'; ?>
         <h2 class="nav-tab-wrapper">
-            <a class="nav-tab <?php echo $active_tab == 'theme_global_options' ? 'nav-tab-active' : ''; ?>" href="?page=theme_options&amp;tab=theme_global_options"><?php _e( 'Global', 'lean' ); ?></a>
-            <a class="nav-tab <?php echo $active_tab == 'theme_presentation_options' ? 'nav-tab-active' : ''; ?>" href="?page=theme_options&amp;tab=theme_presentation_options"><?php _e( 'Presentation', 'lean' ); ?></a>
-            <a class="nav-tab <?php echo $active_tab == 'theme_social_options' ? 'nav-tab-active' : ''; ?>" href="?page=theme_options&amp;tab=theme_social_options"><?php _e( 'Social', 'lean' ); ?></a>
-            <a class="nav-tab <?php echo $active_tab == 'theme_publishing_options' ? 'nav-tab-active' : ''; ?>" href="?page=theme_options&amp;tab=theme_publishing_options"><?php _e( 'Publishing', 'lean' ); ?></a>
+            <a class="nav-tab <?php echo $active_tab == 'theme_global_options' ? 'nav-tab-active' : ''; ?>" href="?page=theme_options&amp;tab=theme_global_options"><?php _e( 'Global', TRANSLATION_KEY ); ?></a>
+            <a class="nav-tab <?php echo $active_tab == 'theme_presentation_options' ? 'nav-tab-active' : ''; ?>" href="?page=theme_options&amp;tab=theme_presentation_options"><?php _e( 'Presentation', TRANSLATION_KEY ); ?></a>
+            <a class="nav-tab <?php echo $active_tab == 'theme_social_options' ? 'nav-tab-active' : ''; ?>" href="?page=theme_options&amp;tab=theme_social_options"><?php _e( 'Social', TRANSLATION_KEY ); ?></a>
+            <a class="nav-tab <?php echo $active_tab == 'theme_publishing_options' ? 'nav-tab-active' : ''; ?>" href="?page=theme_options&amp;tab=theme_publishing_options"><?php _e( 'Publishing', TRANSLATION_KEY ); ?></a>
         </h2>
 
         <div id="message-container"><?php settings_errors(); ?></div>
