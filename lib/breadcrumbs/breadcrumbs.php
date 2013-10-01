@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Lean Breadcrumbs is a class that is responsible for creating SEO-friendly
+ * Breadcrumbs is a class that is responsible for creating SEO-friendly
  * breadcrumbs for blog posts.
  *
  * The class will generate the breadcrumbs in the format of:
@@ -72,7 +72,7 @@ class Breadcrumbs {
 			
 		} // end if
 		
-	} // end lean_breadcrumbs
+	} // end breadcrumbs
 
 	/*--------------------------------------------------------*
 	 * Private Functions

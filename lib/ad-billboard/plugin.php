@@ -1,7 +1,6 @@
 <?php
 /**
- * 468x60 is a widget for displaying a single 468x60 ad in any widgetized
- * area in lean.
+ * 468x60 is a widget for displaying a single 468x60 ad in any widgetized area.
  *
  * @package		Lean
  * @subpackage	468x60 Advertisement Widget

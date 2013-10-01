@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Lean SEO Titles will generate search engine optimized titles for each page
+ * SEO Titles will generate search engine optimized titles for each page
  * of your WordPress Blog.
  *
  * Home Page | Blog Name | Blog Description

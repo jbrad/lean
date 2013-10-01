@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Lean SEO guides publishers in defining SEO-friendly title, permalinks, and
+ * SEO guides publishers in defining SEO-friendly title, permalinks, and
  * meta descriptions by giving custom fields at the post and page level and by
  * providing a "what Google sees" preview.
  *
@@ -33,7 +33,7 @@ class SEO {
 	 *---------------------------------------------*/
 
 	/**
- 	 * Adds the Lean SEO meta box to the post and page screens in the dashboard.
+ 	 * Adds the SEO meta box to the post and page screens in the dashboard.
  	 *
 	 * @since	3.0
 	 * @version	1.0
@@ -61,7 +61,7 @@ class SEO {
 	} // end action_method_name
 
 	/**
-	 * Renders the actual Lean SEO Preview meta box and preview area to the page.
+	 * Renders the actual SEO Preview meta box and preview area to the page.
 	 *
 	 * @params	object $post	The post on which the box should be rendered.
 	 * @since	3.0

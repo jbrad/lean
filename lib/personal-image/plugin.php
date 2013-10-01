@@ -1,7 +1,6 @@
 <?php
 /**
- * A widget for displaying a personal image and an optional description for displaying in the sidebar
- * of lean.
+ * A widget for displaying a personal image and an optional description for displaying in the sidebar.
  *
  * @package		lean
  * @subpackage	Personal Image Widget
