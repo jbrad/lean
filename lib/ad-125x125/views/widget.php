@@ -11,7 +11,7 @@
 <?php $global_options = get_option( 'theme_global_options' ); $default_url = ''; ?>
 
 <?php echo isset( $args['before_widget'] ) ? $args['before_widget'] : ''; ?>
-    <div class="lean-ad-row">
+    <div class="ad-row">
         <ul class="thumbnails mobile-2 row">
             <li class="col-md-6">
                 <figure class="thumbnail">
@@ -24,5 +24,5 @@
                 </figure><!-- /.thumbnail -->
             </li><!-- /.right -->
         </ul><!-- /.thumbnails -->
-    </div><!-- /.lean-ad-row -->
+    </div><!-- /.ad-row -->
 <?php echo isset( $args['after_widget'] ) ? $args['after_widget'] : ''; ?>

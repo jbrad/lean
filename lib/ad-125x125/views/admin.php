@@ -8,7 +8,7 @@
  * @since		3.0
  */
 ?>
-<div class="lean-ad-125x125-wrapper">
+<div class="ad-125x125-wrapper">
 
 	<div class="ads">
 	
@@ -33,4 +33,4 @@
 		
 	</div><!-- /.ads -->
 
-</div><!-- /.lean-ad-125x125-wrapper -->
+</div><!-- /.ad-125x125-wrapper -->

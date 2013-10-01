@@ -8,7 +8,7 @@
  * @version		1.2
  * @since		3.0
  */
-class Lean_Ad_125x125 extends WP_Widget {
+class Ad_125x125 extends WP_Widget {
 
 	/*--------------------------------------------------------*
 	 * Constructor
@@ -173,7 +173,7 @@ class Lean_Ad_125x125 extends WP_Widget {
 				$ad_url = 'http://leantheme.co';
 			} // end if
 		
-			$ad_src = '<img src="' . get_template_directory_uri() . '/lib/ad-125x125/images/lean-170-' . $number . '.jpg' . '" alt="" />';
+			$ad_src = '<img src="' . get_template_directory_uri() . '/lib/ad-125x125/images/ad-170-' . $number . '.jpg' . '" alt="" />';
 			
 		} else {
 			$ad_src = '<img src="' . $ad_src . '" alt="" />';
@@ -195,4 +195,4 @@ class Lean_Ad_125x125 extends WP_Widget {
 	} // end display_ad
 
 } // end class
-add_action( 'widgets_init', create_function( '', 'register_widget( "lean_Ad_125x125" );' ) );
+add_action( 'widgets_init', create_function( '', 'register_widget( "Ad_125x125" );' ) );
