@@ -912,7 +912,7 @@ function truncate_text( $string, $character_limit = 50, $truncation_indicator = 
 } // end truncate_text
 
 /**
- * If Lean is set to online mode, this function loads and redirects all traffic to the
+ * If online mode is turned on, this function loads and redirects all traffic to the
  * page template defined for offline mode.
  *
  * @return	boolean Whether or not the site is set into offline mode.

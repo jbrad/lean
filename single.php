@@ -60,7 +60,7 @@ if( 1 == get_post_meta( get_the_ID(), 'seo_post_level_layout', true ) ) {
                                     <?php } // end if ?>
 
                                     <?php
-                                    // Get the Google+ ID based on if we're using Lean's SEO or WordPress SEO
+                                    // Get the Google+ ID based on if we're using the built in SEO or WordPress SEO
                                     $google_plus =
                                         using_native_seo() ?
                                             trailingslashit( get_user_meta( get_the_author_meta( 'ID' ), 'google_plus', true ) )
@@ -83,7 +83,7 @@ if( 1 == get_post_meta( get_the_ID(), 'seo_post_level_layout', true ) ) {
 						<?php if( is_active_sidebar( 'sidebar-2' ) ) { ?>
 							<div id="post-advertisement">
 								<?php dynamic_sidebar( 'sidebar-2' ); ?>
-							</div><!-- #lean-post-advertisement -->
+							</div><!-- #post-advertisement -->
 						<?php } // end if ?>
 						
 						<?php get_template_part( 'pagination' ); ?>

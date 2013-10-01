@@ -1,7 +1,6 @@
 <?php
 /**
- * 125x125 is a widget for displaying a single 125x125 ad in any widgetized
- * area in lean.
+ * 125x125 is a widget for displaying a single 125x125 ad in any widgetized area.
  *
  * @package		lean
  * @subpackage	125x125 Advertisement Widget

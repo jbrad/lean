@@ -599,7 +599,7 @@ if( ! function_exists('page_menu') ) {
      */
     function page_menu( $ulclass ) {
         return preg_replace( '/<ul>/', '<ul class="nav nav-menu">', $ulclass, 1 );
-    } // end lean_default_menu
+    } // end default_menu
     add_filter( 'wp_page_menu', 'page_menu' );
 } // end if
 
