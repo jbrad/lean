@@ -8,7 +8,7 @@
  * @since		1.0
  */
 ?>
-<div class="lean-influence-wrapper">
+<div class="influence-wrapper">
 
 <?php if( $this->supports_outbound_requests() ) { ?>
 
@@ -63,4 +63,4 @@
 
 <?php } // end if ?>
 
-</div><!-- /.lean-influence-wrapper -->
+</div><!-- /.influence-wrapper -->
