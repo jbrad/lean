@@ -24,17 +24,9 @@
  *
  */
 
-// Define a theme version. This is used for cache-busting stylesheets, JavaScript, and for serializing the version in the database
-define( 'THEME_VERSION', '1.0.0' );
+/* Variables */
 
-// Define the theme's name.
-define( 'THEME_NAME', 'Lean' );
-
-// Define a theme version. This is used for cache-busting stylesheets, JavaScript, and for serializing the version in the database
-define( 'TRANSLATION_KEY', 'lean' );
-
-// Define a theme version. This is used for cache-busting stylesheets, JavaScript, and for serializing the version in the database
-define( 'THEME_URL', 'http://leantheme.co' );
+include_once( get_template_directory() . '/inc/theme-variables.php' );
 
 /* ----------------------------------------------------------- *
  * Dependencies

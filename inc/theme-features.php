@@ -500,7 +500,7 @@ function add_site_mode_admin_bar_note() {
         global $wp_admin_bar;
         $wp_admin_bar->add_node(
             array(
-                'id'	=>	'lean_theme_site_mode',
+                'id'	=>	'theme_site_mode',
                 'title'	=>	__( 'The site is currently offline. To bring it back online, click here.', TRANSLATION_KEY ),
                 'href'	=>	site_url() . '/wp-admin/themes.php?page=theme_options'
             )
@@ -536,17 +536,17 @@ function detect_wordpress_seo() {
         // WordPress SEO
         if( defined( 'WPSEO_URL' ) ) {
 
-            $html = '<div id="hide-seo-message-notification" class="error"><p>' . __( 'The activation of WordPress SEO has been detected and is now running in SEO compatibility mode. <a href="http://docs.leantheme.co/seo" target="_blank">' . __( 'Learn more', TRANSLATION_KEY ) . '</a> or <a id="lean-hide-seo-message" href="javascript:;">hide this message</a>.', TRANSLATION_KEY) . '</p><span id="hide-seo-message-nonce" class="hidden">' . wp_create_nonce( 'hide_seo_message_nonce' ) . '</span></div>';
+            $html = '<div id="hide-seo-message-notification" class="error"><p>' . __( 'The activation of WordPress SEO has been detected and is now running in SEO compatibility mode. <a href="' . THEME_DOCUMENTATION_URL . '/seo" target="_blank">' . __( 'Learn more', TRANSLATION_KEY ) . '</a> or <a id="hide-seo-message" href="javascript:;">hide this message</a>.', TRANSLATION_KEY) . '</p><span id="hide-seo-message-nonce" class="hidden">' . wp_create_nonce( 'hide_seo_message_nonce' ) . '</span></div>';
 
             // All-in-One SEO
         } elseif( class_exists( 'All_in_One_SEO_Pack' ) ) {
 
-            $html = '<div id="hide-seo-message-notification" class="error"><p>' . __( 'The activation of All-In-One SEO has been detected and is now running in SEO compatibility mode.  <a href="http://docs.leantheme.co/seo" target="_blank">' . __( 'Learn more', TRANSLATION_KEY ) . '</a> or <a id="lean-hide-seo-message" href="javascript:;">hide this message</a>.', TRANSLATION_KEY) . '</p><span id="hide-seo-message-nonce" class="hidden">' . wp_create_nonce( 'hide_seo_message_nonce' ) . '</span></div>';
+            $html = '<div id="hide-seo-message-notification" class="error"><p>' . __( 'The activation of All-In-One SEO has been detected and is now running in SEO compatibility mode.  <a href="' . THEME_DOCUMENTATION_URL . '/seo" target="_blank">' . __( 'Learn more', TRANSLATION_KEY ) . '</a> or <a id="hide-seo-message" href="javascript:;">hide this message</a>.', TRANSLATION_KEY) . '</p><span id="hide-seo-message-nonce" class="hidden">' . wp_create_nonce( 'hide_seo_message_nonce' ) . '</span></div>';
 
             // Platinum SEO
         } elseif( class_exists( 'Platinum_SEO_Pack' ) ) {
 
-            $html =  '<div id="hide-seo-message-notification" class="error"><p>' . __( 'The activation of Platinum SEO has been detected and is now running in SEO compatibility mode.  <a href="http://docs.leantheme.co/seo" target="_blank">' . __( 'Learn more', TRANSLATION_KEY ) . '</a> or <a id="lean-hide-seo-message" href="javascript:;">hide this message</a>.', TRANSLATION_KEY) . '</p><span id="hide-seo-message-nonce" class="hidden">' . wp_create_nonce( 'hide_seo_message_nonce' ) . '</span></div>';
+            $html =  '<div id="hide-seo-message-notification" class="error"><p>' . __( 'The activation of Platinum SEO has been detected and is now running in SEO compatibility mode.  <a href="' . THEME_DOCUMENTATION_URL . '/seo" target="_blank">' . __( 'Learn more', TRANSLATION_KEY ) . '</a> or <a id="hide-seo-message" href="javascript:;">hide this message</a>.', TRANSLATION_KEY) . '</p><span id="hide-seo-message-nonce" class="hidden">' . wp_create_nonce( 'hide_seo_message_nonce' ) . '</span></div>';
 
         } // end if/ese
 

@@ -560,7 +560,7 @@ function theme_social_options_display() {
     $html .= '<label>' . __( 'Icon URL:', TRANSLATION_KEY ) . '</label>';
     $html .= '<input type="text" id="social-icon-url" value="" class="icon-url" data-via="" data-url="" />';
     $html .= '&nbsp;<span class="description" id="social-rss-icon-controls">';
-    $html .= '<a href="http://docs.leantheme.co/social" target="_blank">' . __( 'Learn More', TRANSLATION_KEY ) . '</a>';
+    $html .= '<a href="' . THEME_DOCUMENTATION_URL . '/social" target="_blank">' . __( 'Learn More', TRANSLATION_KEY ) . '</a>';
     $html .= '</span><!-- /#social-rss-icon-controls -->';
     $html .= '<span id="social-icon-controls">';
     $html .= '<input type="button" class="button" id="set-social-icon-url" value="' . __( 'Done', TRANSLATION_KEY ). '" />';
@@ -1374,9 +1374,9 @@ function theme_options_display() {
 
         <div id="theme-options-links">
             <ul>
-                <li><a class="theme-docs" href="http://docs.leantheme.co/" target="_blank"><?php _e( 'Documentation', TRANSLATION_KEY ); ?></a></li>
-                <li><a class="theme-support" href="http://support.leantheme.co" target="_blank"><?php _e( 'Support', TRANSLATION_KEY ); ?></a></li>
-                <li><a class="theme-blog" href="http://jasonbradley.me" target="_blank"><?php _e( 'Blog', TRANSLATION_KEY ); ?></a></li>
+                <li><a class="theme-docs" href="<?php echo THEME_DOCUMENTATION_URL; ?>" target="_blank"><?php _e( 'Documentation', TRANSLATION_KEY ); ?></a></li>
+                <li><a class="theme-support" href="<?php echo THEME_SUPPORT_URL; ?>" target="_blank"><?php _e( 'Support', TRANSLATION_KEY ); ?></a></li>
+                <li><a class="theme-blog" href="<?php echo THEME_BLOG_URL; ?>" target="_blank"><?php _e( 'Blog', TRANSLATION_KEY ); ?></a></li>
             </ul>
         </div>
 
