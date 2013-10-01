@@ -5,11 +5,11 @@
 		// Create the notice that will appear above the post title
 		/* Translators: This will need to be localized. */
 		var $titleMessage = $('<div />')
-			.attr('id', 'lean-post-editor')
+			.attr('id', 'post-editor')
 			.attr('class', 'warning')
 			.append(
 				$('<p />')
-					.html('<strong>Lean has detected a long post title. Search engines prefer titles with 70 characters or less.</strong>')
+					.html('<strong>A long post title has been detected. Search engines prefer titles with 70 characters or less.</strong>')
 			);
 
 		// Display the notice if the existing title is too long ( >= 70 characters)

@@ -1,7 +1,7 @@
-var lean_presentationPreviewImage, lean_presentationPreviewUrl;
+var presentationPreviewImage, presentationPreviewUrl;
 
-lean_presentationPreviewImage = null;
-lean_presentationPreviewUrl = null;
+presentationPreviewImage = null;
+presentationPreviewUrl = null;
 
 /**
  * Hides fields that are irrelevant for the media uploader.
@@ -9,7 +9,7 @@ lean_presentationPreviewUrl = null;
  * @params	$		A reference to the jQuery function
  * @params	poller	The polling mechanism used to look for the form fields when a user uploads an image	
  */
-function lean_upload_hide_unused_fields($, poller) {
+function upload_hide_unused_fields($, poller) {
 	"use strict";
 	
 	var bHasHiddenFields, $formFields, $submit; 
@@ -64,7 +64,7 @@ function lean_upload_hide_unused_fields($, poller) {
 		clearInterval(poller);
 	} // end if
 
-} // end lean_upload_hide_unused_fields
+} // end upload_hide_unused_fields
 
 /**
  * Overrides the core send_to_editor function in the media-upload script. Grabs the URL of the image after being uploaded and 
@@ -78,8 +78,8 @@ window.send_to_editor = function(sHtml) {
 	var sPreviewId, sPreviewUrlId;
 
 	// Set the container ID for the preview image that's being uploaded
-	sPreviewId = '#' + lean_presentationPreviewImage;
-	sPreviewUrlId = '#' + lean_presentationPreviewUrl;
+	sPreviewId = '#' + presentationPreviewImage;
+	sPreviewUrlId = '#' + presentationPreviewUrl;
 
 	// Grab the URL of the image and set it into the field's ID.
 	// The raw class accepts a string of HTML, the other just the attribute
@@ -127,8 +127,8 @@ window.send_to_editor = function(sHtml) {
 		$('#upload_fav_icon').click(function() {
 			
 			// the element that will receive the preview image
-			lean_presentationPreviewImage = 'fav_icon_preview';
-			lean_presentationPreviewUrl = 'fav_icon';
+			presentationPreviewImage = 'fav_icon_preview';
+			presentationPreviewUrl = 'fav_icon';
 			
 			// Show the media uploader
 			tb_show('', 'media-upload.php?type=image&TB_iframe=true');
@@ -138,12 +138,12 @@ window.send_to_editor = function(sHtml) {
 				// if the user is uploading a new icon, we need to poll until we see the form fields
 				var fav_icon_poll = setInterval(function() {
 					if($('#TB_iframeContent').contents().find('#media-items').children().length > 0) {
-						lean_upload_hide_unused_fields($, fav_icon_poll);
+						upload_hide_unused_fields($, fav_icon_poll);
 					} // end if
 				}, 500);
 		
 				// if they aren't uploading, we'll clear the fields on load
-				lean_upload_hide_unused_fields($);
+				upload_hide_unused_fields($);
 			
 			});
 			
@@ -166,8 +166,8 @@ window.send_to_editor = function(sHtml) {
 		$('#upload_logo').click(function() {
 			
 			// the element that will receive the preview image
-			lean_presentationPreviewImage = 'logo_preview';
-			lean_presentationPreviewUrl = 'logo';
+			presentationPreviewImage = 'logo_preview';
+			presentationPreviewUrl = 'logo';
 			
 			// Show the media uploader
 			tb_show('', 'media-upload.php?type=image&TB_iframe=true');
@@ -177,12 +177,12 @@ window.send_to_editor = function(sHtml) {
 				// if the user is uploading a new logo, we need to poll until we see the form fields
 				var logo_poll = setInterval(function() {
 					if($('#TB_iframeContent').contents().find('#media-items').children().length > 0) {
-						lean_upload_hide_unused_fields($, logo_poll);
+						upload_hide_unused_fields($, logo_poll);
 					} // end if
 				}, 500);
 		
 				// if they aren't uploading, we'll clear the fields on load
-				lean_upload_hide_unused_fields($);
+				upload_hide_unused_fields($);
 
 			});
 				

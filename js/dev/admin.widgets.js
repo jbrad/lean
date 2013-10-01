@@ -5,8 +5,8 @@
 
 			var $parent = $(this).parent().parent().parent();
 
-			if($parent.attr('id') !== undefined && $parent.attr('id') !== false && $parent.attr('id').indexOf('lean-') > 0) {
-				$(this).parents('.widget-top').addClass('lean-widget-top');
+			if($parent.attr('id') !== undefined && $parent.attr('id') !== false) {
+				$(this).parents('.widget-top').addClass('widget-top');
 			} // end if
 		});
 	});

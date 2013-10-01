@@ -2,9 +2,9 @@
 	"use strict";
 	$(function () {
 		
-		if($('#lean-hide-seo-message').length > 0) {
+		if($('#hide-seo-message').length > 0) {
 		
-			$('#lean-hide-seo-message').click(function(evt) {
+			$('#hide-seo-message').click(function(evt) {
 
 				evt.preventDefault();
 				
