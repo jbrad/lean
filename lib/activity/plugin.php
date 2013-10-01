@@ -132,7 +132,7 @@ class Activity_Tabs extends WP_Widget {
 	 * @version	3.0
 	 */
 	public function register_admin_styles() {
-		wp_enqueue_style( 'activity-tabs', get_template_directory_uri() . '/lib/activity/css/admin.css', false, LEAN_THEME_VERSION );
+		wp_enqueue_style( 'activity-tabs', get_template_directory_uri() . '/lib/activity/css/admin.css', false, THEME_VERSION );
 	} // end register_admin_styles
 
 	/*--------------------------------------------------------*

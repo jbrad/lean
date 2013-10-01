@@ -728,7 +728,7 @@ function theme_social_options_validate( $input ) {
 } // end theme_options_validate
 
 /**
- * When upgrading to newer versions of Lean, this function looks for any new icons that may exist in the social icons directory.
+ * When upgrading to newer versions, this function looks for any new icons that may exist in the social icons directory.
  *
  * If so, it will add them to the available icons. It excludes icons that are already active.
  *

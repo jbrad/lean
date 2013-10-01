@@ -113,7 +113,7 @@ class Ad_468x60 extends WP_Widget {
 	 * @version	1.0
 	 */
 	public function register_admin_styles() {
-		wp_enqueue_style( 'ad-468x60', get_template_directory_uri() . '/lib/ad-billboard/css/admin.css', LEAN_THEME_VERSION );
+		wp_enqueue_style( 'ad-468x60', get_template_directory_uri() . '/lib/ad-billboard/css/admin.css', THEME_VERSION );
 	} // end register_admin_styles
 
 	/**

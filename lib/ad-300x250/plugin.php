@@ -113,7 +113,7 @@ class Ad_300x250 extends WP_Widget {
 	 * @version	1.0
 	 */
 	public function register_admin_styles() {
-		wp_enqueue_style( 'ad-300x250', get_template_directory_uri() . '/lib/ad-300x250/css/admin.css', LEAN_THEME_VERSION );
+		wp_enqueue_style( 'ad-300x250', get_template_directory_uri() . '/lib/ad-300x250/css/admin.css', THEME_VERSION );
 	} // end register_admin_styles
 
 	/**

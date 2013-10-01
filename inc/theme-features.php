@@ -186,10 +186,10 @@ function customize_preview() { ?>
     <script type="text/javascript">
         (function( $ ) {
 
-            // We need to the hide the header widget area when previewing the theme *unless* there are only Lean widgets
-            // present. If Lean widgets are present, it means they've customized it already; otherwise, we're
+            // We need to the hide the header widget area when previewing the theme *unless* there are only widgets
+            // present. If widgets are present, it means they've customized it already; otherwise, we're
             // coming from another theme.
-            if( $('#header-widget').children().length !== $('#header-widget').children('div[id*=lean]').length ) {
+            if( $('#header-widget').children().length !== $('#header-widget').children('div[id*=theme]').length ) {
                 $('#header-widget').hide();
             } // end if
 
@@ -330,7 +330,7 @@ function save_post_layout_data( $post_id ) {
 } // end save_post_layout_data
 add_action( 'save_post', 'save_post_layout_data' );
 
-// If Lean is running less than 3.6, then add the Link Post Format Meta Box
+// If the theme is running less than 3.6, then add the Link Post Format Meta Box
 //if( 3.6 > is_wp36() ) {
 
 /**
@@ -423,7 +423,7 @@ add_action( 'save_post', 'save_link_url_data' );
 //} // end if
 
 /**
- * Adds the 'Lean' menu to the admin bar on the non-admin pages.
+ * Adds the theme's menu to the admin bar on the non-admin pages.
  *
  * @since	3.0
  * @version	3.2
@@ -507,13 +507,13 @@ function add_site_mode_admin_bar_note() {
         );
     } // end if
 
-} // end lean_add_maintenance_mode_admin_bar_note
+} // end add_maintenance_mode_admin_bar_note
 add_action( 'admin_bar_menu' , 'add_site_mode_admin_bar_note', 90 );
 
 /**
- * Detects whether or not any of the major SEO plugins have been installed. If so, Lean's built-in SEO features will be disabled in favor of the active plugin.
+ * Detects whether or not any of the major SEO plugins have been installed. If so, the theme's built-in SEO features will be disabled in favor of the active plugin.
  *
- * Currently, Lean supports:
+ * Currently supports:
  *
  * - WordPress SEO
  * - All in One SEO
@@ -536,17 +536,17 @@ function detect_wordpress_seo() {
         // WordPress SEO
         if( defined( 'WPSEO_URL' ) ) {
 
-            $html = '<div id="hide-seo-message-notification" class="error"><p>' . __( 'Lean has detected the activation of WordPress SEO and is now running in SEO compatibility mode. <a href="http://docs.leantheme.co/seo" target="_blank">' . __( 'Learn more', 'lean' ) . '</a> or <a id="lean-hide-seo-message" href="javascript:;">hide this message</a>.', 'lean') . '</p><span id="lean-hide-seo-message-nonce" class="hidden">' . wp_create_nonce( 'hide_seo_message_nonce' ) . '</span></div>';
+            $html = '<div id="hide-seo-message-notification" class="error"><p>' . __( 'The activation of WordPress SEO has been detected and is now running in SEO compatibility mode. <a href="http://docs.leantheme.co/seo" target="_blank">' . __( 'Learn more', 'lean' ) . '</a> or <a id="lean-hide-seo-message" href="javascript:;">hide this message</a>.', 'lean') . '</p><span id="hide-seo-message-nonce" class="hidden">' . wp_create_nonce( 'hide_seo_message_nonce' ) . '</span></div>';
 
             // All-in-One SEO
         } elseif( class_exists( 'All_in_One_SEO_Pack' ) ) {
 
-            $html = '<div id="hide-seo-message-notification" class="error"><p>' . __( 'Lean has detected the activation of All-In-One SEO and is now running in SEO compatibility mode.  <a href="http://docs.leantheme.co/seo" target="_blank">' . __( 'Learn more', 'lean' ) . '</a> or <a id="lean-hide-seo-message" href="javascript:;">hide this message</a>.', 'lean') . '</p><span id="lean-hide-seo-message-nonce" class="hidden">' . wp_create_nonce( 'hide_seo_message_nonce' ) . '</span></div>';
+            $html = '<div id="hide-seo-message-notification" class="error"><p>' . __( 'The activation of All-In-One SEO has been detected and is now running in SEO compatibility mode.  <a href="http://docs.leantheme.co/seo" target="_blank">' . __( 'Learn more', 'lean' ) . '</a> or <a id="lean-hide-seo-message" href="javascript:;">hide this message</a>.', 'lean') . '</p><span id="hide-seo-message-nonce" class="hidden">' . wp_create_nonce( 'hide_seo_message_nonce' ) . '</span></div>';
 
             // Platinum SEO
         } elseif( class_exists( 'Platinum_SEO_Pack' ) ) {
 
-            $html =  '<div id="hide-seo-message-notification" class="error"><p>' . __( 'Lean has detected the activation of Platinum SEO and is now running in SEO compatibility mode.  <a href="http://docs.leantheme.co/seo" target="_blank">' . __( 'Learn more', 'lean' ) . '</a> or <a id="lean-hide-seo-message" href="javascript:;">hide this message</a>.', 'lean') . '</p><span id="lean-hide-seo-message-nonce" class="hidden">' . wp_create_nonce( 'hide_seo_message_nonce' ) . '</span></div>';
+            $html =  '<div id="hide-seo-message-notification" class="error"><p>' . __( 'The activation of Platinum SEO has been detected and is now running in SEO compatibility mode.  <a href="http://docs.leantheme.co/seo" target="_blank">' . __( 'Learn more', 'lean' ) . '</a> or <a id="lean-hide-seo-message" href="javascript:;">hide this message</a>.', 'lean') . '</p><span id="hide-seo-message-nonce" class="hidden">' . wp_create_nonce( 'hide_seo_message_nonce' ) . '</span></div>';
 
         } // end if/ese
 
@@ -807,7 +807,7 @@ if( ! function_exists('add_theme_features') ) {
             'infinite-scroll',
             array(
                 'container'			=>	'main',
-                'type'				=>	'click',	// Because Lean supports footer widgets
+                'type'				=>	'click',	// Because of supporting footer widgets
                 'render'			=>	'infinite_scroll',
                 'wrapper'			=>	false,
                 'posts_per_page'	=>	false,
@@ -832,8 +832,7 @@ if( ! function_exists('add_theme_features') ) {
 } // end if
 
 /**
- * Provides the default loop used to add Infinite Scrolling capabilities
- * to Lean.
+ * Provides the default loop used to add Infinite Scrolling capabilities.
  *
  * @since	3.2
  * @version	3.2
@@ -881,7 +880,7 @@ if( 'full_width_layout' == $options['layout'] ) {
 
 if( ! function_exists('set_theme_colors') ) {
     /**
-     * Sets the values for the default color scheme of Lean for use
+     * Sets the values for the default color scheme for use
      * in other plugins.
      *
      * This function can be overridden by child themes.

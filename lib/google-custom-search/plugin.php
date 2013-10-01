@@ -116,7 +116,7 @@ class Google_Custom_Search extends WP_Widget {
 	 * @version	3.0
 	 */
 	function load_admin_stylesheets() {
-		wp_enqueue_style( 'gcse-widget', get_template_directory_uri() . '/lib/google-custom-search/css/admin.css', false, LEAN_THEME_VERSION );
+		wp_enqueue_style( 'gcse-widget', get_template_directory_uri() . '/lib/google-custom-search/css/admin.css', false, THEME_VERSION );
 	} // end load_stylesheets
 
 	/**
@@ -126,7 +126,7 @@ class Google_Custom_Search extends WP_Widget {
 	 * @version	3.0
 	 */
 	function load_stylesheets() {
-		wp_enqueue_style( 'gcse-widget', get_template_directory_uri() . '/lib/google-custom-search/css/widget.css', false, LEAN_THEME_VERSION );
+		wp_enqueue_style( 'gcse-widget', get_template_directory_uri() . '/lib/google-custom-search/css/widget.css', false, THEME_VERSION );
 	} // end load_stylesheets
 
 	/**

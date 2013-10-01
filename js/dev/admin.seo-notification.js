@@ -11,7 +11,7 @@
 				$.post(ajaxurl, {
 				
 					action: 'save_wordpress_seo_message_setting',
-					nonce: $.trim($('#lean-hide-seo-message-nonce').text()),
+					nonce: $.trim($('#hide-seo-message-nonce').text()),
 					hideSeoNotification: 'true'
 					
 				}, function(response) {

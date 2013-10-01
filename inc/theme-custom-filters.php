@@ -8,7 +8,7 @@
 
 
 /**
- * This function is fired if the current version of Lean is not the latest version. If it's not, then the user will be prompted to reset their settings.
+ * This function is fired if the current version of the theme is not the latest version. If it's not, then the user will be prompted to reset their settings.
  * Once reset, all options will be reset to their default values.
  *
  * TODO review this function for 3.2
@@ -18,16 +18,16 @@
  */
 function activate_theme() {
 
-    // If we're not using the most recent version of Lean...
+    // If we're not using the most recent version of the theme...
     if( ! is_current_version() ) {
 
         // .. and the user has opted to reset the otpions
-        if( array_key_exists( 'lean_theme_reset_options', $_GET ) && 'true' == $_GET['lean_theme_reset_options'] ) {
+        if( array_key_exists( 'theme_reset_options', $_GET ) && 'true' == $_GET['theme_reset_options'] ) {
 
             // Remove the Preview settings. TODO remove this in 3.2.
-            delete_option( 'lean_theme_general_options' );
+            delete_option( 'theme_general_options' );
             delete_option( 'theme_social_options' );
-            delete_option( 'lean_theme_layout_options' );
+            delete_option( 'theme_layout_options' );
 
             // Set defaults for Lean
             get_theme_default_global_options();
@@ -39,9 +39,9 @@ function activate_theme() {
         } else {
 
             // Set the default gravatar only if this is the first install
-            if( LEAN_THEME_VERSION != get_option( 'lean_theme_version' ) ) {
+            if( THEME_VERSION != get_option( 'theme_version' ) ) {
 
-                update_option( 'lean_theme_version', LEAN_THEME_VERSION );
+                update_option( 'theme_version', THEME_VERSION );
                 update_option( 'avatar_default', 'retro' );
 
             } // end if
@@ -89,7 +89,7 @@ add_filter( 'user_contactmethods', 'add_user_profile_fields' );
  */
 function meta_description() {
 
-    // If we're using Lean's native SEO, let's do the following...
+    // If we're using the theme's native SEO, let's do the following...
     if( using_native_seo() ) {
 
         // If we're on the homepage, we're going to use the site's description
@@ -442,7 +442,7 @@ if( is_wp36() ) {
 
 if( using_native_seo() ) {
     /**
-     * Calls the Lean SEO Titles plugin during the wp_title action to render
+     * Calls the SEO Titles plugin during the wp_title action to render
      * SEO-friendly page titles.
      *
      * @version 3.0
@@ -533,7 +533,7 @@ function save_post( ) {
 } // end save_post
 add_action( 'save_post', 'save_post' );
 /**
- * Updates the Lean Sitemap Flag if the post being deleted is the actual sitemap.
+ * Updates the Sitemap Flag if the post being deleted is the actual sitemap.
  *
  * @param	string $id		The ID of the post being deleted.
  * @version 3.0
@@ -568,7 +568,7 @@ function attachment_fields_to_edit_wp34( $form_fields, $post ) {
     // Mark the alt field as required
     $form_fields['image_alt']['required'] = true;
 
-    // Provide a Lean description for title and alt
+    // Provide a description for title and alt
     $form_fields['post_title']['helps'] =	__( 'A title is required for search engines.', 'lean' );
     $form_fields['image_alt']['helps'] = __( 'An alternate text description is required for search engines.', 'lean' );
 
@@ -1076,11 +1076,11 @@ function is_using_pretty_permalinks() {
  * @version	3.2
  */
 function is_current_version() {
-    return LEAN_THEME_VERSION == get_option( 'lean_theme_version' ) ? true : false;
+    return THEME_VERSION == get_option( 'THEME_VERSION' ) ? true : false;
 } // end is_current_version
 
 /**
- * Determines whether or not Lean is being run on WordPress 3.6
+ * Determines whether or not the theme is being run on WordPress 3.6
  *
  * @return	float	The current version of WordPress.
  */

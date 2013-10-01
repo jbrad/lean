@@ -81,7 +81,7 @@ if( 1 == get_post_meta( get_the_ID(), 'seo_post_level_layout', true ) ) {
                         <?php } // end if ?>
 						
 						<?php if( is_active_sidebar( 'sidebar-2' ) ) { ?>
-							<div id="lean-post-advertisement">
+							<div id="post-advertisement">
 								<?php dynamic_sidebar( 'sidebar-2' ); ?>
 							</div><!-- #lean-post-advertisement -->
 						<?php } // end if ?>

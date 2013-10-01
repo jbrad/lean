@@ -133,7 +133,7 @@ class Ad_125x125 extends WP_Widget {
 	 * @version	1.0
 	 */
 	public function register_admin_styles() {
-		wp_enqueue_style( 'ad-125x125', get_template_directory_uri() . '/lib/ad-125x125/css/admin.css', array( 'thickbox' ), LEAN_THEME_VERSION );
+		wp_enqueue_style( 'ad-125x125', get_template_directory_uri() . '/lib/ad-125x125/css/admin.css', array( 'thickbox' ), THEME_VERSION );
 	} // end register_admin_styles
 
 	/** 
@@ -147,7 +147,7 @@ class Ad_125x125 extends WP_Widget {
 		$screen = get_current_screen();
 
 		if( 'widgets' == $screen->id ) {
-			wp_enqueue_script( 'ad-125x125', get_template_directory_uri() . '/lib/ad-125x125/js/admin.min.js', array( 'jquery', 'media-upload','thickbox' ), false, LEAN_THEME_VERSION );
+			wp_enqueue_script( 'ad-125x125', get_template_directory_uri() . '/lib/ad-125x125/js/admin.min.js', array( 'jquery', 'media-upload','thickbox' ), false, THEME_VERSION );
 		} // end if 
 		
 	} // end register_admin_scripts

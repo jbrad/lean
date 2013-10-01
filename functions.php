@@ -25,7 +25,7 @@
  */
 
 // Define a Lean version. This is used for cache-busting stylesheets, JavaScript, and for serializing the version in the database
-define( 'LEAN_THEME_VERSION', '1.0.0' );
+define( 'THEME_VERSION', '1.0.0' );
 
 /* ----------------------------------------------------------- *
  * Dependencies

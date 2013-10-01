@@ -190,7 +190,7 @@ class SEO {
 	 * @version	1.0
 	 */
 	public function admin_styles() {
-		wp_enqueue_style( 'seo-admin', get_template_directory_uri() . '/lib/seo/css/admin.css', false, LEAN_THEME_VERSION );
+		wp_enqueue_style( 'seo-admin', get_template_directory_uri() . '/lib/seo/css/admin.css', false, THEME_VERSION );
 	} // end admin_styles
 
 } // end class
