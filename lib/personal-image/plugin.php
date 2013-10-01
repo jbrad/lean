@@ -8,7 +8,7 @@
  * @version		1.0
  * @since		3.0
  */
-class Lean_Personal_Image extends WP_Widget {
+class Personal_Image extends WP_Widget {
 
 	/*--------------------------------------------------------*
 	 * Constructor
@@ -23,7 +23,7 @@ class Lean_Personal_Image extends WP_Widget {
 			'classname' 	=> __( 'personal-image', 'lean' ),
 			'description' 	=> __( 'Display a personal image and an optional description.', 'lean' )
 		);
-		$this->WP_Widget( 'lean-personal-image', __( 'Personal Image', 'lean' ), $widget_opts );
+		$this->WP_Widget( 'personal-image', __( 'Personal Image', 'lean' ), $widget_opts );
 
 		// We don't want to load these on the Appearance Options because we're overriding window.send_to_editor there, too.
 		global $pagenow;
@@ -121,8 +121,8 @@ class Lean_Personal_Image extends WP_Widget {
 	 * @version	1.0
 	 */
 	public function register_admin_styles() {
-		wp_enqueue_style( 'lean-personal-image', get_template_directory_uri() . '/lib/personal-image/css/admin.css', array( 'thickbox' ), LEAN_THEME_VERSION );
+		wp_enqueue_style( 'personal-image', get_template_directory_uri() . '/lib/personal-image/css/admin.css', array( 'thickbox' ), LEAN_THEME_VERSION );
 	} // end register_admin_styles
 
 } // end class
-add_action( 'widgets_init', create_function( '', 'register_widget( "Lean_Personal_Image" );' ) );
+add_action( 'widgets_init', create_function( '', 'register_widget( "Personal_Image" );' ) );

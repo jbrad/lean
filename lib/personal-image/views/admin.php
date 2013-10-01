@@ -8,7 +8,7 @@
  * @since		3.0
  */
 ?>
-<div class="lean-personal-image-wrapper">
+<div class="personal-image-wrapper">
 
     <div class="option">
     
@@ -36,4 +36,4 @@
     	<p class="description"><span><?php _e( '400', 'lean' ); ?></span>&nbsp;<?php _e( 'characters remaining', 'lean' ); ?></p>
     </div><!-- /.option -->
     
-</div><!-- /.lean-personal-image-wrapper -->
+</div><!-- /.personal-image-wrapper -->
