@@ -1,7 +1,6 @@
 <?php
 /**
- * 300x250 is a widget for displaying a single 300x250 ad in any widgetized
- * area in lean.
+ * 300x250 is a widget for displaying a single 300x250 ad in any widgetized area.
  *
  * @package		Lean
  * @subpackage	300x250 Advertisement
