@@ -3,7 +3,7 @@
  * Influence is a widget for showing an aggregate of your Twitter followers and
  * Facebook fans.
  *
- * @version	1.5
+ * @version	1.1
  */
 class Social_Influence extends WP_Widget {
 

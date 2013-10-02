@@ -1,8 +1,8 @@
 <?php
 /**
  *
+ * @version	1.1
  * @since	1.0
- * @version	1.0
  */
 
 add_theme_support(
@@ -26,8 +26,8 @@ if( ! function_exists('header_style') ) {
      *
      * This function can be overridden by child themes.
      *
-     * @since	3.0
-     * @version	3.2
+     * @version	1.1
+     * @since	1.0
      */
     function header_style() {
         if ( HEADER_TEXTCOLOR != get_header_textcolor() ) { ?>
@@ -57,8 +57,8 @@ if( ! function_exists('admin_header_style') ) {
      *
      * This function can be overridden by child themes.
      *
-     * @since	3.0
-     * @version	3.2
+     * @version	1.1
+     * @since	1.0
      */
     function admin_header_style() { ?>
         <style type="text/css">
@@ -99,8 +99,8 @@ if( ! function_exists('admin_header_image') ) {
      *
      * This function can be overridden by child themes.
      *
-     * @since	3.0
-     * @version	3.2
+     * @version	1.1
+     * @since	1.0
      */
     function admin_header_image() { ?>
         <div id="headimg">

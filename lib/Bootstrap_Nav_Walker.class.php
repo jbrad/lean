@@ -16,7 +16,7 @@ class Bootstrap_Nav_Walker extends Walker_Nav_Menu {
 	 * @param	string   $output	The opening unordered list for the menu.
 	 * @param	int      $depth	    The level of depth at which the menu is being called.
 	 * @param	array    $args	    The arguments passed to be added to the menu item
-	 * @version	1.0
+	 * @version	1.1
 	 * @since	1.0
 	 */
 	function start_lvl( &$output, $depth, $args ) {
@@ -34,7 +34,7 @@ class Bootstrap_Nav_Walker extends Walker_Nav_Menu {
 	 * @param	string   $item	     The menu item that's being processed.
 	 * @param	int      $depth	     The level of depth at which this item is being written.
 	 * @param	array    $args	     The arguments passed to be added to the menu item
-	 * @version	1.0
+	 * @version	1.1
 	 * @since	1.0
 	 */
 	function start_el( &$output, $item, $depth, $args ) {
@@ -99,7 +99,7 @@ class Bootstrap_Nav_Walker extends Walker_Nav_Menu {
 	 * @param	array    $args				The arguments applied to this elemenet.
 	 * @param	string   $output			The current rendering of this element.
 	 * @link 	http://wordpress.stackexchange.com/a/16821/1014 
-	 * @version	1.0
+	 * @version	1.1
 	 * @since	1.0
 	 */
 	function display_element( $element, &$children_elements, $max_depth, $depth = 0, $args, &$output ) {
@@ -120,7 +120,7 @@ class Bootstrap_Nav_Walker extends Walker_Nav_Menu {
 	 * @param	int      $item	     The menu item that's being processed.
 	 * @param	int      $depth	     The level of depth at which this item is being written.
 	 * @param	array    $args	     The arguments passed to be added to the menu item
-	 * @version	1.0
+	 * @version	1.1
 	 * @since	1.0
 	 */
 	function end_el( &$output, $item, $depth, $args ) {
@@ -133,7 +133,7 @@ class Bootstrap_Nav_Walker extends Walker_Nav_Menu {
 	 * @param	string   $output	The actual menu item to terminate.
 	 * @param	int      $depth	    The level of depth at which this item is being written.
 	 * @param	array    $args	    The arguments passed to be added to the menu item
-	 * @version	1.0
+	 * @version	1.1
 	 * @since	1.0
 	 */
 	function end_lvl( &$output, $depth, $args ) {

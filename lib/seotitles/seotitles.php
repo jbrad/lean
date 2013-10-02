@@ -17,8 +17,8 @@
  *
  * @package		lean
  * @subpackage	SEO Titles
- * @version		1.0
- * @since		3.0
+ * @version		1.1
+ * @since		1.0
  */
 class SeoTitles {
 
@@ -31,37 +31,37 @@ class SeoTitles {
 	 *
 	 * @param	int $page_id	Optional. The ID of the current page.
 	 * @return	string The SEO optimized title element for the page.
-	 * @since	3.0
-	 * @version	1.0
+	 * @since	1.0
+	 * @version	1.1
 	 */
-	public static function get_page_title( $page_id = null ) { 
+	public static function get_page_title( $page_id = null ) {
 
 		$title = get_bloginfo( 'name' ) . ' | ' . get_bloginfo( 'description' );
-		
+
 		if( is_home() ) {
 			$title = get_bloginfo( 'name' ) . ' | ' . get_bloginfo( 'description' );
 		} elseif ( is_search() ) {
-		
+
 			$query = $_GET[ 's' ];
-		
+
 			$search = new WP_Query( 's=' . $query . '&posts_per_page=-1' );
 			$key = trim( esc_html( $query, 1 ) );
 			$count = $search->post_count;
-			
+
 			$title = __( 'Search Results For' , TRANSLATION_KEY ) . ' ' . $key . ' | ' . $count . ' ' . __( 'Results', TRANSLATION_KEY ) . ' | ' . get_bloginfo( 'name' );
-			
+
 		} elseif( is_404() ) {
 			$title = get_bloginfo( 'name' ) . ' | ' . __( '404 Nothing Found', TRANSLATION_KEY );
 		} elseif( is_author() ) {
 			$title = get_bloginfo( 'name' ) . ' | ' . __( 'Author Archives', TRANSLATION_KEY );
 		} elseif( is_single() ) {
-		
+
 			if( strlen( trim( get_the_title( $page_id ) ) ) == 0 ) {
 				$title = get_bloginfo( 'name' ) . ' | ' . get_bloginfo( 'description' );
 			} else {
 				$title = strip_tags( htmlspecialchars_decode( get_the_title( $page_id ) ) ) . ' | ' . get_bloginfo( 'name' );
 			} // end if/else
-			
+
 		} elseif( is_page() ) {
 			$title = get_bloginfo( 'name' ) . ' | ' . strip_tags( htmlspecialchars_decode( get_the_title( $page_id ) ) );
 		} elseif( is_category() ) {
@@ -69,12 +69,12 @@ class SeoTitles {
 		} elseif( is_year() ) {
 			$title = get_bloginfo( 'name' ) . ' | ' . __( 'Archive', TRANSLATION_KEY ) . ' | ' . get_the_time( 'Y' );
 		} elseif( is_month() ) {
-		
+
 			// This particular format is not localized. The 'date_format' uses month and year and we only need month and year.
 			// The archives widget built into WordPress follows the format that we're providing see.
 			// Lines 938 - 939 of general-template.php in WordPress core.
 			$title = get_bloginfo( 'name' ) . ' | ' . __( 'Archive', TRANSLATION_KEY ) . ' | ' . get_the_time( 'F Y' );
-			
+
 		} elseif( is_day() ) {
 			$title = get_bloginfo( 'name' ) . ' | ' . __( 'Archive', TRANSLATION_KEY ) . ' | ' . get_the_time( get_option( 'date_format' ) );
 		} elseif( is_tag() ) {
@@ -82,9 +82,9 @@ class SeoTitles {
 		} elseif( is_feed() ) {
 			$title = ' | ' . get_bloginfo( 'description' );
 		} // end if/else
-		
+
 		return $title;
-		
+
 	} // end get_page_title
 
 } // end class

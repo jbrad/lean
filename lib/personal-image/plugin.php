@@ -4,8 +4,8 @@
  *
  * @package		lean
  * @subpackage	Personal Image Widget
- * @version		1.0
- * @since		3.0
+ * @version		1.1
+ * @since		1.0
  */
 class Personal_Image extends WP_Widget {
 
@@ -43,8 +43,8 @@ class Personal_Image extends WP_Widget {
 	 *
 	 * @param	array    $args		The array of form elements
 	 * @param	object   $instance	The current instance of the wdiget
-	 * @since	3.0
-	 * @version	1.0
+	 * @since	1.0
+	 * @version	1.1
 	 */
 	public function widget( $args, $instance ) {
 
@@ -65,8 +65,8 @@ class Personal_Image extends WP_Widget {
 	 * @param  array   $new_instance	The previous instance of values before the update.
 	 * @param  array   $old_instance	The new instance of values to be generated via the update.
 	 * @return array                    The updated instance of the widget.
-	 * @since	3.0
-	 * @version	1.4
+	 * @since	1.0
+	 * @version	1.1
 	 */
 	public function update( $new_instance, $old_instance ) {
 
@@ -86,8 +86,8 @@ class Personal_Image extends WP_Widget {
 	 * Generates the administration form for the widget.
 	 *
 	 * @param	array $instance	The array of keys and values for the widget.
- 	 * @since	3.0
-	 * @version	1.0
+ 	 * @since	1.0
+	 * @version	1.1
 	 */
 	public function form( $instance ) {
 
@@ -116,8 +116,8 @@ class Personal_Image extends WP_Widget {
 	/**
 	 * Registers and Enqueues the stylesheets for the Media Uploader and this widget.
 	 *
-	 * @since	3.0
-	 * @version	1.0
+	 * @since	1.0
+	 * @version	1.1
 	 */
 	public function register_admin_styles() {
 		wp_enqueue_style( 'personal-image', get_template_directory_uri() . '/lib/personal-image/css/admin.css', array( 'thickbox' ), THEME_VERSION );

@@ -2,15 +2,15 @@
 /**
  * Theme localization.
  *
+ * @version	1.1
  * @since	1.0
- * @version	1.0
  */
 
 /**
  * Defines the path to the localization files.
  *
+ * @version	1.1
  * @since	1.0
- * @version	1.0
  */
 function set_theme_localization() {
     load_theme_textdomain( TRANSLATION_KEY, get_stylesheet_directory() . '/lang' );

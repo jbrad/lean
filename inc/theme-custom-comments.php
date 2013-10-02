@@ -2,8 +2,8 @@
 /**
  * Custom comments.
  *
+ * @version	1.1
  * @since	1.0
- * @version	1.0
  */
 
 if( ! function_exists('custom_comment') ) {
@@ -13,8 +13,8 @@ if( ! function_exists('custom_comment') ) {
      * @param	array $comment    The current comment being displayed.
      * @param	array $args       Array containing arguments for displaying the comment.
      * @param	int   $depth      The depth of where this comment falls in the tree.
+     * @version	1.1
      * @since	1.0
-     * @version	1.0
      */
     function custom_comment( $comment, $args, $depth ) {
         $GLOBALS['comment'] = $comment; ?>
@@ -81,8 +81,8 @@ if( ! function_exists('custom_comment') ) {
  * @param	array $comment    The current comment being displayed.
  * @param	array $args       Array containing arguments for displaying the comment.
  * @param	int   $depth      The depth of where this comment falls in the tree.
+ * @version	1.1
  * @since	1.0
- * @version	1.0
  */
 function list_pings( $comment, $args, $depth ) {
     $GLOBALS['comment'] = $comment; ?>

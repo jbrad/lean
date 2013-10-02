@@ -4,8 +4,8 @@
  *
  * @package		lean
  * @subpackage	Google Custom Search
- * @version 	2.0
- * @since		3.0
+ * @version 	1.1
+ * @since		1.0
  */
 ?>
 <?php if( '' != $gcse_content ) { ?>

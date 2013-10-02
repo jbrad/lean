@@ -4,7 +4,7 @@
  * get_template_part to render the appropriate template based on the current post's format.
  *
  * @package lean
- * @version	1.0
+ * @version	1.1
  * @since 	1.0
  */
 ?>

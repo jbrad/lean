@@ -5,7 +5,7 @@
  * The template for rendering pages without sidebars.
  *
  * @package lean
- * @version	1.0
+ * @version	1.1
  * @since 	1.0
  */
 ?>

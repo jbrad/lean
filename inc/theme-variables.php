@@ -2,8 +2,8 @@
 /**
  * Theme Variables.
  *
+ * @version	1.1
  * @since	1.0
- * @version	1.0
  */
 
 // Define a theme version. This is used for cache-busting stylesheets, JavaScript, and for serializing the version in the database

@@ -4,7 +4,7 @@
  * get_post_format to render the appropriate template based on the post's format.
  *
  * @package lean
- * @version	1.0
+ * @version	1.1
  * @since 	1.0
  */
 ?>

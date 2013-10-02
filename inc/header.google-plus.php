@@ -4,8 +4,8 @@
  *
  * @param	string $url	The URL to evaluate
  * @return	boolean Whether or not the URL is a gplus.to URL
- * @since	3.1
- * @version	3.1
+ * @version	1.1
+ * @since	1.0
  */
 function is_gplusto_url( $url ) {
 	return false != stristr( $url, 'gplus.to' );
@@ -16,8 +16,8 @@ function is_gplusto_url( $url ) {
  *
  * @param	string $url	The URL to evaluate
  * @return	boolean 	Whether or not the URL is a Google Plus Vanity URL
- * @since	3.3
- * @version	3.3
+ * @version	1.1
+ * @since	1.0
  */
 function is_google_plus_vanity_url( $url ) {
 	return false != stristr( $url, '/+' );
@@ -28,8 +28,8 @@ function is_google_plus_vanity_url( $url ) {
  *
  * @param	string $url	The URL to evaluate
  * @return	string The full Google+ URL from the incoming URL.
- * @since	3.1
- * @version	3.1
+ * @version	1.1
+ * @since	1.0
  */
 function get_google_plus_from_gplus( $url ) {
 
@@ -56,8 +56,8 @@ function get_google_plus_from_gplus( $url ) {
 /**
  * Echos the publisher's Google Plus URL to the header of the page, if it's defined.
  *
- * @version 1.0.0
- * @since   3.4.0
+ * @version 1.1
+ * @since   1.0
  */
 function google_plus() {
 

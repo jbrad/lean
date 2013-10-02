@@ -5,7 +5,7 @@
  * The template for display all categories and all posts in ascending order.
  *
  * @package lean
- * @version	1.0
+ * @version	1.1
  * @since 	1.0
  */
 ?>

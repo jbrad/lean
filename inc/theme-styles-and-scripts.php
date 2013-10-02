@@ -2,15 +2,15 @@
 /**
  * Theme styles and scripts.
  *
+ * @version	1.1
  * @since	1.0
- * @version	1.0
  */
 
 /**
  * Imports all theme styles and dependencies required for the theme.
  *
+ * @version	1.1
  * @since	1.0
- * @version	1.0
  */
 function add_theme_stylesheets() {
 
@@ -32,8 +32,8 @@ add_action( 'wp_enqueue_scripts', 'add_theme_stylesheets', 999 );
 /**
  * Imports all theme scripts and dependencies required for managing the behavior of the theme.
  *
+ * @version	1.1
  * @since	1.0
- * @version	1.0
  */
 function add_theme_scripts() {
 
@@ -53,8 +53,8 @@ add_action( 'wp_enqueue_scripts', 'add_theme_scripts' );
 /**
  * Adds stylesheets specifically for the administrative dashboard.
  *
+ * @version	1.1
  * @since	1.0
- * @version	1.0
  */
 function add_admin_stylesheets() {
     wp_enqueue_style( 'theme-admin', get_template_directory_uri() . '/css/admin.css', false, THEME_VERSION );
@@ -64,8 +64,8 @@ add_action( 'admin_print_styles', 'add_admin_stylesheets' );
 /**
  * Adds JavaScript specifically for the administrative dashboard.
  *
+ * @version	1.1
  * @since	1.0
- * @version	1.0
  */
 function add_admin_script() {
 

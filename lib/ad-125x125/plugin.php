@@ -4,8 +4,8 @@
  *
  * @package		lean
  * @subpackage	125x125 Advertisement Widget
- * @version		1.2
- * @since		3.0
+ * @version		1.1
+ * @since		1.0
  */
 class Ad_125x125 extends WP_Widget {
 
@@ -44,8 +44,8 @@ class Ad_125x125 extends WP_Widget {
 	 *
 	 * @param	array    $args		The array of form elements
 	 * @param	object   $instance	The current instance of the widget
-	 * @since	3.0
-	 * @version	1.0
+	 * @since	1.0
+	 * @version	1.1
 	 */
 	public function widget( $args, $instance ) {
 	
@@ -70,8 +70,8 @@ class Ad_125x125 extends WP_Widget {
 	 * @param  array   $new_instance	The previous instance of values before the update.
 	 * @param  array   $old_instance	The new instance of values to be generated via the update.
 	 * @return array                    The updated instance of the widget.
-	 * @since	3.0
-	 * @version	1.4
+	 * @since	1.0
+	 * @version	1.1
 	 */
 	public function update( $new_instance, $old_instance ) {
 		
@@ -93,8 +93,8 @@ class Ad_125x125 extends WP_Widget {
 	 * Generates the administration form for the widget.
 	 *
 	 * @param	$instance	The array of keys and values for the widget.
- 	 * @since	3.0
-	 * @version	1.0
+ 	 * @since	1.0
+	 * @version	1.1
 	 */
 	public function form( $instance ) {
 
@@ -128,8 +128,8 @@ class Ad_125x125 extends WP_Widget {
 	/** 
 	 * Registers and Enqueues the stylesheets for the Media Uploader and this widget.
 	 *
-	 * @since	3.0
-	 * @version	1.0
+	 * @since	1.0
+	 * @version	1.1
 	 */
 	public function register_admin_styles() {
 		wp_enqueue_style( 'ad-125x125', get_template_directory_uri() . '/lib/ad-125x125/css/admin.css', array( 'thickbox' ), THEME_VERSION );
@@ -138,8 +138,8 @@ class Ad_125x125 extends WP_Widget {
 	/** 
 	 * Registers and Enqueues the admin dashboard JavaScript for this widget.
 	 *
-	 * @since	3.0
-	 * @version	1.0
+	 * @since	1.0
+	 * @version	1.1
 	 */
 	public function register_admin_scripts() {
 	
@@ -157,9 +157,9 @@ class Ad_125x125 extends WP_Widget {
 	 * @param	string	$ad_src	The source of the image file
 	 * @param	string	$ad_url	The URL of the advertisement
 	 * @param	int		$number	The ID of the advertisement
-	 * @return	string	$html	The markup for the 
-	 * @since 	3.2
-	 * @version 1.0
+	 * @return	string	$html	The markup for the
+     * @version 1.1
+	 * @since 	1.0
 	 */
 	private function display_ad( $ad_src, $ad_url, $number ) {
 		

@@ -2,16 +2,16 @@
 /**
  * Theme features.
  *
+ * @version	1.1
  * @since	1.0
- * @version	1.0
  */
 
 /**
  * Implements the Theme Customizer for installations that are on WordPress 3.4 or greater.
  *
  * @param	$wp_customize	The WordPress Theme Customizer
- * @since	3.0
- * @version	3.2
+ * @version	1.1
+ * @since	1.0
  */
 function customize_register( $wp_customize ) {
 
@@ -179,8 +179,8 @@ add_action( 'customize_register', 'customize_register' );
  * Renders the JavaScript responsible for hooking into the Theme Customizer to tweak
  * the built-in theme settings.
  *
- * @since	3.0
- * @version	3.2
+ * @version	1.1
+ * @since	1.0
  */
 function customize_preview() { ?>
     <script type="text/javascript">
@@ -238,8 +238,8 @@ function customize_preview() { ?>
  * Defines a custom meta box for displaying the post full-width layout. Only renders
  * if the blog isn't using the full-width layout.
  *
- * @since	3.0
- * @version	3.2
+ * @version	1.1
+ * @since	1.0
  */
 function add_full_width_single_post() {
 
@@ -264,8 +264,8 @@ add_action( 'add_meta_boxes', 'add_full_width_single_post' );
  * Renders the display for the full-width post option.
  *
  * @param	object $post	The post on which the box should be rendered.
- * @since	3.0
- * @version	3.2
+ * @version	1.1
+ * @since	1.0
  */
 function post_level_layout_display( $post ) {
 
@@ -287,8 +287,8 @@ function post_level_layout_display( $post ) {
  * Saves the post data for the post layout to post defined by the incoming ID.
  *
  * @param	string $post_id	The ID of the post to which we're saving the post data.
- * @since	3.0
- * @version	3.2
+ * @since	1.0
+ * @version	1.1
  */
 function save_post_layout_data( $post_id ) {
 
@@ -336,9 +336,9 @@ add_action( 'save_post', 'save_post_layout_data' );
 /**
  * Adds the post meta box for the URL to be included in the Link Post Format.
  *
- * @since		3.1
- * @version		3.2
- * @deprecated	3.5.1
+ * @version		1.1
+ * @since		1.0
+ * @deprecated	1.0
  */
 function add_url_field_to_link_post_format() {
 
@@ -359,9 +359,9 @@ add_action( 'add_meta_boxes', 'add_url_field_to_link_post_format' );
  * meta box defined in the add_url_field_to_link_post_format() function.
  *
  * @param	$post	The post on which this meta box is attached.
- * @since			3.1
- * @version			3.2
- * @deprecated		3.5.1
+ * @version			1.1
+ * @since			1.0
+ * @deprecated		1.0
  */
 function link_url_field_display( $post ) {
 
@@ -376,9 +376,9 @@ function link_url_field_display( $post ) {
  * related to the link_url_field_display() function.
  *
  * @param	$post_id	The ID of the post that we're serializing
- * @since				3.1
- * @version				3.2
- * @deprecated			3.5.1
+ * @version				1.1
+ * @since				1.0
+ * @deprecated			1.0
  */
 function save_link_url_data( $post_id ) {
 
@@ -425,8 +425,8 @@ add_action( 'save_post', 'save_link_url_data' );
 /**
  * Adds the theme's menu to the admin bar on the non-admin pages.
  *
- * @since	3.0
- * @version	3.2
+ * @since	1.0
+ * @version	1.1
  */
 function add_admin_bar_option() {
 
@@ -490,8 +490,8 @@ add_action( 'admin_bar_menu', 'add_admin_bar_option', 40 );
 /**
  * Adds a reminder message to the admin bar that the user has the site set in Offline Mode.
  *
- * @since	3.0
- * @version	3.2
+ * @since	1.0
+ * @version	1.1
  */
 function add_site_mode_admin_bar_note() {
 
@@ -519,8 +519,8 @@ add_action( 'admin_bar_menu' , 'add_site_mode_admin_bar_note', 90 );
  * - All in One SEO
  * - Platinum SEO
  *
- * @since	3.0
- * @version	3.2
+ * @since	1.0
+ * @version	1.1
  */
 function detect_wordpress_seo() {
 
@@ -566,8 +566,8 @@ add_action( 'admin_notices', 'detect_wordpress_seo' );
 /**
  * Callback function used in the Ajax request for hiding the notification window of WordPress SEO.
  *
- * @since	3.0
- * @version	3.2
+ * @since	1.0
+ * @version	1.1
  */
 function save_wordpress_seo_message_setting( ) {
 
@@ -594,8 +594,8 @@ if( ! function_exists('page_menu') ) {
      *
      * @param	$ulclass		The classname for the menu
      * @return	The markup for the unordered list.
-     * @since	3.0
-     * @version	3.2
+     * @since	1.0
+     * @version	1.1
      */
     function page_menu( $ulclass ) {
         return preg_replace( '/<ul>/', '<ul class="nav nav-menu">', $ulclass, 1 );
@@ -608,8 +608,8 @@ if( ! function_exists('page_menu') ) {
  *
  * This function can be overridden by child themes.
  *
- * @since	3.0
- * @version	3.2
+ * @since	1.0
+ * @version	1.1
  */
 if( ! function_exists('add_theme_background') ) {
     function add_theme_background() {
@@ -622,8 +622,8 @@ if( ! function_exists('add_theme_editor_style') ) {
     /**
      * Includes the post editor stylesheet.
      *
-     * @since	3.0
-     * @version	3.2
+     * @since	1.0
+     * @version	1.1
      */
     function add_theme_editor_style() {
 
@@ -639,8 +639,8 @@ if( ! function_exists('add_theme_menus') ) {
      *
      * This function can be overridden by child themes.
      *
-     * @since	3.0
-     * @version	3.2
+     * @since	1.0
+     * @version	1.1
      */
     function add_theme_menus() {
 
@@ -662,8 +662,8 @@ if( ! function_exists('add_theme_sidebars') ) {
      *
      * This function can be overridden by child themes.
      *
-     * @since	3.0
-     * @version	3.2
+     * @since	1.0
+     * @version	1.1
      */
     function add_theme_sidebars() {
 
@@ -756,8 +756,8 @@ if( ! function_exists('add_theme_features') ) {
      *
      * This function can be overridden by child themes.
      *
-     * @since	3.0
-     * @version	3.2
+     * @since	1.0
+     * @version	1.1
      */
     function add_theme_features() {
 
@@ -834,8 +834,8 @@ if( ! function_exists('add_theme_features') ) {
 /**
  * Provides the default loop used to add Infinite Scrolling capabilities.
  *
- * @since	3.2
- * @version	3.2
+ * @since	1.0
+ * @version	1.1
  */
 function infinite_scroll() {
 
@@ -860,8 +860,8 @@ function infinite_scroll() {
  *
  * This has to be done outside of a function for it to perform correctly for JetPack
  *
- * @since	3.0
- * @version	3.2
+ * @since	1.0
+ * @version	1.1
  */
 $options = get_option( 'theme_presentation_options' );
 if( 'full_width_layout' == $options['layout'] ) {
@@ -885,8 +885,8 @@ if( ! function_exists('set_theme_colors') ) {
      *
      * This function can be overridden by child themes.
      *
-     * @since	3.0
-     * @version	3.2
+     * @since	1.0
+     * @version	1.1
      */
     function set_theme_colors() {
 
@@ -906,8 +906,8 @@ if( ! function_exists('set_theme_colors') ) {
  * Determine which search form to display based on if the author has enabled
  * Google Custom Search Widget activated.
  *
- * @since	3.0
- * @version	3.2
+ * @since	1.0
+ * @version	1.1
  */
 function theme_get_search_form() {
 

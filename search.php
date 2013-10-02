@@ -4,7 +4,7 @@
  * then the will display that template rather than the default search results page.
  *
  * @package lean
- * @version	1.0
+ * @version	1.1
  * @since 	1.0
  */
 ?>

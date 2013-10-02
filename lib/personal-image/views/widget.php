@@ -4,8 +4,8 @@
  *
  * @package		lean
  * @subpackage	Personal Image Widget
- * @version 	1.0
- * @since		3.0
+ * @version 	1.1
+ * @since		1.0
  */
 ?>
 <?php if( '' != $image_src ) { ?>	

@@ -35,8 +35,8 @@ class SEO {
 	/**
  	 * Adds the SEO meta box to the post and page screens in the dashboard.
  	 *
-	 * @since	3.0
-	 * @version	1.0
+	 * @since	1.0
+	 * @version	1.1
 	 */
 	public function seo_meta_boxes() {
 
@@ -64,8 +64,8 @@ class SEO {
 	 * Renders the actual SEO Preview meta box and preview area to the page.
 	 *
 	 * @params	object $post	The post on which the box should be rendered.
-	 * @since	3.0
-	 * @version	1.0
+	 * @since	1.0
+	 * @version	1.1
 	 */
 	public function post_level_display( $post ) {
 
@@ -140,8 +140,8 @@ class SEO {
 	 * Saves the post data to post defined by the incoming ID.
 	 *
 	 * @params	int $post_id	The ID of the post to which we're saving the post data.
-	 * @since	3.0
-	 * @version	1.0
+	 * @since	1.0
+	 * @version	1.1
 	 */
 	public function save_postdata( $post_id ) {
 
@@ -186,8 +186,8 @@ class SEO {
 	/**
 	 * Registers and enqueues stylesheets for the administration panel.
 	 *
-	 * @since	3.0
-	 * @version	1.0
+	 * @since	1.0
+	 * @version	1.1
 	 */
 	public function admin_styles() {
 		wp_enqueue_style( 'seo-admin', get_template_directory_uri() . '/lib/seo/css/admin.css', false, THEME_VERSION );

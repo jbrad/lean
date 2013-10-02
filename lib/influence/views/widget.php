@@ -4,8 +4,8 @@
  *
  * @package		lean
  * @subpackage	Influence Widget
- * @version 	1.4
- * @since		3.0
+ * @version 	1.1
+ * @since		1.0
  */
 ?>
 <?php if( $this->supports_outbound_requests() ) { ?>

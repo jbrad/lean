@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Lean 1.0
+ * Lean 1.1
  * Lean is a sleek, exacting product designed for uncluttered and sophisticated presentation of your content on desktop and mobile devices.
  *
  * This file enables core features of the theme including sidebars, menus, post thumbnails, post formats, header, backgrounds, and more.
@@ -18,9 +18,9 @@
  *	7. Custom Filters
  *	8. Helper Functions
  *
- * @package	Lean
+ * @package	lean
  * @since	1.0
- * @version	1.0
+ * @version	1.1
  *
  */
 

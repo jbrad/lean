@@ -4,8 +4,8 @@
  *
  * @package		lean
  * @subpackage	125x125 Advertisement
- * @version 	1.0
- * @since		3.0
+ * @version 	1.1
+ * @since		1.0
  */
 ?>
 <div class="ad-125x125-wrapper">

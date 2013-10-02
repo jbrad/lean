@@ -4,7 +4,7 @@
  * on the layout that the user has selected in the Dashboard.
  *
  * @package lean
- * @version	1.0
+ * @version	1.1
  * @since 	1.0
  */
 ?>

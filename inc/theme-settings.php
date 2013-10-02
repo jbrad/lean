@@ -2,8 +2,8 @@
 /**
  * Theme settings.
  *
+ * @version	1.1
  * @since	1.0
- * @version	1.0
  *
  * This file is broken in the following areas:
  *
@@ -23,8 +23,8 @@
 /**
  * Adds the menu page and the submenu options to the WordPress Dashboard.
  *
- * @since	3.0
- * @version	3.2
+ * @since	1.0
+ * @version	1.1
  */
 function theme_menu() {
 
@@ -84,8 +84,8 @@ add_action( 'admin_menu', 'theme_menu' );
 /**
  * Provides the default values for the Presentation Options.
  *
- * @since	3.0
- * @version	3.2
+ * @since	1.0
+ * @version	1.1
  */
 function get_theme_default_presentation_options() {
 
@@ -105,8 +105,8 @@ function get_theme_default_presentation_options() {
  * Defines the Presentation Options. Specifically, the sections and the settings. Will also
  * create the option if it does not already exist in the database.
  *
- * @since	3.0
- * @version	3.2
+ * @since	1.0
+ * @version	1.1
  */
 function setup_theme_presentation_options() {
 
@@ -228,16 +228,16 @@ add_action( 'admin_init', 'setup_theme_presentation_options' );
  *
  * This function is required by the Settings API.
  *
- * @since	3.0
- * @version	3.2
+ * @since	1.0
+ * @version	1.1
  */
 function theme_presentation_options_display() {} // end theme_presentation_options_display
 
 /**
  * Renders the description for the Layout and Design options.
  *
- * @since	3.0
- * @version	3.2
+ * @since	1.0
+ * @version	1.1
  */
 function theme_layout_options_display() {
     echo '<p>' . __( 'This section controls positioning and style elements.', TRANSLATION_KEY ) . '</p>';
@@ -246,8 +246,8 @@ function theme_layout_options_display() {
 /**
  * Renders the description for the Content options.
  *
- * @since	3.0
- * @version	3.2
+ * @since	1.0
+ * @version	1.1
  */
 function theme_content_options_display() {
     echo '<p>' . __( 'This section controls when content elements are displayed.', TRANSLATION_KEY ) . '</p>';
@@ -256,8 +256,8 @@ function theme_content_options_display() {
 /**
  * Renders the option element for the Site Icon.
  *
- * @since	3.0
- * @version	3.2
+ * @since	1.0
+ * @version	1.1
  */
 function fav_icon_display() {
 
@@ -287,8 +287,8 @@ function fav_icon_display() {
 /**
  * Renders the option element for the Contrast setting.
  *
- * @since	3.0
- * @version	3.2
+ * @since	1.0
+ * @version	1.1
  */
 function contrast_display() {
 
@@ -308,8 +308,8 @@ function contrast_display() {
 /**
  * Renders the option element for the Logo.
  *
- * @since	3.0
- * @version	3.2
+ * @since	1.0
+ * @version	1.1
  */
 function logo_display() {
 
@@ -341,8 +341,8 @@ function logo_display() {
  * Renders the option element for the Left-Sidebar Layout.
  *
  * @param	array $args	The array of options used for rendering the option. Includes a path to the option's image.
- * @since	3.0
- * @version	3.2
+ * @since	1.0
+ * @version	1.1
  */
 function left_sidebar_presentation_display( $args ) {
 
@@ -359,8 +359,8 @@ function left_sidebar_presentation_display( $args ) {
  * Renders the option element for the Right-Sidebar Layout.
  *
  * @param	array $args	The array of options used for rendering the option. Includes a path to the option's image.
- * @since	3.0
- * @version	3.2
+ * @since	1.0
+ * @version	1.1
  */
 function right_sidebar_presentation_display( $args ) {
 
@@ -377,8 +377,8 @@ function right_sidebar_presentation_display( $args ) {
  * Renders the option element for the Full-Width Layout.
  *
  * @param	array $args	The array of options used for rendering the option. Includes a path to the option's image.
- * @since	3.0
- * @version	3.2
+ * @since	1.0
+ * @version	1.1
  */
 function full_width_presentation_display( $args ) {
 
@@ -394,8 +394,8 @@ function full_width_presentation_display( $args ) {
 /**
  * Renders the option element for the Breadcrumb.
  *
- * @since	3.0
- * @version	3.2
+ * @since	1.0
+ * @version	1.1
  */
 function display_breadcrumbs_display() {
 
@@ -420,8 +420,8 @@ function display_breadcrumbs_display() {
 /**
  * Renders the option element for Featured Images.
  *
- * @since	3.0
- * @version	3.2
+ * @since	1.0
+ * @version	1.1
  */
 function display_featured_images_display() {
 
@@ -446,8 +446,8 @@ function display_featured_images_display() {
  *
  * @param	array $input	The unsanitized collection of options.
  * @return	array The collection of sanitized values.
- * @since	3.0
- * @version	3.2
+ * @since	1.0
+ * @version	1.1
  */
 function theme_presentation_options_validate( $input ) {
 
@@ -472,8 +472,8 @@ function theme_presentation_options_validate( $input ) {
 /**
  * Provides the default values for the Social Options.
  *
- * @since	3.0
- * @version	3.2
+ * @since	1.0
+ * @version	1.1
  */
 function get_theme_default_social_options() {
 
@@ -490,8 +490,8 @@ function get_theme_default_social_options() {
  * Defines the Social Options. Specifically, the sections and the settings. Will also
  * create the option if it does not already exist in the database.
  *
- * @since	3.0
- * @version	3.2
+ * @since	1.0
+ * @version	1.1
  */
 function setup_theme_social_options() {
 
@@ -540,8 +540,8 @@ add_action( 'admin_init', 'setup_theme_social_options' );
 /**
  * Renders the description for the Social Options page.
  *
- * @since	3.0
- * @version	3.2
+ * @since	1.0
+ * @version	1.1
  */
 function theme_social_options_display() {
 
@@ -599,8 +599,8 @@ function theme_social_options_display() {
 /**
  * Callback function used in the Ajax request for generating the Social Icons.
  *
- * @since 	3.0
- * @version	3.2
+ * @version	1.1
+ * @since 	1.0
  */
 function save_social_icons( ) {
 
@@ -628,8 +628,8 @@ add_action( 'wp_ajax_save_social_icons', 'save_social_icons' );
 /**
  * Callback function used in the Ajax request for resetting the Social Icons.
  *
- * @since 	3.0
- * @version	3.2
+ * @since 	1.0
+ * @version	1.1
  */
 function reset_social_icons( ) {
     if( wp_verify_nonce( $_REQUEST['nonce'], 'reset_social_icons_nonce' ) ) {
@@ -641,8 +641,8 @@ add_action( 'wp_ajax_reset_social_icons', 'reset_social_icons' );
 /**
  * Displays the message for users attempting to delete the core set of social icons.
  *
- * @since 	3.0
- * @version	3.2
+ * @since 	1.0
+ * @version	1.1
  */
 function delete_social_icons() {
     if( wp_verify_nonce( $_REQUEST['nonce'], 'delete-social-icon-nonce' ) ) {
@@ -654,8 +654,8 @@ add_action( 'wp_ajax_delete_social_icons', 'delete_social_icons' );
 /**
  * Generates a message to be displayed when the user attempts to delete a social icon.
  *
- * @since 	3.0
- * @version	3.2
+ * @since 	1.0
+ * @version	1.1
  */
 function display_delete_social_icon_message() {
 
@@ -673,8 +673,8 @@ function display_delete_social_icon_message() {
  * Renders the available social icon input. This field is hidden and is manipulated by the functionality for powering
  * the drag and drop ability of the icons.
  *
- * @since 	3.0
- * @version	3.2
+ * @since 	1.0
+ * @version	1.1
  */
 function available_icons_display() {
 
@@ -691,8 +691,8 @@ function available_icons_display() {
  * Renders the active social icon input. This field is hidden and is manipulated by the functionality for powering
  * the drag and drop ability of the icons.
  *
- * @since 	3.0
- * @version	3.2
+ * @since 	1.0
+ * @version	1.1
  */
 function active_icons_display() {
 
@@ -708,8 +708,8 @@ function active_icons_display() {
  *
  * @param	array $input	The unsanitized collection of options.
  * @return	array The collection of sanitized values.
- * @since 	3.0
- * @version	3.2
+ * @since 	1.0
+ * @version	1.1
  */
 function theme_social_options_validate( $input ) {
 
@@ -735,8 +735,8 @@ function theme_social_options_validate( $input ) {
  * If users have uploaded their own icons for ones that we have included, such as LinkedIn or
  * SoundCloud then they'll need to 'Restore Defaults' and configure their own.
  *
- * @since 	3.1
- * @version	3.1
+ * @version	1.1
+ * @since 	1.0
  */
 function find_new_social_icons() {
 
@@ -780,8 +780,8 @@ function find_new_social_icons() {
 /**
  * Provides the default values for the Global Options.
  *
- * @since	3.0
- * @version	3.2
+ * @since	1.0
+ * @version	1.1
  */
 function get_theme_default_global_options() {
 
@@ -800,8 +800,8 @@ function get_theme_default_global_options() {
  * Defines the Global Options. Specifically, the sections and the settings. Will also
  * create the option if it does not already exist in the database.
  *
- * @since	3.0
- * @version	3.2
+ * @since	1.0
+ * @version	1.1
  */
 function setup_theme_global_options() {
 
@@ -863,8 +863,8 @@ add_action( 'admin_init', 'setup_theme_global_options' );
 /**
  * Renders the description for the Global Options page.
  *
- * @since	3.0
- * @version	3.2
+ * @since	1.0
+ * @version	1.1
  */
 function theme_global_options_display() {
 
@@ -878,8 +878,8 @@ function theme_global_options_display() {
 /**
  * Renders the option element for FeedBurner.
  *
- * @since	3.0
- * @version	3.2
+ * @since	1.0
+ * @version	1.1
  */
 function feedburner_url_display() {
 
@@ -905,8 +905,8 @@ function feedburner_url_display() {
 /**
  * Renders the option element for Google Analytics.
  *
- * @since	3.0
- * @version	3.2
+ * @since	1.0
+ * @version	1.1
  */
 function google_analytics_display() {
 
@@ -932,8 +932,8 @@ function google_analytics_display() {
 /**
  * Renders the option element for activating Offline Mode.
  *
- * @since	3.0
- * @version	3.2
+ * @since	1.0
+ * @version	1.1
  */
 function site_mode_display( ) {
 
@@ -962,8 +962,8 @@ function site_mode_display( ) {
 /**
  * Renders the option element for the 140-character message for Offline Mode.
  *
- * @since	3.0
- * @version	3.2
+ * @since	1.0
+ * @version	1.1
  */
 function offline_message_display() {
 
@@ -985,8 +985,8 @@ function offline_message_display() {
  *
  * @param	array $input	The unsanitized collection of options.
  * @return	array The collection of sanitized values.
- * @since 	3.0
- * @version	3.2
+ * @since 	1.0
+ * @version	1.1
  */
 function theme_global_options_validate( $input ) {
 
@@ -1011,8 +1011,8 @@ function theme_global_options_validate( $input ) {
 /**
  * Provides the default values for the Post Options on the Publishing Options page.
  *
- * @since	3.0
- * @version	3.2
+ * @since	1.0
+ * @version	1.1
  */
 function get_theme_default_publishing_options() {
 
@@ -1028,8 +1028,8 @@ function get_theme_default_publishing_options() {
  * Defines the Publishing Options. Specifically, the sections and the settings. Will also
  * create the option if it does not already exist in the database.
  *
- * @since	3.0
- * @version	3.2
+ * @since	1.0
+ * @version	1.1
  */
 function setup_theme_publishing_options() {
 
@@ -1102,16 +1102,16 @@ add_action( 'admin_init', 'setup_theme_publishing_options' );
  *
  * This function is required by the Settings API.
  *
- * @since	3.0
- * @version	3.2
+ * @since	1.0
+ * @version	1.1
  */
 function theme_publishing_options_display() {}
 
 /**
  * Renders the description for the Post Options settings on the Publishing page.
  *
- * @since	3.0
- * @version	3.2
+ * @since	1.0
+ * @version	1.1
  */
 function theme_post_options_display() {
     echo '<p>' . __( 'This section controls publisher-centric features available on individual posts.', TRANSLATION_KEY ) . '</p>';
@@ -1120,8 +1120,8 @@ function theme_post_options_display() {
 /**
  * Renders the description for the Page Options settings on the Publishing page.
  *
- * @since	3.0
- * @version	3.2
+ * @since	1.0
+ * @version	1.1
  */
 function theme_page_options_display() {
     echo '<p>' . __( 'This section controls publisher-centric features available for pages.', TRANSLATION_KEY ) . '</p>';
@@ -1130,8 +1130,8 @@ function theme_page_options_display() {
 /**
  * Renders the option element for the Author Box.
  *
- * @since	3.0
- * @version	3.2
+ * @since	1.0
+ * @version	1.1
  */
 function display_author_box_display() {
 
@@ -1156,8 +1156,8 @@ function display_author_box_display() {
 /**
  * Renders the option for generating the Privacy Policy from within the WorsPress Dashboard.
  *
- * @since	3.0
- * @version	3.2
+ * @since	1.0
+ * @version	1.1
  */
 function privacy_policy_template_display() {
 
@@ -1193,8 +1193,8 @@ function privacy_policy_template_display() {
 /**
  * Renders the option for generating the Comment Policy from within the WordPress Dashboard.
  *
- * @since	3.0
- * @version	3.2
+ * @since	1.0
+ * @version	1.1
  */
 function comment_policy_template_display() {
 
@@ -1230,8 +1230,8 @@ function comment_policy_template_display() {
 /**
  * Callback function used in the Ajax request for generating the Privacy Policy.
  *
- * @since	3.0
- * @version	3.2
+ * @since	1.0
+ * @version	1.1
  */
 function generate_privacy_policy_page( ) {
 
@@ -1254,8 +1254,8 @@ add_action( 'wp_ajax_generate_privacy_policy_page', 'generate_privacy_policy_pag
 /**
  * Callback function used in the Ajax request for deleting the Privacy Policy.
  *
- * @since	3.0
- * @version	3.2
+ * @since	1.0
+ * @version	1.1
  */
 function delete_privacy_policy_page( ) {
 
@@ -1278,8 +1278,8 @@ add_action( 'wp_ajax_delete_privacy_policy_page', 'delete_privacy_policy_page' )
 /**
  * Callback function used in the Ajax request for generating the Comment Policy.
  *
- * @since	3.0
- * @version	3.2
+ * @since	1.0
+ * @version	1.1
  */
 function generate_comment_policy_page( ) {
 
@@ -1302,8 +1302,8 @@ add_action( 'wp_ajax_generate_comment_policy_page', 'generate_comment_policy_pag
 /**
  * Callback function used in the Ajax request for deleting the Privacy Policy.
  *
- * @since	3.0
- * @version	3.2
+ * @since	1.0
+ * @version	1.1
  */
 function delete_comment_policy_page( ) {
 
@@ -1330,8 +1330,8 @@ add_action( 'wp_ajax_delete_comment_policy_page', 'delete_comment_policy_page' )
  *
  * @param	array $input	The unsanitized collection of options.
  * @return	array The collection of sanitized values.
- * @since 	3.0
- * @version	3.2
+ * @since 	1.0
+ * @version	1.1
  */
 function theme_publishing_options_validate( $input ) {
 
@@ -1356,8 +1356,8 @@ function theme_publishing_options_validate( $input ) {
 /**
  * Renders the header for the theme options page.
  *
- * @since	3.0
- * @version	3.2
+ * @since	1.0
+ * @version	1.1
  */
 function theme_options_display() {
     ?>

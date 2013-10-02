@@ -5,8 +5,8 @@
  *
  * @package		lean
  * @subpackage	Google Custom Search Widget
- * @version 	1.0
- * @since		3.0
+ * @version 	1.1
+ * @since		1.0
  */
 class Google_Custom_Search extends WP_Widget {
 
@@ -50,8 +50,8 @@ class Google_Custom_Search extends WP_Widget {
 	 *
 	 * @param	array    $args		The array of form elements
 	 * @param	object   $instance	The current instance of the wdiget
-	 * @since	3.0
-	 * @version	3.0
+	 * @since	1.0
+	 * @version	1.1
 	 */
 	function widget( $args, $instance ) {
 
@@ -69,8 +69,8 @@ class Google_Custom_Search extends WP_Widget {
 	 *
 	 * @param	object $new_instance	The previous instance of values before the update.
 	 * @param	object $old_instance	The new instance of values to be generated via the update.
-	 * @since	3.0
-	 * @version	3.0
+	 * @since	1.0
+	 * @version	1.1
 	 */
 	function update( $new_instance, $old_instance ) {
 
@@ -86,8 +86,8 @@ class Google_Custom_Search extends WP_Widget {
 	 * Generates the administration form for the widget.
 	 *
 	 * @param	array $instance	The array of keys and values for the widget.
- 	 * @since	3.0
-	 * @version	3.0
+ 	 * @since	1.0
+	 * @version	1.1
 	 */
 	function form( $instance ) {
 
@@ -112,8 +112,8 @@ class Google_Custom_Search extends WP_Widget {
 	/**
 	 * Loads the administrative stylesheets for the dashboard.
 	 *
-	 * @since	3.0
-	 * @version	3.0
+	 * @since	1.0
+	 * @version	1.1
 	 */
 	function load_admin_stylesheets() {
 		wp_enqueue_style( 'gcse-widget', get_template_directory_uri() . '/lib/google-custom-search/css/admin.css', false, THEME_VERSION );
@@ -122,8 +122,8 @@ class Google_Custom_Search extends WP_Widget {
 	/**
 	 * Loads the stylesheets for the sidebar and the page template.
 	 *
-	 * @since	3.0
-	 * @version	3.0
+	 * @since	1.0
+	 * @version	1.1
 	 */
 	function load_stylesheets() {
 		wp_enqueue_style( 'gcse-widget', get_template_directory_uri() . '/lib/google-custom-search/css/widget.css', false, THEME_VERSION );
@@ -133,8 +133,8 @@ class Google_Custom_Search extends WP_Widget {
 	 * Creates the search results page that will be used to render the results based on the search.
 	 * If a page with the 'Search Results' slug already exists, an error will be thrown.
 	 *
-	 * @since	3.0
-	 * @version	3.0
+	 * @since	1.0
+	 * @version	1.1
 	 */
 	private function create_search_results_template() {
 
@@ -180,8 +180,8 @@ class Google_Custom_Search extends WP_Widget {
 	/**
 	 * Deletes the search results page when the widget is no longer active.
 	 *
-	 * @since	3.0
-	 * @version	3.0
+	 * @since	1.0
+	 * @version	1.1
 	 */
 	public function delete_search_results_template() {
 
@@ -200,8 +200,8 @@ class Google_Custom_Search extends WP_Widget {
 	/**
 	 * Renders a notification if the user already has an existing search results template.
 	 *
-	 * @since	3.0
-	 * @version	3.0
+	 * @since	1.0
+	 * @version	1.1
 	 */
 	public function existing_search_results_template() {
 
@@ -243,8 +243,8 @@ class Google_Custom_Search extends WP_Widget {
 	 *
 	 * @param	string	$page_file_name	The name of hte file (i.e., widgets.php) to evaluate
 	 * @return	boolean	Whether or not we are on the specified page.
-	 * @since	3.2
-	 * @version	3.2
+	 * @since	1.0
+	 * @version	1.1
 	 */
 	private function is_page( $page_file_name ) {
 		return 0 < strpos( $_SERVER['REQUEST_URI'], $page_file_name );

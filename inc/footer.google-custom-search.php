@@ -3,8 +3,8 @@
  * If the Google Custom Search widget is active, then render the JavaScript necessary for the widget
  * in the header of the page.
  *
- * @version   1.0
- * @since     1.0
+ * @version 1.1
+ * @since 1.0
  */
 function google_custom_search() {
 

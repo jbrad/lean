@@ -34,17 +34,17 @@ class Activity_Tabs extends WP_Widget {
 	/*--------------------------------------------------------*
 	 * API Functions
 	 *--------------------------------------------------------*/
-	 
+
 	/**
 	 * Outputs the content of the widget.
 	 *
 	 * @param	array    $args		The array of form elements
 	 * @param	object   $instance	The current instance of the wdiget
-	 * @since	3.0
-	 * @version	3.0
+	 * @since	1.0
+	 * @version	1.1
 	 */
 	public function widget( $args, $instance ) {
-	
+
 		extract( $args, EXTR_SKIP );
 
 		$post_count = empty( $instance['post_count']) ? '' : apply_filters( 'post_count', $instance['post_count'] );
@@ -54,29 +54,29 @@ class Activity_Tabs extends WP_Widget {
 
 		// Display the widget
 		if( $post_count > 0 || $popular_count > 0 || $comment_count > 0 || $tag_count > 0 ) {
-		
+
 			if( isset( $args['before_widget'] ) ) {
 				echo $args['before_widget'];
 			} // end if
-			
+
 			echo self::get_popular_content( $post_count, $popular_count, $comment_count, $tag_count );
-			
+
 			if( isset( $args['after_widget'] ) ) {
 				echo $args['after_widget'];
 			} // end if
-			
+
 		} // end if
-		
+
 	} // end widget
-	
+
 	/**
 	 * Processes the widget's options to be saved.
 	 *
 	 * @param  array   $new_instance	The previous instance of values before the update.
 	 * @param  array   $old_instance	The new instance of values to be generated via the update.
 	 * @return array                    The updated instance of the widget.
-	 * @since	3.0
-	 * @version	3.0
+	 * @since	1.0
+	 * @version	1.1
 	 */
 	public function update( $new_instance, $old_instance ) {
 		
@@ -95,8 +95,8 @@ class Activity_Tabs extends WP_Widget {
 	 * Generates the administration form for the widget.
 	 *
 	 * @param	array $instance	The array of keys and values for the widget.
- 	 * @since	3.0
-	 * @version	3.0
+ 	 * @since	1.0
+	 * @version	1.1
 	 */
 	public function form( $instance ) {
 
@@ -128,8 +128,8 @@ class Activity_Tabs extends WP_Widget {
 	/** 
 	 * Registers and Enqueues the stylesheets for the Media Uploader and this widget.
 	 *
-	 * @since	3.0
-	 * @version	3.0
+	 * @since	1.0
+	 * @version	1.1
 	 */
 	public function register_admin_styles() {
 		wp_enqueue_style( 'activity-tabs', get_template_directory_uri() . '/lib/activity/css/admin.css', false, THEME_VERSION );
@@ -138,7 +138,7 @@ class Activity_Tabs extends WP_Widget {
 	/*--------------------------------------------------------*
 	 * Private Functions
 	 *--------------------------------------------------------*/
-	 
+
 	/**
 	 * Creates the container for all of the popular elements.
 	 *
@@ -147,71 +147,71 @@ class Activity_Tabs extends WP_Widget {
 	 * @param      int $comment_count  Whether or not the plugin should display latest comments.
 	 * @param      int $tag_count	   Whether or not the plugin should display post tags.
 	 * @return     string              The HTML used to render the popular content.
-	 * @since      3.0
-	 * @version    3.0
+	 * @since      1.0
+	 * @version    1.1
 	 */
 	private static function get_popular_content($post_count, $popular_count, $comment_count, $tag_count) {
-	
+
 		global $post;
-			
+
 		$html = '<div class="tabbed-widget widget">';
-		
+
 			$html .= '<div class="tab-inner">';
 
-				// Determine how many tabs we are going to display		
+				// Determine how many tabs we are going to display
 				$tab_count = 0;
 				foreach( func_get_args() as $arg ) {
 					if( $arg > 0 ) {
 						$tab_count++;
 					} // end if
 				} // end foreach
-		
+
 				$html .= '<ul class="nav nav-tabs tab-count-' . $tab_count . '">';
-				
+
 					if( $post_count > 0 ) {
 						$html .= '<li><a href="#recent" data-toggle="tab">' . __( 'Recent', TRANSLATION_KEY ) . '</a></li>';
 					} // end if
-					
+
 					if( $popular_count > 0 ) {
 						$html .= '<li><a href="#popular" data-toggle="tab">' . __( 'Popular', TRANSLATION_KEY ) . '</a></li>';
 					} // end if
-					
+
 					if( $comment_count > 0 ) {
 						$html .= '<li><a href="#pop-comments" data-toggle="tab">' . __( 'Comments', TRANSLATION_KEY ) . '</a></li>';
 					} // end if
-					
+
 					if( $tag_count > 0 ) {
 						$html .= '<li><a href="#tags" data-toggle="tab">' . __( 'Tags', TRANSLATION_KEY ) . '</a></li>';
 					} // end if
-					
+
 				$html .= '</ul>';
-				
+
 				$html .= '<div class="tab-content">';
-				
+
 					if( $post_count > 0 ) {
 						$html .= self::get_latest_posts( $post_count );
 					} // end if
-						
+
 					if( $popular_count > 0 ) {
 						$html .= self::get_popular_posts( $popular_count );
 					} // end if
-					
+
 					if( $comment_count > 0 ) {
 						$html .= self::get_latest_comments( $post, $comment_count );
 					} // end if
-						
+
 					if( $tag_count ) {
 						$html .= self::get_tags( $tag_count );
 					} // end if
-						
-				$html .= '</div><!-- /.tab-content -->'; 
-				
+
+				$html .= '</div><!-- /.tab-content -->';
+
 			$html .= '</div><!-- /.tab-inner -->';
-		
+
 		$html .= '</div><!-- /.tabbed-widget -->';
-		
+
 		return $html;
-	
+
 	} // end get_container
 
 	/**
@@ -219,8 +219,8 @@ class Activity_Tabs extends WP_Widget {
 	 *
 	 * @param	int $post_count  The number of latest posts to list.
 	 * @return	string  The HTML used to render the list of latest posts.
-	 * @since	3.0
-	 * @version	3.0
+	 * @since	1.0
+	 * @version	1.1
 	 */
 	private function get_latest_posts( $post_count ) {
 	
@@ -300,8 +300,8 @@ class Activity_Tabs extends WP_Widget {
 	 *
 	 * @param	int  $popular_count   The number of posts to list.
 	 * @return	string The HTML used to render the list of popular posts.
-	 * @since	3.0
-	 * @version	3.0
+	 * @since	1.0
+	 * @version	1.1
 	 */
 	private function get_popular_posts( $popular_count ) {
 	
@@ -397,8 +397,8 @@ class Activity_Tabs extends WP_Widget {
 	 * @param   object $post           The current post
 	 * @param   int    $comment_count  The number of comments to display
 	 * @return  string The markup for rendering the comments.
-	 * @since	3.0
-	 * @version	3.0
+	 * @since	1.0
+	 * @version	1.1
 	 */
 	private function get_latest_comments( $post, $comment_count ) {
 
@@ -471,8 +471,8 @@ class Activity_Tabs extends WP_Widget {
 	 * 
 	 * @param	int $tag_count	The number of tags to reder
 	 * @return	string The HTML used to render the list of tags.
-	 * @since	3.0
-	 * @version	3.0
+	 * @since	1.0
+	 * @version	1.1
 	 */
 	private function get_tags( $tag_count ) {
 

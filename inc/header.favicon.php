@@ -3,8 +3,8 @@
  * If the user has defined a Google Analytics code, then this will write it out to the <head>
  * element of the page.
  *
- * @version 1.0.0
- * @since   3.4.0
+ * @version 1.1
+ * @since   1.0
  */
 function fav_icon() {
 

@@ -6,7 +6,7 @@
  * and is not available on the page editor.
  * 
  * @package lean
- * @since 3.1
+ * @since 1.0
  */
 ?>
 <gcse:searchresults-only></gcse:searchresults-only>

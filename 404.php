@@ -3,7 +3,7 @@
  * The template for displaying 404 pages.
  *
  * @package lean
- * @version	1.0
+ * @version	1.1
  * @since 	1.0
  */
 ?>
