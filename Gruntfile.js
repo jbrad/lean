@@ -4,9 +4,9 @@ module.exports = function(grunt) {
         pkg: grunt.file.readJSON('package.json'),
 
         compress: {
-            lean: {
+            blogger: {
                 options: {
-                    archive: '../lean-licenses/lean/lean.zip'
+                    archive: '../<%= pkg.name %>-versions/<%= pkg.name %>/<%= pkg.name %>.zip'
                 },
                 files: [
                     {src: [
@@ -24,14 +24,14 @@ module.exports = function(grunt) {
                         '!**/css/lib/less/**',
                         '!lib/**/js/dev/*'
                     ],
-                        dest: 'lean',
+                        dest: '<%= pkg.name %>',
                         filter: 'isFile'
                     }
                 ]
             },
             designer: {
                 options: {
-                    archive: '../lean-licenses/designer/lean.zip'
+                    archive: '../<%= pkg.name %>-versions/designer/<%= pkg.name %>.zip'
                 },
                 files: [
                     {src: [
@@ -44,21 +44,21 @@ module.exports = function(grunt) {
                         '!**js/lib/js-md5/**',
                         '!**/node_modules/**'
                     ],
-                        dest: 'lean',
+                        dest: '<%= pkg.name %>',
                         filter: 'isFile'
                     }
                 ]
             },
             developer: {
                 options: {
-                    archive: '../lean-licenses/developer/lean.zip'
+                    archive: '../<%= pkg.name %>-versions/developer/<%= pkg.name %>.zip'
                 },
                 files: [
                     {src: [
                         '**',
                         '!**/node_modules/**'
                     ],
-                        dest: 'lean'
+                        dest: '<%= pkg.name %>'
                     }
                 ]
             }
@@ -160,7 +160,7 @@ module.exports = function(grunt) {
                 },
                 src: [
                     'js/dev/*.js'
-                ],
+                ]
             },
             plugins: {
                 options: {
@@ -169,7 +169,7 @@ module.exports = function(grunt) {
                 },
                 src: [
                     'lib/**/js/dev/*.js'
-                ],
+                ]
             }
         },
 
@@ -237,7 +237,7 @@ module.exports = function(grunt) {
                     "lib/ad-300x250/css/admin.css": 'lib/ad-300x250/css/less/admin.less',
                     "lib/ad-300x250/css/widget.css": 'lib/ad-300x250/css/less/widget.less',
                     "lib/ad-billboard/css/admin.css": 'lib/ad-billboard/css/less/admin.less',
-                    "lib/ad-billboard/css/widget.css": 'lib/ad-billboard/css/less/widget.less',
+                    "lib/ad-billboard/css/widget.css": 'lib/ad-billboard/css/less/widget.less'
                 }
             }
         },
@@ -398,7 +398,7 @@ module.exports = function(grunt) {
         watch: {
             theme_js: {
                 files: ['js/dev/*.js'],
-                tasks: ['jshint:theme']
+                tasks: ['jshint:theme', 'uglify:theme', 'uglify:admin']
             },
             plugin_js: {
                 files: ['lib/**/js/dev/*.js'],
