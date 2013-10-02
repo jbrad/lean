@@ -34,7 +34,7 @@ function theme_menu() {
         'administrator',
         'theme_options',
         'theme_options_display',
-        get_template_directory_uri() . '/images/icn-lean-small.png',
+        get_template_directory_uri() . '/images/icn-theme-small.png',
         59
     );
 
