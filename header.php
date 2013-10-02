@@ -2,7 +2,7 @@
 /**
  * The template for displaying the header
  *
- * @package Lean
+ * @package lean
  * @version	1.0
  * @since 	1.0
  */

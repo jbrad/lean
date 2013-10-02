@@ -2,7 +2,7 @@
 /**
  * Renders the the Google Custom Search widget.
  *
- * @package		Lean
+ * @package		lean
  * @subpackage	Google Custom Search
  * @version 	2.0
  * @since		3.0

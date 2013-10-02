@@ -29,7 +29,7 @@
 function theme_menu() {
 
     add_menu_page(
-        __( 'Lean Options', TRANSLATION_KEY ),
+        __( THEME_NAME . ' Options', TRANSLATION_KEY ),
         __( THEME_NAME, TRANSLATION_KEY ),
         'administrator',
         'theme_options',
@@ -568,7 +568,7 @@ function theme_social_options_display() {
     $html .= '<a href="javascript:;" id="cancel-social-icon-url">' . __( 'Cancel', TRANSLATION_KEY ) . '</a>';
     $html .= '</span><!-- /#social-icon-controls -->';
     $html .= '</div><!-- /#active-icon-url -->';
-    $html .= '<div id="social-icon-max" class="hidden alert alert-info"><i class="icon icon-warning"></i> ' . __( 'Lean looks best with seven icons or fewer.', TRANSLATION_KEY ) . '</div>';
+    $html .= '<div id="social-icon-max" class="hidden alert alert-info"><i class="icon icon-warning"></i> ' . __( '' . THEME_NAME . ' looks best with seven icons or fewer.', TRANSLATION_KEY ) . '</div>';
     $html .= '</div><!-- /#active-icons -->';
     $html .= '</div><!-- /#social-icons-active -->';
 
@@ -661,7 +661,7 @@ function display_delete_social_icon_message() {
 
     $html = '<div id="delete-social-icons" class="updated">';
     $html .= '<p>';
-    $html .= __( 'You cannot delete the default set of Lean social icons. <a href="javascript:;" id="hide-delete-social-icon-message">Hide this message.</a>', TRANSLATION_KEY );
+    $html .= __( 'You cannot delete the default set of ' . THEME_NAME . ' social icons. <a href="javascript:;" id="hide-delete-social-icon-message">Hide this message.</a>', TRANSLATION_KEY );
     $html .= '</p>';
     $html .= '</div><!-- /#delete-social-icons -->';
 
@@ -1368,7 +1368,7 @@ function theme_options_display() {
             <h3 id="theme-title"><?php _e( THEME_NAME, TRANSLATION_KEY ); ?> <span><?php _e( 'for publishers', TRANSLATION_KEY ); ?></span></h3>
 
             <div id="theme-desc">
-                <p><?php _e( 'Lean is a sleek, exacting product designed for uncluttered and sophisticated presentation of your content on desktop and mobile devices.', TRANSLATION_KEY ); ?></p>
+                <p><?php _e( '' . THEME_NAME . ' is a sleek, exacting product designed for uncluttered and sophisticated presentation of your content on desktop and mobile devices.', TRANSLATION_KEY ); ?></p>
             </div>
         </div><!--/#theme-info -->
 

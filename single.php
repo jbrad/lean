@@ -3,7 +3,7 @@
  * The template for displaying a single post and its related content as well as author boxes. Uses
  * get_post_format to render the appropriate template based on the post's format.
  *
- * @package Lean
+ * @package lean
  * @version	1.0
  * @since 	1.0
  */

@@ -2,7 +2,7 @@
 /**
  * The template for displaying quote post formats.
  *
- * @package Lean
+ * @package lean
  * @version	1.0
  * @since 	1.0
  */

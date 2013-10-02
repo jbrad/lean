@@ -4,7 +4,7 @@
  * Lean 1.0
  * Lean is a sleek, exacting product designed for uncluttered and sophisticated presentation of your content on desktop and mobile devices.
  *
- * This file enables core features of Lean including sidebars, menus, post thumbnails, post formats, header, backgrounds, and more.
+ * This file enables core features of the theme including sidebars, menus, post thumbnails, post formats, header, backgrounds, and more.
  * Some functions are able to be overridden using child themes. These functions will be wrapped in a function_exists() conditional.
  *
  * This file is broken in the following areas:

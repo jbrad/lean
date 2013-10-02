@@ -2,7 +2,7 @@
 /**
  * The template for providing pagination throughout the theme.
  *
- * @package Lean
+ * @package lean
  * @version	1.0
  * @since 	1.0
  */

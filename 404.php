@@ -2,7 +2,7 @@
 /**
  * The template for displaying 404 pages.
  *
- * @package Lean
+ * @package lean
  * @version	1.0
  * @since 	1.0
  */

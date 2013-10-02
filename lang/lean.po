@@ -166,8 +166,8 @@ msgid "Upload"
 msgstr ""
 
 #: ../functions.php:337 ../functions.php:390 ../functions.php:1242
-#: ../functions.php:1279 ../lib/lean-ad-125x125/views/admin.php:21
-#: ../lib/lean-ad-125x125/views/admin.php:29
+#: ../functions.php:1279 ../lib/ad-125x125/views/admin.php:21
+#: ../lib/ad-125x125/views/admin.php:29
 msgid "Delete"
 msgstr ""
 

@@ -437,7 +437,7 @@ function add_admin_bar_option() {
         $wp_admin_bar->add_node(
             array(
                 'id'	=>	'theme_options',
-                'title'	=>	__( 'Lean', TRANSLATION_KEY ),
+                'title'	=>	__( THEME_NAME, TRANSLATION_KEY ),
                 'href'	=>	site_url() . '/wp-admin/admin.php?page=theme_options'
             )
         );

@@ -2,7 +2,7 @@
 /**
  * The page that is rendered to the public whenever the theme is set in offline mode.
  *
- * @package Lean
+ * @package lean
  * @version	1.0
  * @since 	1.0
  */

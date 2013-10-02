@@ -2,7 +2,7 @@
 /**
  * Renders the administration dashboard for the Personal Image widget.
  *
- * @package		Lean
+ * @package		lean
  * @subpackage	Personal Image Widget
  * @version 	1.0
  * @since		3.0

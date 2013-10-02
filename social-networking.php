@@ -2,7 +2,7 @@
 /**
  * The template for rendering the social networking icons.
  *
- * @package Lean
+ * @package lean
  * @version	1.0
  * @since 	1.0
  */

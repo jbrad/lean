@@ -2,7 +2,7 @@
 /**
  * The template for rendering images and attached images.
  *
- * @package Lean
+ * @package lean
  * @version	1.0
  * @since 	1.0
  */

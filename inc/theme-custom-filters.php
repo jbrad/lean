@@ -29,7 +29,7 @@ function activate_theme() {
             delete_option( 'theme_social_options' );
             delete_option( 'theme_layout_options' );
 
-            // Set defaults for Lean
+            // Set defaults for theme
             get_theme_default_global_options();
             get_theme_default_presentation_options();
             get_theme_default_social_options();
@@ -1069,9 +1069,9 @@ function is_using_pretty_permalinks() {
 } // end is_using_pretty_premalinks
 
 /**
- * Determines if the current version of Lean is the most current version.
+ * Determines if the current version of the theme is the most current version.
  *
- * @return	boolean True if the current version of Lean is 3.1; false, otherwise.
+ * @return	boolean True if the current version of the theme is 3.1; false, otherwise.
  * @since 	3.1
  * @version	3.2
  */

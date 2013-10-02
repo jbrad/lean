@@ -8,7 +8,7 @@
  * 	Home / Category / Page Title
  * with links to each page throughout the hierarchy.
  *
- * @package		Lean
+ * @package		lean
  * @subpackage	Breadcrumbs
  * @version 	1.0
  * @since		3.0

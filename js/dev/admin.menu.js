@@ -6,7 +6,7 @@
             aActiveTab,
             sActiveTab;
 	
-		// Hide the 'Lean' item under the custom menu
+		// Hide the theme name item under the custom menu
 		$('.wp-submenu-head:contains("' + themeName +'")')
 			.next()
 			.children(':first')

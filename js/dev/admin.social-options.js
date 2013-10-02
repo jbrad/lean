@@ -389,7 +389,7 @@ function makeIconsRemoveable($) {
 			evt.srcElement = evt.srcElement || ui.draggable.children(':first');
 
 			// Don't let users delete the core set of icons
-			if(isLeanIcon($(evt.srcElement))) {
+			if(isThemeIcon($(evt.srcElement))) {
 			
 				$.post(ajaxurl, {
 				
@@ -507,18 +507,18 @@ function socialOptionsHideUnusedFields($, poller) {
 } // end hideUnusedFields
 
 /**
- * Determines if the specified image is part of the Lean icon library.
+ * Determines if the specified image is part of the theme icon library.
  *
  * @params	img	The image element being evaluated
  *
  * @returns		True if the image belongs in the core set of Lean icons.
  */
-function isLeanIcon($img) {
+function isThemeIcon($img) {
 	"use strict";
 	
 	return $img.attr('src').toString().indexOf('/images/social/small/') > 0;	
 	
-} // end isLeanIcon
+} // end isThemeIcon
 
 /**
  * Overrides the core send_to_editor function in the media-upload script. Grabs the URL of the image after being uploaded and 

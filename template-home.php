@@ -4,7 +4,7 @@
  *
  * The template for rendering pages without sidebars.
  *
- * @package Lean
+ * @package lean
  * @version	1.0
  * @since 	1.0
  */
@@ -17,8 +17,8 @@
                 <section id="main" class="col-md-12 clearfix" role="main">
                     <div class="jumbotron">
                         <div class="container">
-                            <h1>Lean Theme</h1>
-                            <p>Lean has been forked from Standard with extras. It's designed for bloggers, designers, and developers.</p>
+                            <h1><?php echo THEME_NAME; ?> Theme</h1>
+                            <p><?php echo THEME_NAME; ?> has been forked from Standard with extras. It's designed for bloggers, designers, and developers.</p>
                             <a class="btn btn-primary btn-lg" href="/purchase">Purchase</a>
                         </div>
                     </div>
@@ -31,7 +31,7 @@
                                       <i class="icon-light">B</i>
                                     </span> Bootstrap 3
                                 </h2>
-                                <p>Lean has been updated to use the latest version of Bootstrap 3. If you are a designer or developer, you will be able to use Bootstrap to extend the theme.</p>
+                                <p><?php echo THEME_NAME; ?> has been updated to use the latest version of Bootstrap 3. If you are a designer or developer, you will be able to use Bootstrap to extend the theme.</p>
                             </div> <!-- /#bootstrap -->
                             <div id="font-awesome" class="col-lg-4">
                                 <h2>
@@ -40,7 +40,7 @@
                                       <i class="icon-flag icon-light"></i>
                                     </span> Font Awesome
                                 </h2>
-                                <p>Lean comes with Font Awesome built in. Lean utilizes it to use for the icons in the theme for performance. It's a font, you can easily customize them yourself!</p>
+                                <p><?php echo THEME_NAME; ?> comes with Font Awesome built in. <?php echo THEME_NAME; ?> utilizes it to use for the icons in the theme for performance. It's a font, you can easily customize them yourself!</p>
                             </div> <!-- /#font-awesome -->
                             <div id="grunt-bower" class="col-lg-4">
                                 <h2>
@@ -49,7 +49,7 @@
                                       <i class="icon-terminal icon-light"></i>
                                     </span> Grunt, Bower
                                 </h2>
-                                <p>Lean uses the latest technologies to pull in third-party libraries with Bower and build the theme with Grunt. It's all ready for you to customize!</p>
+                                <p><?php echo THEME_NAME; ?> uses the latest technologies to pull in third-party libraries with Bower and build the theme with Grunt. It's all ready for you to customize!</p>
                             </div> <!-- /#grunt-bower -->
                         </div> <!-- /.row -->
                         <div class="row">
@@ -60,7 +60,7 @@
                                       <i class="icon-light">S</i>
                                     </span> Standard
                                 </h2>
-                                <p>Lean has been forked from Standard theme. All of the features of Standard are included and have been updated for Bootstrap 3 and HTML5.</p>
+                                <p><?php echo THEME_NAME; ?> has been forked from Standard theme. All of the features of Standard are included and have been updated for Bootstrap 3 and HTML5.</p>
                             </div> <!-- /#bootstrap -->
                             <div id="seo" class="col-lg-4">
                                 <h2>
@@ -69,7 +69,7 @@
                                       <i class="icon-google-plus icon-light"></i>
                                     </span> SEO
                                 </h2>
-                                <p>Lean has built in SEO thanks to Standard. There's no need for additional plugins. There's also support for Google+ authorship built in.</p>
+                                <p><?php echo THEME_NAME; ?> has built in SEO thanks to Standard. There's no need for additional plugins. There's also support for Google+ authorship built in.</p>
                             </div> <!-- /#font-awesome -->
                             <div id="html5" class="col-lg-4">
                                 <h2>
@@ -78,7 +78,7 @@
                                       <i class="icon-html5 icon-light"></i>
                                     </span> HTML5
                                 </h2>
-                                <p>Lean has full HTML5 support. All of the theme files and widgets are using the newest HTML elements like header, nav, section, aside, and articles. </p>
+                                <p><?php echo THEME_NAME; ?> has full HTML5 support. All of the theme files and widgets are using the newest HTML elements like header, nav, section, aside, and articles. </p>
                             </div> <!-- /#grunt-bower -->
                         </div> <!-- /.row -->
 

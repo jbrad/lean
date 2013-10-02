@@ -2,7 +2,7 @@
 /**
  * The template for displaying comments, pings, and trackbacks on posts, pages, and attachments.
  *
- * @package Lean
+ * @package lean
  * @version	1.0
  * @since 	1.0
  */

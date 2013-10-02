@@ -2,7 +2,7 @@
 /**
  * The template for displaying the admin dashboard.
  *
- * @package		Lean
+ * @package		lean
  * @subpackage	Activity Tabs
  * @version		1.0
  * @since 		3.0

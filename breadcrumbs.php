@@ -2,7 +2,7 @@
 /**
  * The template for displaying breadcrumbs. Supports both built in breadcrumbs and Yoast Breadcrumbs.
  *
- * @package Lean
+ * @package lean
  * @version	1.0
  * @since 	1.0
  */

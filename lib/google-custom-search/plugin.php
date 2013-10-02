@@ -3,7 +3,7 @@
  * Google Custom Search is a widget that aims to make it easy to add a Google Custom Search
  * box to any widgetized area of your blog.
  *
- * @package		Lean
+ * @package		lean
  * @subpackage	Google Custom Search Widget
  * @version 	1.0
  * @since		3.0
@@ -21,7 +21,7 @@ class Google_Custom_Search extends WP_Widget {
 
 		$widget_opts = array(
 			'classname' 	=> __( 'google-custom-search', TRANSLATION_KEY ),
-			'description' 	=> __( 'Easily add Google Custom Search to your Lean-powered blog.', TRANSLATION_KEY )
+			'description' 	=> __( 'Easily add Google Custom Search to your ' . THEME_NAME . '-powered blog.', TRANSLATION_KEY )
 		);
 		$this->WP_Widget( 'google-custom-search', __( 'Google Custom Search', TRANSLATION_KEY ), $widget_opts );
 

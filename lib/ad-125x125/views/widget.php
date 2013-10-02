@@ -2,7 +2,7 @@
 /**
  * Renders the the 125x125 widget
  *
- * @package		Lean
+ * @package		lean
  * @subpackage	125x125 Advertisement
  * @version 	1.1
  * @since		3.0

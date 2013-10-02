@@ -15,7 +15,7 @@
  * Day Archive | Blog Name | Archive | Month Day, Year
  * Tag | Blog Name | Tag Archive | Tag
  *
- * @package		Lean
+ * @package		lean
  * @subpackage	SEO Titles
  * @version		1.0
  * @since		3.0

@@ -2,7 +2,7 @@
 /**
  * Creates an HTML list of nav menu items that introduces multi-levels into Bootstrap 3.0 menus.
  *
- * @package		Lean
+ * @package		lean
  * @subpackage	Bootstrap_Nav_Walker
  * @version		1.0
  * @since 		1.0

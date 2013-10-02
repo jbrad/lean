@@ -5,7 +5,7 @@
  *
  * It depends on Twitter Booterstrap.
  *
- * @package		Lean
+ * @package		lean
  * @subpackage	Activity Tabs Widget
  * @version 	1.1
  * @since		3.0

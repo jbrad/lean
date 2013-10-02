@@ -5,7 +5,7 @@
  * meta descriptions by giving custom fields at the post and page level and by
  * providing a "what Google sees" preview.
  *
- * @package		Lean
+ * @package		lean
  * @subpackage	SEO
  * @version		1.0
  * @since		1.0

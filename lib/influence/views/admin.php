@@ -2,7 +2,7 @@
 /**
  * Renders the administration dashboard for the Google Custom Search widget.
  *
- * @package		Lean
+ * @package		lean
  * @subpackage	Influence Widget
  * @version		1.0
  * @since		1.0

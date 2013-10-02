@@ -2,7 +2,7 @@
 /**
  * 300x250 is a widget for displaying a single 300x250 ad in any widgetized area.
  *
- * @package		Lean
+ * @package		lean
  * @subpackage	300x250 Advertisement
  * @version		1.0
  * @since		1.0

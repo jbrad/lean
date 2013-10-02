@@ -3,7 +3,7 @@
  * The tempate for rendering the sidebar. Will be on the left or the right of the of the screen depending
  * on the layout that the user has selected in the Dashboard.
  *
- * @package Lean
+ * @package lean
  * @version	1.0
  * @since 	1.0
  */
