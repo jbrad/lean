@@ -1,3 +1,15 @@
+# 1.1.1 (October 1st, 2013)
+
+## Grunt File
+
+* Fixes issue with build task in Gruntfile
+
+### Change Set
+
+**Modified**
+
+* Gruntfile.js
+
 ## 1.1 (October 1st, 2013)
 
 - Ready for public release
