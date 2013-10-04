@@ -61,4 +61,4 @@
 	
 <?php } // end if ?>
 
-<?php comment_form(); ?>
+<?php theme_comment_form(); ?>

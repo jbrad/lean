@@ -841,14 +841,14 @@ function google_custom_search_is_active() {
 
 } // end google_custom_search_is_active
 
-if( ! function_exists('comment_form') ) {
+if( ! function_exists('theme_comment_form') ) {
     /**
      * Builds and renders the custom comment form template.
      *
      * @since	1.0
      * @version	1.1
      */
-    function comment_form() {
+    function theme_comment_form() {
 
         // Gotta read the layout options so we apply the proper ID to our element wrapper
         $layout_options = get_option( 'theme_presentation_options' );
@@ -876,7 +876,7 @@ if( ! function_exists('comment_form') ) {
             )
         );
 
-    } // end comment_form
+    } // end theme_comment_form
 } // end if
 
 /**
