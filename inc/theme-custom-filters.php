@@ -846,7 +846,7 @@ if( ! function_exists('theme_comment_form') ) {
      * Builds and renders the custom comment form template.
      *
      * @since	1.0
-     * @version	1.1
+     * @version	1.1.2
      */
     function theme_comment_form() {
 
