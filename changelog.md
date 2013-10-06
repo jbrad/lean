@@ -1,3 +1,35 @@
+# 1.1.3 (October 6th, 2013)
+
+## Light Contrast Color Scheme
+
+* Added additional light contrast colors for new post formats
+
+## Archives and Sitemap Pages
+
+* Updated the archives and sitemap pages to use Font Awesome icons
+
+## Social Influence Widget
+
+* Updated to use Font Awesome for Twitter and Facebook counts
+* Fixed number formatting issue when displaying both counts
+
+### Change Set
+
+**Modified**
+
+* theme.contrast-light.less
+* variables.less
+* mixins.less
+* style.less
+* template-archives.php
+* template-sitemap.php
+* influence/widget.php
+* influence/css/less/widget.less
+
+**Removed**
+
+* influence/css/icn-social-sprites.png
+
 # 1.1.2 (October 4th, 2013)
 
 ## Comment Form
@@ -17,7 +49,6 @@
 * navigation.less
 * misc.less
 * style.less
-
 
 # 1.1.1 (October 1st, 2013)
 
