@@ -1,10 +1,11 @@
 //
 // Dark Contrast
-// @version 1.1
+// @version 1.1.3
 // @since 1.0
 //
 
 /* Contrast stylesheet for when user has a dark background */
+@import "mixins.less";
 
 body {
 	color: #eee;
@@ -89,18 +90,28 @@ h6 {
 	color: #444;
 }
 
+.post.format-aside .aside-date {
+  background: #28292d;
+}
+
+.post.format-chat .post-header {
+  background-color: #28292d;
+  background-image: none;
+  .no_shadow();
+}
+
 .entry-content .wp-caption {
 	background: #181818;
 	border: 1px solid #191919;
 }
 
 .well {
-	background: #101010;
+	background: #222;
+    border: none;
 }
 
 /* author box */
 #author-box .author-link {
-	background-image: url(./images/icn-author-sprites-white.png);
 	color: #eee;
 }
 
@@ -143,18 +154,41 @@ table#wp-calendar caption {
 	color: #454545;
 }
 
-/* pagination icons */
-.pager [class^="icon-"], 
-.pager [class*=" icon-"] {
-	background-image: url(img/glyphicons-halflings-white.png);
+.pager {
+
+  li > {
+
+    a {
+      display: inline-block;
+      padding: 5px 14px;
+      background-color: #333;
+      border: 1px solid #222;
+      border-radius: 15px;
+
+      &:hover {
+        background-color: #333;
+        color: #EEE;
+      }
+
+    }
+
+    span {
+      padding: 0px;
+      background-color: none;
+      border: none;
+      border-radius: 15px;
+    }
+
+  }
+
 }
 
-.pager a:hover,
-.previous-page a:hover,
-.next-page a:hover {
-	color: #eee;
-	background-color: #202020;
-	background-color: rgba(41,41,41,0.4);
+.pager, .previous-page, .next-page {
+
+  a:hover {
+    color: #EEE;
+  }
+
 }
 
 /* jetpack comments */
@@ -162,6 +196,19 @@ table#wp-calendar caption {
 	background: #454545; 
 	padding: 20px;
 }
+
+// Pages
+h2 {
+  &#authors, &#pages, &#posts, &#categories {
+    .icon-group,
+    .icon-calendar,
+    .icon-list,
+    .icon-list-alt {
+      color: #e0e0e0;
+    }
+  }
+}
+
 
 /* 404 page */
 
