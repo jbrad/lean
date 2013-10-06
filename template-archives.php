@@ -5,7 +5,7 @@
  * The template for display all categories and all posts in ascending order.
  *
  * @package lean
- * @version	1.1
+ * @version	1.1.3
  * @since 	1.0
  */
 ?>
@@ -35,7 +35,7 @@
 								<div class="content">
 									<?php the_content(); ?>
 
-<h2><?php _e( 'All Posts', TRANSLATION_KEY); ?></h2>
+                                    <h2 id="posts"><span class="icon-calendar"></span> <?php _e( 'All Posts', TRANSLATION_KEY); ?></h2>
 
 									<?php
 
@@ -98,7 +98,7 @@
 
 									<hr />
 
-									<h2><?php _e( 'All Pages', TRANSLATION_KEY); ?></h2>
+									<h2 id="pages"><span class="icon-list-alt"></span> <?php _e( 'All Pages', TRANSLATION_KEY); ?></h2>
 
 									<?php
 										$args = array(
@@ -134,7 +134,7 @@
 
 									<hr />
 
-									<h2><?php _e( 'All Categories', TRANSLATION_KEY); ?></h2>
+									<h2 id="categories"><span class="icon-list"></span> <?php _e( 'All Categories', TRANSLATION_KEY); ?></h2>
 									<?php $categories = get_categories( 'hide_empty=1' ); ?>
 									<?php if( count( $categories) > 0 ) { ?>
 										<p>
