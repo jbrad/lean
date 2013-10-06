@@ -4,7 +4,7 @@
  *
  * @package		lean
  * @subpackage	Influence Widget
- * @version 	1.1
+ * @version 	1.1.3
  * @since		1.0
  */
 ?>
