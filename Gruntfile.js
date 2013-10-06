@@ -9,7 +9,7 @@ module.exports = function(grunt) {
         compress: {
             blogger: {
                 options: {
-                    archive: '../<%= pkg.name %>-versions/<%= pkg.name %>/<%= pkg.name %>.zip'
+                    archive: '../<%= pkg.name %>-versions/blogger/<%= pkg.name %>.zip'
                 },
                 files: [
                     {src: [
