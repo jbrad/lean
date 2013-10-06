@@ -13,7 +13,7 @@
 		
 		<?php if( 'both' == $display || 'total' == $display ) { ?>
 			<div class="si-total">
-				<div class="si-total-number"><?php  echo number_format( $this->get_total_influence_count( $twitter, $facebook ) ); ?></div>
+				<div class="si-total-number"><?php  echo $this->get_total_influence_count( $twitter, $facebook ); ?></div>
 				<span class="si-total-title">Social Influence</span>
 			</div><!-- /.si-total -->
 		<?php } // end if  ?>
