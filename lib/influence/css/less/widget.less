@@ -1,4 +1,5 @@
 @import '../../../../css/less/mixins.less';
+@import '../../../../css/less/variables.less';
 .si-wrapper {
 	.box_sizing;
 	.box_shadow;
@@ -53,17 +54,16 @@
 			
 			a {
 				
-				display: inline-block;
 				overflow: hidden;
-				padding: 0 0 0 26px;
+				padding: 0 0 0 10px;
 				height: 18px;
-				background: url(lib/influence/css/icn-social-sprites.png) 0 0 no-repeat;
 				color: #999;
 				font-weight: bold;
 				font-size: 16px;
 				
 				&:hover {
 					color: #b6b6b6;
+                    text-decoration: none;
 				} // :hover
 				
 			} // a;
@@ -91,16 +91,14 @@
 
 	} // ul
 	
-	.si-twitter {
-		a {
-			background-position: 0 0;
-		} // a
-	} // .si-twitter
-	
-	.si-facebook {
-		a {
-			background-position: 0 -27px;
-		} // a
-	} // .si-facebook;
+	.icon-twitter-sign {
+      color: @twitter-blue;
+      font-size: 18px;
+    }
+
+    .icon-facebook-sign {
+      color: @facebook-blue;
+      font-size: 18px;
+    }
 	
 } // .si-individual 
