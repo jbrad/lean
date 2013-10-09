@@ -577,12 +577,8 @@ function theme_social_options_display() {
     $html .= '<h3>' . __( 'Icon Library', TRANSLATION_KEY ) . '</h3>';
     $html .= '</div><!-- /.sidebar-name -->';
     $html .= '<div id="available-icons">';
-    $html .= '<p class="description">' . __( 'Use native social icons or upload your own.', TRANSLATION_KEY ) . '</p>';
+    $html .= '<p class="description">' . __( 'Drag over icons that you want to use to Active Icons.', TRANSLATION_KEY ) . '</p>';
     $html .= '<ul id="available-icon-list"></ul>';
-    $html .= '<div id="delete-icons" class="description"><i class="icon icon-trash"></i><br>' . __( 'Drag social icons here to remove them from your library.', TRANSLATION_KEY ) . '</div>';
-    $html .= '<div id="social-icons-operations">';
-    $html .= '<input type="button" class="button" id="upload-social-icon" value="' . __( 'Upload New Icon', TRANSLATION_KEY) . '" />';
-    $html .= '</div><!-- /#social-icons-operations -->';
     $html .= '</div><!-- /#available-icons -->';
     $html .= '</div><!-- /.social-icons-available -->';
 

@@ -34,17 +34,35 @@ foreach( $social_icons_urls as $icon_url ) {
 	// Build the line item
 	if( isset( $url ) || '' != esc_url( $icon ) ) {
 	
-		$use_font_awesome = false;
         $html .= '<li>';
-        if( strpos( $icon, 'rss.png' ) > 0 ) {
-            $url = get_rss_feed_url();
-            $font_awesome_icon_class = 'icon-rss';
-            $use_font_awesome = true;
-        } // end if/else
 
         if( strpos( $icon, 'twitter.png' ) > 0 ) {
             $font_awesome_icon_class = 'icon-twitter';
-            $use_font_awesome = true;
+        } else if( strpos( $icon, 'facebook.png' ) > 0 ) {
+            $font_awesome_icon_class = 'icon-facebook';
+        } else if( strpos( $icon, 'email.png' ) > 0 ) {
+            $font_awesome_icon_class = 'icon-envelope';
+        } else if( strpos( $icon, 'github.png' ) > 0 ) {
+            $font_awesome_icon_class = 'icon-github';
+        } else if (strpos( $icon, 'dribbble.png' ) > 0 ) {
+            $font_awesome_icon_class = 'icon-dribbble';
+        } else if (strpos( $icon, 'foursquare.png' ) > 0 ) {
+            $font_awesome_icon_class = 'icon-foursquare';
+        } else if (strpos( $icon, 'google_plus.png' ) > 0 ) {
+            $font_awesome_icon_class = 'icon-google-plus';
+        } else if (strpos( $icon, 'pinterest.png' ) > 0 ) {
+            $font_awesome_icon_class = 'icon-pinterest';
+        } else if (strpos( $icon, 'linkedin.png' ) > 0 ) {
+            $font_awesome_icon_class = 'icon-linkedin';
+        } else if (strpos( $icon, 'youtube.png' ) > 0 ) {
+            $font_awesome_icon_class = 'icon-youtube';
+        } else if (strpos( $icon, 'vimeo.png' ) > 0 ) {
+            $font_awesome_icon_class = 'icon-play';
+        } else if (strpos( $icon, 'soundcloud.png' ) > 0 ) {
+            $font_awesome_icon_class = 'icon-cloud';
+        } else if (strpos( $icon, 'rss.png' ) > 0 ) {
+            $font_awesome_icon_class = 'icon-rss';
+            $url = get_rss_feed_url();
         } // end if/else
 		
 		// if the image has a URL, setup the anchor...
@@ -52,14 +70,9 @@ foreach( $social_icons_urls as $icon_url ) {
 			$html .= '<a href="' . esc_url( str_replace( 'https://', 'http://', $url ) ) . '" class="fademe" target="_blank">';
 		} // end if
 		
-            if ( $use_font_awesome == 1 ) {
-                // display the span
-                $html .= '<span class="' . $font_awesome_icon_class . '"></span>';
-            } else {
-                // display the image
-                $html .= '<img src="' . esc_url( $icon ) . '" alt="" />';
-            }
-		
+            // display the span
+            $html .= '<span class="' . $font_awesome_icon_class . '"></span>';
+
 		// ...and if the image has a URL, close the anchor
 		if( '' != $url ) {
 			$html .= '</a>';

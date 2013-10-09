@@ -271,7 +271,7 @@ msgid "Icon Library"
 msgstr ""
 
 #: ../functions.php:639
-msgid "Use native social icons or upload your own."
+msgid "Drag over icons that you want to use to Active Icons."
 msgstr ""
 
 #: ../functions.php:641
