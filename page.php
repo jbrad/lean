@@ -3,7 +3,7 @@
  * The template for displaying single pages.
  *
  * @package lean
- * @version	1.1
+ * @version	1.2
  * @since 	1.0
  */
 ?>
