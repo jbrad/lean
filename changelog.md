@@ -1,3 +1,41 @@
+# 1.2 (October 8th, 2013)
+
+## Light Contrast Color Scheme
+
+### Change Set
+
+**Modified**
+
+* admin.social-options.less
+* style.less
+* lean.po
+* loop.php
+* loop-aside.php
+* loop-audio.php
+* loop-chat.php
+* loop-gallery.php
+* loop-image.php
+* loop-link.php
+* loop-quote.php
+* loop-status.php
+* loop-video.php
+* page.php
+* single.php
+* social-networking.php
+* theme-settings.php
+
+**Removed**
+
+* influence/css/icn-social-sprites.png
+
+**Added**
+
+* includes/author-box.php
+* includes/loop.post-content.php
+* includes/loop.post-link-pages.php
+* includes/loop.post-meta.php
+* includes/loop.post-title.php
+
 # 1.1.3 (October 6th, 2013)
 
 ## Light Contrast Color Scheme
