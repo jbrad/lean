@@ -20,11 +20,9 @@
 
             <section id="main" class="<?php echo 'full_width_layout' == $presentation_options['layout'] ? 'col-md-12' : 'col-md-8'; ?> clearfix" role="main">
 
-                <?php
-                    if( ! is_front_page() ) {
-                        get_template_part( 'breadcrumbs' );
-                    } // end if
-                ?>
+                <?php if( ! is_front_page() ) { ?>
+                        <?php get_template_part( 'breadcrumbs' ); ?>
+                <?php } // end if ?>
 
                 <?php if ( have_posts() ) { ?>
                     <?php while ( have_posts() ) { ?>
