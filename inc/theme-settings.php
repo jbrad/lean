@@ -541,7 +541,7 @@ add_action( 'admin_init', 'setup_theme_social_options' );
  * Renders the description for the Social Options page.
  *
  * @since	1.0
- * @version	1.1
+ * @version	1.2
  */
 function theme_social_options_display() {
 
