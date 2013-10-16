@@ -1,3 +1,16 @@
+# 1.2.1 (October 16th, 2013)
+
+## 125x125 Ad Widget
+
+## Social Icons
+
+### Change Set
+
+**Modified**
+
+* lib/ad-125x125/views/widget.php
+* css/less/navigation.less
+
 # 1.2 (October 8th, 2013)
 
 ## Light Contrast Color Scheme
@@ -6,7 +19,7 @@
 
 **Modified**
 
-* admin.social-options.less
+* css/less/admin.social-options.less
 * style.less
 * lean.po
 * loop.php
@@ -55,9 +68,9 @@
 
 **Modified**
 
-* theme.contrast-light.less
-* variables.less
-* mixins.less
+* css/less/theme.contrast-light.less
+* css/less/variables.less
+* css/less/mixins.less
 * style.less
 * template-archives.php
 * template-sitemap.php
@@ -83,9 +96,9 @@
 **Modified**
 
 * theme-custom-filters.php
-* theme-responsive.less
-* navigation.less
-* misc.less
+* css/less/theme-responsive.less
+* css/less/navigation.less
+* css/less/misc.less
 * style.less
 
 # 1.1.1 (October 1st, 2013)
