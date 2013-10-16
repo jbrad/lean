@@ -4,14 +4,14 @@
  *
  * @package		lean
  * @subpackage	125x125 Advertisement
- * @version 	1.1
+ * @version 	1.2.1
  * @since		3.0
  */
 ?>
 <?php $global_options = get_option( 'theme_global_options' ); $default_url = ''; ?>
 
 <?php echo isset( $args['before_widget'] ) ? $args['before_widget'] : ''; ?>
-    <div class="ad-row">
+    <div class="ad-row widget">
         <ul class="thumbnails mobile-2 row">
             <li class="col-md-6">
                 <figure class="thumbnail">
