@@ -3,7 +3,7 @@
  * The template for displaying gallery post formats.
  *
  * @package lean
- * @version	1.2
+ * @version	1.2.2
  * @since 	1.0
  */
 ?>

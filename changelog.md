@@ -1,3 +1,18 @@
+# 1.2.2 (October 17th, 2013)
+
+## Add Media
+* Fixed issue with being able to upload media to posts and pages
+
+## Gallery Post Format
+* Defaulted the gallery images to large so they fill the carousel for gallery post formats
+
+### Change Set
+
+**Modified**
+
+* loop-gallery.php
+* js/dev/admin.media-uploader.js
+
 # 1.2.1 (October 16th, 2013)
 
 ## 125x125 Ad Widget
