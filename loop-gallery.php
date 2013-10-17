@@ -24,6 +24,9 @@
                     $index = 0;
 
                     foreach( $gallery as $image ) {
+                        // get the large image by default
+                        $image = preg_replace( '/-\d+x\d+(?=\.(jpg|jpeg|png|gif)$)/i', '', $image );
+
                         $indicators .= '<li data-target="#' . $gallery_link . '" data-slide-to="';
                         $indicators .= strval($index);
                         $indicators .= '" class="';
