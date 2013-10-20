@@ -19,11 +19,7 @@ if( 1 == get_post_meta( get_the_ID(), 'seo_post_level_layout', true ) ) {
 	<div class="container">
 		<div class="row">
 
-            <?php if ( 'left_sidebar_layout' == $presentation_options['layout'] ) { ?>
-                <?php get_sidebar(); ?>
-            <?php } // end if ?>
-
-            <section id="main" class="<?php echo 'full_width_layout' == $presentation_options['layout'] ? 'col-md-12' : 'col-md-8'; ?> clearfix" role="main">
+            <section id="main" class="<?php echo get_section_class(); ?>" role="main">
 				
 				<?php get_template_part( 'breadcrumbs' ); ?>
 				
@@ -56,10 +52,8 @@ if( 1 == get_post_meta( get_the_ID(), 'seo_post_level_layout', true ) ) {
 				<?php } // end if ?>
 			</section><!-- /#main -->
 
-            <?php if ( 'right_sidebar_layout' == $presentation_options['layout'] ) { ?>
-                <?php get_sidebar(); ?>
-            <?php } // end if ?>
-				
+            <?php get_sidebar(); ?>
+
 		</div> <!-- /row -->
 	</div><!-- /container -->
 </div> <!-- /#wrapper -->

@@ -2,20 +2,6 @@
 /*global md5 */
 
 /**
- * In mobile view with the left-sidebar layout, repositions the sidebar below the content.
- */
-function moveSidebarInLeftSidebarLayout($) {
-	"use strict";
-	
-	if($('#wrapper').width() < 768) {
-		$('#sidebar').insertAfter('#main');
-	} else {
-		$('#sidebar').insertBefore('#main');
-	} // end if
-
-} // end moveSidebarInLeftSidebarLayout
-
-/**
  * Resizes the videos on page load, when the browser is resized,
  * and when Infinite Scroll is activated.
  */

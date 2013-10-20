@@ -8,30 +8,19 @@
  * @since 	1.0
  */
 ?>
-<aside id="sidebar" class="col-md-4">
-    <?php if ( ! dynamic_sidebar( 'sidebar-0' ) ) { ?>
+<?php $presentation_options = get_option( 'theme_presentation_options' ); ?>
 
-        <div class="widget">
-            <?php get_search_form(); ?>
-        </div><!-- /.widget -->
+<?php if ( 'full_width_layout' != $presentation_options['layout'] && ! get_post_meta( get_the_ID(), 'standard_seo_post_level_layout', true ) ) { ?>
 
-        <?php
-        $activity = new Activity_Tabs();
-        $activity->widget(
-            array(),
-            array(
-                'post_count'	=> 	10,
-                'popular_count'	=>	10,
-                'comment_count'	=>	10
-            )
-        );
+    <aside id="sidebar" class="col-12 col-md-4 <?php echo 'left_sidebar_layout' == $presentation_options['layout'] ? 'col-md-pull-8' : ''; ?>">
+        <?php if ( ! dynamic_sidebar( 'sidebar-0' ) ) { ?>
 
-        $ads_125 = new Ad_125x125();
-        $ads_125->widget(
-            array(),
-            array()
-        );
-        ?>
+            <div class="alert">
+                <p><strong>Heads up!</strong> It seems you haven't added any widgets to your Sidebar just yet.</p>
+                <p><a class="btn btn-primary" href="<?php echo get_site_url(); ?>/wp-admin/widgets.php"><span class="icon-plus"></span> Add Widgets</a></p>
+            </div>
 
-    <?php } // end if ?>
-</aside><!-- /#sidebar -->
+        <?php } // end if ?>
+    </aside><!-- /#sidebar -->
+
+<?php } //end if ?>
