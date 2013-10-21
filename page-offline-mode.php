@@ -3,7 +3,7 @@
  * The page that is rendered to the public whenever the theme is set in offline mode.
  *
  * @package lean
- * @version	1.1
+ * @version	1.3
  * @since 	1.0
  */
 ?>
@@ -19,6 +19,17 @@
                         <article id="offline-content">
                             <div class="offline-message">
                                 <p><?php echo $options['offline_message']; ?></p>
+
+                                <?php if( is_active_sidebar( 'sidebar-10' ) ) { ?>
+                                    <div class="container">
+                                        <div class="row">
+                                            <div id="offline-widget" class="col-md-offset-4 col-md-4">
+                                                <?php dynamic_sidebar( 'sidebar-10' ); ?>
+                                            </div>
+                                        </div>
+                                    </div><!-- /#left-footer-widget -->
+                                <?php } // end if ?>
+
                             </div><!--/offline-message -->
 
                             <div class="offline-title-wrapper">

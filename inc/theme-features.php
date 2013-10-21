@@ -662,8 +662,8 @@ if( ! function_exists('add_theme_sidebars') ) {
      *
      * This function can be overridden by child themes.
      *
-     * @since	1.0
      * @version	1.3
+     * @since	1.0
      */
     function add_theme_sidebars() {
 
@@ -790,6 +790,19 @@ if( ! function_exists('add_theme_sidebars') ) {
                 'name' 			=> __( 'Home Bottom', TRANSLATION_KEY ),
                 'id' 			=> 'sidebar-9',
                 'description'	=> __( 'Shown on the bottom of the home page.', TRANSLATION_KEY ),
+                'before_widget' => '<div id="%1$s" class="widget %2$s">',
+                'after_widget'  => '</div>',
+                'before_title'  => '<h3 class="widget-title">',
+                'after_title'   => '</h3>'
+            )
+        );
+
+        // offline widget
+        register_sidebar(
+            array(
+                'name' 			=> __( 'Offline Mode', TRANSLATION_KEY ),
+                'id' 			=> 'sidebar-10',
+                'description'	=> __( 'Shown if the site is set to offline mode.', TRANSLATION_KEY ),
                 'before_widget' => '<div id="%1$s" class="widget %2$s">',
                 'after_widget'  => '</div>',
                 'before_title'  => '<h3 class="widget-title">',
