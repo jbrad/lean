@@ -1067,3 +1067,15 @@ msgstr ""
 #: ../lib/ad-billboard/plugin.php:26
 msgid "468x60 Ad"
 msgstr ""
+
+#: sidebar.php:19
+msgid "Heads up!"
+msgstr ""
+
+#: sidebar.php:19
+msgid "It seems you haven't added any widgets to your Sidebar just yet."
+msgstr ""
+
+#: sidebar.php:20
+msgid "Add Widgets"
+msgstr ""
