@@ -25,7 +25,6 @@
         <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
         <title><?php wp_title( '' ); ?></title>
         <?php global $post; ?>
-        <?php $global_options = get_option( 'theme_global_options' ); ?>
         <?php wp_head(); ?>
     </head>
 <body <?php body_class(); ?>>
@@ -116,6 +115,7 @@ $head_class = ! empty( $header_image ) ? 'imageyup' : 'imageless';
 
                         <?php // If a logo has been set in the theme Presentation options, display it ?>
                         <?php if( has_logo() ) { ?>
+                            <?php $presentation_options = get_option( 'theme_presentation_options'); ?>
 
                             <a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php bloginfo( 'name' ); ?>" rel="home">
                                 <img src="<?php echo $presentation_options['logo']; ?>" alt="<?php bloginfo( 'name' ); ?>" id="header-logo" />
