@@ -663,7 +663,7 @@ if( ! function_exists('add_theme_sidebars') ) {
      * This function can be overridden by child themes.
      *
      * @since	1.0
-     * @version	1.1
+     * @version	1.3
      */
     function add_theme_sidebars() {
 
@@ -738,6 +738,58 @@ if( ! function_exists('add_theme_sidebars') ) {
                 'name' 			=> __( 'Footer Right', TRANSLATION_KEY ),
                 'id' 			=> 'sidebar-5',
                 'description'	=> __( 'Shown in the third column of the footer.', TRANSLATION_KEY ),
+                'before_widget' => '<div id="%1$s" class="widget %2$s">',
+                'after_widget'  => '</div>',
+                'before_title'  => '<h3 class="widget-title">',
+                'after_title'   => '</h3>'
+            )
+        );
+
+        // home left
+        register_sidebar(
+            array(
+                'name' 			=> __( 'Home Left', TRANSLATION_KEY ),
+                'id' 			=> 'sidebar-6',
+                'description'	=> __( 'Shown in the first column on the home page.', TRANSLATION_KEY ),
+                'before_widget' => '<div id="%1$s" class="widget %2$s">',
+                'after_widget'  => '</div>',
+                'before_title'  => '<h3 class="widget-title">',
+                'after_title'   => '</h3>'
+            )
+        );
+
+        // home center
+        register_sidebar(
+            array(
+                'name' 			=> __( 'Home Center', TRANSLATION_KEY ),
+                'id' 			=> 'sidebar-7',
+                'description'	=> __( 'Shown in the second column on the home page.', TRANSLATION_KEY ),
+                'before_widget' => '<div id="%1$s" class="widget %2$s">',
+                'after_widget'  => '</div>',
+                'before_title'  => '<h3 class="widget-title">',
+                'after_title'   => '</h3>'
+            )
+        );
+
+        // home right
+        register_sidebar(
+            array(
+                'name' 			=> __( 'Home Right', TRANSLATION_KEY ),
+                'id' 			=> 'sidebar-8',
+                'description'	=> __( 'Shown in the third column on the home page.', TRANSLATION_KEY ),
+                'before_widget' => '<div id="%1$s" class="widget %2$s">',
+                'after_widget'  => '</div>',
+                'before_title'  => '<h3 class="widget-title">',
+                'after_title'   => '</h3>'
+            )
+        );
+
+        // home bottom widget
+        register_sidebar(
+            array(
+                'name' 			=> __( 'Home Bottom', TRANSLATION_KEY ),
+                'id' 			=> 'sidebar-9',
+                'description'	=> __( 'Shown on the bottom of the home page.', TRANSLATION_KEY ),
                 'before_widget' => '<div id="%1$s" class="widget %2$s">',
                 'after_widget'  => '</div>',
                 'before_title'  => '<h3 class="widget-title">',
