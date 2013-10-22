@@ -1,3 +1,55 @@
+# 1.3 (October 21st, 2013)
+
+## Utilize Bootstrap 3 Grid Fully
+* Replaced JavaScript that was pushing the sidebar down below the content area and using the push and pull classes in Bootstrap 3's grid
+
+## Offline Page Widget Area
+* I added a widget area for the offline page.
+
+## Homepage Template Widget Areas
+* The homepage template now has widget areas! It also uses your page title and content for the jumbotron area. Enjoy!
+
+## Default Widgets
+* The default widgets were replaced by a warning message with a link to Appearance > Widgets so you can add your own.
+
+## Two Levels of Navigation
+* Since Bootstrap's Navbar only supports 2 levels of navigation (you can't double dropdown a single dropdown Lloyd), you are now prompted about that in Appearance > Menus.
+
+## Google Analytics Loading Twice
+* Fixes an issue that the Google Analytics code is being loaded twice. The theme's SEO is good, but not that good. I like even numbers better anyways.
+
+### Change Set
+
+**Modified**
+
+* css/less/navigation.less
+* css/less/variables.less
+* css/less/pages.less
+* css/less/admin.less
+* style.css
+* 404.php
+* image.php
+* inc/theme-custom-filters.php
+* inc/theme-features.php
+* index.php
+* header.php
+* page-offline-mode.php
+* page.php
+* search.php
+* sidebar.php
+* single.php
+* template-archives.php
+* template-fullwidth.php
+* template-home.php
+* template-sitemap.php
+* page-offline-mode.php
+* lib/Bootstrap_Nav_Walker.class.php
+* js/dev/theme.main.js
+* js/dev/admin.menu.js
+* js/admin.min.js
+* Gruntfile.js
+* lang/lean.po
+
 # 1.2.2 (October 17th, 2013)
 
 ## Add Media
