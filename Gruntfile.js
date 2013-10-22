@@ -106,6 +106,10 @@ module.exports = function(grunt) {
             },
 
             admin: {
+                options: {
+                    beautify: false,
+                    mangle: true
+                },
                 files: {
                     'js/admin.min.js': [
                         'js/dev/admin.*.js',
