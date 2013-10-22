@@ -52,8 +52,8 @@ class Bootstrap_Nav_Walker extends Walker_Nav_Menu {
 		
 		// If the current menu item has children, we need to set the proper class names on the list items
 		// and the anchors. Parent menu items can't have blank targets.
-		if( $args->has_children ) {
-		
+		if( $args->has_children && $depth == 0 ) {
+
 			if( $item->menu_item_parent == 0 ) {
 
 				$menu_item = get_permalink() == $item->url ? '<li class="dropdown ' . $css_classes . '">' : '<li class="dropdown ' . $css_classes . '">';
@@ -78,7 +78,7 @@ class Bootstrap_Nav_Walker extends Walker_Nav_Menu {
 		$menu_item .= $item->title;
 		
 		// If the item has children, display the dropdown image
-		if($args->has_children) {
+		if($args->has_children && $depth == 0) {
 			$menu_item .= '<b class="caret"></b>';
 		} // end if
 		

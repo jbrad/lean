@@ -6,6 +6,7 @@
 
 @import "admin.social-options.less";
 @import "admin.header.less";
+@import "mixins.less";
 
 input:-moz-placeholder {
 	color:	#777;
@@ -202,6 +203,16 @@ table.form-table.disabled {
 		color: #a9a9a9;
 	}
 	
+}
+
+.warning {
+  background-color: #d9edf7;
+  border-color: #bce8f1;
+  .border_radius(4px);
+
+  p {
+    padding: 10px;
+  }
 }
 
 

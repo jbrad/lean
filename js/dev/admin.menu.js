@@ -4,8 +4,36 @@
 
         var themeName = 'Lean',
             aActiveTab,
-            sActiveTab;
-	
+            sActiveTab,
+            $menuMessage = $('<div />')
+                .attr('id', 'post-editor')
+                .attr('class', 'warning')
+                .append(
+                    $('<p />')
+                        .html('<strong>' + themeName + ' supports two levels of navigation, levels above that will not be displayed.</strong>')
+                );
+
+        $menuMessage.insertBefore($('#menu-management-liquid'));
+
+        if($('.menu-item-depth-2').length > 0) {
+            $menuMessage.show();
+        } else {
+            $menuMessage.hide();
+        }
+
+        // Display the notice if there are more than two levels of navigation present
+        $( '#menu-to-edit' ).on( 'sortstop', function() {
+
+            setTimeout(function() {
+                if($('.menu-item-depth-2').length > 0) {
+                    $menuMessage.show();
+                } else {
+                    $menuMessage.hide();
+                }
+            }, 1);
+
+        } );
+
 		// Hide the theme name item under the custom menu
 		$('.wp-submenu-head:contains("' + themeName +'")')
 			.next()
