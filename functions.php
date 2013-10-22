@@ -19,7 +19,7 @@
  *	8. Helper Functions
  *
  * @package	lean
- * @version	1.3
+ * @version	1.3.1
  * @since	1.0
  *
  */

@@ -1,3 +1,13 @@
+# 1.3.1 (October 22st, 2013)
+
+## Social Icons
+* Added the font size for icon-envelope in navigation.less
+
+### Change Set
+
+**Modified**
+* css/less/navigation.less
+
 # 1.3 (October 21st, 2013)
 
 ## Utilize Bootstrap 3 Grid Fully
