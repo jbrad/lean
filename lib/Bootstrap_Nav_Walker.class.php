@@ -34,7 +34,7 @@ class Bootstrap_Nav_Walker extends Walker_Nav_Menu {
 	 * @param	string   $item	     The menu item that's being processed.
 	 * @param	int      $depth	     The level of depth at which this item is being written.
 	 * @param	array    $args	     The arguments passed to be added to the menu item
-	 * @version	1.1
+	 * @version	1.3
 	 * @since	1.0
 	 */
 	function start_el( &$output, $item, $depth, $args ) {
