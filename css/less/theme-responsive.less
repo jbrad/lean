@@ -1,10 +1,11 @@
 //
 // Theme Responsive
-// @version 1.1.2
+// @version 1.4
 // @since 1.0
 //
 
 /* Media Queries for viewports */
+@import "variables.less";
 
 /* Smartphones */
 @media (max-width: 480px) {
@@ -202,7 +203,7 @@
 			 ul.nav-menu {
 				margin-top: 15px;
 				padding-top: 10px;
-				border-top: 1px solid #444;
+				border-top: 1px solid @navigation_mobile_ul_border_color;
 
 				> li {
 
@@ -219,15 +220,15 @@
 
 	.nav-collapse .dropdown-menu {
 		display: block;
-		background: #282828;
+		background: @navigation_mobile_dropdown_border_color;
 
 
 		//if it's on the current page
 		li.active a {
-			color: #fff;
+			color: @navigation_mobile_dropdown_active_item_color;
 
 			&:hover {
-				color: #fff;
+				color: @navigation_mobile_dropdown_active_item_hover_color;
 			}
 		}//li.active
 
@@ -236,7 +237,7 @@
 			 border: none;
 
 			 &:hover {
-				 color: #fff;
+				 color: @navigation_mobile_dropdown_item_hover_color;
 			 }
 
 		 }// li a
@@ -249,9 +250,6 @@
 			padding: 20px 20px 20px 60px
 		}
 
-		.aside-date {
-			left: -10px;
-		}
 	}
 
     .format-link .post-header {
@@ -374,7 +372,7 @@
 		position: relative;
 		top: auto;
 		display: none !important;
-		float:right;
+		float: right;
 	}
 
 }

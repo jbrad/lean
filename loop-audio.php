@@ -8,7 +8,7 @@
  */
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class( 'post format-audio clearfix' ); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class( 'post panel panel-default format-audio clearfix' ); ?>>
 
 	<div class="post-header clearfix">
 		<div class="title-wrap clearfix row">

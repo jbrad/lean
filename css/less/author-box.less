@@ -1,18 +1,14 @@
 //
 // Posts Author Box
-// @version 1.1
+// @version 1.4
 // @since 1.0
 // 
 
 #author-box {
-  margin-bottom: 20px;
 
   .author-link {
-    display: inline-block;
-    overflow: hidden;
     margin-right: 10px;
-    color: #999;
-    line-height: 1.5;
+    color: @post_author_box_link_color;
     .ease_in();
 
     &:hover {
@@ -20,8 +16,9 @@
       opacity: 0.6;
     }
 
-  }
-}
+  } // .author-link
+
+} // #author-box
 
 .author-box-image {
   float: left;

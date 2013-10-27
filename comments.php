@@ -14,7 +14,7 @@
 ?>
 
 <?php if ( post_password_required() ) { ?>
-	<div id="comments">
+	<div id="comments" class="panel panel-default">
 		<h3 class="nopassword"><?php _e( 'This post is password protected. Enter the password to view comments.', TRANSLATION_KEY ); ?></h3>
 	</div><!-- #comments -->
 	<?php return; ?>
@@ -23,7 +23,7 @@
 <?php if ( have_comments() ) { ?>
 
 	<?php if ( ! empty( $comments_by_type['comment'] ) ) { ?>
-		<div id="comments" class="clearfix">
+		<div id="comments" class="panel panel-default clearfix">
 			<h3><?php comments_number( __( 'No responses', TRANSLATION_KEY ), __( 'One response', TRANSLATION_KEY ), __( '% responses', TRANSLATION_KEY ) );?> <?php _e( 'to', TRANSLATION_KEY ); ?> <em><?php the_title(); ?></em></h3>
 			<ol class="commentlist">
 				<?php wp_list_comments( 'avatar_size=50&callback=custom_comment&type=comment' ); ?>
@@ -40,7 +40,7 @@
 	<?php } // end if ?>
 
 	<?php if ( ! empty( $comments_by_type['pings'] ) ) { ?>
-		<div id="pings">
+		<div id="pings" class="panel panel-default">
 			<h3>
 				<?php _e( 'Trackbacks and Pingbacks:', TRANSLATION_KEY ); ?>
 			</h3>
@@ -53,7 +53,7 @@
 <?php } else { ?>
 
 	<?php if( comments_open() ) { ?>
-		<div id="no-comments" class="clearfix">
+		<div id="no-comments" class="panel panel-default clearfix">
 			<p class="title"><?php _e( 'No Comments', TRANSLATION_KEY ); ?></p>
 			<p><?php _e( 'Be the first to start the conversation.', TRANSLATION_KEY ); ?></p>
 		</div><!-- /#no-comments -->

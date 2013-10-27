@@ -1,15 +1,16 @@
 //
 // Comments and Pings
-// @version 1.1
+// @version 1.4
 // @since 1.0
-// 
+//
+@import "mixins.less";
 
 #pings, #no-comments {
 	padding: 20px;
 }
 
 #no-comments .title {
-	color: #444;
+	color: @post_no_comments_heading_color;
 	font-weight: bold;
 	font-size: 24px;
 	line-height: 36px;
@@ -25,7 +26,7 @@
     margin: 20px 0;
   }
 
-}
+} // #pings
 
 // Comments
 
@@ -52,13 +53,13 @@
     }
 
     .bypostauthor > .comment-container {
-      border-right: 5px solid #202020;
-      background: #f9f9f9;
+      border-right: 5px solid @comment_by_author_border_color;
+      background: @comment_by_author_bg_color;
     }
 
     .comment-container {
       padding: 20px 20px;
-      border-bottom: 1px solid #eee;
+      border-bottom: 1px solid @comment_content_bg_color;
 
       .avatar-holder {
         width: 10%;
@@ -66,7 +67,7 @@
 
         img.avatar {
           padding: 2px;
-          border: 1px solid #eee;
+          border: 1px solid @comment_image_border_color;
         }
 
       }
@@ -89,7 +90,7 @@
         }
 
         .date {
-          color: #999;
+          color: @comment_date_color;
           font-weight: normal;
           font-style: italic;
           font-size: 12px;
@@ -122,8 +123,8 @@
     }
 
     > ol > li > ul.children > li .comment-container {
-      border-top: 1px solid #f8f8f8;
-      border-left: 1px solid #eee;
+      border-top: 1px solid @comment_children_border_top_color;
+      border-left: 1px solid @comment_children_border_left_color;
     }
 
     // 4th level
@@ -154,8 +155,8 @@
 
     #gravatar  {
       padding: 4px;
-      border: 1px solid #e3e3e3;
-      background: #fff;
+      border: 1px solid @comment_gravatar_border_color;
+      background: @comment_gravatar_bg_color;
     }
 
     &.admin-avatar {
@@ -198,7 +199,7 @@
   #comment-form-avatar {
     float: left;
     padding: 2px;
-    border: 1px solid #eee;
+    border: 1px solid @comment_form_avatar_border_color;
   }
 
   .form-allowed-tags {
@@ -212,7 +213,7 @@
   label {
     float: left;
     width: auto;
-    color: #777;
+    color: @comment_form_label_color;
     text-align: left;
   }
 
@@ -222,18 +223,16 @@
   }
 
   input[type="text"] {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
+    .box-sizing(border-box);
     padding: 5px 10px;
     width: 100%;
     height: 32px;
   }
 
   textarea {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
+    .border_radius(4px);
+    .box-sizing(border-box);
+    border-color: @comment_form_text_area_border_color;
     width:100%;
   }
 
@@ -253,7 +252,7 @@
 	padding: 20px;
 
     a {
-      color: #999;
+      color: @comment_navigation_link_color;
       opacity: 0.6;
 
       &:hover {

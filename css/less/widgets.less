@@ -1,6 +1,6 @@
 //
 // Widgets
-// @version 1.1
+// @version 1.4
 // @since 1.0
 //
 
@@ -20,7 +20,7 @@
 	ul.children {
 	
     	padding-left:	5px;
-    	border-left: 	1px solid #E0E0E0;
+    	border-left: 	1px solid @widget_category_ul_children_border_color;
     	
     } // ul.children
     
@@ -42,13 +42,13 @@
 
       margin-bottom: 	10px;
       padding-bottom: 10px;
-      border-bottom: 	1px solid #e0e0e0;
+      border-bottom: 	1px solid @widget_title_border_color;
       font-size: 		18px;
       line-height: 	24px;
 
       a {
 
-        color: 			 #444;
+        color: 			 @widget_title_link_color;
         text-decoration: none;
 
       } // a
@@ -66,10 +66,10 @@
         list-style: none;
 
         a {
-          color:	#777;
+          color:	@widget_ul_link_color;
 
           &:hover {
-            color: #999;
+            color: @widget_ul_link_hover_color;
           } // a:hover
 
         } // a
@@ -86,7 +86,7 @@
       margin-bottom:	30px;
 
 		h4.widget-title {
-			border-bottom: 	1px solid #999;
+			border-bottom: 	1px solid @footer_widget_title_border_color;
 		} // h4.widget-title
 		
 	} // .widget
@@ -94,7 +94,7 @@
     .widget_nav_menu {
 
       ul.sub-menu {
-        border-left-color: #999;
+        border-left-color: @footer_widget_ul_submenu_border_color;
       } // ul.sub-menu
 
     } // end .wiget_nav_menu
@@ -179,7 +179,7 @@
 	ul.sub-menu {
 	
 		padding-left:	5px;
-		border-left: 	1px solid #E0E0E0;
+		border-left: 	1px solid @footer_widget_navmenu_ul_submenu_border_color;
 	
 	} // ul.sub-menu
 	
@@ -193,7 +193,7 @@
 	h3.widget-title {
 	
 		a {
-			color: #444;
+			color: @widget_rss_link_color;
 		} // a
 		
 	} // h3.widget-title
@@ -219,7 +219,7 @@
 			
 			.rssSummary {
 			
-				color: 		#404040;
+				color: @widget_rss_summary_color;
 				font-size: 	12px;
 				
 			} // .rssSummary
@@ -237,35 +237,35 @@
 table#wp-calendar {
 
 	width: 		100%;
-	background: #fff;
+	background: @widget_calendar_bg_color;
 	
 	caption {
 	
 		padding: 	10px 0;
-		color: 		#999;
+		color: 		@widget_calendar_caption_color;
 		
 	} // caption
 	
 	thead {
 	
-		background: #333;
-		color: 		#f0f0f0;
+		background: @widget_calendar_table_header_bg_color;
+		color: 		@widget_calendar_table_header_color;
 		
 	} // thead
 	
 	td {
 	
-		background: #fff;
+		background: @widget_calendar_table_data_bg_color;
 		
 		&:hover {
-			background: #f5f5f5;
+			background: @widget_calendar_table_data_bg_hover_color;
 		} // :hover
 	
 	} // td
 	
 	tfoot {
 	
-		background: #f8f8f8;
+		background: @widget_calendar_table_footer_bg_color;
 		
 		th, 
 		td {
@@ -277,19 +277,11 @@ table#wp-calendar {
 		td {
 		
 			padding: 			5px 15px;
-			border-top: 		1px solid #e0e0e0;
-			background-color: 	#fefefe;
-			background-color: 	#ffffff;
-			background-image: 	-webkit-gradient(linear, left top, left bottom, from(rgb(245, 245, 245)), to(rgb(255, 255, 255)));
-			background-image: 	-webkit-linear-gradient(top, rgb(245, 245, 245), rgb(255, 255, 255));
-			background-image: 	-moz-linear-gradient(top, rgb(245, 245, 245), rgb(255, 255, 255));
-			background-image: 	-o-linear-gradient(top, rgb(245, 245, 245), rgb(255, 255, 255));
-			background-image: 	-ms-linear-gradient(top, rgb(245, 245, 245), rgb(255, 255, 255));
-			background-image: 	linear-gradient(top, rgb(245, 245, 245), rgb(255, 255, 255));
-			filter: 			progid:DXImageTransform.Microsoft.gradient(startColorStr='#f5f5f5', EndColorStr='#ffffff');
-			
+			border-top: 		1px solid @widget_calendar_table_footer_data_border_color;
+            #gradient.vertical(@widget_calendar_table_footer_data_bg_start_color, @widget_calendar_table_footer_data_bg_stop_color);
+
 			a {
-				color: #999;
+				color: @widget_calendar_table_footer_data_link_color;
 			} // a
 			
 		} // td
@@ -320,7 +312,7 @@ table#wp-calendar {
 		-webkit-border-radius: 	4px;
 		-moz-border-radius: 	4px;
 		border-radius: 			4px;
-		background: 			#f5f5f5;
+		background: @widget_tagcloud_bg_color;
 		font-size: 				14px !important;
 		
 	} // a
@@ -387,7 +379,7 @@ table#wp-calendar {
 
 	padding: 		20px 20px 11px 20px;
 	border-radius: 	5px;
-	background: 	#fff;
+	background: 	@widget_jetpack_subscription_bg_color;
 	
 	form {
 		margin-bottom: 	0;
@@ -426,7 +418,7 @@ table#wp-calendar {
 		span { 
 		
 			margin-left:	4px; 
-			color: 			#aaa; 
+			color: @widget_jetpack_contact_form_span_color;
 			font-weight: 	normal;
 			
 		} // span

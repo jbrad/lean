@@ -1,8 +1,9 @@
 @import '../../../../css/less/mixins.less';
 @import '../../../../css/less/variables.less';
+@import "../../../../css/lib/twitter/mixins.less";
 .si-wrapper {
-	.box_sizing;
-	.box_shadow;
+    .box-sizing(border-box);
+    .box-shadow(inset 0 1px 2px 0 rgba(0, 0, 0, 0.2));
 	
 } // .si-wrapper
 
@@ -11,10 +12,10 @@
 	border: 1px solid #e0e0e0;
 	background: #fff;
 	background-color: #f8f8f8;
-	.inset_box_shadow;
+    .box-shadow(0 0 8px rgba(255, 255, 255, 0.8) inset);
 	text-align: center;
 	text-shadow: 0 1px 0 rgba(255,255,255,0.5);
-	.light_gradient;
+	#gradient.vertical(#f8f8f8, #eee);
 	
 } // .si-total
 
@@ -91,12 +92,12 @@
 
 	} // ul
 	
-	.icon-twitter-sign {
+	.fa-twitter-square {
       color: @twitter-blue;
       font-size: 18px;
     }
 
-    .icon-facebook-sign {
+    .fa-facebook-square {
       color: @facebook-blue;
       font-size: 18px;
     }

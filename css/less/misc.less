@@ -1,6 +1,6 @@
 //
 // Misc
-// @version 1.1.2
+// @version 1.4
 // @since 1.0
 //
 
@@ -11,53 +11,21 @@ body * {
 	word-wrap: break-word;
 }
 
+a {
+  .ease_in();
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
 img {
 	max-width: 100%;
 	height: auto;
 }
 
-.fl {
-	float: left;
-}
-
-.fr {
-	float: right;
-}
-
-.first { 
-	margin-left: 0 !important; 
-}
-
-.last {
-	margin-right: 0 !important;
-}
-
-.alignleft {
-	float: left;
-	margin: 0.5em 20px 0.5em 0;
-}
-
-.alignright {
-	float: right;
-	margin: 0.5em 0 0.5em 20px;
-}
-
-.aligncenter {
-	display: block;
-	float: none; 
-	margin-top: 0.5em; 
-	margin-right: auto !important;
-	margin-bottom: 0.5em;
-	margin-left: auto !important; 
-}
-
-.alignnone {
-	margin-top: 0.5em;
-	margin-bottom: 0.5em;
-}
-
-/* 
- * override Bootstrap span class that was 
+/*
+ * override Bootstrap span class that was
  * causing issues with some post_class() tags 
  */
 [class*="span"].post {
@@ -66,40 +34,31 @@ img {
 }
 
 input[type="submit"] {
-	display: inline-block;
-	padding: 5px 14px 6px;
-	border: 1px solid #ccc;
-	border-bottom-color: #bbb;
-	-webkit-border-radius: 4px;
-	-moz-border-radius: 4px;
-	border-radius: 4px;
-	background-color: #e6e6e6;
-	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), color-stop(25%, #ffffff), to(#e6e6e6));
-	background-image: -webkit-linear-gradient(#ffffff, #ffffff 25%, #e6e6e6);
-	background-image: -moz-linear-gradient(top, #ffffff, #ffffff 25%, #e6e6e6);
-	background-image: -ms-linear-gradient(#ffffff, #ffffff 25%, #e6e6e6);
-	background-image: -o-linear-gradient(#ffffff, #ffffff 25%, #e6e6e6);
-	background-image: linear-gradient(#ffffff, #ffffff 25%, #e6e6e6);
-	background-repeat: no-repeat;
-	-webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
-	-moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
-	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
-	color: #333;
-	text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
-	font-size: 13px;
-	line-height: normal;
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#e6e6e6', GradientType=0);
-	cursor: pointer;
-	-webkit-transition: 0.1s linear all;
-	-moz-transition: 0.1s linear all;
-	-ms-transition: 0.1s linear all;
-	-o-transition: 0.1s linear all;
-	transition: 0.1s linear all;
+    color: #ffffff;
+    background-color: @link-color;
+    border-color: @link-color;
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1.428571429;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
 
     &:hover {
-      background-position: 0 -15px;
-      color: #333;
-      text-decoration: none;
+      color: #ffffff;
+      background-color: @link-hover-color;
+      border-color: @link-hover-color;
     }
 
     &:focus {
@@ -148,81 +107,3 @@ code {
 	float: left; 
 	margin: 8px 0 12px 0;
 }
-
-// inline grids
-
-.inline-grid {
-    display: block;
-    overflow: hidden;
-
-    > li {
-      display: block;
-      float: left;
-      height: auto;
-    }
-
-    &.two-up {
-      margin-left: -4%;
-
-      > li {
-        margin-bottom: 4%;
-        margin-left: 4%;
-        width: 46%;
-
-        &:nth-child(2n+1) {
-          clear: left;
-        }
-
-      } // > li
-
-    } // .two-up
-
-    &.three-up {
-      margin-left: -2%;
-
-      > li {
-        margin-bottom: 2%;
-        margin-left: 2%;
-        width: 31.2%;
-
-        &:nth-child(2n+1) {
-          clear: left;
-        }
-
-      } // > li
-
-    } // .two-up
-
-    &.four-up {
-      margin-left: -2%;
-
-      > li {
-        margin-bottom: 2%;
-        margin-left: 2%;
-        width: 23%;
-
-        &:nth-child(2n+1) {
-          clear: left;
-        }
-
-      } // > li
-
-    } // .two-up
-
-    &.five-up {
-      margin-left: -1.5%;
-
-      > li {
-        margin-bottom: 1.5%;
-        margin-left: 1.5%;
-        width: 18.5%;
-
-        &:nth-child(2n+1) {
-          clear: left;
-        }
-
-      } // > li
-
-    } // .two-up
-
-} // .inline-grid

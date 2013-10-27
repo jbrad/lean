@@ -154,7 +154,7 @@
   .navbar ul.nav-menu {
     margin-top: 15px;
     padding-top: 10px;
-    border-top: 1px solid #444;
+    border-top: 1px solid #444444;
   }
   .navbar ul.nav-menu > li a {
     padding: 10px 15px;
@@ -167,24 +167,21 @@
     background: #282828;
   }
   .nav-collapse .dropdown-menu li.active a {
-    color: #fff;
+    color: #ffffff;
   }
   .nav-collapse .dropdown-menu li.active a:hover {
-    color: #fff;
+    color: #ffffff;
   }
   .nav-collapse .dropdown-menu > li a {
     box-shadow: none;
     border: none;
   }
   .nav-collapse .dropdown-menu > li a:hover {
-    color: #fff;
+    color: #ffffff;
   }
   /* post format aside */
   .format-aside .entry-content {
     padding: 20px 20px 20px 60px;
-  }
-  .format-aside .aside-date {
-    left: -10px;
   }
   .format-link .post-header .post-title {
     font-size: 24px;

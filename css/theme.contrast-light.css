@@ -1,49 +1,6 @@
 /* Contrast stylesheet for when user has a dark background */
-.dark_gradient {
-  background-image: -moz-linear-gradient(top, #333333, #222222);
-  background-image: -ms-linear-gradient(top, #333333, #222222);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#333333), to(#222222));
-  background-image: -webkit-linear-gradient(top, #333333, #222222);
-  background-image: -o-linear-gradient(top, #333333, #222222);
-  background-image: linear-gradient(top, #333333, #222222);
-  background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#333333', endColorstr='#222222', GradientType=0);
-}
-.light_gradient {
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#f8f8f8), to(#eeeeee));
-  background-image: -webkit-linear-gradient(top, #f8f8f8, #eeeeee);
-  background-image: -moz-linear-gradient(top, #f8f8f8, #eeeeee);
-  background-image: -o-linear-gradient(top, #f8f8f8, #eeeeee);
-  background-image: -ms-linear-gradient(top, #f8f8f8, #eeeeee);
-  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, StartColorStr='#f8f8f8', EndColorStr='#eeeeee');
-}
-.box_sizing {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
-.box_shadow {
-  -webkit-box-shadow: inset 0 1px 2px 0 rgba(0, 0, 0, 0.2), transparent 0 0 0, transparent 0 0 0, transparent 0 0 0, transparent 0 0 0;
-  -moz-box-shadow: inset 0 1px 2px 0 rgba(0, 0, 0, 0.2), transparent 0 0 0, transparent 0 0 0, transparent 0 0 0, transparent 0 0 0;
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), transparent 0 0 0, transparent 0 0 0, transparent 0 0 0, transparent 0 0 0;
-}
-.no_shadow {
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none;
-}
-.inset_box_shadow {
-  -webkit-box-shadow: 0 0 8px rgba(255, 255, 255, 0.8) inset;
-  -moz-box-shadow: 0 0 8px rgba(255, 255, 255, 0.8) inset;
-  box-shadow: 0 0 8px rgba(255, 255, 255, 0.8) inset;
-}
-.no_border_radius {
-  -webkit-border-radius: 0 0 0 0;
-  -moz-border-radius: 0 0 0 0;
-  border-radius: 0 0 0 0;
-}
 body {
-  color: #eee;
+  color: #eeeeee;
   background: #090909;
 }
 h1,
@@ -57,17 +14,17 @@ h6 {
 /* header */
 #site-title,
 #site-title a {
-  color: #fff;
+  color: #ffffff;
 }
 /* sidebar */
 #sidebar {
-  color: #eee;
+  color: #eeeeee;
 }
 .widget h4.widget-title {
   color: #e0e0e0;
 }
 .breadcrumb {
-  background: #222;
+  background: #222222;
   box-shadow: none;
   border-color: #303030;
 }
@@ -79,34 +36,31 @@ h6 {
 #pings,
 #no-comments,
 #respond {
-  background: #222;
+  background: #222222;
 }
 .post-title a,
 .post-title a:visited {
-  color: #eee;
+  color: #eeeeee;
 }
 .post-header,
 .post-meta {
   border-color: #303030;
 }
 .post.format-status .post-header {
-  background-color: #2c2c2c;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#2c2c2c), to(#282828));
-  background-image: -webkit-linear-gradient(top, #2c2c2c, #282828);
-  background-image: -moz-linear-gradient(top, #2c2c2c, #282828);
-  background-image: -o-linear-gradient(top, #2c2c2c, #282828);
-  background-image: -ms-linear-gradient(top, #2c2c2c, #282828);
-  background-image: linear-gradient(top, #2c2c2c, #282828);
-  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, StartColorStr='#2c2c2c', EndColorStr='#282828');
+  background-image: -webkit-gradient(linear, left 0%, left 100%, from(#2c2c2c), to(#282828));
+  background-image: -webkit-linear-gradient(top, #2c2c2c, 0%, #282828, 100%);
+  background-image: -moz-linear-gradient(top, #2c2c2c 0%, #282828 100%);
+  background-image: linear-gradient(to bottom, #2c2c2c 0%, #282828 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff2c2c2c', endColorstr='#ff282828', GradientType=0);
   -webkit-box-shadow: none;
-  -moz-box-shadow: none;
   box-shadow: none;
 }
 .post.format-quote .post-header {
-  background-image: url(./images/bg-quote-dark.png);
+  background-image: url(images/bg-quote-dark.png);
 }
 .post.format-quote .post-header .entry-content p {
-  color: #444;
+  color: #444444;
 }
 .post.format-aside .aside-date {
   background: #28292d;
@@ -115,7 +69,6 @@ h6 {
   background-color: #28292d;
   background-image: none;
   -webkit-box-shadow: none;
-  -moz-box-shadow: none;
   box-shadow: none;
 }
 .entry-content .wp-caption {
@@ -123,21 +76,21 @@ h6 {
   border: 1px solid #191919;
 }
 .well {
-  background: #222;
+  background: #222222;
   border: none;
 }
 /* author box */
 #author-box .author-link {
-  color: #eee;
+  color: #eeeeee;
 }
 .page-link {
   border-color: #303030;
 }
 #comments .comment-container .comment-entry .name {
-  color: #999;
+  color: #999999;
 }
 #comments .date a {
-  color: #eee;
+  color: #eeeeee;
 }
 #comments .comment-container {
   border-color: #303030;
@@ -146,8 +99,8 @@ h6 {
   border-color: #303030;
 }
 #comments .bypostauthor > .comment-container {
-  background: #2F2F2F;
-  border-right: 5px solid #F9F9F9;
+  background: #2f2f2f;
+  border-right: 5px solid #f9f9f9;
 }
 /* sidebar */
 table#wp-calendar caption {
@@ -160,13 +113,13 @@ table#wp-calendar caption {
 .pager li a {
   display: inline-block;
   padding: 5px 14px;
-  background-color: #333;
-  border: 1px solid #222;
+  background-color: #333333;
+  border: 1px solid #222222;
   border-radius: 15px;
 }
 .pager li a:hover {
-  background-color: #333;
-  color: #EEE;
+  background-color: #333333;
+  color: #eeeeee;
 }
 .pager li span {
   padding: 0px;
@@ -177,7 +130,7 @@ table#wp-calendar caption {
 .pager a:hover,
 .previous-page a:hover,
 .next-page a:hover {
-  color: #EEE;
+  color: #eeeeee;
 }
 /* jetpack comments */
 .comment-container #respond,
@@ -205,7 +158,7 @@ h2#categories .fa-list-alt {
 }
 /* 404 page */
 .error404 #nothing-found h1 {
-  color: #fff;
+  color: #ffffff;
 }
 /* footer */
 #footer {

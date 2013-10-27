@@ -8,7 +8,7 @@
  */
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class( 'post format-image' ); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class( 'post panel panel-default format-image' ); ?>>
 
     <?php if ( '' != get_the_post_thumbnail() ) { ?>
         <figure class="post-format-image clearfix">

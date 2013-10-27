@@ -23,6 +23,10 @@
 			} // end if/else
 			
 		});
+
+        if($('#respond').length > 0) {
+            $('#respond').addClass('panel panel-default');
+        }
 		
 		// Toggles acceptable HTML tags
 		if($('#allowed-tags-trigger').length > 0) {

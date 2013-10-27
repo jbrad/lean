@@ -1,21 +1,21 @@
 //
 // Post Format Link
-// @version 1.1
+// @version 1.4
 // @since 1.0
 //
 
 .format-link {
 
   .post-title {
-    color: #f0f0f0;
+    color: @post_format_link_post_title_color;
     font-size: 24px;
     line-height: 120%;
 
     a, a:visited {
-      color: #f0f0f0;
+      color: @post_format_link_post_title_visited_color;
 
       &:hover {
-        color: #999;
+        color: @post_format_link_post_title_hover_color;
       }
 
     }
@@ -32,14 +32,7 @@
   .post-header {
     margin-bottom: 0;
     border-bottom: 0;
-    background-color: #28292d;
-    background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(40, 41, 45)), to(rgb(7, 7, 10)));
-    background-image: -webkit-linear-gradient(top, rgb(40, 41, 45), rgb(7, 7, 10));
-    background-image: -moz-linear-gradient(top, rgb(40, 41, 45), rgb(7, 7, 10));
-    background-image: -o-linear-gradient(top, rgb(40, 41, 45), rgb(7, 7, 10));
-    background-image: -ms-linear-gradient(top, rgb(40, 41, 45), rgb(7, 7, 10));
-    background-image: linear-gradient(top, rgb(40, 41, 45), rgb(7, 7, 10));
-    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#28292d', EndColorStr='#07070a');
+    background-color: @post_format_link_post_title_bg_color;
   }
 
   .post-header {

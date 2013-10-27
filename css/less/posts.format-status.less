@@ -1,6 +1,6 @@
 //
 // Post Format Status
-// @version 1.1
+// @version 1.4
 // @since 1.0
 //
 
@@ -13,19 +13,10 @@
   .post-header {
     margin-bottom: 0;
     border-bottom: 0;
-    background-color: #ebebeb;
-    background-color: #ebebeb;
-    background-image: -webkit-gradient(radial, 50% 0%,100,50% 150%,100, from(rgb(252, 252, 252)), to(rgb(235, 235, 235)));
-    background-image: -webkit-radial-gradient(50% 100%, rgb(235, 235, 235), rgb(252, 252, 252));
-    background-image: -moz-radial-gradient(50% 100%, rgb(235, 235, 235), rgb(252, 252, 252));
-    background-image: -ms-radial-gradient(50% 100%, rgb(235, 235, 235), rgb(252, 252, 252));
-    background-image: radial-gradient(50% 100%, rgb(235, 235, 235), rgb(252, 252, 252));
-    -webkit-box-shadow: inset 0 1px 2px #fff;
-    -moz-box-shadow: inset 0 1px 2px #fff;
-    box-shadow: inset 0 1px 2px #fff;
+    background-color: @post_format_status_post_header_bg_color;
 
     .entry-content {
-      padding: 0;
+      padding: 0 20px;
       min-height: 60px;
     }
   }

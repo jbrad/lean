@@ -1,10 +1,11 @@
 //
 // Posts
-// @version 1.1
+// @version 1.4
 // @since 1.0
 //
 
 @import "mixins.less";
+@import "../lib/twitter/mixins.less";
 
 // Post Formats
 @import "posts.format-image";
@@ -17,27 +18,13 @@
 @import "posts.format-aside";
 @import "posts.format-audio";
 
-.post, #comments, #pings, #no-comments, #respond {
-  position: relative;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  margin: 0 0 20px 0;
-  background: #fff;
-  -webkit-box-shadow: inset 0 1px 2px 0 rgba(0, 0, 0, 0.2),transparent 0 0 0,transparent 0 0 0,transparent 0 0 0,transparent 0 0 0;
-  -moz-box-shadow: inset	0 1px 2px 0 rgba(0, 0, 0, 0.2),transparent 0 0 0,transparent 0 0 0,transparent 0 0 0,transparent 0 0 0;
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2),transparent 0 0 0,transparent 0 0 0,transparent 0 0 0,transparent 0 0 0;
-  .border_radius(4px);
-}
-
 .post-header {
   margin-bottom: 15px;
   padding: 20px;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid @post_post_header_border_color;
 
   .thumbnail {
-    margin-top: 0;
-    margin-bottom: 0;
+    margin: 0 20px 0 0;
   }
 
 } // .post-header
@@ -49,11 +36,11 @@
   line-height: 1.2;
 
   a, a:visited {
-    color: #444;
+    color: @post_post_title_color;
   }
 
   a:hover, a:active {
-    color: #888;
+    color: @post_post_title_hover_color;
     text-decoration: none;
   }
 
@@ -61,7 +48,7 @@
 
 .post-header-meta {
   margin: 0;
-  color: #999;
+  color: @post_post_header_meta_color;
 }
 
 .post {
@@ -95,11 +82,9 @@
     margin: 0 0 20px 0;
     padding-top: 4px;
     max-width: 100%;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    border-radius: 3px;
+    .border_radius(3px);
     border-image: initial;
-    background-color: #f8f8f8;
+    background-color: @post_post_caption_bg_color;
     text-align: center;
   }
 
@@ -128,7 +113,7 @@
 
 p.wp-caption-text {
   margin-bottom: 0;
-  color: #888;
+  color: @post_post_caption_color;
   font-size: 11px;
 }
 
@@ -149,7 +134,7 @@ p.wp-caption-text {
 #main table {
   margin: 20px 0;
   width: 100%;
-  border: 1px solid #dddddd;
+  border: 1px solid @post_post_table_border_color;
   border-collapse: separate;
   border-left: 0;
   -webkit-border-radius: 4px;
@@ -158,8 +143,8 @@ p.wp-caption-text {
 
   th, td {
     padding: 8px;
-    border-top: 1px solid #dddddd;
-    border-left: 1px solid #dddddd;
+    border-top: 1px solid @post_post_table_border_color;
+    border-left: 1px solid @post_post_table_border_color;
     vertical-align: top;
     text-align: left;
     line-height: 18px;
@@ -203,12 +188,12 @@ p.wp-caption-text {
 
 .post-meta {
   padding: 20px 20px 20px;
-  border-top: 1px solid #eee;
-  color: #888;
+  border-top: 1px solid @post_post_meta_border_color;
+  color: @post_post_meta_color;
   font-size: 12px;
 
   .fa-link, .fa-tags {
-    color: #888;
+    color: @post_post_meta_color;
   }
 
   .the-category {
@@ -274,11 +259,11 @@ p.wp-caption-text {
 } // .pager
 
 .pager a, .previous-page a, .next-page a {
-  color: #999;
+  color: @pager_link_color;
   font-size: 14px;
 
   &:hover {
-    color: #444;
+    color: @pager_link_hover_color;
     text-decoration: none;
     cursor: pointer;
   }
@@ -287,7 +272,7 @@ p.wp-caption-text {
 
 .page-link {
   padding: 10px;
-  border: 1px solid #eee;
+  border: 1px solid @page_link_color;
 
   span {
     font-weight: bold;
@@ -305,7 +290,7 @@ p.wp-caption-text {
 
 .breadcrumb {
   padding: 4px 17px;
-  background: #f9f9f9;
+  background: @breadcrumb_bg_color;
 
   .active {
     display: inline;
@@ -316,7 +301,7 @@ p.wp-caption-text {
 }
 
 a.post-permalink:hover {
-  color: #e0e0e0;
+  color: @post_permalink_hover_color;
   text-decoration: none;
 }
 

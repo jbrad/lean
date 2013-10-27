@@ -92,8 +92,6 @@
                                             <p><?php _e( 'You have no posts.', TRANSLATION_KEY ); ?></p>
                                         <?php } // end if ?>
 
-                                        <hr />
-
                                         <h2 id="pages"><span class="fa fa-list-alt"></span> <?php _e( 'All Pages', TRANSLATION_KEY); ?></h2>
 
                                         <?php
@@ -127,8 +125,6 @@
                                         <?php } else { ?>
                                             <p><?php _e( 'You have no pages.', TRANSLATION_KEY ); ?></p>
                                         <?php } // end if ?>
-
-                                        <hr />
 
                                         <h2 id="categories"><span class="fa fa-list"></span> <?php _e( 'All Categories', TRANSLATION_KEY); ?></h2>
                                         <?php $categories = get_categories( 'hide_empty=1' ); ?>

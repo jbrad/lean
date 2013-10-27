@@ -43,10 +43,10 @@
                                         <img src="<?php echo esc_url( $image_attributes[0] ); ?>" width="<?php echo $image_attributes[1]; ?>" height="<?php echo $image_attributes[2]; ?>" />
                                     </div><!-- ./content -->
                                     <div id="image-thumbnails" class="clearfix">
-                                        <div class="fl">
+                                        <div class="pull-left">
                                             <?php previous_image_link(); ?>
                                         </div>
-                                        <div class="fr">
+                                        <div class="pull-right">
                                             <?php next_image_link(); ?>
                                         </div>
                                     </div><!-- /#image-thumbmails -->

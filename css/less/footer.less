@@ -1,6 +1,6 @@
 //
 // Footer
-// @version 1.1
+// @version 1.4
 // @since 1.0
 //
 
@@ -8,7 +8,7 @@
 
 #footer {
 	padding: 0;
-	background: #e0e0e0;
+	background: @footer_bg_color;
 	
     #footer-widgets {
         padding-top: 40px;
@@ -21,14 +21,14 @@
         #credit {
           float: right;
           padding: 13px 0;
-          color: #666;
+          color: @footer_credit_color;
           text-align: right;
 
           a {
-            color: #999;
+            color: @footer_credit_link_color;
 
             &:hover {
-              color: #fff;
+              color: @footer_credit_link_hover_color;
               text-decoration: none;
             }
 
@@ -42,11 +42,11 @@
       float: left;
 
       .navbar-nav > li > a {
-        color: @navigationItemColor;
+        color: @navigation_item_color;
         padding: 10px;
 
         &:hover {
-          color: @navigationItemColorHover;
+          color: @navigation_item_hover_color;
           background: none;
         }
 

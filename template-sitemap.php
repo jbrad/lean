@@ -31,7 +31,7 @@
 								<div id="sitemap-authors">
 									<h2 id="authors"><span class="fa fa-group"></span> <?php _e( 'Authors', TRANSLATION_KEY ); ?></h2>
 			
-									<ul id="sitemap-authors" class="inline-grid four-up">
+									<ul id="sitemap-authors" class="nav nav-pills">
 										<?php
 										foreach( get_users() as $user ) {
 											$query = new WP_Query( 'author=' . $user->ID . '&posts_per_page=1' );

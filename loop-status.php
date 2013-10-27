@@ -9,7 +9,7 @@
 ?>
 <?php /* Main Loop */ ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class( 'post format-status' ); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class( 'post panel panel-default format-status' ); ?>>
 
 	<div class="post-header clearfix">
 		<div class="row">

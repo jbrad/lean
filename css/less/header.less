@@ -1,6 +1,6 @@
 //
 // Header
-// @version 1.1
+// @version 1.4
 // @since 1.0
 // 
 
@@ -36,7 +36,7 @@
 #site-title a  {
 
 	margin-bottom: 0;
-	color: #000;
+	color: @site_title_color;
 	text-decoration: none;
 	font-weight: bold;
 	font-size: 32px;
@@ -54,11 +54,11 @@ p#site-title {
 #site-title a:hover,
 #site-title a:focus,
 #site-title a:active {
-	color: #454545;
+	color: @site_title_hover_color;
 }
 
 #site-description {
-	color: #7a7a7a;
+	color: @site_description_color;
 	font-size: 14px;
 }
 

@@ -8,7 +8,7 @@
  */
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class( 'post format-gallery' ); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class( 'post panel panel-default format-gallery' ); ?>>
 
     <div id="content-<?php the_ID(); ?>" class="entry-content clearfix">
             <?php if( function_exists( 'get_post_gallery' ) ) { ?>
