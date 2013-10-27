@@ -7,7 +7,7 @@
  */
 
 // Define a theme version. This is used for cache-busting stylesheets, JavaScript, and for serializing the version in the database
-define( 'THEME_VERSION', '1.3.1' );
+define( 'THEME_VERSION', '1.4' );
 
 // Define the theme's name.
 define( 'THEME_NAME', 'Lean' );
