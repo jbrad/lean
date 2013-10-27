@@ -1,3 +1,111 @@
+# 1.4 (October 27th, 2013)
+
+## Font Awesome 4
+* Updated to Font Awesome 4
+
+## Streamline Stylesheets and LESS Files
+* Spent a lot of time removing duplicate styles and utilized Bootstrap a bit more. Brought the style.css file down from 152kb to 129kb.
+
+## Fixed Responsive Issue with Status Post Format
+* Added some additional responsive classes
+
+### Change Set
+
+**Modified**
+* css/admin.css
+* css/editor-style.css
+* css/theme-responsive.css
+* css/theme.contrast-light.css
+* css/less/author-box.less
+* css/less/bootstrap.less
+* css/less/comments.less
+* css/less/footer.less
+* css/less/font-awesome.less
+* css/less/header.less
+* css/less/ie-styles.less
+* css/less/misc.less
+* css/less/mixins.less
+* css/less/navigation.less
+* css/less/pages.less
+* css/less/posts.less
+* css/less/posts.format-aside.less
+* css/less/posts.format-audio.less
+* css/less/posts.format-chat.less
+* css/less/posts.format-link.less
+* css/less/posts.format-status.less
+* css/less/posts.format-quote.less
+* css/less/posts.format-video.less
+* css/less/structure.less
+* css/less/style.less
+* css/less/theme-responsive.less
+* css/less/theme.contrast-light.less
+* css/less/typography.less
+* css/less/variables.less
+* css/less/widgets.less
+* css/lib/font-awesome/bootstrap.less
+* css/lib/font-awesome/core.less
+* css/lib/font-awesome/extras.less
+* css/lib/font-awesome/fixed-width.less
+* css/lib/font-awesome/font-awesome.less
+* css/lib/font-awesome/font-awesome-ie7.less
+* css/lib/font-awesome/icons.less
+* css/lib/font-awesome/larger.less
+* css/lib/font-awesome/list.less
+* css/lib/font-awesome/mixins.less
+* css/lib/font-awesome/path.less
+* css/lib/font-awesome/rotated-flipped.less
+* css/lib/font-awesome/spinning.less
+* css/lib/font-awesome/stacked.less
+* css/lib/font-awesome/variables.less
+* font/font-awesome/FontAwesome.otf
+* font/font-awesome/fontawesome-webfont.eot
+* font/font-awesome/fontawesome-webfont.woff
+* font/font-awesome/fontawesome-webfont.otf
+* font/font-awesome/fontawesome-webfont.svg
+* font/font-awesome/fontawesome-webfont.ttf
+* inc/theme-styles-and-scripts.php
+* includes/author-box.php
+* includes/loop.post-meta.php
+* lib/activity/css/less/widget.less
+* lib/activity/css/widget.css
+* lib/ad-125x125/css/widget.css
+* lib/ad-300x250/css/widget.css
+* lib/ad-billboard/css/widget.css
+* lib/influence/css/less/widget.less
+* lib/influence/css/widget.css
+* lib/influence/views/widget.php
+* comments.php
+* image.php
+* loop.php
+* loop-aside.php
+* loop-audio.php
+* loop-chat.php
+* loop-gallery.php
+* loop-image.php
+* loop-link.php
+* loop-quote.php
+* loop-status.php
+* loop-video.php
+* pagination.php
+* sidebar.php
+* social-networking.php
+* template-archives.php
+* template-sitemap.php
+* style.css
+* Gruntfile.js
+* bower.json
+* 404.php
+* comments.php
+* js/dev/theme.comments.js
+* js/theme.main.min.js
+
+**Added**
+* css/less/bootstrap-overrides.less
+* css/lib/font-awesome/bordered-pulled.less
+
+**Removed**
+* css/less/theme.videopress.less
+
 # 1.3.1 (October 22st, 2013)
 
 ## Social Icons
