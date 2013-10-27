@@ -37,31 +37,31 @@ foreach( $social_icons_urls as $icon_url ) {
         $html .= '<li>';
 
         if( strpos( $icon, 'twitter.png' ) > 0 ) {
-            $font_awesome_icon_class = 'icon-twitter';
+            $font_awesome_icon_class = 'fa fa-twitter';
         } else if( strpos( $icon, 'facebook.png' ) > 0 ) {
-            $font_awesome_icon_class = 'icon-facebook';
+            $font_awesome_icon_class = 'fa fa-facebook';
         } else if( strpos( $icon, 'email.png' ) > 0 ) {
-            $font_awesome_icon_class = 'icon-envelope';
+            $font_awesome_icon_class = 'fa fa-envelope';
         } else if( strpos( $icon, 'github.png' ) > 0 ) {
-            $font_awesome_icon_class = 'icon-github';
+            $font_awesome_icon_class = 'fa fa-github';
         } else if (strpos( $icon, 'dribbble.png' ) > 0 ) {
-            $font_awesome_icon_class = 'icon-dribbble';
+            $font_awesome_icon_class = 'fa fa-dribbble';
         } else if (strpos( $icon, 'foursquare.png' ) > 0 ) {
-            $font_awesome_icon_class = 'icon-foursquare';
+            $font_awesome_icon_class = 'fa fa-foursquare';
         } else if (strpos( $icon, 'google_plus.png' ) > 0 ) {
-            $font_awesome_icon_class = 'icon-google-plus';
+            $font_awesome_icon_class = 'fa fa-google-plus';
         } else if (strpos( $icon, 'pinterest.png' ) > 0 ) {
-            $font_awesome_icon_class = 'icon-pinterest';
+            $font_awesome_icon_class = 'fa fa-pinterest';
         } else if (strpos( $icon, 'linkedin.png' ) > 0 ) {
-            $font_awesome_icon_class = 'icon-linkedin';
+            $font_awesome_icon_class = 'fa fa-linkedin';
         } else if (strpos( $icon, 'youtube.png' ) > 0 ) {
-            $font_awesome_icon_class = 'icon-youtube';
+            $font_awesome_icon_class = 'fa fa-youtube';
         } else if (strpos( $icon, 'vimeo.png' ) > 0 ) {
-            $font_awesome_icon_class = 'icon-play';
+            $font_awesome_icon_class = 'fa fa-vimeo-square';
         } else if (strpos( $icon, 'soundcloud.png' ) > 0 ) {
-            $font_awesome_icon_class = 'icon-cloud';
+            $font_awesome_icon_class = 'fa fa-cloud';
         } else if (strpos( $icon, 'rss.png' ) > 0 ) {
-            $font_awesome_icon_class = 'icon-rss';
+            $font_awesome_icon_class = 'fa fa-rss';
             $url = get_rss_feed_url();
         } // end if/else
 		

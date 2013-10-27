@@ -31,7 +31,7 @@
                                     <div class="content">
                                         <?php the_content(); ?>
 
-                                        <h2 id="posts"><span class="icon-calendar"></span> <?php _e( 'All Posts', TRANSLATION_KEY); ?></h2>
+                                        <h2 id="posts"><span class="fa fa-calendar"></span> <?php _e( 'All Posts', TRANSLATION_KEY); ?></h2>
 
                                         <?php
 
@@ -78,10 +78,10 @@
 
                                             <ul id="archives-post-pager" class="pager">
                                                 <li class="previous">
-                                                    <?php previous_posts_link( '<span class="icon-cheveron-left"></span> Previous Posts', $post_query->max_num_pages ); ?>
+                                                    <?php previous_posts_link( '<span class="fa fa-cheveron-left"></span> Previous Posts', $post_query->max_num_pages ); ?>
                                                 </li>
                                                 <li class="next">
-                                                    <?php next_posts_link( 'Next Posts <span class="icon-cheveron-right"></span>', $post_query->max_num_pages ); ?>
+                                                    <?php next_posts_link( 'Next Posts <span class="fa fa-cheveron-right"></span>', $post_query->max_num_pages ); ?>
                                                 </li>
                                             </ul><!-- /.pager -->
 
@@ -94,7 +94,7 @@
 
                                         <hr />
 
-                                        <h2 id="pages"><span class="icon-list-alt"></span> <?php _e( 'All Pages', TRANSLATION_KEY); ?></h2>
+                                        <h2 id="pages"><span class="fa fa-list-alt"></span> <?php _e( 'All Pages', TRANSLATION_KEY); ?></h2>
 
                                         <?php
                                         $args = array(
@@ -130,7 +130,7 @@
 
                                         <hr />
 
-                                        <h2 id="categories"><span class="icon-list"></span> <?php _e( 'All Categories', TRANSLATION_KEY); ?></h2>
+                                        <h2 id="categories"><span class="fa fa-list"></span> <?php _e( 'All Categories', TRANSLATION_KEY); ?></h2>
                                         <?php $categories = get_categories( 'hide_empty=1' ); ?>
                                         <?php if( count( $categories) > 0 ) { ?>
                                             <p>

@@ -29,7 +29,7 @@
 							</div><!-- /.post-header -->						
 							<div id="content-<?php the_ID(); ?>" class="entry-content clearfix">
 								<div id="sitemap-authors">
-									<h2 id="authors"><span class="icon-group"></span> <?php _e( 'Authors', TRANSLATION_KEY ); ?></h2>
+									<h2 id="authors"><span class="fa fa-group"></span> <?php _e( 'Authors', TRANSLATION_KEY ); ?></h2>
 			
 									<ul id="sitemap-authors" class="inline-grid four-up">
 										<?php
@@ -56,7 +56,7 @@
 									</ul>
 								</div><!-- /#sitemap-authors -->
 								
-								<h2 id="pages"><span class="icon-list-alt"></span> <?php _e( 'Pages', TRANSLATION_KEY ); ?></h2>
+								<h2 id="pages"><span class="fa fa-list-alt"></span> <?php _e( 'Pages', TRANSLATION_KEY ); ?></h2>
 								<ul id="sitemap-pages">
 									<?php
 										wp_list_pages(
@@ -68,7 +68,7 @@
 									?>
 								</ul>
 								
-								<h2 id="posts"><span class="icon-calendar"></span> <?php _e( 'Posts', TRANSLATION_KEY ); ?></h2>
+								<h2 id="posts"><span class="fa fa-calendar"></span> <?php _e( 'Posts', TRANSLATION_KEY ); ?></h2>
 								<ul id="sitemap-posts">
 									<?php
 										$category_list = '';

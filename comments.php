@@ -30,10 +30,10 @@
 			</ol>    
 			<div class="comment-navigation clearfix">
 				<div class="comment-prev-nav">
-					<?php previous_comments_link( '<i class="icon-chevron-left"></i>' . __( 'Previous Comments', TRANSLATION_KEY ) ); ?>
+					<?php previous_comments_link( '<i class="fa fa-chevron-left"></i>' . __( 'Previous Comments', TRANSLATION_KEY ) ); ?>
 				</div>
 				<div class="comment-next-nav">
-					<?php next_comments_link( __( 'Next Comments', TRANSLATION_KEY ) . '<i class="icon-chevron-right"></i>'); ?>
+					<?php next_comments_link( __( 'Next Comments', TRANSLATION_KEY ) . '<i class="fa fa-chevron-right"></i>'); ?>
 				</div>
 			</div>
 		</div><!-- /#comments -->

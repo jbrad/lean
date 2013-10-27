@@ -30,7 +30,7 @@
 
 				<?php if( is_single() && '' !== get_the_title() ) { ?>
 					<h1 class="post-title entry-title">
-                        <span class="icon-link"></span> <a href="<?php echo $href; ?>" title="<?php echo strlen( trim( $title ) ) > 0 ? $title : $post_title; ?>" target="<?php echo $target; ?>" rel="bookmark">
+                        <span class="fa fa-link"></span> <a href="<?php echo $href; ?>" title="<?php echo strlen( trim( $title ) ) > 0 ? $title : $post_title; ?>" target="<?php echo $target; ?>" rel="bookmark">
 							<?php if( strlen( trim( $post_title ) ) > 0 ) { ?>
 								<?php echo $post_title; ?>
 							<?php } elseif( strlen( trim( $title ) ) > 0 ) { ?>
@@ -44,7 +44,7 @@
 					</h1>
 				<?php } else { ?>
 					<h2 class="post-title entry-title">
-                        <span class="icon-link"></span> <a href="<?php echo $href; ?>" title="<?php echo strlen( trim( $title ) ) > 0 ? $title : $post_title; ?>" target="<?php echo $target; ?>" rel="bookmark">
+                        <span class="fa fa-link"></span> <a href="<?php echo $href; ?>" title="<?php echo strlen( trim( $title ) ) > 0 ? $title : $post_title; ?>" target="<?php echo $target; ?>" rel="bookmark">
 							<?php if( strlen( trim( $post_title ) ) > 0 ) { ?>
 								<?php echo $post_title; ?>
 							<?php } elseif( strlen( trim( $title ) ) > 0 ) { ?>

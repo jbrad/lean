@@ -17,7 +17,7 @@
 
             <div class="alert">
                 <p><strong><?php _e('Heads up!', TRANSLATION_KEY) ?></strong> <?php _e('It seems you have not added any widgets to your Sidebar just yet.', TRANSLATION_KEY) ?></p>
-                <p><a class="btn btn-primary" href="<?php echo get_site_url(); ?>/wp-admin/widgets.php"><span class="icon-plus"></span> <?php _e('Add Widgets', TRANSLATION_KEY) ?></a></p>
+                <p><a class="btn btn-primary" href="<?php echo get_site_url(); ?>/wp-admin/widgets.php"><span class="fa fa-plus"></span> <?php _e('Add Widgets', TRANSLATION_KEY) ?></a></p>
             </div>
 
         <?php } // end if ?>

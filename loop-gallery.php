@@ -50,8 +50,8 @@
                     }
 
                     $indicators .= '</ol>';
-                    $slides .= '</div><a class="carousel-control left" href="#' . $gallery_link . '" data-slide="prev"><span class="icon-prev"></span></a>';
-                    $slides .= '<a class="carousel-control right" href="#' . $gallery_link . '" data-slide="next"><span class="icon-next"></span></a></div>';
+                    $slides .= '</div><a class="carousel-control left" href="#' . $gallery_link . '" data-slide="prev"><span class="fa fa-angle-left"></span></a>';
+                    $slides .= '<a class="carousel-control right" href="#' . $gallery_link . '" data-slide="next"><span class="fa fa-angle-right"></span></a></div>';
                     $html .= $indicators;
                     $html .= $slides;
 

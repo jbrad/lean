@@ -18,7 +18,7 @@
                     <article id="nothing-found" class="no-results not-found">
                         <div class="entry-content clearfix">
 
-                            <span class="icon-bolt"></span>
+                            <span class="fa fa-bolt"></span>
                             <h1 class="404-title"><span><?php _e( '404', TRANSLATION_KEY ); ?></span> <?php _e( 'Whoa...you broke the Internet!', TRANSLATION_KEY ); ?></h1>
                             <p>
                                 <?php _e( 'The specified address does not contain a page or blog post at this time', TRANSLATION_KEY ); ?>.

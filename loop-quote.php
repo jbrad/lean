@@ -14,7 +14,7 @@
 	<div class="post-header clearfix">
 			<div class="entry-content row">
                 <div class="col-sm-1 hidden-xs">
-                    <span class="icon-quote-left"></span>
+                    <span class="fa fa-quote-left"></span>
                 </div> <!-- /.col-md-1 -->
                 <div class="col-sm-11 col-xs-12">
                     <?php get_template_part( 'includes/loop.post-content' ); ?>

@@ -22,8 +22,8 @@
       "../css/lib": [
         "less/*.less"
       ],
-      "../font/": [
-        "font/*.*"
+      "../fonts/": [
+        "fonts/*.*"
       ]
     },
     "fitvids": {

@@ -13,7 +13,7 @@
 	<div class="post-header clearfix">
 		<div class="title-wrap clearfix row">
             <div class="col-sm-1 hidden-xs">
-                <span class="icon-music"></span>
+                <span class="fa fa-music"></span>
             </div> <!-- /.col-md-1 -->
             <div class="col-sm-11 col-xs-12">
                 <?php get_template_part( 'includes/loop.post-title' ); ?>
