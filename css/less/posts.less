@@ -258,14 +258,18 @@ p.wp-caption-text {
 
 } // .pager
 
-.pager a, .previous-page a, .next-page a {
-  color: @pager_link_color;
-  font-size: 14px;
+.pager, .previous-page, .next-page {
 
-  &:hover {
-    color: @pager_link_hover_color;
-    text-decoration: none;
-    cursor: pointer;
+  li a {
+    border: none;
+    color: @pager_link_color;
+    font-size: 14px;
+
+    &:hover {
+      color: @pager_link_hover_color;
+      text-decoration: none;
+      cursor: pointer;
+    }
   }
 
 } // .pager a
