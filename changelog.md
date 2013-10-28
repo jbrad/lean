@@ -5,6 +5,7 @@
 
 ## Streamline Stylesheets and LESS Files
 * Spent a lot of time removing duplicate styles and utilized Bootstrap a bit more. Brought the style.css file down from 152kb to 129kb.
+* All colors are now variables in variables.less, this will make it crazy easy to modify the colors of the theme.
 
 ## Fixed Responsive Issue with Status Post Format
 * Added some additional responsive classes
