@@ -1,6 +1,6 @@
 {
   "name": "lean",
-  "version": "1.4",
+  "version": "1.4.1",
   "dependencies": {
     "fitvids": "*",
     "js-md5": "*",
