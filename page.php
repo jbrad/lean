@@ -3,7 +3,7 @@
  * The template for displaying single pages.
  *
  * @package lean
- * @version	1.2
+ * @version	1.4.1
  * @since 	1.0
  */
 ?>
@@ -23,7 +23,7 @@
                 <?php if ( have_posts() ) { ?>
                     <?php while ( have_posts() ) { ?>
                         <?php the_post(); ?>
-                        <article id="post-<?php the_ID(); ?> format-standard" <?php post_class( 'post' ); ?>>
+                        <article id="post-<?php the_ID(); ?> format-standard" <?php post_class( 'post panel panel-default' ); ?>>
                             <div class="post-header clearfix">
                                 <h1 class="post-title entry-title"><?php the_title(); ?></h1>
                             </div> <!-- /.post-header -->
