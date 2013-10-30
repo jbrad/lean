@@ -1,3 +1,17 @@
+# 1.4.1 (October 29th, 2013)
+
+## Fixes Issue with Pages Not Having Content Background
+* Added the panel classes to pages and page templates
+
+### Change Set
+
+**Modified**
+
+* page.php
+* template-archives.php
+* template-fullwidth.php
+* template-sitemap.php
+
 # 1.4 (October 27th, 2013)
 
 ## Font Awesome 4
@@ -13,6 +27,7 @@
 ### Change Set
 
 **Modified**
+
 * css/admin.css
 * css/editor-style.css
 * css/theme-responsive.css
@@ -101,10 +116,12 @@
 * js/theme.main.min.js
 
 **Added**
+
 * css/less/bootstrap-overrides.less
 * css/lib/font-awesome/bordered-pulled.less
 
 **Removed**
+
 * css/less/theme.videopress.less
 
 # 1.3.1 (October 22st, 2013)
@@ -115,6 +132,7 @@
 ### Change Set
 
 **Modified**
+
 * css/less/navigation.less
 
 # 1.3 (October 21st, 2013)
