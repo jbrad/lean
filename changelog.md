@@ -1,3 +1,27 @@
+# 1.4.2 (October 30th, 2013)
+
+## Fixes Issue with Image Alignment in posts and pages
+* Added styles back for alignleft, alignright, etc...
+
+## Fixes Issue with child themes loading stylesheets
+* Fixed issue in theme-styles-and-scripts.php
+
+## Fix post navigation hover background color
+
+## Fix issue with aside date displaying on mobile
+
+## Fix weird issue with displaying style.css file in Chrome
+
+### Change Set
+
+**Modified**
+
+* css/less/font-awesome.less
+* css/less/posts.less
+* css/less/posts.format-aside.less
+* css/less/variables.less
+* inc/theme-styles-and-scripts.php
+
 # 1.4.1 (October 29th, 2013)
 
 ## Fixes Issue with Pages Not Having Content Background
