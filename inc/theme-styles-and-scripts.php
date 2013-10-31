@@ -18,7 +18,7 @@ function add_theme_stylesheets() {
     wp_deregister_style('grunion.css');
 
     // theme
-    wp_enqueue_style( 'theme', get_template_directory_uri() . '/style.css', false, THEME_VERSION );
+    wp_enqueue_style( 'theme', get_stylesheet_directory_uri() . '/style.css', false, THEME_VERSION );
 
     // contrast
     $options = get_option( 'theme_presentation_options' );
