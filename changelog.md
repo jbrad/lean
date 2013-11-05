@@ -1,3 +1,76 @@
+# 1.5.0 (November 5th, 2013)
+
+## Updated Bootstrap to 3.0.1
+
+## Added format-aside class to aside posts
+* loop-aside.php
+
+### Change Set
+
+**Modified**
+
+* bower.json
+* package.json
+* css/less/bootstrap.less
+* css/less/style.less
+* css/lib/font-awesome/font-awesome.less
+* css/lib/font-awesome/icons.less
+* css/lib/font-awesome/stacked.less
+* css/lib/font-awesome/variables.less
+* css/lib/twitter/alerts.less
+* css/lib/twitter/bootstrap.less
+* css/lib/twitter/breadcrumbs.less
+* css/lib/twitter/button-groups.less
+* css/lib/twitter/buttons.less
+* css/lib/twitter/carousel.less
+* css/lib/twitter/code.less
+* css/lib/twitter/dropdowns.less
+* css/lib/twitter/forms.less
+* css/lib/twitter/glyphicons.less
+* css/lib/twitter/grid.less
+* css/lib/twitter/input-groups.less
+* css/lib/twitter/jumbotron.less
+* css/lib/twitter/list-group.less
+* css/lib/twitter/mixins.less
+* css/lib/twitter/modals.less
+* css/lib/twitter/navbar.less
+* css/lib/twitter/navs.less
+* css/lib/twitter/normalize.less
+* css/lib/twitter/pagination.less
+* css/lib/twitter/panels.less
+* css/lib/twitter/print.less
+* css/lib/twitter/progress-bars.less
+* css/lib/twitter/responsive-utilities.less
+* css/lib/twitter/scaffolding.less
+* css/lib/twitter/tables.less
+* css/lib/twitter/theme.less
+* css/lib/twitter/thumbnails.less
+* css/lib/twitter/tooltip.less
+* css/lib/twitter/type.less
+* css/lib/twitter/utilities.less
+* css/lib/twitter/variables.less
+* css/theme.contrast-light.css
+* js/lib/bootstrap.min.js
+* js/lib/twitter/affix.js
+* js/lib/twitter/alert.js
+* js/lib/twitter/button.js
+* js/lib/twitter/carousel.js
+* js/lib/twitter/collapse.js
+* js/lib/twitter/dropdown.js
+* js/lib/twitter/modal.js
+* js/lib/twitter/popover.js
+* js/lib/twitter/scrollspy.js
+* js/lib/twitter/tab.js
+* js/lib/twitter/tooltip.js
+* js/lib/twitter/transition.js
+* js/theme.main.min.js
+* lib/activity/css/widget.css
+* lib/influence/css/widget.css
+* style.css
+* loop-aside.php
+* functions.php
+* inc/theme-variables.php
+
 # 1.4.2 (October 30th, 2013)
 
 ## Fixes Issue with Image Alignment in posts and pages
