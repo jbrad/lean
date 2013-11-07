@@ -83,31 +83,16 @@ function resizeVideos($) {
 			$('#post-nav').hide();
 		} // end if
 		
-		// Introduce responsive functionality but only if the CSS is loaded
-		if($('link[id*="bootstrap-responsive-css"]').length > 0) {
-		
-			// Move sidebar below content on left sidebar layout
-			if($('#sidebar').length > 0 && $('#wrapper > .container > .row').children(':first').attr('id') === 'sidebar') {
-			
-				moveSidebarInLeftSidebarLayout($);
-				$(window).resize(function() {
-					moveSidebarInLeftSidebarLayout($);
-				});
-			
-			} // end if
+        // Resize videos properly
+        resizeVideos($);
 
-			// Resize videos properly
-			resizeVideos($);
-
-			// If there is no content below the link container, then kill the margin
-			if(0 === $('.format-link .entry-content').children('p').length) {
-				$('.format-link .entry-content').css({
-					marginTop: 0,
-					paddingBottom: 0
-				});
-			} // end if
-
-		} // end if
+        // If there is no content below the link container, then kill the margin
+        if(0 === $('.format-link .entry-content').children('p').length) {
+            $('.format-link .entry-content').css({
+                marginTop: 0,
+                paddingBottom: 0
+            });
+        } // end if
 
 	});
 }(jQuery));

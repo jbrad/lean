@@ -451,6 +451,7 @@ module.exports = function(grunt) {
 
     grunt.registerTask('default', ['watch']);
     grunt.registerTask('setup', ['bower', 'less:theme', 'less:plugins', 'jshint', 'watch']);
+    grunt.registerTask('dist', ['less:production', 'jshint', 'concat', 'uglify']);
     grunt.registerTask('build', ['less:production', 'jshint', 'concat', 'uglify', 'imagemin', 'compress']);
 
 };
