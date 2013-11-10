@@ -1,3 +1,45 @@
+# 1.6.0 (November 10th, 2013)
+
+## Updated Bootstrap to 3.0.2
+
+## Updated Font Awesome to 4.0.2
+
+## Fixed issue with responsive videos
+
+### Change Set
+
+**Modified**
+
+* Gruntfile.js
+* bower.json
+* css/lib/font-awesome/font-awesome.less
+* css/lib/font-awesome/icons.less
+* css/lib/font-awesome/variables.less
+* css/lib/twitter/forms.less
+* css/lib/twitter/mixins.less
+* css/lib/twitter/panels.less
+* css/lib/twitter/thumbnails.less
+* fonts/font-awesome/FontAwesome.otf
+* fonts/font-awesome/fontawesome-webfont.eot
+* fonts/font-awesome/fontawesome-webfont.svg
+* fonts/font-awesome/fontawesome-webfont.ttf
+* fonts/font-awesome/fontawesome-webfont.woff
+* js/lib/bootstrap.min.js
+* js/lib/twitter/affix.js
+* js/lib/twitter/alert.js
+* js/lib/twitter/button.js
+* js/lib/twitter/carousel.js
+* js/lib/twitter/collapse.js
+* js/lib/twitter/dropdown.js
+* js/lib/twitter/modal.js
+* js/lib/twitter/popover.js
+* js/lib/twitter/scrollspy.js
+* js/lib/twitter/tab.js
+* js/lib/twitter/tooltip.js
+* js/lib/twitter/transition.js
+* js/theme.main.min.js
+* js/dev/theme.main.js
+
 # 1.5.0 (November 5th, 2013)
 
 ## Updated Bootstrap to 3.0.1
