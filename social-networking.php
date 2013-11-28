@@ -60,6 +60,8 @@ foreach( $social_icons_urls as $icon_url ) {
             $font_awesome_icon_class = 'fa fa-vimeo-square';
         } else if (strpos( $icon, 'soundcloud.png' ) > 0 ) {
             $font_awesome_icon_class = 'fa fa-cloud';
+        } else if (strpos( $icon, 'instagram.png' ) > 0 ) {
+            $font_awesome_icon_class = 'fa fa-instagram';
         } else if (strpos( $icon, 'rss.png' ) > 0 ) {
             $font_awesome_icon_class = 'fa fa-rss';
             $url = get_rss_feed_url();
