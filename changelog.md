@@ -1,3 +1,30 @@
+# 1.7.0 (November 28th, 2013)
+
+## Added Instagram Social Icon
+
+## Added Customization for Jetpack Social Sharers
+* Updating to social sharers to use Font Awesome icons to increase performance
+
+### Change Set
+
+**Modified**
+
+* style.css
+* bower.json
+* package.json
+* css/lib/twitter/mixins.less
+* css/lib/twitter/posts.less
+* css/lib/twitter/style.less
+* css/lib/twitter/variables.less
+* js/theme.main.min.js
+* js/dev/theme.main.js
+* social-networking.php
+
+**Added**
+
+* images/social/small/instagram.png
+
+
 # 1.6.0 (November 10th, 2013)
 
 ## Updated Bootstrap to 3.0.2
