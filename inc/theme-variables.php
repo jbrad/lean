@@ -2,12 +2,12 @@
 /**
  * Theme Variables.
  *
- * @version	1.1
+ * @version	1.7
  * @since	1.0
  */
 
 // Define a theme version. This is used for cache-busting stylesheets, JavaScript, and for serializing the version in the database
-define( 'THEME_VERSION', '1.6.0' );
+define( 'THEME_VERSION', '1.7.0' );
 
 // Define the theme's name.
 define( 'THEME_NAME', 'Lean' );
