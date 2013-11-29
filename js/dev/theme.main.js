@@ -94,5 +94,30 @@ function resizeVideos($) {
             });
         } // end if
 
+        // Change up sharedaddy
+
+        if ( $('.sharedaddy').length ) {
+
+            $('.sd-content ul').addClass('nav nav-pills').find('li').removeAttr('class');
+
+            $('.sd-content').find('a').each(function () {
+                $(this).removeClass('sd-button share-icon');
+            });
+
+            $('a.share-facebook').addClass('fa fa-facebook-square');
+            $('a.share-twitter').addClass('fa fa-twitter-square');
+            $('a.share-linkedin').addClass('fa fa-linkedin-square');
+            $('a.share-google-plus-1').addClass('fa fa-google-plus-square');
+            $('a.share-pinterest').addClass('fa fa-pinterest-square');
+            $('a.share-email').addClass('fa fa-envelope-o');
+            $('a.share-print').addClass('fa fa-print');
+            $('a.share-tumblr').addClass('fa fa-tumblr');
+            $('a.share-pocket').addClass('fa fa-caret-square-o-down');
+            $('a.share-reddit').addClass('fa fa-group');
+            $('a.share-stumbleupon').addClass('fa fa-external-link');
+            $('a.share-digg').addClass('fa fa-thumbs-o-up');
+
+        }
+
 	});
 }(jQuery));

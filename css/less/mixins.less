@@ -23,3 +23,20 @@
   -o-transition: opacity .25s ease-in-out;
   transition: opacity .25s ease-in-out;
 } // .ease_in
+
+// Mixins
+
+.social-sharing-icons(@hoverColor: @gray_dark) {
+  color: @hoverColor;
+  .share-icons-defaults();
+
+  &:hover {
+    color: darken(@hoverColor, 10%);
+  }
+
+}
+
+.share-icons-defaults() {
+  font-size: 16px;
+  margin-left: 4px;
+}
