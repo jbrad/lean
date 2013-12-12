@@ -1,3 +1,16 @@
+# 1.7.1 (November 28th, 2013)
+
+## Updated to Bootstrap 3.0.3
+* Updating LESS and JavaScript files to Bootstrap 3.0.3
+* This also fixes an issue with the jumbotron not wrapping properly on the homepage template
+
+### Change Set
+
+**Modified**
+
+* css/lib/twitter/*.less
+* js/lib/twitter/*.js
+
 # 1.7.0 (November 28th, 2013)
 
 ## Added Instagram Social Icon
