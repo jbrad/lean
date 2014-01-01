@@ -3,6 +3,8 @@
 
 module.exports = function(grunt) {
 
+    RegExp.quote = require('regexp-quote');
+
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
 
@@ -402,6 +404,15 @@ module.exports = function(grunt) {
             }
         },
 
+        copy: {
+            fonts: {
+                src: 'bower_components/bootstrap-ios7/dist/fonts/*',
+                dest: 'fonts/',
+                expand: true,
+                flatten: true
+            }
+        },
+
         watch: {
             theme_js: {
                 files: ['js/dev/*.js'],
@@ -435,6 +446,17 @@ module.exports = function(grunt) {
                 ],
                 tasks: ['imagemin:social']
             }
+        },
+
+        sed: {
+            versionNumber: {
+                pattern: (function () {
+                    var old = grunt.option('oldver')
+                    return old ? RegExp.quote(old) : old
+                })(),
+                replacement: grunt.option('newver'),
+                recursive: true
+            }
         }
 
     });
@@ -448,10 +470,17 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-bower-task');
     grunt.loadNpmTasks('grunt-contrib-imagemin');
     grunt.loadNpmTasks('grunt-rename');
+    grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks('grunt-sed');
 
     grunt.registerTask('default', ['watch']);
     grunt.registerTask('setup', ['bower', 'less:theme', 'less:plugins', 'jshint', 'watch']);
     grunt.registerTask('dist', ['less:production', 'jshint', 'concat', 'uglify']);
     grunt.registerTask('build', ['less:production', 'jshint', 'concat', 'uglify', 'imagemin', 'compress']);
+
+    // Version numbering task.
+    // grunt change-version-number --oldver=A.B.C --newver=X.Y.Z
+    // This can be overzealous, so its changes should always be manually reviewed!
+    grunt.registerTask('change-version-number', ['sed']);
 
 };
