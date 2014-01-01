@@ -80,15 +80,15 @@ $header_image = get_header_image();
 $head_class = ! empty( $header_image ) ? 'imageyup' : 'imageless';
 ?>
 
-    <header id="header" class="<?php echo $head_class; ?>">
+    <header id="header" class="<?php echo $head_class; ?> container">
 
-        <div id="head-wrapper" class="container clearfix">
+        <div id="head-wrapper" class="clearfix">
 
             <?php // If a user has uploaded a header image, then display at as an anchor to the header ?>
             <?php if( 'imageyup' == $head_class && ! empty( $header_image ) ) { ?>
 
                 <div id="header-image" class="row">
-                    <div class="span12">
+                    <div class="col-12 col-md-12">
 
                         <?php if( is_front_page() || is_archive() || 'video' == get_post_format() || 'image' == get_post_format() || '' == get_the_title() ) { ?>
                             <h1>
