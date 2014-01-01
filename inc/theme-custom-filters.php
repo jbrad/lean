@@ -1126,7 +1126,7 @@ if( ! function_exists('get_section_class()') ) {
         ) {
             $class .= ' col-md-12';
         } else {
-            $class .= ' col-md-8';
+            $class .= ' col-md-8 col-sm-8';
 
             if ( 'left_sidebar_layout' == $presentation_options['layout'] ) {
                 $class .= ' col-md-push-4';

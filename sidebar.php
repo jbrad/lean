@@ -12,7 +12,7 @@
 
 <?php if ( 'full_width_layout' != $presentation_options['layout'] && ! get_post_meta( get_the_ID(), 'standard_seo_post_level_layout', true ) ) { ?>
 
-    <aside id="sidebar" class="col-12 col-md-4 <?php echo 'left_sidebar_layout' == $presentation_options['layout'] ? 'col-md-pull-8' : ''; ?>">
+    <aside id="sidebar" class="col-12 col-md-4 col-sm-4 <?php echo 'left_sidebar_layout' == $presentation_options['layout'] ? 'col-md-pull-8' : ''; ?>">
         <?php if ( ! dynamic_sidebar( 'sidebar-0' ) ) { ?>
 
             <div class="alert">
