@@ -19,19 +19,17 @@ if( ! function_exists('custom_comment') ) {
     function custom_comment( $comment, $args, $depth ) {
         $GLOBALS['comment'] = $comment; ?>
 
-        <li <?php comment_class( 'clearfix' ); ?> id="li-comment-<?php comment_ID(); ?>">
-
-        <div class="comment-container clearfix">
+        <li <?php comment_class( 'media' ); ?> id="li-comment-<?php comment_ID(); ?>">
 
             <?php if ( "comment" == get_comment_type() ) { ?>
-                <div class="avatar-holder">
+                <div class="media-object thumbnail pull-left">
                     <?php echo get_avatar( get_comment_author_email(), '50' ); ?>
                 </div><!-- /.avatar-holder -->
             <?php } // end if ?>
 
-            <div class="comment-entry"	id="comment-<?php comment_ID(); ?>">
+            <div class="media-body"	id="comment-<?php comment_ID(); ?>">
 
-                <div class="comment-head">
+                <div class="media-heading">
 						<span class="name">
 							<?php if( '' == get_comment_author_url() ) { ?>
                                 <?php comment_author(); ?>
@@ -51,9 +49,7 @@ if( ! function_exists('custom_comment') ) {
 						</span>
                 <?php } // end if ?>
 
-                <div class="comment-text">
-                    <?php comment_text(); ?>
-                </div><!-- /.comment-text -->
+                <?php comment_text(); ?>
 
                 <div class="reply clearfix">
                     <?php
@@ -71,7 +67,8 @@ if( ! function_exists('custom_comment') ) {
                 </div><!-- /.reply -->
 
             </div><!-- /.comment-entry -->
-        </div><!-- /comment-container -->
+        </li>
+
     <?php } // end custom_comment
 } // end if
 

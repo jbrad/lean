@@ -25,7 +25,7 @@
 		});
 
         if($('#respond').length > 0) {
-            $('#respond').addClass('panel panel-default');
+            $('#respond').addClass('panel panel-default').wrapInner('<div class="panel-body"></div>');
         }
 		
 		// Toggles acceptable HTML tags

@@ -77,7 +77,12 @@ function resizeVideos($) {
 				.addClass('active');
 			
 		} // end if
-		
+
+        // Add form-control class to all inputs
+        $('form input').addClass('form-control');
+        $('form input[type="submit"]').removeClass('form-control');
+        $('form textarea').addClass('form-control');
+
 		// Hide pagination controls if infiniteScroll is on
 		if( 'object' === typeof infiniteScroll ) {
 			$('#post-nav').hide();
