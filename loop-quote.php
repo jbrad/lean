@@ -12,7 +12,7 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'post panel panel-default format-quote clearfix' ); ?>>
 		
 	<div class="post-header clearfix">
-			<div class="entry-content row">
+			<div class="content row">
                 <div class="col-sm-1 hidden-xs">
                     <span class="fa fa-quote-left"></span>
                 </div> <!-- /.col-md-1 -->
