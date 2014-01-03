@@ -5,7 +5,7 @@
 //
 
 /* Contrast stylesheet for when user has a dark background */
-@import "../lib/twitter/mixins.less";
+@import "../lib/bootstrap/mixins.less";
 @import "variables.less";
 
 body {
@@ -50,6 +50,9 @@ h6 {
 
 } // .breadcrumb
 
+.panel {
+  border-color: #333;
+}
 
 .post, 
 #comments, 
@@ -74,8 +77,15 @@ h6 {
 	.box-shadow(none);
 }
 
-.post.format-quote .post-header {
-	background-image: url(images/bg-quote-dark.png);
+.post.format-quote {
+
+  .post-header {
+    background-color: #111;
+  }
+
+  .entry-content:before {
+    border-color: #111 transparent transparent transparent;
+  }
 }
 
 .post.format-quote .post-header .entry-content p {
@@ -90,6 +100,10 @@ h6 {
   background-color: @post_format_chat_post_header_bg_color_light;
   background-image: none;
   .box-shadow(none);
+}
+
+.post.format-audio .post-meta {
+  background: #222;
 }
 
 .entry-content .wp-caption {
