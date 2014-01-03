@@ -75,18 +75,18 @@ module.exports = function(grunt) {
             },
             bootstrap: {
                 src: [
-                    'js/lib/twitter/transition.js',
-                    'js/lib/twitter/alert.js',
-                    'js/lib/twitter/button.js',
-                    'js/lib/twitter/carousel.js',
-                    'js/lib/twitter/collapse.js',
-                    'js/lib/twitter/dropdown.js',
-                    'js/lib/twitter/modal.js',
-                    'js/lib/twitter/tooltip.js',
-                    'js/lib/twitter/popover.js',
-                    'js/lib/twitter/scrollspy.js',
-                    'js/lib/twitter/tab.js',
-                    'js/lib/twitter/affix.js'
+                    'js/lib/bootstrap/transition.js',
+                    'js/lib/bootstrap/alert.js',
+                    'js/lib/bootstrap/button.js',
+                    'js/lib/bootstrap/carousel.js',
+                    'js/lib/bootstrap/collapse.js',
+                    'js/lib/bootstrap/dropdown.js',
+                    'js/lib/bootstrap/modal.js',
+                    'js/lib/bootstrap/tooltip.js',
+                    'js/lib/bootstrap/popover.js',
+                    'js/lib/bootstrap/scrollspy.js',
+                    'js/lib/bootstrap/tab.js',
+                    'js/lib/bootstrap/affix.js'
                 ],
                 dest: 'js/lib/bootstrap.min.js'
             }
@@ -126,7 +126,7 @@ module.exports = function(grunt) {
                     preserveComments: 'some'
                 },
                 files: {
-                    'js/md5.min.js': ['js/lib/js-md5/*.js']
+                    'js/md5.min.js': ['js/lib/md5/*.js']
                 }
             },
 
@@ -144,7 +144,7 @@ module.exports = function(grunt) {
                     preserveComments: 'some'
                 },
                 files: {
-                    'js/html5shiv.min.js': ['js/lib/html5shiv-dist/*.js']
+                    'js/html5shiv.min.js': ['js/lib/html5-shiv/*.js']
                 }
             },
 
@@ -254,24 +254,12 @@ module.exports = function(grunt) {
         bower: {
             install: {
                 options: {
-                    targetDir: 'components',
                     layout: 'byType',
                     install: true,
                     verbose: false,
                     cleanTargetDir: false,
-                    cleanBowerDir: true
+                    cleanBowerDir: false
                 }
-            }
-        },
-
-        rename: {
-            less: {
-                src: 'css/lib/twitter',
-                dest: 'css/lib/bootstrap'
-            },
-            js: {
-                src: 'js/lib/twitter',
-                dest: 'js/lib/bootstrap'
             }
         },
 
@@ -405,12 +393,55 @@ module.exports = function(grunt) {
         },
 
         copy: {
-            fonts: {
-                src: 'bower_components/bootstrap-ios7/dist/fonts/*',
+            font_awesome_fonts: {
+                src: 'bower_components/font-awesome/fonts/*',
                 dest: 'fonts/',
                 expand: true,
                 flatten: true
+            },
+            font_awesome_less: {
+                src: 'bower_components/font-awesome/less/*',
+                dest: 'css/lib/font-awesome',
+                expand: true,
+                flatten: true
+            },
+            fitvids: {
+                src: 'bower_components/fitvids/jquery.fitvids.js',
+                dest: 'js/lib/fitvids',
+                expand: true,
+                flatten: true
+            },
+            md5: {
+                src: 'bower_components/js-md5/js/md5.js',
+                dest: 'js/lib/md5',
+                expand: true,
+                flatten: true
+            },
+            html5_shiv: {
+                src: 'bower_components/html5shiv-dist/html5shiv.js',
+                dest: 'js/lib/html5-shiv',
+                expand: true,
+                flatten: true
+            },
+            respond: {
+                src: 'bower_components/respond/respond.src.js',
+                dest: 'js/lib/respond',
+                expand: true,
+                flatten: true
+            },
+            bootstrap_js: {
+                src: 'bower_components/bootstrap/js/*.js',
+                dest: 'js/lib/bootstrap',
+                expand: true,
+                flatten: true
+            },
+            bootstrap_less: {
+                src: 'bower_components/bootstrap/less/*.less',
+                dest: 'css/lib/bootstrap',
+                expand: true,
+                flatten: true
             }
+
         },
 
         watch: {
@@ -474,7 +505,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-sed');
 
     grunt.registerTask('default', ['watch']);
-    grunt.registerTask('setup', ['bower', 'less:theme', 'less:plugins', 'jshint', 'watch']);
+    grunt.registerTask('setup', ['bower', 'copy', 'less:theme', 'less:plugins', 'jshint', 'watch']);
     grunt.registerTask('dist', ['less:production', 'jshint', 'concat', 'uglify']);
     grunt.registerTask('build', ['less:production', 'jshint', 'concat', 'uglify', 'imagemin', 'compress']);
 

@@ -5,46 +5,8 @@
     "fitvids": "*",
     "js-md5": "*",
     "font-awesome": "~4.0.2",
-    "twitter": "3.0.3",
+    "bootstrap": "3.0.3",
     "html5shiv-dist": "~3.6.2",
     "respond": "~1.3.0"
-  },
-  "exportsOverride": {
-    "twitter": {
-      "../css/lib": [
-        "less/*.less"
-      ],
-      "../js/lib": [
-        "js/*.js"
-      ]
-    },
-    "font-awesome": {
-      "../css/lib": [
-        "less/*.less"
-      ],
-      "../fonts/": [
-        "fonts/*.*"
-      ]
-    },
-    "fitvids": {
-      "../js/lib": [
-        "jquery.fitvids.js"
-      ]
-    },
-    "js-md5": {
-      "../js/lib": [
-        "js/md5.js"
-      ]
-    },
-    "html5shiv-dist": {
-      "../js/lib": [
-        "*.js"
-      ]
-    },
-    "respond": {
-      "../js/lib": [
-        "*.min.js"
-      ]
-    }
   }
 }
