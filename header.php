@@ -46,10 +46,16 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
+                <div class="visible-xs">
+                    <?php $social_options = get_option( 'theme_social_options' ); ?>
+                    <?php if( isset( $social_options['active-social-icons'] ) && '' != $social_options['active-social-icons'] ) { ?>
+                        <?php get_template_part( 'social-networking' ); ?>
+                    <?php } // end if ?>
+                </div>
             </div>
 
             <div class="collapse navbar-collapse menu-above">
-                    <?php
+                <?php
                     wp_nav_menu(
                         array(
                             'container_class'	=> 'menu-header-container',
@@ -59,16 +65,15 @@
                             'walker'			=> new Bootstrap_Nav_Walker()
                         )
                     );
-                    ?>
+                ?>
 
+                <div class="hidden-xs">
                     <?php $social_options = get_option( 'theme_social_options' ); ?>
                     <?php if( isset( $social_options['active-social-icons'] ) && '' != $social_options['active-social-icons'] ) { ?>
                         <?php get_template_part( 'social-networking' ); ?>
                     <?php } // end if ?>
-
-                </div><!-- /.nav-collapse -->
-
-
+                </div>
+            </div><!-- /.nav-collapse -->
             </div><!-- /.container -->
         </div><!-- ./navbar-inner -->
     </nav> <!-- /#menu-under-header -->
@@ -173,6 +178,11 @@ $head_class = ! empty( $header_image ) ? 'imageyup' : 'imageless';
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
+                <?php if( ! has_nav_menu( 'menu_above_logo' ) ) { ?>
+                    <div class="visible-xs">
+                        <?php get_template_part( 'social-networking' ); ?>
+                    </div>
+                <?php } // end if ?>
             </div>
 
             <div class="collapse navbar-collapse menu-below">
@@ -188,9 +198,11 @@ $head_class = ! empty( $header_image ) ? 'imageyup' : 'imageless';
                 );
                 ?>
 
-                <?php if( ! has_nav_menu( 'menu_above_logo' ) ) { ?>
-                    <?php get_template_part( 'social-networking' ); ?>
-                <?php } // end if ?>
+                <div class="hidden-xs">
+                    <?php if( ! has_nav_menu( 'menu_above_logo' ) ) { ?>
+                        <?php get_template_part( 'social-networking' ); ?>
+                    <?php } // end if ?>
+                </div>
 
                 </div><!-- /.nav-collapse -->
 
