@@ -1,4 +1,140 @@
-# 1.7.1 (November 28th, 2013)
+# 1.8.0 (January 6th, 2014)
+
+## Fixes issue with responsive grid when using Appearances > Header
+## Changing the responsive grid for landscape tablets to show the sidebar
+## Adding grunt-contrib-copy, grunt-sed and regexp-quote to project
+## Fixing widget admin styling to look better with WordPress 3.8
+## Updating comments to use Bootstrap media objects and removed unnecessary code
+## Fixing some color issues with dark contrast
+## Removing padding-bottom on footer nav to shorten up the footer
+## Removing the background image for quote post formats and using CSS
+## Adding padding to audio post format
+## Updating to use grunt copy instead of bower export overrides
+## Removing gradient on activity tabs to match navbars background colorShow social icons on mobile
+
+### Change Set
+
+**Modified**
+
+* .gitignore
+* Gruntfile.js
+* bower.json
+* comments.php
+* css/less/bootstrap.less
+* css/less/comments.less
+* css/less/font-awesome.less
+* css/less/footer.less
+* css/less/misc.less
+* css/less/navigation.less
+* css/less/posts.format-audio.less
+* css/less/posts.format-quote.less
+* css/less/posts.less
+* css/less/theme.contrast-light.less
+* css/lib/twitter/alerts.less → css/lib/bootstrap/alerts.less
+* css/lib/twitter/badges.less → css/lib/bootstrap/badges.less
+* css/lib/twitter/bootstrap.less → css/lib/bootstrap/bootstrap.less
+* css/lib/twitter/breadcrumbs.less → css/lib/bootstrap/breadcrumbs.less
+* css/lib/twitter/button-groups.less → css/lib/bootstrap/button-groups.less
+* css/lib/twitter/buttons.less → css/lib/bootstrap/buttons.less
+* css/lib/twitter/carousel.less → css/lib/bootstrap/carousel.less
+* css/lib/twitter/close.less → css/lib/bootstrap/close.less
+* css/lib/twitter/code.less → css/lib/bootstrap/code.less
+* css/lib/twitter/component-animations.less → css/lib/bootstrap/component-animations.less
+* css/lib/twitter/dropdowns.less → css/lib/bootstrap/dropdowns.less
+* css/lib/twitter/forms.less → css/lib/bootstrap/forms.less
+* css/lib/twitter/glyphicons.less → css/lib/bootstrap/glyphicons.less
+* css/lib/twitter/grid.less → css/lib/bootstrap/grid.less
+* css/lib/twitter/input-groups.less → css/lib/bootstrap/input-groups.less
+* css/lib/twitter/jumbotron.less → css/lib/bootstrap/jumbotron.less
+* css/lib/twitter/labels.less → css/lib/bootstrap/labels.less
+* css/lib/twitter/list-group.less → css/lib/bootstrap/list-group.less
+* css/lib/twitter/media.less → css/lib/bootstrap/media.less
+* css/lib/twitter/mixins.less → css/lib/bootstrap/mixins.less
+* css/lib/twitter/modals.less → css/lib/bootstrap/modals.less
+* css/lib/twitter/navbar.less → css/lib/bootstrap/navbar.less
+* css/lib/twitter/navs.less → css/lib/bootstrap/navs.less
+* css/lib/twitter/normalize.less → css/lib/bootstrap/normalize.less
+* css/lib/twitter/pager.less → css/lib/bootstrap/pager.less
+* css/lib/twitter/pagination.less → css/lib/bootstrap/pagination.less
+* css/lib/twitter/panels.less → css/lib/bootstrap/panels.less
+* css/lib/twitter/popovers.less → css/lib/bootstrap/popovers.less
+* css/lib/twitter/print.less → css/lib/bootstrap/print.less
+* css/lib/twitter/progress-bars.less → css/lib/bootstrap/progress-bars.less
+* css/lib/twitter/responsive-utilities.less → css/lib/bootstrap/responsive-utilities.less
+* css/lib/twitter/scaffolding.less → css/lib/bootstrap/scaffolding.less
+* css/lib/twitter/tables.less → css/lib/bootstrap/tables.less
+* css/lib/twitter/theme.less → css/lib/bootstrap/theme.less
+* css/lib/twitter/thumbnails.less → css/lib/bootstrap/thumbnails.less
+* css/lib/twitter/tooltip.less → css/lib/bootstrap/tooltip.less
+* css/lib/twitter/type.less → css/lib/bootstrap/type.less
+* css/lib/twitter/utilities.less → css/lib/bootstrap/utilities.less
+* css/lib/twitter/variables.less → css/lib/bootstrap/variables.less
+* css/lib/twitter/wells.less → css/lib/bootstrap/wells.less
+* css/theme.contrast-light.css
+* fonts/font-awesome/FontAwesome.otf → fonts/FontAwesome.otf
+* fonts/font-awesome/fontawesome-webfont.eot → fonts/fontawesome-webfont.eot
+* fonts/font-awesome/fontawesome-webfont.svg → fonts/fontawesome-webfont.svg
+* fonts/font-awesome/fontawesome-webfont.ttf → fonts/fontawesome-webfont.ttf
+* fonts/font-awesome/fontawesome-webfont.woff → fonts/fontawesome-webfont.woff
+* header.php
+* images/bg-quote-dark.png
+* images/bg-quote.png
+* inc/theme-custom-comments.php
+* inc/theme-custom-filters.php
+* js/dev/theme.comments.js
+* js/dev/theme.main.js
+* js/html5shiv.min.js
+* js/lib/twitter/affix.js → js/lib/bootstrap/affix.js
+* js/lib/twitter/alert.js → js/lib/bootstrap/alert.js
+* js/lib/twitter/button.js → js/lib/bootstrap/button.js
+* js/lib/twitter/carousel.js → js/lib/bootstrap/carousel.js
+* js/lib/twitter/collapse.js → js/lib/bootstrap/collapse.js
+* js/lib/twitter/dropdown.js → js/lib/bootstrap/dropdown.js
+* js/lib/twitter/modal.js → js/lib/bootstrap/modal.js
+* js/lib/twitter/popover.js → js/lib/bootstrap/popover.js
+* js/lib/twitter/scrollspy.js → js/lib/bootstrap/scrollspy.js
+* js/lib/twitter/tab.js → js/lib/bootstrap/tab.js
+* js/lib/twitter/tooltip.js → js/lib/bootstrap/tooltip.js
+* js/lib/twitter/transition.js → js/lib/bootstrap/transition.js
+* js/lib/html5shiv-dist/html5shiv.js → js/lib/html5-shiv/html5shiv.js
+* js/lib/html5shiv-dist/html5shiv-printshiv.js
+* js/lib/js-md5/md5.js → js/lib/md5/md5.js
+* js/lib/respond/respond.src.js
+* js/respond.min.js
+* js/theme.main.min.js
+* lib/activity/css/admin.css
+* lib/activity/css/less/admin.less
+* lib/activity/css/less/widget.less
+* lib/activity/css/widget.css
+* lib/ad-125x125/css/admin.css
+* lib/ad-125x125/css/less/admin.less
+* lib/ad-300x250/css/admin.css
+* lib/ad-300x250/css/less/admin.less
+* lib/ad-billboard/css/admin.css
+* lib/ad-billboard/css/less/admin.less
+* lib/google-custom-search/css/admin.css
+* lib/google-custom-search/css/less/admin.less
+* lib/influence/css/admin.css
+* lib/influence/css/less/admin.less
+* lib/influence/css/less/widget.less
+* lib/lean-ad-125x125/css/admin.css
+* lib/lean-ad-125x125/css/widget.css
+* lib/lean-ad-125x125/js/admin.min.js
+* lib/lean-ad-300x250/css/admin.css
+* lib/lean-ad-300x250/css/widget.css
+* lib/lean-ad-300x250/js/admin.min.js
+* lib/lean-ad-billboard/css/admin.css
+* lib/lean-ad-billboard/css/widget.css
+* lib/lean-ad-billboard/js/admin.min.js
+* lib/personal-image/css/admin.css
+* lib/personal-image/css/fake-personal.jpg
+* lib/personal-image/css/less/admin.less
+* loop-quote.php
+* package.json
+* sidebar.php
+* style.css
+
+# 1.7.1 (December 11th, 2013)
 
 ## Updated to Bootstrap 3.0.3
 * Updating LESS and JavaScript files to Bootstrap 3.0.3
