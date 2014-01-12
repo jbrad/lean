@@ -36,9 +36,9 @@
 			
 			<div id="sub-floor" class="clearfix">
 				<div class="container">
-					<div class="row-fluid">
+					<div class="row">
 						<div class="col-md-12">
-							<div id="footer-links">
+							<div id="footer-links" class="pull-left">
 								<?php  
 									if( has_nav_menu( 'footer_menu' ) && ( ! is_offline() || is_user_logged_in() ) ) {
 										wp_nav_menu( 
@@ -55,7 +55,7 @@
 							</div><!-- /#footer-links -->
 										
 							<?php $global_options = get_option( 'theme_global_options' ); ?>
-							<div id="credit">
+							<div id="credit" class="pull-right">
 								<?php
                                     $jasonbradley_url = 'http://jasonbradley.me';
                                     $theme_url = THEME_URL;
