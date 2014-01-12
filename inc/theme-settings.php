@@ -554,7 +554,7 @@ function theme_social_options_display() {
     $html .= '<h3>' . __( 'Active Icons', TRANSLATION_KEY ) . '</h3>';
     $html .= '</div><!-- /.sidebar-name -->';
     $html .= '<div id="active-icons">';
-    $html .= '<p class="description">' . __( 'Click an icon to set the full URL.', TRANSLATION_KEY ) . '</p>';
+    $html .= '<p class="description">' . __( 'Click an icon to set the full URL. The icon will not display correctly without it.', TRANSLATION_KEY ) . '</p>';
     $html .= '<ul id="active-icon-list"></ul>';
     $html .= '<div id="active-icon-url" class="hidden">';
     $html .= '<label>' . __( 'Icon URL:', TRANSLATION_KEY ) . '</label>';
@@ -568,7 +568,7 @@ function theme_social_options_display() {
     $html .= '<a href="javascript:;" id="cancel-social-icon-url">' . __( 'Cancel', TRANSLATION_KEY ) . '</a>';
     $html .= '</span><!-- /#social-icon-controls -->';
     $html .= '</div><!-- /#active-icon-url -->';
-    $html .= '<div id="social-icon-max" class="hidden alert alert-info"><i class="icon icon-warning"></i> ' . __( '' . THEME_NAME . ' looks best with seven icons or fewer.', TRANSLATION_KEY ) . '</div>';
+    $html .= '<div id="social-icon-max" class="hidden alert alert-info"><span class="fa fa-exclamation-triangle"></span> ' . __( '' . THEME_NAME . ' looks best with seven icons or fewer.', TRANSLATION_KEY ) . '</div>';
     $html .= '</div><!-- /#active-icons -->';
     $html .= '</div><!-- /#social-icons-active -->';
 
