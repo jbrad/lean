@@ -146,16 +146,28 @@ function saveIconUrl($, evt) {
 function displayIcons($, sInputId, sWrapperId) {
 	"use strict";
 	
-	var aIconSrc, aIconUrl, sUrl, sSrc, $listItem, $socialIcon;
-	
+	var aIconSrc,
+        aIconUrl,
+        sUrl,
+        sSrc,
+        $listItem,
+        $socialIcon,
+        values,
+        icon;
+
 	if($('#' + sInputId).length > 0) {
 
 		// Clear out the existing list
-		$('#' + sWrapperId + ' > ul').children('li').remove();
+		$('#' + sWrapperId + ' > ul')
+            .children('li')
+            .remove();
 	
 		// Rebuild the list based on the available icons
-		aIconSrc = $('#' + sInputId).val().split(';');
-		$(aIconSrc).each(function() {
+		aIconSrc = $('#' + sInputId)
+            .val()
+            .split(';');
+
+        $(aIconSrc).each(function() {
 		
 			if( this.length > 0) {
 	
@@ -171,10 +183,30 @@ function displayIcons($, sInputId, sWrapperId) {
 				} // end if
 	
 				// Create the image
-				$socialIcon = $('<img />').attr('src', sSrc);
-				
+				$socialIcon = $('<img />')
+                    .attr('src', sSrc)
+                    .hide();
+
+                values = sSrc
+                    .replace('.png', '')
+                    .split('/');
+                icon = values[values.length - 1];
+
+                if (icon == 'email') {
+                    icon = 'envelope';
+                } else if (icon == 'soundcloud') {
+                    icon = 'cloud';
+                } else if (icon == 'vimeo') {
+                    icon = 'vimeo-square';
+                } else if (icon == 'google_plus') {
+                    icon = 'google-plus';
+                }
+
 				// Create a list item from the image
-				$listItem = $('<li />').attr('data-url', sUrl).append($socialIcon);
+				$listItem = $('<li />')
+                    .attr('data-url', sUrl)
+                    .addClass('fa fa-' + icon)
+                    .append($socialIcon);
 				
 				// If we're active icons, let's setup click handlers
 				if(sWrapperId === 'active-icons') {

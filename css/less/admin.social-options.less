@@ -16,7 +16,7 @@
 	
 	.alert {
 		opacity: 1;
-		width: 96%;
+		width: 93%;
 		padding: 8px 0;
 		margin-bottom: 10px;
 		text-align: center;
@@ -37,37 +37,9 @@
 		font-style: italic;
 	}
 	
-	.icon {
-		display: inline-block;
-		width: 14px;
-		height: 14px;
-		line-height: 14px;
-		vertical-align: text-top;
-		background-position: 14px 14px;
-		background-repeat: no-repeat;
-	}
-	
-	.icon-warning {
-		background-position: -144px -120px;
-	}
-	
-	.icon-trash {
-		background-position: -456px 0;
-	}
 } //.social-icons-wrapper
 
 .social-icons-wrapper {
-
-  img {
-    cursor: pointer;
-    max-width: 32px;
-    max-height: 32px;
-
-    &:active {
-      cursor: move;
-    }
-
-  }
 
   ul {
     float: left;
@@ -94,7 +66,7 @@
 	margin: 12px 0 12px 0;
 
     .active-icon {
-      opacity: 0.4;
+      color: #fff;
     }
 
     #active-icon-url {
@@ -125,44 +97,10 @@
       float: left;
       min-width: 16px;
       min-height: 16px;
-      height: 48px;
       width: auto;
     }
 
-    #available-icons ul {
-      width: 90%;
-      min-height: 124px;
-      margin: 10px;
-      padding: 10px;
-      border: 1px dashed #e0e0e0 !important;
-    }
-
-    .button {
-      margin-top: 12px;
-    }
-
-    #delete-icons {
-      margin-top: 10px;
-      padding: 10px;
-      float: left;
-      width: 20%;
-      background: #f0f0f0;
-      text-align: center;
-      box-shadow: inset 0px 0px 8px rgba(0,0,0,0.26);
-      text-shadow: 0 1px 0 rgba(255,255,255,0.3);
-
-      i {
-        margin: 10px 0;
-      }
-
-    }
-
 } // #social-icons-available
-
-#available-icons ul {
-	height: 62%;
-	overflow: auto;
-}
 
 #social-icons-available #available-icons,
 #social-icons-active #active-icons {
@@ -173,11 +111,26 @@
 	float: left;
 	width: 99.9%;
 	position: relative;
-}
 
-#social-icons-available #available-icons p,
-#social-icons-active #active-icons p {
-	margin: 20px 0 10px 10px;
+    p {
+      margin: 20px 0 10px 10px;
+    }
+
+    ul {
+      width: 90%;
+      margin: 10px 10px 5px;
+      padding: 10px;
+      background: #222;
+      display: table;
+    }
+
+    .fa {
+      color: #999;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
 }
 
 #social-icon-max {
@@ -185,19 +138,10 @@
 	float: left;
 }
 
-#social-icons-active #active-icons ul {
-	width: 90%;
-	margin: 10px 10px 5px;
-	padding: 10px;
-	border: 1px dashed #e0e0e0 !important;
-	display: table;
-}
-
-#social-icons-available #available-icons ul:hover,
-#social-icons-active #active-icons ul:hover {
-	background: #fefefe;
-}
-
 #social-icons-operations {
 	float: left;
+}
+
+#social-icon-url {
+  width: 40%;
 }
