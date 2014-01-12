@@ -52,12 +52,7 @@ function updateActiveIcons($) {
 function updateIconValues(evt) {
 	"use strict";
 	
-	// Only cancel the icon setting URL if this function was triggered by an element
-	if(evt !== undefined && !jQuery('#active-icon-url').hasClass('hidden')) {
-		cancelSettingIconURL(jQuery);
-	} // end if
-
-	// Update the inputs to track the active icon arrangement.	
+	// Update the inputs to track the active icon arrangement.
 	updateActiveIcons(jQuery);
 	
 	// Update the inputs to track the available icon arrangement.
@@ -94,26 +89,6 @@ function updateIconValues(evt) {
 } // end updateIconValues
 
 /**
- * Resets the social media icon URL form, hides it, and unselects the active icon.
- * 
- * @params	$		The jQuery function
- */
-function cancelSettingIconURL($) {
-	"use strict";
-	
-	// Empty the URL field and hide the container
-	$('#social-icon-url').siblings('input[type=text]:first').val('');
-	$('#active-icon-url').addClass('hidden');
-	
-	// Remove the active status from the selected social icon
-	$('.active-icon').removeClass('active-icon');
-	
-	updateIconValues();
-	
-} // end cancelSettingIconValues
-
-
-/**
  * Helper function that's fired when the user clicks 'Done' or hits 'Enter'
  * when working to save their social icons.
  *
@@ -122,76 +97,43 @@ function cancelSettingIconURL($) {
  */
 function saveIconUrl($, evt) {
 	"use strict";
-	
+
 	evt.preventDefault();
 
 	if( $.trim($('#social-icon-url').val()).length > 0 ) {
-	
+
 		// Set the list item's URL
-		var sUrl = $('#social-icon-url').val();	
+		var sUrl = $('#social-icon-url').val();
 		$('li.active-icon').attr('data-url', sUrl);
-		
+
 		// Clear out the input
 		$('#social-icon-url').val('');
-		
+
 		// Hide the container
 		$('#active-icon-url').addClass('hidden');
-		
+
 		// Remove active icons
 		$('.active-icon').removeClass('active-icon');
-		
+
 		// Update the data
 		updateIconValues();
-		
+
 		// Update the icons
 		updateActiveIcons($);
-	
+
 	} else {
-	
+
 		// Hide the container
 		$('#active-icon-url').addClass('hidden');
-		
+
 		// Remove active icons
 		$('.active-icon').removeClass('active-icon');
-		
+
 	} // end if
-	
+
 	$('.icon-url').val('');
-	
+
 } // end if
-
-/**
- * Sets up the icon media uploader to render with limited fields when the upload button
- * has been clicked.
- *
- * @params	$	A reference to the jQuery function
- */
-function prepareIconMediaUploader($) {
-	"use strict";
-	
-	// Setup the media uploader for this button
-	$('#upload-social-icon').click(function(evt) {
-		
-		evt.preventDefault();
-		
-		socialIconsShowMediaUploader($);
-		$('#TB_iframeContent').load(function() {
-	
-			// if the user is uplaoding a new icon, we need to poll until we see the form fields
-			var mediaPoll = setInterval(function() {
-				if($('#TB_iframeContent').contents().find('#media-items').children().length > 0) {
-					socialOptionsHideUnusedFields($, mediaPoll);
-				}  // end if
-			}, 500);
-	
-			// if they aren't uplaoding, we'll clear the fields on load
-			socialOptionsHideUnusedFields($);
-			
-		});
-	
-	});
-
-} // end prepareIconMediaUploader
 
 /**
  * Sets up the icon media uploader to render with limited fields when the upload button
@@ -370,190 +312,6 @@ function updateAvailableIcons($) {
 
 } // end updateAvailableIcons
 
-/**
- * Makes it possible to delete icons via shortcuts or dragging to the appropropriate area.
- *
- * @params	$	A reference to the jQuery function
- */
-function makeIconsRemoveable($) {
-	"use strict";
-	
-	// Drag and drop delete ala widgets
-	$('#delete-icons').droppable({
-		
-		over: overHandler, 
-		
-		drop: function(evt, ui) {
-		
-			// Set the srcElement based on which browser (ui.draggable is for Firefox)
-			evt.srcElement = evt.srcElement || ui.draggable.children(':first');
-
-			// Don't let users delete the core set of icons
-			if(isThemeIcon($(evt.srcElement))) {
-			
-				$.post(ajaxurl, {
-				
-					action: 'delete_social_icons',
-					nonce: $.trim($('#delete-social-icon-nonce').text())
-					
-				}, function(response) {
-					
-					// Display the message only if a prior message doesn't exist
-					if($('#delete-social-icons').length === 0) {
-						$('#message-container').append(response);
-					} // end if
-					
-					$('#hide-delete-social-icon-message').click(function(evt) {
-					
-						evt.preventDefault();
-						$('#delete-social-icons').remove();
-						
-					});
-					
-				});
-			
-			} else {
-
-				$(evt.srcElement).hide().attr('src', '');
-				$(evt.srcElement).parent().hide();
-	
-				updateIconValues();
-	
-				updateAvailableIcons($);
-	
-				$(this).css('border', 0);
-			
-			} // end if
-
-		} // end drop
-		
-	});
-	
-	// Delete shortcut ala OS X. Kind of an easter egg :)
-	$('#available-icons > ul > li').click(function() {
-		
-		// Maintain a reference to the icon we're removing
-		var $icon = $(this).children('img');
-		
-		// Look for the delete shortcut
-		$(window).keydown(function(evt) {
-		
-			if(evt.keyCode === 93) {
-			
-				$(window).keydown(function(evt) {
-				
-					if(evt.keyCode === 8) {
-						
-						// Hide the icon and remove it's source attribute
-						$icon.hide().attr('src', '');
-	
-						updateAvailableIcons($);
-	
-						$(window).unbind(evt);
-						
-					} // end if
-					
-				});
-				
-			} // end if
-			
-		});
-		
-	});
-
-} // end makeIconsRemoveable
-
-/**
- * Hides fields that are irrelevant for the media uploader.
- *
- * @params	$		A reference to the jQuery function
- * @params	poller	The polling mechanism used to look for the form fields when a user uploads an image	
- */
-function socialOptionsHideUnusedFields($, poller) {
-	"use strict";
-	
-	var bHasHiddenFormFields, $formFields, $submit;
-	
-	// Hide the 'From URL' tabs
-	$( '#tab-type_url', $('#TB_iframeContent')[0].contentWindow.document ).hide();
-
-	// Hide unnecessary fields
-	bHasHiddenFormFields = false;
-	$formFields = $('.describe tbody tr, .savebutton', $('#TB_iframeContent')[0].contentWindow.document);
-	$formFields.each(function() {
-	
-		// Remove everything except the URL field
-		if(!($(this).hasClass('submit'))) {
-			$(this).hide();
-		} // end if
-		
-	});
-	
-	// Change the text of the submit button		
-	$submit = $('.savesend input[type="submit"]', $('#TB_iframeContent')[0].contentWindow.document);
-	if($submit.length > 0 && $submit !== null) {
-	
-		/* Translators: This will need to be localized. */
-		$submit.val('Upload Social Icon');
-		
-		bHasHiddenFormFields = true;
-		
-	} // end if
-	
-	if( poller !== null && bHasHiddenFormFields) {
-		clearInterval(poller);
-	} // end if
-
-} // end hideUnusedFields
-
-/**
- * Determines if the specified image is part of the theme icon library.
- *
- * @params	img	The image element being evaluated
- *
- * @returns		True if the image belongs in the core set of Lean icons.
- */
-function isThemeIcon($img) {
-	"use strict";
-	
-	return $img.attr('src').toString().indexOf('/images/social/small/') > 0;	
-	
-} // end isThemeIcon
-
-/**
- * Overrides the core send_to_editor function in the media-upload script. Grabs the URL of the image after being uploaded and 
- * populates the favicon's text field with its URL.
- *
- * @params	sHtml	The HTML of the image tag from which we're setting the favicon
- */
-function socialIconsShowMediaUploader() {
-	"use strict";
-	
-	tb_show('', 'media-upload.php?type=image&TB_iframe=true');
-	
-	// Save the previous handler since we're spinning up another instance
-	window.restore_editor = window.send_to_editor;
-
-	window.send_to_editor = function(sHtml) {
-	
-		var $img = jQuery(sHtml).children('img').length === 1 ? jQuery(sHtml).children('img') : jQuery(sHtml);
-	
-		// Store the image's URL in the hidden field
-		jQuery('#available-social-icons').val(jQuery('#available-social-icons').val() + ';' + $img.attr('src'));
-		
-		displayIcons(jQuery, 'available-social-icons', 'available-icons');
-		updateIconValues();
-	
-		// Hide the thickbox
-		tb_remove();
-		
-		// Restore the previous editor handler
-		window.send_to_editor = window.restore_editor;		
-
-	}; // end window.send_to_editor
-	
-} // end ad_personal_image_show_media_uploader
-
 (function($) {
 	"use strict";
 	$(function() {
@@ -563,8 +321,6 @@ function socialIconsShowMediaUploader() {
 			// Hide the table of options.
 			$('.social-icons-wrapper').siblings('table').hide();
 			
-			prepareIconMediaUploader($);
-	
 			// Render the avaialable icons and the active icons
 			displayIcons($, 'available-social-icons', 'available-icons');
 			displayIcons($, 'active-social-icons', 'active-icons');
@@ -572,17 +328,14 @@ function socialIconsShowMediaUploader() {
 			// Make the lists sortable
 			makeSortable($, '#active-icons', '#available-icons');
 			
-			// Setup how to delete icons
-			makeIconsRemoveable($);
-			
 			// Setup the handler for triggering the social icon url
 			$('#set-social-icon-url').click(function(evt) {
 				saveIconUrl($, evt);
 			});
-			
+
 			// Save the input field if the user presses enter
 			$(document).keypress(function(evt) {
-	
+
 				if(evt.keyCode === 13) {
 					evt.preventDefault();
 					saveIconUrl($, evt);
