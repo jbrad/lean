@@ -1370,9 +1370,9 @@ function theme_options_display() {
 
         <div id="theme-options-links">
             <ul>
-                <li><a class="theme-docs" href="<?php echo THEME_DOCUMENTATION_URL; ?>" target="_blank"><?php _e( 'Documentation', TRANSLATION_KEY ); ?></a></li>
-                <li><a class="theme-support" href="<?php echo THEME_SUPPORT_URL; ?>" target="_blank"><?php _e( 'Support', TRANSLATION_KEY ); ?></a></li>
-                <li><a class="theme-blog" href="<?php echo THEME_BLOG_URL; ?>" target="_blank"><?php _e( 'Blog', TRANSLATION_KEY ); ?></a></li>
+                <li><a class="fa fa-wrench" href="<?php echo THEME_DOCUMENTATION_URL; ?>" target="_blank"> <?php _e( 'Documentation', TRANSLATION_KEY ); ?></a></li>
+                <li><a class="fa fa-globe" href="<?php echo THEME_SUPPORT_URL; ?>" target="_blank"> <?php _e( 'Support', TRANSLATION_KEY ); ?></a></li>
+                <li><a class="fa fa-heart" href="<?php echo THEME_BLOG_URL; ?>" target="_blank"> <?php _e( 'Blog', TRANSLATION_KEY ); ?></a></li>
             </ul>
         </div>
 
