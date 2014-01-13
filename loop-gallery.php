@@ -13,30 +13,24 @@
     <div id="content-<?php the_ID(); ?>" class="entry-content clearfix">
             <?php if( function_exists( 'get_post_gallery' ) ) { ?>
                 <div class="gallery-post-format">
-                    <?php
-
+                <?php
                     $gallery = get_post_gallery_images( $post );
                     $gallery_link = 'gallery-' . get_the_ID();
-
                     $indicators = '<ol class="carousel-indicators">';
                     $slides = '<div class="carousel-inner">';
                     $html = '<div id="' . $gallery_link . '" class="carousel slide">';
                     $index = 0;
 
                     foreach( $gallery as $image ) {
-                        // get the large image by default
-                        $image = preg_replace( '/-\d+x\d+(?=\.(jpg|jpeg|png|gif)$)/i', '', $image );
-
                         $indicators .= '<li data-target="#' . $gallery_link . '" data-slide-to="';
                         $indicators .= strval($index);
                         $indicators .= '" class="';
-
                         if ($index == 0) {
                             $indicators .= 'active';
                         }
-
                         $indicators .= '"></li>';
 
+                        $image = preg_replace( '/-\d+x\d+(?=\.(jpg|jpeg|png|gif)$)/i', '', $image );
                         $slides .= '<figure class="item';
                         if ($index == 0) {
                             $slides .= ' active';
@@ -56,8 +50,7 @@
                     $html .= $slides;
 
                     echo $html;
-
-                    ?>
+                ?>
                 </div><!-- /.gallery-post-format-36 -->
                 <?php if ( the_content() ) { ?>
                 <p>
