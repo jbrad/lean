@@ -9,6 +9,17 @@
  * @since 	1.0
  */
 ?>
+<style>
+    .sitemap-author-meta {
+        text-align: center;
+        margin-right: 5px;
+    }
+    span.badge {
+        position: absolute;
+        top: -4px;
+        left: -4px;
+    }
+</style>
 <?php get_header(); ?>
 <?php $presentation_options = get_option( 'theme_presentation_options' ); ?>
 
@@ -28,8 +39,7 @@
 								<h1 class="post-title entry-title"><?php the_title(); ?></h1>	
 							</div><!-- /.post-header -->						
 							<div id="content-<?php the_ID(); ?>" class="entry-content clearfix">
-								<div id="sitemap-authors">
-									<h2 id="authors"><span class="fa fa-group"></span> <?php _e( 'Authors', TRANSLATION_KEY ); ?></h2>
+									<h2 id="authors" class="lead"><span class="fa fa-group"></span> <?php _e( 'Authors', TRANSLATION_KEY ); ?></h2>
 			
 									<ul id="sitemap-authors" class="nav nav-pills">
 										<?php
@@ -37,7 +47,7 @@
 											$query = new WP_Query( 'author=' . $user->ID . '&posts_per_page=1' );
 											if( $query->have_posts() ) {
 												echo '<li>';
-													echo '<div class="sitemap-author-meta">';
+													echo '<div class="sitemap-author-meta thumbnail">';
                                                         echo '<figure>';
 														echo get_avatar( $user->user_email, $size = '80' );
                                                         echo '</figure>';
@@ -45,7 +55,6 @@
 														echo '<span class="badge">';
 															the_author_posts();
 														echo '</span>';
-														echo '<br>';
 														the_author_posts_link();
 													echo '</div>';
 												echo '</li>';
@@ -54,27 +63,25 @@
 										} // end foreach
 										?>
 									</ul>
-								</div><!-- /#sitemap-authors -->
-								
-								<h2 id="pages"><span class="fa fa-list-alt"></span> <?php _e( 'Pages', TRANSLATION_KEY ); ?></h2>
-								<ul id="sitemap-pages">
+
+								<ul id="sitemap-pages" class="nav nav-stacked">
 									<?php
 										wp_list_pages(
 											array(
 												'exclude'	=> get_the_ID(),
-												'title_li' 	=> '',
+												'title_li' 	=> '<h2 id="pages" class="lead"><span class="fa fa-list-alt"></span> Pages</h2>'
 											)
 										);
 									?>
 								</ul>
 								
-								<h2 id="posts"><span class="fa fa-calendar"></span> <?php _e( 'Posts', TRANSLATION_KEY ); ?></h2>
+								<h2 id="posts" class="lead"><span class="fa fa-calendar"></span> <?php _e( 'Posts', TRANSLATION_KEY ); ?></h2>
 								<ul id="sitemap-posts">
 									<?php
 										$category_list = '';
 										foreach ( get_categories() as $category ) {
 																								
-											$category_list .= '<li><h3>' . $category->cat_name . '</h3></li>';
+											$category_list .= '<li><h3 class="lead">' . $category->cat_name . '</h3></li>';
 											$category_list .= '<ul>';
 											
 											$category_query = new WP_Query( 'posts_per_page=-1&cat=' . $category->cat_ID ); 

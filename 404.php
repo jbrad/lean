@@ -7,6 +7,15 @@
  * @since 	1.0
  */
 ?>
+<style>
+    body.error404 {
+        min-height: 800px;
+    }
+    .fa-bolt {
+        font-size: 192px;
+    }
+    #nothing-found{padding:40px 0 180px;text-align:center}#nothing-found h1{color:#000;font-size:8em;line-height:100%}#nothing-found h1 span{color:red}#nothing-found label{float:none}
+</style>
 <?php get_header(); ?>
 
     <div id="wrapper">

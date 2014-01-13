@@ -31,7 +31,7 @@
                                     <div class="content">
                                         <?php the_content(); ?>
 
-                                        <h2 id="posts"><span class="fa fa-calendar"></span> <?php _e( 'All Posts', TRANSLATION_KEY); ?></h2>
+                                        <h2 id="posts" class="lead"><span class="fa fa-calendar"></span> <?php _e( 'All Posts', TRANSLATION_KEY); ?></h2>
 
                                         <?php
 
@@ -57,10 +57,9 @@
                                         $post_query = new WP_Query( $args );
 
                                         if( $post_query->have_posts() ) { ?>
-                                            <p>
+                                            <ul>
                                             <?php while( $post_query->have_posts() ) { ?>
                                                 <?php $post_query->the_post(); ?>
-                                                <ul class="archive-list-posts">
                                                     <li>
                                                         <span class="archive-title">
                                                             <a href="<?php echo get_permalink(); ?>">
@@ -73,8 +72,8 @@
                                                         </span>
 
                                                     </li>
-                                                </ul>
                                             <?php } // end while ?>
+                                            </ul>
 
                                             <ul id="archives-post-pager" class="pager">
                                                 <li class="previous">
@@ -87,12 +86,11 @@
 
                                             <?php wp_reset_postdata(); ?>
 
-                                            </p>
                                         <?php } else { ?>
                                             <p><?php _e( 'You have no posts.', TRANSLATION_KEY ); ?></p>
                                         <?php } // end if ?>
 
-                                        <h2 id="pages"><span class="fa fa-list-alt"></span> <?php _e( 'All Pages', TRANSLATION_KEY); ?></h2>
+                                        <h2 id="pages" class="lead"><span class="fa fa-list-alt"></span> <?php _e( 'All Pages', TRANSLATION_KEY); ?></h2>
 
                                         <?php
                                         $args = array(
@@ -105,41 +103,40 @@
                                         $post_query = new WP_Query( $args );
 
                                         if( $post_query->have_posts() ) { ?>
-                                            <p>
+                                            <ul>
                                             <?php
                                             while( $post_query->have_posts() ) {
                                                 $post_query->the_post(); ?>
-                                                <ul class="archive-list-pages clearfix">
                                                     <li>
-                                                        <span class="archive-title">
+                                                        <span>
                                                             <a href="<?php echo get_permalink(); ?>">
                                                                 <?php echo get_the_title(); ?>
                                                             </a>
                                                         </span>
                                                     </li>
-                                                </ul>
                                             <?php } // end while
                                             wp_reset_postdata();
                                             ?>
-                                            </p>
+                                            </ul>
                                         <?php } else { ?>
                                             <p><?php _e( 'You have no pages.', TRANSLATION_KEY ); ?></p>
                                         <?php } // end if ?>
 
-                                        <h2 id="categories"><span class="fa fa-list"></span> <?php _e( 'All Categories', TRANSLATION_KEY); ?></h2>
+                                        <h2 id="categories" class="lead"><span class="fa fa-list"></span> <?php _e( 'All Categories', TRANSLATION_KEY); ?></h2>
                                         <?php $categories = get_categories( 'hide_empty=1' ); ?>
                                         <?php if( count( $categories) > 0 ) { ?>
-                                            <p>
-                                            <ul class="archive-list-categories clearfix">
+                                            <ul>
                                                 <?php foreach( $categories as $category ) { ?>
-                                                    <li><a href="<?php echo get_category_link( $category->cat_ID ); ?>"><?php echo $category->cat_name; ?></a></li>
+                                                    <li>
+                                                        <span>
+                                                            <a href="<?php echo get_category_link( $category->cat_ID ); ?>"><?php echo $category->cat_name; ?></a>
+                                                        </span>
+                                                    </li>
                                                 <?php } // end foreach ?>
                                             </ul>
-                                            </p>
                                         <?php } else { ?>
                                             <p><?php _e( 'You have no categories.', TRANSLATION_KEY); ?></p>
                                         <?php } // end if/else ?>
-
 
                                     </div><!-- /.entry-content -->
                                 </div><!-- /.entry-content -->

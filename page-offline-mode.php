@@ -7,6 +7,9 @@
  * @since 	1.0
  */
 ?>
+<style>
+    #offline-wrapper{display:table;overflow:hidden;width:100%;height:800px;text-align:center}#offline-wrapper .offline-message{margin:20px 0 40px;padding-bottom:40px;border-bottom:1px solid #e0e0e0}#offline-wrapper .offline-message p{font-weight:900;font-size:48px;line-height:1;margin-bottom:60px}#offline-wrapper #offline-title{font-size:18px}#offline-wrapper #offline-title small{color:#888;font-size:14px}#offline-container{display:table-cell;vertical-align:middle}#offline-content{position:relative;top:-50%}
+</style>
 <?php get_header(); ?>
     <div class="container">
 

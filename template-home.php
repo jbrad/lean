@@ -9,6 +9,27 @@
  * @since 	1.0
  */
 ?>
+<style>
+    body.page-template-template-home-php {
+        background: #fff;
+    }
+    #header,
+    #menu-below-header {
+        display: none;
+    }
+    #wrapper {
+        padding: 0 0 40px;
+    }
+    #features .row {
+        margin-bottom: 60px;
+    }
+    .home-widgets .widget {
+        margin-bottom: 40px;
+    }
+    #footer-widgets {
+        display: none;
+    }
+</style>
 <?php get_header(); ?>
 
     <div id="wrapper">
