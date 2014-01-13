@@ -59,9 +59,11 @@
 
                     ?>
                 </div><!-- /.gallery-post-format-36 -->
+                <?php if ( the_content() ) { ?>
                 <p>
                     <?php the_content( __( 'Continue Reading...', TRANSLATION_KEY ) ); ?>
                 </p>
+                <?php } //end if ?>
             <?php } else { ?>
                 <?php the_content( __( 'Continue Reading...', TRANSLATION_KEY ) ); ?>
             <?php } // end if/else ?>
