@@ -116,7 +116,7 @@ $head_class = ! empty( $header_image ) ? 'imageyup' : 'imageless';
 
                 <div id="hgroup" class="clearfix">
 
-                    <div id="logo">
+                    <div id="logo" class="pull-left">
 
                         <?php // If a logo has been set in the theme Presentation options, display it ?>
                         <?php if( has_logo() ) { ?>
@@ -156,7 +156,7 @@ $head_class = ! empty( $header_image ) ? 'imageyup' : 'imageless';
 
                     <?php // If there's a widget in the 'Header Sidebar, then we need to display it ?>
                     <?php if ( is_active_sidebar( 'sidebar-1' ) ) {  ?>
-                        <div id="header-widget">
+                        <div id="header-widget" class="pull-right">
                             <?php dynamic_sidebar( 'sidebar-1' ); ?>
                         </div><!-- /#header-widget -->
                     <?php } // end if ?>
