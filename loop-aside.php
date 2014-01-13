@@ -17,7 +17,7 @@
 
     <div id="content-<?php the_ID(); ?>" class="entry-content clearfix">
 
-        <?php get_template_part( 'includes/loop.post-title' ); ?>
+        <h1 class="lead"><?php the_title(); ?></h1>
 
         <?php get_template_part( 'includes/loop.post-content' ); ?>
         <?php get_template_part( 'includes/loop.post-link-pages' ); ?>
