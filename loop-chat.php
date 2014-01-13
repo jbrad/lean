@@ -16,7 +16,7 @@
             <div class="col-sm-2 hidden-xs">
                 <span class="fa fa-comments-o"></span>
             </div><!-- /.post-avatar -->
-            <div class="entry-content col-md-10 col-xs-12 clearfix">
+            <div class="entry-content col-md-10 col-xs-12">
                 <?php get_template_part( 'includes/loop.post-content' ); ?>
             </div><!-- /.entry-content -->
         </div><!-- /row -->
