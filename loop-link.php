@@ -62,7 +62,7 @@
 	</div> <!-- /.post-header -->
 		
 	<?php if( '' != get_post_meta( get_the_ID(), 'link_url_field', true ) ) { ?>
-		<div class="entry-content clearfix link-description">
+		<div class="entry-content">
 			<?php the_content( __( 'Continue Reading...', TRANSLATION_KEY ) ); ?>
 		</div><!-- /entry-content -->
 	<?php } // end if ?>
