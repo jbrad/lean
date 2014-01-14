@@ -10,7 +10,7 @@
 <?php $is_standard_post_format = ('' == get_post_format() ); ?>
 <?php $is_aside_post_format = ('aside' == get_post_format() ); ?>
 
-<div class="post-meta clearfix">
+<div class="post-meta text-muted clearfix">
 
     <?php if ( !$is_aside_post_format ) { ?>
         <div class="meta-date-cat-tags pull-left">
@@ -27,9 +27,9 @@
             <?php $category_list = get_the_category_list( __( ', ', TRANSLATION_KEY ) ); ?>
             <?php if( $category_list ) { ?>
                 <?php if ( $is_standard_post_format ) {  ?>
-                    <?php printf( '<span class="the-category">' . __( 'In %1$s', TRANSLATION_KEY ) . '</span>', $category_list ); ?>
+                    <?php printf( '<span class="the-category">' . __( 'In %1$s&nbsp;', TRANSLATION_KEY ) . '</span>', $category_list ); ?>
                 <?php } else { ?>
-                    <?php printf( '<span class="the-category">' . __( 'in %1$s', TRANSLATION_KEY ) . '</span>', $category_list ); ?>
+                    <?php printf( '<span class="the-category">' . __( 'in %1$s&nbsp;', TRANSLATION_KEY ) . '</span>', $category_list ); ?>
                 <?php } // end if ?>
 
             <?php } // end if ?>
@@ -43,9 +43,9 @@
     <?php } //endif ?>
 
     <div class="meta-comment-link pull-right">
-        <a class="pull-right post-link" href="<?php the_permalink(); ?>" title="<?php esc_attr_e( 'permalink', TRANSLATION_KEY ); ?>">&nbsp;<span class="fa fa-link"></span></a>
+        <a class="pull-right post-link" href="<?php the_permalink(); ?>" title="<?php esc_attr_e( 'permalink', TRANSLATION_KEY ); ?>"><span class="fa fa-link"></span></a>
         <?php if ( '' != get_post_format() ) { ?>
-            <span class="the-comment-link"><?php comments_popup_link( __( 'Leave a comment', TRANSLATION_KEY ), __( '1 Comment', TRANSLATION_KEY ), __( '% Comments', TRANSLATION_KEY ), '', ''); ?></span>
+            <span class="the-comment-link"><?php comments_popup_link( __( 'Leave a comment', TRANSLATION_KEY ), __( '1 Comment', TRANSLATION_KEY ), __( '% Comments', TRANSLATION_KEY ), '', ''); ?>&nbsp;</span>
         <?php } // end if ?>
     </div><!-- /meta-comment-link -->
 

@@ -26,7 +26,7 @@
 
             <?php get_template_part( 'includes/loop.post-title' ); ?>
 
-			<div class="post-header-meta">
+			<div class="post-header-meta text-muted">
 				<?php if( is_multi_author() ) { ?>
 					<span class="the-author"><a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>" title="<?php echo get_the_author_meta( 'display_name' ); ?>"><?php echo the_author_meta( 'display_name' ); ?></a>&nbsp;&mdash;&nbsp;</span>
 				<?php } // end if ?>
