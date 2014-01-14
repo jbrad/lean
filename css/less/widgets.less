@@ -4,475 +4,209 @@
 // @since 1.0
 //
 
-// Widget Areas
-// -----------------------------------------
-
 #sidebar {
-	
-	.widget {
-		margin-bottom:	30px;
-	} // .widget
-	
-} // #sidebar
 
-.widget_categories { 
+  .widget {
+    margin-bottom:	30px;
+  }
 
-	ul.children {
-	
-    	padding-left:	5px;
-    	border-left: 	1px solid @widget_category_ul_children_border_color;
-    	
-    } // ul.children
-    
-} // .widget_categories
+  .widget_search {
+    margin-bottom: 10px;
 
-// Main Widget Styling
-// -----------------------------------------
+    form {
+      margin-bottom: 0;
+    }
+
+    label.screen-reader-text {
+      padding-top: 	0;
+      padding-right: 	5px;
+      width: 			100%;
+      text-align: 	left;
+    }
+  }
+}
 
 .widget {
-	
-	label {
-	
-		float:	none;
-		width:	auto;
-		
-	} // label
 
-    h4.widget-title {
+  label {
+    float:	none;
+    width:	auto;
 
-      margin-bottom: 	10px;
-      padding-bottom: 10px;
-      border-bottom: 	1px solid @widget_title_border_color;
-      font-size: 		18px;
-      line-height: 	24px;
+  }
+
+  h4.widget-title {
+    margin-bottom: 	10px;
+    padding-bottom: 10px;
+    border-bottom: 	1px solid @widget_title_border_color;
+    font-size: 		18px;
+    line-height: 	24px;
+
+    a {
+      color: 			 @widget_title_link_color;
+      text-decoration: none;
+    }
+  }
+
+  ul {
+    margin:		0;
+    padding: 	0;
+
+    li {
+      padding: 	5px 0;
+      list-style: none;
 
       a {
+        color:	@widget_ul_link_color;
 
-        color: 			 @widget_title_link_color;
-        text-decoration: none;
+        &:hover {
+          color: @widget_ul_link_hover_color;
+        }
+      }
+    }
+  }
+}
 
-      } // a
+.widget_categories ul.children {
+  padding-left:	5px;
+  border-left: 	1px solid @widget_category_ul_children_border_color;
+}
 
-    } // h4.widget-title
+.textwidget img {
+  max-width: 	100%;
+  height: 	auto;
+}
 
-    ul {
-
-      margin:		0;
-      padding: 	0;
-
-      li {
-
-        padding: 	5px 0;
-        list-style: none;
-
-        a {
-          color:	@widget_ul_link_color;
-
-          &:hover {
-            color: @widget_ul_link_hover_color;
-          } // a:hover
-
-        } // a
-
-      } // li
-
-    } // ul
-
-} // .widget
-
-#footer-widgets {
-
-    .widget {
-      margin-bottom:	30px;
-
-		h4.widget-title {
-			border-bottom: 	1px solid @footer_widget_title_border_color;
-		} // h4.widget-title
-		
-	} // .widget
-
-    .widget_nav_menu {
-
-      ul.sub-menu {
-        border-left-color: @footer_widget_ul_submenu_border_color;
-      } // ul.sub-menu
-
-    } // end .wiget_nav_menu
-	
-} // #footer-widgets
-
-// Post advertising Widgets
-// -----------------------------------------
-
-#post-advertisement {
-
-	text-align:	center;
-	
-	.widget {
-		margin-bottom: 	20px;
-	} // .widget
-	
-} // #post-advertisement
-
-
-// Text Widgets
-// -----------------------------------------
-
-.textwidget {
-
-	img {
-	
-		max-width: 	100%;	
-		height: 	auto;
-		
-	} // img
-	
-} // .textwidget
-
-// Search Widgets
-// -----------------------------------------
-
-#header-widget {
-	
-	.widget_search {
-	
-		float: 		right;
-		padding: 	10px;
-		width: 		260px;
-		background: rgba(255,255,255,0.2);
-		
-		form,
-		input {
-			margin-bottom: 0;
-		} // form, input
-		
-	} // .widget_search
-	
-} // #header-widget
-
-#sidebar {
-
-	.widget_search {
-	
-		margin-bottom: 10px;
-		
-		form {
-			margin-bottom: 0;
-		} // form
-		
-		label.screen-reader-text {
-		
-			padding-top: 	0;
-			padding-right: 	5px;
-			width: 			100%;
-			text-align: 	left;
-			
-		} // label.screen-reader-text
-		
-	} // .widget_search
-	
-} // #sidebar
-
-
-.widget_nav_menu {
-
-	ul.sub-menu {
-	
-		padding-left:	5px;
-		border-left: 	1px solid @footer_widget_navmenu_ul_submenu_border_color;
-	
-	} // ul.sub-menu
-	
-} // .widget_nav_menu
-
-// RSS Widgets
-// -----------------------------------------
+.widget_nav_menu ul.sub-menu {
+  padding-left:	5px;
+  border-left: 	1px solid @footer_widget_navmenu_ul_submenu_border_color;
+}
 
 .widget_rss {
 
-	h3.widget-title {
-	
-		a {
-			color: @widget_rss_link_color;
-		} // a
-		
-	} // h3.widget-title
-	
-	a.rsswidget {
-	
-		img {
-			display: none;
-		} // img
-		
-	} // a.rsswidget
-	
-	ul {
-	
-		li {
-		
-			.rss-date {
-			
-				font-style:	italic;
-				font-size: 	12px;
-				
-			} // .rss-date
-			
-			.rssSummary {
-			
-				color: @widget_rss_summary_color;
-				font-size: 	12px;
-				
-			} // .rssSummary
-			
-		} // li
-		
-	} // ul
-	
-} // .widget_rss
+  h3.widget-title a {
+    color: @widget_rss_link_color;
+  }
 
+  a.rsswidget img {
+    display: none;
+  }
 
-// WP - Calender widget
-// -----------------------------------------
+  ul li {
+    .rss-date {
+      font-style:	italic;
+      font-size: 	12px;
+    }
+    .rssSummary {
+      color: @widget_rss_summary_color;
+      font-size: 	12px;
+    }
+  }
+}
+
 
 table#wp-calendar {
+  width: 		100%;
+  background: @widget_calendar_bg_color;
 
-	width: 		100%;
-	background: @widget_calendar_bg_color;
-	
-	caption {
-	
-		padding: 	10px 0;
-		color: 		@widget_calendar_caption_color;
-		
-	} // caption
-	
-	thead {
-	
-		background: @widget_calendar_table_header_bg_color;
-		color: 		@widget_calendar_table_header_color;
-		
-	} // thead
-	
-	td {
-	
-		background: @widget_calendar_table_data_bg_color;
-		
-		&:hover {
-			background: @widget_calendar_table_data_bg_hover_color;
-		} // :hover
-	
-	} // td
-	
-	tfoot {
-	
-		background: @widget_calendar_table_footer_bg_color;
-		
-		th, 
-		td {
-			padding: 		5px 5px 9px;
-			text-align: 	center;
-			line-height: 	18px;
-		} // th, td
-		
-		td {
-		
-			padding: 			5px 15px;
-			border-top: 		1px solid @widget_calendar_table_footer_data_border_color;
-            #gradient.vertical(@widget_calendar_table_footer_data_bg_start_color, @widget_calendar_table_footer_data_bg_stop_color);
+  caption {
+    padding: 	10px 0;
+    color: 		@widget_calendar_caption_color;
+  }
 
-			a {
-				color: @widget_calendar_table_footer_data_link_color;
-			} // a
-			
-		} // td
-		
-		td#prev {
-			text-align: left;
-		} // #prev
-		
-		td#next {
-			text-align: right;
-		} // #next
-		
-	} // tfoot
-	
-} // #wp-calendar
+  thead {
+    background: @widget_calendar_table_header_bg_color;
+    color: 		@widget_calendar_table_header_color;
+  }
 
+  td {
+    background: @widget_calendar_table_data_bg_color;
 
-// Tag Cloud Widget
-// -----------------------------------------
+    &:hover {
+      background: @widget_calendar_table_data_bg_hover_color;
+    }
+  }
 
-.tagcloud {
+  tfoot {
+    background: @widget_calendar_table_footer_bg_color;
 
-	a {
-	
-		display: 				inline-block;
-		margin: 				3px 1px;
-		padding: 				4px 6px;
-		-webkit-border-radius: 	4px;
-		-moz-border-radius: 	4px;
-		border-radius: 			4px;
-		background: @widget_tagcloud_bg_color;
-		font-size: 				14px !important;
-		
-	} // a
-	
-} // .tagcloud 
+    th,
+    td {
+      padding: 		5px 5px 9px;
+      text-align: 	center;
+      line-height: 	18px;
+    }
 
-// Jetpack Widgets
-// -----------------------------------------
+    td {
+      padding: 			5px 15px;
+      border-top: 		1px solid @widget_calendar_table_footer_data_border_color;
+      #gradient.vertical(@widget_calendar_table_footer_data_bg_start_color, @widget_calendar_table_footer_data_bg_stop_color);
 
-.entry-content {
+      a {
+        color: @widget_calendar_table_footer_data_link_color;
+      }
 
-	.twitter-tweet-rendered {
-	
-		max-width: 	100% !important;
-	    width: 		100%
-	    
-    } // .twitter-tweet-rendered
+      &#prev {
+        text-align: left;
+      }
 
-    .sharing {
-      clear: both;
-    } // .sharing
+      &#next {
+        text-align: right;
+      }
+    }
+  }
+}
 
-} // .entry-content
+.tagcloud a {
+  display: 				inline-block;
+  margin: 				3px 1px;
+  padding: 				4px 6px;
+  -webkit-border-radius: 	4px;
+  -moz-border-radius: 	4px;
+  border-radius: 			4px;
+  background: @widget_tagcloud_bg_color;
+  font-size: 				14px !important;
+}
 
-.widget_freshposts {
+.contact-form > div {
+  margin-bottom: 15px;
 
-	ul {
+  label > span {
+    margin-left: 5px;
+    color: #999;
+  }
+}
 
-		li {
-			
-			img {
-			
-				width: 	100%;
-				height: auto;
-				
-			} // img
-			
-		} // li
-		
-	} // ul
-	
-} // .widget_freshposts
+#header-widget .widget_search {
+  float: 		right;
+  padding: 	10px;
+  width: 		260px;
+  background: rgba(255,255,255,0.2);
 
-// Jetpack Post Comment Subscription
-// -----------------------------------------
+  form,
+  input {
+    margin-bottom: 0;
+  }
+}
 
-.comment-subscription-form {
+#post-advertisement {
+  text-align:	center;
 
-	clear: both;
-	
-	input[type="checkbox"] {
-	
-		float: 			left;
-		margin-right: 	10px;
-		
-	} // type='checkbox'
-	
-} // .comment-subscription-form
+  .widget {
+    margin-bottom: 	20px;
+  }
+}
 
-// Jetpack Blog subscription widget
-// -----------------------------------------
+#footer-widgets {
 
-.jetpack_subscription_widget {
+  .widget {
+    margin-bottom:	30px;
 
-	padding: 		20px 20px 11px 20px;
-	border-radius: 	5px;
-	background: 	@widget_jetpack_subscription_bg_color;
-	
-	form {
-		margin-bottom: 	0;
-	} // form
-	
-	label {
-		font-weight: 	bold;
-	} // label
-	
-	input[type="text"] {
-	
-		padding: 	4px !important;
-		width: 		96% !important;
-		
-	} // type='text'
-	
-	input[type="submit"] {
-		margin-bottom: 	0;
-	} // type='submit'
-	
-} // .jetpack_subscription_widget
+    h4.widget-title {
+      border-bottom: 	1px solid @footer_widget_title_border_color;
+    }
+  }
 
-
-// Jetpack contact form 
-// -----------------------------------------
-
-.contact-form {
-
-	label {
-	
-		display: 		block; 
-		float: 			none;
-		margin-bottom: 	3px; 
-		font-weight: 	bold; 
-	
-		span { 
-		
-			margin-left:	4px; 
-			color: @widget_jetpack_contact_form_span_color;
-			font-weight: 	normal;
-			
-		} // span
-		
-	} // label
-	
-	textarea { 
-		
-		float: 			none; 
-		margin-bottom: 	13px; 
-		width: 			97%; 
-		height: 		200px;
-		
-	} // textarea
-	
-	input[type='text'] { 
-	 	margin-bottom:	13px;
-	} // type='text'
-	
-	input[type='radio'],
-	input[type='checkbox'] {
-		margin-bottom: 13px; 
-	} // radio, checkbox
-	
-	select { 
-		margin-bottom: 13px; 
-	} // select
-
-	label.checkbox, 
-	label.radio {
-	
-		display:		inline-block; 
-		float: 			none; 
-		margin-bottom: 	3px; 
-		font-weight: 	bold; 
-		
-	} // label.checkbox, label.radio
-	
-	.clear-form { 
-		clear: both; 
-	} // .clear-form
-	
-	> div {
-		margin-bottom: 15px;
-	} // > div	
-	
-} // .contact-form
-
-/// WordPress.com Widget
-// -----------------------------------------
-
-#flickr_badge_wrapper {
-
-	border: 	none;
-	background: none;
-	
-} // #flickr_badge_wrapper
+  .widget_nav_menu ul.sub-menu {
+    border-left-color: @footer_widget_ul_submenu_border_color;
+  }
+}
