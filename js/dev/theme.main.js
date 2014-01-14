@@ -82,6 +82,8 @@ function resizeVideos($) {
         $('form input, form textarea').addClass('form-control');
         $('form input[type="submit"]').removeClass('form-control');
 
+        $('.form-submit #submit').addClass('btn btn-default');
+
 		// Hide pagination controls if infiniteScroll is on
 		if( 'object' === typeof infiniteScroll ) {
 			$('#post-nav').hide();

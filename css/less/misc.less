@@ -7,8 +7,8 @@
 @import "mixins.less";
 
 body * {
-	-ms-word-wrap: break-word; 
-	word-wrap: break-word;
+  -ms-word-wrap: break-word;
+  word-wrap: break-word;
 }
 
 a {
@@ -20,8 +20,8 @@ a {
 }
 
 img {
-	max-width: 100%;
-	height: auto;
+  max-width: 100%;
+  height: auto;
 }
 
 .alignleft {
@@ -52,52 +52,18 @@ img {
 // causing issues with some post_class() tags
 
 [class*="span"].post {
-    float: none;
-    margin-left: 0;
+  float: none;
+  margin-left: 0;
 }
-
-input[type="submit"] {
-    color: #ffffff;
-    background-color: @link-color;
-    border-color: @link-color;
-    display: inline-block;
-    padding: 6px 12px;
-    margin-bottom: 0;
-    font-size: 14px;
-    font-weight: normal;
-    line-height: 1.428571429;
-    text-align: center;
-    white-space: nowrap;
-    vertical-align: middle;
-    cursor: pointer;
-    border: 1px solid transparent;
-    border-radius: 4px;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    -o-user-select: none;
-    user-select: none;
-
-    &:hover {
-      color: #ffffff;
-      background-color: @link-hover-color;
-      border-color: @link-hover-color;
-    }
-
-    &:focus {
-      outline: 1px dotted #666;
-    }
-
-} // input[type="submit"]
 
 .fademe img,
 a img {
-	opacity: 1;	
-	.ease_in();
+  opacity: 1;
+  .ease_in();
 
-    &:hover {
-      opacity: 0.5;
-    }
+  &:hover {
+    opacity: 0.5;
+  }
 }
 
 code {
