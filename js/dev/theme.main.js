@@ -121,8 +121,9 @@ function resizeVideos($) {
             $('a.share-reddit').addClass('fa fa-group');
             $('a.share-stumbleupon').addClass('fa fa-external-link');
             $('a.share-digg').addClass('fa fa-thumbs-o-up');
-
         }
+
+        $('table').addClass('table table-bordered table-hover').wrap('<div class="table-responsive">');
 
 	});
 }(jQuery));
