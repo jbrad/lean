@@ -190,7 +190,6 @@ module.exports = function(grunt) {
                 },
                 files: {
                     "style.css": "css/less/style.less",
-                    "css/theme-responsive.css": "css/less/theme-responsive.less",
                     "css/admin.css": "css/less/admin.less",
                     "css/editor-style.css": "css/less/editor-style.less",
                     "css/theme.contrast-light.css": "css/less/theme.contrast-light.less"
@@ -226,7 +225,6 @@ module.exports = function(grunt) {
                 },
                 files: {
                     "style.css": "css/less/style.less",
-                    "css/theme-responsive.css": "css/less/theme-responsive.less",
                     "css/admin.css": "css/less/admin.less",
                     "css/editor-style.css": "css/less/editor-style.less",
                     "css/theme.contrast-light.css": "css/less/theme.contrast-light.less",
