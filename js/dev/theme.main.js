@@ -79,9 +79,8 @@ function resizeVideos($) {
 		} // end if
 
         // Add form-control class to all inputs
-        $('form input').addClass('form-control');
+        $('form input, form textarea').addClass('form-control');
         $('form input[type="submit"]').removeClass('form-control');
-        $('form textarea').addClass('form-control');
 
 		// Hide pagination controls if infiniteScroll is on
 		if( 'object' === typeof infiniteScroll ) {
@@ -123,7 +122,7 @@ function resizeVideos($) {
             $('a.share-digg').addClass('fa fa-thumbs-o-up');
         }
 
-        $('table').addClass('table table-bordered table-hover').wrap('<div class="table-responsive">');
+        $('table').addClass('table table-bordered').wrap('<div class="table-responsive">');
 
 	});
 }(jQuery));
