@@ -5,54 +5,51 @@
 // 
 
 #hgroup {
-	padding: 40px 0;
+  padding: 40px 0;
 }
 
 #logo p {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 #site-title,
 #site-title a {
-    color: @site_title_color;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 32px;
-    line-height: 1;
-	margin: 10px 0 0;
+  color: @site_title_color;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 32px;
+  line-height: 1;
+  margin: 10px 0 0;
 
-    &:hover,
-    &:focus,
-    &:active {
-      color: @site_title_hover_color;
-    }
-	
-} // #site-title 
+  &:hover,
+  &:focus,
+  &:active {
+    color: @site_title_hover_color;
+  }
 
-#site-description {
-	color: @site_description_color;
-	font-size: 14px;
 }
 
-// if header image is present lets adjust a few things
-#header-image {
-	h1,
-    p {
-		margin: 	0;
-		padding: 	0;
-		
-		a {
-			display: block;
-		} // a
-		
-	} //h1 p
+#site-description {
+  color: @site_description_color;
+  font-size: 14px;
+}
 
-    img,
-    a img {
-      max-width: 100%;
-      width: auto;
-      height: auto;
-      opacity: 1;
+#header-image {
+  h1,
+  p {
+    margin: 0;
+    padding: 0;
+
+    a {
+      display: block;
     }
-	
-} // #heaer-image
+  }
+
+  img,
+  a img {
+    max-width: 100%;
+    width: auto;
+    height: auto;
+    opacity: 1;
+  }
+}

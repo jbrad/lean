@@ -8,50 +8,44 @@
 @import "variables.less";
 
 #footer {
-	background: @footer_bg_color;
-	
-    #footer-widgets {
-        padding: 20px;
-    }
+  background: @footer_bg_color;
 
-    #sub-floor {
-        padding: 10px 0;
-        background: @footer_subfloor_bg_color;
+  #footer-widgets {
+    padding: 20px;
+  }
 
-        #credit {
-          padding: 13px 0;
-          color: @footer_credit_color;
+  #sub-floor {
+    padding: 10px 0;
+    background: @footer_subfloor_bg_color;
 
-          a {
-            color: @footer_credit_link_color;
+    #credit {
+      padding: 13px 0;
+      color: @footer_credit_color;
 
-            &:hover {
-              color: @footer_credit_link_hover_color;
-              text-decoration: none;
-            }
-
-          }
-
-        } // #credit
-
-    } // #sub-floor
-
-    #footer-links {
-      .navbar {
-        margin-bottom: 0px;
-      }
-
-      .navbar-nav > li > a {
-        color: @navigation_item_color;
-        padding: 10px;
+      a {
+        color: @footer_credit_link_color;
 
         &:hover {
-          color: @navigation_item_hover_color;
-          background: none;
+          color: @footer_credit_link_hover_color;
+          text-decoration: none;
         }
+      }
+    }
+  }
 
-      } // .navbar-nav
+  #footer-links {
+    .navbar {
+      margin-bottom: 0px;
+    }
 
-    } // #footer-links
+    .navbar-nav > li > a {
+      color: @navigation_item_color;
+      padding: 10px;
 
-} // footer
+      &:hover {
+        color: @navigation_item_hover_color;
+        background: none;
+      }
+    }
+  }
+}

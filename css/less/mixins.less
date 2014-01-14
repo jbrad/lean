@@ -4,17 +4,11 @@
 // @since 1.0
 // 
 
-// Gradients
-// ----------------------------------------
-
-// Container elements
-// ----------------------------------------
-
 .border_radius(@radius: 4px) {
-	-webkit-border-radius:	@radius;
-	-moz-border-radius: 	@radius;
-	border-radius: 			@radius;
-} // .no_border_radius
+  -webkit-border-radius: @radius;
+  -moz-border-radius: @radius;
+  border-radius: @radius;
+}
 
 .ease_in() {
   -webkit-transition: opacity .25s ease-in-out;
@@ -22,9 +16,7 @@
   -ms-transition: opacity .25s ease-in-out;
   -o-transition: opacity .25s ease-in-out;
   transition: opacity .25s ease-in-out;
-} // .ease_in
-
-// Mixins
+}
 
 .social-sharing-icons(@hoverColor: @gray_dark) {
   color: @hoverColor;
@@ -33,7 +25,6 @@
   &:hover {
     color: darken(@hoverColor, 10%);
   }
-
 }
 
 .share-icons-defaults() {

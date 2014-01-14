@@ -7,12 +7,8 @@
 .navbar {
   margin-bottom: 0;
 
-  .navbar-nav {
-
-    &.nav-pills > li > a {
+  .navbar-nav.nav-pills > li > a {
       padding: 14px 8px;
-    }
-
   }
 
   .dropdown-menu {
@@ -27,7 +23,8 @@
       border-bottom: 0;
     }
 
-    > li a:hover, > li.active a:hover {
+    > li a:hover,
+    > li.active a:hover {
       background: none;
       color: @navigation_dropdown_item_hover_color;
     }
@@ -41,121 +38,120 @@
       background: none;
       color: @navigation_dropdown_open_color;
     }
-
   }
 
-//  Uncomment the social icons you want to change the color for
-//  .fa-twitter {
-//    font-size: @social-icon-font-size;
-//    color: @twitter-blue;
-//
-//    &:hover {
-//      color: @twitter-blue-hover;
-//    }
-//  }
-//
-//  .fa-facebook {
-//    font-size: @social-icon-font-size;
-//    color: @facebook-blue;
-//
-//    &:hover {
-//      color: @facebook-blue-hover;
-//    }
-//  }
-//
-//  .fa-linkedin {
-//    font-size: @social-icon-font-size;
-//    color: @linkedin-blue;
-//
-//    &:hover {
-//      color: @linkedin-blue-hover;
-//    }
-//  }
-//
-//  .fa-google-plus {
-//    font-size: @social-icon-font-size;
-//    color: @googleplus-red;
-//
-//    &:hover {
-//      color: @googleplus-red-hover;
-//    }
-//  }
-//
-//  .fa-youtube {
-//    font-size: @social-icon-font-size;
-//    color: @youtube-red;
-//
-//    &:hover {
-//      color: @youtube-red-hover;
-//    }
-//  }
-//
-//  .fa-dribbble {
-//    font-size: @social-icon-font-size;
-//    color: @dribbble-pink;
-//
-//    &:hover {
-//      color: @dribbble-pink-hover;
-//    }
-//  }
-//
-//  .fa-foursquare {
-//    font-size: @social-icon-font-size;
-//    color: @foursquare-green;
-//
-//    &:hover {
-//      color: @foursquare-green-hover;
-//    }
-//  }
-//
-//  .fa-pinterest {
-//    font-size: @social-icon-font-size;
-//    color: @pinterest-red;
-//
-//    &:hover {
-//      color: @pinterest-red-hover;
-//    }
-//  }
-//
-//  .fa-rss {
-//    font-size: @social-icon-font-size;
-//    color: @rss-orange;
-//
-//    &:hover {
-//      color: @rss-orange-hover;
-//    }
-//  }
-//
-//  .fa-cloud {
-//    font-size: @social-icon-font-size;
-//    color: @soundcloud-orange;
-//
-//    &:hover {
-//      color: @soundcloud-orange-hover;
-//    }
-//  }
-//
-//  .fa-vimeo-square {
-//    font-size: @social-icon-font-size;
-//    color: @vimeo-blue;
-//
-//    &:hover {
-//      color: @vimeo-blue-hover;
-//    }
-//  }
-//
-//  .fa-github {
-//    font-size: @social-icon-font-size;
-//    color: @github-gray;
-//
-//    &:hover {
-//      color: @github-gray-hover;
-//    }
-//  }
-//
-//  .fa-envelope {
-//    font-size: @social-icon-font-size;
-//  }
+  //  Uncomment the social icons you want to change the color for
+  //  .fa-twitter {
+  //    font-size: @social-icon-font-size;
+  //    color: @twitter-blue;
+  //
+  //    &:hover {
+  //      color: @twitter-blue-hover;
+  //    }
+  //  }
+  //
+  //  .fa-facebook {
+  //    font-size: @social-icon-font-size;
+  //    color: @facebook-blue;
+  //
+  //    &:hover {
+  //      color: @facebook-blue-hover;
+  //    }
+  //  }
+  //
+  //  .fa-linkedin {
+  //    font-size: @social-icon-font-size;
+  //    color: @linkedin-blue;
+  //
+  //    &:hover {
+  //      color: @linkedin-blue-hover;
+  //    }
+  //  }
+  //
+  //  .fa-google-plus {
+  //    font-size: @social-icon-font-size;
+  //    color: @googleplus-red;
+  //
+  //    &:hover {
+  //      color: @googleplus-red-hover;
+  //    }
+  //  }
+  //
+  //  .fa-youtube {
+  //    font-size: @social-icon-font-size;
+  //    color: @youtube-red;
+  //
+  //    &:hover {
+  //      color: @youtube-red-hover;
+  //    }
+  //  }
+  //
+  //  .fa-dribbble {
+  //    font-size: @social-icon-font-size;
+  //    color: @dribbble-pink;
+  //
+  //    &:hover {
+  //      color: @dribbble-pink-hover;
+  //    }
+  //  }
+  //
+  //  .fa-foursquare {
+  //    font-size: @social-icon-font-size;
+  //    color: @foursquare-green;
+  //
+  //    &:hover {
+  //      color: @foursquare-green-hover;
+  //    }
+  //  }
+  //
+  //  .fa-pinterest {
+  //    font-size: @social-icon-font-size;
+  //    color: @pinterest-red;
+  //
+  //    &:hover {
+  //      color: @pinterest-red-hover;
+  //    }
+  //  }
+  //
+  //  .fa-rss {
+  //    font-size: @social-icon-font-size;
+  //    color: @rss-orange;
+  //
+  //    &:hover {
+  //      color: @rss-orange-hover;
+  //    }
+  //  }
+  //
+  //  .fa-cloud {
+  //    font-size: @social-icon-font-size;
+  //    color: @soundcloud-orange;
+  //
+  //    &:hover {
+  //      color: @soundcloud-orange-hover;
+  //    }
+  //  }
+  //
+  //  .fa-vimeo-square {
+  //    font-size: @social-icon-font-size;
+  //    color: @vimeo-blue;
+  //
+  //    &:hover {
+  //      color: @vimeo-blue-hover;
+  //    }
+  //  }
+  //
+  //  .fa-github {
+  //    font-size: @social-icon-font-size;
+  //    color: @github-gray;
+  //
+  //    &:hover {
+  //      color: @github-gray-hover;
+  //    }
+  //  }
+  //
+  //  .fa-envelope {
+  //    font-size: @social-icon-font-size;
+  //  }
 
 }
 

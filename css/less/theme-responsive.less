@@ -39,7 +39,6 @@
     text-align: center;
   }
 
-  // posts
   .post .thumbnail img {
     width: 80px;
     height: auto;
@@ -53,14 +52,13 @@
   .entry-content embed, .entry-content iframe, .entry-content object,
   .entry-content p embed, .entry-content p iframe, .entry-content p object {
     max-width: 100%;
-    height: 210px; // Setting a height - Android displays correctly, iPhone was showing letterbox.
+    height: 210px;
   }
 
   .entry-content .gallery img {
     max-width: 94%;
   }
 
-  // Post Comments
   .author-box-image img {
     width: 50px;
     height: auto;
@@ -70,7 +68,6 @@
     min-height: 60px;
   }
 
-  // post format video
   .format-video embed, .format-video iframe, .format-video object {
     max-width: 100%;
   }
@@ -80,7 +77,6 @@
     margin-bottom: 5px;
   }
 
-  // archives pagination
   #archives-post-pager  {
 
     li, a {
@@ -94,27 +90,20 @@
       margin-bottom: 20px;
       display: inline-block;
     }
-
   }
 
-  // footer area
   #sub-floor #credit {
     text-align: center;
   }
 
-  // comment form
   #comment-form-avatar img {
     width: 20px;
     height: auto;
   }
 
-  // sitemap tweaks
   #sitemap-authors li {
     margin-right: 20px;
   }
-
-
-  // Mobile grid
 
   .mobile-2 {
     display: block;
@@ -126,98 +115,69 @@
       display: block;
       height: auto;
       float: left !important;
+
+      &:nth-child(2n+2) {
+        float: right !important;
+      }
     }
-
-    li:nth-child(2n+2) {
-      float: right !important;
-    }
-
-  }//mobile-2
-
+  }
 }
 
 // tablet and mobile
 @media (max-width: 979px) {
 
+  .imageyup #hgroup {
 
-  .imageyup #hgroup.no-logo {
-    position: absolute;
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    text-align: center;
+    &.no-logo {
+      position: absolute;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      text-align: center;
+    }
+
+    &.has-logo {
+      position: relative;
+      margin: 0 0 20px 0 !important;
+      padding: 0;
+      width: 100%;
+      text-align: center;
+    }
+
+    > * {
+      float: none;
+    }
   }
-
-  .imageyup #hgroup.has-logo {
-    position: relative;
-    margin: 0 0 20px 0 !important;
-    padding: 0;
-    width: 100%;
-    text-align: center;
-  }
-
-  .imageyup #hgroup > * {
-    float: none;
-  }
-
 
   #header-widget .ad-billboard {
     margin-top: 10px;
   }
 
-  // make the menu pretty while in dropdown
-  #social-networking {
-    position: absolute;
-    top: 5px;
-    right: 10px;
-    margin-right: 0;
+  .navbar ul.nav-menu {
+    margin-top: 15px;
+    padding-top: 10px;
+    border-top: 1px solid @navigation_mobile_ul_border_color;
+
+    > li a {
+      padding: 10px 15px;
+
+      .caret {
+        display: none;
+      }
+    }
   }
-
-  .social-icons.nav {
-    display: inline-block;
-  }
-
-  .social-icons.nav > li {
-    float: left;
-  }
-
-  .social-icons.nav > li {
-    margin-left: 12px;
-  }
-
-  .navbar {
-
-    ul.nav-menu {
-      margin-top: 15px;
-      padding-top: 10px;
-      border-top: 1px solid @navigation_mobile_ul_border_color;
-
-      > li {
-
-        a {
-          padding: 10px 15px;
-
-          .caret {
-            display: none;
-          }
-        }
-      }//li
-    }//nav-mneu
-  }//navbar
 
   .nav-collapse .dropdown-menu {
     display: block;
     background: @navigation_mobile_dropdown_border_color;
 
-
-    //if it's on the current page
     li.active a {
       color: @navigation_mobile_dropdown_active_item_color;
 
       &:hover {
         color: @navigation_mobile_dropdown_active_item_hover_color;
       }
-    }//li.active
+    }
 
     > li a {
       box-shadow: none;
@@ -226,17 +186,13 @@
       &:hover {
         color: @navigation_mobile_dropdown_item_hover_color;
       }
+    }
+  }
 
-    }// li a
-  }// dropdown-menu
-
-
-  // post format aside
   .format-aside {
     .entry-content {
       padding: 20px 20px 20px 60px
     }
-
   }
 
   .format-link .post-header {
@@ -250,13 +206,10 @@
     }
   }
 
-
-  // Comment form
   #comments .comment-container .comment-entry {
     margin-left: 5%;
     width: 85%;
   }
-
 }
 
 // mobile to tablet
@@ -273,7 +226,6 @@
     width: 92%;
     text-align: center;
   }
-
 
   body {
     padding-right: 0;
@@ -293,35 +245,29 @@
     padding-left: 20px;
   }
 
-  #footer {
+  #footer #sub-floor {
 
-    #sub-floor {
+    .container {
+      padding-right: 0;
+      padding-left: 0;
+    }
 
-      .container {
-        padding-right: 0;
-        padding-left: 0;
-      }
+    #footer-links {
+      float: none;
+      padding: 0 20px;
+    }
 
-      #footer-links {
-        float: none;
-        padding: 0 20px;
-      }
+    #credit {
+      float: none;
+      padding: 0 20px;
+      text-align: center;
+    }
+  }
 
-      #credit {
-        float: none;
-        padding: 0 20px;
-        text-align: center;
-      }
-    }//sub-floor
-
-  }//footer
-
-  // post format status
   .post.format-status .post-avatar {
     float: left;
     margin: 0 20px 20px 0;
   }
-
 }
 
 // default desktop
@@ -336,14 +282,12 @@
     &:last-child {
       margin-right: -10px;
     }
-
   }
 
   .menu-header-container {
     width: 680px;
   }
 
-  // Position the submenus. This is toggled with theme.js
   .submenu-show {
     position:absolute;
     left:100%;
@@ -354,12 +298,10 @@
     border-radius: 3px;
   }
 
-  // Hide the submenus. This is toggled with theme.js.
   .submenu-hide {
     position: relative;
     top: auto;
     display: none !important;
     float: right;
   }
-
 }
