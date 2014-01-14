@@ -18,13 +18,13 @@
 
             <?php if( '' != get_previous_post() ) { ?>
                 <li class="previous">
-                    <?php previous_post_link( '<span class="previous-page">%link</span>', __( '<i class="fa fa-chevron-left"></i>', TRANSLATION_KEY ) . '&nbsp;' . truncate_text( get_previous_post()->post_title, $trunc_limit ) ); ?>
+                    <?php previous_post_link( '%link', '<span class="fa fa-chevron-left"></span> ' . __(truncate_text( get_previous_post()->post_title, $trunc_limit ) ) ); ?>
                 </li>
             <?php } // end if ?>
 
             <?php if( '' != get_next_post() ) { ?>
                 <li class="next">
-                    <?php next_post_link( '<span class="no-previous-page-link next-page">%link</span>', truncate_text( get_next_post()->post_title, $trunc_limit ) . __( '&nbsp;<i class="fa fa-chevron-right"></i>', TRANSLATION_KEY ) ); ?>
+                    <?php next_post_link( '%link', __(truncate_text( get_next_post()->post_title, $trunc_limit ) ) . ' <span class="fa fa-chevron-right"></span>' ); ?>
                 </li>
             <?php } // end if ?>
         </ul>
@@ -37,13 +37,13 @@
 
             <?php if( get_next_posts_link() ) { ?>
                 <li class="previous">
-                    <?php next_posts_link( __( '<span class="nav-previous meta-nav"><i class="fa fa-chevron-left"></i> Older</i>', TRANSLATION_KEY ) ); ?>
+                    <?php next_posts_link( __( '<span class="nav-previous meta-nav"><span class="fa fa-chevron-left"></span> Older</span>', TRANSLATION_KEY ) ); ?>
                 </li>
             <?php } // end if ?>
 
             <?php if( get_previous_posts_link() ) { ?>
                 <li class="next">
-                    <?php previous_posts_link( __( '<span class="nav-next meta-nav">Newer <i class="fa fa-chevron-right"></i>', TRANSLATION_KEY ) ); ?>
+                    <?php previous_posts_link( __( '<span class="nav-next meta-nav">Newer <span class="fa fa-chevron-right"></span>', TRANSLATION_KEY ) ); ?>
                 </li>
             <?php } // end if ?>
 
