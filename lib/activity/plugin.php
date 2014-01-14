@@ -245,7 +245,7 @@ class Activity_Tabs extends WP_Widget {
 						
 						// Add the small featured image
 						if( has_post_thumbnail( $post->ID ) ) {
-							$html .= '<figure><a class="latest-post-tn fademe" href="' . get_permalink( $post->ID ) . '" rel="nofollow">';
+							$html .= '<figure><a class="latest-post-tn pull-left fademe" href="' . get_permalink( $post->ID ) . '" rel="nofollow">';
 								if( 0 < strlen( get_the_post_thumbnail( $post->ID ) ) ) {
 									$html .= get_the_post_thumbnail( $post->ID, 'thumbnail' );
 								} // end if 
@@ -326,7 +326,7 @@ class Activity_Tabs extends WP_Widget {
 					// Render the thumbnail, if it's set
 					if( '' != get_the_post_thumbnail() ) {
 					
-						$html .= '<figure><a class="latest-post-tn fademe" href="' . get_permalink() . '" rel="nofollow">';
+						$html .= '<figure><a class="latest-post-tn pull-left fademe" href="' . get_permalink() . '" rel="nofollow">';
 							$html .= get_the_post_thumbnail( get_the_ID(), 'thumbnail' );
 						$html .= '</a></figure>';
 					
@@ -420,7 +420,7 @@ class Activity_Tabs extends WP_Widget {
 		
 					$html .= '<li class="clearfix">';
 	
-						$html .= '<figure><a class="latest-comment-tn fademe" href="' . get_permalink( $comment->comment_post_ID ) . '" rel="nofollow">';
+						$html .= '<figure><a class="latest-comment-tn pull-left fademe" href="' . get_permalink( $comment->comment_post_ID ) . '" rel="nofollow">';
 							$html .= get_avatar( $comment->comment_author_email, '50' );
 						$html .= '</a></figure>';
 												
