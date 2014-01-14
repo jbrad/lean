@@ -130,24 +130,6 @@ module.exports = function(grunt) {
                 }
             },
 
-            respond: {
-                options: {
-                    preserveComments: 'some'
-                },
-                files: {
-                    'js/respond.min.js': ['js/lib/respond/*.js']
-                }
-            },
-
-            shiv: {
-                options: {
-                    preserveComments: 'some'
-                },
-                files: {
-                    'js/html5shiv.min.js': ['js/lib/html5-shiv/*.js']
-                }
-            },
-
             widgets: {
                 files: {
                     'lib/google-custom-search/js/admin.min.js': ['lib/google-custom-search/js/dev/admin.js'],
@@ -412,18 +394,6 @@ module.exports = function(grunt) {
             md5: {
                 src: 'bower_components/js-md5/js/md5.js',
                 dest: 'js/lib/md5',
-                expand: true,
-                flatten: true
-            },
-            html5_shiv: {
-                src: 'bower_components/html5shiv-dist/html5shiv.js',
-                dest: 'js/lib/html5-shiv',
-                expand: true,
-                flatten: true
-            },
-            respond: {
-                src: 'bower_components/respond/respond.src.js',
-                dest: 'js/lib/respond',
                 expand: true,
                 flatten: true
             },
