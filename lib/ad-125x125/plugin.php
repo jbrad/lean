@@ -172,10 +172,10 @@ class Ad_125x125 extends WP_Widget {
 				$ad_url = 'THEME_URL';
 			} // end if
 		
-			$ad_src = '<img src="' . get_template_directory_uri() . '/lib/ad-125x125/images/ad-170-' . $number . '.jpg' . '" alt="" />';
+			$ad_src = '<img class="img-responsive" src="' . get_template_directory_uri() . '/lib/ad-125x125/images/ad-170-' . $number . '.jpg' . '" alt="" />';
 			
 		} else {
-			$ad_src = '<img src="' . $ad_src . '" alt="" />';
+			$ad_src = '<img class="img-responsive" src="' . $ad_src . '" alt="" />';
 		} // end if
 
 		// Check to see if the URL is empty

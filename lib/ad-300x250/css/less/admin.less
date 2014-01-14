@@ -1,47 +1,38 @@
 @import "../../../../css/less/mixins.less";
 
 .ad-300x250-wrapper {
-    padding: 20px 0;
+  padding: 20px 0;
 
-	.preview_image_container {
-		
-		opacity: 			1;
-		cursor: 			pointer;
-		.ease_in();
-		
-		&:hover {		
-			opacity: 0.6;
-		} // hover
-		
-	} // .preview_image_container
+  .preview_image_container {
+    opacity: 1;
+    cursor: pointer;
+    .ease_in();
 
-	.preview_image_container,
-	.preview_image {
+    &:hover {
+      opacity: 0.6;
+    }
+  }
 
-		background: 		#fff url(fake-300.jpg) center center no-repeat;
-		width: 				225px;
-		height: 			188px;
-		cursor: 			pointer;
-		
-	} // .preview_image_container, .preview_image
-	
-} // .ad-300x250-wrapper
+  .preview_image_container,
+  .preview_image {
+    background: #fff url(fake-300.jpg) center center no-repeat;
+    width: 225px;
+    height: 188px;
+    cursor: pointer;
+  }
+}
 
 a.ad-delete {
+  color: red;
+  border-bottom-color: red;
+  text-decoration: none;
+  padding: 1px 2px;
+  display: inline-block;
+  margin-top: 4px;
 
-	color: 					red;
-	border-bottom-color: 	red;
-	text-decoration: 		none;
-	padding: 				1px 2px;
-	display: inline-block;
-	margin-top: 4px;
-	
-	&:hover {
-		
-		color: 					white;
-		background-color: 		red;
-		border-bottom-color: 	red;
-		
-	} // hover
-	
-} // a.ad-delete
+  &:hover {
+    color: white;
+    background-color: red;
+    border-bottom-color: red;
+  }
+}

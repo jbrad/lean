@@ -1,49 +1,41 @@
 @import "../../../../css/less/mixins.less";
 
 .ad-468x60-wrapper {
-    padding: 20px 0;
+  padding: 20px 0;
 
-	.preview_image_container,
-	.preview_image {
-	
-		background: 		#fff url(fake-468.jpg) no-repeat;
-		background-image: 	url(fake-468.jpg);
-		width: 				100%;
-		min-height: 		30px;
-		cursor: 			pointer;
-		
-	} // .preview_image
-	
-	.preview_image_container {
-	
-		opacity: 			1;
-		cursor: 			pointer;
-		height: 			32px;
-        .ease_in();
-		
-		&:hover {
-			opacity: 0.6;
-		} // hover
-		
-	} // .preview_image_container
-	
-} // .ad-468x60-wrapper
+  .preview_image_container,
+  .preview_image {
+    background: #fff url(fake-468.jpg) no-repeat;
+    background-image: url(fake-468.jpg);
+    width: 100%;
+    min-height: 30px;
+    cursor: pointer;
+
+  }
+
+  .preview_image_container {
+    opacity: 1;
+    cursor: pointer;
+    height: 32px;
+    .ease_in();
+
+    &:hover {
+      opacity: 0.6;
+    }
+  }
+}
 
 a.ad_delete {
+  color: red;
+  border-bottom-color: red;
+  text-decoration: none;
+  padding: 1px 2px;
+  display: inline-block;
+  margin-top: 4px;
 
-	color: 					red;
-	border-bottom-color: 	red;
-	text-decoration: 		none;
-	padding: 				1px 2px;
-	display: inline-block;
-	margin-top: 4px;
-	
-	&:hover {
-		
-		color: 					white;
-		background-color: 		red;
-		border-bottom-color: 	red;
-		
-	} // hover
-	
-} // a.ad_delete
+  &:hover {
+    color: white;
+    background-color: red;
+    border-bottom-color: red;
+  }
+}
