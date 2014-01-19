@@ -3,7 +3,46 @@
 
 module.exports = function(grunt) {
 
+    // Load Tasks
+    grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-contrib-jshint');
+    grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-contrib-less');
+    grunt.loadNpmTasks('grunt-contrib-compress');
+    grunt.loadNpmTasks('grunt-contrib-concat');
+    grunt.loadNpmTasks('grunt-bower-task');
+    grunt.loadNpmTasks('grunt-contrib-imagemin');
+    grunt.loadNpmTasks('grunt-rename');
+    grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks('grunt-sed');
+
     RegExp.quote = require('regexp-quote');
+
+    var lessFiles = {
+        "css/admin.css": "css/less/admin.less",
+        "css/editor-style.css": "css/less/editor-style.less",
+        "css/theme.contrast-light.css": "css/less/theme.contrast-light.less",
+
+        "style.css": [
+            "css/less/style.less"
+            , 'lib/influence/css/less/widget.less'
+            , 'lib/activity/css/less/widget.less'
+            , 'lib/google-custom-search/css/less/widget.less'
+            , 'lib/personal-image/css/less/widget.less'
+            , 'lib/ad-125x125/css/less/widget.less'
+            , 'lib/ad-300x250/css/less/widget.less'
+            , 'lib/ad-billboard/css/less/widget.less'
+        ]
+
+        , "lib/activity/css/admin.css": 'lib/activity/css/less/admin.less'
+        , "lib/google-custom-search/css/admin.css": 'lib/google-custom-search/css/less/admin.less'
+        , "lib/influence/css/admin.css": 'lib/influence/css/less/admin.less'
+        , "lib/personal-image/css/admin.css": 'lib/personal-image/css/less/admin.less'
+        , "lib/seo/css/admin.css": 'lib/seo/css/less/admin.less'
+        , "lib/ad-125x125/css/admin.css": 'lib/ad-125x125/css/less/admin.less'
+        , "lib/ad-300x250/css/admin.css": 'lib/ad-300x250/css/less/admin.less'
+        , "lib/ad-billboard/css/admin.css": 'lib/ad-billboard/css/less/admin.less'
+    };
 
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
@@ -14,21 +53,22 @@ module.exports = function(grunt) {
                     archive: '../<%= pkg.name %>-versions/blogger/<%= pkg.name %>.zip'
                 },
                 files: [
-                    {src: [
-                        '**',
-                        '!**css/lib/**',
-                        '!**css/less/**',
-                        '!Gruntfile.js',
-                        '!codekit-config.json',
-                        '!package.json',
-                        '!bower.json',
-                        '!*.md',
-                        '!js/dev/*',
-                        '!**js/lib/**',
-                        '!**/node_modules/**',
-                        '!**/css/lib/less/**',
-                        '!lib/**/js/dev/*'
-                    ],
+                    {
+                        src: [
+                            '**',
+                            '!**css/lib/**',
+                            '!**css/less/**',
+                            '!Gruntfile.js',
+                            '!codekit-config.json',
+                            '!package.json',
+                            '!bower.json',
+                            '!*.md',
+                            '!js/dev/*',
+                            '!**js/lib/**',
+                            '!**/node_modules/**',
+                            '!**/css/lib/less/**',
+                            '!lib/**/js/dev/*'
+                        ],
                         dest: '<%= pkg.name %>',
                         filter: 'isFile'
                     }
@@ -39,16 +79,17 @@ module.exports = function(grunt) {
                     archive: '../<%= pkg.name %>-versions/designer/<%= pkg.name %>.zip'
                 },
                 files: [
-                    {src: [
-                        '**',
-                        '!Gruntfile.js',
-                        '!package.json',
-                        '!bower.json',
-                        '!**js/lib/bootstrap/**',
-                        '!**js/lib/fitvids/**',
-                        '!**js/lib/js-md5/**',
-                        '!**/node_modules/**'
-                    ],
+                    {
+                        src: [
+                            '**',
+                            '!Gruntfile.js',
+                            '!package.json',
+                            '!bower.json',
+                            '!**js/lib/bootstrap/**',
+                            '!**js/lib/fitvids/**',
+                            '!**js/lib/js-md5/**',
+                            '!**/node_modules/**'
+                        ],
                         dest: '<%= pkg.name %>',
                         filter: 'isFile'
                     }
@@ -59,10 +100,11 @@ module.exports = function(grunt) {
                     archive: '../<%= pkg.name %>-versions/developer/<%= pkg.name %>.zip'
                 },
                 files: [
-                    {src: [
-                        '**',
-                        '!**/node_modules/**'
-                    ],
+                    {
+                        src: [
+                            '**',
+                            '!**/node_modules/**'
+                        ],
                         dest: '<%= pkg.name %>'
                     }
                 ]
@@ -75,18 +117,18 @@ module.exports = function(grunt) {
             },
             bootstrap: {
                 src: [
-                    'js/lib/bootstrap/transition.js',
-                    'js/lib/bootstrap/alert.js',
-                    'js/lib/bootstrap/button.js',
-                    'js/lib/bootstrap/carousel.js',
-                    'js/lib/bootstrap/collapse.js',
-                    'js/lib/bootstrap/dropdown.js',
-                    'js/lib/bootstrap/modal.js',
-                    'js/lib/bootstrap/tooltip.js',
-                    'js/lib/bootstrap/popover.js',
-                    'js/lib/bootstrap/scrollspy.js',
-                    'js/lib/bootstrap/tab.js',
-                    'js/lib/bootstrap/affix.js'
+                    'js/lib/bootstrap/transition.js'
+                    ,'js/lib/bootstrap/alert.js'
+                    ,'js/lib/bootstrap/button.js'
+                    ,'js/lib/bootstrap/carousel.js'
+                    ,'js/lib/bootstrap/collapse.js'
+                    ,'js/lib/bootstrap/dropdown.js'
+                    ,'js/lib/bootstrap/modal.js'
+                    ,'js/lib/bootstrap/tooltip.js'
+                    ,'js/lib/bootstrap/popover.js'
+                    ,'js/lib/bootstrap/scrollspy.js'
+                    ,'js/lib/bootstrap/tab.js'
+                    ,'js/lib/bootstrap/affix.js'
                 ],
                 dest: 'js/lib/bootstrap.min.js'
             }
@@ -132,12 +174,12 @@ module.exports = function(grunt) {
 
             widgets: {
                 files: {
-                    'lib/google-custom-search/js/admin.min.js': ['lib/google-custom-search/js/dev/admin.js'],
-                    'lib/personal-image/js/admin.min.js': ['lib/personal-image/js/dev/admin.js'],
-                    'lib/seo/js/admin.min.js': ['lib/seo/js/dev/admin.js'],
-                    'lib/ad-125x125/js/admin.min.js': ['lib/ad-125x125/js/dev/admin.js'],
-                    'lib/ad-300x250/js/admin.min.js': ['lib/ad-300x250/js/dev/admin.js'],
-                    'lib/ad-billboard/js/admin.min.js': ['lib/ad-billboard/js/dev/admin.js']
+                    'lib/google-custom-search/js/admin.min.js': 'lib/google-custom-search/js/dev/admin.js'
+                    ,'lib/personal-image/js/admin.min.js': 'lib/personal-image/js/dev/admin.js'
+                    ,'lib/seo/js/admin.min.js': 'lib/seo/js/dev/admin.js'
+                    ,'lib/ad-125x125/js/admin.min.js': 'lib/ad-125x125/js/dev/admin.js'
+                    ,'lib/ad-300x250/js/admin.min.js': 'lib/ad-300x250/js/dev/admin.js'
+                    ,'lib/ad-billboard/js/admin.min.js': 'lib/ad-billboard/js/dev/admin.js'
                 }
             }
 
@@ -165,69 +207,19 @@ module.exports = function(grunt) {
         },
 
         less: {
-            theme: {
+            dev: {
                 options: {
-                    paths: ["css/less"],
+                    paths: "css/less",
                     yuicompress: false
                 },
-                files: {
-                    "style.css": "css/less/style.less",
-                    "css/admin.css": "css/less/admin.less",
-                    "css/editor-style.css": "css/less/editor-style.less",
-                    "css/theme.contrast-light.css": "css/less/theme.contrast-light.less"
-                }
+                files: lessFiles
             },
-            plugins: {
+            dist: {
                 options: {
-                    paths: ["css/less"],
-                    yuicompress: false
-                },
-                files: {
-                    "lib/activity/css/admin.css": 'lib/activity/css/less/admin.less',
-                    "lib/activity/css/widget.css": 'lib/activity/css/less/widget.less',
-                    "lib/google-custom-search/css/admin.css": 'lib/google-custom-search/css/less/admin.less',
-                    "lib/google-custom-search/css/widget.css": 'lib/google-custom-search/css/less/widget.less',
-                    "lib/influence/css/admin.css": 'lib/influence/css/less/admin.less',
-                    "lib/influence/css/widget.css": 'lib/influence/css/less/widget.less',
-                    "lib/personal-image/css/admin.css": 'lib/personal-image/css/less/admin.less',
-                    "lib/personal-image/css/widget.css": 'lib/personal-image/css/less/widget.less',
-                    "lib/seo/css/admin.css": 'lib/seo/css/less/admin.less',
-                    "lib/ad-125x125/css/admin.css": 'lib/ad-125x125/css/less/admin.less',
-                    "lib/ad-125x125/css/widget.css": 'lib/ad-125x125/css/less/widget.less',
-                    "lib/ad-300x250/css/admin.css": 'lib/ad-300x250/css/less/admin.less',
-                    "lib/ad-300x250/css/widget.css": 'lib/ad-300x250/css/less/widget.less',
-                    "lib/ad-billboard/css/admin.css": 'lib/ad-billboard/css/less/admin.less',
-                    "lib/ad-billboard/css/widget.css": 'lib/ad-billboard/css/less/widget.less'
-                }
-            },
-            production: {
-                options: {
-                    paths: ["css/less"],
+                    paths: "css/less",
                     yuicompress: true
                 },
-                files: {
-                    "style.css": "css/less/style.less",
-                    "css/admin.css": "css/less/admin.less",
-                    "css/editor-style.css": "css/less/editor-style.less",
-                    "css/theme.contrast-light.css": "css/less/theme.contrast-light.less",
-
-                    // Widgets
-                    "lib/activity/css/admin.css": 'lib/activity/css/less/admin.less',
-                    "lib/activity/css/widget.css": 'lib/activity/css/less/widget.less',
-                    "lib/google-custom-search/css/admin.css": 'lib/google-custom-search/css/less/admin.less',
-                    "lib/google-custom-search/css/widget.css": 'lib/google-custom-search/css/less/widget.less',
-                    "lib/influence/css/admin.css": 'lib/influence/css/less/admin.less',
-                    "lib/influence/css/widget.css": 'lib/influence/css/less/widget.less',
-                    "lib/personal-image/css/admin.css": 'lib/personal-image/css/less/admin.less',
-                    "lib/personal-image/css/widget.css": 'lib/personal-image/css/less/widget.less',
-                    "lib/seo/css/admin.css": 'lib/seo/css/less/admin.less',
-                    "lib/ad-125x125/css/admin.css": 'lib/ad-125x125/css/less/admin.less',
-                    "lib/ad-125x125/css/widget.css": 'lib/ad-125x125/css/less/widget.less',
-                    "lib/ad-300x250/css/admin.css": 'lib/ad-300x250/css/less/admin.less',
-                    "lib/ad-300x250/css/widget.css": 'lib/ad-300x250/css/less/widget.less',
-                    "lib/ad-billboard/css/admin.css": 'lib/ad-billboard/css/less/admin.less',
-                    "lib/ad-billboard/css/widget.css": 'lib/ad-billboard/css/less/widget.less'
-                }
+                files: lessFiles
             }
         },
 
@@ -252,7 +244,7 @@ module.exports = function(grunt) {
                     {
                         expand: true,
                         cwd: 'images/',
-                        src: ['*.png'],
+                        src: '*.png',
                         dest: 'images/',
                         ext: '.png'
                     }
@@ -266,7 +258,7 @@ module.exports = function(grunt) {
                     {
                         expand: true,
                         cwd: 'images/social/small',
-                        src: ['*.png'],
+                        src: '*.png',
                         dest: 'images/social/small',
                         ext: '.png'
                     }
@@ -280,7 +272,7 @@ module.exports = function(grunt) {
                     {
                         expand: true,
                         cwd: '.',
-                        src: ['screenshot.png'],
+                        src: 'screenshot.png',
                         dest: '.',
                         ext: '.png'
                     }
@@ -294,7 +286,7 @@ module.exports = function(grunt) {
                     {
                         expand: true,
                         cwd: 'css/img',
-                        src: ['*.png'],
+                        src: '*.png',
                         dest: 'css/img',
                         ext: '.png'
                     }
@@ -308,7 +300,7 @@ module.exports = function(grunt) {
                     {
                         expand: true,
                         cwd: 'lib/ad-125x125/images',
-                        src: ['*.jpg'],
+                        src: '*.jpg',
                         dest: 'lib/ad-125x125/images',
                         ext: '.jpg'
                     }
@@ -322,7 +314,7 @@ module.exports = function(grunt) {
                     {
                         expand: true,
                         cwd: 'lib/ad-300x250/images',
-                        src: ['*.jpg'],
+                        src: '*.jpg',
                         dest: 'lib/ad-300x250/images',
                         ext: '.jpg'
                     }
@@ -336,7 +328,7 @@ module.exports = function(grunt) {
                     {
                         expand: true,
                         cwd: 'lib/ad-billboard/images',
-                        src: ['*.jpg'],
+                        src: '*.jpg',
                         dest: 'lib/ad-billboard/images',
                         ext: '.jpg'
                     }
@@ -350,7 +342,7 @@ module.exports = function(grunt) {
                     {
                         expand: true,
                         cwd: 'lib/personal-image/css',
-                        src: ['*.jpg'],
+                        src: '*.jpg',
                         dest: 'lib/personal-image/css',
                         ext: '.jpg'
                     }
@@ -364,7 +356,7 @@ module.exports = function(grunt) {
                     {
                         expand: true,
                         cwd: 'lib/influence/css',
-                        src: ['*.png'],
+                        src: '*.png',
                         dest: 'lib/influence/css',
                         ext: '.png'
                     }
@@ -409,41 +401,36 @@ module.exports = function(grunt) {
                 expand: true,
                 flatten: true
             }
-
         },
 
         watch: {
             theme_js: {
-                files: ['js/dev/*.js'],
-                tasks: ['jshint:theme', 'uglify:theme', 'uglify:admin']
+                files: 'js/dev/*.js',
+                tasks: [
+                    'jshint:theme',
+                    'uglify:theme',
+                    'uglify:admin'
+                ]
             },
             plugin_js: {
-                files: ['lib/**/js/dev/*.js'],
-                tasks: ['jshint:plugins']
+                files: 'lib/**/js/dev/*.js',
+                tasks: 'jshint:plugins'
             },
             theme_less: {
-                files: [
-                    'css/less/*.less'
-                ],
-                tasks: ['less:theme']
+                files: 'css/less/*.less',
+                tasks: 'less:theme'
             },
             plugin_less: {
-                files: [
-                    'lib/**/css/less/*.less'
-                ],
-                tasks: ['less:plugins']
+                files: 'lib/**/css/less/*.less',
+                tasks: 'less:plugins'
             },
             images : {
-                files: [
-                    'images/*.png'
-                ],
-                tasks: ['imagemin:png']
+                files: 'images/*.png',
+                tasks: 'imagemin:png'
             },
             images_social : {
-                files: [
-                    'images/social/small/*.png'
-                ],
-                tasks: ['imagemin:social']
+                files: 'images/social/small/*.png',
+                tasks: 'imagemin:social'
             }
         },
 
@@ -460,22 +447,10 @@ module.exports = function(grunt) {
 
     });
 
-    grunt.loadNpmTasks('grunt-contrib-uglify');
-    grunt.loadNpmTasks('grunt-contrib-jshint');
-    grunt.loadNpmTasks('grunt-contrib-watch');
-    grunt.loadNpmTasks('grunt-contrib-less');
-    grunt.loadNpmTasks('grunt-contrib-compress');
-    grunt.loadNpmTasks('grunt-contrib-concat');
-    grunt.loadNpmTasks('grunt-bower-task');
-    grunt.loadNpmTasks('grunt-contrib-imagemin');
-    grunt.loadNpmTasks('grunt-rename');
-    grunt.loadNpmTasks('grunt-contrib-copy');
-    grunt.loadNpmTasks('grunt-sed');
-
     grunt.registerTask('default', ['watch']);
-    grunt.registerTask('setup', ['bower', 'copy', 'less:theme', 'less:plugins', 'jshint', 'watch']);
-    grunt.registerTask('dist', ['less:production', 'jshint', 'concat', 'uglify']);
-    grunt.registerTask('build', ['less:production', 'jshint', 'concat', 'uglify', 'imagemin', 'compress']);
+    grunt.registerTask('setup', ['bower', 'copy', 'less:dev', 'jshint', 'watch']);
+    grunt.registerTask('dist', ['less:dist', 'jshint', 'concat', 'uglify']);
+    grunt.registerTask('build', ['less:dist', 'jshint', 'concat', 'uglify', 'imagemin', 'compress']);
 
     // Version numbering task.
     // grunt change-version-number --oldver=A.B.C --newver=X.Y.Z
