@@ -872,7 +872,7 @@ if( ! function_exists('theme_comment_form') ) {
                 'comment_notes_before'	=>	'<div class="row"><div id="comment-form-avatar" class="col-sm-2">' . get_avatar( '', $size = '30' )  . '</div>',
                 'fields'				=>	apply_filters( 'comment_form_default_fields', $fields ),
                 'comment_field'         =>  '</div><div class="form-group"><label for="comment">' . _x( 'Comment', 'noun' ) . '</label><textarea id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea></div>',
-                'comment_notes_after' 	=>	'<p class="form-allowed-tags">' . sprintf( __( 'Text formatting is available via select <a id="allowed-tags-trigger" href="javascript:;">HTML</a>. %s', TRANSLATION_KEY ), ' <pre id="allowed-tags" style="display:none;">' . allowed_tags() . '</pre>' ) . '</p>',
+                'comment_notes_after' 	=>	'<p class="form-allowed-tags">' . sprintf( __( 'Text formatting is available via select <button id="allowed-tags-trigger" class="btn btn-link" type="button" data-toggle="collapse" data-target="#allowed-tags">HTML</button>. %s', TRANSLATION_KEY ), ' <div id="allowed-tags" class="collapse"><pre>' . allowed_tags() . '</pre>' ) . '</p></div>',
                 'logged_in_as'			=>	'<div id="comment-form-avatar" class="clearfix">' . get_avatar( get_the_author_meta( 'user_email', wp_get_current_user()->ID ), $size = '50' )  . '</p><p id="logged-in-container">' . sprintf( __( 'Logged in as <a href="%1$s">%2$s</a>. <a href="%3$s" title="Log out of this account">Log out?</a>' ), admin_url( 'profile.php' ), get_the_author_meta( 'user_nicename', wp_get_current_user()->ID ), wp_logout_url( apply_filters( 'the_permalink', get_permalink( ) ) ) ) . '</p>'
             )
         );
