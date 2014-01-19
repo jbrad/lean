@@ -2,10 +2,13 @@
     "use strict";
     $(window).load(function () {
 
+        var $firstFormTable = $('.form-table:last'),
+            descriptionColor = '#7a7a7a';
+
         if( 0 !== $('#_wpnonce-custom-header-upload').length ) {
 
             // Unconditionally hide the ability to check to include text with the image
-            $('.form-table:last tr:first').hide();
+            $firstFormTable.find('tr:first').hide();
 
             /* If the header image is displayed, then we hide the text. Users can
              * only have an image or text, but not both.
@@ -17,8 +20,10 @@
                 alert();
 
                 // Add a 'disabled' class and disable the elements in the second form
-                $('.form-table:last').addClass('disabled');
-                $('.form-table:last input').attr('disabled', 'disabled');
+                $firstFormTable
+                    .addClass('disabled')
+                    .find('input')
+                    .attr('disabled', 'disabled');
 
                 // Create the new notification row for
                 var $notificationRow, $notificationCell;
@@ -31,10 +36,10 @@
                 $notificationRow = $('<tr />')
                     .append($notificationCell);
 
-                $('.form-table:last').prepend($notificationRow);
+                $firstFormTable.prepend($notificationRow);
 
                 // Since the form is disabled, we need to hide the 'Select a Color' anchor
-                $('.form-table:last a').hide();
+                $firstFormTable.find('a').hide();
 
                 // Hide the 'Header Text' element
                 $('.form-table.disabled')
@@ -63,7 +68,7 @@
 
                 // If the 'Default' button is clicked, then we need to update the color
                 $('input[type="button"].wp-picker-default').click(function(evt) {
-                    $('#desc').attr( 'style', 'color: #7a7a7a' );
+                    $('#desc').attr( 'style', 'color: ' + descriptionColor );
                 });
 
             } // end if
