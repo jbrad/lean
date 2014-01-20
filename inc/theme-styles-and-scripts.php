@@ -87,5 +87,7 @@ function add_admin_script() {
         wp_enqueue_script( 'theme-admin-media', get_template_directory_uri() . '/js/admin.media-upload.min.js', $dependencies, THEME_VERSION );
     } // end if
 
+    wp_enqueue_media();
+
 } // end add_admin_script
 add_action( 'admin_enqueue_scripts', 'add_admin_script' );
