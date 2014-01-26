@@ -17,7 +17,12 @@
                     <span class="fa fa-quote-left"></span>
                 </div> <!-- /.col-md-1 -->
                 <div class="col-sm-11 col-xs-12">
-                    <?php get_template_part( 'includes/loop.post-content' ); ?>
+                    <?php if( ( is_category() || is_archive() || is_home() ) && has_excerpt() ) { ?>
+                        <?php the_excerpt( ); ?>
+                        <a href="<?php echo get_permalink(); ?>"><?php _e( 'Continue Reading...', TRANSLATION_KEY ); ?></a>
+                    <?php } else { ?>
+                        <?php the_content( __( 'Continue Reading...', TRANSLATION_KEY ) ); ?>
+                    <?php } // end if/else ?>
                 </div> <!-- /.col-md-11 -->
 			</div><!-- /.entry-content -->
 	</div> <!-- /.post-header -->
