@@ -1360,8 +1360,7 @@ function theme_options_display() {
     <div id="theme-options" class="wrap">
         <div id="theme-info">
 
-            <div id="icon-themes" class="icon32"></div>
-            <h3 id="theme-title"><?php _e( THEME_NAME, TRANSLATION_KEY ); ?> <span><?php _e( 'for publishers', TRANSLATION_KEY ); ?></span></h3>
+            <h3 id="theme-title" class="fa fa-compress"> <?php _e( THEME_NAME, TRANSLATION_KEY ); ?> <span><?php _e( 'for publishers', TRANSLATION_KEY ); ?></span></h3>
 
             <div id="theme-desc">
                 <p><?php _e( '' . THEME_NAME . ' is a sleek, exacting product designed for uncluttered and sophisticated presentation of your content on desktop and mobile devices.', TRANSLATION_KEY ); ?></p>
