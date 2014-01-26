@@ -60,7 +60,14 @@
             <?php } else { ?>
                 <?php the_content( __( 'Continue Reading...', TRANSLATION_KEY ) ); ?>
             <?php } // end if/else ?>
-        <?php get_template_part( 'includes/loop.post-link-pages' ); ?>
+        <?php
+            wp_link_pages(
+                array(
+                    'before' 	=> '<div class="page-link"><span>' . __( 'Pages:', TRANSLATION_KEY ) . '</span>',
+                    'after' 	=> '</div>'
+                )
+            );
+        ?>
     </div><!-- /.entry-content -->
 
     <?php get_template_part( 'includes/loop.post-meta' ); ?>

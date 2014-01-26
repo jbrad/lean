@@ -32,7 +32,14 @@
         <?php } // end if ?>
         </h1>
 
-        <?php get_template_part( 'includes/loop.post-link-pages' ); ?>
+        <?php
+            wp_link_pages(
+                array(
+                    'before' 	=> '<div class="page-link"><span>' . __( 'Pages:', TRANSLATION_KEY ) . '</span>',
+                    'after' 	=> '</div>'
+                )
+            );
+        ?>
 		
 	</div><!-- /.entry-content -->
 	
