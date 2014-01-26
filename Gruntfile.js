@@ -66,6 +66,7 @@ module.exports = function(grunt) {
                             '!js/dev/*',
                             '!**js/lib/**',
                             '!**/node_modules/**',
+                            '!**/bower_components/**',
                             '!**/css/lib/less/**',
                             '!lib/**/js/dev/*'
                         ],
@@ -88,7 +89,8 @@ module.exports = function(grunt) {
                             '!**js/lib/bootstrap/**',
                             '!**js/lib/fitvids/**',
                             '!**js/lib/js-md5/**',
-                            '!**/node_modules/**'
+                            '!**/node_modules/**',
+                            '!**/bower_components/**'
                         ],
                         dest: '<%= pkg.name %>',
                         filter: 'isFile'
@@ -103,7 +105,8 @@ module.exports = function(grunt) {
                     {
                         src: [
                             '**',
-                            '!**/node_modules/**'
+                            '!**/node_modules/**',
+                            '!**/bower_components/**'
                         ],
                         dest: '<%= pkg.name %>'
                     }
