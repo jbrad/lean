@@ -24,7 +24,13 @@
 		<?php } // end if ?> 
 		<div class="title-wrap clearfix">
 
-            <?php get_template_part( 'includes/loop.post-title' ); ?>
+            <h1 class="post-title entry-title">
+                <?php if( is_single() || is_page() ) { ?>
+                    <?php the_title(); ?>
+                <?php } else { ?>
+                    <a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php printf( esc_attr__( '%s', TRANSLATION_KEY ), the_title_attribute( 'echo=0' ) ); ?>"><?php the_title(); ?></a>
+                <?php } // end if ?>
+            </h1>
 
 			<div class="post-header-meta text-muted">
 				<?php if( is_multi_author() ) { ?>
