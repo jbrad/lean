@@ -72,7 +72,9 @@ function launchMediaUploader($, evt, title, fullscreen, ad) {
             }
         );
 
-        $('.button.delete').click(function() {
+        $('.delete').click(function(event) {
+            event.preventDefault();
+
             $(this).parent().find('div').find('img').attr('src', '');
             $(this).parent().find('input[type=hidden]').val('');
             $(this).hide();

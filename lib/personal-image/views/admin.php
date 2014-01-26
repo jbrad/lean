@@ -21,7 +21,7 @@
         <input type="hidden" id="<?php echo $this->get_field_id( 'image_url' ); ?>" name="<?php echo $this->get_field_name( 'image_url' ); ?>" value="<?php echo $image_url; ?>" class="img_url" />
 
         <span class="description"><?php _e( 'Maximum width is 360 pixels.', TRANSLATION_KEY ); ?></span>
-        <a href="javascript:;" class="img_delete <?php echo '' == $image_src ? 'hidden' : '' ?>"><?php _e( 'Delete Image', TRANSLATION_KEY ); ?></a>
+        <button type="button" class="button button-delete <?php echo '' == $image_src ? 'hidden' : '' ?>"><?php _e( 'Delete Image', TRANSLATION_KEY ); ?></button>
 
         <!-- Hidden fields used to track the default headshot, uploaded images, and links -->
         <input type="hidden" id="personal-image-default-url" value="<?php echo get_template_directory_uri() . '/lib/personal-image/css/fake-personal.jpg' ?>" />
