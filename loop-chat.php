@@ -33,7 +33,7 @@
 
             <?php $category_list = get_the_category_list( __( ', ', TRANSLATION_KEY ) ); ?>
             <?php if( $category_list ) { ?>
-                    <?php printf( '<span class="the-category">' . __( 'in %1$s&nbsp;', TRANSLATION_KEY ) . '</span>', $category_list ); ?>
+                <?php printf( '<span class="the-category">' . __( 'in %1$s&nbsp;', TRANSLATION_KEY ) . '</span>', $category_list ); ?>
             <?php } // end if ?>
 
             <?php $tag_list = get_the_tag_list( '', __( ', ', TRANSLATION_KEY ) ); ?>

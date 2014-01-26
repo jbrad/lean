@@ -9,27 +9,27 @@
  * @since 	1.0
  */
 ?>
-<style>
-    body.page-template-template-home-php {
-        background: #fff;
-    }
-    #header,
-    #menu-below-header {
-        display: none;
-    }
-    #wrapper {
-        padding: 0 0 40px;
-    }
-    #features .row {
-        margin-bottom: 60px;
-    }
-    .home-widgets .widget {
-        margin-bottom: 40px;
-    }
-    #footer-widgets {
-        display: none;
-    }
-</style>
+    <style>
+        body.page-template-template-home-php {
+            background: #fff;
+        }
+        #header,
+        #menu-below-header {
+            display: none;
+        }
+        #wrapper {
+            padding: 0 0 40px;
+        }
+        #features .row {
+            margin-bottom: 60px;
+        }
+        .home-widgets .widget {
+            margin-bottom: 40px;
+        }
+        #footer-widgets {
+            display: none;
+        }
+    </style>
 <?php get_header(); ?>
 
     <div id="wrapper">
@@ -48,9 +48,9 @@
                         <?php } // end while ?>
                     <?php } // end if ?>
                     <?php if( ! is_offline() || is_user_logged_in() ) { ?>
-                            <div id="features" class="clearfix">
-                                <div class="container">
-                                    <?php if( is_active_sidebar( 'sidebar-6' ) || is_active_sidebar( 'sidebar-7' ) || is_active_sidebar( 'sidebar-8' ) ) { ?>
+                        <div id="features" class="clearfix">
+                            <div class="container">
+                                <?php if( is_active_sidebar( 'sidebar-6' ) || is_active_sidebar( 'sidebar-7' ) || is_active_sidebar( 'sidebar-8' ) ) { ?>
                                     <div class="row">
 
                                         <div class="col-md-4 home-widgets clearfix">
@@ -66,16 +66,16 @@
                                         </div><!-- /#right-footer-widget -->
 
                                     </div><!-- /row -->
-                                    <?php } // end if ?>
-                                    <?php if( is_active_sidebar( 'sidebar-9' ) ) { ?>
-                                        <div id="bottom-home-widgets" class="row">
-                                            <?php dynamic_sidebar( 'sidebar-9' ); ?>
-                                        </div><!-- /#left-footer-widget -->
-                                    <?php } // end if ?>
-                                </div><!-- /container -->
-                            </div><!-- /#features -->
-                        <?php } // end if ?>
-                </div> <!-- /#features -->
+                                <?php } // end if ?>
+                                <?php if( is_active_sidebar( 'sidebar-9' ) ) { ?>
+                                    <div id="bottom-home-widgets" class="row">
+                                        <?php dynamic_sidebar( 'sidebar-9' ); ?>
+                                    </div><!-- /#left-footer-widget -->
+                                <?php } // end if ?>
+                            </div><!-- /container -->
+                        </div><!-- /#features -->
+                    <?php } // end if ?>
+            </div> <!-- /#features -->
             </section><!-- /#main -->
         </div><!--/row -->
     </div><!-- /container -->

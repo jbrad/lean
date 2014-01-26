@@ -1,4 +1,4 @@
-<?php 
+<?php
 /**
  * The template for rendering the social networking icons.
  *
@@ -6,10 +6,10 @@
  * @version	1.2
  * @since 	1.0
  */
- 
+
 // Read the active social icon stirng
 $social_options = get_option( 'theme_social_options' );
-$social_options = $social_options['active-social-icons'];	
+$social_options = $social_options['active-social-icons'];
 
 // Read out the URLs
 $social_icons_urls = explode( ';', $social_options );
@@ -18,22 +18,22 @@ $social_icons_urls = explode( ';', $social_options );
 $html = '<ul class="nav navbar-nav navbar-right nav-pills clearfix">';
 foreach( $social_icons_urls as $icon_url ) {
 
-	$icon_url_array = explode( '|' , $icon_url );
-	$url = null;
-	if( count( $icon_url_array ) == 1 ) {
-	
-		$icon = $icon_url_array[0];
-	
-	} else { 
-	
-		$icon = $icon_url_array[0];
-		$url = $icon_url_array[1];
-		
-	} // end if/else
+    $icon_url_array = explode( '|' , $icon_url );
+    $url = null;
+    if( count( $icon_url_array ) == 1 ) {
 
-	// Build the line item
-	if( isset( $url ) || '' != esc_url( $icon ) ) {
-	
+        $icon = $icon_url_array[0];
+
+    } else {
+
+        $icon = $icon_url_array[0];
+        $url = $icon_url_array[1];
+
+    } // end if/else
+
+    // Build the line item
+    if( isset( $url ) || '' != esc_url( $icon ) ) {
+
         $html .= '<li>';
 
         if( strpos( $icon, 'twitter.png' ) > 0 ) {
@@ -66,26 +66,26 @@ foreach( $social_icons_urls as $icon_url ) {
             $font_awesome_icon_class = 'fa fa-rss';
             $url = get_rss_feed_url();
         } // end if/else
-		
-		// if the image has a URL, setup the anchor...
-		if( '' != $url ) {
-			$html .= '<a href="' . esc_url( str_replace( 'https://', 'http://', $url ) ) . '" class="fademe" target="_blank">';
-		} // end if
-		
-            // display the span
-            $html .= '<span class="' . $font_awesome_icon_class . '"></span>';
 
-		// ...and if the image has a URL, close the anchor
-		if( '' != $url ) {
-			$html .= '</a>';
-		} // end if
-		
-		unset( $url );
-		
-		$html .= '</li>';
-	
-	} // end if/else
-	
+        // if the image has a URL, setup the anchor...
+        if( '' != $url ) {
+            $html .= '<a href="' . esc_url( str_replace( 'https://', 'http://', $url ) ) . '" class="fademe" target="_blank">';
+        } // end if
+
+        // display the span
+        $html .= '<span class="' . $font_awesome_icon_class . '"></span>';
+
+        // ...and if the image has a URL, close the anchor
+        if( '' != $url ) {
+            $html .= '</a>';
+        } // end if
+
+        unset( $url );
+
+        $html .= '</li>';
+
+    } // end if/else
+
 } // end foreach
 $html .= '</ul>';
 

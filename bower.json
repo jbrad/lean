@@ -1,10 +1,10 @@
 {
-  "name": "lean",
-  "version": "1.8.0",
-  "dependencies": {
-    "fitvids": "*",
-    "js-md5": "*",
-    "font-awesome": "~4.0.2",
-    "bootstrap": "3.0.3"
-  }
+    "name": "lean",
+    "version": "1.8.0",
+    "dependencies": {
+        "fitvids": "*",
+        "js-md5": "*",
+        "font-awesome": "~4.0.2",
+        "bootstrap": "3.0.3"
+    }
 }

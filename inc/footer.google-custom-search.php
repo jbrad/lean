@@ -8,23 +8,23 @@
  */
 function google_custom_search() {
 
-	if( google_custom_search_is_active() ) {
+    if( google_custom_search_is_active() ) {
 
-		$gcse = get_option( 'widget_google-custom-search' );
-		$gcse = array_shift( array_values ( $gcse ) );
+        $gcse = get_option( 'widget_google-custom-search' );
+        $gcse = array_shift( array_values ( $gcse ) );
 
-	?>
-		<script type="text/javascript">
-		  (function() {
-		    var cx = '<?php echo trim( $gcse['gcse_content'] ); ?>';
-		    var gcse = document.createElement('script'); gcse.type = 'text/javascript'; gcse.async = true;
-		    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
-		        '//www.google.com/cse/cse.js?cx=' + cx;
-		    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gcse, s);
-		  })();
-		</script>
-	<?php
-	} // end if
+        ?>
+        <script type="text/javascript">
+            (function() {
+                var cx = '<?php echo trim( $gcse['gcse_content'] ); ?>';
+                var gcse = document.createElement('script'); gcse.type = 'text/javascript'; gcse.async = true;
+                gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+                    '//www.google.com/cse/cse.js?cx=' + cx;
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gcse, s);
+            })();
+        </script>
+    <?php
+    } // end if
 
 } // end google_custom_search
 add_action( 'wp_footer', 'google_custom_search' );

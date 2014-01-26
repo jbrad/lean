@@ -11,29 +11,29 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'post panel panel-default format-status' ); ?>>
 
-	<div class="post-header clearfix">
-		<div class="row">
-				<div class="post-avatar col-md-2 col-sm-4 col-xs-12">
-					<?php echo get_avatar( get_the_author_meta( 'ID' ), 80 ); ?>
-				</div><!-- /.post-avatar -->
-			<div class="entry-content col-md-10 col-sm-8 col-xs-12 clearfix">
+    <div class="post-header clearfix">
+        <div class="row">
+            <div class="post-avatar col-md-2 col-sm-4 col-xs-12">
+                <?php echo get_avatar( get_the_author_meta( 'ID' ), 80 ); ?>
+            </div><!-- /.post-avatar -->
+            <div class="entry-content col-md-10 col-sm-8 col-xs-12 clearfix">
                 <?php if( ( is_category() || is_archive() || is_home() ) && has_excerpt() ) { ?>
                     <?php the_excerpt( ); ?>
                     <a href="<?php echo get_permalink(); ?>"><?php _e( 'Continue Reading...', TRANSLATION_KEY ); ?></a>
                 <?php } else { ?>
                     <?php the_content( __( 'Continue Reading...', TRANSLATION_KEY ) ); ?>
                 <?php } // end if/else ?>
-			</div><!-- /.entry-content -->
-		</div><!-- /row -->
-	</div> <!-- /.post-header -->
-					
+            </div><!-- /.entry-content -->
+        </div><!-- /row -->
+    </div> <!-- /.post-header -->
+
     <div class="post-meta text-muted clearfix">
 
         <div class="meta-date-cat-tags pull-left">
 
             <?php $category_list = get_the_category_list( __( ', ', TRANSLATION_KEY ) ); ?>
             <?php if( $category_list ) { ?>
-                    <?php printf( '<span class="the-category">' . __( 'in %1$s&nbsp;', TRANSLATION_KEY ) . '</span>', $category_list ); ?>
+                <?php printf( '<span class="the-category">' . __( 'in %1$s&nbsp;', TRANSLATION_KEY ) . '</span>', $category_list ); ?>
             <?php } // end if ?>
 
             <?php $tag_list = get_the_tag_list( '', __( ', ', TRANSLATION_KEY ) ); ?>

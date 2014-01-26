@@ -11,7 +11,7 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'post panel panel-default format-video clearfix' ); ?>>
 
-	<div id="content-<?php the_ID(); ?>" class="entry-content">
+    <div id="content-<?php the_ID(); ?>" class="entry-content">
         <?php if( ( is_category() || is_archive() || is_home() ) && has_excerpt() ) { ?>
             <?php the_excerpt( ); ?>
             <a href="<?php echo get_permalink(); ?>"><?php _e( 'Continue Reading...', TRANSLATION_KEY ); ?></a>
@@ -19,14 +19,14 @@
             <?php the_content( __( 'Continue Reading...', TRANSLATION_KEY ) ); ?>
         <?php } // end if/else ?>
         <?php
-            wp_link_pages(
-                array(
-                    'before' 	=> '<div class="page-link"><span>' . __( 'Pages:', TRANSLATION_KEY ) . '</span>',
-                    'after' 	=> '</div>'
-                )
-            );
+        wp_link_pages(
+            array(
+                'before' 	=> '<div class="page-link"><span>' . __( 'Pages:', TRANSLATION_KEY ) . '</span>',
+                'after' 	=> '</div>'
+            )
+        );
         ?>
-	</div><!-- /.entry-content -->
+    </div><!-- /.entry-content -->
 
     <div class="post-meta text-muted clearfix">
 
@@ -34,7 +34,7 @@
 
             <?php $category_list = get_the_category_list( __( ', ', TRANSLATION_KEY ) ); ?>
             <?php if( $category_list ) { ?>
-                    <?php printf( '<span class="the-category">' . __( 'in %1$s&nbsp;', TRANSLATION_KEY ) . '</span>', $category_list ); ?>
+                <?php printf( '<span class="the-category">' . __( 'in %1$s&nbsp;', TRANSLATION_KEY ) . '</span>', $category_list ); ?>
             <?php } // end if ?>
 
             <?php $tag_list = get_the_tag_list( '', __( ', ', TRANSLATION_KEY ) ); ?>

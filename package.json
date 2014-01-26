@@ -1,27 +1,27 @@
 {
-  "name": "lean",
-  "version": "1.8.0",
-  "description": "Lean is a sleek, exacting product designed for uncluttered and sophisticated presentation of your content on desktop and mobile devices.",
-  "author": "Jason Bradley <http://jasonbradley.me>",
-  "homepage": "http://leantheme.co",
-  "repository": {
-    "type": "git",
-    "url": "http://github.com/jbrad/lean.git"
-  },
-  "engine": "node >= 0.4.1",
-  "private": "true",
-  "devDependencies": {
-    "grunt-bower-task": "~0.2.3",
-    "grunt-contrib-uglify": "~0.2.x",
-    "grunt-contrib-jshint": "~0.6.x",
-    "grunt-contrib-watch": "~0.5.x",
-    "grunt-contrib-less": "~0.6.x",
-    "grunt-contrib-compress": "~0.5.2",
-    "grunt-contrib-imagemin": "~0.1.4",
-    "grunt-rename": "~0.1.2",
-    "grunt-contrib-concat": "~0.3.0",
-    "grunt-contrib-copy": "~0.5.0",
-    "grunt-sed": "~0.1.1",
-    "regexp-quote": "0.0.0"
-  }
+    "name": "lean",
+    "version": "1.8.0",
+    "description": "Lean is a sleek, exacting product designed for uncluttered and sophisticated presentation of your content on desktop and mobile devices.",
+    "author": "Jason Bradley <http://jasonbradley.me>",
+    "homepage": "http://leantheme.co",
+    "repository": {
+        "type": "git",
+        "url": "http://github.com/jbrad/lean.git"
+    },
+    "engine": "node >= 0.4.1",
+    "private": "true",
+    "devDependencies": {
+        "grunt-bower-task": "~0.2.3",
+        "grunt-contrib-uglify": "~0.2.x",
+        "grunt-contrib-jshint": "~0.6.x",
+        "grunt-contrib-watch": "~0.5.x",
+        "grunt-contrib-less": "~0.6.x",
+        "grunt-contrib-compress": "~0.5.2",
+        "grunt-contrib-imagemin": "~0.1.4",
+        "grunt-rename": "~0.1.2",
+        "grunt-contrib-concat": "~0.3.0",
+        "grunt-contrib-copy": "~0.5.0",
+        "grunt-sed": "~0.1.1",
+        "regexp-quote": "0.0.0"
+    }
 }

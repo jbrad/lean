@@ -62,8 +62,8 @@
 
                                         if( $post_query->have_posts() ) { ?>
                                             <ul>
-                                            <?php while( $post_query->have_posts() ) { ?>
-                                                <?php $post_query->the_post(); ?>
+                                                <?php while( $post_query->have_posts() ) { ?>
+                                                    <?php $post_query->the_post(); ?>
                                                     <li>
                                                         <span class="archive-title">
                                                             <a href="<?php echo get_permalink(); ?>">
@@ -76,7 +76,7 @@
                                                         </span>
 
                                                     </li>
-                                            <?php } // end while ?>
+                                                <?php } // end while ?>
                                             </ul>
 
                                             <ul id="archives-post-pager" class="pager">
@@ -108,9 +108,9 @@
 
                                         if( $post_query->have_posts() ) { ?>
                                             <ul>
-                                            <?php
-                                            while( $post_query->have_posts() ) {
-                                                $post_query->the_post(); ?>
+                                                <?php
+                                                while( $post_query->have_posts() ) {
+                                                    $post_query->the_post(); ?>
                                                     <li>
                                                         <span>
                                                             <a href="<?php echo get_permalink(); ?>">
@@ -118,9 +118,9 @@
                                                             </a>
                                                         </span>
                                                     </li>
-                                            <?php } // end while
-                                            wp_reset_postdata();
-                                            ?>
+                                                <?php } // end while
+                                                wp_reset_postdata();
+                                                ?>
                                             </ul>
                                         <?php } else { ?>
                                             <p><?php _e( 'You have no pages.', TRANSLATION_KEY ); ?></p>

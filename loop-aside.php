@@ -26,12 +26,12 @@
             <?php the_content( __( 'Continue Reading...', TRANSLATION_KEY ) ); ?>
         <?php } // end if/else ?>
         <?php
-            wp_link_pages(
-                array(
-                    'before' 	=> '<div class="page-link"><span>' . __( 'Pages:', TRANSLATION_KEY ) . '</span>',
-                    'after' 	=> '</div>'
-                )
-            );
+        wp_link_pages(
+            array(
+                'before' 	=> '<div class="page-link"><span>' . __( 'Pages:', TRANSLATION_KEY ) . '</span>',
+                'after' 	=> '</div>'
+            )
+        );
         ?>
     </div><!-- /.entry-content -->
 
