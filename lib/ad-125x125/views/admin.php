@@ -20,7 +20,7 @@
 				<input type="hidden" id="<?php echo $this->get_field_id( 'ad1_src' ); ?>" name="<?php echo $this->get_field_name( 'ad1_src' ); ?>" class="125x125-1-src" value="<?php echo '' == $ad1_src ? '' : $ad1_src; ?>" />
 				<input type="hidden" id="<?php echo $this->get_field_id( 'ad1_url' ); ?>" name="<?php echo $this->get_field_name( 'ad1_url' ); ?>" class="125x125-1-url" value="<?php echo '' == $ad1_url ? '' : $ad1_url; ?>" />
 				<?php if( '' != $ad1_src ) { ?>
-					<button type="button" class="button ad-delete"><?php _e( 'Delete', TRANSLATION_KEY ); ?></button>
+					<button type="button" class="button button-delete"><?php _e( 'Delete', TRANSLATION_KEY ); ?></button>
 				<?php } // end if ?>
 			</div>
 			<div class="right 125x125-2">

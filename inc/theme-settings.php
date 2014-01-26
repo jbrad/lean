@@ -272,10 +272,10 @@ function fav_icon_display() {
     $html .= '<img src="' . $fav_icon . '" id="fav_icon_preview" alt="" />';
     $html .= '</div>';
     $html .= '<input type="hidden" id="fav_icon" name="theme_presentation_options[fav_icon]" value="' . esc_attr( $fav_icon ) . '" class="media-upload-field" />';
-    $html .= '<input type="button" class="button upload" id="upload_fav_icon" value="' . __( 'Upload', TRANSLATION_KEY ) . '"/>';
+    $html .= '<input type="button" class="button upload button-secondary" id="upload_fav_icon" value="' . __( 'Upload', TRANSLATION_KEY ) . '"/>';
 
     if( '' != trim( $fav_icon ) ) {
-        $html .= '<input type="button" class="button delete" id="delete_fav_icon" value="' . __( 'Delete', TRANSLATION_KEY ) . '"/>';
+        $html .= '<input type="button" class="button button-delete" id="delete_fav_icon" value="' . __( 'Delete', TRANSLATION_KEY ) . '"/>';
     } // end if
 
     $html .= '&nbsp;<span class="description">' . __( 'Dimensions: 144px x 144px. Used for favicon and mobile devices.', TRANSLATION_KEY ) . '&nbsp;<a href="http://docs.leantheme.co/admin-panel/presentation/" target="_blank">' . __( 'Learn more', TRANSLATION_KEY ) . '</a>.</span>';
@@ -325,10 +325,10 @@ function logo_display() {
     $html .= '</div><!-- #logo_preview_container -->';
 
     $html .= '<input type="hidden" id="logo" name="theme_presentation_options[logo]" value="' . esc_attr( $logo ) . '" class="media-upload-field" />';
-    $html .= '<input type="button" class="button upload" id="upload_logo" value="' . __( 'Upload', TRANSLATION_KEY ) . '"/>';
+    $html .= '<input type="button" class="button upload button-secondary" id="upload_logo" value="' . __( 'Upload', TRANSLATION_KEY ) . '"/>';
 
     if( '' != trim( $logo ) ) {
-        $html .= '<input type="button" class="button delete" id="delete_logo" value="' . __( 'Delete', TRANSLATION_KEY ) . '"/>';
+        $html .= '<input type="button" class="button button-delete" id="delete_logo" value="' . __( 'Delete', TRANSLATION_KEY ) . '"/>';
     } // end if
 
     $html .= '&nbsp;<span class="description">' . __( 'Use an image in place of the <a href="options-general.php">Site Title and Tagline</a>. <a href="themes.php?page=custom-header">Custom Headers</a> are also available.', TRANSLATION_KEY ) . '</span>';
@@ -1176,7 +1176,7 @@ function privacy_policy_template_display() {
         $policy_id = $privacy_policy->ID;
     } // end if
 
-    $html .= '<input type="submit" class="button-secondary" id="delete_privacy_policy" name="delete_privacy_policy" value="' . __( 'Delete', TRANSLATION_KEY ) . '" />';
+    $html .= '<input type="submit" class="button button-delete" id="delete_privacy_policy" name="delete_privacy_policy" value="' . __( 'Delete', TRANSLATION_KEY ) . '" />';
     $html .= '&nbsp;';
     $html .= '<span>' . __( 'Warning, customizations will be lost. You can view or edit your policy ', TRANSLATION_KEY ) . '<a id="edit-privacy-policy" href="post.php?post=' . $policy_id . '&action=edit">' . __( 'here', TRANSLATION_KEY ) . '</a>.</span>';
     $html .= '<span class="hidden" id="privacy_policy_id">' . $policy_id . '</span>';
@@ -1213,7 +1213,7 @@ function comment_policy_template_display() {
         $policy_id = $comment_policy->ID;
     } // end if
 
-    $html .= '<input type="submit" class="button-secondary" id="delete_comment_policy" name="delete_comment_policy" value="' . __( 'Delete', TRANSLATION_KEY ) . '" />';
+    $html .= '<input type="submit" class="button button-delete" id="delete_comment_policy" name="delete_comment_policy" value="' . __( 'Delete', TRANSLATION_KEY ) . '" />';
     $html .= '&nbsp;';
     $html .= '<span>' . __( 'Warning, customizations will be lost. You can view or edit your policy ', TRANSLATION_KEY ) . '<a id="edit-comment-policy" href="post.php?post=' . $policy_id . '&action=edit">' . __( 'here', TRANSLATION_KEY ) . '</a>.</span>';
     $html .= '<span class="hidden" id="comment_policy_id">' . $policy_id . '</span>';
