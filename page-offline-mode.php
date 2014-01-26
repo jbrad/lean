@@ -15,7 +15,7 @@
 
         <?php $options = get_option( 'theme_global_options' ); ?>
             <div class="row" role="main">
-                <section id="main" class="<?php echo get_section_class(); ?>" role="main">
+                <section id="main" class="col-12 col-md-12" role="main">
                     <div id="offline-wrapper">
                         <div id="offline-container">
 

@@ -14,7 +14,7 @@
     <div id="wrapper">
         <div class="container">
             <div class="row">
-                <section id="main" class="<?php echo get_section_class(); ?>" role="main">
+                <section id="main" class="col-12 col-md-12" role="main">
 
                     <?php get_template_part( 'breadcrumbs' ); ?>
 

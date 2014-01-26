@@ -1104,37 +1104,3 @@ function remove_shortcode_from_gallery_post_format($content) {
     return $content;
 }
 add_filter('the_content', 'remove_shortcode_from_gallery_post_format');
-
-/**
- * Determines the classes for the section on the page
- *
- * @return	string returns the correct classes
- * @version	1.3
- * @since 	1.3
- */
-
-if( ! function_exists('get_section_class()') ) {
-
-    function get_section_class() {
-        $presentation_options = get_option( 'theme_presentation_options' );
-        $class = 'col-12';
-
-        if ( ('full_width_layout' == $presentation_options['layout'])
-            || ( is_single() && 1 == get_post_meta( get_the_ID(), 'seo_post_level_layout', true ) )
-            || is_404()
-            || is_page_template ( 'template-fullwidth.php' )
-            || is_offline() && ! is_user_logged_in()
-        ) {
-            $class .= ' col-md-12';
-        } else {
-            $class .= ' col-md-8 col-sm-8';
-
-            if ( 'left_sidebar_layout' == $presentation_options['layout'] ) {
-                $class .= ' col-md-push-4';
-            }
-        }
-
-        return $class;
-    }
-
-}

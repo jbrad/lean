@@ -22,7 +22,7 @@
         <div class="container">
             <div class="row">
 
-                <section id="main" class="<?php echo get_section_class(); ?>" role="main">
+                <section id="main" class="col-12 col-md-12" role="main">
 
                     <article id="nothing-found" class="no-results not-found">
                         <div class="entry-content clearfix">

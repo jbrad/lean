@@ -11,17 +11,22 @@
 <?php get_header(); ?>
 <?php $presentation_options = get_option( 'theme_presentation_options' ); ?>
 <?php
-if( 1 == get_post_meta( get_the_ID(), 'seo_post_level_layout', true ) ) {
-	$content_width = 900;
-} // end if
+    $singlePostFullWidth = get_post_meta( get_the_ID(), 'seo_post_level_layout', true );
+    if( 1 == $singlePostFullWidth ) {
+        $content_width = 900;
+    } // end if
 ?>
 <div id="wrapper">
 	<div class="container">
 		<div class="row">
 
-            <section id="main" class="<?php echo get_section_class(); ?>" role="main">
-				
-				<?php get_template_part( 'breadcrumbs' ); ?>
+            <section id="main"
+                     role="main"
+                     class="col-12
+                        <?php echo 'full_width_layout' == $presentation_options['layout'] || $singlePostFullWidth ? 'col-md-12' : 'col-md-8 col-sm-8'; ?>
+                        <?php echo 'left_sidebar_layout' == $presentation_options['layout'] ? ' col-md-push-4' : ''; ?>">
+
+                <?php get_template_part( 'breadcrumbs' ); ?>
 				
 				<?php if ( have_posts() ) { ?>
 					<?php while ( have_posts() ) { ?>
@@ -92,7 +97,9 @@ if( 1 == get_post_meta( get_the_ID(), 'seo_post_level_layout', true ) ) {
 				<?php } // end if ?>
 			</section><!-- /#main -->
 
-            <?php get_sidebar(); ?>
+            <?php if ( ! $singlePostFullWidth ) { ?>
+                <?php get_sidebar(); ?>
+            <?php } // end if ?>
 
 		</div> <!-- /row -->
 	</div><!-- /container -->

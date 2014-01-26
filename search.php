@@ -15,7 +15,11 @@
         <div class="container">
             <div class="row">
 
-                <section id="main" class="<?php echo get_section_class(); ?>" role="main">
+                <section id="main"
+                         role="main"
+                         class="col-12
+                        <?php echo 'full_width_layout' == $presentation_options['layout'] ? 'col-md-12' : 'col-md-8 col-sm-8'; ?>
+                        <?php echo 'left_sidebar_layout' == $presentation_options['layout'] ? ' col-md-push-4' : ''; ?>">
 
                     <?php // Even if google custom search is active, we may be coming from the 4040 page so we'll run this template. ?>
                     <?php if( ! google_custom_search_is_active() || '' != get_query_var( 's' ) ) { ?>
