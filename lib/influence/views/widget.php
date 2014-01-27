@@ -22,13 +22,13 @@
 			<div class="si-individual">
 				<ul class="si-indvidual-list">
 					<?php if( '' != $twitter ) { ?>
-						<li class="si-twitter">
+						<li class="si-twitter pull-left">
 							<span class="fa fa-twitter-square"></span><a href="http://twitter.com/<?php echo $twitter; ?>/" title="Twitter" target="_blank"><?php echo number_format( $this->twitter_follower_count( $twitter ) ); ?></a>
 						</li>
 					<?php } // end if ?>
 					
 					<?php if( '' != $facebook ) { ?>
-						<li class="si-facebook">
+						<li class="si-facebook pull-right">
                             <span class="fa fa-facebook-square"></span><a href="http://facebook.com/<?php echo $facebook; ?>/" title="Facebook" target="_blank"><?php echo number_format( $this->facebook_like_count( $facebook ) ); ?></a>
 						</li>
 					<?php } // end if ?>
