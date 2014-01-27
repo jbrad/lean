@@ -1,3 +1,240 @@
+# 1.9.0 (January 27th, 2014)
+
+# Adding font awesome to admin pages
+# Removing unnecessary images for theme settings pages
+# Removing unnecessary javascript for theme settings social page
+# Removing glpyhicon styles to remove error loading it in admin styles
+# Removing sticky image and replacing with CSS
+# Removing more unnecessary js and css
+# Updating active icons message
+# Removing unnecessary styles for author box
+# Converting all CSS comments to LESS comments
+# Removing IE styles
+# Updating footer to remove unnecessary styles
+# Removing unnecessary styles for header
+# Removing unnecessary styles for navigation
+# Removing unnecessary miscellaneous styles
+# Removing unnecessary styles from pages.less and moved to appropriate …
+# Removing unnecessary styles from post format aside
+# Removing unnecessary styles from post format audio
+# Removing unnecessary styles from post format chat
+# Removing unnecessary styles from post format gallery
+# Removing unnecessary styles from post format image
+# Removing unnecessary styles from post format link
+# Removing unnecessary styles from post format quote
+# Removing unnecessary styles from post format status
+# Removing unnecessary styles from post format video
+# Refactoring some gallery post format code
+# Fix issue with showing active icons as white
+# Adding table classes via Javascript
+# Fixing issue with text alignment with aside post format
+# Moving pager and infinite scrolling styles to navigation.less
+# Removing unnecessary variables for pager out of variables.less
+# Moving post-title styling to bootstrap-overrides.less
+# Moving share daddy styles out to separate .less file
+# Refactoring the pager links to be consistent on index and single posts
+# Adding the text-muted class to post header and meta areas for text co…
+# Refactoring form input javascript and removing hover from tables
+# Refactoring theme contrast light
+# Removing the submit button styling and adding classes via Javascript
+# Removing theme-responsive.css from being created in Gruntfile
+# Fixing indentations and removing comments from .less files
+# Refactoring activity widget styles
+# Refactoring ad 125x125 widget styles
+# Refactoring all ad widget styles and adding img-responsive class
+# Refactoring google custom search widget styles
+# Refactoring social influence widget styles
+# Refactoring personal image widget styles
+# Refactoring seo widget styles
+# Removing HTLM5 Shiv and Respond.js, thus only supporing the latest ve…
+# Fixing some alignment with first menu item with header and navbar-bra…
+# Removing unnecessary pagination styles
+# Removing unnecessary imports in .less files
+# Removing theme-responsive.css file
+# Removing the img-responsive class from billboard ad widget
+# Removing unnecessary bootstrap javascript files
+# Using the built in collapse for allowed-tags
+# Reformatting javascript files to remove tab characters
+# Refactoring admin.header.js
+# Utilizing the new media uploader for the site icon and logo
+# Refactoring media-upload code
+# Expanding the width of the media uploader to be full width
+# Creating a helper function for launching the media uploader
+# Updated all widgets and admin options to use launchMediaUploader
+# Commit new admin javascript files
+# Inline author box in single.php
+# Inline post title back to loop templates
+# Inline post link pages back to loop templates
+# Inline post content back to loop templates
+# Inline post meta back to loop templates
+# Adding btn class to all inputs of type submit
+# Inline section classes back to theme templates
+# Updating lean logo for admin navigation and theme options pages
+# Updating theme menu to use font awesome icon instead of png
+# Fix issue with not being able to click on ad image after removing it.
+# Making all of the delete buttons consistent
+# Rearranging grunt file
+# Ignore bower_components during build task
+
+### Change Set
+
+**Modified**
+
+* 404.php
+* Gruntfile.js
+* bower.json
+* breadcrumbs.php
+* comments.php
+* css/admin.css
+* css/img/icn-blog.png
+* css/img/icn-heart.png
+* css/img/icn-wrench.png
+* css/img/theme-logo.png
+* css/less/admin.header.less
+* css/less/admin.less
+* css/less/admin.social-options.less
+* css/less/author-box.less
+* css/less/bootstrap-overrides.less
+* css/less/bootstrap.less
+* css/less/comments.less
+* css/less/editor-style.less
+* css/less/font-awesome.less
+* css/less/footer.less
+* css/less/header.less
+* css/less/ie-styles.less
+* css/less/misc.less
+* css/less/mixins.less
+* css/less/navigation.less
+* css/less/pages.less
+* css/less/posts.format-aside.less
+* css/less/posts.format-audio.less
+* css/less/posts.format-chat.less
+* css/less/posts.format-gallery.less
+* css/less/posts.format-image.less
+* css/less/posts.format-link.less
+* css/less/posts.format-quote.less
+* css/less/posts.format-status.less
+* css/less/posts.format-video.less
+* css/less/posts.less
+* css/less/sharedaddy.less
+* css/less/structure.less
+* css/less/style.less
+* css/less/theme-responsive.less
+* css/less/theme.contrast-light.less
+* css/less/typography.less
+* css/less/variables.less
+* css/less/widgets.less
+* css/theme-responsive.css
+* css/theme.contrast-light.css
+* footer.php
+* header.php
+* image.php
+* images/icn-theme-small.png
+* images/sticky.png
+* inc/footer.google-custom-search.php
+* inc/header.favicon.php
+* inc/header.google-analytics.php
+* inc/header.google-plus.php
+* inc/native-seo.php
+* inc/theme-custom-filters.php
+* inc/theme-settings.php
+* inc/theme-styles-and-scripts.php
+* inc/theme-variables.php
+* includes/author-box.php
+* includes/loop.post-content.php
+* includes/loop.post-link-pages.php
+* includes/loop.post-meta.php
+* includes/loop.post-title.php
+* index.php
+* js/admin.media-upload.min.js
+* js/admin.min.js
+* js/dev/admin.header.js
+* js/dev/admin.media-upload.js
+* js/dev/admin.menu.js
+* js/dev/admin.post.js
+* js/dev/admin.profiles.js
+* js/dev/admin.publishing-options.js
+* js/dev/admin.seo-notification.js
+* js/dev/admin.site-mode.js
+* js/dev/admin.social-options.js
+* js/dev/admin.template-sitemap.js
+* js/dev/admin.widgets.js
+* js/dev/theme.comments.js
+* js/dev/theme.main.js
+* js/dev/theme.tiled-gallery.js
+* js/dev/theme.videopress.js
+* js/html5shiv.min.js
+* js/lib/bootstrap.min.js
+* js/lib/html5-shiv/html5shiv.js
+* js/lib/respond/respond.min.js
+* js/lib/respond/respond.src.js
+* js/md5.min.js
+* js/respond.min.js
+* js/theme.main.min.js
+* lib/activity/css/less/admin.less
+* lib/activity/css/less/widget.less
+* lib/activity/css/widget.css
+* lib/activity/plugin.php
+* lib/ad-125x125/css/admin.css
+* lib/ad-125x125/css/less/admin.less
+* lib/ad-125x125/css/less/widget.less
+* lib/ad-125x125/css/widget.css
+* lib/ad-125x125/js/admin.min.js
+* lib/ad-125x125/js/dev/admin.js
+* lib/ad-125x125/plugin.php
+* lib/ad-125x125/views/admin.php
+* lib/ad-300x250/css/admin.css
+* lib/ad-300x250/css/less/admin.less
+* lib/ad-300x250/css/less/widget.less
+* lib/ad-300x250/css/widget.css
+* lib/ad-300x250/js/admin.min.js
+* lib/ad-300x250/js/dev/admin.js
+* lib/ad-300x250/plugin.php
+* lib/ad-300x250/views/admin.php
+* lib/ad-billboard/css/admin.css
+* lib/ad-billboard/css/less/admin.less
+* lib/ad-billboard/css/less/widget.less
+* lib/ad-billboard/js/admin.min.js
+* lib/ad-billboard/js/dev/admin.js
+* lib/ad-billboard/views/admin.php
+* lib/google-custom-search/css/less/admin.less
+* lib/google-custom-search/css/less/widget.less
+* lib/google-custom-search/css/widget.css
+* lib/influence/css/less/admin.less
+* lib/influence/css/less/widget.less
+* lib/influence/css/widget.css
+* lib/personal-image/css/admin.css
+* lib/personal-image/css/less/admin.less
+* lib/personal-image/css/less/widget.less
+* lib/personal-image/css/widget.css
+* lib/personal-image/js/admin.min.js
+* lib/personal-image/js/dev/admin.js
+* lib/personal-image/views/admin.php
+* lib/seo/css/less/admin.less
+* lib/seo/js/admin.min.js
+* loop-aside.php
+* loop-audio.php
+* loop-chat.php
+* loop-gallery.php
+* loop-image.php
+* loop-link.php
+* loop-quote.php
+* loop-status.php
+* loop-video.php
+* loop.php
+* package.json
+* page-offline-mode.php
+* page.php
+* pagination.php
+* search.php
+* single.php
+* social-networking.php
+* style.css
+* template-archives.php
+* template-fullwidth.php
+* template-home.php
+* template-sitemap.php
+
 # 1.8.0 (January 6th, 2014)
 
 ## Fixes issue with responsive grid when using Appearances > Header
