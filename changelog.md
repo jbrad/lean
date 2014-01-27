@@ -1,82 +1,82 @@
 # 1.9.0 (January 27th, 2014)
 
-# Adding font awesome to admin pages
-# Removing unnecessary images for theme settings pages
-# Removing unnecessary javascript for theme settings social page
-# Removing glpyhicon styles to remove error loading it in admin styles
-# Removing sticky image and replacing with CSS
-# Removing more unnecessary js and css
-# Updating active icons message
-# Removing unnecessary styles for author box
-# Converting all CSS comments to LESS comments
-# Removing IE styles
-# Updating footer to remove unnecessary styles
-# Removing unnecessary styles for header
-# Removing unnecessary styles for navigation
-# Removing unnecessary miscellaneous styles
-# Removing unnecessary styles from pages.less and moved to appropriate …
-# Removing unnecessary styles from post format aside
-# Removing unnecessary styles from post format audio
-# Removing unnecessary styles from post format chat
-# Removing unnecessary styles from post format gallery
-# Removing unnecessary styles from post format image
-# Removing unnecessary styles from post format link
-# Removing unnecessary styles from post format quote
-# Removing unnecessary styles from post format status
-# Removing unnecessary styles from post format video
-# Refactoring some gallery post format code
-# Fix issue with showing active icons as white
-# Adding table classes via Javascript
-# Fixing issue with text alignment with aside post format
-# Moving pager and infinite scrolling styles to navigation.less
-# Removing unnecessary variables for pager out of variables.less
-# Moving post-title styling to bootstrap-overrides.less
-# Moving share daddy styles out to separate .less file
-# Refactoring the pager links to be consistent on index and single posts
-# Adding the text-muted class to post header and meta areas for text co…
-# Refactoring form input javascript and removing hover from tables
-# Refactoring theme contrast light
-# Removing the submit button styling and adding classes via Javascript
-# Removing theme-responsive.css from being created in Gruntfile
-# Fixing indentations and removing comments from .less files
-# Refactoring activity widget styles
-# Refactoring ad 125x125 widget styles
-# Refactoring all ad widget styles and adding img-responsive class
-# Refactoring google custom search widget styles
-# Refactoring social influence widget styles
-# Refactoring personal image widget styles
-# Refactoring seo widget styles
-# Removing HTLM5 Shiv and Respond.js, thus only supporing the latest ve…
-# Fixing some alignment with first menu item with header and navbar-bra…
-# Removing unnecessary pagination styles
-# Removing unnecessary imports in .less files
-# Removing theme-responsive.css file
-# Removing the img-responsive class from billboard ad widget
-# Removing unnecessary bootstrap javascript files
-# Using the built in collapse for allowed-tags
-# Reformatting javascript files to remove tab characters
-# Refactoring admin.header.js
-# Utilizing the new media uploader for the site icon and logo
-# Refactoring media-upload code
-# Expanding the width of the media uploader to be full width
-# Creating a helper function for launching the media uploader
-# Updated all widgets and admin options to use launchMediaUploader
-# Commit new admin javascript files
-# Inline author box in single.php
-# Inline post title back to loop templates
-# Inline post link pages back to loop templates
-# Inline post content back to loop templates
-# Inline post meta back to loop templates
-# Adding btn class to all inputs of type submit
-# Inline section classes back to theme templates
-# Updating lean logo for admin navigation and theme options pages
-# Updating theme menu to use font awesome icon instead of png
-# Fix issue with not being able to click on ad image after removing it.
-# Making all of the delete buttons consistent
-# Rearranging grunt file
-# Ignore bower_components during build task
+## Adding font awesome to admin pages
+## Removing unnecessary images for theme settings pages
+## Removing unnecessary javascript for theme settings social page
+## Removing glpyhicon styles to remove error loading it in admin styles
+## Removing sticky image and replacing with CSS
+## Removing more unnecessary js and css
+## Updating active icons message
+## Removing unnecessary styles for author box
+## Converting all CSS comments to LESS comments
+## Removing IE styles
+## Updating footer to remove unnecessary styles
+## Removing unnecessary styles for header
+## Removing unnecessary styles for navigation
+## Removing unnecessary miscellaneous styles
+## Removing unnecessary styles from pages.less and moved to appropriate …
+## Removing unnecessary styles from post format aside
+## Removing unnecessary styles from post format audio
+## Removing unnecessary styles from post format chat
+## Removing unnecessary styles from post format gallery
+## Removing unnecessary styles from post format image
+## Removing unnecessary styles from post format link
+## Removing unnecessary styles from post format quote
+## Removing unnecessary styles from post format status
+## Removing unnecessary styles from post format video
+## Refactoring some gallery post format code
+## Fix issue with showing active icons as white
+## Adding table classes via Javascript
+## Fixing issue with text alignment with aside #post format
+## Moving pager and infinite scrolling styles to navigation.less
+## Removing unnecessary variables for pager out of variables.less
+## Moving post-title styling to bootstrap-overrides.less
+## Moving share daddy styles out to separate .less file
+## Refactoring the pager links to be consistent on index and single posts
+## Adding the text-muted class to post header and meta areas for text co…
+## Refactoring form input javascript and removing hover from tables
+## Refactoring theme contrast light
+## Removing the submit button styling and adding classes via Javascript
+## Removing theme-responsive.css from being created in Gruntfile
+## Fixing indentations and removing comments from .less files
+## Refactoring activity widget styles
+## Refactoring ad 125x125 widget styles
+## Refactoring all ad widget styles and adding img-responsive class
+## Refactoring google custom search widget styles
+## Refactoring social influence widget styles
+## Refactoring personal image widget styles
+## Refactoring seo widget styles
+## Removing HTLM5 Shiv and Respond.js, thus only supporing the latest ve…
+## Fixing some alignment with first menu item with header and navbar-brand
+## Removing unnecessary pagination styles
+## Removing unnecessary imports in .less files
+## Removing theme-responsive.css file
+## Removing the img-responsive class from billboard ad widget
+## Removing unnecessary bootstrap javascript files
+## Using the built in collapse for allowed-tags
+## Reformatting javascript files to remove tab characters
+## Refactoring admin.header.js
+## Utilizing the new media uploader for the site icon and logo
+## Refactoring media-upload code
+## Expanding the width of the media uploader to be full width
+## Creating a helper function for launching the media uploader
+## Updated all widgets and admin options to use launchMediaUploader
+## Commit new admin javascript files
+## Inline author box in single.php
+## Inline post title back to loop templates
+## Inline post link pages back to loop templates
+## Inline post content back to loop templates
+## Inline post meta back to loop templates
+## Adding btn class to all inputs of type submit
+## Inline section classes back to theme templates
+## Updating lean logo for admin navigation and theme options pages
+## Updating theme menu to use font awesome icon instead of png
+## Fix issue with not being able to click on ad image after removing it.
+## Making all of the delete buttons consistent
+## Rearranging grunt file
+## Ignore bower_components during build task
 
-### Change Set
+## Change Set
 
 **Modified**
 
