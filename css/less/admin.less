@@ -233,7 +233,7 @@ table.form-table.disabled {
   }
 }
 
-.attachment-details {
+.widgets-uploader .attachment-details {
   .setting {
     display: none;
 
@@ -258,7 +258,7 @@ table.form-table.disabled {
   font-size: 13px;
   line-height: 26px;
   height: 28px;
-  margin: 0;
+  margin: 10px 0 0 0;
   padding: 0 10px 1px;
   cursor: pointer;
   border-width: 1px;
@@ -270,6 +270,10 @@ table.form-table.disabled {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+
+  .theme-options & {
+    margin: 0 0 0 10px;
+  }
 
   &:hover {
     background: #d54e21;

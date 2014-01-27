@@ -34,6 +34,7 @@ function launchMediaUploader($, evt, title, fullscreen, ad) {
                         '<label class="setting link"><span>Link URL</span><input class="link" type="text" data-setting="linkUrl" value=""></label>'
                     );
                 }
+                $('.media-sidebar').addClass('widgets-uploader');
             }
         });
 
