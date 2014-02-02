@@ -26,17 +26,17 @@
 
 /* Variables */
 
-include_once( get_template_directory() . '/inc/theme-variables.php' );
+include_once( get_template_directory() . '/includes/theme-variables.php' );
 
 /* ----------------------------------------------------------- *
  * Dependencies
  * ----------------------------------------------------------- */
 
-include_once( get_template_directory() . '/inc/native-seo.php' );
-include_once( get_template_directory() . '/inc/header.favicon.php' );
-include_once( get_template_directory() . '/inc/header.google-analytics.php' );
-include_once( get_template_directory() . '/inc/header.google-plus.php' );
-include_once( get_template_directory() . '/inc/footer.google-custom-search.php' );
+include_once( get_template_directory() . '/includes/native-seo.php' );
+include_once( get_template_directory() . '/includes/header.favicon.php' );
+include_once( get_template_directory() . '/includes/header.google-analytics.php' );
+include_once( get_template_directory() . '/includes/header.google-plus.php' );
+include_once( get_template_directory() . '/includes/footer.google-custom-search.php' );
 
 include_once( get_template_directory() . '/lib/Bootstrap_Nav_Walker.class.php' );
 
@@ -57,40 +57,40 @@ include_once( get_template_directory() . '/lib/Bootstrap_Nav_Walker.class.php' )
  * 1. Localization
  * ----------------------------------------------------------- */
 
-include_once( get_template_directory() . '/inc/theme-localization.php' );
+include_once( get_template_directory() . '/includes/theme-localization.php' );
 
 /* ----------------------------------------------------------- *
  * 2. Theme Settings
  * ----------------------------------------------------------- */
 
-include_once( get_template_directory() . '/inc/theme-settings.php' );
+include_once( get_template_directory() . '/includes/theme-settings.php' );
 
 /* ----------------------------------------------------------- *
  * 3. Features
  * ----------------------------------------------------------- */
 
-include_once( get_template_directory() . '/inc/theme-features.php' );
+include_once( get_template_directory() . '/includes/theme-features.php' );
 
 /* ----------------------------------------------------------- *
  * 4. Custom Header
  * ----------------------------------------------------------- */
 
-include_once( get_template_directory() . '/inc/theme-custom-header.php' );
+include_once( get_template_directory() . '/includes/theme-custom-header.php' );
 
 /* ----------------------------------------------------------- *
  * 5. Comments Template
  * ----------------------------------------------------------- */
 
-include_once( get_template_directory() . '/inc/theme-custom-comments.php' );
+include_once( get_template_directory() . '/includes/theme-custom-comments.php' );
 
 /* ----------------------------------------------------------- *
  * 6. Stylesheets and JavaScript Sources
  * ----------------------------------------------------------- */
 
-include_once( get_template_directory() . '/inc/theme-styles-and-scripts.php' );
+include_once( get_template_directory() . '/includes/theme-styles-and-scripts.php' );
 
 /* ----------------------------------------------------------- *
  * 7. Custom Filters
  * ----------------------------------------------------------- */
 
-include_once( get_template_directory() . '/inc/theme-custom-filters.php' );
+include_once( get_template_directory() . '/includes/theme-custom-filters.php' );
