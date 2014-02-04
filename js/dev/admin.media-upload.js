@@ -73,7 +73,7 @@ function launchMediaUploader($, evt, title, fullscreen, ad) {
             }
         );
 
-        $('.delete').click(function(event) {
+        $('.button-delete').click(function(event) {
             event.preventDefault();
 
             $(this).parent().find('div').find('img').attr('src', '');
