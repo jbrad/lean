@@ -1,3 +1,82 @@
+# 1.9.1 (February 4th, 2014)
+
+## Updated to Bootstrap 3.1.0
+## Moved files from inc to includes so child themes can access them
+## Styling category and archive dropdowns to match Bootstraps styling
+## Fixing issue with not being able to remove site logo and site icon
+
+## Change Set
+
+**Modified**
+* bower.json
+* css/admin.css
+* css/less/admin.less
+* css/less/bootstrap.less
+* css/less/style.less
+* css/less/widgets.less
+* css/lib/bootstrap/badges.less
+* css/lib/bootstrap/breadcrumbs.less
+* css/lib/bootstrap/button-groups.less
+* css/lib/bootstrap/buttons.less
+* css/lib/bootstrap/code.less
+* css/lib/bootstrap/dropdowns.less
+* css/lib/bootstrap/forms.less
+* css/lib/bootstrap/glyphicons.less
+* css/lib/bootstrap/grid.less
+* css/lib/bootstrap/input-groups.less
+* css/lib/bootstrap/jumbotron.less
+* css/lib/bootstrap/list-group.less
+* css/lib/bootstrap/mixins.less
+* css/lib/bootstrap/modals.less
+* css/lib/bootstrap/navbar.less
+* css/lib/bootstrap/navs.less
+* css/lib/bootstrap/normalize.less
+* css/lib/bootstrap/pager.less
+* css/lib/bootstrap/pagination.less
+* css/lib/bootstrap/panels.less
+* css/lib/bootstrap/print.less
+* css/lib/bootstrap/responsive-utilities.less
+* css/lib/bootstrap/scaffolding.less
+* css/lib/bootstrap/tables.less
+* css/lib/bootstrap/theme.less
+* css/lib/bootstrap/tooltip.less
+* css/lib/bootstrap/type.less
+* css/lib/bootstrap/variables.less
+* css/lib/bootstrap/wells.less
+* functions.php
+* inc/footer.google-custom-search.php → includes/footer.google-custom-search.php
+* inc/header.favicon.php → includes/header.favicon.php
+* inc/header.google-analytics.php → includes/header.google-analytics.php
+* inc/header.google-plus.php → includes/header.google-plus.php
+* inc/native-seo.php → includes/native-seo.php
+* inc/theme-custom-comments.php → includes/theme-custom-comments.php
+* inc/theme-custom-filters.php → includes/theme-custom-filters.php
+* inc/theme-custom-header.php → includes/theme-custom-header.php
+* inc/theme-features.php → includes/theme-features.php
+* inc/theme-localization.php → includes/theme-localization.php
+* inc/theme-settings.php → includes/theme-settings.php
+* inc/theme-styles-and-scripts.php → includes/theme-styles-and-scripts.php
+* inc/theme-variables.php → includes/theme-variables.php
+* js/admin.media-upload.min.js
+* js/admin.min.js
+* js/dev/admin.media-upload.js
+* js/lib/bootstrap.min.js
+* js/lib/bootstrap/affix.js
+* js/lib/bootstrap/alert.js
+* js/lib/bootstrap/button.js
+* js/lib/bootstrap/carousel.js
+* js/lib/bootstrap/collapse.js
+* js/lib/bootstrap/dropdown.js
+* js/lib/bootstrap/modal.js
+* js/lib/bootstrap/popover.js
+* js/lib/bootstrap/scrollspy.js
+* js/lib/bootstrap/tab.js
+* js/lib/bootstrap/tooltip.js
+* js/lib/bootstrap/transition.js
+* js/theme.main.min.js
+* package.json
+* style.css
+
 # 1.9.0 (January 27th, 2014)
 
 ## Adding font awesome to admin pages
