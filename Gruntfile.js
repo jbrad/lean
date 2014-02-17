@@ -10,7 +10,6 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-contrib-compress');
     grunt.loadNpmTasks('grunt-contrib-concat');
-    grunt.loadNpmTasks('grunt-bower-task');
     grunt.loadNpmTasks('grunt-contrib-imagemin');
     grunt.loadNpmTasks('grunt-rename');
     grunt.loadNpmTasks('grunt-contrib-copy');
@@ -223,18 +222,6 @@ module.exports = function(grunt) {
                     yuicompress: true
                 },
                 files: lessFiles
-            }
-        },
-
-        bower: {
-            install: {
-                options: {
-                    layout: 'byType',
-                    install: true,
-                    verbose: false,
-                    cleanTargetDir: false,
-                    cleanBowerDir: false
-                }
             }
         },
 
@@ -451,7 +438,7 @@ module.exports = function(grunt) {
     });
 
     grunt.registerTask('default', ['watch']);
-    grunt.registerTask('setup', ['bower', 'copy', 'less:dev', 'jshint', 'watch']);
+    grunt.registerTask('setup', ['copy', 'less:dev', 'jshint', 'watch']);
     grunt.registerTask('dist', ['less:dist', 'jshint', 'concat', 'uglify']);
     grunt.registerTask('build', ['less:dist', 'jshint', 'concat', 'uglify', 'imagemin', 'compress']);
 

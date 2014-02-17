@@ -4,7 +4,7 @@
     "dependencies": {
         "fitvids": "*",
         "js-md5": "*",
-        "font-awesome": "~4.0.2",
-        "bootstrap": "3.1.0"
+        "font-awesome": "*",
+        "bootstrap": "*"
     }
 }
