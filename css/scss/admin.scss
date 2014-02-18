@@ -15,25 +15,25 @@ $fa-font-path:    "../fonts";
 @import "../../bower_components/font-awesome/scss/icons";
 
 input:-moz-placeholder {
-  color: #777;
+    color: $moz-input-placeholder-color;
 }
 
 #toplevel_page_theme_options .wp-menu-image:before {
-  font-family: FontAwesome !important;
-  content: "\f066";
-  font-size: 20px;
+    font-family: FontAwesome !important;
+    content: "\f066";
+    font-size: 20px;
 }
 
 #theme_left_sidebar_layout,
 #theme_right_sidebar_layout,
 #theme_full_width_layout {
-  vertical-align: top;
-  margin: 15px 5px 0 0;
+    vertical-align: top;
+    margin: 15px 5px 0 0;
 }
 
 img.social_option {
-  vertical-align: top;
-  margin: 4px 0 0 4px;
+    vertical-align: top;
+    margin: 4px 0 0 4px;
 }
 
 // theme admin options styles
@@ -41,243 +41,243 @@ img.social_option {
 #theme-options div.updated,
 #theme-options .message,
 #theme-post-editor {
-  color: #444;
-  background-color: #D0EDF3;
-  border-color: transparent;
-  margin: 15px 0 10px;
+    color: $theme-options-color;
+    background-color: $theme-options-bg-color;
+    border-color: $theme-options-border-color;
+    margin: 15px 0 10px;
 }
 
 #theme-options {
 
-  #theme-info {
-    float: left;
-    width: 65%;
-    margin-right: 10px;
-    padding: 15px 15px 15px 0;
+    #theme-info {
+        float: left;
+        width: 65%;
+        margin-right: 10px;
+        padding: 15px 15px 15px 0;
 
-    p {
-      color: #7b7b7b;
-      font-size: 16px;
-      line-height: 1.2;
-      margin-top: 5px;
-      font-weight: 200;
+        p {
+            color: $theme-options-info-color;
+            font-size: 16px;
+            line-height: 1.2;
+            margin-top: 5px;
+            font-weight: 200;
+        }
     }
-  }
 
-  #theme-title {
-    font-size: 22px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+    #theme-title {
+        font-size: 22px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
 
-    span {
-      color: #999;
-      font-size: 12px;
-      font-weight: normal;
-      text-transform: lowercase;
-      font-style: italic;
-      letter-spacing: 0;
+        span {
+            color: $theme-options-theme-title-color;
+            font-size: 12px;
+            font-weight: normal;
+            text-transform: lowercase;
+            font-style: italic;
+            letter-spacing: 0;
+        }
     }
-  }
 
-  #theme-options-links {
-    border-left: 1px solid #eee;
-    padding: 20px;
-    float: right;
-    margin-top: 25px;
+    #theme-options-links {
+        border-left: 1px solid $theme-options-links-border-color;
+        padding: 20px;
+        float: right;
+        margin-top: 25px;
 
-    a {
-      color: #2e2e2e;
-      display: block;
-      overflow: hidden;
-      padding-left: 20px;
-      text-decoration: none;
-      line-height: 16px;
+        a {
+            color: $theme-options-links-color;
+            display: block;
+            overflow: hidden;
+            padding-left: 20px;
+            text-decoration: none;
+            line-height: 16px;
 
-      &:hover {
-        text-decoration: underline;
-      }
+            &:hover {
+                text-decoration: underline;
+            }
+        }
     }
-  }
 
-  form {
-    margin-top: 20px;
-  }
-
-  .form-table {
-    border-top: 1px solid #eee;
-    margin: 20px 0;
-  }
-
-  h3 {
-    margin: 1em 0 0;
-  }
-
-  #logo_preview_container {
-    background: #f0f0f0;
-    padding: 10px;
-    margin-bottom: 20px;
-    width: 190px;
-    min-height: 40px;
-    overflow: hidden;
-
-    > img {
-      width: 100%;
-      height: auto;
+    form {
+        margin-top: 20px;
     }
-  }
 
-  #fav_icon_preview_container > img {
-    width: auto;
-    max-width: 64px;
-    height: auto;
-    max-height: 64px;
-  }
-
-  .social-icons-wrapper {
-    margin-top: 10px;
+    .form-table {
+        border-top: 1px solid $theme-options-table-border-color;
+        margin: 20px 0;
+    }
 
     h3 {
-      margin: 0;
+        margin: 1em 0 0;
     }
-  }
 
-  form .submit {
-    float: left;
-    margin: 0 8px 0 0;
-    padding: 0;
-  }
+    #logo_preview_container {
+        background: $logo-preview-container-bg-color;
+        padding: 10px;
+        margin-bottom: 20px;
+        width: 190px;
+        min-height: 40px;
+        overflow: hidden;
 
-  input[disabled=disabled] {
-    color: #ccc;
-  }
+        > img {
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    #fav_icon_preview_container > img {
+        width: auto;
+        max-width: 64px;
+        height: auto;
+        max-height: 64px;
+    }
+
+    .social-icons-wrapper {
+        margin-top: 10px;
+
+        h3 {
+            margin: 0;
+        }
+    }
+
+    form .submit {
+        float: left;
+        margin: 0 8px 0 0;
+        padding: 0;
+    }
+
+    input[disabled=disabled] {
+        color: $moz-input-disabled-color;
+    }
 
 }
 
 
 #theme-options .form-table th, .form-wrap label {
-  font-weight: bold;
-  border-right: 1px solid #eee;
+    font-weight: bold;
+    border-right: 1px solid $theme-options-table-border-color;
 }
 
 // theme post editor notification styles
 #theme-post-editor {
-  padding: 0.3em 0.6em;
-  border-radius: 3px;
+    padding: 0.3em 0.6em;
+    border-radius: 3px;
 
-  p {
-    margin: .5em 0;
-    padding: 2px;
-  }
+    p {
+        margin: .5em 0;
+        padding: 2px;
+    }
 }
 
 hr {
-  clear: both;
+    clear: both;
 }
 
 #link_url_field {
-  width: 100%;
+    width: 100%;
 }
 
 //WP Core changes
 
 //disabled style on Header section
 table.form-table.disabled {
-  color: #aaa;
+    color: $table-disabled-color;
 
-  th,
-  label,
-  input {
-    color: #a9a9a9;
-  }
+    th,
+    label,
+    input {
+        color: $table-th-label-input-color;
+    }
 }
 
 .warning {
-  background-color: #d9edf7;
-  border-color: #bce8f1;
-  @include border_radius(4px);
+    background-color: $warning-bg-color;
+    border-color: $warning-border-color;
+    @include border_radius(4px);
 
-  p {
-    padding: 10px;
-  }
+    p {
+        padding: 10px;
+    }
 }
 
 // media queries sizes
 @media (max-width: 650px) {
 
-  #theme-options {
+    #theme-options {
 
-    #theme-info {
-      float: none;
-      width: 100%;
-      margin-right: 0;
-    }
-
-    #theme-options-links {
-      float: none;
-      border-left: none;
-      border-top: 1px solid #eee;
-      padding: 5px 0;
-      margin-top: 0;
-      margin-bottom: 20px;
-
-      ul li {
-        display: inline;
-
-        a {
-          display: inline-block;
-          margin-left: 10px;
+        #theme-info {
+            float: none;
+            width: 100%;
+            margin-right: 0;
         }
-      }
+
+        #theme-options-links {
+            float: none;
+            border-left: none;
+            border-top: 1px solid $theme-options-links-border-color;
+            padding: 5px 0;
+            margin-top: 0;
+            margin-bottom: 20px;
+
+            ul li {
+                display: inline;
+
+                a {
+                    display: inline-block;
+                    margin-left: 10px;
+                }
+            }
+        }
     }
-  }
 }
 
 .widgets-uploader .attachment-details {
-  .setting {
-    display: none;
+    .setting {
+        display: none;
 
-    &.link {
-      display: block;
+        &.link {
+            display: block;
+        }
     }
-  }
 }
 
 .media-sidebar {
-  padding-top: 10px;
+    padding-top: 10px;
 }
 
 .button.button-delete {
-  color: #a00;
-  text-decoration: none;
-  border-color: transparent;
-  box-shadow: none;
-  background: transparent;
-  display: inline-block;
-  text-decoration: none;
-  font-size: 13px;
-  line-height: 26px;
-  height: 28px;
-  margin: 0;
-  padding: 0 10px 1px;
-  cursor: pointer;
-  border-width: 1px;
-  border-style: solid;
-  -webkit-border-radius: 3px;
-  -webkit-appearance: none;
-  border-radius: 3px;
-  white-space: nowrap;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
+    color: $delete-button-color;
+    text-decoration: none;
+    border-color: transparent;
+    box-shadow: none;
+    background: transparent;
+    display: inline-block;
+    text-decoration: none;
+    font-size: 13px;
+    line-height: 26px;
+    height: 28px;
+    margin: 0;
+    padding: 0 10px 1px;
+    cursor: pointer;
+    border-width: 1px;
+    border-style: solid;
+    -webkit-border-radius: 3px;
+    -webkit-appearance: none;
+    border-radius: 3px;
+    white-space: nowrap;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
 
-  .theme-options & {
-    margin: 0 0 0 10px;
-  }
+    .theme-options & {
+        margin: 0 0 0 10px;
+    }
 
-  &:hover {
-    background: #d54e21;
-    color: #fff;
-    border-color: #d54e21;
-  }
+    &:hover {
+        color: $delete-button-color-hover;
+        background: $delete-button-bg-color-hover;
+        border-color: $delete-button-border-color-hover;
+    }
 }
