@@ -14,7 +14,7 @@
 }
 
 .media {
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid $comment_content_border_color;
   padding: 10px;
 
   &:last-child {
@@ -27,7 +27,7 @@
 }
 
 ul .media {
-  border-left: 1px solid #ddd;
+  border-left: 1px solid $comment_content_border_color;
   margin-top: 0;
 }
 
