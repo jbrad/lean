@@ -5,6 +5,7 @@
 //
 
 @import "mixins";
+@import "variables";
 
 .social-icons-wrapper {
 
@@ -19,10 +20,10 @@
     padding: 8px 0;
     margin-bottom: 10px;
     text-align: center;
-    color: #C09853;
+    color: $alert-color;
     text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
-    background-color: #FCF8E3;
-    border: 1px solid #FBEED5;
+    background-color: $alert-bg-color;
+    border: 1px solid $alert-border-color;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
@@ -30,9 +31,9 @@
   }
 
   .alert-info {
-    color: #545454;
-    background-color: #d0edf3;
-    border-color: transparent;
+    color: $alert-info-color;
+    background-color: $alert-info-bg-color;
+    border-color: $alert-info-border-color;
     font-style: italic;
   }
 }
@@ -89,10 +90,10 @@
 
 #social-icons-available #available-icons,
 #social-icons-active #active-icons {
-  border: 1px solid #dfdfdf;
+  border: 1px solid $social-icons-border-color;
   border-top: 0;
   min-height: 215px;
-  background: #FCFCFC;
+  background: $social-icons-bg-color;
   float: left;
   width: 99.9%;
   position: relative;
@@ -105,19 +106,19 @@
     width: 90%;
     margin: 10px 10px 5px;
     padding: 10px;
-    background: #222;
+    background: $social-icons-preview-bg-color;
     display: table;
   }
 
   .fa {
-    color: #999;
+    color: $social-icon-color;
 
     &:hover {
       cursor: pointer;
     }
 
     &.active-icon {
-      color: #fff;
+      color: $social-icon-color-hover;
     }
   }
 }
