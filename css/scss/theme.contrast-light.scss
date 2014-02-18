@@ -1,0 +1,210 @@
+//
+// Dark Contrast
+// @version 1.4
+// @since 1.0
+//
+
+// Contrast stylesheet for when user has a dark background
+@import "../../bower_components/bootstrap-sass/lib/mixins";
+@import "variables";
+
+body {
+  color: $body_color_light;
+  background: $body_bg_color_light;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: $heading_color_light;
+}
+
+#site-title,
+#site-title a {
+  color: $site_title_color_light;
+}
+
+.breadcrumb {
+  background: $breadcrumb_bg_color_light;
+  box-shadow: none;
+  border-color: $breadcrumb_border_color_light;
+
+  li {
+    text-shadow: none;
+  }
+}
+
+.panel {
+  border-color: $panel_bg_color_light;
+}
+
+.post,
+#comments,
+#pings,
+#no-comments,
+#respond {
+  background: $post_bg_color_light;
+}
+
+.post-title a,
+.post-title a:visited {
+  color: $post_title_color_light;
+}
+
+.post-header,
+.post-meta {
+  border-color: $post_header_border_color_light;
+}
+
+.post.format-status .post-header {
+  @include gradient-vertical($post_format_status_post_header_gradient_start_light, $post_format_status_post_header_gradient_end_light);
+  @include box-shadow(none);
+}
+
+.post.format-quote {
+
+  .post-header {
+    background-color: $post_format_quote_background_color_light;
+  }
+
+  .entry-content:before {
+    border-color: $post_format_quote_background_color_light transparent transparent transparent;
+  }
+}
+
+.post.format-quote .post-header .entry-content p {
+  color: $post_format_quote_header_p_color_light;
+}
+
+.post.format-aside .aside-date {
+  background: $post_format_aside_color_light;
+}
+
+.post.format-chat .post-header {
+  background-color: $post_format_chat_post_header_bg_color_light;
+  background-image: none;
+  @include box-shadow(none);
+}
+
+.post.format-audio .post-meta {
+  background: $post_format_audio_post_meta_color;
+}
+
+.entry-content .wp-caption {
+  background: $caption_bg_color_light;
+  border: 1px solid $caption_border_color_light;
+}
+
+.well {
+  background: $well_bg_color_light;
+  border: none;
+}
+
+// author box
+#author-box .author-link {
+  color: $post_author_box_link_color_light;
+}
+
+.page-link {
+  border-color: $page_link_color_light;
+}
+
+#comments {
+
+  .comment-container .comment-entry .name {
+    color: $comment_content_color_light;
+  }
+
+  .date a {
+    color: $comment_date_link_color_light;
+  }
+
+  .comment-container {
+    border-color: $comment_content_border_color_light;
+  }
+
+  > ol > li > ul.children > li .comment-container {
+    border-color: $comment_content_children_border_color_light;
+  }
+
+  .bypostauthor > .comment-container {
+    background: $comment_by_author_color_light;
+    border-right: 5px solid $comment_by_author_border_color_light;
+  }
+}
+
+// jetpack comments
+.comment-container #respond,
+#respond {
+  background: $widget_jetpack_comment_bg_color_light;
+  padding: 20px;
+}
+
+.pager li > a {
+  background-color: $pager_bg_color_light;
+  border: 1px solid $pager_border_color_light;
+
+  &:hover {
+    background-color: $pager_bg_color_hover_light;
+    color: $pager_border_color_hover_light;
+  }
+}
+
+#sidebar {
+  color: $sidebar_color;
+}
+
+.widget h4.widget-title {
+  color: $widget_heading_color;
+}
+
+table#wp-calendar {
+
+  caption {
+    background-color: $calendar_bg_color_light;
+    border: 1px solid $calendar_border_color_light;
+  }
+
+  td {
+    background: $calendar_td_background_color_light;
+    color: $calendar_td_color_light;
+
+    &:hover {
+      background: $calendar_td_color_hover_light;
+    }
+  }
+
+  tfoot td {
+    background: $calendar_td_background_color_light;
+    color: $calendar_td_color_light;
+  }
+}
+
+.tagcloud a {
+  background: $tags_bg_color_light;
+}
+
+#footer {
+  background: $footer_bg_color_light;
+}
+
+h2 {
+  &#authors,
+  &#pages,
+  &#posts,
+  &#categories {
+    .fa-group,
+    .fa-calendar,
+    .fa-list,
+    .fa-list-alt {
+      color: $page_template_heading_color_light;
+    }
+  }
+}
+
+.error404 #nothing-found h1 {
+  color: $nothing_found_color_light;
+}

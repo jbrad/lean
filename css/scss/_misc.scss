@@ -1,0 +1,76 @@
+//
+// Misc
+// @version 1.4
+// @since 1.0
+//
+
+@import "mixins";
+
+body * {
+  -ms-word-wrap: break-word;
+  word-wrap: break-word;
+}
+
+a {
+  @include ease_in();
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.alignleft {
+  float: left;
+  margin: 0.5em 20px 0.5em 0;
+}
+
+.alignright {
+  float: right;
+  margin: 0.5em 0 0.5em 20px;
+}
+
+.aligncenter {
+  display: block;
+  float: none;
+  margin-top: 0.5em;
+  margin-right: auto !important;
+  margin-bottom: 0.5em;
+  margin-left: auto !important;
+}
+
+.alignnone {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+// override Bootstrap span class that was
+// causing issues with some post_class() tags
+
+[class*="span"].post {
+  float: none;
+  margin-left: 0;
+}
+
+.fademe img,
+a img {
+  opacity: 1;
+  @include ease_in();
+
+  &:hover {
+    opacity: 0.5;
+  }
+}
+
+code {
+  white-space: inherit;
+}
+
+.row {
+  margin-left: 0;
+  margin-right: 0;
+}

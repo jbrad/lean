@@ -1,0 +1,24 @@
+//
+// Post Format Status
+// @version 1.4
+// @since 1.0
+//
+@import "variables";
+
+.format-status {
+
+  .post-header {
+    margin-bottom: 0;
+    border-bottom: 0;
+    background-color: $post_format_status_post_header_bg_color;
+
+    .entry-content {
+      padding: 0 20px;
+      min-height: 60px;
+    }
+  }
+
+  .post-avatar img {
+    width: 100%;
+  }
+}

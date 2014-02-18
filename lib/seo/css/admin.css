@@ -5,39 +5,37 @@
   border: 1px solid #f9f9f9;
   float: left;
   width: 97%;
-  padding: 12px;
-}
-#search-engine-preview p {
-  margin: 0;
-}
+  padding: 12px; }
+  #search-engine-preview p {
+    margin: 0; }
+
 #search-results-title {
   color: #11c;
   font-size: 16px;
   text-decoration: underline;
   line-height: 19px;
-  word-wrap: break-word;
-}
+  word-wrap: break-word; }
+
 #search-results-meta {
   font-size: 13px;
-  line-height: 15px;
-}
+  line-height: 15px; }
+
 #search-results-meta-description #date {
-  color: #666;
-}
+  color: #666; }
+
 #search-results-meta #permalink {
-  color: #282;
-}
+  color: #282; }
+
 #post_level_seo label {
   float: left;
-  margin-right: 8px;
-}
+  margin-right: 8px; }
+
 #seo_post_meta_description {
-  width: 100%;
-}
+  width: 100%; }
+
 #character-count {
-  font-weight: bold;
-}
+  font-weight: bold; }
+
 #google-plus-avatar {
   float: left;
-  padding: 3px 8px 2px 0;
-}
+  padding: 3px 8px 2px 0; }

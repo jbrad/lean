@@ -1,0 +1,23 @@
+//
+// Post Format Chat
+// @version 1.4
+// @since 1.0
+//
+@import "variables";
+
+.format-chat {
+
+  .post-header {
+    margin-bottom: 0;
+    border: none;
+    background: $post_format_chat_bg_color;
+  }
+
+  .entry-content {
+    font-family: Monaco,Menlo,Consolas,"Courier New",monospace;
+  }
+
+  .fa-comments-o {
+    font-size: 48px;
+  }
+}

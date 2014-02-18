@@ -1,0 +1,17 @@
+@import "../../../../bower_components/bootstrap-sass/lib/mixins";
+
+.personal-image {
+  background: #fff;
+  border: 1px solid #ccc;
+  .box-sizing(border-box);
+}
+
+.pi-pic {
+  text-align: center;
+}
+
+.pi-bio {
+  color: #888;
+  padding: 10px;
+  margin-bottom: 0;
+}

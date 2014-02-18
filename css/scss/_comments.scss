@@ -1,0 +1,46 @@
+//
+// Comments and Pings
+// @version 1.4
+// @since 1.0
+//
+@import "variables";
+
+.commentlist {
+  padding-left: 0;
+}
+
+.comment {
+  list-style: none;
+}
+
+.media {
+  border-bottom: 1px solid #ddd;
+  padding: 10px;
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.media-heading .name {
+  font-weight: bold;
+}
+
+ul .media {
+  border-left: 1px solid #ddd;
+  margin-top: 0;
+}
+
+.bypostauthor {
+  border-right: 5px solid $comment_by_author_border_color;
+  background: $comment_by_author_bg_color;
+}
+
+.form-allowed-tags .btn-link {
+  padding: 0;
+  vertical-align: top;
+
+  &:focus {
+    outline: none;
+  }
+}

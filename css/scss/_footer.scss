@@ -1,0 +1,50 @@
+//
+//
+// Footer
+// @version 1.4
+// @since 1.0
+//
+@import "variables";
+
+#footer {
+  background: $footer_bg_color;
+
+  #footer-widgets {
+    padding: 20px;
+  }
+
+  #sub-floor {
+    padding: 10px 0;
+    background: $footer_subfloor_bg_color;
+
+    #credit {
+      padding: 13px 0;
+      color: $footer_credit_color;
+
+      a {
+        color: $footer_credit_link_color;
+
+        &:hover {
+          color: $footer_credit_link_hover_color;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+
+  #footer-links {
+    .navbar {
+      margin-bottom: 0px;
+    }
+
+    .navbar-nav > li > a {
+      color: $navigation_item_color;
+      padding: 10px;
+
+      &:hover {
+        color: $navigation_item_hover_color;
+        background: none;
+      }
+    }
+  }
+}

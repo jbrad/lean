@@ -14,33 +14,33 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-rename');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-sed');
+    grunt.loadNpmTasks('grunt-sass');
 
     RegExp.quote = require('regexp-quote');
 
-    var lessFiles = {
-        "css/admin.css": "css/less/admin.less",
-        "css/editor-style.css": "css/less/editor-style.less",
-        "css/theme.contrast-light.css": "css/less/theme.contrast-light.less",
+    var scssFiles = {
+        "css/admin.css": "css/scss/admin.scss",
+        "css/editor-style.css": "css/scss/editor-style.scss",
+        "css/theme.contrast-light.css": "css/scss/theme.contrast-light.scss",
 
         "style.css": [
-            "css/less/style.less"
-            , 'lib/influence/css/less/widget.less'
-            , 'lib/activity/css/less/widget.less'
-            , 'lib/google-custom-search/css/less/widget.less'
-            , 'lib/personal-image/css/less/widget.less'
-            , 'lib/ad-125x125/css/less/widget.less'
-            , 'lib/ad-300x250/css/less/widget.less'
-            , 'lib/ad-billboard/css/less/widget.less'
+            "css/scss/style.scss"
+            , 'lib/influence/css/scss/widget.scss'
+            , 'lib/activity/css/scss/widget.scss'
+            , 'lib/google-custom-search/css/scss/widget.scss'
+            , 'lib/personal-image/css/scss/widget.scss'
+            , 'lib/ad-125x125/css/scss/widget.scss'
+            , 'lib/ad-billboard/css/scss/widget.scss'
         ]
 
-        , "lib/activity/css/admin.css": 'lib/activity/css/less/admin.less'
-        , "lib/google-custom-search/css/admin.css": 'lib/google-custom-search/css/less/admin.less'
-        , "lib/influence/css/admin.css": 'lib/influence/css/less/admin.less'
-        , "lib/personal-image/css/admin.css": 'lib/personal-image/css/less/admin.less'
-        , "lib/seo/css/admin.css": 'lib/seo/css/less/admin.less'
-        , "lib/ad-125x125/css/admin.css": 'lib/ad-125x125/css/less/admin.less'
-        , "lib/ad-300x250/css/admin.css": 'lib/ad-300x250/css/less/admin.less'
-        , "lib/ad-billboard/css/admin.css": 'lib/ad-billboard/css/less/admin.less'
+        , "lib/activity/css/admin.css": 'lib/activity/css/scss/admin.scss'
+        , "lib/google-custom-search/css/admin.css": 'lib/google-custom-search/css/scss/admin.scss'
+        , "lib/influence/css/admin.css": 'lib/influence/css/scss/admin.scss'
+        , "lib/personal-image/css/admin.css": 'lib/personal-image/css/scss/admin.scss'
+        , "lib/seo/css/admin.css": 'lib/seo/css/scss/admin.scss'
+        , "lib/ad-125x125/css/admin.css": 'lib/ad-125x125/css/scss/admin.scss'
+        , "lib/ad-300x250/css/admin.css": 'lib/ad-300x250/css/scss/admin.scss'
+        , "lib/ad-billboard/css/admin.css": 'lib/ad-billboard/css/scss/admin.scss'
     };
 
     grunt.initConfig({
@@ -56,7 +56,7 @@ module.exports = function(grunt) {
                         src: [
                             '**',
                             '!**css/lib/**',
-                            '!**css/less/**',
+                            '!**css/scss/**',
                             '!Gruntfile.js',
                             '!codekit-config.json',
                             '!package.json',
@@ -66,7 +66,6 @@ module.exports = function(grunt) {
                             '!**js/lib/**',
                             '!**/node_modules/**',
                             '!**/bower_components/**',
-                            '!**/css/lib/less/**',
                             '!lib/**/js/dev/*'
                         ],
                         dest: '<%= pkg.name %>',
@@ -208,20 +207,20 @@ module.exports = function(grunt) {
             }
         },
 
-        less: {
-            dev: {
-                options: {
-                    paths: "css/less",
-                    yuicompress: false
-                },
-                files: lessFiles
-            },
+        sass: {
             dist: {
                 options: {
-                    paths: "css/less",
-                    yuicompress: true
+                    includePaths: ['css/scss'],
+                    outputStyle: 'compressed'
                 },
-                files: lessFiles
+                files: scssFiles
+            },
+            dev: {
+                options: {
+                    includePaths: ['css/scss'],
+                    outputStyle: 'nested'
+                },
+                files: scssFiles
             }
         },
 
@@ -361,12 +360,6 @@ module.exports = function(grunt) {
                 expand: true,
                 flatten: true
             },
-            font_awesome_less: {
-                src: 'bower_components/font-awesome/less/*',
-                dest: 'css/lib/font-awesome',
-                expand: true,
-                flatten: true
-            },
             fitvids: {
                 src: 'bower_components/fitvids/jquery.fitvids.js',
                 dest: 'js/lib/fitvids',
@@ -382,12 +375,6 @@ module.exports = function(grunt) {
             bootstrap_js: {
                 src: 'bower_components/bootstrap/js/*.js',
                 dest: 'js/lib/bootstrap',
-                expand: true,
-                flatten: true
-            },
-            bootstrap_less: {
-                src: 'bower_components/bootstrap/less/*.less',
-                dest: 'css/lib/bootstrap',
                 expand: true,
                 flatten: true
             }
@@ -406,13 +393,13 @@ module.exports = function(grunt) {
                 files: 'lib/**/js/dev/*.js',
                 tasks: 'jshint:plugins'
             },
-            theme_less: {
-                files: 'css/less/*.less',
-                tasks: 'less:theme'
+            theme_scss: {
+                files: 'css/scss/*.scss',
+                tasks: 'scss:dev'
             },
-            plugin_less: {
-                files: 'lib/**/css/less/*.less',
-                tasks: 'less:plugins'
+            plugin_scss: {
+                files: 'lib/**/css/scss/*.scss',
+                tasks: 'scss:dev'
             },
             images : {
                 files: 'images/*.png',
@@ -438,9 +425,9 @@ module.exports = function(grunt) {
     });
 
     grunt.registerTask('default', ['watch']);
-    grunt.registerTask('setup', ['copy', 'less:dev', 'jshint', 'watch']);
-    grunt.registerTask('dist', ['less:dist', 'jshint', 'concat', 'uglify']);
-    grunt.registerTask('build', ['less:dist', 'jshint', 'concat', 'uglify', 'imagemin', 'compress']);
+    grunt.registerTask('setup', ['copy', 'scss:dev', 'jshint', 'watch']);
+    grunt.registerTask('dist', ['scss:dist', 'jshint', 'concat', 'uglify']);
+    grunt.registerTask('build', ['scss:dist', 'jshint', 'concat', 'uglify', 'imagemin', 'compress']);
 
     // Version numbering task.
     // grunt change-version-number --oldver=A.B.C --newver=X.Y.Z

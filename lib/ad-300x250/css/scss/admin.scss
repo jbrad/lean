@@ -1,0 +1,27 @@
+@import "../../../../css/scss/mixins";
+
+.ad-300x250-wrapper {
+  padding: 20px 0;
+
+  .preview_image_container {
+    opacity: 1;
+    cursor: pointer;
+    @include ease_in();
+
+    &:hover {
+      opacity: 0.6;
+    }
+  }
+
+  .preview_image_container,
+  .preview_image {
+    background: #fff url(fake-300.jpg) center center no-repeat;
+    width: 225px;
+    height: 188px;
+    cursor: pointer;
+  }
+
+  .button.button-delete {
+    margin-top: 5px;
+  }
+}
