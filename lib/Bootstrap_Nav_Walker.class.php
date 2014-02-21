@@ -21,7 +21,7 @@ class Bootstrap_Nav_Walker extends Walker_Nav_Menu {
 	 */
 	function start_lvl( &$output, $depth, $args ) {
 		if($depth >= 1) {
-			$output .= apply_filters( 'walker_nav_menu_start_lvl', '<ul class="dropdown-menu submenu-hide">', $depth, $args );
+			$output .= apply_filters( 'walker_nav_menu_start_lvl', '<ul class="dropdown-menu">', $depth, $args );
 		} else {
 			$output .= apply_filters( 'walker_nav_menu_start_lvl', '<ul class="dropdown-menu">', $depth, $args );
 		} // end if/else
