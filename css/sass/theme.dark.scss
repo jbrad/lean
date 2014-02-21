@@ -1,0 +1,210 @@
+//
+// Dark Contrast
+// @version 1.4
+// @since 1.0
+//
+
+// Contrast stylesheet for when user has a dark background
+@import "../../bower_components/bootstrap-sass/lib/mixins";
+@import "variables";
+
+body {
+    color: $body-color-dark;
+    background: $body-bg-color-dark;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: $heading-color-dark;
+}
+
+#site-title,
+#site-title a {
+    color: $site-title-color-dark;
+}
+
+.breadcrumb {
+    background: $breadcrumb-bg-color-dark;
+    box-shadow: none;
+    border-color: $breadcrumb-border-color-dark;
+
+    li {
+        text-shadow: none;
+    }
+}
+
+.panel {
+    border-color: $panel-bg-color-dark;
+}
+
+.post,
+#comments,
+#pings,
+#no-comments,
+#respond {
+    background: $post-bg-color-dark;
+}
+
+.post-title a,
+.post-title a:visited {
+    color: $post-title-color-dark;
+}
+
+.post-header,
+.post-meta {
+    border-color: $post-header-border-color-dark;
+}
+
+.post.format-status .post-header {
+    @include gradient-vertical($post-format-status-post-header-gradient-start-dark, $post-format-status-post-header-gradient-end-dark);
+    @include box-shadow(none);
+}
+
+.post.format-quote {
+
+    .post-header {
+        background-color: $post-format-quote-background-color-dark;
+    }
+
+    .entry-content:before {
+        border-color: $post-format-quote-background-color-dark transparent transparent transparent;
+    }
+}
+
+.post.format-quote .post-header .entry-content p {
+    color: $post-format-quote-header-p-color-dark;
+}
+
+.post.format-aside .aside-date {
+    background: $post-format-aside-color-dark;
+}
+
+.post.format-chat .post-header {
+    background-color: $post-format-chat-post-header-bg-color-dark;
+    background-image: none;
+    @include box-shadow(none);
+}
+
+.post.format-audio .post-meta {
+    background: $post-format-audio-post-meta-color;
+}
+
+.entry-content .wp-caption {
+    background: $caption-bg-color-dark;
+    border: 1px solid $caption-border-color-dark;
+}
+
+.well {
+    background: $well-bg-color-dark;
+    border: none;
+}
+
+// author box
+#author-box .author-link {
+    color: $post-author-box-link-color-dark;
+}
+
+.page-link {
+    border-color: $page-link-color-dark;
+}
+
+#comments {
+
+    .comment-container .comment-entry .name {
+        color: $comment-content-color-dark;
+    }
+
+    .date a {
+        color: $comment-date-link-color-dark;
+    }
+
+    .comment-container {
+        border-color: $comment-content-border-color-dark;
+    }
+
+    > ol > li > ul.children > li .comment-container {
+        border-color: $comment-content-children-border-color-dark;
+    }
+
+    .bypostauthor > .comment-container {
+        background: $comment-by-author-color-dark;
+        border-right: 5px solid $comment-by-author-border-color-dark;
+    }
+}
+
+// jetpack comments
+.comment-container #respond,
+#respond {
+    background: $widget-jetpack-comment-bg-color-dark;
+    padding: 20px;
+}
+
+.pager li > a {
+    background-color: $pager-bg-color-dark;
+    border: 1px solid $pager-border-color-dark;
+
+    &:hover {
+        background-color: $pager-bg-color-hover-dark;
+        color: $pager-border-color-hover-dark;
+    }
+}
+
+#sidebar {
+    color: $sidebar-color;
+}
+
+.widget h4.widget-title {
+    color: $widget-heading-color;
+}
+
+table#wp-calendar {
+
+    caption {
+        background-color: $calendar-bg-color-dark;
+        border: 1px solid $calendar-border-color-dark;
+    }
+
+    td {
+        background: $calendar-td-background-color-dark;
+        color: $calendar-td-color-dark;
+
+        &:hover {
+            background: $calendar-td-color-hover-dark;
+        }
+    }
+
+    tfoot td {
+        background: $calendar-td-background-color-dark;
+        color: $calendar-td-color-dark;
+    }
+}
+
+.tagcloud a {
+    background: $tags-bg-color-dark;
+}
+
+#footer {
+    background: $footer-bg-color-dark;
+}
+
+h2 {
+    &#authors,
+    &#pages,
+    &#posts,
+    &#categories {
+        .fa-group,
+        .fa-calendar,
+        .fa-list,
+        .fa-list-alt {
+            color: $page-template-heading-color-dark;
+        }
+    }
+}
+
+.error404 #nothing-found h1 {
+    color: $nothing-found-color-dark;
+}

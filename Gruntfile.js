@@ -21,7 +21,7 @@ module.exports = function(grunt) {
     var scssFiles = {
         "css/admin.css": "css/sass/admin.scss",
         "css/editor-style.css": "css/sass/editor-style.scss",
-        "css/theme.contrast-light.css": "css/sass/theme.contrast-light.scss",
+        "css/theme.dark.css": "css/sass/theme.dark.scss",
 
         "style.css": [
             "css/sass/style.scss"
