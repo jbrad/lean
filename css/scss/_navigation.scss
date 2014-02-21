@@ -8,6 +8,10 @@
 .navbar {
     margin-bottom: 0;
 
+    .navbar-toggle {
+        float: left;
+    }
+
     .navbar-brand {
         padding: 0;
     }
