@@ -6,60 +6,60 @@
 
 .format-image {
 
-  .entry-content {
-    padding: 0;
+    .entry-content {
+        padding: 0;
 
-    img, a {
-      margin-right: 0;
-      margin-left: 0;
-      margin-bottom: 0;
-      padding: 0;
-      width: 100%;
+        img, a {
+            margin-right: 0;
+            margin-left: 0;
+            margin-bottom: 0;
+            padding: 0;
+            width: 100%;
+        }
+
+        p {
+            margin-top: 20px;
+        }
+
+        > * {
+            margin-right: 20px;
+            margin-left: 20px;
+        }
+
+        .gallery-post-format {
+            margin-right: 0px;
+            margin-left: 0px;
+        }
+
+        ol,  ul {
+            padding-right: 20px;
+            padding-left: 20px;
+        }
+
+        table {
+            margin-right: 0;
+            width: 93%;
+        }
     }
 
-    p {
-      margin-top: 20px;
+    img.wp-post-image {
+        width: 100%;
     }
 
-    > * {
-      margin-right: 20px;
-      margin-left: 20px;
+    .wp-caption {
+        margin: 0;
+        padding: 0;
+        width: 100% !important;
+        border: 0;
+
+        img {
+            max-width: 100%;
+            width: 100%;
+        }
+
+        p.wp-caption-text {
+            padding-bottom: 20px;
+        }
+
     }
-
-    .gallery-post-format {
-      margin-right: 0px;
-      margin-left: 0px;
-    }
-
-    ol,  ul {
-      padding-right: 20px;
-      padding-left: 20px;
-    }
-
-    table {
-      margin-right: 0;
-      width: 93%;
-    }
-  }
-
-  img.wp-post-image {
-    width: 100%;
-  }
-
-  .wp-caption {
-    margin: 0;
-    padding: 0;
-    width: 100% !important;
-    border: 0;
-
-    img {
-      max-width: 100%;
-      width: 100%;
-    }
-
-    p.wp-caption-text {
-      padding-bottom: 20px;
-    }
-
-  }
 }

@@ -9,129 +9,129 @@
 
 .social-icons-wrapper {
 
-  .hidden.alert {
-    opacity: 0;
-    display: block;
-  }
+    .hidden.alert {
+        opacity: 0;
+        display: block;
+    }
 
-  .alert {
-    opacity: 1;
-    width: 93%;
-    padding: 8px 0;
-    margin-bottom: 10px;
-    text-align: center;
-    color: $alert-color;
-    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
-    background-color: $alert-bg-color;
-    border: 1px solid $alert-border-color;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
-    @include ease_in();
-  }
+    .alert {
+        opacity: 1;
+        width: 93%;
+        padding: 8px 0;
+        margin-bottom: 10px;
+        text-align: center;
+        color: $alert-color;
+        text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+        background-color: $alert-bg-color;
+        border: 1px solid $alert-border-color;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        border-radius: 5px;
+        @include ease_in();
+    }
 
-  .alert-info {
-    color: $alert-info-color;
-    background-color: $alert-info-bg-color;
-    border-color: $alert-info-border-color;
-    font-style: italic;
-  }
+    .alert-info {
+        color: $alert-info-color;
+        background-color: $alert-info-bg-color;
+        border-color: $alert-info-border-color;
+        font-style: italic;
+    }
 }
 
 .social-icons-wrapper ul {
-  float: left;
-  width: 50%;
-  height: 25px;
+    float: left;
+    width: 50%;
+    height: 25px;
 
-  li {
-    margin: 6px 5px 0 5px;
-    min-width: 16px;
-    width: auto;
-    height: auto;
-    line-height: 1;
-    display: inline-table;
-    vertical-align: middle;
-  }
+    li {
+        margin: 6px 5px 0 5px;
+        min-width: 16px;
+        width: auto;
+        height: auto;
+        line-height: 1;
+        display: inline-table;
+        vertical-align: middle;
+    }
 }
 
 #social-icons-active {
-  float: left;
-  width: 48%;
-  margin: 12px 0 12px 0;
-
-  #active-icon-url {
     float: left;
-    width: 90%;
-    margin: 10px;
+    width: 48%;
+    margin: 12px 0 12px 0;
 
-    label {
-      margin-right: 12px;
+    #active-icon-url {
+        float: left;
+        width: 90%;
+        margin: 10px;
+
+        label {
+            margin-right: 12px;
+        }
     }
-  }
 }
 
 #social-icons-available {
-  float: right;
-  width: 48%;
-  margin: 12px 0 12px 0;
-  margin-right: 24px;
+    float: right;
+    width: 48%;
+    margin: 12px 0 12px 0;
+    margin-right: 24px;
 
-  span {
-    margin-left: 8px;
-  }
+    span {
+        margin-left: 8px;
+    }
 
-  ul li {
-    float: left;
-    min-width: 16px;
-    min-height: 16px;
-    width: auto;
-  }
+    ul li {
+        float: left;
+        min-width: 16px;
+        min-height: 16px;
+        width: auto;
+    }
 }
 
 #social-icons-available #available-icons,
 #social-icons-active #active-icons {
-  border: 1px solid $social-icons-border-color;
-  border-top: 0;
-  min-height: 215px;
-  background: $social-icons-bg-color;
-  float: left;
-  width: 99.9%;
-  position: relative;
+    border: 1px solid $social-icons-border-color;
+    border-top: 0;
+    min-height: 215px;
+    background: $social-icons-bg-color;
+    float: left;
+    width: 99.9%;
+    position: relative;
 
-  p {
-    margin: 20px 0 10px 10px;
-  }
-
-  ul {
-    width: 90%;
-    margin: 10px 10px 5px;
-    padding: 10px;
-    background: $social-icons-preview-bg-color;
-    display: table;
-  }
-
-  .fa {
-    color: $social-icon-color;
-
-    &:hover {
-      cursor: pointer;
+    p {
+        margin: 20px 0 10px 10px;
     }
 
-    &.active-icon {
-      color: $social-icon-color-hover;
+    ul {
+        width: 90%;
+        margin: 10px 10px 5px;
+        padding: 10px;
+        background: $social-icons-preview-bg-color;
+        display: table;
     }
-  }
+
+    .fa {
+        color: $social-icon-color;
+
+        &:hover {
+            cursor: pointer;
+        }
+
+        &.active-icon {
+            color: $social-icon-color-hover;
+        }
+    }
 }
 
 #social-icon-max {
-  margin-left: 10px;
-  float: left;
+    margin-left: 10px;
+    float: left;
 }
 
 #social-icons-operations {
-  float: left;
+    float: left;
 }
 
 #social-icon-url {
-  width: 40%;
+    width: 40%;
 }

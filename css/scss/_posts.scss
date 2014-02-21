@@ -19,127 +19,127 @@
 @import "mixins";
 
 .post-header {
-  margin-bottom: 15px;
-  padding: 20px;
-  border-bottom: 1px solid $post_post_header_border_color;
+    margin-bottom: 15px;
+    padding: 20px;
+    border-bottom: 1px solid $post_post_header_border_color;
 
-  .thumbnail {
-    margin: 0 20px 0 0;
-  }
+    .thumbnail {
+        margin: 0 20px 0 0;
+    }
 }
 
 .post-title {
-  margin: 0 0 5px;
-  font-weight: bold;
+    margin: 0 0 5px;
+    font-weight: bold;
 
-  a, a:visited {
-    color: $post_post_title_color;
-  }
+    a, a:visited {
+        color: $post_post_title_color;
+    }
 
-  a:hover, a:active {
-    color: $post_post_title_hover_color;
-    text-decoration: none;
-  }
+    a:hover, a:active {
+        color: $post_post_title_hover_color;
+        text-decoration: none;
+    }
 }
 
 .entry-content,
 .entry-summary {
-  padding: 0 20px 20px;
+    padding: 0 20px 20px;
 
-  > ol,
-  > ul {
-    margin: 0 0 20px 10px;
-    font-size: 16px;
-    line-height: 1.5;
-  }
+    > ol,
+    > ul {
+        margin: 0 0 20px 10px;
+        font-size: 16px;
+        line-height: 1.5;
+    }
 
-  .wp-caption {
-    margin: 0 0 20px 0;
-    padding-top: 4px;
-    max-width: 100%;
-    @include border_radius(3px);
-    border-image: initial;
-    background-color: $post_post_caption_bg_color;
-    text-align: center;
-  }
+    .wp-caption {
+        margin: 0 0 20px 0;
+        padding-top: 4px;
+        max-width: 100%;
+        @include border_radius(3px);
+        border-image: initial;
+        background-color: $post_post_caption_bg_color;
+        text-align: center;
+    }
 
-  .wp-caption-text {
-    margin-bottom: 0;
-    color: $post_post_caption_color;
-    font-size: 11px;
-  }
+    .wp-caption-text {
+        margin-bottom: 0;
+        color: $post_post_caption_color;
+        font-size: 11px;
+    }
 
-  img {
-    max-width: 100%;
-    height: auto;
-  }
+    img {
+        max-width: 100%;
+        height: auto;
+    }
 
-  .wp-caption.alignleft {
-    margin-right: 20px;
-  }
-  .wp-caption.alignright {
-    margin-left: 20px;
-  }
+    .wp-caption.alignleft {
+        margin-right: 20px;
+    }
+    .wp-caption.alignright {
+        margin-left: 20px;
+    }
 
-  .wp-caption img {
-    max-width: 98%;
-    height: auto;
-  }
+    .wp-caption img {
+        max-width: 98%;
+        height: auto;
+    }
 }
 
 .post-meta {
-  padding: 20px;
-  border-top: 1px solid $post_post_meta_border_color;
-  color: $post_post_meta_color;
-  font-size: 12px;
-
-  .fa-link,
-  .fa-tags {
+    padding: 20px;
+    border-top: 1px solid $post_post_meta_border_color;
     color: $post_post_meta_color;
-  }
+    font-size: 12px;
 
-  .post-link:hover {
-      text-decoration: none;
-  }
+    .fa-link,
+    .fa-tags {
+        color: $post_post_meta_color;
+    }
+
+    .post-link:hover {
+        text-decoration: none;
+    }
 }
 
 .single-attachment img.attachment-thumbnail {
-  margin-top: 30px;
+    margin-top: 30px;
 }
 
 .home .sticky{
 
-  &:before {
-    position: absolute;
-    top: 26px;
-    left: -9px;
-    display: inline-block;
-    content: "\f005";
-    font-family: FontAwesome;
-    border-radius: 4px;
-    background: $post_sticky_bg_color;
-    opacity: .7;
-    color: $post_sticky_color;
-    text-align: right;
-    padding: 8px 8px 8px 36px;
-    border-top: 1px solid $post_sticky_border_color;
-    border-bottom: 1px solid $post_sticky_border_color;
-    @include fa-icon-rotate(-10deg, 1);
-  }
+    &:before {
+        position: absolute;
+        top: 26px;
+        left: -9px;
+        display: inline-block;
+        content: "\f005";
+        font-family: FontAwesome;
+        border-radius: 4px;
+        background: $post_sticky_bg_color;
+        opacity: .7;
+        color: $post_sticky_color;
+        text-align: right;
+        padding: 8px 8px 8px 36px;
+        border-top: 1px solid $post_sticky_border_color;
+        border-bottom: 1px solid $post_sticky_border_color;
+        @include fa-icon-rotate(-10deg, 1);
+    }
 
-  .post-header {
-    padding-left: 60px;
-  }
+    .post-header {
+        padding-left: 60px;
+    }
 }
 
 .fa-angle-left,
 .fa-angle-right {
-  margin-top: -15px;
-  margin-left: -15px;
-  font-size: 30px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  z-index: 5;
-  display: inline-block;
+    margin-top: -15px;
+    margin-left: -15px;
+    font-size: 30px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 5;
+    display: inline-block;
 }

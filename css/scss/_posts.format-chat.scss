@@ -7,17 +7,17 @@
 
 .format-chat {
 
-  .post-header {
-    margin-bottom: 0;
-    border: none;
-    background: $post_format_chat_bg_color;
-  }
+    .post-header {
+        margin-bottom: 0;
+        border: none;
+        background: $post_format_chat_bg_color;
+    }
 
-  .entry-content {
-    font-family: Monaco,Menlo,Consolas,"Courier New",monospace;
-  }
+    .entry-content {
+        font-family: Monaco,Menlo,Consolas,"Courier New",monospace;
+    }
 
-  .fa-comments-o {
-    font-size: 48px;
-  }
+    .fa-comments-o {
+        font-size: 48px;
+    }
 }

@@ -7,34 +7,34 @@
 
 .format-link {
 
-  .post-title {
-    color: $post_format_link_post_title_color;
-    font-size: 24px;
-    line-height: 120%;
+    .post-title {
+        color: $post_format_link_post_title_color;
+        font-size: 24px;
+        line-height: 120%;
 
-    a, a:visited {
-      color: $post_format_link_post_title_visited_color;
+        a, a:visited {
+            color: $post_format_link_post_title_visited_color;
 
-      &:hover {
-        color: $post_format_link_post_title_hover_color;
-      }
+            &:hover {
+                color: $post_format_link_post_title_hover_color;
+            }
+        }
     }
-  }
 
-  .post-header {
-    margin-bottom: 0;
-    padding: 0 0 20px 0;
-    border-bottom: 0;
-    min-height: 60px;
-    background: $post_format_link_post_title_bg_color;
+    .post-header {
+        margin-bottom: 0;
+        padding: 0 0 20px 0;
+        border-bottom: 0;
+        min-height: 60px;
+        background: $post_format_link_post_title_bg_color;
 
-    .fa-link {
-      font-size: 48px;
-      margin-right: 10px;
+        .fa-link {
+            font-size: 48px;
+            margin-right: 10px;
+        }
     }
-  }
 
-  .entry-content {
-    padding: 20px;
-  }
+    .entry-content {
+        padding: 20px;
+    }
 }

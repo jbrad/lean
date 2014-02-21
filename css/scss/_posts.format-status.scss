@@ -7,18 +7,18 @@
 
 .format-status {
 
-  .post-header {
-    margin-bottom: 0;
-    border-bottom: 0;
-    background-color: $post_format_status_post_header_bg_color;
+    .post-header {
+        margin-bottom: 0;
+        border-bottom: 0;
+        background-color: $post_format_status_post_header_bg_color;
 
-    .entry-content {
-      padding: 0 20px;
-      min-height: 60px;
+        .entry-content {
+            padding: 0 20px;
+            min-height: 60px;
+        }
     }
-  }
 
-  .post-avatar img {
-    width: 100%;
-  }
+    .post-avatar img {
+        width: 100%;
+    }
 }

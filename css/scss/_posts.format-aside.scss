@@ -7,35 +7,35 @@
 
 .format-aside {
 
-  .aside-date {
-    position: absolute;
-    margin: 20px 0 0 -20px;
-    background: $post_format_aside_date_bg_color;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    padding: 2px;
-    color: $post_format_aside_date_color;
-    font-size: 11px;
-    text-align: center;
+    .aside-date {
+        position: absolute;
+        margin: 20px 0 0 -20px;
+        background: $post_format_aside_date_bg_color;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        padding: 2px;
+        color: $post_format_aside_date_color;
+        font-size: 11px;
+        text-align: center;
 
-    span {
-      display: block;
-      text-transform: uppercase;
-      padding-top: 5px;
+        span {
+            display: block;
+            text-transform: uppercase;
+            padding-top: 5px;
 
-      &.the-time {
-        font-size: 140%;
-        padding-top: 0;
-      }
+            &.the-time {
+                font-size: 140%;
+                padding-top: 0;
+            }
+        }
     }
-  }
 
-  .entry-content {
-    padding: 40px 20px 20px 60px;
-  }
+    .entry-content {
+        padding: 40px 20px 20px 60px;
+    }
 
-  .post-meta {
-    border-top: none;
-  }
+    .post-meta {
+        border-top: none;
+    }
 }

@@ -8,91 +8,91 @@
 @import "variables";
 
 .sd-title {
-  float: left;
-  font-size: 14px;
-  margin-right: 4px;
-  font-weight: bold;
+    float: left;
+    font-size: 14px;
+    margin-right: 4px;
+    font-weight: bold;
 }
 
 .sd-content {
-  padding: 15px 15px 0 15px;
+    padding: 15px 15px 0 15px;
 
-  ul > li {
-    margin-top: 3px;
+    ul > li {
+        margin-top: 3px;
 
-    > a {
-      padding: 3px 0;
-      font-size: 16px;
+        > a {
+            padding: 3px 0;
+            font-size: 16px;
 
-      &:hover {
-        background: none;
-      }
-    }
-  }
-
-  .fa-twitter-square {
-    @include social-sharing-icons($twitter-blue);
-  }
-
-  .fa-facebook-square {
-    @include social-sharing-icons($facebook-blue);
-  }
-
-  .fa-tumblr {
-    @include social-sharing-icons(darken($facebook-blue, 10%));
-  }
-
-  .fa-linkedin-square{
-    @include social-sharing-icons($linkedin-blue);
-  }
-
-  .fa-pinterest-square {
-    @include social-sharing-icons($pinterest-red);
-  }
-
-  .fa-google-plus-square {
-    @include social-sharing-icons($googleplus-red);
-  }
-
-  .fa-envelope-o,
-  .fa-thumbs-o-up,
-  .fa-group,
-  .fa-print{
-    @include social-sharing-icons($github-gray);
-  }
-
-  .fa-rss,
-  .fa-external-link {
-    @include social-sharing-icons($rss-orange);
-  }
-
-  .fa-caret-square-o-down {
-    @include social-sharing-icons($dribbble-pink);
-  }
-
-  .fa {
-    span {
-      margin-left: 3px;
-      color: #333;
+            &:hover {
+                background: none;
+            }
+        }
     }
 
-    &.no-icon {
-      color: #333;
-      background-color: #eee;
-      padding: 4px 8px;
-      margin-bottom: 5px;
-
-      &:hover {
-        background-color: #ddd;
-      }
-
-      &:before {
-        content: '';
-      }
-
-      span {
-        margin-left: 0;
-      }
+    .fa-twitter-square {
+        @include social-sharing-icons($twitter-blue);
     }
-  }
+
+    .fa-facebook-square {
+        @include social-sharing-icons($facebook-blue);
+    }
+
+    .fa-tumblr {
+        @include social-sharing-icons(darken($facebook-blue, 10%));
+    }
+
+    .fa-linkedin-square{
+        @include social-sharing-icons($linkedin-blue);
+    }
+
+    .fa-pinterest-square {
+        @include social-sharing-icons($pinterest-red);
+    }
+
+    .fa-google-plus-square {
+        @include social-sharing-icons($googleplus-red);
+    }
+
+    .fa-envelope-o,
+    .fa-thumbs-o-up,
+    .fa-group,
+    .fa-print{
+        @include social-sharing-icons($github-gray);
+    }
+
+    .fa-rss,
+    .fa-external-link {
+        @include social-sharing-icons($rss-orange);
+    }
+
+    .fa-caret-square-o-down {
+        @include social-sharing-icons($dribbble-pink);
+    }
+
+    .fa {
+        span {
+            margin-left: 3px;
+            color: #333;
+        }
+
+        &.no-icon {
+            color: #333;
+            background-color: #eee;
+            padding: 4px 8px;
+            margin-bottom: 5px;
+
+            &:hover {
+                background-color: #ddd;
+            }
+
+            &:before {
+                content: '';
+            }
+
+            span {
+                margin-left: 0;
+            }
+        }
+    }
 }

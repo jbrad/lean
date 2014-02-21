@@ -5,29 +5,29 @@
 // 
 
 @mixin border_radius($radius: 4px) {
-  -webkit-border-radius: $radius;
-  -moz-border-radius: $radius;
-  border-radius: $radius;
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    border-radius: $radius;
 }
 
 @mixin ease_in() {
-  -webkit-transition: opacity .25s ease-in-out;
-  -moz-transition: opacity .25s ease-in-out;
-  -ms-transition: opacity .25s ease-in-out;
-  -o-transition: opacity .25s ease-in-out;
-  transition: opacity .25s ease-in-out;
+    -webkit-transition: opacity .25s ease-in-out;
+    -moz-transition: opacity .25s ease-in-out;
+    -ms-transition: opacity .25s ease-in-out;
+    -o-transition: opacity .25s ease-in-out;
+    transition: opacity .25s ease-in-out;
 }
 
 @mixin social-sharing-icons($hoverColor: $gray_dark) {
-  color: $hoverColor;
-  @include share-icons-defaults();
+    color: $hoverColor;
+    @include share-icons-defaults();
 
-  &:hover {
-    color: darken($hoverColor, 10%);
-  }
+    &:hover {
+        color: darken($hoverColor, 10%);
+    }
 }
 
 @mixin share-icons-defaults() {
-  font-size: 16px;
-  margin-left: 4px;
+    font-size: 16px;
+    margin-left: 4px;
 }

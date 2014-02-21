@@ -6,32 +6,32 @@
 @import "variables";
 
 .format-audio {
-  background: $post_format_audio_bg_color;
+    background: $post_format_audio_bg_color;
 
-  .mejs-container,
-  embed {
-    width: 100% !important;
-  }
+    .mejs-container,
+    embed {
+        width: 100% !important;
+    }
 
-  .post-title {
-    font-size: 18px;
-  }
+    .post-title {
+        font-size: 18px;
+    }
 
-  .entry-content {
-    padding: 20px;
-    margin-bottom: 0px;
-  }
+    .entry-content {
+        padding: 20px;
+        margin-bottom: 0px;
+    }
 
-  .fa-music {
-    font-size: 32px;
-  }
+    .fa-music {
+        font-size: 32px;
+    }
 
-  .post-header {
-    border-bottom: none;
-    margin-bottom: 0px;
-  }
+    .post-header {
+        border-bottom: none;
+        margin-bottom: 0px;
+    }
 
-  .post-meta {
-    background: $post_format_audio_post_meta_bg_color;
-  }
+    .post-meta {
+        background: $post_format_audio_post_meta_bg_color;
+    }
 }

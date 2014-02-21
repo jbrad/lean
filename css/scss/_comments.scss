@@ -6,41 +6,41 @@
 @import "variables";
 
 .commentlist {
-  padding-left: 0;
+    padding-left: 0;
 }
 
 .comment {
-  list-style: none;
+    list-style: none;
 }
 
 .media {
-  border-bottom: 1px solid $comment_content_border_color;
-  padding: 10px;
+    border-bottom: 1px solid $comment_content_border_color;
+    padding: 10px;
 
-  &:last-child {
-    border-bottom: none;
-  }
+    &:last-child {
+        border-bottom: none;
+    }
 }
 
 .media-heading .name {
-  font-weight: bold;
+    font-weight: bold;
 }
 
 ul .media {
-  border-left: 1px solid $comment_content_border_color;
-  margin-top: 0;
+    border-left: 1px solid $comment_content_border_color;
+    margin-top: 0;
 }
 
 .bypostauthor {
-  border-right: 5px solid $comment_by_author_border_color;
-  background: $comment_by_author_bg_color;
+    border-right: 5px solid $comment_by_author_border_color;
+    background: $comment_by_author_bg_color;
 }
 
 .form-allowed-tags .btn-link {
-  padding: 0;
-  vertical-align: top;
+    padding: 0;
+    vertical-align: top;
 
-  &:focus {
-    outline: none;
-  }
+    &:focus {
+        outline: none;
+    }
 }

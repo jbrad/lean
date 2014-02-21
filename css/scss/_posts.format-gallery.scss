@@ -6,23 +6,23 @@
 
 .format-gallery {
 
-  .entry-content {
-    overflow: hidden;
-    padding: 0;
+    .entry-content {
+        overflow: hidden;
+        padding: 0;
 
-    p {
-      margin-top: 20px;
+        p {
+            margin-top: 20px;
+        }
+
+        > * {
+            margin-right: 20px;
+            margin-left: 20px;
+        }
+
+        .gallery-post-format {
+            margin-right: 0px;
+            margin-left: 0px;
+        }
+
     }
-
-    > * {
-      margin-right: 20px;
-      margin-left: 20px;
-    }
-
-    .gallery-post-format {
-      margin-right: 0px;
-      margin-left: 0px;
-    }
-
-  }
 }
