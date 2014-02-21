@@ -1,14 +1,11 @@
 //
 // Variables
-// @version 1.7
+// @version 1.10
 // @since 1.0
 // 
 
 // Colors
 // ---------------------------------
-
-// Body
-$body-bg-color:                                                 #efefef;
 
 // Header
 $site-title-color:                                              #000;
@@ -31,30 +28,8 @@ $navigation-mobile-dropdown-item-hover-color:                   #fff;
 $navigation-mobile-dropdown-active-item-color:                  $navigation-mobile-dropdown-item-hover-color;
 $navigation-mobile-dropdown-active-item-hover-color:            $navigation-mobile-dropdown-active-item-color;
 
-// Pages
-$page-template-heading-border-color:                            #eee;
-$page-template-heading-icon-color:                              #333;
-
-$page-template-sitemap-img-bg-color:                            #f9f9f9;
-$page-template-sitemap-img-border-color:                        #eee;
-
-$page-template-archive-heading-color:                           #999;
-$page-template-archive-date-color:                              #999;
-
-$page-template-home-bg-color:                                   #fff;
-
-$page-template-offline-message-border-color:                    #e0e0e0;
-
-$page-template-nothing-found-heading-color:                     #000;
-
 // Posts
-$post-bg-color:                                                 #fff;
-
-$post-author-box-link-color:                                    #999;
-
 $post-post-header-border-color:                                 #eee;
-$post-post-header-meta-color:                                   #999;
-
 $post-post-title-color:                                         #444;
 $post-post-title-hover-color:                                   #888;
 
@@ -63,9 +38,6 @@ $post-post-caption-color:                                       #888;
 
 $post-post-meta-color:                                          #888;
 $post-post-meta-border-color:                                   #eee;
-$post-permalink-hover-color:                                    #e0e0e0;
-
-$post-post-table-border-color:                                  #ddd;
 
 $post-format-aside-date-color:                                  #fff;
 $post-format-aside-date-bg-color:                               #101010;
@@ -90,31 +62,13 @@ $post-sticky-border-color:                                      #eee;
 
 $pager-link-color:                                              #777;
 
-$page-link-color:                                               #eee;
-
 $breadcrumb-bg-color:                                           #f9f9f9;
 
 // Comments
 $comment-by-author-bg-color:                                    #f9f9f9;
 $comment-by-author-border-color:                                #202020;
 
-$comment-content-bg-color:                                      #eee;
 $comment-content-border-color:                                  #ddd;
-$comment-image-border-color:                                    #eee;
-$comment-date-color:                                            #999;
-$comment-gravatar-bg-color:                                     #fff;
-$comment-gravatar-border-color:                                 #e3e3e3;
-
-$comment-children-border-top-color:                             #f8f8f8;
-$comment-children-border-left-color:                            #eee;
-
-$comment-form-avatar-border-color:                              #eee;
-$comment-form-text-area-border-color:                           #999;
-$comment-form-label-color:                                      #777;
-
-$comment-navigation-link-color:                                 #999;
-
-$post-no-comments-heading-color:                                #444;
 
 // Widgets
 $widget-title-border-color:                                     #e0e0e0;
@@ -142,9 +96,6 @@ $widget-calendar-table-footer-data-link-color:                  #999;
 
 $widget-tagcloud-bg-color:                                      #f5f5f5;
 
-$widget-jetpack-subscription-bg-color:                          #fff;
-$widget-jetpack-contact-form-span-color:                        #aaa;
-
 // Footer
 $footer-bg-color:                                               #e0e0e0;
 $footer-subfloor-bg-color:                                      #000;
@@ -159,10 +110,7 @@ $footer-widget-navmenu-ul-submenu-border-color:                 #E0E0E0;
 
 // Social
 // ---------------------------------
-
 $social-icon-font-size:                                         14px;
-$lighten-or-darken:                                             lighten;
-$hover-percentage:                                              10%;
 
 // Colors
 $twitter-blue:                                                  #1dadeb;
@@ -300,10 +248,3 @@ $footer-bg-color-dark:                                         #191919;
 
 // Misc
 $well-bg-color-dark:                                           #222;
-
-
-// IE
-// ---------------------------------
-
-$ie-caption-bg-color:                                           #f6f6f6;
-$ie-post-format-status-border-color:                            #f6f6f6;
