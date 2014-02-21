@@ -118,18 +118,18 @@ module.exports = function(grunt) {
             },
             bootstrap: {
                 src: [
-                    'js/lib/bootstrap/transition.js'
-//                    ,'js/lib/bootstrap/alert.js'
-                    ,'js/lib/bootstrap/button.js'
-                    ,'js/lib/bootstrap/carousel.js'
-                    ,'js/lib/bootstrap/collapse.js'
-                    ,'js/lib/bootstrap/dropdown.js'
-//                    ,'js/lib/bootstrap/modal.js'
-//                    ,'js/lib/bootstrap/tooltip.js'
-//                    ,'js/lib/bootstrap/popover.js'
-//                    ,'js/lib/bootstrap/scrollspy.js'
-                    ,'js/lib/bootstrap/tab.js'
-//                    ,'js/lib/bootstrap/affix.js'
+                    'bower_components/bootstrap-sass/js/affix.js'
+//                    ,'bower_components/bootstrap-sass/js/alert.js'
+                    ,'bower_components/bootstrap-sass/js/button.js'
+                    ,'bower_components/bootstrap-sass/js/carousel.js'
+                    ,'bower_components/bootstrap-sass/js/collapse.js'
+                    ,'bower_components/bootstrap-sass/js/dropdown.js'
+//                    ,'bower_components/bootstrap-sass/js/modal.js'
+//                    ,'bower_components/bootstrap-sass/js/tooltip.js'
+//                    ,'bower_components/bootstrap-sass/js/popover.js'
+//                    ,'bower_components/bootstrap-sass/js/scrollspy.js'
+                    ,'bower_components/bootstrap-sass/js/tab.js'
+//                    ,'bower_components/bootstrap-sass/js/affix.js'
                 ],
                 dest: 'js/lib/bootstrap.min.js'
             }
@@ -143,9 +143,9 @@ module.exports = function(grunt) {
                 },
                 files: {
                     'js/theme.main.min.js': [
-                        'js/dev/theme.*.js',
-                        'js/lib/fitvids/*.js',
-                        'js/lib/bootstrap.min.js'
+                        'js/lib/bootstrap.min.js',
+                        'bower_components/fitvids/jquery.fitvids.js',
+                        'js/dev/theme.*.js'
                     ]
                 }
             },
@@ -169,7 +169,7 @@ module.exports = function(grunt) {
                     preserveComments: 'some'
                 },
                 files: {
-                    'js/md5.min.js': ['js/lib/md5/*.js']
+                    'js/md5.min.js': ['bower_components/js-md5/js/md5.min.js']
                 }
             },
 
@@ -357,24 +357,6 @@ module.exports = function(grunt) {
             font_awesome_fonts: {
                 src: 'bower_components/font-awesome/fonts/*',
                 dest: 'fonts/',
-                expand: true,
-                flatten: true
-            },
-            fitvids: {
-                src: 'bower_components/fitvids/jquery.fitvids.js',
-                dest: 'js/lib/fitvids',
-                expand: true,
-                flatten: true
-            },
-            md5: {
-                src: 'bower_components/js-md5/js/md5.js',
-                dest: 'js/lib/md5',
-                expand: true,
-                flatten: true
-            },
-            bootstrap_js: {
-                src: 'bower_components/bootstrap/js/*.js',
-                dest: 'js/lib/bootstrap',
                 expand: true,
                 flatten: true
             }
