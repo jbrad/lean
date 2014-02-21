@@ -122,7 +122,7 @@ code, pre {
     padding: 0 3px 2px;
     font-family: Monaco, Andale Mono, Courier New, monospace;
     font-size: 12px;
-    @include border_radius(3px);
+    @include border-radius(3px);
 }
 
 code {
@@ -143,7 +143,7 @@ pre {
     white-space: pre;
     white-space: pre-wrap;
     word-wrap: break-word;
-    @include border_radius(3px);
+    @include border-radius(3px);
 }
 
 // Image styling

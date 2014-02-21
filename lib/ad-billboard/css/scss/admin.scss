@@ -18,7 +18,7 @@
     opacity: 1;
     cursor: pointer;
     height: 32px;
-    @include ease_in();
+    @include ease-in();
 
     &:hover {
       opacity: 0.6;

@@ -6,7 +6,7 @@
   .preview_image_container {
     opacity: 1;
     cursor: pointer;
-    @include ease_in();
+    @include ease-in();
 
     &:hover {
       opacity: 0.6;

@@ -9,8 +9,8 @@
 @import "variables";
 
 body {
-    color: $body_color_light;
-    background: $body_bg_color_light;
+    color: $body-color-light;
+    background: $body-bg-color-light;
 }
 
 h1,
@@ -19,18 +19,18 @@ h3,
 h4,
 h5,
 h6 {
-    color: $heading_color_light;
+    color: $heading-color-light;
 }
 
 #site-title,
 #site-title a {
-    color: $site_title_color_light;
+    color: $site-title-color-light;
 }
 
 .breadcrumb {
-    background: $breadcrumb_bg_color_light;
+    background: $breadcrumb-bg-color-light;
     box-shadow: none;
-    border-color: $breadcrumb_border_color_light;
+    border-color: $breadcrumb-border-color-light;
 
     li {
         text-shadow: none;
@@ -38,7 +38,7 @@ h6 {
 }
 
 .panel {
-    border-color: $panel_bg_color_light;
+    border-color: $panel-bg-color-light;
 }
 
 .post,
@@ -46,149 +46,149 @@ h6 {
 #pings,
 #no-comments,
 #respond {
-    background: $post_bg_color_light;
+    background: $post-bg-color-light;
 }
 
 .post-title a,
 .post-title a:visited {
-    color: $post_title_color_light;
+    color: $post-title-color-light;
 }
 
 .post-header,
 .post-meta {
-    border-color: $post_header_border_color_light;
+    border-color: $post-header-border-color-light;
 }
 
 .post.format-status .post-header {
-    @include gradient-vertical($post_format_status_post_header_gradient_start_light, $post_format_status_post_header_gradient_end_light);
+    @include gradient-vertical($post-format-status-post-header-gradient-start-light, $post-format-status-post-header-gradient-end-light);
     @include box-shadow(none);
 }
 
 .post.format-quote {
 
     .post-header {
-        background-color: $post_format_quote_background_color_light;
+        background-color: $post-format-quote-background-color-light;
     }
 
     .entry-content:before {
-        border-color: $post_format_quote_background_color_light transparent transparent transparent;
+        border-color: $post-format-quote-background-color-light transparent transparent transparent;
     }
 }
 
 .post.format-quote .post-header .entry-content p {
-    color: $post_format_quote_header_p_color_light;
+    color: $post-format-quote-header-p-color-light;
 }
 
 .post.format-aside .aside-date {
-    background: $post_format_aside_color_light;
+    background: $post-format-aside-color-light;
 }
 
 .post.format-chat .post-header {
-    background-color: $post_format_chat_post_header_bg_color_light;
+    background-color: $post-format-chat-post-header-bg-color-light;
     background-image: none;
     @include box-shadow(none);
 }
 
 .post.format-audio .post-meta {
-    background: $post_format_audio_post_meta_color;
+    background: $post-format-audio-post-meta-color;
 }
 
 .entry-content .wp-caption {
-    background: $caption_bg_color_light;
-    border: 1px solid $caption_border_color_light;
+    background: $caption-bg-color-light;
+    border: 1px solid $caption-border-color-light;
 }
 
 .well {
-    background: $well_bg_color_light;
+    background: $well-bg-color-light;
     border: none;
 }
 
 // author box
 #author-box .author-link {
-    color: $post_author_box_link_color_light;
+    color: $post-author-box-link-color-light;
 }
 
 .page-link {
-    border-color: $page_link_color_light;
+    border-color: $page-link-color-light;
 }
 
 #comments {
 
     .comment-container .comment-entry .name {
-        color: $comment_content_color_light;
+        color: $comment-content-color-light;
     }
 
     .date a {
-        color: $comment_date_link_color_light;
+        color: $comment-date-link-color-light;
     }
 
     .comment-container {
-        border-color: $comment_content_border_color_light;
+        border-color: $comment-content-border-color-light;
     }
 
     > ol > li > ul.children > li .comment-container {
-        border-color: $comment_content_children_border_color_light;
+        border-color: $comment-content-children-border-color-light;
     }
 
     .bypostauthor > .comment-container {
-        background: $comment_by_author_color_light;
-        border-right: 5px solid $comment_by_author_border_color_light;
+        background: $comment-by-author-color-light;
+        border-right: 5px solid $comment-by-author-border-color-light;
     }
 }
 
 // jetpack comments
 .comment-container #respond,
 #respond {
-    background: $widget_jetpack_comment_bg_color_light;
+    background: $widget-jetpack-comment-bg-color-light;
     padding: 20px;
 }
 
 .pager li > a {
-    background-color: $pager_bg_color_light;
-    border: 1px solid $pager_border_color_light;
+    background-color: $pager-bg-color-light;
+    border: 1px solid $pager-border-color-light;
 
     &:hover {
-        background-color: $pager_bg_color_hover_light;
-        color: $pager_border_color_hover_light;
+        background-color: $pager-bg-color-hover-light;
+        color: $pager-border-color-hover-light;
     }
 }
 
 #sidebar {
-    color: $sidebar_color;
+    color: $sidebar-color;
 }
 
 .widget h4.widget-title {
-    color: $widget_heading_color;
+    color: $widget-heading-color;
 }
 
 table#wp-calendar {
 
     caption {
-        background-color: $calendar_bg_color_light;
-        border: 1px solid $calendar_border_color_light;
+        background-color: $calendar-bg-color-light;
+        border: 1px solid $calendar-border-color-light;
     }
 
     td {
-        background: $calendar_td_background_color_light;
-        color: $calendar_td_color_light;
+        background: $calendar-td-background-color-light;
+        color: $calendar-td-color-light;
 
         &:hover {
-            background: $calendar_td_color_hover_light;
+            background: $calendar-td-color-hover-light;
         }
     }
 
     tfoot td {
-        background: $calendar_td_background_color_light;
-        color: $calendar_td_color_light;
+        background: $calendar-td-background-color-light;
+        color: $calendar-td-color-light;
     }
 }
 
 .tagcloud a {
-    background: $tags_bg_color_light;
+    background: $tags-bg-color-light;
 }
 
 #footer {
-    background: $footer_bg_color_light;
+    background: $footer-bg-color-light;
 }
 
 h2 {
@@ -200,11 +200,11 @@ h2 {
         .fa-calendar,
         .fa-list,
         .fa-list-alt {
-            color: $page_template_heading_color_light;
+            color: $page-template-heading-color-light;
         }
     }
 }
 
 .error404 #nothing-found h1 {
-    color: $nothing_found_color_light;
+    color: $nothing-found-color-light;
 }

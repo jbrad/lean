@@ -27,7 +27,7 @@
         -webkit-border-radius: 5px;
         -moz-border-radius: 5px;
         border-radius: 5px;
-        @include ease_in();
+        @include ease-in();
     }
 
     .alert-info {

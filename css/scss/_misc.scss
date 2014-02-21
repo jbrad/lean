@@ -12,7 +12,7 @@ body * {
 }
 
 a {
-    @include ease_in();
+    @include ease-in();
 
     &:hover {
         text-decoration: none;
@@ -56,7 +56,7 @@ img {
 .fademe img,
 a img {
     opacity: 1;
-    @include ease_in();
+    @include ease-in();
 
     &:hover {
         opacity: 0.5;

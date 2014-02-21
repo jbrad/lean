@@ -6,7 +6,7 @@
 @import "variables";
 
 .format-audio {
-    background: $post_format_audio_bg_color;
+    background: $post-format-audio-bg-color;
 
     .mejs-container,
     embed {
@@ -32,6 +32,6 @@
     }
 
     .post-meta {
-        background: $post_format_audio_post_meta_bg_color;
+        background: $post-format-audio-post-meta-bg-color;
     }
 }

@@ -166,7 +166,7 @@
     .navbar ul.nav-menu {
         margin-top: 15px;
         padding-top: 10px;
-        border-top: 1px solid $navigation_mobile_ul_border_color;
+        border-top: 1px solid $navigation-mobile-ul-border-color;
 
         > li a {
             padding: 10px 15px;
@@ -179,13 +179,13 @@
 
     .nav-collapse .dropdown-menu {
         display: block;
-        background: $navigation_mobile_dropdown_border_color;
+        background: $navigation-mobile-dropdown-border-color;
 
         li.active a {
-            color: $navigation_mobile_dropdown_active_item_color;
+            color: $navigation-mobile-dropdown-active-item-color;
 
             &:hover {
-                color: $navigation_mobile_dropdown_active_item_hover_color;
+                color: $navigation-mobile-dropdown-active-item-hover-color;
             }
         }
 
@@ -194,7 +194,7 @@
             border: none;
 
             &:hover {
-                color: $navigation_mobile_dropdown_item_hover_color;
+                color: $navigation-mobile-dropdown-item-hover-color;
             }
         }
     }

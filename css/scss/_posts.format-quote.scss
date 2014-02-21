@@ -16,7 +16,7 @@
         margin-bottom: 5px;
         padding-bottom: 30px;
         border-bottom: 0;
-        background-color: $post_format_quote_bg_color;
+        background-color: $post-format-quote-bg-color;
 
         .entry-content {
             padding-bottom: 0;
@@ -47,7 +47,7 @@
         height: 0px;
         border-style: solid;
         border-width: 30px 30px 0px 0px;
-        border-color: $post_format_quote_bg_color transparent transparent transparent;
+        border-color: $post-format-quote-bg-color transparent transparent transparent;
         line-height: 0px;
         -webkit-transform: rotate(85deg);
     }

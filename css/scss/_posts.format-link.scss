@@ -8,15 +8,16 @@
 .format-link {
 
     .post-title {
-        color: $post_format_link_post_title_color;
+        color: $post-format-link-post-title-color;
         font-size: 24px;
         line-height: 120%;
 
-        a, a:visited {
-            color: $post_format_link_post_title_visited_color;
+        a,
+        a:visited {
+            color: $post-format-link-post-title-visited-color;
 
             &:hover {
-                color: $post_format_link_post_title_hover_color;
+                color: $post-format-link-post-title-hover-color;
             }
         }
     }
@@ -26,7 +27,7 @@
         padding: 0 0 20px 0;
         border-bottom: 0;
         min-height: 60px;
-        background: $post_format_link_post_title_bg_color;
+        background: $post-format-link-post-title-bg-color;
 
         .fa-link {
             font-size: 48px;

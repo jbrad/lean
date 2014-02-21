@@ -20,8 +20,8 @@
 
         a {
             padding: 8px 15px;
-            border-bottom: 1px solid $navigation_dropdown_border_bottom_color;
-            color: $navigation_dropdown_item_color;
+            border-bottom: 1px solid $navigation-dropdown-border-bottom-color;
+            color: $navigation-dropdown-item-color;
         }
 
         li:last-child > a {
@@ -31,17 +31,17 @@
         > li a:hover,
         > li.active a:hover {
             background: none;
-            color: $navigation_dropdown_item_hover_color;
+            color: $navigation-dropdown-item-hover-color;
         }
 
         .active > a {
             background: none;
-            color: $navigation_dropdown_item_active_color;
+            color: $navigation-dropdown-item-active-color;
         }
 
         &.open .dropdown-toggle {
             background: none;
-            color: $navigation_dropdown_open_color;
+            color: $navigation-dropdown-open-color;
         }
     }
 
@@ -167,7 +167,7 @@
 // Post Navigation
 
 .pager a {
-    color: $pager_link_color;
+    color: $pager-link-color;
 }
 
 // infinate handle
@@ -180,7 +180,7 @@
 
 .breadcrumb {
     padding: 4px 17px;
-    background: $breadcrumb_bg_color;
+    background: $breadcrumb-bg-color;
 
     .active {
         display: inline;

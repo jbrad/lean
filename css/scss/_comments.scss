@@ -14,7 +14,7 @@
 }
 
 .media {
-    border-bottom: 1px solid $comment_content_border_color;
+    border-bottom: 1px solid $comment-content-border-color;
     padding: 10px;
 
     &:last-child {
@@ -27,13 +27,13 @@
 }
 
 ul .media {
-    border-left: 1px solid $comment_content_border_color;
+    border-left: 1px solid $comment-content-border-color;
     margin-top: 0;
 }
 
 .bypostauthor {
-    border-right: 5px solid $comment_by_author_border_color;
-    background: $comment_by_author_bg_color;
+    border-right: 5px solid $comment-by-author-border-color;
+    background: $comment-by-author-bg-color;
 }
 
 .form-allowed-tags .btn-link {

@@ -4,13 +4,13 @@
 // @since 1.0
 // 
 
-@mixin border_radius($radius: 4px) {
+@mixin border-radius($radius: 4px) {
     -webkit-border-radius: $radius;
     -moz-border-radius: $radius;
     border-radius: $radius;
 }
 
-@mixin ease_in() {
+@mixin ease-in() {
     -webkit-transition: opacity .25s ease-in-out;
     -moz-transition: opacity .25s ease-in-out;
     -ms-transition: opacity .25s ease-in-out;
@@ -18,7 +18,7 @@
     transition: opacity .25s ease-in-out;
 }
 
-@mixin social-sharing-icons($hoverColor: $gray_dark) {
+@mixin social-sharing-icons($hoverColor: $gray-dark) {
     color: $hoverColor;
     @include share-icons-defaults();
 

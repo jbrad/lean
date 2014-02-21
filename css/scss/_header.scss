@@ -15,7 +15,7 @@
 
 #site-title,
 #site-title a {
-    color: $site_title_color;
+    color: $site-title-color;
     text-decoration: none;
     font-weight: bold;
     font-size: 32px;
@@ -25,13 +25,13 @@
     &:hover,
     &:focus,
     &:active {
-        color: $site_title_hover_color;
+        color: $site-title-hover-color;
     }
 
 }
 
 #site-description {
-    color: $site_description_color;
+    color: $site-description-color;
     font-size: 14px;
 }
 

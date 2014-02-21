@@ -8,154 +8,154 @@
 // ---------------------------------
 
 // Body
-$body_bg_color:                                                 #efefef;
+$body-bg-color:                                                 #efefef;
 
 // Header
-$site_title_color:                                              #000;
-$site_title_hover_color:                                        #454545;
-$site_description_color:                                        #7a7a7a;
+$site-title-color:                                              #000;
+$site-title-hover-color:                                        #454545;
+$site-description-color:                                        #7a7a7a;
 
 // Navigation
-$navigation_item_color:                                         #999;
-$navigation_item_hover_color:                                   #fff;
-$navigation_dropdown_item_color:                                #888;
-$navigation_dropdown_item_hover_color:                          #222;
-$navigation_dropdown_item_active_color:                         $navigation_dropdown_item_hover_color;
-$navigation_dropdown_open_color:                                #888;
-$navigation_dropdown_border_bottom_color:                       #e4e4e4;
+$navigation-item-color:                                         #999;
+$navigation-item-hover-color:                                   #fff;
+$navigation-dropdown-item-color:                                #888;
+$navigation-dropdown-item-hover-color:                          #222;
+$navigation-dropdown-item-active-color:                         $navigation-dropdown-item-hover-color;
+$navigation-dropdown-open-color:                                #888;
+$navigation-dropdown-border-bottom-color:                       #e4e4e4;
 
 // Mobile Navigation
-$navigation_mobile_ul_border_color:                             #444;
-$navigation_mobile_dropdown_border_color:                       #282828;
-$navigation_mobile_dropdown_item_hover_color:                   #fff;
-$navigation_mobile_dropdown_active_item_color:                  $navigation_mobile_dropdown_item_hover_color;
-$navigation_mobile_dropdown_active_item_hover_color:            $navigation_mobile_dropdown_active_item_color;
+$navigation-mobile-ul-border-color:                             #444;
+$navigation-mobile-dropdown-border-color:                       #282828;
+$navigation-mobile-dropdown-item-hover-color:                   #fff;
+$navigation-mobile-dropdown-active-item-color:                  $navigation-mobile-dropdown-item-hover-color;
+$navigation-mobile-dropdown-active-item-hover-color:            $navigation-mobile-dropdown-active-item-color;
 
 // Pages
-$page_template_heading_border_color:                            #eee;
-$page_template_heading_icon_color:                              #333;
+$page-template-heading-border-color:                            #eee;
+$page-template-heading-icon-color:                              #333;
 
-$page_template_sitemap_img_bg_color:                            #f9f9f9;
-$page_template_sitemap_img_border_color:                        #eee;
+$page-template-sitemap-img-bg-color:                            #f9f9f9;
+$page-template-sitemap-img-border-color:                        #eee;
 
-$page_template_archive_heading_color:                           #999;
-$page_template_archive_date_color:                              #999;
+$page-template-archive-heading-color:                           #999;
+$page-template-archive-date-color:                              #999;
 
-$page_template_home_bg_color:                                   #fff;
+$page-template-home-bg-color:                                   #fff;
 
-$page_template_offline_message_border_color:                    #e0e0e0;
+$page-template-offline-message-border-color:                    #e0e0e0;
 
-$page_template_nothing_found_heading_color:                     #000;
+$page-template-nothing-found-heading-color:                     #000;
 
 // Posts
-$post_bg_color:                                                 #fff;
+$post-bg-color:                                                 #fff;
 
-$post_author_box_link_color:                                    #999;
+$post-author-box-link-color:                                    #999;
 
-$post_post_header_border_color:                                 #eee;
-$post_post_header_meta_color:                                   #999;
+$post-post-header-border-color:                                 #eee;
+$post-post-header-meta-color:                                   #999;
 
-$post_post_title_color:                                         #444;
-$post_post_title_hover_color:                                   #888;
+$post-post-title-color:                                         #444;
+$post-post-title-hover-color:                                   #888;
 
-$post_post_caption_bg_color:                                    #f8f8f8;
-$post_post_caption_color:                                       #888;
+$post-post-caption-bg-color:                                    #f8f8f8;
+$post-post-caption-color:                                       #888;
 
-$post_post_meta_color:                                          #888;
-$post_post_meta_border_color:                                   #eee;
-$post_permalink_hover_color:                                    #e0e0e0;
+$post-post-meta-color:                                          #888;
+$post-post-meta-border-color:                                   #eee;
+$post-permalink-hover-color:                                    #e0e0e0;
 
-$post_post_table_border_color:                                  #ddd;
+$post-post-table-border-color:                                  #ddd;
 
-$post_format_aside_date_color:                                  #fff;
-$post_format_aside_date_bg_color:                               #101010;
+$post-format-aside-date-color:                                  #fff;
+$post-format-aside-date-bg-color:                               #101010;
 
-$post_format_audio_bg_color:                                    #f5f5f5;
-$post_format_audio_post_meta_bg_color:                          #fff;
+$post-format-audio-bg-color:                                    #f5f5f5;
+$post-format-audio-post-meta-bg-color:                          #fff;
 
-$post_format_chat_bg_color:                                     #fcfcfc;
+$post-format-chat-bg-color:                                     #fcfcfc;
 
-$post_format_link_post_title_color:                             #f0f0f0;
-$post_format_link_post_title_visited_color:                     $post_format_link_post_title_color;
-$post_format_link_post_title_hover_color:                       #999;
-$post_format_link_post_title_bg_color:                          #28292d;
+$post-format-link-post-title-color:                             #f0f0f0;
+$post-format-link-post-title-visited-color:                     $post-format-link-post-title-color;
+$post-format-link-post-title-hover-color:                       #999;
+$post-format-link-post-title-bg-color:                          #28292d;
 
-$post_format_quote_bg_color:                                    #c0dadf;
+$post-format-quote-bg-color:                                    #c0dadf;
 
-$post_format_status_post_header_bg_color:                       #f5f5f5;
+$post-format-status-post-header-bg-color:                       #f5f5f5;
 
-$post_sticky_color:                                             #999;
-$post_sticky_bg_color:                                          #fff;
-$post_sticky_border_color:                                      #eee;
+$post-sticky-color:                                             #999;
+$post-sticky-bg-color:                                          #fff;
+$post-sticky-border-color:                                      #eee;
 
-$pager_link_color:                                              #777;
+$pager-link-color:                                              #777;
 
-$page_link_color:                                               #eee;
+$page-link-color:                                               #eee;
 
-$breadcrumb_bg_color:                                           #f9f9f9;
+$breadcrumb-bg-color:                                           #f9f9f9;
 
 // Comments
-$comment_by_author_bg_color:                                    #f9f9f9;
-$comment_by_author_border_color:                                #202020;
+$comment-by-author-bg-color:                                    #f9f9f9;
+$comment-by-author-border-color:                                #202020;
 
-$comment_content_bg_color:                                      #eee;
-$comment_content_border_color:                                  #ddd;
-$comment_image_border_color:                                    #eee;
-$comment_date_color:                                            #999;
-$comment_gravatar_bg_color:                                     #fff;
-$comment_gravatar_border_color:                                 #e3e3e3;
+$comment-content-bg-color:                                      #eee;
+$comment-content-border-color:                                  #ddd;
+$comment-image-border-color:                                    #eee;
+$comment-date-color:                                            #999;
+$comment-gravatar-bg-color:                                     #fff;
+$comment-gravatar-border-color:                                 #e3e3e3;
 
-$comment_children_border_top_color:                             #f8f8f8;
-$comment_children_border_left_color:                            #eee;
+$comment-children-border-top-color:                             #f8f8f8;
+$comment-children-border-left-color:                            #eee;
 
-$comment_form_avatar_border_color:                              #eee;
-$comment_form_text_area_border_color:                           #999;
-$comment_form_label_color:                                      #777;
+$comment-form-avatar-border-color:                              #eee;
+$comment-form-text-area-border-color:                           #999;
+$comment-form-label-color:                                      #777;
 
-$comment_navigation_link_color:                                 #999;
+$comment-navigation-link-color:                                 #999;
 
-$post_no_comments_heading_color:                                #444;
+$post-no-comments-heading-color:                                #444;
 
 // Widgets
-$widget_title_border_color:                                     #e0e0e0;
-$widget_title_link_color:                                       #444;
+$widget-title-border-color:                                     #e0e0e0;
+$widget-title-link-color:                                       #444;
 
-$widget_ul_link_color:                                          #777;
-$widget_ul_link_hover_color:                                    #999;
+$widget-ul-link-color:                                          #777;
+$widget-ul-link-hover-color:                                    #999;
 
-$widget_category_ul_children_border_color:                      #E0E0E0;
+$widget-category-ul-children-border-color:                      #E0E0E0;
 
-$widget_rss_link_color:                                         #444;
-$widget_rss_summary_color:                                      #404040;
+$widget-rss-link-color:                                         #444;
+$widget-rss-summary-color:                                      #404040;
 
-$widget_calendar_bg_color:                                      #fff;
-$widget_calendar_caption_color:                                 #999;
-$widget_calendar_table_header_color:                            #f0f0f0;
-$widget_calendar_table_header_bg_color:                         #333;
-$widget_calendar_table_data_bg_color:                           #fff;
-$widget_calendar_table_data_bg_hover_color:                     #f5f5f5;
-$widget_calendar_table_footer_bg_color:                         #f8f8f8;
-$widget_calendar_table_footer_data_border_color:                #e0e0e0;
-$widget_calendar_table_footer_data_bg_start_color:              #f5f5f5;
-$widget_calendar_table_footer_data_bg_stop_color:               #fff;
-$widget_calendar_table_footer_data_link_color:                  #999;
+$widget-calendar-bg-color:                                      #fff;
+$widget-calendar-caption-color:                                 #999;
+$widget-calendar-table-header-color:                            #f0f0f0;
+$widget-calendar-table-header-bg-color:                         #333;
+$widget-calendar-table-data-bg-color:                           #fff;
+$widget-calendar-table-data-bg-hover-color:                     #f5f5f5;
+$widget-calendar-table-footer-bg-color:                         #f8f8f8;
+$widget-calendar-table-footer-data-border-color:                #e0e0e0;
+$widget-calendar-table-footer-data-bg-start-color:              #f5f5f5;
+$widget-calendar-table-footer-data-bg-stop-color:               #fff;
+$widget-calendar-table-footer-data-link-color:                  #999;
 
-$widget_tagcloud_bg_color:                                      #f5f5f5;
+$widget-tagcloud-bg-color:                                      #f5f5f5;
 
-$widget_jetpack_subscription_bg_color:                          #fff;
-$widget_jetpack_contact_form_span_color:                        #aaa;
+$widget-jetpack-subscription-bg-color:                          #fff;
+$widget-jetpack-contact-form-span-color:                        #aaa;
 
 // Footer
-$footer_bg_color:                                               #e0e0e0;
-$footer_subfloor_bg_color:                                      #000;
+$footer-bg-color:                                               #e0e0e0;
+$footer-subfloor-bg-color:                                      #000;
 
-$footer_credit_color:                                           #666;
-$footer_credit_link_color:                                      #999;
-$footer_credit_link_hover_color:                                #fff;
+$footer-credit-color:                                           #666;
+$footer-credit-link-color:                                      #999;
+$footer-credit-link-hover-color:                                #fff;
 
-$footer_widget_title_border_color:                              #999;
-$footer_widget_ul_submenu_border_color:                         #999;
-$footer_widget_navmenu_ul_submenu_border_color:                 #E0E0E0;
+$footer-widget-title-border-color:                              #999;
+$footer-widget-ul-submenu-border-color:                         #999;
+$footer-widget-navmenu-ul-submenu-border-color:                 #E0E0E0;
 
 // Social
 // ---------------------------------
@@ -225,85 +225,85 @@ $moz-input-disabled-color:                                      #ccc;
 // ---------------------------------
 
 // Body
-$body_bg_color_light:                                           #090909;
-$body_color_light:                                              #eee;
+$body-bg-color-light:                                           #090909;
+$body-color-light:                                              #eee;
 
 // Header
-$heading_color_light:                                           #e0e0e0;
+$heading-color-light:                                           #e0e0e0;
 
-$site_title_color_light:                                        #fff;
+$site-title-color-light:                                        #fff;
 
 // Posts
-$panel_bg_color_light:                                          #333;
-$post_bg_color_light:                                           #222;
-$post_title_color_light:                                        #eee;
-$post_header_border_color_light:                                #303030;
-$post_author_box_link_color_light:                              #eee;
+$panel-bg-color-light:                                          #333;
+$post-bg-color-light:                                           #222;
+$post-title-color-light:                                        #eee;
+$post-header-border-color-light:                                #303030;
+$post-author-box-link-color-light:                              #eee;
 
-$post_format_quote_header_p_color_light:                        #444;
-$post_format_quote_background_color_light:                      #28292d;
+$post-format-quote-header-p-color-light:                        #444;
+$post-format-quote-background-color-light:                      #28292d;
 
-$post_format_aside_color_light:                                 #28292d;
+$post-format-aside-color-light:                                 #28292d;
 
-$post_format_chat_post_header_bg_color_light:                   #28292d;
+$post-format-chat-post-header-bg-color-light:                   #28292d;
 
-$post_format_status_post_header_gradient_start_light:           #2c2c2c;
-$post_format_status_post_header_gradient_end_light:             #282828;
+$post-format-status-post-header-gradient-start-light:           #2c2c2c;
+$post-format-status-post-header-gradient-end-light:             #282828;
 
-$post_format_audio_post_meta_color:                             #222;
+$post-format-audio-post-meta-color:                             #222;
 
-$caption_bg_color_light:                                        #181818;
-$caption_border_color_light:                                    #191919;
+$caption-bg-color-light:                                        #181818;
+$caption-border-color-light:                                    #191919;
 
-$pager_bg_color_light:                                          #333;
-$pager_bg_color_hover_light:                                    $pager_bg_color_light;
-$pager_border_color_light:                                      #222;
-$pager_border_color_hover_light:                                #EEE;
+$pager-bg-color-light:                                          #333;
+$pager-bg-color-hover-light:                                    $pager-bg-color-light;
+$pager-border-color-light:                                      #222;
+$pager-border-color-hover-light:                                #EEE;
 
-$pager_border_color_hover_light:                                #EEE;
+$pager-border-color-hover-light:                                #EEE;
 
-$page_link_color_light:                                         #303030;
+$page-link-color-light:                                         #303030;
 
-$breadcrumb_bg_color_light:                                     #222;
-$breadcrumb_border_color_light:                                 #303030;
+$breadcrumb-bg-color-light:                                     #222;
+$breadcrumb-border-color-light:                                 #303030;
 
 // Comments
-$comment_content_color_light:                                   #999;
-$comment_content_border_color_light:                            #303030;
-$comment_content_children_border_color_light:                   $comment_content_border_color_light;
-$comment_date_link_color_light:                                 #eee;
-$comment_by_author_color_light:                                 #2F2F2F;
-$comment_by_author_border_color_light:                          #F9F9F9;
+$comment-content-color-light:                                   #999;
+$comment-content-border-color-light:                            #303030;
+$comment-content-children-border-color-light:                   $comment-content-border-color-light;
+$comment-date-link-color-light:                                 #eee;
+$comment-by-author-color-light:                                 #2F2F2F;
+$comment-by-author-border-color-light:                          #F9F9F9;
 
 // Pages
-$page_template_heading_color_light:                             #e0e0e0;
-$nothing_found_color_light:                                     #fff;
+$page-template-heading-color-light:                             #e0e0e0;
+$nothing-found-color-light:                                     #fff;
 
 // Sidebar
-$sidebar_color:                                                 #eee;
+$sidebar-color:                                                 #eee;
 
 // Widgets
-$widget_heading_color:                                          #e0e0e0;
+$widget-heading-color:                                          #e0e0e0;
 
-$widget_jetpack_comment_bg_color_light:                         #454545;
+$widget-jetpack-comment-bg-color-light:                         #454545;
 
-$calendar_bg_color_light:                                       #333;
-$calendar_border_color_light:                                   #999;
-$calendar_td_color_light:                                       #fff;
-$calendar_td_color_hover_light:                                 #000;
-$calendar_td_background_color_light:                            #28292d;
+$calendar-bg-color-light:                                       #333;
+$calendar-border-color-light:                                   #999;
+$calendar-td-color-light:                                       #fff;
+$calendar-td-color-hover-light:                                 #000;
+$calendar-td-background-color-light:                            #28292d;
 
-$tags_bg_color_light:                                           #28292d;
+$tags-bg-color-light:                                           #28292d;
 
 // Footer
-$footer_bg_color_light:                                         #191919;
+$footer-bg-color-light:                                         #191919;
 
 // Misc
-$well_bg_color_light:                                           #222;
+$well-bg-color-light:                                           #222;
 
 
 // IE
 // ---------------------------------
 
-$ie_caption_bg_color:                                           #f6f6f6;
-$ie_post_format_status_border_color:                            #f6f6f6;
+$ie-caption-bg-color:                                           #f6f6f6;
+$ie-post-format-status-border-color:                            #f6f6f6;

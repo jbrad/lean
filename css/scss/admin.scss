@@ -195,7 +195,7 @@ table.form-table.disabled {
 .warning {
     background-color: $warning-bg-color;
     border-color: $warning-border-color;
-    @include border_radius(4px);
+    @include border-radius(4px);
 
     p {
         padding: 10px;
