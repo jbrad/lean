@@ -12,7 +12,7 @@
 
 <?php echo isset( $args['before_widget'] ) ? $args['before_widget'] : ''; ?>
     <div class="ad-row widget">
-        <ul class="thumbnails mobile-2 row">
+        <ul class="thumbnails row">
             <li class="col-md-6">
                 <figure class="thumbnail">
                     <?php echo $this->display_ad( $ad1_src, $ad1_url, 1 ); ?>
