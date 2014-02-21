@@ -10,6 +10,10 @@
 
     .navbar-toggle {
         float: left;
+
+        &:focus {
+            outline: none;
+        }
     }
 
     .navbar-brand {

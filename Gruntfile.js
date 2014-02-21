@@ -19,28 +19,28 @@ module.exports = function(grunt) {
     RegExp.quote = require('regexp-quote');
 
     var scssFiles = {
-        "css/admin.css": "css/scss/admin.scss",
-        "css/editor-style.css": "css/scss/editor-style.scss",
-        "css/theme.contrast-light.css": "css/scss/theme.contrast-light.scss",
+        "css/admin.css": "css/sass/admin.scss",
+        "css/editor-style.css": "css/sass/editor-style.scss",
+        "css/theme.contrast-light.css": "css/sass/theme.contrast-light.scss",
 
         "style.css": [
-            "css/scss/style.scss"
-            , 'lib/influence/css/scss/widget.scss'
-            , 'lib/activity/css/scss/widget.scss'
+            "css/sass/style.scss"
+            , 'lib/influence/css/sass/widget.scss'
+            , 'lib/activity/css/sass/widget.scss'
             , 'lib/google-custom-search/css/scss/widget.scss'
-            , 'lib/personal-image/css/scss/widget.scss'
-            , 'lib/ad-125x125/css/scss/widget.scss'
-            , 'lib/ad-billboard/css/scss/widget.scss'
+            , 'lib/personal-image/css/sass/widget.scss'
+            , 'lib/ad-125x125/css/sass/widget.scss'
+            , 'lib/ad-billboard/css/sass/widget.scss'
         ]
 
-        , "lib/activity/css/admin.css": 'lib/activity/css/scss/admin.scss'
-        , "lib/google-custom-search/css/admin.css": 'lib/google-custom-search/css/scss/admin.scss'
-        , "lib/influence/css/admin.css": 'lib/influence/css/scss/admin.scss'
-        , "lib/personal-image/css/admin.css": 'lib/personal-image/css/scss/admin.scss'
-        , "lib/seo/css/admin.css": 'lib/seo/css/scss/admin.scss'
-        , "lib/ad-125x125/css/admin.css": 'lib/ad-125x125/css/scss/admin.scss'
-        , "lib/ad-300x250/css/admin.css": 'lib/ad-300x250/css/scss/admin.scss'
-        , "lib/ad-billboard/css/admin.css": 'lib/ad-billboard/css/scss/admin.scss'
+        , "lib/activity/css/admin.css": 'lib/activity/css/sass/admin.scss'
+        , "lib/google-custom-search/css/admin.css": 'lib/google-custom-search/css/sass/admin.scss'
+        , "lib/influence/css/admin.css": 'lib/influence/css/sass/admin.scss'
+        , "lib/personal-image/css/admin.css": 'lib/personal-image/css/sass/admin.scss'
+        , "lib/seo/css/admin.css": 'lib/seo/css/sass/admin.scss'
+        , "lib/ad-125x125/css/admin.css": 'lib/ad-125x125/css/sass/admin.scss'
+        , "lib/ad-300x250/css/admin.css": 'lib/ad-300x250/css/sass/admin.scss'
+        , "lib/ad-billboard/css/admin.css": 'lib/ad-billboard/css/sass/admin.scss'
     };
 
     grunt.initConfig({
@@ -56,7 +56,7 @@ module.exports = function(grunt) {
                         src: [
                             '**',
                             '!**css/lib/**',
-                            '!**css/scss/**',
+                            '!**css/sass/**',
                             '!Gruntfile.js',
                             '!codekit-config.json',
                             '!package.json',
@@ -393,13 +393,13 @@ module.exports = function(grunt) {
                 files: 'lib/**/js/dev/*.js',
                 tasks: 'jshint:plugins'
             },
-            theme_scss: {
-                files: 'css/scss/*.scss',
-                tasks: 'scss:dev'
+            theme_sass: {
+                files: 'css/sass/*.scss',
+                tasks: 'sass:dev'
             },
-            plugin_scss: {
-                files: 'lib/**/css/scss/*.scss',
-                tasks: 'scss:dev'
+            plugin_sass: {
+                files: 'lib/**/css/sass/*.scss',
+                tasks: 'sass:dev'
             },
             images : {
                 files: 'images/*.png',
@@ -425,9 +425,10 @@ module.exports = function(grunt) {
     });
 
     grunt.registerTask('default', ['watch']);
-    grunt.registerTask('setup', ['copy', 'scss:dev', 'jshint', 'watch']);
-    grunt.registerTask('dist', ['scss:dist', 'jshint', 'concat', 'uglify']);
-    grunt.registerTask('build', ['scss:dist', 'jshint', 'concat', 'uglify', 'imagemin', 'compress']);
+    grunt.registerTask('setup', ['copy', 'sass:dev', 'jshint', 'watch']);
+    grunt.registerTask('setup', ['copy', 'sass:dev', 'jshint', 'watch']);
+    grunt.registerTask('dist', ['sass:dist', 'jshint', 'concat', 'uglify']);
+    grunt.registerTask('build', ['sass:dist', 'jshint', 'concat', 'uglify', 'imagemin', 'compress']);
 
     // Version numbering task.
     // grunt change-version-number --oldver=A.B.C --newver=X.Y.Z
