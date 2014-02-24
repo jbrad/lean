@@ -88,7 +88,22 @@ module.exports = function(grunt) {
                             '!**js/lib/fitvids/**',
                             '!**js/lib/js-md5/**',
                             '!**/node_modules/**',
-                            '!**/bower_components/**'
+                            '!**/bower_components/fitvids/**',
+                            '!**/bower_components/jquery/**',
+                            '!**/bower_components/js-md5/**',
+                            '!**/bower_components/sizzle/**',
+                            '!**/bower_components/bootstrap-sass/*',
+                            '!**/bower_components/bootstrap-sass/_includes/**',
+                            '!**/bower_components/bootstrap-sass/_layouts/**',
+                            '!**/bower_components/bootstrap-sass/dist/**',
+                            '!**/bower_components/bootstrap-sass/docs-assets/**',
+                            '!**/bower_components/bootstrap-sass/examples/**',
+                            '!**/bower_components/bootstrap-sass/fonts/**',
+                            '!**/bower_components/font-awesome/*',
+                            '!**/bower_components/font-awesome/css/**',
+                            '!**/bower_components/font-awesome/fonts/**',
+                            '!**/bower_components/font-awesome/less/**',
+                            '!**/bower_components/font-awesome/src/**'
                         ],
                         dest: '<%= pkg.name %>',
                         filter: 'isFile'
@@ -118,7 +133,7 @@ module.exports = function(grunt) {
             },
             bootstrap: {
                 src: [
-                    'bower_components/bootstrap-sass/js/affix.js'
+                    'bower_components/bootstrap-sass/js/transition.js'
 //                    ,'bower_components/bootstrap-sass/js/alert.js'
                     ,'bower_components/bootstrap-sass/js/button.js'
                     ,'bower_components/bootstrap-sass/js/carousel.js'
