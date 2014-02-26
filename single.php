@@ -22,9 +22,7 @@ if( 1 == $singlePostFullWidth ) {
 
                 <section id="main"
                          role="main"
-                         class="col-12
-                        <?php echo 'full_width_layout' == $presentation_options['layout'] || $singlePostFullWidth ? 'col-md-12' : 'col-md-8 col-sm-8'; ?>
-                        <?php echo 'left_sidebar_layout' == $presentation_options['layout'] ? ' col-md-push-4' : ''; ?>">
+                         class="col-12 <?php echo 'full_width_layout' == $presentation_options['layout'] || $singlePostFullWidth ? 'col-md-12' : 'col-md-8 col-sm-8'; ?> <?php echo 'left_sidebar_layout' == $presentation_options['layout'] ? ' col-md-push-4' : ''; ?>">
 
                     <?php get_template_part( 'breadcrumbs' ); ?>
 

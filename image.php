@@ -16,9 +16,7 @@
 
                 <section id="main"
                          role="main"
-                         class="col-12
-                        <?php echo 'full_width_layout' == $presentation_options['layout'] || get_post_meta( get_the_ID(), 'standard_seo_post_level_layout', true ) ? 'col-md-12' : 'col-md-8 col-sm-8'; ?>
-                        <?php echo 'left_sidebar_layout' == $presentation_options['layout'] ? ' col-md-push-4' : ''; ?>">
+                         class="col-12 <?php echo 'full_width_layout' == $presentation_options['layout'] || get_post_meta( get_the_ID(), 'standard_seo_post_level_layout', true ) ? 'col-md-12' : 'col-md-8 col-sm-8'; ?> <?php echo 'left_sidebar_layout' == $presentation_options['layout'] ? ' col-md-push-4' : ''; ?>">
 
                     <?php get_template_part( 'breadcrumbs' ); ?>
 
