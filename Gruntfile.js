@@ -11,8 +11,8 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-compress');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-sed');
-    grunt.loadNpmTasks('grunt-sass');
 
     RegExp.quote = require('regexp-quote');
 
@@ -177,15 +177,7 @@ module.exports = function(grunt) {
         sass: {
             dist: {
                 options: {
-                    includePaths: ['css/scss'],
-                    outputStyle: 'compressed'
-                },
-                files: scssFiles
-            },
-            dev: {
-                options: {
-                    includePaths: ['css/scss'],
-                    outputStyle: 'nested'
+                    style: 'compressed'
                 },
                 files: scssFiles
             }
@@ -237,10 +229,10 @@ module.exports = function(grunt) {
     });
 
     grunt.registerTask('default', ['watch']);
-    grunt.registerTask('setup', ['copy', 'sass:dev', 'jshint', 'watch']);
-    grunt.registerTask('setup', ['copy', 'sass:dev', 'jshint', 'watch']);
-    grunt.registerTask('dist', ['sass:dist', 'jshint', 'concat', 'uglify']);
-    grunt.registerTask('build', ['sass:dist', 'jshint', 'concat', 'uglify', 'compress']);
+    grunt.registerTask('setup', ['copy', 'sass', 'jshint', 'watch']);
+    grunt.registerTask('setup', ['copy', 'sass', 'jshint', 'watch']);
+    grunt.registerTask('dist', ['sass', 'jshint', 'concat', 'uglify']);
+    grunt.registerTask('build', ['sass', 'jshint', 'concat', 'uglify', 'compress']);
 
     // Version numbering task.
     // grunt change-version-number --oldver=A.B.C --newver=X.Y.Z
