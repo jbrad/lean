@@ -64,43 +64,6 @@ module.exports = function(grunt) {
                     }
                 ]
             },
-            designer: {
-                options: {
-                    archive: '../<%= pkg.name %>-versions/designer/<%= pkg.name %>.zip'
-                },
-                files: [
-                    {
-                        src: [
-                            '**',
-                            '!Gruntfile.js',
-                            '!package.json',
-                            '!bower.json',
-                            '!**js/lib/bootstrap/**',
-                            '!**js/lib/fitvids/**',
-                            '!**js/lib/js-md5/**',
-                            '!**/node_modules/**',
-                            '!**/bower_components/fitvids/**',
-                            '!**/bower_components/jquery/**',
-                            '!**/bower_components/js-md5/**',
-                            '!**/bower_components/sizzle/**',
-                            '!**/bower_components/bootstrap-sass/*',
-                            '!**/bower_components/bootstrap-sass/_includes/**',
-                            '!**/bower_components/bootstrap-sass/_layouts/**',
-                            '!**/bower_components/bootstrap-sass/dist/**',
-                            '!**/bower_components/bootstrap-sass/docs-assets/**',
-                            '!**/bower_components/bootstrap-sass/examples/**',
-                            '!**/bower_components/bootstrap-sass/fonts/**',
-                            '!**/bower_components/font-awesome/*',
-                            '!**/bower_components/font-awesome/css/**',
-                            '!**/bower_components/font-awesome/fonts/**',
-                            '!**/bower_components/font-awesome/less/**',
-                            '!**/bower_components/font-awesome/src/**'
-                        ],
-                        dest: '<%= pkg.name %>',
-                        filter: 'isFile'
-                    }
-                ]
-            },
             developer: {
                 options: {
                     archive: '../<%= pkg.name %>-versions/developer/<%= pkg.name %>.zip'
