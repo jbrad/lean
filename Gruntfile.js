@@ -19,20 +19,11 @@ module.exports = function(grunt) {
     RegExp.quote = require('regexp-quote');
 
     var scssFiles = {
-        "css/admin.css": "css/sass/admin.scss",
-        "css/editor-style.css": "css/sass/editor-style.scss",
-        "css/theme.dark.css": "css/sass/theme.dark.scss",
+        "css/admin.css": 'css/sass/admin.scss',
+        "css/editor-style.css": 'css/sass/editor-style.scss',
+        "css/theme.dark.css": 'css/sass/theme.dark.scss',
 
-        "style.css": [
-            "css/sass/style.scss"
-            , 'lib/influence/css/sass/widget.scss'
-            , 'lib/activity/css/sass/widget.scss'
-            , 'lib/google-custom-search/css/scss/widget.scss'
-            , 'lib/personal-image/css/sass/widget.scss'
-            , 'lib/ad-125x125/css/sass/widget.scss'
-            , 'lib/ad-billboard/css/sass/widget.scss'
-        ]
-
+        "style.css": 'css/sass/style.scss'
         , "lib/activity/css/admin.css": 'lib/activity/css/sass/admin.scss'
         , "lib/google-custom-search/css/admin.css": 'lib/google-custom-search/css/sass/admin.scss'
         , "lib/influence/css/admin.css": 'lib/influence/css/sass/admin.scss'
