@@ -10,8 +10,6 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-contrib-compress');
     grunt.loadNpmTasks('grunt-contrib-concat');
-    grunt.loadNpmTasks('grunt-contrib-imagemin');
-    grunt.loadNpmTasks('grunt-rename');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-sed');
     grunt.loadNpmTasks('grunt-sass');
@@ -193,135 +191,6 @@ module.exports = function(grunt) {
             }
         },
 
-        imagemin: {
-            png: {
-                options: {
-                    optimizationLevel: 7
-                },
-                files: [
-                    {
-                        expand: true,
-                        cwd: 'images/',
-                        src: '*.png',
-                        dest: 'images/',
-                        ext: '.png'
-                    }
-                ]
-            },
-            social: {
-                options: {
-                    progressive: true
-                },
-                files: [
-                    {
-                        expand: true,
-                        cwd: 'images/social/small',
-                        src: '*.png',
-                        dest: 'images/social/small',
-                        ext: '.png'
-                    }
-                ]
-            },
-            screenshot: {
-                options: {
-                    progressive: true
-                },
-                files: [
-                    {
-                        expand: true,
-                        cwd: '.',
-                        src: 'screenshot.png',
-                        dest: '.',
-                        ext: '.png'
-                    }
-                ]
-            },
-            css: {
-                options: {
-                    progressive: true
-                },
-                files: [
-                    {
-                        expand: true,
-                        cwd: 'css/img',
-                        src: '*.png',
-                        dest: 'css/img',
-                        ext: '.png'
-                    }
-                ]
-            },
-            ad_125: {
-                options: {
-                    progressive: true
-                },
-                files: [
-                    {
-                        expand: true,
-                        cwd: 'lib/ad-125x125/images',
-                        src: '*.jpg',
-                        dest: 'lib/ad-125x125/images',
-                        ext: '.jpg'
-                    }
-                ]
-            },
-            ad_300: {
-                options: {
-                    progressive: true
-                },
-                files: [
-                    {
-                        expand: true,
-                        cwd: 'lib/ad-300x250/images',
-                        src: '*.jpg',
-                        dest: 'lib/ad-300x250/images',
-                        ext: '.jpg'
-                    }
-                ]
-            },
-            billboard: {
-                options: {
-                    progressive: true
-                },
-                files: [
-                    {
-                        expand: true,
-                        cwd: 'lib/ad-billboard/images',
-                        src: '*.jpg',
-                        dest: 'lib/ad-billboard/images',
-                        ext: '.jpg'
-                    }
-                ]
-            },
-            personal_image: {
-                options: {
-                    progressive: true
-                },
-                files: [
-                    {
-                        expand: true,
-                        cwd: 'lib/personal-image/css',
-                        src: '*.jpg',
-                        dest: 'lib/personal-image/css',
-                        ext: '.jpg'
-                    }
-                ]
-            },
-            influence: {
-                options: {
-                    progressive: true
-                },
-                files: [
-                    {
-                        expand: true,
-                        cwd: 'lib/influence/css',
-                        src: '*.png',
-                        dest: 'lib/influence/css',
-                        ext: '.png'
-                    }
-                ]
-            }
-        },
-
         copy: {
             font_awesome_fonts: {
                 src: 'bower_components/font-awesome/fonts/*',
@@ -351,14 +220,6 @@ module.exports = function(grunt) {
             plugin_sass: {
                 files: 'lib/**/css/sass/*.scss',
                 tasks: 'sass:dev'
-            },
-            images : {
-                files: 'images/*.png',
-                tasks: 'imagemin:png'
-            },
-            images_social : {
-                files: 'images/social/small/*.png',
-                tasks: 'imagemin:social'
             }
         },
 
@@ -379,7 +240,7 @@ module.exports = function(grunt) {
     grunt.registerTask('setup', ['copy', 'sass:dev', 'jshint', 'watch']);
     grunt.registerTask('setup', ['copy', 'sass:dev', 'jshint', 'watch']);
     grunt.registerTask('dist', ['sass:dist', 'jshint', 'concat', 'uglify']);
-    grunt.registerTask('build', ['sass:dist', 'jshint', 'concat', 'uglify', 'imagemin', 'compress']);
+    grunt.registerTask('build', ['sass:dist', 'jshint', 'concat', 'uglify', 'compress']);
 
     // Version numbering task.
     // grunt change-version-number --oldver=A.B.C --newver=X.Y.Z
