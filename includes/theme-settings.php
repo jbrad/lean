@@ -622,19 +622,6 @@ function save_social_icons( ) {
 add_action( 'wp_ajax_save_social_icons', 'save_social_icons' );
 
 /**
- * Callback function used in the Ajax request for resetting the Social Icons.
- *
- * @since 	1.0
- * @version	1.1
- */
-function reset_social_icons( ) {
-    if( wp_verify_nonce( $_REQUEST['nonce'], 'reset_social_icons_nonce' ) ) {
-        die( delete_option( 'theme_social_options' ) );
-    } // end if/else
-} // end save_social_icons
-add_action( 'wp_ajax_reset_social_icons', 'reset_social_icons' );
-
-/**
  * Displays the message for users attempting to delete the core set of social icons.
  *
  * @since 	1.0

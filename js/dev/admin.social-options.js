@@ -388,20 +388,15 @@ function updateAvailableIcons($) {
             // Offer the ability to reset the icons
             $('#reset-social-icons').click(function(evt) {
 
-                evt.preventDefault();
+                var activeIcons = $('#active-icon-list li');
 
-                var $this = $(this);
-                $.post(ajaxurl, {
-
-                    action: 'reset_social_icons',
-                    nonce: $.trim($('#reset-social-icons').text())
-
-                }, function() {
-
-                    $this.siblings('form').submit();
-                    location.reload(true);
-
+                $.each(activeIcons, function () {
+                   $(this).appendTo('#available-icon-list');
                 });
+
+                updateIconValues();
+
+                $('#submit').click();
 
             });
 
