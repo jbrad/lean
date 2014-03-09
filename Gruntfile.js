@@ -8,22 +8,6 @@ module.exports = function(grunt) {
 
     RegExp.quote = require('regexp-quote');
 
-    var scssFiles = {
-        "css/admin.css": 'css/sass/admin.scss',
-        "css/editor-style.css": 'css/sass/editor-style.scss',
-        "css/theme.dark.css": 'css/sass/theme.dark.scss',
-
-        "style.css": 'css/sass/style.scss'
-        , "lib/activity/css/admin.css": 'lib/activity/css/sass/admin.scss'
-        , "lib/google-custom-search/css/admin.css": 'lib/google-custom-search/css/sass/admin.scss'
-        , "lib/influence/css/admin.css": 'lib/influence/css/sass/admin.scss'
-        , "lib/personal-image/css/admin.css": 'lib/personal-image/css/sass/admin.scss'
-        , "lib/seo/css/admin.css": 'lib/seo/css/sass/admin.scss'
-        , "lib/ad-125x125/css/admin.css": 'lib/ad-125x125/css/sass/admin.scss'
-        , "lib/ad-300x250/css/admin.css": 'lib/ad-300x250/css/sass/admin.scss'
-        , "lib/ad-billboard/css/admin.css": 'lib/ad-billboard/css/sass/admin.scss'
-    };
-
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
 
@@ -148,8 +132,8 @@ module.exports = function(grunt) {
         jshint: {
             theme: {
                 options: {
-                    "-W099": true,
-                    "-W040": true
+                    '-W099': true,
+                    '-W040': true
                 },
                 src: [
                     'js/dev/*.js'
@@ -157,8 +141,8 @@ module.exports = function(grunt) {
             },
             plugins: {
                 options: {
-                    "-W099": true,
-                    "-W040": true
+                    '-W099': true,
+                    '-W040': true
                 },
                 src: [
                     'lib/**/js/dev/*.js'
@@ -171,7 +155,21 @@ module.exports = function(grunt) {
                 options: {
                     style: 'compressed'
                 },
-                files: scssFiles
+                files: {
+                    'css/admin.css': 'css/sass/admin.scss',
+                    'css/editor-style.css': 'css/sass/editor-style.scss',
+                    'css/theme.dark.css': 'css/sass/theme.dark.scss',
+            
+                    'style.css': 'css/sass/style.scss'
+                    , 'lib/activity/css/admin.css': 'lib/activity/css/sass/admin.scss'
+                    , 'lib/google-custom-search/css/admin.css': 'lib/google-custom-search/css/sass/admin.scss'
+                    , 'lib/influence/css/admin.css': 'lib/influence/css/sass/admin.scss'
+                    , 'lib/personal-image/css/admin.css': 'lib/personal-image/css/sass/admin.scss'
+                    , 'lib/seo/css/admin.css': 'lib/seo/css/sass/admin.scss'
+                    , 'lib/ad-125x125/css/admin.css': 'lib/ad-125x125/css/sass/admin.scss'
+                    , 'lib/ad-300x250/css/admin.css': 'lib/ad-300x250/css/sass/admin.scss'
+                    , 'lib/ad-billboard/css/admin.css': 'lib/ad-billboard/css/sass/admin.scss'
+                }
             }
         },
 
