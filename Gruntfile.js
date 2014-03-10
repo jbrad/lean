@@ -218,11 +218,9 @@ module.exports = function(grunt) {
 
     });
 
-    grunt.registerTask('default', ['watch']);
-    grunt.registerTask('setup', ['copy', 'sass', 'jshint', 'watch']);
-    grunt.registerTask('setup', ['copy', 'sass', 'jshint', 'watch']);
+    grunt.registerTask('default', ['copy', 'dist', 'watch']);
     grunt.registerTask('dist', ['sass', 'jshint', 'concat', 'uglify']);
-    grunt.registerTask('build', ['sass', 'jshint', 'concat', 'uglify', 'compress']);
+    grunt.registerTask('build', ['dist', 'compress']);
 
     // Version numbering task.
     // grunt change-version-number --oldver=A.B.C --newver=X.Y.Z
