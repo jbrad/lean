@@ -271,13 +271,6 @@ function setupIconClickHander($, $this, bIsNowActive) {
 
     $this.click(function(evt) {
 
-        var sRssUrl = '';
-        if($(evt.srcElement).attr('src') !== '' && $(evt.srcElement).attr('src') !== undefined) {
-            if($(evt.srcElement).attr('src').toString().indexOf('rss.png') > 0) {
-                sRssUrl = $('#wordpress-rss-url').text();
-            } // end if
-        } // end if
-
         // if the input is visible, clear it out; otherwise, show it.
         if($('#active-icon-url').is(':visible')) {
 
@@ -306,10 +299,15 @@ function setupIconClickHander($, $this, bIsNowActive) {
         updateIconValues();
         makeSortable($, '#active-icons', '#available-icons');
 
+        var sRssUrl = $('#wordpress-rss-url').text(),
+            isRSSIcon = $(this).hasClass('fa-rss');
+
         // If we're looking at the RSS feed icon, disable the input
         // and link the user to the Global options for where to set it.
-        if('' !== sRssUrl) {
 
+        if (isRSSIcon ) {
+
+            $(this).data('url', sRssUrl);
             $('#social-icon-url').val(sRssUrl).attr('disabled', 'disabled');
             $('#social-rss-icon-controls').removeClass('hidden');
             $('#social-icon-controls').addClass('hidden');
