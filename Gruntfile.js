@@ -186,22 +186,21 @@ module.exports = function(grunt) {
             theme_js: {
                 files: 'js/dev/*.js',
                 tasks: [
-                    'jshint:theme',
-                    'uglify:theme',
-                    'uglify:admin'
+                    'jshint',
+                    'uglify'
                 ]
             },
             plugin_js: {
                 files: 'lib/**/js/dev/*.js',
-                tasks: 'jshint:plugins'
+                tasks: 'jshint'
             },
             theme_sass: {
                 files: 'css/sass/*.scss',
-                tasks: 'sass:dev'
+                tasks: 'sass'
             },
             plugin_sass: {
                 files: 'lib/**/css/sass/*.scss',
-                tasks: 'sass:dev'
+                tasks: 'sass'
             }
         },
 
