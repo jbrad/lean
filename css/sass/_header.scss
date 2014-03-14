@@ -5,6 +5,10 @@
 //
 @import "variables";
 
+header {
+    background-color: $header-background-color;
+}
+
 #hgroup {
     padding: 40px 0;
 }
@@ -18,7 +22,7 @@
     color: $site-title-color;
     text-decoration: none;
     font-weight: bold;
-    font-size: 32px;
+    font-size: $font-size-h1;
     line-height: 1;
     margin: 10px 0 0;
 
@@ -32,7 +36,7 @@
 
 #site-description {
     color: $site-description-color;
-    font-size: 14px;
+    font-size: $font-size-base;
 }
 
 #header-image {
