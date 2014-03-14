@@ -221,7 +221,20 @@ table#wp-calendar {
         margin-bottom: 30px;
 
         h4.widget-title {
+            color: $footer-widget-title-color;
             border-bottom: 1px solid $footer-widget-title-border-color;
+        }
+
+        .textwidget {
+            color: $footer-widget-text-color;
+        }
+
+        ul li a {
+            color: $footer-widget-link-color;
+
+            &:hover {
+                color: $footer-widget-link-color-hover;
+            }
         }
     }
 
