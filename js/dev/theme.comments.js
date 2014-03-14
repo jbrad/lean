@@ -26,15 +26,9 @@
         $respond = $('#respond');
 
         if($respond.length > 0) {
-            $respond
-                .addClass('panel panel-default')
-                .wrapInner('<div class="panel-body"></div>');
             $respond.find('#reply-title')
                 .removeClass('comment-reply-title')
-                .addClass('panel-title')
-                .wrap('<div class="panel-heading"></div>');
-            $respond.find('.panel-heading')
-                .insertBefore('#respond .panel-body');
+                .addClass('page-header');
         }
     });
 }(jQuery));
