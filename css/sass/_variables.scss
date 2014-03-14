@@ -8,8 +8,9 @@
 // ---------------------------------
 
 // Header
-$site-title-color:                                              #000;
-$site-title-hover-color:                                        #454545;
+$header-background-color:                                       #333;
+$site-title-color:                                              #f0f0f0;
+$site-title-hover-color:                                        #fff;
 $site-description-color:                                        #7a7a7a;
 
 // Navigation
@@ -29,7 +30,6 @@ $navigation-mobile-dropdown-active-item-color:                  $navigation-mobi
 $navigation-mobile-dropdown-active-item-hover-color:            $navigation-mobile-dropdown-active-item-color;
 
 // Posts
-$post-post-header-border-color:                                 #eee;
 $post-post-title-color:                                         #444;
 $post-post-title-hover-color:                                   #888;
 
@@ -97,15 +97,19 @@ $widget-calendar-table-footer-data-link-color:                  #999;
 $widget-tagcloud-bg-color:                                      #f5f5f5;
 
 // Footer
-$footer-bg-color:                                               #e0e0e0;
+$footer-bg-color:                                               #333;
 $footer-subfloor-bg-color:                                      #000;
 
 $footer-credit-color:                                           #666;
 $footer-credit-link-color:                                      #999;
 $footer-credit-link-hover-color:                                #fff;
 
-$footer-widget-title-border-color:                              #999;
-$footer-widget-ul-submenu-border-color:                         #999;
+$footer-widget-text-color:                                      #ccc;
+$footer-widget-title-color:                                     #eee;
+$footer-widget-title-border-color:                              #eee;
+$footer-widget-link-color:                                      #ccc;
+$footer-widget-link-color-hover:                                #fff;
+$footer-widget-ul-submenu-border-color:                         #eee;
 $footer-widget-navmenu-ul-submenu-border-color:                 #E0E0E0;
 
 // Social
