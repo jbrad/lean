@@ -17,6 +17,7 @@
       > a {
         background: #fff;
         color: #444;
+        border-bottom: none;
 
         &:hover {
           color: #999;
@@ -27,16 +28,14 @@
     > a {
       margin: 0;
       padding: 10px 0;
-      border: 1px solid #eee;
-      border-bottom-width: 0 !important;
+      border-bottom: 1px solid #eee;
       color: #999;
       text-align: center;
       font-size: 80%;
       border-radius: 0px;
-      background-color: #222;
 
       &:hover {
-        color: #fff;
+        color: #666;
       }
     }
   }
