@@ -21,7 +21,6 @@
 .post-header {
     margin-bottom: 15px;
     padding: 20px;
-    border-bottom: 1px solid $post-post-header-border-color;
 
     .thumbnail {
         margin: 0 20px 0 0;
@@ -88,8 +87,9 @@
 }
 
 .post-meta {
-    padding: 20px;
-    border-top: 1px solid $post-post-meta-border-color;
+    padding: 20px 20px 40px 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid $post-post-meta-border-color;
     color: $post-post-meta-color;
     font-size: 12px;
 
@@ -132,14 +132,17 @@
     }
 }
 
-.fa-angle-left,
-.fa-angle-right {
-    margin-top: -15px;
-    margin-left: -15px;
-    font-size: 30px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    z-index: 5;
-    display: inline-block;
+.carousel {
+
+    .fa-angle-left,
+    .fa-angle-right {
+        margin-top: -15px;
+        margin-left: -15px;
+        font-size: 30px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        z-index: 5;
+        display: inline-block;
+    }
 }
