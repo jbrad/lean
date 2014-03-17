@@ -36,7 +36,7 @@
         <?php } // end if ?>
     <?php } // end if ?>
 
-    <nav id="footer-menu" class="menu-navigation navbar-fixed-bottom navbar navbar-default <?php echo $dark ? ' navbar-inverse' : ''; ?>" role="navigation">
+    <nav id="footer-menu" class="menu-navigation navbar-fixed-bottom navbar navbar-default<?php echo $dark ? ' navbar-inverse' : ''; ?>" role="navigation">
         <div class="container">
 
                 <?php
@@ -53,21 +53,18 @@
 
                 <?php $global_options = get_option( 'theme_global_options' ); ?>
                 <p class="navbar-text navbar-right">
-                    <?php if( $presentation_options['display_footer_credits'] ) { ?>
-                            <?php printf( __( '&copy; %1$s %2$s', TRANSLATION_KEY ), date( 'Y' ), '<a class="navbar-link" href="' . home_url() . '">' . get_bloginfo( 'name' ) . '</a>'); ?>
-                    <?php } else { ?>
-
+                    <?php if( 'always' == $presentation_options['display_footer_credits'] ) { ?>
                         <?php
                             $jasonbradley_url = 'http://jasonbradley.me';
                             $theme_url = THEME_URL;
                         ?>
-
                         <?php if( null != get_page_by_path( 'privacy-policy' ) && 0 != get_page_by_path( 'privacy-policy' )->ID && 'publish' == get_page_by_path( 'privacy-policy' )->post_status ) { ?>
                             <?php printf( __( '&copy; %1$s %2$s &mdash; %3$s &mdash; %4$s by %5$s', TRANSLATION_KEY ), date( 'Y' ), '<a class="navbar-link" href="' . home_url() . '">' . get_bloginfo( 'name' ) . '</a>', '<a href="' . get_permalink( get_page_by_path( 'privacy-policy' )->ID ) . '">Privacy Policy</a>', '<a class="navbar-link" href="' . $theme_url . '" target="_blank">' . THEME_NAME . '</a>', '<a class="navbar-link" href="' . $jasonbradley_url . '" target="_blank">Jason Bradley</a>' ); ?>
                         <?php } else { ?>
                             <?php printf( __( '&copy; %1$s %2$s &mdash; %3$s by %4$s', TRANSLATION_KEY ), date( 'Y' ), '<a class="navbar-link" href="' . home_url() . '">' . get_bloginfo( 'name' ) . '</a>', '<a class="navbar-link" href="' . $theme_url . '" target="_blank">' . THEME_NAME . '</a>', '<a class="navbar-link" href="' . $jasonbradley_url . '" target="_blank">Jason Bradley</a>' ); ?>
                         <?php } // end if/else ?>
-
+                    <?php } else { ?>
+                        <?php printf( __( '&copy; %1$s %2$s', TRANSLATION_KEY ), date( 'Y' ), '<a class="navbar-link" href="' . home_url() . '">' . get_bloginfo( 'name' ) . '</a>'); ?>
                     <?php } // end if ?>
 
                 </p>
