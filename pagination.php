@@ -37,13 +37,13 @@
 
             <?php if( get_next_posts_link() ) { ?>
                 <li class="previous">
-                    <?php next_posts_link( __( '<span class="nav-previous meta-nav"><span class="fa fa-chevron-left"></span> Older</span>', TRANSLATION_KEY ) ); ?>
+                    <?php next_posts_link( __( '<span class="nav-previous meta-nav"><span class="fa fa-chevron-left"></span> Older Posts</span>', TRANSLATION_KEY ) ); ?>
                 </li>
             <?php } // end if ?>
 
             <?php if( get_previous_posts_link() ) { ?>
                 <li class="next">
-                    <?php previous_posts_link( __( '<span class="nav-next meta-nav">Newer <span class="fa fa-chevron-right"></span>', TRANSLATION_KEY ) ); ?>
+                    <?php previous_posts_link( __( '<span class="nav-next meta-nav">Newer Posts <span class="fa fa-chevron-right"></span>', TRANSLATION_KEY ) ); ?>
                 </li>
             <?php } // end if ?>
 
