@@ -86,9 +86,9 @@ if( 1 == $singlePostFullWidth ) {
                                 </div><!-- #post-advertisement -->
                             <?php } // end if ?>
 
-                            <?php get_template_part( 'pagination' ); ?>
-
                             <?php comments_template( '', true ); ?>
+
+                            <?php get_template_part( 'pagination' ); ?>
 
                         <?php } // end while ?>
 
