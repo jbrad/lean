@@ -20,12 +20,6 @@ function add_theme_stylesheets() {
     // theme
     wp_enqueue_style( 'theme', get_stylesheet_directory_uri() . '/style.css', false, THEME_VERSION );
 
-    // contrast
-    $options = get_option( 'theme_presentation_options' );
-    if( 'dark' == $options['contrast'] ) {
-        wp_enqueue_style( 'theme-contrast', get_template_directory_uri() . '/css/theme.dark.css', array( 'theme' ), THEME_VERSION );
-    } // end if
-
 } // end add_theme_stylesheets
 add_action( 'wp_enqueue_scripts', 'add_theme_stylesheets', 999 );
 
