@@ -861,17 +861,17 @@ if( ! function_exists('theme_comment_form') ) {
 
         // The field elements with wrappers so we can access them via CSS and JavaScript
         $fields =  array(
-            'author' 	=> '<div class="col-sm-10"><div class="form-group">' . '<label for="author">' . __( 'Name', TRANSLATION_KEY ) . '</label> ' . ( $req ? '<span class="required">*</span>' : '' ) . '<input id="author" name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) . '" size="30"' . $aria_req . ' /></div>',
+            'author' 	=> '<div class="form-group">' . '<label for="author">' . __( 'Name', TRANSLATION_KEY ) . '</label> ' . ( $req ? '<span class="required">*</span>' : '' ) . '<input id="author" name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) . '" size="30"' . $aria_req . ' /></div>',
             'email'  	=> '<div class="form-group"><label for="email">' . __( 'Email', TRANSLATION_KEY ) . '</label> ' . ( $req ? '<span class="required">*</span>' : '' ) . '<input id="email" name="email" type="text" value="' . esc_attr(  $commenter['comment_author_email'] ) . '" size="30"' . $aria_req . ' /></div>',
-            'url'		=> '<div class="form-group"><label for="url">' . __( 'Website', TRANSLATION_KEY ) . '</label>' . '<input id="url" name="url" type="text" value="' . esc_attr( $commenter['comment_author_url'] ) . '" size="30" /></div></div>',
+            'url'		=> '<div class="form-group"><label for="url">' . __( 'Website', TRANSLATION_KEY ) . '</label>' . '<input id="url" name="url" type="text" value="' . esc_attr( $commenter['comment_author_url'] ) . '" size="30" /></div>',
         );
 
         // Now actually render the form
         comment_form(
             array(
-                'comment_notes_before'	=>	'<div class="row"><div id="comment-form-avatar" class="col-sm-2">' . get_avatar( '', $size = '30' )  . '</div>',
+                'comment_notes_before'	=>	'',
                 'fields'				=>	apply_filters( 'comment_form_default_fields', $fields ),
-                'comment_field'         =>  '</div><div class="form-group"><label for="comment">' . _x( 'Comment', 'noun' ) . '</label><textarea id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea></div>',
+                'comment_field'         =>  '<div class="form-group"><label for="comment">' . _x( 'Comment', 'noun' ) . '</label><textarea id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea></div>',
                 'comment_notes_after' 	=>	'<p class="form-allowed-tags">' . sprintf( __( 'Text formatting is available via select <button id="allowed-tags-trigger" class="btn btn-link" type="button" data-toggle="collapse" data-target="#allowed-tags">HTML</button>. %s', TRANSLATION_KEY ), ' <div id="allowed-tags" class="collapse"><pre>' . allowed_tags() . '</pre>' ) . '</p></div>',
                 'logged_in_as'			=>	'<div id="comment-form-avatar" class="clearfix">' . get_avatar( get_the_author_meta( 'user_email', wp_get_current_user()->ID ), $size = '50' )  . '</p><p id="logged-in-container">' . sprintf( __( 'Logged in as <a href="%1$s">%2$s</a>. <a href="%3$s" title="Log out of this account">Log out?</a>' ), admin_url( 'profile.php' ), get_the_author_meta( 'user_nicename', wp_get_current_user()->ID ), wp_logout_url( apply_filters( 'the_permalink', get_permalink( ) ) ) ) . '</p>'
             )
