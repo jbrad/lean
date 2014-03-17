@@ -212,6 +212,22 @@ function setup_theme_presentation_options() {
         'content'
     );
 
+    // Footer
+    add_settings_section(
+        'footer',
+        __( 'Footer', TRANSLATION_KEY ),
+        'theme_footer_options_display',
+        'theme_presentation_options'
+    );
+
+    add_settings_field(
+        'display_footer_credits',
+        __( 'Display Footer Credits', TRANSLATION_KEY ),
+        'display_footer_credits_display',
+        'theme_presentation_options',
+        'footer'
+    );
+
     register_setting(
         'theme_presentation_options',
         'theme_presentation_options',
@@ -432,6 +448,25 @@ function display_featured_images_display() {
     $html .= '<option value="never"'. selected( $options['display_featured_images'], 'never', false ) . '>' . __( 'Never', TRANSLATION_KEY ) . '</option>';
     $html .= '<option value="index"'. selected( $options['display_featured_images'], 'index', false ) . '>' . __( 'On index only', TRANSLATION_KEY ) . '</option>';
     $html .= '<option value="single-post"'. selected( $options['display_featured_images'], 'single-post', false ) . '>' . __( 'On single posts only', TRANSLATION_KEY ) . '</option>';
+    $html .= '</select>';
+
+    echo $html;
+
+} // end display_featured_images_display
+
+/**
+ * Renders the option element for Fotoer Credits.
+ *
+ * @since	2.0
+ * @version	2.0
+ */
+function display_footer_credits_display() {
+
+    $options = get_option( 'theme_presentation_options' );
+
+    $html = '<select id="display_footer_credits" name="theme_presentation_options[display_footer_credits]">';
+    $html .= '<option value="always"'. selected( $options['display_footer_credits'], 'always', false ) . '>' . __( 'Always', TRANSLATION_KEY ) . '</option>';
+    $html .= '<option value="never"'. selected( $options['display_footer_credits'], 'never', false ) . '>' . __( 'Never', TRANSLATION_KEY ) . '</option>';
     $html .= '</select>';
 
     echo $html;

@@ -135,6 +135,19 @@ function customize_register( $wp_customize ) {
         )
     );
 
+    $wp_customize->add_control( 'theme_presentation_options[display_footer_credits]',
+        array(
+            'label'      => __( 'Display Footer Credits', 'themename' ),
+            'section'    => 'theme_presentation_options',
+            'settings'   => 'theme_presentation_options[display_footer_credits]',
+            'type'       => 'select',
+            'choices'    => array(
+                'always' 		=>	__( 'Always', TRANSLATION_KEY ),
+                'never' 		=>  __( 'Never', TRANSLATION_KEY ),
+            ),
+        )
+    );
+
     // Publishing Options
     $wp_customize->add_section( 'theme_publishing_options',
         array(
