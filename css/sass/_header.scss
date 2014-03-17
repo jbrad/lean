@@ -9,10 +9,6 @@ header {
     background-color: $header-background-color;
 }
 
-#hgroup {
-    padding: 40px 0;
-}
-
 #logo p {
     margin-bottom: 0;
 }
@@ -56,5 +52,15 @@ header {
         width: auto;
         height: auto;
         opacity: 1;
+    }
+}
+
+.header-widget  {
+    ul li {
+        display: inline-block;
+
+        a {
+            padding: 4px 12px;
+        }
     }
 }
