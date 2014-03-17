@@ -22,7 +22,10 @@
     <?php global $post; ?>
     <?php wp_head(); ?>
 </head>
-<body <?php body_class(); ?>>
+<?php $presentation_options = get_option( 'theme_presentation_options' ); ?>
+<?php $dark = 'dark' == $presentation_options['contrast']; ?>
+<?php $bodyClass = $dark ? '' : ' light'; ?>
+<body <?php body_class($bodyClass); ?>>
 
 <?php if( is_offline() && ! current_user_can( 'manage_options' ) ) { ?>
     <?php get_template_part( 'page', 'offline-mode' ); ?>
@@ -32,7 +35,7 @@
 <?php get_template_part( 'lib/breadcrumbs/breadcrumbs' ); ?>
 
 <?php if( has_nav_menu( 'menu_above_logo' ) ) { ?>
-    <nav id="menu-above-header" class="menu-navigation navbar-inverse navbar-static-top navbar navbar-default" role="navigation">
+    <nav id="menu-above-header" class="menu-navigation navbar-static-top navbar navbar-default <?php echo $dark ? ' navbar-inverse' : ''; ?>" role="navigation">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".menu-above">
@@ -80,9 +83,9 @@ $header_image = get_header_image();
 $head_class = ! empty( $header_image ) ? 'imageyup' : 'imageless';
 ?>
 
-<header id="header" class="<?php echo $head_class; ?> container">
+<header id="header" class="<?php echo $head_class; ?> jumbotron">
 
-    <div id="head-wrapper" class="clearfix">
+    <div id="head-wrapper" class="container">
 
         <?php // If a user has uploaded a header image, then display at as an anchor to the header ?>
         <?php if( 'imageyup' == $head_class && ! empty( $header_image ) ) { ?>
@@ -115,7 +118,6 @@ $head_class = ! empty( $header_image ) ? 'imageyup' : 'imageless';
 
                     <?php // If a logo has been set in the theme Presentation options, display it ?>
                     <?php if( has_logo() ) { ?>
-                        <?php $presentation_options = get_option( 'theme_presentation_options'); ?>
 
                         <a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php bloginfo( 'name' ); ?>" rel="home">
                             <img src="<?php echo $presentation_options['logo']; ?>" alt="<?php bloginfo( 'name' ); ?>" id="header-logo" />
@@ -164,7 +166,7 @@ $head_class = ! empty( $header_image ) ? 'imageyup' : 'imageless';
 </header><!-- /#header -->
 
 <?php if( has_nav_menu( 'menu_below_logo' ) ) { ?>
-    <nav id="menu-below-header" class="menu-navigation navbar-inverse navbar-static-top navbar navbar-default" role="navigation">
+    <nav id="menu-below-header" class="menu-navigation navbar-static-top navbar navbar-default <?php echo $dark ? ' navbar-inverse' : ''; ?>" role="navigation">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".menu-below">
