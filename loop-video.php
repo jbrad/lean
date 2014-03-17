@@ -9,7 +9,7 @@
 ?>
 <?php /* Video Loop */ ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class( 'post panel panel-default format-video clearfix' ); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class( 'post format-video clearfix' ); ?>>
 
     <div id="content-<?php the_ID(); ?>" class="entry-content">
         <?php if( ( is_category() || is_archive() || is_home() ) && has_excerpt() ) { ?>

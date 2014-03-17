@@ -9,7 +9,7 @@
 ?>
 <?php /* Main Loop */ ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class( 'post panel panel-default format-link clearfix' ); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class( 'post format-link clearfix' ); ?>>
 
     <div class="post-header clearfix">
         <div id="content-<?php the_ID(); ?>"  class="entry-content clearfix">

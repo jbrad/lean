@@ -8,7 +8,7 @@
  */
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class( 'post panel panel-default format-aside clearfix' ); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class( 'post format-aside clearfix' ); ?>>
 
     <time class="aside-date">
         <span class="the-date"><?php the_time('M'); ?></span>
