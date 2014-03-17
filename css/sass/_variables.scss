@@ -2,15 +2,17 @@
 // Variables
 // @version 1.10
 // @since 1.0
-// 
+//
+
+@import '../../bower_components/bootstrap-sass/lib/variables';
 
 // Colors
 // ---------------------------------
 
 // Header
 $header-background-color:                                       #333;
-$site-title-color:                                              #f0f0f0;
-$site-title-hover-color:                                        #fff;
+$site-title-color:                                              #333;
+$site-title-hover-color:                                        #555;
 $site-description-color:                                        #7a7a7a;
 
 // Navigation
@@ -52,7 +54,7 @@ $post-format-link-post-title-visited-color:                     $post-format-lin
 $post-format-link-post-title-hover-color:                       #999;
 $post-format-link-post-title-bg-color:                          #28292d;
 
-$post-format-quote-bg-color:                                    #c0dadf;
+$post-format-quote-bg-color:                                    lighten($brand-primary, 30%);
 
 $post-format-status-post-header-bg-color:                       #f5f5f5;
 
@@ -71,14 +73,6 @@ $comment-by-author-border-color:                                #202020;
 $comment-content-border-color:                                  #ddd;
 
 // Widgets
-$widget-title-border-color:                                     #e0e0e0;
-$widget-title-link-color:                                       #444;
-
-$widget-ul-link-color:                                          #777;
-$widget-ul-link-hover-color:                                    #999;
-
-$widget-category-ul-children-border-color:                      #E0E0E0;
-
 $widget-rss-link-color:                                         #444;
 $widget-rss-summary-color:                                      #404040;
 
