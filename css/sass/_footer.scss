@@ -6,45 +6,10 @@
 //
 @import "variables";
 
-#footer {
-    background: $footer-bg-color;
+footer {
 
-    #footer-widgets {
-        padding: 20px;
+    .jumbotron {
+        margin-bottom: 0;
     }
 
-    #sub-floor {
-        padding: 10px 0;
-        background: $footer-subfloor-bg-color;
-
-        #credit {
-            padding: 13px 0;
-            color: $footer-credit-color;
-
-            a {
-                color: $footer-credit-link-color;
-
-                &:hover {
-                    color: $footer-credit-link-hover-color;
-                    text-decoration: none;
-                }
-            }
-        }
-    }
-
-    #footer-links {
-        .navbar {
-            margin-bottom: 0px;
-        }
-
-        .navbar-nav > li > a {
-            color: $navigation-item-color;
-            padding: 10px;
-
-            &:hover {
-                color: $navigation-item-hover-color;
-                background: none;
-            }
-        }
-    }
 }
