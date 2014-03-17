@@ -9,18 +9,18 @@
 @import "posts.format-gallery.scss";
 @import "posts.format-video.scss";
 @import "posts.format-status.scss";
-@import "posts.format-chat.scss";
 @import "posts.format-quote.scss";
 @import "posts.format-link.scss";
 @import "posts.format-aside.scss";
-@import "posts.format-audio.scss";
 
 @import "sharedaddy";
 @import "mixins";
+@import "../../bower_components/bootstrap-sass/lib/mixins";
+@import "../../bower_components/bootstrap-sass/lib/variables";
 
 .post-header {
     margin-bottom: 15px;
-    padding: 20px;
+    padding: 20px 0;
 
     .thumbnail {
         margin: 0 20px 0 0;
@@ -43,7 +43,7 @@
 
 .entry-content,
 .entry-summary {
-    padding: 0 20px 20px;
+    padding: 20px 0;
 
     > ol,
     > ul {
@@ -87,7 +87,7 @@
 }
 
 .post-meta {
-    padding: 20px 20px 40px 20px;
+    padding: 20px 0 40px;
     margin-bottom: 20px;
     border-bottom: 1px solid $post-post-meta-border-color;
     color: $post-post-meta-color;
@@ -101,10 +101,36 @@
     .post-link:hover {
         text-decoration: none;
     }
+
+    .meta-date-cat-tags {
+
+        a {
+            display: inline;
+            padding: .2em .6em .3em;
+            font-size: 75%;
+            font-weight: bold;
+            line-height: 1;
+            color: #fff;
+            text-align: center;
+            white-space: nowrap;
+            vertical-align: baseline;
+            border-radius: .25em;
+
+            @include label-variant($brand-primary);
+
+            &:hover {
+                text-decoration: none;
+            }
+        }
+    }
 }
 
 .single-attachment img.attachment-thumbnail {
     margin-top: 30px;
+}
+
+.the-comment-link {
+    margin-right: 5px;
 }
 
 .home .sticky{
