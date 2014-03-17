@@ -50,8 +50,6 @@ License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
 @import "posts";
 
-@import "author-box";
-
 // Comments and Pings
 @import "comments";
 
@@ -67,8 +65,13 @@ License URI: http://www.gnu.org/licenses/gpl-3.0.html
 @import "../../lib/ad-billboard/css/sass/widget";
 @import "../../lib/google-custom-search/css/sass/widget";
 @import "../../lib/influence/css/sass/widget";
+@import "../../lib/personal-image/css/sass/widget";
 
 // ------------------------------------------------------------------------ 9. Responsive
 
 @import "theme-responsive";
+
+// ------------------------------------------------------------------------ 10. Light Contrast
+
+@import "light-contrast";
 
