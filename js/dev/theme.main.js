@@ -43,7 +43,13 @@ function resizeVideos($) {
     "use strict";
     $(function() {
 
-        var iHeaderHeight, iWidgetHeight, iMargin, bCmdDown;
+        var iHeaderHeight,
+            iWidgetHeight,
+            iMargin,
+            shareDaddySelector = '.sharedaddy',
+            leftOrRight,
+            sharingPosition;
+
 
         // Properly position the header widget, but only do so after the window is loaded
         if( 1 === $('.header-widget').length && 1 === $('#logo').length ) {
@@ -82,8 +88,8 @@ function resizeVideos($) {
         $('form input, form textarea').addClass('form-control');
         $('form input[type="submit"]').removeClass('form-control');
 
-        $('.form-submit #submit').addClass('btn');
-        $('input[type="submit"]').addClass('btn');
+        $('.form-submit #submit').addClass('btn btn-primary');
+        $('input[type="submit"]').addClass('btn btn-primary');
 
         // Hide pagination controls if infiniteScroll is on
         if( 'object' === typeof infiniteScroll ) {
@@ -103,11 +109,11 @@ function resizeVideos($) {
 
         // Change up sharedaddy
 
-        if ( $('.sharedaddy').length ) {
+        if ( $(shareDaddySelector).length ) {
 
-            $('.sd-content ul').addClass('nav nav-pills').find('li').removeAttr('class');
+            $('.sd-social .sd-content ul').addClass('list-unstyled').find('li').removeAttr('class');
 
-            $('.sd-content').find('a').each(function () {
+            $('.sd-social .sd-content').find('a').each(function () {
                 $(this).removeClass('sd-button share-icon');
             });
 
@@ -123,7 +129,48 @@ function resizeVideos($) {
             $('a.share-reddit').addClass('fa fa-group');
             $('a.share-stumbleupon').addClass('fa fa-external-link');
             $('a.share-digg').addClass('fa fa-thumbs-o-up');
+
+            if (window.outerWidth > 800 ) {
+
+                if ( $('.col-md-push-4').length ) {
+                    leftOrRight = 'right';
+                    sharingPosition = (window.outerWidth - $('aside').width() - $('article').width() - $('aside').offset().left) / 2;
+                } else {
+                    leftOrRight = 'left';
+                    sharingPosition = $('article').offset().left - 60;
+                }
+
+                console.log(leftOrRight);
+                console.log(sharingPosition);
+
+                $('.sd-title').remove();
+                $('.sd-content').css('position', 'fixed')
+                    .css('top', '30%')
+                    .css(leftOrRight, sharingPosition)
+                    .css('z-index', '5');
+            } else {
+                $('.sd-social .sd-content ul').removeClass('list-unstyled').addClass('nav nav-pills');
+                $('.sd-title').addClass('page-header');
+            }
         }
+
+        $(shareDaddySelector).insertAfter('.post');
+
+        $('.jp-relatedposts-headline').removeClass()
+            .addClass('page-header')
+            .html('Related Posts');
+
+        setTimeout(function () {
+            $('.jp-relatedposts-items').removeClass()
+                .addClass('row');
+
+            $('.jp-relatedposts-post').removeClass()
+                .addClass('col-sm-4');
+        }, 1000);
+
+        $('.jp-relatedposts').removeClass().insertAfter(shareDaddySelector);
+
+        $('.sd-gplus').insertAfter(shareDaddySelector);
 
         $('table').addClass('table table-bordered').wrap('<div class="table-responsive">');
 
