@@ -158,8 +158,7 @@ module.exports = function(grunt) {
                 files: {
                     'css/admin.css': 'css/sass/admin.scss',
                     'css/editor-style.css': 'css/sass/editor-style.scss',
-                    'css/theme.dark.css': 'css/sass/theme.dark.scss',
-            
+
                     'style.css': 'css/sass/style.scss'
                     , 'lib/activity/css/admin.css': 'lib/activity/css/sass/admin.scss'
                     , 'lib/google-custom-search/css/admin.css': 'lib/google-custom-search/css/sass/admin.scss'
