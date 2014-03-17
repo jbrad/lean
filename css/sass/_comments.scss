@@ -7,6 +7,10 @@
 
 .commentlist {
     padding-left: 0;
+
+    li:last-child {
+        border-bottom: 1px solid $comment-content-border-color;
+    }
 }
 
 .comment {
