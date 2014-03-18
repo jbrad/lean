@@ -3,39 +3,3 @@
 // @version 1.4
 // @since 1.0
 //
-@import "variables";
-
-.format-link {
-
-    .post-title {
-        color: $post-format-link-post-title-color;
-        font-size: 24px;
-        line-height: 120%;
-
-        a,
-        a:visited {
-            color: $post-format-link-post-title-visited-color;
-
-            &:hover {
-                color: $post-format-link-post-title-hover-color;
-            }
-        }
-    }
-
-    .post-header {
-        margin-bottom: 0;
-        padding: 0 0 20px 0;
-        border-bottom: 0;
-        min-height: 60px;
-        background: $post-format-link-post-title-bg-color;
-
-        .fa-link {
-            font-size: 48px;
-            margin-right: 10px;
-        }
-    }
-
-    .entry-content {
-        padding: 20px;
-    }
-}
