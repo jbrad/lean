@@ -1,0 +1,36 @@
+.page-template-template-carousel-php,
+.page-template-template-jumbotron-php {
+
+    .header,
+    .footer-widgets,
+    .menu-below-header {
+        display: none;
+    }
+
+    .features {
+        padding: 0 0 40px;
+    }
+
+    #features .row {
+        margin-bottom: 60px;
+    }
+
+    .home-widgets {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+}
+
+.page-template-template-sitemap-php {
+
+    .sitemap-author-meta {
+        text-align: center;
+        margin-right: 5px;
+    }
+    span.badge {
+        position: absolute;
+        top: -4px;
+        left: -4px;
+    }
+}
+

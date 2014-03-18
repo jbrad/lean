@@ -1104,3 +1104,137 @@ function remove_shortcode_from_gallery_post_format($content) {
     return $content;
 }
 add_filter('the_content', 'remove_shortcode_from_gallery_post_format');
+
+function featured_slider() {
+    $args = array(
+        'post_type' => 'slides',
+        'orderby' => 'menu_order date'
+    );
+    $query = new WP_Query( $args );
+    $index = 0;
+    $indicators = '<ol class="carousel-indicators">';
+
+    $slides = '<div class="carousel-inner">';
+    $html = '<div id="image-slider" class="carousel slide">';
+
+    while ( $query->have_posts() ) :
+        $query->the_post();
+
+        $indicators .= '<li data-target="#image-slider" data-slide-to="';
+        $indicators .= strval($index);
+        $indicators .= '" class="';
+
+        if ($index == 0) {
+            $indicators .= 'active';
+        }
+
+        $indicators .= '"></li>';
+
+        $slides .= '<div class="item';
+        if ($index == 0) {
+            $slides .= ' active';
+        }
+        $slides .= '">';
+        $slides .= get_the_post_thumbnail($post->ID, 'full');
+        $slides .= '<div class="carousel-caption">';
+        $slides .= '<h3>';
+        $slides .= get_the_title();
+        $slides .= '</h3>';
+        $slides .= '<p>';
+        $slides .= get_the_excerpt();
+        $slides .= '</p>';
+        $slides .= '</div>';
+        $slides .= '</div>';
+
+        $index ++;
+    endwhile;
+
+    $indicators .= '</ol>';
+    $slides .= '</div><a class="carousel-control left" href="#image-slider" data-slide="prev"><span class="fa fa-angle-left"></span></a>
+<a class="carousel-control right" href="#image-slider" data-slide="next"><span class="fa fa-angle-right"></span></a></div>';
+    $html .= $indicators;
+    $slides .= '</div></div>';
+    $html .= $slides;
+    $html .= '</div>';
+
+    echo $html;
+
+    wp_reset_postdata();
+}
+
+function featurettes() {
+    $args = array(
+        'post_type' => 'featurettes',
+        'orderby' => 'menu_order date'
+    );
+    $query = new WP_Query( $args );
+
+    $html = '';
+    $index = 0;
+
+    while ( $query->have_posts() ) :
+        $query->the_post();
+
+        $the_title = get_the_title();
+        $the_excerpt = get_the_excerpt();
+        $the_content = get_the_content();
+        $post_thumbnail = get_the_post_thumbnail($post->ID, 'large', array('class' => 'featurette-image img-responsive'));
+
+        $html .= '<div class="row featurette">';
+
+        if ($index % 2 == 0) {
+            $html = get_featurette_heading($html, $the_title, $the_excerpt, $the_content);
+            $html = get_featurette_image($html, $post_thumbnail);
+        } else {
+            $html = get_featurette_image($html, $post_thumbnail);
+            $html = get_featurette_heading($html, $the_title, $the_excerpt, $the_content);
+        }
+
+        $html .= '</div>';
+        $html .= '<hr class="featurette-divider">';
+
+        $index++;
+
+    endwhile;
+
+    echo $html;
+
+    wp_reset_postdata();
+}
+
+/**
+ * @param $html
+ * @param $post_thumbnail
+ * @return string
+ */
+function get_featurette_image($html, $post_thumbnail)
+{
+    $html .= '<div class="col-md-5">';
+    $html .= $post_thumbnail;
+    $html .= '</div>';
+    return $html;
+}
+
+/**
+ * @param $html
+ * @param $the_title
+ * @param $the_excerpt
+ * @param $the_content
+ * @return string
+ */
+function get_featurette_heading($html, $the_title, $the_excerpt, $the_content)
+{
+    $html .= '<div class="col-md-7">';
+    $html .= '<h2 class="featurette-heading">';
+    $html .= $the_title;
+    $html .= '&nbsp;';
+    $html .= '<span class="text-muted">';
+    $html .= $the_excerpt;
+    $html .= '</span>';
+    $html .= '</h2>';
+    $html .= '<p class="lead">';
+    $html .= $the_content;
+    $html .= '</p>';
+    $html .= '</div>';
+    return $html;
+}

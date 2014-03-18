@@ -1,52 +1,22 @@
 <?php
 /**
- * Template Name: Home Template
+ * Template Name: Image Slider Template
  *
- * The template for rendering pages without sidebars.
+ * The template for rendering image slider with home widgets.
  *
  * @package lean
- * @version	1.3
- * @since 	1.0
+ * @version	2.0
+ * @since 	2.0
  */
 ?>
-    <style>
-        body.page-template-template-home-php {
-            background: #fff;
-        }
-        #header,
-        #menu-below-header {
-            display: none;
-        }
-        #wrapper {
-            padding: 0 0 40px;
-        }
-        #features .row {
-            margin-bottom: 60px;
-        }
-        .home-widgets .widget {
-            margin-bottom: 40px;
-        }
-        #footer-widgets {
-            display: none;
-        }
-    </style>
 <?php get_header(); ?>
+
+    <?php featured_slider(); ?>
 
     <div id="wrapper">
         <div class="container">
             <div class="row">
                 <section id="main" class="col-md-12 clearfix" role="main">
-                    <?php if ( have_posts() ) { ?>
-                        <?php while ( have_posts() ) { ?>
-                            <?php the_post(); ?>
-                            <div class="jumbotron">
-                                <div class="container">
-                                    <h1><?php the_title(); ?></h1>
-                                    <p><?php the_content(); ?></p>
-                                </div>
-                            </div> <!-- /.jumbotron -->
-                        <?php } // end while ?>
-                    <?php } // end if ?>
                     <?php if( ! is_offline() || is_user_logged_in() ) { ?>
                         <div id="features" class="clearfix">
                             <div class="container">
@@ -67,17 +37,13 @@
 
                                     </div><!-- /row -->
                                 <?php } // end if ?>
-                                <?php if( is_active_sidebar( 'sidebar-9' ) ) { ?>
-                                    <div id="bottom-home-widgets" class="row">
-                                        <?php dynamic_sidebar( 'sidebar-9' ); ?>
-                                    </div><!-- /#left-footer-widget -->
-                                <?php } // end if ?>
+                                <hr class="featurette-divider">
+                                <?php featurettes(); ?>
                             </div><!-- /container -->
                         </div><!-- /#features -->
                     <?php } // end if ?>
-            </div> <!-- /#features -->
-            </section><!-- /#main -->
-        </div><!--/row -->
-    </div><!-- /container -->
+                </section><!-- /#main -->
+            </div><!--/row -->
+        </div><!-- /container -->
     </div> <!-- /#wrapper -->
 <?php get_footer(); ?>
