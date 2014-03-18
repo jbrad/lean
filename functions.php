@@ -50,7 +50,7 @@ include_once( get_template_directory() . '/lib/Bootstrap_Nav_Walker.class.php' )
  * 5.	Comments Template
  * 6.	Stylesheet and JavaScript Sources
  * 7.	Custom Filters
- * 8.	Helper Functions
+ * 8.	Custom Post Types
  * ----------------------------------------------------------- */
 
 /* ----------------------------------------------------------- *
@@ -94,3 +94,9 @@ include_once( get_template_directory() . '/includes/theme-styles-and-scripts.php
  * ----------------------------------------------------------- */
 
 include_once( get_template_directory() . '/includes/theme-custom-filters.php' );
+
+/* ----------------------------------------------------------- *
+ * 8. Custom Post Types
+ * ----------------------------------------------------------- */
+
+include_once( get_template_directory() . '/includes/theme-custom-post-types.php' );
