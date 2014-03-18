@@ -761,9 +761,9 @@ if( ! function_exists('add_theme_sidebars') ) {
         // home left
         register_sidebar(
             array(
-                'name' 			=> __( 'Home Left', TRANSLATION_KEY ),
+                'name' 			=> __( 'Marketing Left', TRANSLATION_KEY ),
                 'id' 			=> 'sidebar-6',
-                'description'	=> __( 'Shown in the first column on the home page.', TRANSLATION_KEY ),
+                'description'	=> __( 'Shown in the first column for the marketing widgets.', TRANSLATION_KEY ),
                 'before_widget' => '<div id="%1$s" class="widget %2$s">',
                 'after_widget'  => '</div>',
                 'before_title'  => '<h3 class="widget-title">',
@@ -774,9 +774,9 @@ if( ! function_exists('add_theme_sidebars') ) {
         // home center
         register_sidebar(
             array(
-                'name' 			=> __( 'Home Center', TRANSLATION_KEY ),
+                'name' 			=> __( 'Marketing Center', TRANSLATION_KEY ),
                 'id' 			=> 'sidebar-7',
-                'description'	=> __( 'Shown in the second column on the home page.', TRANSLATION_KEY ),
+                'description'	=> __( 'Shown in the second column for the marketing widgets.', TRANSLATION_KEY ),
                 'before_widget' => '<div id="%1$s" class="widget %2$s">',
                 'after_widget'  => '</div>',
                 'before_title'  => '<h3 class="widget-title">',
@@ -787,9 +787,9 @@ if( ! function_exists('add_theme_sidebars') ) {
         // home right
         register_sidebar(
             array(
-                'name' 			=> __( 'Home Right', TRANSLATION_KEY ),
+                'name' 			=> __( 'Marketing Right', TRANSLATION_KEY ),
                 'id' 			=> 'sidebar-8',
-                'description'	=> __( 'Shown in the third column on the home page.', TRANSLATION_KEY ),
+                'description'	=> __( 'Shown in the third column for the marketing widgets.', TRANSLATION_KEY ),
                 'before_widget' => '<div id="%1$s" class="widget %2$s">',
                 'after_widget'  => '</div>',
                 'before_title'  => '<h3 class="widget-title">',
