@@ -35,7 +35,7 @@
 <?php get_template_part( 'lib/breadcrumbs/breadcrumbs' ); ?>
 
 <?php if( has_nav_menu( 'menu_above_logo' ) ) { ?>
-    <nav id="menu-above-header" class="menu-navigation navbar-static-top navbar navbar-default<?php echo $dark ? ' navbar-inverse' : ''; ?>" role="navigation">
+    <nav class="menu-above-header menu-navigation navbar-static-top navbar navbar-default<?php echo $dark ? ' navbar-inverse' : ''; ?>" role="navigation">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".menu-above">
@@ -83,7 +83,7 @@ $header_image = get_header_image();
 $head_class = ! empty( $header_image ) ? 'imageyup' : 'imageless';
 ?>
 
-<header id="header" class="<?php echo $head_class; ?> jumbotron">
+<header class="header jumbotron <?php echo $head_class; ?>">
 
     <div id="head-wrapper" class="container">
 
@@ -166,7 +166,7 @@ $head_class = ! empty( $header_image ) ? 'imageyup' : 'imageless';
 </header><!-- /#header -->
 
 <?php if( has_nav_menu( 'menu_below_logo' ) ) { ?>
-    <nav id="menu-below-header" class="menu-navigation navbar-static-top navbar navbar-default<?php echo $dark ? ' navbar-inverse' : ''; ?>" role="navigation">
+    <nav class="menu-below-header menu-navigation navbar-static-top navbar navbar-default<?php echo $dark ? ' navbar-inverse' : ''; ?>" role="navigation">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".menu-below">
