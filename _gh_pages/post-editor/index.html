@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Bootstrap, a sleek, intuitive, and powerful mobile first front-end framework for faster and easier web development.">
+<meta name="keywords" content="HTML, CSS, JS, JavaScript, framework, bootstrap, front-end, frontend, web development">
+<meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+
+<title>
+  
+    Post Editor &middot; Bootstrap
+  
+</title>
+
+<!-- Bootstrap core CSS -->
+<link href="../dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Documentation extras -->
+<link href="../assets/css/docs.min.css" rel="stylesheet">
+<!--[if lt IE 9]><script src="../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+  <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<!-- Favicons -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+                               <link rel="shortcut icon" href="../assets/ico/favicon.ico">
+
+<script>
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-146052-10']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+  </head>
+  <body>
+    <a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <!-- Docs master nav -->
+    <header class="navbar navbar-static-top bs-docs-nav" id="top" role="banner">
+    <div class="container">
+        <div class="navbar-header">
+            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="../" class="navbar-brand">Lean</a>
+        </div>
+        <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+            <ul class="nav navbar-nav">
+                <li>
+                <a href="../getting-started">Getting started</a>
+                </li>
+                <li>
+                <a href="../layout">Layout</a>
+                </li>
+                <li class="active">
+                <a href="../post-editor">Post Editor</a>
+                </li>
+                <li>
+                <a href="../admin-panel">Admin Panel</a>
+                </li>
+                <li>
+                <a href="../widgets">Widgets</a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="http://leantheme.co/purchase" target="_blank">Purchase</a></li>
+                <li><a href="https://leantheme.zendesk.com" target="_blank">Support</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+    <!-- Docs page layout -->
+    <div class="bs-docs-header" id="content">
+      <div class="container">
+        <h1>Post Editor</h1>
+        <p>Lean adds new capability to the WordPress post editor.</p>
+      </div>
+    </div>
+
+    <div class="container bs-docs-container">
+
+      <div class="row">
+        <div class="col-md-9" role="main">
+          <p class="lead">If sections are missing from your admin panel, click the “screen options” drop-down tab in the top right of the screen.</p>
+
+<div class="bs-docs-section">
+    <h1 id="post-title" class="page-header">Post Title</h1>
+
+    <p>The post title will be displayed on the single post page, except for posts using the image or video post formats. In fact, the functionality of this input area will change based on the selected post format.</p>
+    <p>If your post exceeds 70 characters you will receive an SEO warning.</p>
+</div>
+<div class="bs-docs-section">
+    <h1 id="post-body" class="page-header">Post Body</h1>
+
+    <p>This is the main content of your post. You can add images by clicking the&nbsp;<em>Add Media</em>&nbsp;button. To embed videos, simply put the Vimeo or YouTube URL in the content on it’s own line and Lean will embed and size the video player appropriately.</p>
+</div>
+<div class="bs-docs-section">
+    <h1 id="seo" class="page-header">SEO</h1>
+
+    <p>A significant number of your site visitors will find you in Google and you play an important role in ensuring that your post’s description catches the eye of potential readers.</p>
+</div>
+<div class="bs-docs-section">
+    <h1 id="search-results" class="page-header">Search Results Preview</h1>
+
+    <p>The Search Results Preview shows you what potential readers will see once your post has been added to Google’s database. Experiencing the search result entry in this manner should help you craft an accurate and alluring post summary.</p>
+</div>
+<div class="bs-docs-section">
+    <h1 id="meta-description" class="page-header">Meta Description</h1>
+
+    <p>The Meta Description is a post summary that will be displayed on the Google search results page.&nbsp;If you leave this blank, the search engine will grab a section of your post (which may or may not be enticing) and use it.</p>
+</div>
+<div class="bs-docs-section">
+    <h1 id="publish" class="page-header">Publish</h1>
+
+    <p>Lean does not change the native publishing features provided by WordPress.</p>
+</div>
+<div class="bs-docs-section">
+    <h1 id="featured-image" class="page-header">Featured Image</h1>
+
+    <p>For posts configured to use the&nbsp;<em>Lean</em>&nbsp;post format, this is a 150 px x 150 px image which sits to the left of the post title. For posts configured to use the&nbsp;<em>Image</em>&nbsp;post format, this is a 620 px wide image that spans the entire width of the post area.</p>
+</div>
+<div class="bs-docs-section">
+    <h1 id="post-formats" class="page-header">Post Formats</h1>
+
+    <p>Use post formats to stylize certain types of posts. The following post formats are available:</p>
+    <ul>
+        <li>Standard (<a title="Post Format Standard" href="http://leantheme.co/post-format-standard/" target="_blank">example</a>)</li>
+        <li>Status (<a title="Post Format Status" href="http://leantheme.co/post-format-status/" target="_blank">example</a>)</li>
+        <li>Image&nbsp;(<a title="Post Format Image" href="http://leantheme.co/post-format-image/" target="_blank">example</a>)</li>
+        <li>Link&nbsp;(<a title="Post Format Link" href="http://leantheme.co/post-format-link/" target="_blank">example</a>)</li>
+        <li>Quote&nbsp;(<a title="Post Format Quote" href="http://leantheme.co/post-format-quote/" target="_blank">example</a>)</li>
+        <li>Video&nbsp;(<a title="Post Format Video" href="http://leantheme.co/post-format-video/" target="_blank">example</a>)</li>
+        <li>Gallery (<a title="Post Format Gallery" href="http://leantheme.co/post-format-gallery/" target="_blank">example</a>)</li>
+        <li>Audio (<a title="Post Format Audio" href="http://leantheme.co/post-format-audio/" target="_blank">example</a>)</li>
+        <li>Chat (<a title="Post Format Chat" href="http://leantheme.co/post-format-chat/" target="_blank">example</a>)</li>
+    </ul>
+    <blockquote><p>NOTE: To embed a video simply add the YouTube or Vimeo URL to the post body.</p></blockquote>
+</div>
+<div class="bs-docs-section">
+    <h1 id="post-layout" class="page-header">Post Layout</h1>
+
+    <p>If you have a post with content that requires extra width, like a wide image or video, you can choose to hide the sidebar. To accomplish this same effect on a page, use the Full-width page template.</p>
+</div>
+        </div>
+        <div class="col-md-3">
+          <div class="bs-docs-sidebar hidden-print" role="complementary">
+            <ul class="nav bs-docs-sidenav">
+              
+                <li>
+    <a href="#post-title">Post Title</a>
+</li>
+<li>
+    <a href="#post-body">Post Body</a>
+</li>
+<li>
+    <a href="#seo">SEO</a>
+</li>
+<li>
+    <a href="#search-results-preview">Search Results</a>
+</li>
+<li>
+    <a href="#meta-description">Meta Description</a>
+</li>
+<li>
+    <a href="#publish">Publish</a>
+</li>
+<li>
+    <a href="#featured-image">Featured Image</a>
+</li>
+<li>
+    <a href="#post-formats">Post Formats</a>
+</li>
+<li>
+    <a href="#post-layout">Post Layout</a>
+</li>
+              
+            </ul>
+            <a class="back-to-top" href="#top">
+              Back to top
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Footer
+================================================== -->
+<footer class="bs-docs-footer" role="contentinfo">
+  <div class="container">
+
+    <p>Forked from Standard and maintained by <a href="http://jasonbradley.me" target="_blank">Jason Bradley</a>.</p>
+    <p>Code licensed under <a href="https://github.com/twbs/bootstrap/blob/master/LICENSE" target="_blank">MIT</a>, documentation under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</p>
+    <ul class="bs-docs-footer-links muted">
+      <li>Currently v2.0.0</li>
+      <li>&middot;</li>
+      <li><a href="https://github.com/jbrad/lean">GitHub</a></li>
+      <li>&middot;</li>
+      <li><a href="../getting-started/#examples">Examples</a></li>
+      <li>&middot;</li>
+      <li><a href="../about/">About</a></li>
+      <li>&middot;</li>
+      <li><a href="">Expo</a></li>
+      <li>&middot;</li>
+      <li><a href="http://jasonbradley.me">Blog</a></li>
+      <li>&middot;</li>
+      <li><a href="https://github.com/jbrad/lean/issues?state=open">Issues</a></li>
+      <li>&middot;</li>
+      <li><a href="https://github.com/jbrad/lean/releases">Releases</a></li>
+    </ul>
+  </div>
+</footer>
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="../dist/js/bootstrap.min.js"></script>
+<script src="../assets/js/docs.min.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Bootstrap, a sleek, intuitive, and powerful mobile first front-end framework for faster and easier web development.">
+<meta name="keywords" content="HTML, CSS, JS, JavaScript, framework, bootstrap, front-end, frontend, web development">
+<meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+
+<title>
+  
+    Admin Panel &middot; Bootstrap
+  
+</title>
+
+<!-- Bootstrap core CSS -->
+<link href="../dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Documentation extras -->
+<link href="../assets/css/docs.min.css" rel="stylesheet">
+<!--[if lt IE 9]><script src="../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+  <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<!-- Favicons -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+                               <link rel="shortcut icon" href="../assets/ico/favicon.ico">
+
+<script>
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-146052-10']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+  </head>
+  <body>
+    <a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <!-- Docs master nav -->
+    <header class="navbar navbar-static-top bs-docs-nav" id="top" role="banner">
+    <div class="container">
+        <div class="navbar-header">
+            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="../" class="navbar-brand">Lean</a>
+        </div>
+        <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+            <ul class="nav navbar-nav">
+                <li>
+                <a href="../getting-started">Getting started</a>
+                </li>
+                <li>
+                <a href="../layout">Layout</a>
+                </li>
+                <li>
+                <a href="../post-editor">Post Editor</a>
+                </li>
+                <li class="active">
+                <a href="../admin-panel">Admin Panel</a>
+                </li>
+                <li>
+                <a href="../widgets">Widgets</a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="http://leantheme.co/purchase" target="_blank">Purchase</a></li>
+                <li><a href="https://leantheme.zendesk.com" target="_blank">Support</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+    <!-- Docs page layout -->
+    <div class="bs-docs-header" id="content">
+      <div class="container">
+        <h1>Admin Panel</h1>
+        <p>Make decisions, not choices</p>
+      </div>
+    </div>
+
+    <div class="container bs-docs-container">
+
+      <div class="row">
+        <div class="col-md-9" role="main">
+          <div class="bs-docs-section">
+    <h1 id="global" class="page-header">Global</h1>
+
+    <h3 id="feedburner">FeedBurner URL</h3>
+    <p><em>Enter your FeedBurner URL and click Save Changes.</em></p>
+    <p>Your WordPress site comes with an RSS feed built in to help visitors subscribe to updates. Many of our customers choose to create an RSS feed with FeedBurner instead of using the native one provided because it provides detailed statistics, among other advantages.</p>
+
+    <h3 id="google-analytics">Google Analytics</h3>
+    <p><em>Enter your Google Analytics ID and click Save Changes.</em></p>
+    <p>You have two excellent options for collecting statistics about your site’s traffic, and both are free. The light and convenient option is called WordPress.com Stats and it’s found in the&nbsp;<a title="JetPack Plugin Suite" href="http://jetpack.me/" target="_blank">Jetpack</a>&nbsp;suite of plugins, created by the makers of WordPress. The more complicated, but much more comprehensive and detailed option is&nbsp;<a title="Google Analytics" href="http://google.com/analytics" target="_blank">Google Analytics</a>.</p>
+
+    <h3 id="site-mode">Site Mode</h3>
+    <p><em>Select Online or Offline and click Save Changes.</em></p>
+    <p>WARNING:&nbsp;Taking site offline will hide all content from site visitors and search engines. This could significantly impact your ranking in search engines.</p>
+    <p><strong>Online</strong></p>
+    <p>When your site is in online mode, it will function like any other WordPress site.</p>
+    <p><strong>Offline</strong></p>
+    <p>When your site is in offline mode, visitors will not be able to see posts or pages. They will only see the message you configured. Make sure you are logged out of the admin panel to experience what site visitors can see.</p>
+    <p>If you log into the admin panel, you will be able to see the working version of your site. You can make changes and preview them, while keeping the changes private from the public at large. This is especially handy if you are creating a new site or performing maintenance on an existing site.</p>
+
+    <h3 id="offline-message">Offline Message</h3>
+    <p><em>Enter the public message for site visitors then click Save Changes.</em></p>
+    <p><em></em>This option only displays when site mode&nbsp;is set to ‘offline’.</p>
+</div>
+<div class="bs-docs-section">
+    <h1 id="presentation" class="page-header">Presentation</h1>
+
+    <h3 id="logo">Logo</h3>
+    <p><em>Click upload, select an image file to upload, then click Save Image.</em></p>
+    <p>When you upload a logo it replaces the site title and tagline in the site header. Delete the logo and they will once again be displayed.</p>
+    <p>The maximum width for logos is&nbsp;<strong>300px</strong>.</p>
+
+    <h3 id="site-icon">Site Icon</h3>
+    <p><em>Click upload, select an image file to upload, then click Save Image.</em></p>
+    <p>The site icon is displayed in the address bar of web browsers. Some mobile devices will use it as an app icon if a bookmark to your site is saved to the launch screen.</p>
+    <p>Preferred dimensions are&nbsp;<strong>144px&nbsp;</strong>x<strong>&nbsp;144px</strong>.</p>
+
+    <h3 id="contrast">Contrast</h3>
+    <p><em>Change the contrast to Dark or Light then click Save Changes.</em></p>
+    <p>The main function is to switch the contrast of text so that it’s readable in relation to customized backgrounds. You can change your site’s background to either a solid color or an uploaded image in&nbsp;<em>Appearances</em>&nbsp;-&gt;&nbsp;<em>Backgrounds</em>, but depending on the color or image selected, you could end up with dark text against a dark background making it impossible to read.</p>
+    <p>In these cases, switch the contrast.</p>
+
+    <h3 id="sidebar">Sidebar Orientation</h3>
+    <p><em>Select Left Sidebar, Right Sidebar, or No Sidebar / Full Width and then click Save Changes.</em></p>
+    <p>This affects the layout of all pages and posts on the site. Move the sidebar to the left or right, or remove it completely and allow you content to be displayed at the “full width” of the page.</p>
+    <p>NOTE: There is an option to override this setting on each post and page.</p>
+    
+    <h3 id="breadcrumbs">Display Breadcrumbs</h3>
+    <p><em>Select Always or Never then click Save Changes.</em></p>
+    <p><strong>For Users</strong></p>
+    <p>The term Breadcrumbs refers to a hierarchical list of links, usually filled with categories and post titles, that are presented on every page so that visitors can find and access other categories, pages, and posts in the hierarchy.</p>
+    <p><strong><a id="seo" name="seo"></a>For SEO</strong></p>
+    <p>Search engines favor sites with Breadcrumbs turned on because these hierarchical lists help the search engines categorize and organize your site’s content in their database.</p>
+
+    <h3 id="featured-images">Display Featured Images</h3>
+    <p><em>Select Always, Never, On index only, or On single posts only and then click Save Changes.</em></p>
+    <p>Featured images are thumbnail images in the post title. You can choose to always display them on both the post list and on the single post page, on the post list (index) only, on single posts only, or not at all in either location.</p>
+
+    <h3 id="footer-credits">Display Footer Credits</h3>
+    <p><em>Select Always or Never and then click Save Changes.</em></p>
+    <p>Footer credits are are everything after the copyright and site name in the footer.</p>
+    <blockquote>— Lean by Jason Bradley</blockquote>
+</div>
+<div class="bs-docs-section">
+    <h1 id="social" class="page-header">Social</h1>
+
+    <h3 id="font-awesome">Font Awesome</h3>
+    <p>Uses the <a href="http://fontawesome.io/icons/#brand" target="_blank">brand icons</a> from <a href="http://fontawesome.io" target="_blank">Font Awesome</a>.</p>
+
+    <h3 id="active-icons">Active Icons</h3>
+    <p><em>Arrange icons in the order in which you want them displayed in the menu bar.</em></p>
+    <p><em>Drag an icon back to the library to remove it from the menu bar.</em></p>
+    <p><em>Click an icon to set it’s destination URL.</em></p>
+    <p>The URL for the RSS icon is read only and can not be updated. If the native WordPress RSS feed is being used, it will show the local URL. If a FeedBurner feed has been configured in the&nbsp;<a title="Global" href="http://docs.8bit.io/standard/admin-panel/global/">Global</a>&nbsp;section, it will show the FeedBurner URL.</p>
+    <p>Due to space limitations, Lean looks best with 7 icons or less.</p>
+
+    <h3 id="icon-library">Icon Library</h3>
+    <p><em>To use a social icon in your header menu bar, drag it out of the Icon Library and into Active Icons.</em></p>
+    <p>The Icon Library comes with 14 social network icons.</p>
+
+    <h3 id="reset-defaults">Reset Defaults</h3>
+    <p>If you want to remove all of the active icons and their URL, simply click the reset defaults link.</p>
+</div>
+<div class="bs-docs-section">
+    <h1 id="publishing" class="page-header">Publishing</h1>
+    
+    <h3 id="author-box">Display Author Box</h3>
+    <p><em>Select Always or Never and then click Save Changes.</em></p>
+    <p>The author box displays key information about the author of a blog post such as:</p>
+    <ul>
+        <li>Author Image (Thumbnail)</li>
+        <li>Post Archive Link</li>
+        <li>Twitter Link</li>
+        <li>Facebook Link</li>
+        <li>Google+ Link</li>
+    </ul>
+    <p><strong>Author Image (Gravatar)</strong></p>
+    <p><em>Create a Gravatar account using the same email address that is in your user profile.</em></p>
+    <p><a title="Gravatar" href="http://gravatar.com/" target="_blank">Gravatar</a>&nbsp;is a free service that allows you to configure a personal avatar image that “follows you around” as you post comments on blogs and sites throughout the Internet. As long as you use the email address associated with your Gravatar account, you’ll have an image of you (or your brand) when you leave comments.</p>
+    <p>To configure an Author Image in the Author Box you will need to create a Gravatar account using the same email address that is configured in your user profile on your site.</p>
+    <p><strong>Post Archive Link</strong></p>
+    <p>This is automatically generated per author, no configuration required.</p>
+    <p><strong>Twitter, Facebook, and Google+ Links</strong></p>
+    <p>These are configured for each author in their user profiles. To change yours, in the left navigation of the WordPress admin panel go to&nbsp;<em>Users&nbsp;</em>-&gt;<em>&nbsp;Your Profile.</em></p>
+    
+    <h3 id="privacy-policy">Privacy Policy</h3>
+    <p><em>Click the Generate button, edit the new Privacy Policy in the Pages section, then Publish the page.</em></p>
+    <p>It is an act of good web citizenship for all site owners to clearly state their position on visitor privacy. Lean makes getting started simple. We have created a draft Privacy Policy for you to edit and customize to your needs.</p>
+    <p>When you publish the privacy policy a link will be added to your footer.</p>
+    <p>IMPORTANT: Your Privacy Policy is not complete until you edit it for accuracy and publish the page.</p>
+    
+    <h3 id="comment-policy">Comment Policy</h3>
+    <p><em>Click the Generate button, edit the new Comment Policy in the Pages section, then Publish the page.</em></p>
+    <p>It is also an act of good web citizenship for site owners to clearly state their position on visitor comments. We have created a draft Comment Policy for you to edit and customize to your needs.</p>							
+</div>
+        </div>
+        <div class="col-md-3">
+          <div class="bs-docs-sidebar hidden-print" role="complementary">
+            <ul class="nav bs-docs-sidenav">
+              
+                <li>
+    <a href="#global">Global</a>
+    <ul class="nav">
+        <li><a href="#feedburner">FeedBurner</a></li>
+        <li><a href="#google-analytics">Google Analytics</a></li>
+        <li><a href="#site-mode">Site Mode</a></li>
+        <li><a href="#offline-message">Offline Message</a></li>
+    </ul>
+</li>
+<li>
+    <a href="#presentation">Presentation</a>
+    <ul class="nav">
+        <li><a href="#logo">Logo</a></li>
+        <li><a href="#site-icon">Site Icon</a></li>
+        <li><a href="#sidebar">Sidebar Orientation</a></li>
+        <li><a href="#featured-images">Featured Images</a></li>
+        <li><a href="#footer-credits">Footer Credits</a></li>
+    </ul>
+</li>
+<li>
+    <a href="#social">Social</a>
+    <ul class="nav">
+        <li><a href="#font-awesome">Font Awesome</a></li>
+        <li><a href="#active-icons">Active Icons</a></li>
+        <li><a href="#icon-library">Icon Library</a></li>
+        <li><a href="#reset-defaults">Reset Defaults</a></li>
+    </ul>
+</li>
+<li>
+    <a href="#publishing">Publishing</a>
+    <ul class="nav">
+        <li><a href="#author-box">Author Box</a></li>
+        <li><a href="#privacy-policy">Privacy Policy</a></li>
+        <li><a href="#comment-policy">Comment Policy</a></li>
+    </ul>
+</li>
+              
+            </ul>
+            <a class="back-to-top" href="#top">
+              Back to top
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Footer
+================================================== -->
+<footer class="bs-docs-footer" role="contentinfo">
+  <div class="container">
+
+    <p>Forked from Standard and maintained by <a href="http://jasonbradley.me" target="_blank">Jason Bradley</a>.</p>
+    <p>Code licensed under <a href="https://github.com/twbs/bootstrap/blob/master/LICENSE" target="_blank">MIT</a>, documentation under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</p>
+    <ul class="bs-docs-footer-links muted">
+      <li>Currently v2.0.0</li>
+      <li>&middot;</li>
+      <li><a href="https://github.com/jbrad/lean">GitHub</a></li>
+      <li>&middot;</li>
+      <li><a href="../getting-started/#examples">Examples</a></li>
+      <li>&middot;</li>
+      <li><a href="../about/">About</a></li>
+      <li>&middot;</li>
+      <li><a href="">Expo</a></li>
+      <li>&middot;</li>
+      <li><a href="http://jasonbradley.me">Blog</a></li>
+      <li>&middot;</li>
+      <li><a href="https://github.com/jbrad/lean/issues?state=open">Issues</a></li>
+      <li>&middot;</li>
+      <li><a href="https://github.com/jbrad/lean/releases">Releases</a></li>
+    </ul>
+  </div>
+</footer>
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="../dist/js/bootstrap.min.js"></script>
+<script src="../assets/js/docs.min.js"></script>
+
+  </body>
+</html>

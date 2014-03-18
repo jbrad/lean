@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Bootstrap, a sleek, intuitive, and powerful mobile first front-end framework for faster and easier web development.">
+<meta name="keywords" content="HTML, CSS, JS, JavaScript, framework, bootstrap, front-end, frontend, web development">
+<meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+
+<title>
+  
+    Layout &middot; Bootstrap
+  
+</title>
+
+<!-- Bootstrap core CSS -->
+<link href="../dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Documentation extras -->
+<link href="../assets/css/docs.min.css" rel="stylesheet">
+<!--[if lt IE 9]><script src="../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+  <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<!-- Favicons -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+                               <link rel="shortcut icon" href="../assets/ico/favicon.ico">
+
+<script>
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-146052-10']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+  </head>
+  <body>
+    <a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <!-- Docs master nav -->
+    <header class="navbar navbar-static-top bs-docs-nav" id="top" role="banner">
+    <div class="container">
+        <div class="navbar-header">
+            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="../" class="navbar-brand">Lean</a>
+        </div>
+        <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+            <ul class="nav navbar-nav">
+                <li>
+                <a href="../getting-started">Getting started</a>
+                </li>
+                <li class="active">
+                <a href="../layout">Layout</a>
+                </li>
+                <li>
+                <a href="../post-editor">Post Editor</a>
+                </li>
+                <li>
+                <a href="../admin-panel">Admin Panel</a>
+                </li>
+                <li>
+                <a href="../widgets">Widgets</a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="http://leantheme.co/purchase" target="_blank">Purchase</a></li>
+                <li><a href="https://leantheme.zendesk.com" target="_blank">Support</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+    <!-- Docs page layout -->
+    <div class="bs-docs-header" id="content">
+      <div class="container">
+        <h1>Layout</h1>
+        <p>Describes the primary sections and areas that are present on all pages and posts by default.</p>
+      </div>
+    </div>
+
+    <div class="container bs-docs-container">
+
+      <div class="row">
+        <div class="col-md-9" role="main">
+          <div class="bs-docs-section">
+    <h1 id="header" class="page-header">Header</h1>
+    <p class="lead">The site header contains a single black menu bar, at the top of the site header, and displays the site title and tagline for your site. To configure these visit the&nbsp;<em>Settings</em>&nbsp;-&gt;&nbsp;<a title="Global" href="http://localhost:8888/leandocs/admin-panel/global/" target="_blank"><em>General</em></a>&nbsp;section of the admin panel.</p>
+    
+    <h3 id="menu-bars">Menu Bars</h3>
+    <p>The header actually contains 2 horizontal menu bars that can be used for site navigation menus and social icons, but it’s best to use one at a time. Navigation links are created and managed in the&nbsp;<em>Appearances&nbsp;</em>-&gt;<em>&nbsp;Menus</em>&nbsp;section of the admin panel.</p>
+    <p>By default, a single black menu bar&nbsp;with a home link is displayed at the top of the site header when no menus are selected for&nbsp;<em>Header Menu (Upper)</em>&nbsp;and&nbsp;<em>Header Menu (Lower)</em>.</p>
+    <p>To configure links in the top menu bar,&nbsp;<a title="WordPress Menu Guide" href="http://codex.wordpress.org/WordPress_Menu_User_Guide" target="_blank">create a new menu</a>&nbsp;and assign it to the&nbsp;<em>Header Menu (Upper)</em>&nbsp;theme location.</p>
+    <p>To configure links to display below the header,&nbsp;assign a menu to the&nbsp;<em>Header Menu (Lower)</em>&nbsp;theme location.</p>
+    <p>Social icons are managed in&nbsp;<em>Lean&nbsp;</em>-&gt;<em>&nbsp;<a title="Social" href="http://localhost:8888/leandocs/admin-panel/social/">Social</a></em>&nbsp;section of the admin panel.</p>
+
+    <h3 id="header-image">Header Image &amp; Logo</h3>
+    <p>The header image &amp; logo area is located between the upper and lower menu bars and can be configured in both the&nbsp;<em>Appearances</em>&nbsp;-&gt;&nbsp;<a title="WordPress Custom Headers" href="http://codex.wordpress.org/Appearance_Header_Screen" target="_blank"><em>Headers</em></a>&nbsp;and the&nbsp;<em>Lean</em>&nbsp;-&gt;&nbsp;<a title="Presentation" href="http://localhost:8888/leandocs/admin-panel/presentation/"><em>Presentation</em></a>&nbsp;admin panel sections.</p>
+
+    <h3 id="widget-area">Widget Area</h3>
+    <p>Widgets can be configured for the header in the&nbsp;<em>Appearances</em>&nbsp;-&gt;&nbsp;<a title="WordPress Widgets Screen" href="http://codex.wordpress.org/Appearance_Widgets_Screen" target="_blank"><em>Widgets</em></a>&nbsp;section of the admin panel, but not all widgets will fit and look good in this space. For ideal results, use the 468 Ad widget, the Google Custom Search widget, or the native Search widget.</p>
+</div>
+<div class="bs-docs-section">
+    <h1 id="content" class="page-header">Content</h1>
+
+    <p class="lead">This section will show page or post content.</p>
+    <p>If you are on the index page, which is usually the front page of your site, it will show a list of blog posts. If you are on a single page, like the About page for example, it will only show the content you added when you edited the About page in the&nbsp;<em>Pages</em>&nbsp;section of the admin panel. If you are on a single post, this page will show the post content and the comments for the post by default.</p>
+</div>
+<div class="bs-docs-section">
+    <h1 id="sidebar" class="page-header">Sidebar</h1>
+
+    <p>This area is reserved for native&nbsp;<a title="WordPress Widgets" href="http://codex.wordpress.org/WordPress_Widgets" target="_blank">WordPress widgets</a>,&nbsp;<a title="Widgets" href="http://localhost:8888/leandocs/widgets/">Lean widgets</a>, or 3rd party widgets downloaded from the&nbsp;<a title="WordPress Plugin Repository" href="http://wordpress.org/extend/plugins/" target="_blank">Plugin Repository</a>.</p>
+    <p>To configure the sidebar go to&nbsp;<em>Appearances</em>&nbsp;-&gt;&nbsp;<em><a title="WordPress WIdgets Screen" href="http://codex.wordpress.org/Appearance_Widgets_Screen" target="_blank">Widgets</a></em>&nbsp;in the admin panel.</p>
+</div>
+<div class="bs-docs-section">
+    <h1 id="footer" class="page-header">Footer</h1>
+
+    <h3 id="menu">Menu</h3>
+    <p>To configure links in the footer menu bar,&nbsp;assign a menu to the&nbsp;<em>Footer Menu&nbsp;</em>theme location in the&nbsp;<em>Appearances</em>&nbsp;-&gt;<em>Menus</em>&nbsp;section of the admin panel.</p>
+
+    <h3 id="widget-areas">Widget Areas</h3>
+    <p>Three widget areas are available in the footer, although they are not visible by default. To configure them go to the<em>Appearances</em>&nbsp;-&gt;&nbsp;<em>Widgets</em>&nbsp;section of the admin panel.</p>
+</div>
+        </div>
+        <div class="col-md-3">
+          <div class="bs-docs-sidebar hidden-print" role="complementary">
+            <ul class="nav bs-docs-sidenav">
+              
+                <li>
+    <a href="#header">Header</a>
+    <ul class="nav">
+        <li><a href="#menu-bars">Menu Bars</a></li>
+        <li><a href="#header-image">Image/Logo</a></li>
+        <li><a href="#widget-area">Widget Area</a></li>
+    </ul>
+</li>
+<li>
+    <a href="#content">Content</a>
+</li>
+<li>
+    <a href="#sidebar">Sidebar</a>
+</li>
+<li>
+    <a href="#footer">Footer</a>
+    <ul class="nav">
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#widget-areas">Widget Areas</a></li>
+    </ul>
+</li>
+              
+            </ul>
+            <a class="back-to-top" href="#top">
+              Back to top
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Footer
+================================================== -->
+<footer class="bs-docs-footer" role="contentinfo">
+  <div class="container">
+
+    <p>Forked from Standard and maintained by <a href="http://jasonbradley.me" target="_blank">Jason Bradley</a>.</p>
+    <p>Code licensed under <a href="https://github.com/twbs/bootstrap/blob/master/LICENSE" target="_blank">MIT</a>, documentation under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</p>
+    <ul class="bs-docs-footer-links muted">
+      <li>Currently v2.0.0</li>
+      <li>&middot;</li>
+      <li><a href="https://github.com/jbrad/lean">GitHub</a></li>
+      <li>&middot;</li>
+      <li><a href="../getting-started/#examples">Examples</a></li>
+      <li>&middot;</li>
+      <li><a href="../about/">About</a></li>
+      <li>&middot;</li>
+      <li><a href="">Expo</a></li>
+      <li>&middot;</li>
+      <li><a href="http://jasonbradley.me">Blog</a></li>
+      <li>&middot;</li>
+      <li><a href="https://github.com/jbrad/lean/issues?state=open">Issues</a></li>
+      <li>&middot;</li>
+      <li><a href="https://github.com/jbrad/lean/releases">Releases</a></li>
+    </ul>
+  </div>
+</footer>
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="../dist/js/bootstrap.min.js"></script>
+<script src="../assets/js/docs.min.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Bootstrap, a sleek, intuitive, and powerful mobile first front-end framework for faster and easier web development.">
+<meta name="keywords" content="HTML, CSS, JS, JavaScript, framework, bootstrap, front-end, frontend, web development">
+<meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+
+<title>
+  
+    Getting started &middot; Bootstrap
+  
+</title>
+
+<!-- Bootstrap core CSS -->
+<link href="../dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Documentation extras -->
+<link href="../assets/css/docs.min.css" rel="stylesheet">
+<!--[if lt IE 9]><script src="../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+  <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<!-- Favicons -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+                               <link rel="shortcut icon" href="../assets/ico/favicon.ico">
+
+<script>
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-146052-10']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+  </head>
+  <body>
+    <a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <!-- Docs master nav -->
+    <header class="navbar navbar-static-top bs-docs-nav" id="top" role="banner">
+    <div class="container">
+        <div class="navbar-header">
+            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="../" class="navbar-brand">Lean</a>
+        </div>
+        <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+            <ul class="nav navbar-nav">
+                <li class="active">
+                <a href="../getting-started">Getting started</a>
+                </li>
+                <li>
+                <a href="../layout">Layout</a>
+                </li>
+                <li>
+                <a href="../post-editor">Post Editor</a>
+                </li>
+                <li>
+                <a href="../admin-panel">Admin Panel</a>
+                </li>
+                <li>
+                <a href="../widgets">Widgets</a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="http://leantheme.co/purchase" target="_blank">Purchase</a></li>
+                <li><a href="https://leantheme.zendesk.com" target="_blank">Support</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+    <!-- Docs page layout -->
+    <div class="bs-docs-header" id="content">
+      <div class="container">
+        <h1>Getting started</h1>
+        <p>Covering the basics</p>
+      </div>
+    </div>
+
+    <div class="container bs-docs-container">
+
+      <div class="row">
+        <div class="col-md-9" role="main">
+          <div class="bs-docs-section">
+    <h1 id="installation" class="page-header">Installation</h1>
+
+    <p class="lead">Lean Theme requires WordPress 3+ and PHP 5+.</p>
+    <p>Installing Lean Theme is no different than any other WordPress theme. It is a 3 step process.</p>
+    <ol>
+        <li>Upload the theme to your WordPress admin panel. Instructions&nbsp;<a href="http://codex.wordpress.org/Using_Themes#Adding_New_Themes_using_the_Administration_Panel" target="_blank">available here</a>&nbsp;in the&nbsp;<a href="http://codex.wordpress.org/" target="_blank">WordPress Codex</a>.</li>
+        <li>Activate the theme. Instructions available&nbsp;<a href="http://codex.wordpress.org/Using_Themes#Selecting_the_Active_Theme" target="_blank">available here</a>&nbsp;in the&nbsp;<a href="http://codex.wordpress.org/" target="_blank">WordPress Codex</a>.</li>
+        <li>Configure, tweak, adjust, and customize the theme to your preference. Instructions available in the remainder of this document.</li>
+    </ol>
+</div>
+<div class="bs-docs-section">
+    <h1 id="basics" class="page-header">The Basics</h1>
+
+    <p>All WordPress sites are composed of two primary areas: the site and the admin panel. The site is often called the front end, and the admin panel is often called the backend.</p>
+    <p>Your public facing blog, available for all the world to see, will be referred to as “the site” throughout this documentation.</p>
+    <p>The private, password protected, WordPress administration area will be referred to as “the admin panel” throughout this documentation.</p>
+    <p>You can usually access the admin panel of your site by adding&nbsp;<em>/wp-admin</em>&nbsp;to the end of your site’s address.</p>
+    <blockquote><p>Public Site URL: http://example.com</p>
+        <p>Private Admin URL: http://example.com/wp-admin</p></blockquote>
+    <p>If you need assistance with accessing your site’s admin panel, contact your web host.</p>
+</div>
+<div class="bs-docs-section">
+    <h1 id="confused" class="page-header">Confused?</h1>
+
+    <p>If you can’t find the&nbsp;<em>Upload</em>&nbsp;function in the&nbsp;<em>Appearances</em>&nbsp;section of your admin panel then it is probable that you are running a site on WordPress.com, which is different than running a self-hosted WordPress site. You can find a more detailed explanation in the article&nbsp;<a title="Which is better wordpress.com or wordpress.org" href="http://8bit.io/whats-the-difference-between-wordpress-com-and-wordpress-org/" target="_blank">What’s the Difference Between WordPress.com and WordPress.org</a>.</p>
+</div>
+        </div>
+        <div class="col-md-3">
+          <div class="bs-docs-sidebar hidden-print" role="complementary">
+            <ul class="nav bs-docs-sidenav">
+              
+                <li>
+  <a href="#installation">Installation</a>
+</li>
+<li>
+  <a href="#basics">The Basics</a>
+</li>
+<li>
+  <a href="#confused">Confused?</a>
+</li>
+              
+            </ul>
+            <a class="back-to-top" href="#top">
+              Back to top
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Footer
+================================================== -->
+<footer class="bs-docs-footer" role="contentinfo">
+  <div class="container">
+
+    <p>Forked from Standard and maintained by <a href="http://jasonbradley.me" target="_blank">Jason Bradley</a>.</p>
+    <p>Code licensed under <a href="https://github.com/twbs/bootstrap/blob/master/LICENSE" target="_blank">MIT</a>, documentation under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</p>
+    <ul class="bs-docs-footer-links muted">
+      <li>Currently v2.0.0</li>
+      <li>&middot;</li>
+      <li><a href="https://github.com/jbrad/lean">GitHub</a></li>
+      <li>&middot;</li>
+      <li><a href="../getting-started/#examples">Examples</a></li>
+      <li>&middot;</li>
+      <li><a href="../about/">About</a></li>
+      <li>&middot;</li>
+      <li><a href="">Expo</a></li>
+      <li>&middot;</li>
+      <li><a href="http://jasonbradley.me">Blog</a></li>
+      <li>&middot;</li>
+      <li><a href="https://github.com/jbrad/lean/issues?state=open">Issues</a></li>
+      <li>&middot;</li>
+      <li><a href="https://github.com/jbrad/lean/releases">Releases</a></li>
+    </ul>
+  </div>
+</footer>
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="../dist/js/bootstrap.min.js"></script>
+<script src="../assets/js/docs.min.js"></script>
+
+  </body>
+</html>
