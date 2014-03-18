@@ -8,8 +8,7 @@
 // Smartphones
 @media (max-width: 480px) {
 
-    #wrapper,
-    #footer {
+    #wrapper {
         .container {
             padding-right: 0px;
             padding-left: 0px;
@@ -19,10 +18,6 @@
     .row {
         margin-left: 0;
         margin-right: 0;
-    }
-
-    .navbar-brand {
-        float: none;
     }
 
     #hgroup {
@@ -45,6 +40,10 @@
             margin: 0 auto;
             width: 92%;
             text-align: center;
+        }
+
+        .header-widget {
+            margin-top: 20px !important;
         }
     }
 
@@ -159,6 +158,16 @@
             }
         }
     }
+
+    .jumbotron {
+        padding: 30px 0;
+
+        .footer-widget {
+            margin-bottom: 30px;
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
 }
 
 // tablet and mobile
@@ -187,8 +196,12 @@
         }
     }
 
-    #header-widget .ad-billboard {
-        margin-top: 10px;
+    #header-widget {
+        float: none !important;
+
+        .ad-billboard {
+            margin-top: 10px;
+        }
     }
 
     .navbar ul.nav-menu {
@@ -205,26 +218,8 @@
         }
     }
 
-    .nav-collapse .dropdown-menu {
-        display: block;
-        background: $navigation-mobile-dropdown-border-color;
-
-        li.active a {
-            color: $navigation-mobile-dropdown-active-item-color;
-
-            &:hover {
-                color: $navigation-mobile-dropdown-active-item-hover-color;
-            }
-        }
-
-        > li a {
-            box-shadow: none;
-            border: none;
-
-            &:hover {
-                color: $navigation-mobile-dropdown-item-hover-color;
-            }
-        }
+    .nav.navbar-nav.menu > li:first-child {
+        margin-left: 0px !important;
     }
 
     .navbar-nav.nav-pills {
@@ -289,41 +284,9 @@
         margin: 0 20px 20px 0;
     }
 
-    #footer #sub-floor {
-
-        .container {
-            padding-right: 0;
-            padding-left: 0;
-        }
-
-        #footer-links {
-            float: none;
-            padding: 0 20px;
-        }
-
-        #credit {
-            float: none;
-            padding: 0 20px;
-            text-align: center;
-        }
-    }
 }
 
 // default desktop
 @media (min-width: 980px) {
 
-    .navbar .navbar-nav > li {
-
-        &:first-child {
-            margin-left: -15px;
-        }
-
-        &:last-child {
-            margin-right: -5px;
-        }
-    }
-
-    .menu-header-container {
-        width: 680px;
-    }
 }
