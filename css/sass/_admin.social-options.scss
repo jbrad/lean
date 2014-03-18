@@ -16,25 +16,13 @@
 
     .alert {
         opacity: 1;
-        width: 93%;
-        padding: 8px 0;
-        margin-bottom: 10px;
-        text-align: center;
-        color: $alert-color;
-        text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
-        background-color: $alert-bg-color;
-        border: 1px solid $alert-border-color;
-        -webkit-border-radius: 5px;
-        -moz-border-radius: 5px;
-        border-radius: 5px;
-        @include ease-in();
-    }
-
-    .alert-info {
-        color: $alert-info-color;
-        background-color: $alert-info-bg-color;
-        border-color: $alert-info-border-color;
-        font-style: italic;
+        width: 89%;
+        padding: 12px;
+        background: #fff;
+        font-weight: bold;
+        border-left: 4px solid $brand-info;
+        -webkit-box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
+        box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
     }
 }
 
@@ -90,13 +78,10 @@
 
 #social-icons-available #available-icons,
 #social-icons-active #active-icons {
-    border: 1px solid $social-icons-border-color;
     border-top: 0;
-    min-height: 215px;
-    background: $social-icons-bg-color;
+    min-height: 200px;
     float: left;
     width: 99.9%;
-    position: relative;
 
     p {
         margin: 20px 0 10px 10px;
