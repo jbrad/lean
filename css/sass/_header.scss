@@ -7,6 +7,10 @@
 
 header {
     background-color: $header-background-color;
+
+    &.jumbotron {
+        margin-bottom: 0;
+    }
 }
 
 #logo p {
