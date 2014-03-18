@@ -14,7 +14,7 @@
 
     <?php if( ! is_offline() || is_user_logged_in() ) { ?>
         <?php if( is_active_sidebar( 'sidebar-3' ) || is_active_sidebar( 'sidebar-4' ) || is_active_sidebar( 'sidebar-5' ) ) { ?>
-            <div class="jumbotron">
+            <div class="jumbotron footer-widgets">
                 <div class="container">
                     <div class="row">
 
@@ -22,11 +22,11 @@
                             <?php dynamic_sidebar( 'sidebar-3' ); ?>
                         </div><!-- /.footer-widget  -->
 
-                        <div class="footer-widget  col-md-4">
+                        <div class="footer-widget col-md-4">
                             <?php dynamic_sidebar( 'sidebar-4' ); ?>
                         </div><!-- /.footer-widget  -->
 
-                        <div class="footer-widget  col-md-4">
+                        <div class="footer-widget col-md-4">
                             <?php dynamic_sidebar( 'sidebar-5' ); ?>
                         </div><!-- /.footer-widget  -->
 
@@ -42,7 +42,7 @@
                 <?php
                 wp_nav_menu(
                     array(
-                        'container_class'	=> 'menu-header-container',
+                        'container_class'	=> 'menu-footer-container',
                         'theme_location'  	=> 'footer_menu',
                         'items_wrap'      	=> '<ul id="%1$s" class="nav navbar-nav %2$s">%3$s</ul>',
                         'fallback_cb'	  	=> null,
