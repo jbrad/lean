@@ -603,7 +603,7 @@ function theme_social_options_display() {
     $html .= '<a href="javascript:;" id="cancel-social-icon-url">' . __( 'Cancel', TRANSLATION_KEY ) . '</a>';
     $html .= '</span><!-- /#social-icon-controls -->';
     $html .= '</div><!-- /#active-icon-url -->';
-    $html .= '<div id="social-icon-max" class="hidden alert alert-info"><span class="fa fa-exclamation-triangle"></span> ' . __( '' . THEME_NAME . ' looks best with seven icons or fewer.', TRANSLATION_KEY ) . '</div>';
+    $html .= '<div id="social-icon-max" class="hidden alert alert-info">' . __( '' . THEME_NAME . ' looks best with seven icons or fewer.', TRANSLATION_KEY ) . '</div>';
     $html .= '</div><!-- /#active-icons -->';
     $html .= '</div><!-- /#social-icons-active -->';
 
