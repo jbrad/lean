@@ -61,11 +61,6 @@ function togglePostBodyContent($) {
         // For 'All Pages'
         if($('select[name=page_template]').length > 0 && $('#page_template').length === 0) {
 
-            // First, disable all of the options for the sitemap
-            if(sitemapPageID($) > -1) {
-                $('option[value="template-sitemap.php"]').attr('disabled', 'disabled');
-            } // end if
-
             // Next, make sure that toggle ability based on the 'Quick Edit' options
             $('select[name=page_template]').change(function() {
 
@@ -82,15 +77,6 @@ function togglePostBodyContent($) {
         // For 'Post Editor'
         if($('select[name="page_template"]').length > 0 && $('#page_template').length > 0 && sitemapPageID($) > -1) {
 
-            // Disable the sitemap option there's already a sitemap
-            $('#page_template').children('option')
-                .each(function() {
-                    if($(this).val() === 'template-sitemap.php') {
-                        $(this).attr('disabled', 'disabled');
-                    } // end if
-                });
-
-            // Toggle Editor visibility if the sitemap is selected
             togglePostBodyContent($);
 
             $('#page_template').change(function() {

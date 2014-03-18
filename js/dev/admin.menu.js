@@ -7,13 +7,13 @@
             sActiveTab,
             $menuMessage = $('<div />')
                 .attr('id', 'post-editor')
-                .attr('class', 'warning')
+                .attr('class', 'error warning')
                 .append(
                     $('<p />')
                         .html('<strong>' + themeName + ' supports two levels of navigation, levels above that will not be displayed.</strong>')
                 );
 
-        $menuMessage.insertBefore($('#menu-management-liquid'));
+        $menuMessage.insertBefore($('#nav-menus-frame'));
 
         if($('.menu-item-depth-2').length > 0) {
             $menuMessage.show();

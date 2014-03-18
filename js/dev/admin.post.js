@@ -4,9 +4,10 @@
 
         // Create the notice that will appear above the post title
         /* Translators: This will need to be localized. */
-        var $titleMessage = $('<div />')
+        var postFormatSlides,
+            $titleMessage = $('<div />')
             .attr('id', 'post-editor')
-            .attr('class', 'warning')
+            .attr('class', 'error warning')
             .append(
                 $('<p />')
                     .html('<strong>A long post title has been detected. Search engines prefer titles with 70 characters or less.</strong>')
@@ -45,6 +46,12 @@
                 } // end if/else
 
             });
+
+        postFormatSlides = $('.post-type-slides');
+        postFormatSlides.find('#postexcerpt').find('span').html('Slide Caption');
+        postFormatSlides.find('#pageparentdiv').find('span').html('Slide Attributes');
+        postFormatSlides.find('#postimagediv').find('span').html('Slide Image');
+        postFormatSlides.find('#remove-post-thumbnail').text('Remove Slide Image');
 
     });
 }(jQuery));
