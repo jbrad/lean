@@ -30,7 +30,7 @@
                                     <h1 class="post-title entry-title"><?php the_title(); ?></h1>
                                 </div><!-- /.post-header -->
                                 <div id="content-<?php the_ID(); ?>" class="entry-content clearfix">
-                                    <h2 id="authors" class="lead"><span class="fa fa-group"></span> <?php _e( 'Authors', TRANSLATION_KEY ); ?></h2>
+                                    <h2 id="authors" class="page-header lead"><?php _e( 'Authors', TRANSLATION_KEY ); ?></h2>
 
                                     <ul id="sitemap-authors" class="nav nav-pills">
                                         <?php
@@ -60,13 +60,13 @@
                                         wp_list_pages(
                                             array(
                                                 'exclude'	=> get_the_ID(),
-                                                'title_li' 	=> '<h2 id="pages" class="lead"><span class="fa fa-list-alt"></span> Pages</h2>'
+                                                'title_li' 	=> '<h2 id="pages" class="page-header lead">Pages</h2>'
                                             )
                                         );
                                         ?>
                                     </ul>
 
-                                    <h2 id="posts" class="lead"><span class="fa fa-calendar"></span> <?php _e( 'Posts', TRANSLATION_KEY ); ?></h2>
+                                    <h2 id="posts" class="page-header lead"><?php _e( 'Posts', TRANSLATION_KEY ); ?></h2>
                                     <ul id="sitemap-posts">
                                         <?php
                                         $category_list = '';

@@ -33,7 +33,7 @@
                                     <div class="content">
                                         <?php the_content(); ?>
 
-                                        <h2 id="posts" class="lead"><span class="fa fa-calendar"></span> <?php _e( 'All Posts', TRANSLATION_KEY); ?></h2>
+                                        <h2 id="posts" class="page-header lead"><?php _e( 'All Posts', TRANSLATION_KEY); ?></h2>
 
                                         <?php
 
@@ -92,7 +92,7 @@
                                             <p><?php _e( 'You have no posts.', TRANSLATION_KEY ); ?></p>
                                         <?php } // end if ?>
 
-                                        <h2 id="pages" class="lead"><span class="fa fa-list-alt"></span> <?php _e( 'All Pages', TRANSLATION_KEY); ?></h2>
+                                        <h2 id="pages" class="page-header lead"><?php _e( 'All Pages', TRANSLATION_KEY); ?></h2>
 
                                         <?php
                                         $args = array(
@@ -124,7 +124,7 @@
                                             <p><?php _e( 'You have no pages.', TRANSLATION_KEY ); ?></p>
                                         <?php } // end if ?>
 
-                                        <h2 id="categories" class="lead"><span class="fa fa-list"></span> <?php _e( 'All Categories', TRANSLATION_KEY); ?></h2>
+                                        <h2 id="categories" class="page-header lead"><?php _e( 'All Categories', TRANSLATION_KEY); ?></h2>
                                         <?php $categories = get_categories( 'hide_empty=1' ); ?>
                                         <?php if( count( $categories) > 0 ) { ?>
                                             <ul>
