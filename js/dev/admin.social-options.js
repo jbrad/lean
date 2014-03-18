@@ -89,6 +89,25 @@ function updateIconValues(evt) {
 } // end updateIconValues
 
 /**
+ * Resets the social media icon URL form, hides it, and unselects the active icon.
+ *
+ * @params	$		The jQuery function
+ */
+function cancelSettingIconURL($) {
+    "use strict";
+
+    // Empty the URL field and hide the container
+    $('#social-icon-url').siblings('input[type=text]:first').val('');
+    $('#active-icon-url').addClass('hidden');
+
+    // Remove the active status from the selected social icon
+    $('.active-icon').removeClass('active-icon');
+
+    updateIconValues();
+
+} // end cancelSettingIconValues
+
+/**
  * Helper function that's fired when the user clicks 'Done' or hits 'Enter'
  * when working to save their social icons.
  *
