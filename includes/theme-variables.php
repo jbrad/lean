@@ -19,10 +19,10 @@ define( 'TRANSLATION_KEY', 'lean' );
 define( 'THEME_URL', 'http://leantheme.co' );
 
 // The theme's documention url
-define( 'THEME_DOCUMENTATION_URL', 'http://docs.leantheme.co' );
+define( 'THEME_DOCUMENTATION_URL', 'http://jbrad.github.io/lean' );
 
 // The theme's documention url
-define( 'THEME_SUPPORT_URL', 'http://support.leantheme.co' );
+define( 'THEME_SUPPORT_URL', 'https://leantheme.zendesk.com' );
 
 // The theme's blog url
 define( 'THEME_BLOG_URL', 'http://jasonbradley.me' );
