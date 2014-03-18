@@ -45,10 +45,7 @@ function resizeVideos($) {
 
         var iHeaderHeight,
             iWidgetHeight,
-            iMargin,
-            shareDaddySelector = '.sharedaddy',
-            leftOrRight,
-            sharingPosition;
+            iMargin;
 
 
         // Properly position the header widget, but only do so after the window is loaded
@@ -86,7 +83,7 @@ function resizeVideos($) {
 
         // Add form-control class to all inputs
         $('form input, form textarea').addClass('form-control');
-        $('form input[type="submit"]').removeClass('form-control');
+        $('form input[type="submit"], form input[type="checkbox"]').removeClass('form-control');
 
         $('.form-submit #submit').addClass('btn btn-primary');
         $('input[type="submit"]').addClass('btn btn-primary');
@@ -107,72 +104,9 @@ function resizeVideos($) {
             });
         } // end if
 
-        // Change up sharedaddy
-
-        if ( $(shareDaddySelector).length ) {
-
-            $('.sd-social .sd-content ul').addClass('list-unstyled').find('li').removeAttr('class');
-
-            $('.sd-social .sd-content').find('a').each(function () {
-                $(this).removeClass('sd-button share-icon');
-            });
-
-            $('a.share-facebook').addClass('fa fa-facebook-square');
-            $('a.share-twitter').addClass('fa fa-twitter-square');
-            $('a.share-linkedin').addClass('fa fa-linkedin-square');
-            $('a.share-google-plus-1').addClass('fa fa-google-plus-square');
-            $('a.share-pinterest').addClass('fa fa-pinterest-square');
-            $('a.share-email').addClass('fa fa-envelope-o');
-            $('a.share-print').addClass('fa fa-print');
-            $('a.share-tumblr').addClass('fa fa-tumblr');
-            $('a.share-pocket').addClass('fa fa-caret-square-o-down');
-            $('a.share-reddit').addClass('fa fa-group');
-            $('a.share-stumbleupon').addClass('fa fa-external-link');
-            $('a.share-digg').addClass('fa fa-thumbs-o-up');
-
-            if (window.outerWidth > 800 ) {
-
-                if ( $('.col-md-push-4').length ) {
-                    leftOrRight = 'right';
-                    sharingPosition = (window.outerWidth - $('aside').width() - $('article').width() - $('aside').offset().left) / 2;
-                } else {
-                    leftOrRight = 'left';
-                    sharingPosition = $('article').offset().left - 60;
-                }
-
-                console.log(leftOrRight);
-                console.log(sharingPosition);
-
-                $('.sd-title').remove();
-                $('.sd-content').css('position', 'fixed')
-                    .css('top', '30%')
-                    .css(leftOrRight, sharingPosition)
-                    .css('z-index', '5');
-            } else {
-                $('.sd-social .sd-content ul').removeClass('list-unstyled').addClass('nav nav-pills');
-                $('.sd-title').addClass('page-header');
-            }
-        }
-
-        $(shareDaddySelector).insertAfter('.post');
-
-        $('.jp-relatedposts-headline').removeClass()
-            .addClass('page-header')
-            .html('Related Posts');
-
-        setTimeout(function () {
-            $('.jp-relatedposts-items').removeClass()
-                .addClass('row');
-
-            $('.jp-relatedposts-post').removeClass()
-                .addClass('col-sm-4');
-        }, 1000);
-
-        $('.jp-relatedposts').removeClass().insertAfter(shareDaddySelector);
-
-        $('.sd-gplus').insertAfter(shareDaddySelector);
-
         $('table').addClass('table table-bordered').wrap('<div class="table-responsive">');
+
+        $('.carousel').carousel('cycle');
 
     });
 }(jQuery));
