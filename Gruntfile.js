@@ -167,7 +167,9 @@ module.exports = function(grunt) {
                     , 'lib/seo/css/admin.css': 'lib/seo/css/sass/admin.scss'
                     , 'lib/ad-125x125/css/admin.css': 'lib/ad-125x125/css/sass/admin.scss'
                     , 'lib/ad-300x250/css/admin.css': 'lib/ad-300x250/css/sass/admin.scss'
-                    , 'lib/ad-billboard/css/admin.css': 'lib/ad-billboard/css/sass/admin.scss'
+                    , 'lib/ad-billboard/css/admin.css': 'lib/ad-billboard/css/sass/admin.scss',
+
+                    'docs/assets/css/docs.min.css': 'docs/assets/css/src/docs.scss'
                 }
             }
         },
@@ -199,6 +201,10 @@ module.exports = function(grunt) {
             },
             plugin_sass: {
                 files: 'lib/**/css/sass/*.scss',
+                tasks: 'sass'
+            },
+            docs_sass: {
+                files: 'docs/assets/css/src/docs.scss',
                 tasks: 'sass'
             }
         },
