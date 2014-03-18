@@ -8,6 +8,7 @@
 @import "admin.header.scss";
 @import "mixins";
 
+@import "../../bower_components/bootstrap-sass/lib/variables";
 @import "../../bower_components/font-awesome/scss/variables";
 $fa-font-path:    "../fonts";
 @import "../../bower_components/font-awesome/scss/path";
@@ -41,9 +42,6 @@ img.social_option {
 #theme-options div.updated,
 #theme-options .message,
 #theme-post-editor {
-    color: $theme-options-color;
-    background-color: $theme-options-bg-color;
-    border-color: $theme-options-border-color;
     margin: 15px 0 10px;
 }
 
@@ -192,14 +190,8 @@ table.form-table.disabled {
     }
 }
 
-.warning {
-    background-color: $warning-bg-color;
-    border-color: $warning-border-color;
-    @include border-radius(4px);
-
-    p {
-        padding: 10px;
-    }
+.error.warning {
+    border-left-color: $brand-info;
 }
 
 // media queries sizes
