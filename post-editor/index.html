@@ -11,7 +11,7 @@
 
 <title>
   
-    Getting started &middot; Bootstrap
+    Post Editor &middot; Bootstrap
   
 </title>
 
@@ -61,14 +61,14 @@
         </div>
         <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
             <ul class="nav navbar-nav">
-                <li class="active">
+                <li>
                 <a href="../getting-started">Getting started</a>
                 </li>
                 <li>
                 <a href="../layout">Layout</a>
                 </li>
-                <li>
-                <a href="../post-editor">Post Editor</a>
+                <li class="active">
+                <a href="">Post Editor</a>
                 </li>
                 <li>
                 <a href="../admin-panel">Admin Panel</a>
@@ -89,8 +89,8 @@
     <!-- Docs page layout -->
     <div class="bs-docs-header" id="content">
       <div class="container">
-        <h1>Getting started</h1>
-        <p>Covering the basics</p>
+        <h1>Post Editor</h1>
+        <p>Lean adds new capability to the WordPress post editor.</p>
       </div>
     </div>
 
@@ -98,32 +98,65 @@
 
       <div class="row">
         <div class="col-md-9" role="main">
-          <div class="bs-docs-section">
-    <h1 id="installation" class="page-header">Installation</h1>
+          <p class="lead">If sections are missing from your admin panel, click the “screen options” drop-down tab in the top right of the screen.</p>
 
-    <p class="lead">Lean Theme requires WordPress 3+ and PHP 5+.</p>
-    <p>Installing Lean Theme is no different than any other WordPress theme. It is a 3 step process.</p>
-    <ol>
-        <li>Upload the theme to your WordPress admin panel. Instructions&nbsp;<a href="http://codex.wordpress.org/Using_Themes#Adding_New_Themes_using_the_Administration_Panel" target="_blank">available here</a>&nbsp;in the&nbsp;<a href="http://codex.wordpress.org/" target="_blank">WordPress Codex</a>.</li>
-        <li>Activate the theme. Instructions available&nbsp;<a href="http://codex.wordpress.org/Using_Themes#Selecting_the_Active_Theme" target="_blank">available here</a>&nbsp;in the&nbsp;<a href="http://codex.wordpress.org/" target="_blank">WordPress Codex</a>.</li>
-        <li>Configure, tweak, adjust, and customize the theme to your preference. Instructions available in the remainder of this document.</li>
-    </ol>
+<div class="bs-docs-section">
+    <h1 id="post-title" class="page-header">Post Title</h1>
+
+    <p>The post title will be displayed on the single post page, except for posts using the image or video post formats. In fact, the functionality of this input area will change based on the selected post format.</p>
+    <p>If your post exceeds 70 characters you will receive an SEO warning.</p>
 </div>
 <div class="bs-docs-section">
-    <h1 id="basics" class="page-header">The Basics</h1>
+    <h1 id="post-body" class="page-header">Post Body</h1>
 
-    <p>All WordPress sites are composed of two primary areas: the site and the admin panel. The site is often called the front end, and the admin panel is often called the backend.</p>
-    <p>Your public facing blog, available for all the world to see, will be referred to as “the site” throughout this documentation.</p>
-    <p>The private, password protected, WordPress administration area will be referred to as “the admin panel” throughout this documentation.</p>
-    <p>You can usually access the admin panel of your site by adding&nbsp;<em>/wp-admin</em>&nbsp;to the end of your site’s address.</p>
-    <blockquote><p>Public Site URL: http://example.com</p>
-        <p>Private Admin URL: http://example.com/wp-admin</p></blockquote>
-    <p>If you need assistance with accessing your site’s admin panel, contact your web host.</p>
+    <p>This is the main content of your post. You can add images by clicking the&nbsp;<em>Add Media</em>&nbsp;button. To embed videos, simply put the Vimeo or YouTube URL in the content on it’s own line and Lean will embed and size the video player appropriately.</p>
 </div>
 <div class="bs-docs-section">
-    <h1 id="confused" class="page-header">Confused?</h1>
+    <h1 id="seo" class="page-header">SEO</h1>
 
-    <p>If you can’t find the&nbsp;<em>Upload</em>&nbsp;function in the&nbsp;<em>Appearances</em>&nbsp;section of your admin panel then it is probable that you are running a site on WordPress.com, which is different than running a self-hosted WordPress site. You can find a more detailed explanation in the article&nbsp;<a title="Which is better wordpress.com or wordpress.org" href="http://8bit.io/whats-the-difference-between-wordpress-com-and-wordpress-org/" target="_blank">What’s the Difference Between WordPress.com and WordPress.org</a>.</p>
+    <p>A significant number of your site visitors will find you in Google and you play an important role in ensuring that your post’s description catches the eye of potential readers.</p>
+</div>
+<div class="bs-docs-section">
+    <h1 id="search-results" class="page-header">Search Results Preview</h1>
+
+    <p>The Search Results Preview shows you what potential readers will see once your post has been added to Google’s database. Experiencing the search result entry in this manner should help you craft an accurate and alluring post summary.</p>
+</div>
+<div class="bs-docs-section">
+    <h1 id="meta-description" class="page-header">Meta Description</h1>
+
+    <p>The Meta Description is a post summary that will be displayed on the Google search results page.&nbsp;If you leave this blank, the search engine will grab a section of your post (which may or may not be enticing) and use it.</p>
+</div>
+<div class="bs-docs-section">
+    <h1 id="publish" class="page-header">Publish</h1>
+
+    <p>Lean does not change the native publishing features provided by WordPress.</p>
+</div>
+<div class="bs-docs-section">
+    <h1 id="featured-image" class="page-header">Featured Image</h1>
+
+    <p>For posts configured to use the&nbsp;<em>Lean</em>&nbsp;post format, this is a 150 px x 150 px image which sits to the left of the post title. For posts configured to use the&nbsp;<em>Image</em>&nbsp;post format, this is a 620 px wide image that spans the entire width of the post area.</p>
+</div>
+<div class="bs-docs-section">
+    <h1 id="post-formats" class="page-header">Post Formats</h1>
+
+    <p>Use post formats to stylize certain types of posts. The following post formats are available:</p>
+    <ul>
+        <li>Standard (<a title="Post Format Standard" href="http://leantheme.co/post-format-standard/" target="_blank">example</a>)</li>
+        <li>Status (<a title="Post Format Status" href="http://leantheme.co/post-format-status/" target="_blank">example</a>)</li>
+        <li>Image&nbsp;(<a title="Post Format Image" href="http://leantheme.co/post-format-image/" target="_blank">example</a>)</li>
+        <li>Link&nbsp;(<a title="Post Format Link" href="http://leantheme.co/post-format-link/" target="_blank">example</a>)</li>
+        <li>Quote&nbsp;(<a title="Post Format Quote" href="http://leantheme.co/post-format-quote/" target="_blank">example</a>)</li>
+        <li>Video&nbsp;(<a title="Post Format Video" href="http://leantheme.co/post-format-video/" target="_blank">example</a>)</li>
+        <li>Gallery (<a title="Post Format Gallery" href="http://leantheme.co/post-format-gallery/" target="_blank">example</a>)</li>
+        <li>Audio (<a title="Post Format Audio" href="http://leantheme.co/post-format-audio/" target="_blank">example</a>)</li>
+        <li>Chat (<a title="Post Format Chat" href="http://leantheme.co/post-format-chat/" target="_blank">example</a>)</li>
+    </ul>
+    <blockquote><p>NOTE: To embed a video simply add the YouTube or Vimeo URL to the post body.</p></blockquote>
+</div>
+<div class="bs-docs-section">
+    <h1 id="post-layout" class="page-header">Post Layout</h1>
+
+    <p>If you have a post with content that requires extra width, like a wide image or video, you can choose to hide the sidebar. To accomplish this same effect on a page, use the Full-width page template.</p>
 </div>
         </div>
         <div class="col-md-3">
@@ -131,13 +164,31 @@
             <ul class="nav bs-docs-sidenav">
               
                 <li>
-  <a href="#installation">Installation</a>
+    <a href="#post-title">Post Title</a>
 </li>
 <li>
-  <a href="#basics">The Basics</a>
+    <a href="#post-body">Post Body</a>
 </li>
 <li>
-  <a href="#confused">Confused?</a>
+    <a href="#seo">SEO</a>
+</li>
+<li>
+    <a href="#search-results-preview">Search Results</a>
+</li>
+<li>
+    <a href="#meta-description">Meta Description</a>
+</li>
+<li>
+    <a href="#publish">Publish</a>
+</li>
+<li>
+    <a href="#featured-image">Featured Image</a>
+</li>
+<li>
+    <a href="#post-formats">Post Formats</a>
+</li>
+<li>
+    <a href="#post-layout">Post Layout</a>
 </li>
               
             </ul>
@@ -162,7 +213,7 @@
       <li>&middot;</li>
       <li><a href="https://github.com/jbrad/lean">GitHub</a></li>
       <li>&middot;</li>
-      <li><a href="../getting-started/#examples">Examples</a></li>
+      <li><a href="../getting-started#examples">Examples</a></li>
       <li>&middot;</li>
       <li><a href="../about/">About</a></li>
       <li>&middot;</li>

@@ -11,7 +11,7 @@
 
 <title>
   
-    Layout &middot; Bootstrap
+    Getting started &middot; Bootstrap
   
 </title>
 
@@ -61,10 +61,10 @@
         </div>
         <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
             <ul class="nav navbar-nav">
-                <li>
-                <a href="../getting-started">Getting started</a>
-                </li>
                 <li class="active">
+                <a href="">Getting started</a>
+                </li>
+                <li>
                 <a href="../layout">Layout</a>
                 </li>
                 <li>
@@ -89,8 +89,8 @@
     <!-- Docs page layout -->
     <div class="bs-docs-header" id="content">
       <div class="container">
-        <h1>Layout</h1>
-        <p>Describes the primary sections and areas that are present on all pages and posts by default.</p>
+        <h1>Getting started</h1>
+        <p>Covering the basics</p>
       </div>
     </div>
 
@@ -99,42 +99,31 @@
       <div class="row">
         <div class="col-md-9" role="main">
           <div class="bs-docs-section">
-    <h1 id="header" class="page-header">Header</h1>
-    <p class="lead">The site header contains a single black menu bar, at the top of the site header, and displays the site title and tagline for your site. To configure these visit the&nbsp;<em>Settings</em>&nbsp;-&gt;&nbsp;<a title="Global" href="http://localhost:8888/leandocs/admin-panel/global/" target="_blank"><em>General</em></a>&nbsp;section of the admin panel.</p>
-    
-    <h3 id="menu-bars">Menu Bars</h3>
-    <p>The header actually contains 2 horizontal menu bars that can be used for site navigation menus and social icons, but it’s best to use one at a time. Navigation links are created and managed in the&nbsp;<em>Appearances&nbsp;</em>-&gt;<em>&nbsp;Menus</em>&nbsp;section of the admin panel.</p>
-    <p>By default, a single black menu bar&nbsp;with a home link is displayed at the top of the site header when no menus are selected for&nbsp;<em>Header Menu (Upper)</em>&nbsp;and&nbsp;<em>Header Menu (Lower)</em>.</p>
-    <p>To configure links in the top menu bar,&nbsp;<a title="WordPress Menu Guide" href="http://codex.wordpress.org/WordPress_Menu_User_Guide" target="_blank">create a new menu</a>&nbsp;and assign it to the&nbsp;<em>Header Menu (Upper)</em>&nbsp;theme location.</p>
-    <p>To configure links to display below the header,&nbsp;assign a menu to the&nbsp;<em>Header Menu (Lower)</em>&nbsp;theme location.</p>
-    <p>Social icons are managed in&nbsp;<em>Lean&nbsp;</em>-&gt;<em>&nbsp;<a title="Social" href="http://localhost:8888/leandocs/admin-panel/social/">Social</a></em>&nbsp;section of the admin panel.</p>
+    <h1 id="installation" class="page-header">Installation</h1>
 
-    <h3 id="header-image">Header Image &amp; Logo</h3>
-    <p>The header image &amp; logo area is located between the upper and lower menu bars and can be configured in both the&nbsp;<em>Appearances</em>&nbsp;-&gt;&nbsp;<a title="WordPress Custom Headers" href="http://codex.wordpress.org/Appearance_Header_Screen" target="_blank"><em>Headers</em></a>&nbsp;and the&nbsp;<em>Lean</em>&nbsp;-&gt;&nbsp;<a title="Presentation" href="http://localhost:8888/leandocs/admin-panel/presentation/"><em>Presentation</em></a>&nbsp;admin panel sections.</p>
-
-    <h3 id="widget-area">Widget Area</h3>
-    <p>Widgets can be configured for the header in the&nbsp;<em>Appearances</em>&nbsp;-&gt;&nbsp;<a title="WordPress Widgets Screen" href="http://codex.wordpress.org/Appearance_Widgets_Screen" target="_blank"><em>Widgets</em></a>&nbsp;section of the admin panel, but not all widgets will fit and look good in this space. For ideal results, use the 468 Ad widget, the Google Custom Search widget, or the native Search widget.</p>
+    <p class="lead">Lean Theme requires WordPress 3+ and PHP 5+.</p>
+    <p>Installing Lean Theme is no different than any other WordPress theme. It is a 3 step process.</p>
+    <ol>
+        <li>Upload the theme to your WordPress admin panel. Instructions&nbsp;<a href="http://codex.wordpress.org/Using_Themes#Adding_New_Themes_using_the_Administration_Panel" target="_blank">available here</a>&nbsp;in the&nbsp;<a href="http://codex.wordpress.org/" target="_blank">WordPress Codex</a>.</li>
+        <li>Activate the theme. Instructions available&nbsp;<a href="http://codex.wordpress.org/Using_Themes#Selecting_the_Active_Theme" target="_blank">available here</a>&nbsp;in the&nbsp;<a href="http://codex.wordpress.org/" target="_blank">WordPress Codex</a>.</li>
+        <li>Configure, tweak, adjust, and customize the theme to your preference. Instructions available in the remainder of this document.</li>
+    </ol>
 </div>
 <div class="bs-docs-section">
-    <h1 id="content" class="page-header">Content</h1>
+    <h1 id="basics" class="page-header">The Basics</h1>
 
-    <p class="lead">This section will show page or post content.</p>
-    <p>If you are on the index page, which is usually the front page of your site, it will show a list of blog posts. If you are on a single page, like the About page for example, it will only show the content you added when you edited the About page in the&nbsp;<em>Pages</em>&nbsp;section of the admin panel. If you are on a single post, this page will show the post content and the comments for the post by default.</p>
+    <p>All WordPress sites are composed of two primary areas: the site and the admin panel. The site is often called the front end, and the admin panel is often called the backend.</p>
+    <p>Your public facing blog, available for all the world to see, will be referred to as “the site” throughout this documentation.</p>
+    <p>The private, password protected, WordPress administration area will be referred to as “the admin panel” throughout this documentation.</p>
+    <p>You can usually access the admin panel of your site by adding&nbsp;<em>/wp-admin</em>&nbsp;to the end of your site’s address.</p>
+    <blockquote><p>Public Site URL: http://example.com</p>
+        <p>Private Admin URL: http://example.com/wp-admin</p></blockquote>
+    <p>If you need assistance with accessing your site’s admin panel, contact your web host.</p>
 </div>
 <div class="bs-docs-section">
-    <h1 id="sidebar" class="page-header">Sidebar</h1>
+    <h1 id="confused" class="page-header">Confused?</h1>
 
-    <p>This area is reserved for native&nbsp;<a title="WordPress Widgets" href="http://codex.wordpress.org/WordPress_Widgets" target="_blank">WordPress widgets</a>,&nbsp;<a title="Widgets" href="http://localhost:8888/leandocs/widgets/">Lean widgets</a>, or 3rd party widgets downloaded from the&nbsp;<a title="WordPress Plugin Repository" href="http://wordpress.org/extend/plugins/" target="_blank">Plugin Repository</a>.</p>
-    <p>To configure the sidebar go to&nbsp;<em>Appearances</em>&nbsp;-&gt;&nbsp;<em><a title="WordPress WIdgets Screen" href="http://codex.wordpress.org/Appearance_Widgets_Screen" target="_blank">Widgets</a></em>&nbsp;in the admin panel.</p>
-</div>
-<div class="bs-docs-section">
-    <h1 id="footer" class="page-header">Footer</h1>
-
-    <h3 id="menu">Menu</h3>
-    <p>To configure links in the footer menu bar,&nbsp;assign a menu to the&nbsp;<em>Footer Menu&nbsp;</em>theme location in the&nbsp;<em>Appearances</em>&nbsp;-&gt;<em>Menus</em>&nbsp;section of the admin panel.</p>
-
-    <h3 id="widget-areas">Widget Areas</h3>
-    <p>Three widget areas are available in the footer, although they are not visible by default. To configure them go to the<em>Appearances</em>&nbsp;-&gt;&nbsp;<em>Widgets</em>&nbsp;section of the admin panel.</p>
+    <p>If you can’t find the&nbsp;<em>Upload</em>&nbsp;function in the&nbsp;<em>Appearances</em>&nbsp;section of your admin panel then it is probable that you are running a site on WordPress.com, which is different than running a self-hosted WordPress site. You can find a more detailed explanation in the article&nbsp;<a title="Which is better wordpress.com or wordpress.org" href="http://8bit.io/whats-the-difference-between-wordpress-com-and-wordpress-org/" target="_blank">What’s the Difference Between WordPress.com and WordPress.org</a>.</p>
 </div>
         </div>
         <div class="col-md-3">
@@ -142,25 +131,13 @@
             <ul class="nav bs-docs-sidenav">
               
                 <li>
-    <a href="#header">Header</a>
-    <ul class="nav">
-        <li><a href="#menu-bars">Menu Bars</a></li>
-        <li><a href="#header-image">Image/Logo</a></li>
-        <li><a href="#widget-area">Widget Area</a></li>
-    </ul>
+  <a href="#installation">Installation</a>
 </li>
 <li>
-    <a href="#content">Content</a>
+  <a href="#basics">The Basics</a>
 </li>
 <li>
-    <a href="#sidebar">Sidebar</a>
-</li>
-<li>
-    <a href="#footer">Footer</a>
-    <ul class="nav">
-        <li><a href="#menu">Menu</a></li>
-        <li><a href="#widget-areas">Widget Areas</a></li>
-    </ul>
+  <a href="#confused">Confused?</a>
 </li>
               
             </ul>
@@ -185,7 +162,7 @@
       <li>&middot;</li>
       <li><a href="https://github.com/jbrad/lean">GitHub</a></li>
       <li>&middot;</li>
-      <li><a href="../getting-started/#examples">Examples</a></li>
+      <li><a href="#examples">Examples</a></li>
       <li>&middot;</li>
       <li><a href="../about/">About</a></li>
       <li>&middot;</li>

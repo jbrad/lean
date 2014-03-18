@@ -11,7 +11,7 @@
 
 <title>
   
-    Post Editor &middot; Bootstrap
+    Layout &middot; Bootstrap
   
 </title>
 
@@ -64,10 +64,10 @@
                 <li>
                 <a href="../getting-started">Getting started</a>
                 </li>
-                <li>
-                <a href="../layout">Layout</a>
-                </li>
                 <li class="active">
+                <a href="">Layout</a>
+                </li>
+                <li>
                 <a href="../post-editor">Post Editor</a>
                 </li>
                 <li>
@@ -89,8 +89,8 @@
     <!-- Docs page layout -->
     <div class="bs-docs-header" id="content">
       <div class="container">
-        <h1>Post Editor</h1>
-        <p>Lean adds new capability to the WordPress post editor.</p>
+        <h1>Layout</h1>
+        <p>Describes the primary sections and areas that are present on all pages and posts by default.</p>
       </div>
     </div>
 
@@ -98,65 +98,43 @@
 
       <div class="row">
         <div class="col-md-9" role="main">
-          <p class="lead">If sections are missing from your admin panel, click the “screen options” drop-down tab in the top right of the screen.</p>
+          <div class="bs-docs-section">
+    <h1 id="header" class="page-header">Header</h1>
+    <p class="lead">The site header contains a single black menu bar, at the top of the site header, and displays the site title and tagline for your site. To configure these visit the&nbsp;<em>Settings</em>&nbsp;-&gt;&nbsp;<a title="Global" href="http://localhost:8888/leandocs/admin-panel/global/" target="_blank"><em>General</em></a>&nbsp;section of the admin panel.</p>
+    
+    <h3 id="menu-bars">Menu Bars</h3>
+    <p>The header actually contains 2 horizontal menu bars that can be used for site navigation menus and social icons, but it’s best to use one at a time. Navigation links are created and managed in the&nbsp;<em>Appearances&nbsp;</em>-&gt;<em>&nbsp;Menus</em>&nbsp;section of the admin panel.</p>
+    <p>By default, a single black menu bar&nbsp;with a home link is displayed at the top of the site header when no menus are selected for&nbsp;<em>Header Menu (Upper)</em>&nbsp;and&nbsp;<em>Header Menu (Lower)</em>.</p>
+    <p>To configure links in the top menu bar,&nbsp;<a title="WordPress Menu Guide" href="http://codex.wordpress.org/WordPress_Menu_User_Guide" target="_blank">create a new menu</a>&nbsp;and assign it to the&nbsp;<em>Header Menu (Upper)</em>&nbsp;theme location.</p>
+    <p>To configure links to display below the header,&nbsp;assign a menu to the&nbsp;<em>Header Menu (Lower)</em>&nbsp;theme location.</p>
+    <p>Social icons are managed in&nbsp;<em>Lean&nbsp;</em>-&gt;<em>&nbsp;<a title="Social" href="http://localhost:8888/leandocs/admin-panel/social/">Social</a></em>&nbsp;section of the admin panel.</p>
 
-<div class="bs-docs-section">
-    <h1 id="post-title" class="page-header">Post Title</h1>
+    <h3 id="header-image">Header Image &amp; Logo</h3>
+    <p>The header image &amp; logo area is located between the upper and lower menu bars and can be configured in both the&nbsp;<em>Appearances</em>&nbsp;-&gt;&nbsp;<a title="WordPress Custom Headers" href="http://codex.wordpress.org/Appearance_Header_Screen" target="_blank"><em>Headers</em></a>&nbsp;and the&nbsp;<em>Lean</em>&nbsp;-&gt;&nbsp;<a title="Presentation" href="http://localhost:8888/leandocs/admin-panel/presentation/"><em>Presentation</em></a>&nbsp;admin panel sections.</p>
 
-    <p>The post title will be displayed on the single post page, except for posts using the image or video post formats. In fact, the functionality of this input area will change based on the selected post format.</p>
-    <p>If your post exceeds 70 characters you will receive an SEO warning.</p>
+    <h3 id="widget-area">Widget Area</h3>
+    <p>Widgets can be configured for the header in the&nbsp;<em>Appearances</em>&nbsp;-&gt;&nbsp;<a title="WordPress Widgets Screen" href="http://codex.wordpress.org/Appearance_Widgets_Screen" target="_blank"><em>Widgets</em></a>&nbsp;section of the admin panel, but not all widgets will fit and look good in this space. For ideal results, use the 468 Ad widget, the Google Custom Search widget, or the native Search widget.</p>
 </div>
 <div class="bs-docs-section">
-    <h1 id="post-body" class="page-header">Post Body</h1>
+    <h1 id="content" class="page-header">Content</h1>
 
-    <p>This is the main content of your post. You can add images by clicking the&nbsp;<em>Add Media</em>&nbsp;button. To embed videos, simply put the Vimeo or YouTube URL in the content on it’s own line and Lean will embed and size the video player appropriately.</p>
+    <p class="lead">This section will show page or post content.</p>
+    <p>If you are on the index page, which is usually the front page of your site, it will show a list of blog posts. If you are on a single page, like the About page for example, it will only show the content you added when you edited the About page in the&nbsp;<em>Pages</em>&nbsp;section of the admin panel. If you are on a single post, this page will show the post content and the comments for the post by default.</p>
 </div>
 <div class="bs-docs-section">
-    <h1 id="seo" class="page-header">SEO</h1>
+    <h1 id="sidebar" class="page-header">Sidebar</h1>
 
-    <p>A significant number of your site visitors will find you in Google and you play an important role in ensuring that your post’s description catches the eye of potential readers.</p>
+    <p>This area is reserved for native&nbsp;<a title="WordPress Widgets" href="http://codex.wordpress.org/WordPress_Widgets" target="_blank">WordPress widgets</a>,&nbsp;<a title="Widgets" href="http://localhost:8888/leandocs/widgets/">Lean widgets</a>, or 3rd party widgets downloaded from the&nbsp;<a title="WordPress Plugin Repository" href="http://wordpress.org/extend/plugins/" target="_blank">Plugin Repository</a>.</p>
+    <p>To configure the sidebar go to&nbsp;<em>Appearances</em>&nbsp;-&gt;&nbsp;<em><a title="WordPress WIdgets Screen" href="http://codex.wordpress.org/Appearance_Widgets_Screen" target="_blank">Widgets</a></em>&nbsp;in the admin panel.</p>
 </div>
 <div class="bs-docs-section">
-    <h1 id="search-results" class="page-header">Search Results Preview</h1>
+    <h1 id="footer" class="page-header">Footer</h1>
 
-    <p>The Search Results Preview shows you what potential readers will see once your post has been added to Google’s database. Experiencing the search result entry in this manner should help you craft an accurate and alluring post summary.</p>
-</div>
-<div class="bs-docs-section">
-    <h1 id="meta-description" class="page-header">Meta Description</h1>
+    <h3 id="menu">Menu</h3>
+    <p>To configure links in the footer menu bar,&nbsp;assign a menu to the&nbsp;<em>Footer Menu&nbsp;</em>theme location in the&nbsp;<em>Appearances</em>&nbsp;-&gt;<em>Menus</em>&nbsp;section of the admin panel.</p>
 
-    <p>The Meta Description is a post summary that will be displayed on the Google search results page.&nbsp;If you leave this blank, the search engine will grab a section of your post (which may or may not be enticing) and use it.</p>
-</div>
-<div class="bs-docs-section">
-    <h1 id="publish" class="page-header">Publish</h1>
-
-    <p>Lean does not change the native publishing features provided by WordPress.</p>
-</div>
-<div class="bs-docs-section">
-    <h1 id="featured-image" class="page-header">Featured Image</h1>
-
-    <p>For posts configured to use the&nbsp;<em>Lean</em>&nbsp;post format, this is a 150 px x 150 px image which sits to the left of the post title. For posts configured to use the&nbsp;<em>Image</em>&nbsp;post format, this is a 620 px wide image that spans the entire width of the post area.</p>
-</div>
-<div class="bs-docs-section">
-    <h1 id="post-formats" class="page-header">Post Formats</h1>
-
-    <p>Use post formats to stylize certain types of posts. The following post formats are available:</p>
-    <ul>
-        <li>Standard (<a title="Post Format Standard" href="http://leantheme.co/post-format-standard/" target="_blank">example</a>)</li>
-        <li>Status (<a title="Post Format Status" href="http://leantheme.co/post-format-status/" target="_blank">example</a>)</li>
-        <li>Image&nbsp;(<a title="Post Format Image" href="http://leantheme.co/post-format-image/" target="_blank">example</a>)</li>
-        <li>Link&nbsp;(<a title="Post Format Link" href="http://leantheme.co/post-format-link/" target="_blank">example</a>)</li>
-        <li>Quote&nbsp;(<a title="Post Format Quote" href="http://leantheme.co/post-format-quote/" target="_blank">example</a>)</li>
-        <li>Video&nbsp;(<a title="Post Format Video" href="http://leantheme.co/post-format-video/" target="_blank">example</a>)</li>
-        <li>Gallery (<a title="Post Format Gallery" href="http://leantheme.co/post-format-gallery/" target="_blank">example</a>)</li>
-        <li>Audio (<a title="Post Format Audio" href="http://leantheme.co/post-format-audio/" target="_blank">example</a>)</li>
-        <li>Chat (<a title="Post Format Chat" href="http://leantheme.co/post-format-chat/" target="_blank">example</a>)</li>
-    </ul>
-    <blockquote><p>NOTE: To embed a video simply add the YouTube or Vimeo URL to the post body.</p></blockquote>
-</div>
-<div class="bs-docs-section">
-    <h1 id="post-layout" class="page-header">Post Layout</h1>
-
-    <p>If you have a post with content that requires extra width, like a wide image or video, you can choose to hide the sidebar. To accomplish this same effect on a page, use the Full-width page template.</p>
+    <h3 id="widget-areas">Widget Areas</h3>
+    <p>Three widget areas are available in the footer, although they are not visible by default. To configure them go to the<em>Appearances</em>&nbsp;-&gt;&nbsp;<em>Widgets</em>&nbsp;section of the admin panel.</p>
 </div>
         </div>
         <div class="col-md-3">
@@ -164,31 +142,25 @@
             <ul class="nav bs-docs-sidenav">
               
                 <li>
-    <a href="#post-title">Post Title</a>
+    <a href="#header">Header</a>
+    <ul class="nav">
+        <li><a href="#menu-bars">Menu Bars</a></li>
+        <li><a href="#header-image">Image/Logo</a></li>
+        <li><a href="#widget-area">Widget Area</a></li>
+    </ul>
 </li>
 <li>
-    <a href="#post-body">Post Body</a>
+    <a href="#content">Content</a>
 </li>
 <li>
-    <a href="#seo">SEO</a>
+    <a href="#sidebar">Sidebar</a>
 </li>
 <li>
-    <a href="#search-results-preview">Search Results</a>
-</li>
-<li>
-    <a href="#meta-description">Meta Description</a>
-</li>
-<li>
-    <a href="#publish">Publish</a>
-</li>
-<li>
-    <a href="#featured-image">Featured Image</a>
-</li>
-<li>
-    <a href="#post-formats">Post Formats</a>
-</li>
-<li>
-    <a href="#post-layout">Post Layout</a>
+    <a href="#footer">Footer</a>
+    <ul class="nav">
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#widget-areas">Widget Areas</a></li>
+    </ul>
 </li>
               
             </ul>
@@ -213,7 +185,7 @@
       <li>&middot;</li>
       <li><a href="https://github.com/jbrad/lean">GitHub</a></li>
       <li>&middot;</li>
-      <li><a href="../getting-started/#examples">Examples</a></li>
+      <li><a href="../getting-started#examples">Examples</a></li>
       <li>&middot;</li>
       <li><a href="../about/">About</a></li>
       <li>&middot;</li>
