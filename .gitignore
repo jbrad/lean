@@ -1,0 +1,4 @@
+.sass-cache/*
+_gh_pages/*
+bower_components/*
+node_modules/*
