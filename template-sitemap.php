@@ -9,17 +9,6 @@
  * @since 	1.0
  */
 ?>
-    <style>
-        .sitemap-author-meta {
-            text-align: center;
-            margin-right: 5px;
-        }
-        span.badge {
-            position: absolute;
-            top: -4px;
-            left: -4px;
-        }
-    </style>
 <?php get_header(); ?>
 <?php $presentation_options = get_option( 'theme_presentation_options' ); ?>
 
