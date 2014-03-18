@@ -34,6 +34,7 @@
 .si-individual {
   padding: 10px 0;
   border: 1px solid #e0e0e0;
+  border-top: none;
   background: #fff;
 
   ul {
@@ -44,6 +45,7 @@
     li a {
       overflow: hidden;
       padding: 0 0 0 10px;
+      color: #555;
 
       &:hover {
         color: #b6b6b6;
