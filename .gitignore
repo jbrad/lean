@@ -7,3 +7,4 @@ bower_components/*
 .sass-cache/*
 *.xml
 _gh_pages/*
+.idea/*
