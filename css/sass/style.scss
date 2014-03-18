@@ -27,52 +27,54 @@ License URI: http://www.gnu.org/licenses/gpl-3.0.html
 // ------------------------------------------------------------------------ 1. Misc
 
 // Bootstrap
-@import "bootstrap";
+@import 'bootstrap';
 
-@import "misc";
+@import 'misc';
 
 // ------------------------------------------------------------------------ 2. Typography
 
-@import "typography";
+@import 'typography';
 
 // ------------------------------------------------------------------------ 3. Structure
 
-@import "structure";
+@import 'structure';
 
 // ------------------------------------------------------------------------ 4. Navigation
 
-@import "navigation";
+@import 'navigation';
 
 // ------------------------------------------------------------------------ 5. Header
 
-@import "header";
+@import 'header';
 
 // ------------------------------------------------------------------------ 6. Posts
 
-@import "posts";
+@import 'posts';
 
 // Comments and Pings
-@import "comments";
+@import 'comments';
+
+@import 'page-templates';
 
 // ------------------------------------------------------------------------ 7. Footer
 
-@import "footer";
+@import 'footer';
 
 // ------------------------------------------------------------------------ 8. Widgets
 
-@import "widgets";
-@import "../../lib/activity/css/sass/widget";
-@import "../../lib/ad-125x125/css/sass/widget";
-@import "../../lib/ad-billboard/css/sass/widget";
-@import "../../lib/google-custom-search/css/sass/widget";
-@import "../../lib/influence/css/sass/widget";
-@import "../../lib/personal-image/css/sass/widget";
+@import 'widgets';
+@import '../../lib/activity/css/sass/widget';
+@import '../../lib/ad-125x125/css/sass/widget';
+@import '../../lib/ad-billboard/css/sass/widget';
+@import '../../lib/google-custom-search/css/sass/widget';
+@import '../../lib/influence/css/sass/widget';
+@import '../../lib/personal-image/css/sass/widget';
 
 // ------------------------------------------------------------------------ 9. Responsive
 
-@import "theme-responsive";
+@import 'theme-responsive';
 
 // ------------------------------------------------------------------------ 10. Light Contrast
 
-@import "light-contrast";
+@import 'light-contrast';
 
