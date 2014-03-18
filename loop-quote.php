@@ -11,23 +11,18 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'post format-quote clearfix' ); ?>>
 
-    <div class="post-header clearfix">
-        <div class="content row">
-            <div class="col-sm-1 hidden-xs">
-                <span class="fa fa-quote-left"></span>
-            </div> <!-- /.col-md-1 -->
-            <div class="col-sm-11 col-xs-12">
-                <?php if( ( is_category() || is_archive() || is_home() ) && has_excerpt() ) { ?>
-                    <?php the_excerpt( ); ?>
-                    <a href="<?php echo get_permalink(); ?>"><?php _e( 'Continue Reading...', TRANSLATION_KEY ); ?></a>
-                <?php } else { ?>
-                    <?php the_content( __( 'Continue Reading...', TRANSLATION_KEY ) ); ?>
-                <?php } // end if/else ?>
-            </div> <!-- /.col-md-11 -->
+    <div class="post-header">
+        <div class="content">
+            <?php if( ( is_category() || is_archive() || is_home() ) && has_excerpt() ) { ?>
+                <?php the_excerpt( ); ?>
+                <a href="<?php echo get_permalink(); ?>"><?php _e( 'Continue Reading...', TRANSLATION_KEY ); ?></a>
+            <?php } else { ?>
+                <?php the_content( __( 'Continue Reading...', TRANSLATION_KEY ) ); ?>
+            <?php } // end if/else ?>
         </div><!-- /.entry-content -->
     </div> <!-- /.post-header -->
 
-    <div id="content-<?php the_ID(); ?>" class="entry-content clearfix">
+    <div id="content-<?php the_ID(); ?>" class="entry-content">
 
         <h1 class="post-title entry-title">
             <?php if( is_single() || is_page() ) { ?>
@@ -52,14 +47,14 @@
 
         <div class="meta-date-cat-tags pull-left">
 
-            <?php $category_list = get_the_category_list( __( ', ', TRANSLATION_KEY ) ); ?>
+            <?php $category_list = get_the_category_list( __( ' ', TRANSLATION_KEY ) ); ?>
             <?php if( $category_list ) { ?>
-                <?php printf( '<span class="the-category">' . __( 'in %1$s&nbsp;', TRANSLATION_KEY ) . '</span>', $category_list ); ?>
+                <?php printf( '<span class="the-category">' . __( '%1$s&nbsp;', TRANSLATION_KEY ) . '</span>', $category_list ); ?>
             <?php } // end if ?>
 
-            <?php $tag_list = get_the_tag_list( '', __( ', ', TRANSLATION_KEY ) ); ?>
+            <?php $tag_list = get_the_tag_list( '', __( ' ', TRANSLATION_KEY ) ); ?>
             <?php if( $tag_list ) { ?>
-                <?php printf( '<span class="fa fa-tags"></span> ' . __( '%1$s', TRANSLATION_KEY ) . '</span>', $tag_list ); ?>
+                <?php printf( '<span class="tags"></span> ' . __( '%1$s', TRANSLATION_KEY ) . '</span>', $tag_list ); ?>
             <?php } // end if ?>
 
         </div><!-- /meta-date-cat-tags -->

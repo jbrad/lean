@@ -31,14 +31,14 @@
 
         <div class="meta-date-cat-tags pull-left">
 
-            <?php $category_list = get_the_category_list( __( ', ', TRANSLATION_KEY ) ); ?>
+            <?php $category_list = get_the_category_list( __( ' ', TRANSLATION_KEY ) ); ?>
             <?php if( $category_list ) { ?>
-                <?php printf( '<span class="the-category">' . __( 'in %1$s&nbsp;', TRANSLATION_KEY ) . '</span>', $category_list ); ?>
+                <?php printf( '<span class="the-category">' . __( '%1$s&nbsp;', TRANSLATION_KEY ) . '</span>', $category_list ); ?>
             <?php } // end if ?>
 
-            <?php $tag_list = get_the_tag_list( '', __( ', ', TRANSLATION_KEY ) ); ?>
+            <?php $tag_list = get_the_tag_list( '', __( ' ', TRANSLATION_KEY ) ); ?>
             <?php if( $tag_list ) { ?>
-                <?php printf( '<span class="fa fa-tags"></span> ' . __( '%1$s', TRANSLATION_KEY ) . '</span>', $tag_list ); ?>
+                <?php printf( '<span class="tags"></span> ' . __( '%1$s', TRANSLATION_KEY ) . '</span>', $tag_list ); ?>
             <?php } // end if ?>
 
         </div><!-- /meta-date-cat-tags -->
