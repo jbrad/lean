@@ -1,3 +1,63 @@
+# 2.0 (March 18th, 2014)
+
+I'm really proud to share the newest major release of Lean Theme. The most notable changes are the new design, moving to SASS, new page templates and custom post types.
+
+# Licenses
+
+There's now only two versions just like Standard, Single License and Support License.
+The Single License includes everything you need to install the theme and start blogging. It doesn't include any SASS or development JavaScript files.
+The Support License includes everything the Single License. It does includes the SASS, JavaScript and Documentation files. It also gives you access to the Support Forums.
+
+## New Features
+
+* ﻿New design
+* White Body Background
+* Header Background (Jumbotron)
+* Dark Contrast (default)
+* Light Contrast
+* Post Header
+* Post Footer
+* Categories and Tags
+* Page Templates
+* Image Slider
+* Jumbotron
+* Custom Post Types
+* Slides
+* Featurettes
+* Jetpack Support
+* Social Sharers
+* Google +
+* Related Posts
+* Admin
+* Updated to match WordPress styles more closely
+* Display Footer Credits (feature request from Standard days)
+* Widgets
+* Renamed Home Widgets to Marketing Widgets
+* Removed Home Bottom Sidebar Area
+* CSS
+* Changed from LESS to SASS (bootstrap-sass)
+* style.css file is now under 100KB!
+* Removed dark stylesheets
+* Custom font awesome build
+* Automatically kick off bower install after `npm install`
+
+## Bug Fixes
+
+* ﻿Admin Social
+* Reset Defaults
+* Icon URL cancel button
+* Right paren in post title breaks SEO meta descrption
+
+## Documentation
+There's new documentation built in. You can view them online or run locally. To run locally you need to have Jekyll installed, then you can navigate to your theme's folder in the command line and run `jekyll serve` to view the documentation locally.
+
+## Support
+I am now officially offering support. I will reply to any issues you find as promptly as I can and plan on adding Tutorials as time allows.
+
+## Change Set
+
+**All the things**
+
 # 1.9.1 (February 4th, 2014)
 
 ## Updated to Bootstrap 3.1.0
