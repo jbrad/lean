@@ -31,6 +31,10 @@ module.exports = function(grunt) {
                             '!**js/lib/**',
                             '!**/node_modules/**',
                             '!**/bower_components/**',
+                            '!**/_gh_pages/**',
+                            '!_config.yml',
+                            '!**/.sass-cache/**',
+                            '!**/docs/**',
                             '!lib/**/js/dev/*'
                         ],
                         dest: '<%= pkg.name %>',
@@ -47,7 +51,9 @@ module.exports = function(grunt) {
                         src: [
                             '**',
                             '!**/node_modules/**',
-                            '!**/bower_components/**'
+                            '!**/bower_components/**',
+                            '!**/_gh_pages/**',
+                            '!**/.sass-cache/**'
                         ],
                         dest: '<%= pkg.name %>'
                     }
