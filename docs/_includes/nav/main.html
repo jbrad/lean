@@ -26,8 +26,12 @@
                 <li{% if page.slug == "widgets" %} class="active"{% endif %}>
                 <a href="../widgets">Widgets</a>
                 </li>
+                <li{% if page.slug == "page-templates" %} class="active"{% endif %}>
+                <a href="../page-templates">Page Templates</a>
+                </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
+                <li><a href="{{ site.demo }}" target="_blank">Demo</a></li>
                 <li><a href="{{ site.purchase }}" target="_blank">Purchase</a></li>
                 <li><a href="{{ site.support }}" target="_blank">Support</a></li>
             </ul>
