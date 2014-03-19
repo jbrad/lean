@@ -23,11 +23,11 @@
                             <div class="offline-message">
                                 <p><?php echo $options['offline_message']; ?></p>
 
-                                <?php if( is_active_sidebar( 'sidebar-10' ) ) { ?>
+                                <?php if( is_active_sidebar( 'sidebar-9' ) ) { ?>
                                     <div class="container">
                                         <div class="row">
                                             <div id="offline-widget" class="col-md-offset-4 col-md-4">
-                                                <?php dynamic_sidebar( 'sidebar-10' ); ?>
+                                                <?php dynamic_sidebar( 'sidebar-9' ); ?>
                                             </div>
                                         </div>
                                     </div><!-- /#left-footer-widget -->
