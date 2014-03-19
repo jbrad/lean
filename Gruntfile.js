@@ -12,9 +12,9 @@ module.exports = function(grunt) {
         pkg: grunt.file.readJSON('package.json'),
 
         compress: {
-            blogger: {
+            single: {
                 options: {
-                    archive: '../<%= pkg.name %>-versions/blogger/<%= pkg.name %>.zip'
+                    archive: '../<%= pkg.name %>-licenses/single/<%= pkg.name %>.zip'
                 },
                 files: [
                     {
@@ -42,9 +42,9 @@ module.exports = function(grunt) {
                     }
                 ]
             },
-            developer: {
+            support: {
                 options: {
-                    archive: '../<%= pkg.name %>-versions/developer/<%= pkg.name %>.zip'
+                    archive: '../<%= pkg.name %>-licenses/support/<%= pkg.name %>.zip'
                 },
                 files: [
                     {
