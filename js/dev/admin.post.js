@@ -2,9 +2,17 @@
     "use strict";
     $(function () {
 
+        function updatePostFormatLabels(excerpt, attributes, featuredImageTitle, featuredImageRemove) {
+            $('#postexcerpt').find('span').html(excerpt);
+            $('#pageparentdiv').find('span').html(attributes);
+            $('#postimagediv').find('span').html(featuredImageTitle);
+            $('#remove-post-thumbnail').text(featuredImageRemove);
+        }
+
         // Create the notice that will appear above the post title
         /* Translators: This will need to be localized. */
         var postFormatSlides,
+            postFormatFeaturettes,
             $titleMessage = $('<div />')
             .attr('id', 'post-editor')
             .attr('class', 'error warning')
@@ -48,10 +56,26 @@
             });
 
         postFormatSlides = $('.post-type-slides');
-        postFormatSlides.find('#postexcerpt').find('span').html('Slide Caption');
-        postFormatSlides.find('#pageparentdiv').find('span').html('Slide Attributes');
-        postFormatSlides.find('#postimagediv').find('span').html('Slide Image');
-        postFormatSlides.find('#remove-post-thumbnail').text('Remove Slide Image');
+        if ( postFormatSlides.length > 0 ) {
+            updatePostFormatLabels(
+                'Slide Caption',
+                'Slide Attributes',
+                'Slide Image',
+                'Remove Slide Image'
+            );
+        }
+
+        postFormatFeaturettes = $('.post-type-featurettes');
+        if ( postFormatFeaturettes.length > 0 ) {
+            updatePostFormatLabels(
+                'Subheading',
+                'Featurette Attributes',
+                'Featurette Image',
+                'Remove Featurette Image'
+            );
+        }
+
+
 
     });
 }(jQuery));
