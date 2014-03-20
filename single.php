@@ -33,19 +33,6 @@ if( 1 == $singlePostFullWidth ) {
 
                             <?php get_template_part( 'pagination '); ?>
 
-                            <div class="sharedaddy sd-block sd-social sd-gplus">
-                                <h3 class="sd-title">Google+</h3>
-                                <div class="sd-content">
-                                    <a href="https://plus.google.com/+JasonBradley70">
-                                        <img src="https://lh5.googleusercontent.com/-yCuzeh5zIKg/AAAAAAAAAAI/AAAAAAAAADE/1GHFiQBu5t8/photo.jpg?sz=40" alt="Jason Bradley" width="20" height="20" align="absmiddle" scale="0">
-                                    </a>
-                                    <a rel="author" href="https://plus.google.com/+JasonBradley70" class="gplus-profile">Jason Bradley</a>
-                                    <span class="g-follow-wrapper">
-                                        <span class="g-follow" data-href="https://plus.google.com/+JasonBradley70" data-rel="author" data-height="15"></span>
-                                    </span>
-                                </div>
-                            </div>
-
                             <?php $publishing_options = get_option( 'theme_publishing_options' ); ?>
                             <?php $display_author_box = isset( $publishing_options['display_author_box'] ) ? $publishing_options['display_author_box'] : ''; ?>
                             <?php if( 'always' == $display_author_box ) { ?>
