@@ -59,14 +59,13 @@
                             $theme_url = THEME_URL;
                         ?>
                         <?php if( null != get_page_by_path( 'privacy-policy' ) && 0 != get_page_by_path( 'privacy-policy' )->ID && 'publish' == get_page_by_path( 'privacy-policy' )->post_status ) { ?>
-                            <?php printf( __( '&copy; %1$s %2$s &mdash; %3$s &mdash; %4$s by %5$s', TRANSLATION_KEY ), date( 'Y' ), '<a class="navbar-link" href="' . home_url() . '">' . get_bloginfo( 'name' ) . '</a>', '<a href="' . get_permalink( get_page_by_path( 'privacy-policy' )->ID ) . '">Privacy Policy</a>', '<a class="navbar-link" href="' . $theme_url . '" target="_blank">' . THEME_NAME . '</a>', '<a class="navbar-link" href="' . $jasonbradley_url . '" target="_blank">Jason Bradley</a>' ); ?>
+                            <?php printf( __( '&copy; %1$s %2$s &mdash; %3$s &mdash; %4$s by %5$s', TRANSLATION_KEY ), date( 'Y' ), '<a class="navbar-link" href="' . home_url() . '">' . get_bloginfo( 'name' ) . '</a>', '<a class="navbar-link" href="' . get_permalink( get_page_by_path( 'privacy-policy' )->ID ) . '">Privacy Policy</a>', '<a class="navbar-link" href="' . $theme_url . '" target="_blank">' . THEME_NAME . '</a>', '<a class="navbar-link" href="' . $jasonbradley_url . '" target="_blank">Jason Bradley</a>' ); ?>
                         <?php } else { ?>
                             <?php printf( __( '&copy; %1$s %2$s &mdash; %3$s by %4$s', TRANSLATION_KEY ), date( 'Y' ), '<a class="navbar-link" href="' . home_url() . '">' . get_bloginfo( 'name' ) . '</a>', '<a class="navbar-link" href="' . $theme_url . '" target="_blank">' . THEME_NAME . '</a>', '<a class="navbar-link" href="' . $jasonbradley_url . '" target="_blank">Jason Bradley</a>' ); ?>
                         <?php } // end if/else ?>
                     <?php } else { ?>
                         <?php printf( __( '&copy; %1$s %2$s', TRANSLATION_KEY ), date( 'Y' ), '<a class="navbar-link" href="' . home_url() . '">' . get_bloginfo( 'name' ) . '</a>'); ?>
                     <?php } // end if ?>
-
                 </p>
         </div><!-- /.container -->
     </nav> <!-- /#menu-under-header -->
