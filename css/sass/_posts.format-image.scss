@@ -9,16 +9,16 @@
     .entry-content {
         padding: 0;
 
-        img, a {
-            margin-right: 0;
-            margin-left: 0;
-            margin-bottom: 0;
-            padding: 0;
-            width: 100%;
-        }
-
         p {
             margin-top: 20px;
+
+            img, a {
+                margin-right: 0;
+                margin-left: 0;
+                margin-bottom: 0;
+                padding: 0;
+                width: 100%;
+            }
         }
 
         > * {

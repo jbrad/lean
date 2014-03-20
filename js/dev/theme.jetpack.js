@@ -31,7 +31,7 @@
             $('a.share-stumbleupon').addClass('fa fa-external-link');
             $('a.share-digg').addClass('fa fa-thumbs-o-up');
 
-            if (window.outerWidth > 800 ) {
+            if (window.outerWidth > 800 && $('.single').length > 0 ) {
 
                 if ( $('.col-md-push-4').length ) {
                     leftOrRight = 'right';
@@ -46,9 +46,13 @@
                     .css('top', '30%')
                     .css(leftOrRight, sharingPosition)
                     .css('z-index', '5');
+
+                $('.sd-sharing-enabled').removeClass('sharedaddy');
+
+                $(shareDaddySelector).insertAfter('.post');
+                $('.sd-sharing-enabled .sd-title').addClass('page-header');
             } else {
                 $('.sd-sharing-enabled .sd-social .sd-content ul').removeClass('list-unstyled').addClass('nav nav-pills');
-                $('.sd-title').addClass('page-header');
             }
         }
 
@@ -64,10 +68,8 @@
 
             $(shareDaddyPlus).remove();
         } else {
-            $('.sd-title').addClass('page-header');
+            $('.sd-gplus .sd-title').addClass('page-header');
         }
-
-        $(shareDaddySelector).insertAfter('.post');
 
         $('.jp-relatedposts-headline').removeClass()
             .addClass('page-header')
