@@ -7,15 +7,9 @@
 
 .format-status {
 
-    .post-header {
-        margin-bottom: 0;
-        border-bottom: 0;
-        background-color: $post-format-status-post-header-bg-color;
-
-        .entry-content {
-            padding: 0 20px;
-            min-height: 60px;
-        }
+    .entry-content {
+        padding: 0 20px;
+        min-height: 60px;
     }
 
     .post-avatar img {
