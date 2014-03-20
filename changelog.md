@@ -1,3 +1,12 @@
+# 2.0.1 (March 20th, 2014)
+
+## Bug Fixes
+* Add social sharers positioning only if on single post
+* Remove my Google + info
+* Make Privacy Policy link in footer same color as others
+* Fix alignment and padding issues with Status post format
+
+
 # 2.0 (March 18th, 2014)
 
 I'm really proud to share the newest major release of Lean Theme. The most notable changes are the new design, moving to SASS, new page templates and custom post types.
