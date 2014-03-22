@@ -135,6 +135,15 @@ function customize_register( $wp_customize ) {
         )
     );
 
+    // Featured Images
+    $wp_customize->add_setting( 'theme_presentation_options[display_footer_credits]',
+        array(
+            'default'        => 'always',
+            'type'           => 'option',
+            'capability'     => 'edit_theme_options'
+        )
+    );
+
     $wp_customize->add_control( 'theme_presentation_options[display_footer_credits]',
         array(
             'label'      => __( 'Display Footer Credits', 'themename' ),
