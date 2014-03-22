@@ -40,13 +40,9 @@
                     <?php } else { ?>
 
                         <article id="post-0" class="post no-results not-found">
-                            <header class="entry-header">
-                                <h1 class="entry-title"><?php _e( 'Page or resource not found', TRANSLATION_KEY ); ?></h1>
-                            </header><!-- .entry-header -->
-                            <div class="entry-content">
-                                <p><?php _e( 'No results were found.', TRANSLATION_KEY ); ?></p>
-                                <?php get_search_form(); ?>
-                            </div><!-- .entry-content -->
+                            <h1 class="page-header"><?php _e( 'Page or resource not found', TRANSLATION_KEY ); ?></h1>
+                            <p><?php _e( 'No results were found.', TRANSLATION_KEY ); ?></p>
+                            <?php get_search_form(); ?>
                         </article><!-- #post-0 -->
 
                     <?php } // end if/else ?>
