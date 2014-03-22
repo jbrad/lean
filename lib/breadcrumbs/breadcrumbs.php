@@ -52,16 +52,16 @@ class Breadcrumbs {
             } elseif( is_archive() ) {
 
                 if( is_author() ) {
-                    $str_breadcrumb .= self::get_home_link() . __( '<li>Archives</li>', TRANSLATION_KEY ) . self::get_author_display_name();
+                    $str_breadcrumb .= self::get_home_link() . '<li>' . __( 'Archives', TRANSLATION_KEY ) . '</li>' . self::get_author_display_name();
                 } elseif( '' != get_query_var( 'year' ) || '' != get_query_var( 'monthnum' ) || '' != get_query_var( 'm' ) || '' != get_query_var( 'day' ) ) {
-                    $str_breadcrumb .= self::get_home_link() . __( '<li>Archives</li>', TRANSLATION_KEY ) . self::get_date_labels();
+                    $str_breadcrumb .= self::get_home_link() . '<li>' . __( 'Archives', TRANSLATION_KEY ) . '</li>' . self::get_date_labels();
                 } else {
-                    $str_breadcrumb .= self::get_home_link() . __( '<li>Archives</li>', TRANSLATION_KEY ) . self::get_category_links();
+                    $str_breadcrumb .= self::get_home_link() . '<li>' . __( 'Archives', TRANSLATION_KEY ) . '</li>' . self::get_category_links();
                 } // end if
 
             } else if( is_search() ) {
 
-                $str_breadcrumb .= self::get_home_link() . __( 'Search', TRANSLATION_KEY ) . ' ' . __( '/', TRANSLATION_KEY ) . ' ' . self::get_search_query();
+                $str_breadcrumb .= self::get_home_link() . '<li>' . __( 'Search', TRANSLATION_KEY ) . '</li>' . '<li>'. self::get_search_query() . '</li>';
 
             } // end if/else
 
