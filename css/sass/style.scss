@@ -26,7 +26,9 @@ License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
 // ------------------------------------------------------------------------ 1. Misc
 
-// Bootstrap
+@import 'variables';
+@import 'mixins';
+
 @import 'bootstrap';
 
 @import 'misc';

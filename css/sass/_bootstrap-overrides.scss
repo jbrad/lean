@@ -4,8 +4,6 @@
 // @since 1.4
 //
 
-@import "variables";
-
 $font-size-base:                            16px;
 $font-size-h1:                              36px;
 $thumbnail-bg:                              #fff;
@@ -13,4 +11,4 @@ $jumbotron-font-size:                       $font-size-base;
 
 $grid-gutter-width:                         60px;
 
-$nav-tabs-active-link-hover-border-color:   #e4e4e4;
+$nav-tabs-active-link-hover-border-color:   $activity-tabs-active-tab-hover-color;

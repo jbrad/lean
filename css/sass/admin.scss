@@ -4,16 +4,16 @@
 // @since 1.0
 //
 
-@import "admin.social-options";
-@import "admin.header.scss";
-@import "mixins";
+@import 'admin.social-options';
+@import 'admin.header.scss';
+@import 'mixins';
 
-@import "../../bower_components/bootstrap-sass/lib/variables";
-@import "../../bower_components/font-awesome/scss/variables";
-$fa-font-path:    "../fonts";
-@import "../../bower_components/font-awesome/scss/path";
-@import "../../bower_components/font-awesome/scss/core";
-@import "../../bower_components/font-awesome/scss/icons";
+@import '../../bower_components/bootstrap-sass/lib/variables';
+@import '../../bower_components/font-awesome/scss/variables';
+$fa-font-path:    '../fonts';
+@import '../../bower_components/font-awesome/scss/path';
+@import '../../bower_components/font-awesome/scss/core';
+@import '../../bower_components/font-awesome/scss/icons';
 
 input:-moz-placeholder {
     color: $moz-input-placeholder-color;

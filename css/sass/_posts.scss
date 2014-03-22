@@ -1,22 +1,19 @@
 //
 // Posts
-// @version 1.7
+// @version 2.0.2
 // @since 1.0
 //
 
 // Post Formats
-@import "posts.format-image.scss";
-@import "posts.format-gallery.scss";
-@import "posts.format-video.scss";
-@import "posts.format-status.scss";
-@import "posts.format-quote.scss";
-@import "posts.format-link.scss";
-@import "posts.format-aside.scss";
+@import 'posts.format-image.scss';
+@import 'posts.format-gallery.scss';
+@import 'posts.format-video.scss';
+@import 'posts.format-status.scss';
+@import 'posts.format-quote.scss';
+@import 'posts.format-aside.scss';
 
-@import "sharedaddy";
-@import "mixins";
-@import "../../bower_components/bootstrap-sass/lib/mixins";
-@import "../../bower_components/bootstrap-sass/lib/variables";
+@import 'sharedaddy';
+
 
 .post-header {
     margin-bottom: 15px;
@@ -140,7 +137,7 @@
         top: 26px;
         left: -9px;
         display: inline-block;
-        content: "\f005";
+        content: '\f005';
         font-family: FontAwesome;
         border-radius: 4px;
         background: $post-sticky-bg-color;
