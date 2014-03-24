@@ -1,3 +1,42 @@
+# 2.0.2 (March 24th, 2014)
+
+## Bug fixes
+* Theme Customizer doesn't work
+* Remove background for no results found page
+* Fix issue with search page breadcrumbs
+* Remove unnecessary imports in scss files
+
+**Modified**
+
+* css/sass/_admin.social-options.scss
+* css/sass/_bootstrap-overrides.scss
+* css/sass/_bootstrap.scss
+* css/sass/_comments.scss
+* css/sass/_footer.scss
+* css/sass/_header.scss
+* css/sass/_misc.scss
+* css/sass/_mixins.scss
+* css/sass/_navigation.scss
+* css/sass/_posts.format-aside.scss
+* css/sass/_posts.format-quote.scss
+* css/sass/_posts.format-status.scss
+* css/sass/_posts.scss
+* css/sass/_sharedaddy.scss
+* css/sass/_theme-responsive.scss
+* css/sass/_variables.scss
+* css/sass/_widgets.scss
+* css/sass/admin.scss
+* css/sass/editor-style.scss
+* css/sass/style.scss
+* includes/theme-features.php
+* lib/breadcrumbs/breadcrumbs.php
+* style.css
+* search.php
+
+**Deleted**
+
+* css/sass/_posts.format-link.scss
+
 # 2.0.1 (March 20th, 2014)
 
 ## Bug Fixes
