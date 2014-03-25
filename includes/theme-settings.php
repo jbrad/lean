@@ -270,6 +270,16 @@ function theme_content_options_display() {
 } // end theme_content_options_display
 
 /**
+ * Renders the description for the Footer options.
+ *
+ * @since	1.0
+ * @version	1.1
+ */
+function theme_footer_options_display() {
+    echo '<p>' . __( 'This section controls what footer credit elements are displayed.', TRANSLATION_KEY ) . '</p>';
+} // end theme_footer_options_display
+
+/**
  * Renders the option element for the Site Icon.
  *
  * @since	1.0
