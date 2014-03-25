@@ -26,7 +26,7 @@ function customize_register( $wp_customize ) {
     // Contrast
     $wp_customize->add_setting( 'theme_presentation_options[contrast]',
         array(
-            'default'        => '',
+            'default'        => 'dark',
             'type'           => 'option',
             'capability'     => 'edit_theme_options'
         )
