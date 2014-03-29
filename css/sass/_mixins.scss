@@ -3,7 +3,7 @@
 // @version 1.7
 // @since 1.0
 //
-@import '../../bower_components/bootstrap-sass/lib/mixins';
+@import '../../bower_components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap/mixins';
 
 @mixin border-radius($radius: 4px) {
     -webkit-border-radius: $radius;

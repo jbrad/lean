@@ -5,6 +5,6 @@
         "fitvids": "*",
         "js-md5": "*",
         "font-awesome": "*",
-        "bootstrap-sass": "*"
+        "bootstrap-sass-official": "*"
     }
 }
