@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Lean 2.0.2
+ * Lean 2.0.3
  * Lean is a sleek, exacting product designed for uncluttered and sophisticated presentation of your content on desktop and mobile devices.
  *
  * This file enables core features of the theme including sidebars, menus, post thumbnails, post formats, header, backgrounds, and more.
@@ -19,7 +19,7 @@
  *	8. Helper Functions
  *
  * @package	lean
- * @version	2.0.2
+ * @version	2.0.3
  * @since	1.0
  *
  */
