@@ -1,3 +1,29 @@
+# 2.0.3 (March 31st, 2014)
+
+## Bug fixes
+* Update to Bootstrap 3.1.1
+* Fix issue with Footer Settings in Lean > Presentation
+* Default contrast to Dark
+* Add some additional padding to Below Single Post sidebar
+
+**Modified**
+* Gruntfile.js
+* bower.json
+* css/sass/_bootstrap.scss
+* css/sass/_mixins.scss
+* css/sass/_variables.scss
+* css/sass/_widgets.scss
+* css/sass/admin.scss
+* docs/assets/css/src/docs.scss
+* includes/theme-features.php
+* includes/theme-settings.php
+* js/lib/bootstrap.min.js
+* js/theme.main.min.js
+* lib/activity/css/sass/widget.scss
+* lib/influence/css/sass/widget.scss
+* lib/personal-image/css/sass/widget.scss
+* style.css
+
 # 2.0.2 (March 24th, 2014)
 
 ## Bug fixes
